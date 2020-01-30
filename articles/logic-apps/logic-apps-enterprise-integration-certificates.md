@@ -1,14 +1,11 @@
 ---
-title: Secure B2B messages with certificates - Azure Logic Apps | Microsoft Docs
+title: Secure B2B messages with certificates
 description: Add certificates to secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ---
@@ -119,7 +116,7 @@ provide these details for your certificate. When you're done, choose **OK**.
    |----------|-------|-------------|
    | **Name** | <*certificate-name*> | Your certificate's name, which is "privateCert" in this example | 
    | **Certificate Type** | Private | Your certificate's type |
-   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. | 
+   | **Certificate** | <*certificate-file-name*> | To find and select the certificate file you want to upload, choose the folder icon next to the **Certificate** box. When using a key vault for the private key, the uploaded file will be the public certificate. | 
    | **Resource Group** | <*integration-account-resource-group*> | Your integration account's resource group, which is "MyResourceGroup" in this example | 
    | **Key Vault** | <*key-vault-name*> | Your Azure key vault's name |
    | **Key name** | <*key-name*> | Your key's name |

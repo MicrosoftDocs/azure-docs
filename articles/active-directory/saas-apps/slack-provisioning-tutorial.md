@@ -1,11 +1,10 @@
 ---
-title: 'Tutorial: Configure Slack for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: User provisioning for Slack - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -15,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
-ms.reviewer: asmalser
+ms.author: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -65,13 +63,13 @@ This section guides you through connecting your Azure AD to Slack's user account
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-   ![Slack Provisioning](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Slack Provisioning](./media/slack-provisioning-tutorial/slack1.png)
 
 5. Under the **Admin Credentials** section, click **Authorize**. This opens a Slack authorization dialog in a new browser window.
 
 6. In the new window, sign into Slack using your Team Admin account. in the resulting authorization dialog, select the Slack team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-    ![Authorization Dialog](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Authorization Dialog](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
 
@@ -119,7 +117,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
   
-  * Slack's **userName** attribute has to be under 21 characters and have a unique value.
+* Slack's **userName** attribute has to be under 21 characters and have a unique value.
+
+* Slack only allows matching with the attributes **userName** and **email**.  
 
 ## Additional Resources
 

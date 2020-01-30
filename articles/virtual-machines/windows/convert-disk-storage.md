@@ -1,29 +1,21 @@
 ---
-title: Convert Azure managed disks storage from Standard to Premium or Premium to Standard | Microsoft Docs
+title: Convert managed disks storage between standard and premium SSD
 description: How to convert Azure managed disks from Standard to Premium or Premium to Standard by using Azure PowerShell.
-services: virtual-machines-windows
-documentationcenter: ''
-author: ramankumarlive
-manager: kavithag
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
+author: roygara
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Update the storage type of a managed disk
 
-There are four options for Azure managed disks: Azure Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. You can switch between these storage types based on your performance needs with little downtime. This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
+There are four disk types of Azure managed disks: Azure ultra SSDs (preview), premium SSD, standard SSD, and standard HDD. You can switch between the three GA disk types (premium SSD, standard SSD, and standard HDD) based on your performance needs. You are not yet able to switch from or to an ultra SSD, you must deploy a new one.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
+
+ 
 
 ## Prerequisites
 
@@ -66,9 +58,8 @@ foreach ($disk in $vmDisks)
 {
 	if ($disk.ManagedBy -eq $vm.Id)
 	{
-		$diskUpdateConfig = New-AzDiskUpdateConfig –AccountType $storageType
-		Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-		-DiskName $disk.Name
+		$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+		$disk | Update-AzDisk
 	}
 }
 
@@ -105,9 +96,8 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
@@ -125,7 +115,7 @@ Follow these steps:
 6. Change the **Account type** from **Standard HDD** to **Premium SSD**.
 7. Click **Save**, and close the disk pane.
 
-The disk type conversion is instantaneous. You can restart your VM after the conversion.
+The disk type conversion is instantaneous. You can start your VM after the conversion.
 
 ## Switch managed disks between Standard HDD and Standard SSD 
 
@@ -150,9 +140,8 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
-$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
--DiskName $disk.Name
+$disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new($storageType)
+$disk | Update-AzDisk
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```

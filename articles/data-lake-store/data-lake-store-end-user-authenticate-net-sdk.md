@@ -26,26 +26,18 @@ ms.author: twooley
 In this article, you learn about how to use the .NET SDK to do end-user authentication with Azure Data Lake Storage Gen1. For service-to-service authentication with Data Lake Storage Gen1 using .NET SDK, see [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## Prerequisites
-* **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2017.
+* **Visual Studio 2013 or above**. The instructions below use Visual Studio 2019.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## Create a .NET application
-1. Open Visual Studio and create a console application.
-2. From the **File** menu, click **New**, and then click **Project**.
-3. From **New Project**, type or select the following values:
+1. In Visual Studio, select the **File** menu, **New**, and then **Project**.
+2. Choose **Console App (.NET Framework)**, and then select **Next**.
+3. In **Project name**, enter `CreateADLApplication`, and then select **Create**.
 
-   | Property | Value |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |Console Application |
-   | Name |CreateADLApplication |
-
-4. Click **OK** to create the project.
-
-5. Add the NuGet packages to your project.
+4. Add the NuGet packages to your project.
 
    1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
    2. In the **NuGet Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
@@ -57,8 +49,8 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
         ![Add a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
    4. Close the **NuGet Package Manager**.
 
-6. Open **Program.cs**
-7. Replace the using statements with the following lines:
+5. Open **Program.cs**
+6. Replace the using statements with the following lines:
 
     ```csharp
     using System;
@@ -78,7 +70,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
 ## End-user authentication
 Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Storage Gen1, which means you are prompted to enter your Azure credentials.
 
-For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - Replace the Main() function with the following code:
 

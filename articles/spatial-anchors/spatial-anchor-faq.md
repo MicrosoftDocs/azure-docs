@@ -1,10 +1,10 @@
 ---
-title: Frequently asked questions about Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices. These FAQs address questions about the service from a technical point of view. 
+title: Frequently asked questions
+description: FAQs about the Azure Spatial Anchors service.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
@@ -53,7 +53,7 @@ To provide transparency, below is an image of an environment and the derived spa
 
 Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9), and the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![An environment and its derived sparse point cloud](./media/sparce-point-cloud.png)
+![An environment and its derived sparse point cloud](./media/sparse-point-cloud.png)
 *Figure 1: An environment and its derived sparse point cloud*
 
 
@@ -74,7 +74,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 General Availability (GA) dates will be announced soon.
 
 **Q: Do you have any throttling limits in place?**
- 
+
 **A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrs@microsoft.com) to discuss. During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
 
 **Q: In what regions is Azure Spatial Anchors available?**
@@ -108,6 +108,7 @@ When you create an anchor, the client SDK captures environment information aroun
 **A:** Developers can build apps with Azure Spatial Anchors using familiar tools and frameworks for their device:
 
 - Unity across HoloLens, iOS, and Android
+- Xamarin on iOS and Android
 - Swift or Objective-C on iOS
 - Java or the Android NDK on Android
 - C++/WinRT on HoloLens
@@ -116,8 +117,8 @@ Get started with [development here](index.yml).
 
 **Q: Does it work with Unreal?**
 
-**A:** We expect to have support for Unreal soon.
+**A:** Support for Unreal will be considered in the future.
 
-**Q: Does it work with Xamarin?**
+**Q: What ports and protocols does Azure Spatial Anchors use?**
 
-**A:** Yes. While we don't provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
+**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), which communicates using HTTPS over port 443.

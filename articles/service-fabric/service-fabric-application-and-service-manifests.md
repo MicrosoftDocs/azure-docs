@@ -1,21 +1,9 @@
 ---
-title: Describing Azure Service Fabric apps and services | Microsoft Docs
+title: Describing Azure Service Fabric apps and services 
 description: Describes how manifests are used to describe Service Fabric applications and services.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
 
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 12/19/2018
-ms.author: atsenthi
-
+ms.date: 8/12/2019
 ---
 # Service Fabric application and service manifests
 This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
@@ -92,8 +80,12 @@ For more information on how to configure the SetupEntryPoint, see [Configure the
 </Settings>
 ```
 
-A Service Fabric Service **Endpoint** is an example of an Service Fabric Resource; A Service Fabric Resource can be declared/changed without changing the compiled code. Access to the Service Fabric Resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest. When an Endpoint Resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
+A Service Fabric Service **Endpoint** is an example of a Service Fabric Resource. A Service Fabric Resource can be declared/changed without changing the compiled code. Access to the Service Fabric Resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest. When an Endpoint Resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> By design static ports should not overlap with application port range specified in the ClusterManifest. If you specify a static port, assign it outside of application port range, otherwise it will result in port conflicts. With release 6.5CU2 we will issue a **Health Warning** when we detect such a conflict but let the deployment continue in sync with the shipped 6.5 behaviour. However, we may prevent the application deployment from the next major releases.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -143,6 +135,7 @@ Thus, an application manifest describes elements at the application level and re
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -160,7 +153,13 @@ Within the ServiceManifestImport, you override configuration values in Settings.
 
 **Certificates** (not set in the preceding example) declares the certificates used to [setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) or [encrypt secrets in the application manifest](service-fabric-application-secret-management.md).
 
-**Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level.
+**Placement Constraints** are the statements that define where services should run. These statements are attached to individual services that you select for one or more node properties. For more information, see [Placement constraints and node property syntax](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+
+**Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level, including whether the service(s) have access to the Service Fabric runtime.
+
+> [!NOTE] 
+> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests, and environment variables pointing to file paths on the host containing Fabric and application-specific files. Consider disabling this access when the application hosts untrusted code (i.e. code whose provenance is unknown, or which the application owner knows not to be safe to execute). For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Principals** (not set in the preceding example) describe the security principals (users or groups) required to [run services and secure service resources](service-fabric-application-runas-security.md).  Principals are referenced in the **Policies** sections.
 

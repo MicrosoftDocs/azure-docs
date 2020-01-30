@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create an application gateway with a web 
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
+
 editor: tysonn
 tags: azure-resource-manager
 

@@ -1,14 +1,15 @@
 ---
-title: Use the Video Indexer website to customize a Language model - Azure  
-titlesuffix: Azure Media Services
+title: Customize Language models with the Video Indexer website - Azure
+titleSuffix: Azure Media Services
 description: This article shows how to customize a Language model with the Video Indexer website.
 services: media-services
 author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 

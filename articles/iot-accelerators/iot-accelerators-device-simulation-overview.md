@@ -35,7 +35,7 @@ Device Simulation is free. However, Device Simulation deploys to your Azure subs
 
 When you deploy Device Simulation, you get some sample simulations and sample devices. You can use these samples to learn how to use Device Simulation. To get started, run a [sample simulation that simulates 10 trucks](quickstart-device-simulation-deploy.md). You can also [create your own simulation using one of the many sample devices provided](iot-accelerators-device-simulation-create-simulation.md).
 
-![Simulation configuration](media/iot-accelerators-device-simulation-overview/SampleSimulation.png)
+![Simulation configuration](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
 ## Custom simulated devices
 

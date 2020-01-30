@@ -13,12 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 01/10/2020
 ms.author: shvija 
 
 ---
 
-# Receive events from Azure Event Hubs using Event Processor Host
+# Event processor host
+> [!NOTE]
+> This article applies to the old version of Azure Event Hubs SDK. To learn how to migrate your code to the newer version of the SDK, see these migration guides. 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md)
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
+> - [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
+>
+> Also, see [Balance partition load across multiple instances of your application](event-processor-balance-partition-load.md).
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
@@ -181,6 +189,10 @@ We don’t recommend application usage where you create a receiver with epoch an
 - If there is a receiver already created with epoch e1 and is actively receiving events and a new receiver is created with no epoch, the creation of new receiver will fail. Epoch receivers always take precedence in the system.
 - If there was a receiver already created with epoch e1 and got disconnected, and a new receiver is created with no epoch on a new MessagingFactory, the creation of new receiver will succeed. There is a caveat here that our system will detect the “receiver disconnection” after ~10 minutes.
 - If there are one or more receivers created with no epoch, and a new receiver is created with epoch e1, all the old receivers get disconnected.
+
+
+> [!NOTE]
+> We recommend using different consumer groups for applications that use epochs and for those that do not use epochs to avoid errors. 
 
 
 ## Next steps

@@ -2,13 +2,11 @@
 documentType: LandingData
 title: Azure for Containers
 metadata:
-  document_id:
   title: Azure for Containers - Quickstarts, Tutorials, API Reference
   description: Get started managing and deploying container apps with Azure using quickstarts, tutorials, and tools for containers.
   keywords: Azure, Containers, Docker, API, Kubernetes
   author: dlepow
   ms.author: danlep
-  manager: jeconnoc
   ms.date: 01/08/2019
   ms.topic: article
   ms.prod: azure
@@ -63,6 +61,7 @@ sections:
     - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Create a multi-container app in Web App for Containers</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Build and deploy container images with Azure Container Registry Tasks</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Build and deploy a container to Azure Container Instances</a>
+    - html: <a href="/azure/openshift/tutorial-create-cluster">Create an Azure Red Hat OpenShift cluster</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list

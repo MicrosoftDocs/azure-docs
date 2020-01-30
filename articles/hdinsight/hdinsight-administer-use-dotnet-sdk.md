@@ -1,7 +1,6 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight with .NET SDK - Azure 
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using HDInsight .NET SDK.
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 
@@ -105,9 +104,6 @@ namespace HDInsightManagement
 
 You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## Create clusters
-
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## List clusters
 
@@ -253,10 +249,6 @@ See [Run MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.
 **To submit Apache Hive jobs** 
 
 See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
-
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Apache Sqoop jobs**
 

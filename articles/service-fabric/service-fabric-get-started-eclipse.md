@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs
-description:  Get started with the Service Fabric plug-in for Eclipse.  
-services: service-fabric
-documentationcenter: java
+title: Azure Service Fabric plug-in for Eclipse 
+description: Learn about getting started with Azure Service Fabric in Java using eclipse and the Service Fabric provided plug-in. 
 author: rapatchi
-manager: chackdan
-editor: ''
 
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-
 ---
 
 # Service Fabric plug-in for Eclipse Java application development
@@ -23,6 +13,9 @@ Eclipse is one of the most widely used integrated development environments (IDEs
 
 > [!NOTE]
 > The Eclipse plugin is currently not supported on Windows. 
+
+> [!IMPORTANT]
+> Be sure JDK 8 is installed on the system and selected in Eclipse.
 
 ## Install or update the Service Fabric plug-in in Eclipse
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services.

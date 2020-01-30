@@ -1,17 +1,17 @@
 ---
-title: Use custom activities in an Azure Data Factory pipeline
+title: Use custom activities in a pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 11/26/2018
 ---
+
 # Use custom activities in an Azure Data Factory pipeline
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -169,7 +169,7 @@ This sample shows how you can use the referenceObjects and extendedProperties to
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"
@@ -295,7 +295,7 @@ Activity Error section:
 If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" path. If needed, you need to clean them up separately.
+> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` path. If needed, you need to clean them up separately.
 > - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed.
 
 ## Pass outputs to another activity

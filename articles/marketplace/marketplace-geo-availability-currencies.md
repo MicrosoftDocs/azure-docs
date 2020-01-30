@@ -2,19 +2,20 @@
 title: Geographic availability and Currency Support | Azure
 description: Geographic availability in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter:
+
 author: qianw211
-manager: Patrick.Butler
+
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 01/29/2020
 ms.author: ellacroi
 
 ---
 # Geographic availability and currency support
 
-Azure Marketplace offerings can be purchased in 141 geographies as defined by the customer’s billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+Azure Marketplace and AppSource offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
 |   Country/Region Name               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
@@ -38,7 +39,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Bolivia                             | BO        | USD          |
 | Bosnia and Herzegovina              | BA        | USD          |
 | Botswana                            | BW        | USD          |
-| Brazil                              | BR        | BRL          |
+| Brazil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
 | Cameroon                            | CM        | USD          |
@@ -46,6 +47,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Cabo Verde                          | CV        | USD          |
 | Cayman Islands                      | KY        | USD          |
 | Chile                               | CL        | USD          |
+| China\**                            | CN        | N/A          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -113,7 +115,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
-| Palestine                           | PS        | USD          |
+| Palestinian Authority               | PS        | USD          |
 | Panama                              | PA        | USD          |
 | Paraguay                            | PY        | USD          |
 | Peru                                | PE        | USD          |
@@ -160,3 +162,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
+
+\* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
+
+\** Free and BYOL VM images only.

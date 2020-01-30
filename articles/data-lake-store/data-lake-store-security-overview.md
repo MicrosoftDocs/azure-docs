@@ -91,7 +91,7 @@ For account management audit trails, view and choose the columns that you want t
 
 ![Activity log](./media/data-lake-store-security-overview/activity-logs.png "Activity log")
 
-For more information on working with activity logs, see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
+For more information on working with activity logs, see [View activity logs to audit actions on resources](../azure-resource-manager/management/view-activity-logs.md).
 
 ### Diagnostics logs
 You can enable data access audit and diagnostic logging in the Azure portal and send the logs to an Azure Blob storage account, an event hub, or Azure Monitor logs.
@@ -109,4 +109,3 @@ If you want to see new features in Data Lake Storage Gen1, send us your feedback
 * [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Get started with Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
-

@@ -1,20 +1,10 @@
 ---
-title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
-description: Frequently asked questions about Service Fabric and their answers
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
+title: Common questions about Microsoft Azure Service Fabric 
+description: Frequently asked questions about Service Fabric, including capabilities, use cases, and common scenarios.
 
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
-ms.author: chackdan
+ms.author: pepogors
 ---
 
 
@@ -101,7 +91,7 @@ If you would like to create clusters for testing your application before it is d
 While we're working on an improved experience, today, you are responsible for the upgrade. You must upgrade the OS image on the virtual machines of the cluster one VM at a time. 
 
 ### Can I encrypt attached data disks in a cluster node type (virtual machine scale set)?
-Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) and [Azure Disk Encryption for Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### Can I use low-priority VMs in a cluster node type (virtual machine scale set)?
 No. Low-priority VMs are not supported. 
@@ -143,7 +133,8 @@ Reliable collections are typically [partitioned](service-fabric-concepts-partiti
 
 - Create a service that queries all partitions of another service to pull in the required data.
 - Create a service that can receive data from all partitions of another service.
-- Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
+- Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic, as the external store's data will be stale.
+- Alternatively, store data that must support querying across all records directly in a data store rather than in a reliable collection. This eliminates the issue with stale data, but doesn't allow the advantages of reliable collections to be leveraged.
 
 
 ### What's the best way to query data across my actors?
@@ -190,4 +181,3 @@ Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefa
 ## Next steps
 
 Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
-ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)

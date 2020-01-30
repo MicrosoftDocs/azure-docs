@@ -1,14 +1,13 @@
 ---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
-description: Perform Azure Table storage operations with PowerShell.
-services: cosmos-db
+description: Learn how to run common tasks such as creating, querying, deleting data from Azure Table storage account by using PowerShell.
 author: roygara
 
-ms.service: cosmos-db
+ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
+ms.subservice: tables
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
@@ -97,7 +96,7 @@ New-AzStorageTable –Name $tableName –Context $ctx
 
 ## Retrieve a list of tables in the storage account
 
-Retrieve a list of tables in the storage account using [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
+Retrieve a list of tables in the storage account using [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 Get-AzStorageTable –Context $ctx | select Name
@@ -105,7 +104,7 @@ Get-AzStorageTable –Context $ctx | select Name
 
 ## Retrieve a reference to a specific table
 
-To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
+To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx

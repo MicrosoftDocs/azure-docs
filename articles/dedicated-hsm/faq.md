@@ -3,7 +3,7 @@ title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
 author: johncdawson
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 4/15/2019
-ms.author: barclayn
+ms.date: 5/8/2019
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
@@ -55,9 +55,9 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer-provided devices.
 
-### Q: Does Azure Dedicated HSM support payment (PIN/ETF) features?
+### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
@@ -230,7 +230,7 @@ Microsoft does not have the ability to connect to HSMs allocated to customers. C
 
 ### Q: What if I need to reboot my HSM?
 
- The HSM has a command line reboot option and it should be noted that the "hard reboot" option must be used. If this fails for any reason, raise a support request with Microsoft and we can have the device physically rebooted. 
+The HSM has a command line reboot option, however, we are experiencing reboot hang issues intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
 
 ## Cryptography and standards
 

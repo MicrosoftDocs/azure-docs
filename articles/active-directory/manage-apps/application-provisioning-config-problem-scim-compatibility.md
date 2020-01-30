@@ -1,10 +1,10 @@
 ---
-title: Known issues and resolutions with SCIM 2.0 protocol compliance of the Azure AD User Provisioning service | Microsoft Docs
+title: Known issues with SCIM 2.0 protocol compliance - Azure AD
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 documentationcenter: ''
-author: asmalser
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -64,7 +65,7 @@ Yes. If you are already using this application instance for single sign-on, and 
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Get Jobs](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get Jobs") 
+   ![Get Jobs](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get Jobs") 
 
 
 6. In the results, copy the full "ID" string that begins with either "customappsso" or "scim".
@@ -72,7 +73,7 @@ Yes. If you are already using this application instance for single sign-on, and 
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Get Schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
+   ![Get Schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
 
 8. Copy the JSON output from the last step, and save it to a text file. This contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
 9. Run the command below to delete the provisioning job:

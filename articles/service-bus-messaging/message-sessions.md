@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus message sessions | Microsoft Docs
-description: Handle sequences of Azure Service Bus messages with sessions.
+description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -37,6 +37,9 @@ The session feature in Service Bus enables a specific receive operation, in the 
 In the portal, set the flag with the following check box:
 
 ![][2]
+
+> [!NOTE]
+> When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by receiving the session.
 
 The APIs for sessions exist on queue and subscription clients. There is an imperative model that controls when sessions and messages are received, and a handler-based model, similar to *OnMessage*, that hides the complexity of managing the receive loop.
 
@@ -74,10 +77,19 @@ All existing sessions in a queue or subscription can be enumerated with the **Se
 
 The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it is therefore recommended for the application to clean up its retained state to avoid external management cost.
 
+## Impact of delivery count
+
+The definition of delivery count per message in the context of sessions varies slightly from the definition in the absence of sessions. Here is a table summarizing when the delivery count is incremented.
+
+| Scenario | Is the message's delivery count incremented |
+|----------|---------------------------------------------|
+| Session is accepted, but the session lock expires (due to timeout) | Yes |
+| Session is accepted, the messages within the session are not completed (even if they are locked), and the session is closed | No |
+| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (this is the standard flow. Here messages are removed from the session) |
+
 ## Next steps
 
-- [A complete example](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) of sending and receiving session-based messages from Service Bus queues using the .NET Standard library.
-- [A sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) that uses the .NET Framework client to handle session-aware messages. 
+- See either the [Microsoft.Azure.ServiceBus samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) or [Microsoft.ServiceBus.Messaging samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) for an example that uses the .NET Framework client to handle session-aware messages. 
 
 To learn more about Service Bus messaging, see the following topics:
 

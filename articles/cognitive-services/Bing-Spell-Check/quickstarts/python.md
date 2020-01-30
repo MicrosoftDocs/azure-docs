@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and Python"
-titlesuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check REST API to check spelling and grammar.
+title: "Quickstart: Check spelling with the REST API and Python - Bing Spell Check"
+titleSuffix: Azure Cognitive Services
+description: Get started using the Bing Spell Check REST API to check spelling and grammar with this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Python
@@ -31,7 +31,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
    import json
    ```
 
-2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint.
+2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -79,6 +79,15 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## Run the application
+
+If you're using the command line, use the following command to run the application.
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## Example JSON response
 
@@ -128,4 +137,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single page web-app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

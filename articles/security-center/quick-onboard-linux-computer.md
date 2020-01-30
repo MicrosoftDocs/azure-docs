@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Linux computers to Security Center | Microsoft Docs
+title: Onboard Linux computers to Azure Security Center | Microsoft Docs
 description: This quickstart shows you how to onboard your Linux computers to Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
-After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Linux Agent.
+After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning an Agent. The Agent is called the Microsoft Monitoring Agent (MMA), but it is also known as the OMS agent.
 
-This quickstart shows you how to install the Linux Agent on a Linux computer.
+This quickstart shows you how to install the Agent on a Linux computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -54,7 +53,7 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
    ![Install the agent][5]
 
-The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
+The logs for the Agent can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Logs for agent][6]
 
@@ -80,7 +79,7 @@ To remove the agent:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## Next steps
-In this quick start, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)

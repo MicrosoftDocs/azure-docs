@@ -1,12 +1,8 @@
 ---
 title: Sample - Deny hybrid use benefit
-description: This sample policy definition prohibits use of Azure Hybrid Use Benefit (AHUB).
-author: DCtheGeek
-manager: carmonm
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition prohibits use of Azure Hybrid Use Benefit (AHUB) for virtual machines and virtual machine scale sets.
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Deny hybrid use benefit
 

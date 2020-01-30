@@ -1,16 +1,16 @@
 ---
-title: Move data from on-premises HDFS | Microsoft Docs
+title: Move data from on-premises HDFS 
 description: Learn about how to move data from on-premises HDFS using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -66,7 +66,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **Hdfs** |Yes |
-| Url |URL to the HDFS |Yes |
+| url |URL to the HDFS |Yes |
 | authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
@@ -177,7 +177,7 @@ See [File and compression formats in Azure Data Factory](data-factory-supported-
 ## JSON example: Copy data from on-premises HDFS to Azure Blob
 This sample shows how to copy data from an on-premises HDFS to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
-The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from HDFS to Azure Blob Storage by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from HDFS to Azure Blob Storage by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. A linked service of type [OnPremisesHdfs](#linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

@@ -1,12 +1,8 @@
 ---
 title: Sample - Apply tag and its default value
-description: This sample policy definition appends a specified tag name and value, if that tag is not provided.
-author: DCtheGeek
-manager: carmonm
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition appends a specified tag name and value defined in a parameter, if that tag is not provided.
 ms.date: 01/26/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Apply tag and its default value
 

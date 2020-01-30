@@ -1,6 +1,6 @@
 ---
-title: Import virtual machines from another lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to import virtual machines from another lab into the current lab. 
+title: Import virtual machines from another lab in Azure DevTest Labs
+description: This article describes how to import virtual machines from another lab into the current lab in Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
 
 # Import virtual machines from another lab in Azure DevTest Labs
-This article provides information about how to import virtual machines from another lab into your lab. 
+This article provides information about how to import virtual machines from another lab into your lab.
 
 ## Scenarios
-Here are some scenarios where you need to import VMs from one lab into another lab: 
+Here are some scenarios where you need to import VMs from one lab into another lab:
 
 - An individual on the team is moving to another group within the enterprise and wants to take the developer desktop to the new team’s DevTest Labs.
-- The group has hit a [subscription-level quota](../azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
+- The group has hit a [subscription-level quota](../azure-resource-manager/management/azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
 - The company is moving to Express Route (or some other new networking topology) and the team wants to move the Virtual Machines to use this new infrastructure
 
 ## Solution and constraints
@@ -31,8 +31,8 @@ This feature enables you to import VMs in one lab (source) into another lab (des
 
 The process does take some time and is impacted by the following factors:
 
-- Number/size of the disks that are attached to the source machine (since it’s a copy operation and not a move operation) 
-- Distance to the destination (For example, East US region to Southeast Asia).  
+- Number/size of the disks that are attached to the source machine (since it’s a copy operation and not a move operation)
+- Distance to the destination (For example, East US region to Southeast Asia).
 
 Once the process is complete, the source Virtual Machine remains shutdown and the new one is running in the destination lab.
 
@@ -44,12 +44,12 @@ There are two key constraints to be aware of when planning to import VMs from on
 - Currently, this feature is supported only through Powershell and REST API.
 
 ## Use PowerShell
-Download ImportVirtualMachines.ps1 file from the [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). You can use the script to import a single VM or all VMs in the source lab into the destination lab. 
+Download ImportVirtualMachines.ps1 file from the [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). You can use the script to import a single VM or all VMs in the source lab into the destination lab.
 
 ### Use PowerShell to import a single VM
 Executing this powershell script requires identifying the source VM and the destination lab, and optionally supplying a new name to use for the destination machine:
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -60,7 +60,7 @@ Executing this powershell script requires identifying the source VM and the dest
 
 ### Use PowerShell to import all VMs in the source lab
 If the Source Virtual Machine isn’t specified, the script automatically imports all VMs in the DevTest Labs.  For example:
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -80,7 +80,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## Next steps
-See the following articles: 
+See the following articles:
 
 - [Set policies for a lab](devtest-lab-get-started-with-lab-policies.md)
 - [Frequently asked questions](devtest-lab-faq.md)

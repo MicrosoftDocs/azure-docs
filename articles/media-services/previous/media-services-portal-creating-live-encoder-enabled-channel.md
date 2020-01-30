@@ -35,11 +35,11 @@ For more conceptual information related to Channels that are enabled for live en
 The following are general steps involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time.
+> Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. <br/>For setup ideas, check out [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
 
-    If you do not have access to a camera, tools such as [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) can be used generate a live feed from a video file.
+    If you do not have access to a camera, tools such as [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) can be used generate a live feed from a video file.
 1. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Also, check out this blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 
     This step could also be performed after you create your Channel.
@@ -182,7 +182,7 @@ To manage your assets, select **Setting** and click **Assets**.
 ![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## Considerations
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 * Make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 
 ## Next step

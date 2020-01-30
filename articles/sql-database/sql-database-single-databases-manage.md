@@ -1,5 +1,5 @@
 ---
-title: Create, manage Azure SQL Database servers and single databases | Microsoft Docs
+title: Create, manage servers and single databases
 description: Learn about creating and managing SQL Database servers and single databases.
 services: sql-database
 ms.service: sql-database
@@ -7,10 +7,9 @@ ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Create and manage SQL Database servers and single databases in Azure SQL Database

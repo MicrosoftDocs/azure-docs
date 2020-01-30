@@ -1,5 +1,5 @@
 ---
-title: Stop using the managed identity VM extension and start using the Azure Instance Metadata Service endpoint
+title: Stop using managed identity VM extension - Azure AD
 description: Step by step instructions to stop using the VM extension and start using the Azure Instance Metadata Service (IMDS) for authentication.
 services: active-directory
 documentationcenter: 
@@ -31,7 +31,7 @@ Due to several limitations outlined in the next section, the managed identity VM
 
 ### Provision the extension 
 
-When you configure a virtual machine or virtual machine scale set to have a managed identity, you may optional choose to, you may optionally choose to provision the managed identities for Azure resources VM extension using the `-Type` parameter on the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of virtual machine, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+When you configure a virtual machine or virtual machine scale set to have a managed identity, you may optionally choose to provision the managed identities for Azure resources VM extension using the `-Type` parameter on the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of virtual machine, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
 ```powershell
    $settings = @{ "port" = 50342 }

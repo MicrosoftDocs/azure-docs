@@ -3,14 +3,15 @@ title: Project Acoustics Frequently Asked Questions
 titlesuffix: Azure Cognitive Services
 description: This page provides answers to questions asked frequently about Project Acoustics, including download instructions and bake process.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: resources
+ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 # Project Acoustics Frequently Asked Questions
 
@@ -22,9 +23,9 @@ The Project Acoustics suite of plugins is an acoustics system that calculates so
 
 You can download the [Project Acoustics Unity plugin](https://www.microsoft.com/download/details.aspx?id=57346) or the [Project Acoustics Unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## Does Project Acoustics support <x> platform?
+## Does Project Acoustics support &lt;x&gt; platform?
 
-Project Acoustics platform support evolves based on customer needs. Please contact us on the [Project Acoustics forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) to inquire about support for additional platforms.
+Project Acoustics platform support evolves based on customer needs. Please contact us on the [Project Acoustics issue forum](https://github.com/microsoft/ProjectAcoustics/issues) to inquire about support for additional platforms.
 
 ## Is Azure used at runtime?
 
@@ -69,6 +70,10 @@ Project Acoustics provides accurate and reliable acoustic parameters even for ul
 ## What exactly happens during "baking"?
 
 A bake consists of acoustic wave simulations of cuboid simulation regions centered at each listener probe.
+
+## Is my source content secure?
+
+Project Acoustics does not upload the source scene geometry to the cloud. Instead, simulation operates on a voxelization of your scene, which is combined with probe location data and stored in a proprietary format.     
 
 ## Next steps
 * Try the [Project Acoustics Unity sample content](unity-quickstart.md) or [Unreal sample content](unreal-quickstart.md)

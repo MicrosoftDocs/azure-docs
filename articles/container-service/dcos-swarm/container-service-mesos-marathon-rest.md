@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Manage Azure DC/OS cluster with Marathon REST API
 description: Deploy containers to an Azure Container Service DC/OS cluster by using the Marathon REST API.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
@@ -32,7 +29,7 @@ For more information on the various APIs, see the Mesosphere documentation for t
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
 [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the
 Apache documentation for the [Mesos Scheduler
-API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+API](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Gather information from DC/OS and Marathon
 Before you deploy containers to the DC/OS cluster, gather some

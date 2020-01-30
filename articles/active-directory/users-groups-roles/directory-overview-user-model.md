@@ -1,13 +1,12 @@
 ---
-title: Users, groups, licensing, and roles overview - Azure Active Directory | Microsoft Docs
+title: Users, groups, licensing, and roles overview - Azure AD | Microsoft Docs
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 01/28/2019
+ms.date: 11/08/2019
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -49,7 +48,7 @@ Many large organizations want options for their users to obtain sufficient permi
 
  Role name | Permissions summary
  --------- | -------------------
- **Application Administrator** | Can add and manage enterprise applications and application registrations, and configure proxy application settings. Application Administrators can view conditional access policies and devices, but not manage them.
+ **Application Administrator** | Can add and manage enterprise applications and application registrations, and configure proxy application settings. Application Administrators can view Conditional Access policies and devices, but not manage them.
  **Cloud Application Administrator** | Can add and manage enterprise applications and enterprise app registrations. This role has all of the permissions of the Application Administrator, except it can't manage application proxy settings.
 **Application Developer** | Can add and update application registrations, but can't manage enterprise applications or configure an application proxy.
 

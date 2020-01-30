@@ -1,27 +1,25 @@
 ---
-title: Search explorer tool for querying data in Azure portal - Azure Search
-description: Use Azure portal tools like Search explorer to query indexes in Azure Search. Enter search terms or fully-qualified search strings with advanced syntax.
-manager: cgronlun
-author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: heidist
-ms.custom: seodec2018
----
-# Search explorer for querying data in Azure Search 
+title: Search explorer query tool in Azure portal
+titleSuffix: Azure Cognitive Search
+description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Cognitive Search. Enter strings for term or phrase search, or fully qualified search expressions with advanced syntax.
 
-This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service. 
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+---
+
+# Use Search explorer in the Azure portal for querying documents in Azure Cognitive Search 
+
+This article shows you how to query an existing Azure Cognitive Search index using **Search explorer** in the Azure portal. You can start Search explorer from the command bar to submit simple or full Lucene query expressions to any existing index in your service. 
 
    ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
 
-
-For help getting started, see [Start Search explorer](#start-search-explorer).
-
 ## Basic search strings
 
-The following examples assume the built-in realestate sample index. For help creating this index, see [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md).
+The following examples assume the built-in real estate sample index. You can create this index using the Import data wizard in the portal, choosing **Samples** as the data source.
 
 ### Example 1 - empty search
 
@@ -39,7 +37,7 @@ Equivalent syntax for an empty search is `*` or `search=*`.
 
 ### Example 2 - free text search
 
-Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure Search. Notice that when you provide query terms or expressions, search rank comes into play. The following example illustrates a free text search.
+Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure Cognitive Search. Notice that when you provide query terms or expressions, search rank comes into play. The following example illustrates a free text search.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -76,10 +74,10 @@ Add **$select** to limit results to the explicitly named fields for more readabl
 
 ### Example 5 - return next batch of results
 
-Azure Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append **$top=100,&$skip=50** to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
+Azure Cognitive Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append **$top=100,&$skip=50** to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Results**
@@ -88,13 +86,25 @@ Azure Search returns the top 50 matches based on the search rank. To get the nex
 
 ## Filter expressions (greater than, less than, equal to)
 
-Use the **$filter** parameter when you want to specify precise criteria rather than free text search. This example searches for bedrooms greater than 3: `search=seattle condo&$filter=beds gt 3&$count=true`
+Use the **$filter** parameter when you want to specify precise criteria rather than free text search. This example searches for bedrooms greater than 3:
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Results**
 
    ![Filter expression](./media/search-explorer/search-explorer-example-filter.png "Filter by criteria")
 
 ## Order-by expressions
 
-Add **$orderby** to sort results by another field besides search score. An example expression you can use to test this out is `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Add **$orderby** to sort results by another field besides search score. An example expression you can use to test this out is:
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Results**
 
    ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
 
@@ -128,7 +138,7 @@ Tips for searching in **Search explorer**:
 
 + Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
 
-+ Query and filter expressions must be articulated in a syntax supported by Azure Search. The default is a [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
++ Query and filter expressions must be articulated in a syntax supported by Azure Cognitive Search. The default is a [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
 
 
 ## Next steps

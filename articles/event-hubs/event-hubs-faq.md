@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 12/02/2019
 ms.author: shvija
 
 ---
@@ -20,6 +20,15 @@ ms.author: shvija
 
 ### What is an Event Hubs namespace?
 A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
+
+### When do I create a new namespace vs. use an existing namespace?
+Capacity allocations ([throughput units (TUs)](#throughput-units)) are billed at the namespace level. A namespace is also associated with a region.
+
+You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
+
+- You need an Event Hub associated with a new region.
+- You need an Event Hub associated with a different subscription.
+- You need an Event Hub with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
 
@@ -43,10 +52,53 @@ Yes, as long as all the event hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
 
-Event Hubs Standard tier currently supports a maximum retention period of seven days. Event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+Event Hubs Standard tier currently supports a maximum retention period of seven days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+
+You can configure the retention period for the captured data on your storage account. The **lifecycle management** feature of Azure Storage offers a rich, rule-based policy for general purpose v2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### What ports do I need to open on the firewall? 
+You can use the following protocols with Azure Service Bus to send and receive messages:
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
+
+### What IP addresses do I need to whitelist?
+To find the right IP addresses to white list for your connections, follow these steps:
+
+1. Run the following command from a command prompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Note down the IP address returned in `Non-authoritative answer`. The only time it would change is if you restore the namespace on to a different cluster.
+
+If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+
+1. First, you run nslookup on the namespace.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
 ## Apache Kafka integration
 
@@ -54,7 +106,7 @@ Event Hubs emits exhaustive metrics that provide the state of your resources to 
 Event Hubs provides a Kafka endpoint that can be used by your existing Apache Kafka based applications. A configuration change is all that is required to have the PaaS Kafka experience. It provides an alternative to running your own Kafka cluster. Event Hubs supports Apache Kafka 1.0 and newer client versions and works with your existing Kafka applications, tools, and frameworks. For more information, see [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### What configuration changes need to be done for my existing application to talk to Event Hubs?
-To connect to a Kafka-enabled Event Hub, you'll need to update the Kafka client configs. This is done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Kafka-enabled Event Hubs endpoint (which is the connection string you have obtained), with correct authentication as shown below:
+To connect to a Kafka-enabled Event Hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Kafka-enabled Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 request.timeout.ms=60000
@@ -70,10 +122,10 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
-Note: If sasl.jaas.config is not a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
+Note: If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
 
 ### What is the message/event size for Kafka-enabled Event Hubs?
-The maximum message size allowed for Kafka-enabled Event Hubs is 1MB.
+The maximum message size allowed for Kafka-enabled Event Hubs is 1 MB.
 
 ## Throughput units
 
@@ -100,7 +152,7 @@ The auto-inflate feature lets you scale up your throughput units (TUs). It means
 You may want to start with low throughput units (TUs), for example, 2 TUs. If you predict that your traffic may grow to 15 TUs, turn-on the auto-inflate feature on your namespace, and set the max limit to 15 TUs. You can now grow your TUs automatically as your traffic grows.
 
 ### Is there a cost associated when I turn on the auto-inflate feature?
-There is **no cost** associated with this feature. 
+There's **no cost** associated with this feature. 
 
 ### How are throughput limits enforced?
 If the total ingress throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
@@ -113,18 +165,18 @@ On a multi-tenant offering, throughput units can grow up to 40 TUs (you can sele
 ## Dedicated clusters
 
 ### What are Event Hubs Dedicated clusters?
-Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could utilize the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
+Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could use the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
 
 ### How much does a single capacity unit let me achieve?
-For a dedicated cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you are ingesting and processing, and much more. 
+For a dedicated cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
 
 Following table shows the benchmark results that we achieved during our testing:
 
 | Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches of 100x1KB | 2 | 400 MB/sec | 400k msgs/sec | 800 MB/sec | 800k msgs/sec | 400 TUs | 100 TUs | 
-| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k msgs/sec | 1.33 GB/sec | 133k msgs/sec | 666 TUs | 166 TUs |
-| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k msgs / sec | 1.05 GB/sec | 34k msgs/sec | 1000 TUs | 250 TUs |
+| Batches of 100x1KB | 2 | 400 MB/sec | 400k messages/sec | 800 MB/sec | 800k messages/sec | 400 TUs | 100 TUs | 
+| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
+| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages / sec | 1.05 GB/sec | 34k messages/sec | 1000 TUs | 250 TUs |
 
 In the testing, the following criteria was used:
 
@@ -135,15 +187,16 @@ In the testing, the following criteria was used:
 The results give you an idea of what can be achieved with a dedicated Event Hubs cluster. In addition, a dedicate cluster comes with the Event Hubs Capture enabled for your micro-batch and long-term retention scenarios.
 
 ### How do I create an Event Hubs Dedicated cluster?
-You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about two weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal or Azure Resource Manager templates, which takes about two hours to deploy the cluster.
+You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about two weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal or Azure Resource Manager templates, which take about two hours to deploy the cluster.
 
 ## Best practices
 
 ### How many partitions do I need?
+The number of partitions is specified at creation and must be between 2 and 32. The partition count isn't changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
 
-The partition count on an event hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
+You may want to set it to be the highest possible value, which is 32, at the time of creation. Remember that having more than one partition will result in events sent to multiple partitions without retaining the order, unless you configure senders to only send to a single partition out of the 32 leaving the remaining 31 partitions redundant. In the former case, you'll have to read events across all 32 partitions. In the latter case, there's no obvious additional cost apart from the extra configuration you have to make on Event Processor Host.
 
-Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you are looking to scale your event processing, you may want to consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
+Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you're looking to scale your event processing, you may want to consider adding additional partitions. There's no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 
 However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. For more information, see [availability and consistency](event-hubs-availability-and-consistency.md).
 

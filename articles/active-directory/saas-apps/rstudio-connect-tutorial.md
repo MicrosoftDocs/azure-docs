@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To configure Azure AD integration with RStudio Connect, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* RStudio Connect single sign-on enabled subscription
+* RStudio Connect. There is a [45 day free evaluation.](https://www.rstudio.com/products/connect/)
 
 ## Scenario description
 
@@ -100,25 +100,25 @@ To configure Azure AD single sign-on with RStudio Connect, perform the following
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps, replacing `<example.com>` with your RStudio Connect Server Address and port:
 
     ![RStudio Connect Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://connect.<example>.com/__login__/saml`
+    `https://<example.com>/__login__/saml`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://connect.<example>.com/__login__/saml/acs`
+    `https://<example.com>/__login__/saml/acs`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![RStudio Connect Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://connect.<example>.com/`
+    `https://<example.com>/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [RStudio Connect Client support team](mailto:support@rstudio.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. They are determined from the RStudio Connect Server Address (`https://example.com` in the examples above). Contact the [RStudio Connect support team](mailto:support@rstudio.com) if you have trouble. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Your RStudio Connect application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. RStudio Connect application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -130,7 +130,36 @@ To configure Azure AD single sign-on with RStudio Connect, perform the following
 
 ### Configure RStudio Connect Single Sign-On
 
-To configure single sign-on on **RStudio Connect** side, you need to send the **App Federation Metadata Url** to [RStudio Connect support team](mailto:support@rstudio.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on for **RStudio Connect**, you need to use the **App Federation Metadata Url** and **Server Address** used above. This is done in the RStudio Connect configuration file at `/etc/rstudio-connect.rstudio-connect.gcfg`.
+
+This is an example configuration file:
+
+```
+[Server]
+SenderEmail =
+
+; Important! The user-facing URL of your RStudio Connect server.
+Address = 
+
+[Http]
+Listen = :3939
+
+[Authentication]
+Provider = saml
+
+[SAML]
+Logging = true
+
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+IdPMetaData = 
+
+IdPAttributeProfile = azure
+SSOInitiated = IdPAndSP
+```
+
+Store your **Server Address** in the `Server.Address` value, and the **App Federation Metadata Url** in the `SAML.IdPMetaData` value.
+
+If you have trouble with configuration, you can read the [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) or email the [RStudio support team](mailto:support@rstudio.com) for help.
 
 ### Create an Azure AD test user 
 
@@ -198,5 +227,5 @@ When you click the RStudio Connect tile in the Access Panel, you should be autom
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

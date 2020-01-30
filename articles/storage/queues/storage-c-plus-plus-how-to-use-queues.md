@@ -1,16 +1,16 @@
 ---
-title: How to use queue storage (C++) | Microsoft Docs
-description: Learn how to use the queue storage service in Azure. Samples are written in C++.
-services: storage
-author: cbrooksmsft
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: cpp
-ms.topic: article
+title: How to use Queue storage (C++) - Azure Storage
+description: Learn how to use the Queue storage service in Azure. Samples are written in C++.
+author: mhopkins-msft
+
+ms.author: mhopkins
 ms.date: 05/11/2017
-ms.author: cbrooksmsft
+ms.service: storage
 ms.subservice: queues
+ms.topic: conceptual
+ms.reviewer: cbrooks
 ---
+
 # How to use Queue Storage from C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
@@ -35,12 +35,14 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
 
 ```powershell
-Install-Package wastorage
+.\vcpkg.exe install azure-storage-cpp
 ```
+
+You can find a guide for how to build the source code and export to NuGet in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## Configure your application to access Queue Storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:  

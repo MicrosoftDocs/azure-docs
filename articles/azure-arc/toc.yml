@@ -1,0 +1,18 @@
+- name: Azure Arc Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Arc for servers?
+    href: ./servers/overview.md
+- name: Connect to Azure Arc
+  expanded: true
+  items:
+  - name: Connect machines to Azure Arc from the Azure portal
+    href: ./servers/quickstart-onboard-portal.md
+  - name: Connect machines at scale using a service principal
+    href: ./servers/quickstart-onboard-powershell.md
+- name: Reference
+  items:
+    - name: Azure Connected Machine Agent CLI interface
+      href: ./servers/azcmagent-reference.md

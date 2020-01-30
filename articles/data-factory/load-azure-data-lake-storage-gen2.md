@@ -1,24 +1,24 @@
 ---
-title: Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
+title: Load data into Azure Data Lake Storage Gen2
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen2'
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: jingwang
+ms.custom: seo-lt-2019
+ms.date: 05/13/2019
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
 
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
-Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory (ADF) is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offers a scale-out, managed data movement solution. Due to the scale-out architecture of ADF, it can ingest data at a high throughput. For details, see [Copy activity performance](copy-activity-performance.md).
 
@@ -45,7 +45,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
  
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadADLSDemo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
-    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
     * **Version**: Select **V2**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. 
 
@@ -126,13 +126,6 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Verify that the data is copied into your Data Lake Storage Gen2 account.
-
-## Best practices
-
-When copy large volume of data from file-based data store, you are suggested to:
-
-- Partition the files into 10TB to 30TB fileset each.
-- Do not trigger too many concurrent copy runs to avoid throttling from source or sink data stores. You can start with one copy run and monitor the throughput, then gradually add more as needed.
 
 ## Next steps
 

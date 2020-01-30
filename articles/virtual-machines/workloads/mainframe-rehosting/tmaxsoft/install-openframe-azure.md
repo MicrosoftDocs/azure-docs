@@ -97,7 +97,7 @@ Plan on spending a few days to assemble all the required software and complete a
 
 Before getting started, do the following:
 
-- Get the OpenFrame installation media from TmaxSoft. If you are an existing TmaxSoft customer, contact your TmaxSoft representative for a licensed copy. Otherwise, request a trial version from [TmaxSoft](http://www.tmaxsoft.com/contact/).
+- Get the OpenFrame installation media from TmaxSoft. If you are an existing TmaxSoft customer, contact your TmaxSoft representative for a licensed copy. Otherwise, request a trial version from [TmaxSoft](https://www.tmaxsoft.com/contact/).
 
 - Request the OpenFrame documentation by sending email to <support@tmaxsoft.com>.
 
@@ -111,7 +111,7 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 **To create a VM**
 
-1. Go to the Azure portal at <http://portal.azure.com> and sign in to your account.
+1. Go to the Azure portal at <https://portal.azure.com> and sign in to your account.
 
 2. Click **Virtual machines**.
 
@@ -1472,7 +1472,7 @@ That completes the installation of the OpenFrame components.
 
 ## Next steps
 
-If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
+If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
 -   [Get started with Azure](https://docs.microsoft.com/azure/)
 -   [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)

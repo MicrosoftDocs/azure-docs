@@ -1,12 +1,12 @@
 ---
 title: Azure Storage metrics migration | Microsoft Docs
 description: Learn how to migrate old metrics to new metrics that are managed by Azure Monitor.
-services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
 ---
 

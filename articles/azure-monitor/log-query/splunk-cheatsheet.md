@@ -1,18 +1,12 @@
 ---
 title: Splunk to Azure Monitor log query | Microsoft Docs
 description: Help for users who are familiar with Splunk in learning Azure Monitor log queries.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/21/2018
+
 ---
 
 # Splunk to Azure Monitor log query
@@ -120,12 +114,12 @@ Splunk also has an `eval` function, which is not to be comparable with the `eval
 
 
 ### Rename 
-Azure Monitor uses the same operator to rename and to create a new field. Splunk has two separate operators, `eval` and `rename`.
+Azure Monitor uses the `project-rename` operator to rename a field. `project-rename` allows the query to take advantage of any indexes pre-built for a field. Splunk has a `rename` operator to do the same.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Azure Monitor | **project-rename** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 

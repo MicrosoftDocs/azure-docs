@@ -1,14 +1,15 @@
 ---
 title: View and edit Video Indexer insights
 titlesuffix: Azure Media Services
-description: This topic demonstrates how to view and edit Video Indexer insights.
+description: This article demonstrates how to view and edit Azure Media Services Video Indexer insights.
 services: media-services
 author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
@@ -32,7 +33,7 @@ This topic shows you how to view and edit the Video Indexer insights of a video.
 
 ## Next steps
 
-[Learn how to create your own Video Indexer insights based on some other video](video-indexer-create-new.md).
+[Use your videos' deep insights](use-editor-create-project.md)
 
 ## See also
 

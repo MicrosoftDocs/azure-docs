@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration API and customization - Azure Active Directory | Microsoft Docs
+title: B2B collaboration API and customization - Azure Active Directory
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
 
 services: active-directory
@@ -10,8 +10,8 @@ ms.date: 04/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---
