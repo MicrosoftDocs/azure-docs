@@ -132,11 +132,9 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics.
  
-In this example, replace the `<Resource-ID` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal. Replace the `<SubscriptionID>` variable with the ID of your subscription. If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+In these examples, replace the `<Resource-ID` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal. Replace the `<SubscriptionID>` variable with the ID of your subscription. If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
 
 For guidance on how to obtain values for the `<TenantID>`, `<ApplicationID>`, and `<AccessKey>`, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
-
-The following example shows how to use Azure Monitor .NET SDK to read storage metrics.
 
 #### List account level metric definition
 
