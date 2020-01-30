@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/31/2020
 ms.author: iainfou
 
 ---
@@ -99,7 +99,7 @@ As the SKU level increases, the frequency of those backup snapshots increases. R
 
 ### Outbound forests
 
-The previous section detailed one-way outbound forest trusts from an Azure AD DS managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
+The previous section detailed one-way outbound forest trusts from an Azure AD DS managed domain to an on-premises AD DS environment (currently in preview). The SKU determines the maximum number of forest trusts you can create for an Azure AD DS managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
 
 ## Next steps
 
