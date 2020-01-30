@@ -6,7 +6,7 @@ author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 01/23/2018
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
@@ -37,6 +37,7 @@ The following tables provide links to samples for applications including iOS, An
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | A Node.js app that provides a quick and easy way to set up a Web application with Express using OpenID Connect. |
 | [javascript-nodejs-webapp](https://github.com/AzureADQuickStarts/active-directory-b2c-javascript-nodejs-webapp) | A node.js server that provides a quick and easy way to set up a REST API service using the OAuth2 protocol. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
+| [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.  |
 
 ## Single page apps
 
