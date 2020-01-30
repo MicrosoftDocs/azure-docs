@@ -19,14 +19,15 @@ Before you get started, you need to install the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Node.js and npm](https://nodejs.org/), only [Active Long-Term Support (LTS) versions](https://nodejs.org/about/releases/). Not required for local development on MacOS and Linux. 
-
+::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"
++ [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions ](https://nodejs.org/about/releases/). Not required for local development on MacOS and Linux. 
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended).
+::: zone-end
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 ::: zone pivot="programming-language-csharp"
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 ::: zone-end
 ::: zone pivot="programming-language-python"
 + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
