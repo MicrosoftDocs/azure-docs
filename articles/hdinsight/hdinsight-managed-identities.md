@@ -41,6 +41,10 @@ Managed identities are used in Azure HDInsight in multiple scenarios. See the re
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 
+## FAQ
+### What happens if I delete the managed identity after the cluster creation?
+Your cluster will run into issues when the managed identity is needed. There is currently no way to update or change manage idenity after the cluster is created. So our recommendation is to make sure that the managed identity is not deleted during the cluster runtime. Alternatively you can re-create the cluster and assign a new managed identity.
+
 ## Next steps
 
 * [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
