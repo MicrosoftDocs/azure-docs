@@ -64,7 +64,7 @@ The script first creates a resource group in the east US location for the applic
 |Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations.  |
 |Name              |The name of the application in the Azure portal. |
 |Subdomain         |The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
-|Sku               |Currently, you can use values as either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
+|Sku               |Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Template          | The application template to use. For more information, see the following table: |
 |DisplayName       |The name of the application as displayed in the UI. |
 

@@ -82,7 +82,7 @@ Now that you have a destination to export data to, follow these steps to set up 
 4. In the drop-down list box, select your **Event Hubs namespace**, **Service Bus namespace**, **Storage Account namespace**, or **Enter a connection string**.
 
     - You only see Storage Accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 5.
-    - For apps created using the free pricing plan, the only way to configure continuous data export is through a connection string. Apps on the free pricing plan don't have an associated Azure subscription.o
+    - For apps created using the free pricing plan, the only way to configure continuous data export is through a connection string. Apps on the free pricing plan don't have an associated Azure subscription.
 
     ![Create new Event Hub](media/howto-export-data/export-eh.png)
 

@@ -14,7 +14,7 @@ manager: philmea
 
 This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section. You will learn how you can move your application from the free pricing plan to a standard pricing plan, and also how to upgrade or downgrade your pricing plan.
 
-To access and use the **Administration** section, you must be in the *Administrator* role have a *custom user role* that allows you to view billing for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
+To access and use the **Administration** section, you must be in the *Administrator* role or have a *custom user role* that allows you to view billing for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
 ## Move from free to standard pricing plan
 
@@ -32,9 +32,9 @@ To complete this self-service process, follow these steps:
 
     ![Convert trial](media/howto-administer/convert.png)
 
-1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your paid application.
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
-1. After you select **Convert**, your application is now a paid application and you start getting billed.
+1. After you select **Convert**, your application now uses a paid plan and you start getting billed.
 
 > [!Note]
 > By default, you are converted to a *Standard 2* pricing plan.
