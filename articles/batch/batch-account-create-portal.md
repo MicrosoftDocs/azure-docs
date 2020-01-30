@@ -113,6 +113,11 @@ When creating the Batch account in user subscription mode, use the resource grou
 
 If you prefer to grant access to the key vault manually, go to the **Access policies** section of the key vault and select **Add Access Policy** and search for **Microsoft Azure Batch**. Once selected, you will need to configure the **Secret permissions** using the drop down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions.
 
+Ensure you have the following **Access Policy** checked under the linked **Key Vault** resource:
+Azure Resource Manager for template deployment
+
+This is not mandatory when creating Batch account through [Azure Portal] - The option is checked by default
+
 ![Secret permissions for Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
 ### Configure subscription quotas
