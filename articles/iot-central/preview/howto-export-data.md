@@ -204,23 +204,25 @@ This is an example message about devices and properties data in event hub or Ser
   "body":{
     "id": "<device Id>",
     "etag": "<etag>",
-    "displayName": "Test Device",
+    "displayName": "Sensor 1",
     "instanceOf": "<device template Id>",
     "simulated": false,
     "provisioned": true,
     "approved": true,
     "properties": {
-        "testComponent": {
-            "testProperty": "test property value",
+        "sensorComponent": {
+            "setTemp": "30",
+            "fwVersion": "2.0.1",
+            "status": { "first": "first", "second": "second" },
             "$metadata": {
-                "testProperty": {
-                    "desiredValue": "test property value",
+                "setTemp": {
+                    "desiredValue": "30",
                     "desiredVersion": 3,
                     "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
                     "ackVersion": 3
                 },
-                "testReadOnly": { "ackVersion": 3 },
-                "testComplex": {
+                "fwVersion": { "ackVersion": 3 },
+                "status": {
                     "desiredValue": {
                         "first": "first",
                         "second": "second"
@@ -230,11 +232,10 @@ This is an example message about devices and properties data in event hub or Ser
                     "ackVersion": 2
                 }
             },
-            "testReadOnly": "test read-only property value",
-            "testComplex": { "first": "first", "second": "second" }
+            
         }
     },
-    "cloudProperties": { "testCloudProperty": "test cloud property value" }
+    "installDate": { "installDate": "2020-02-01" }
 },
   "annotations":{
     "iotcentral-message-source":"devices",
@@ -254,25 +255,28 @@ This is an example snapshot containing devices and properties data in Blob Stora
 
 ```json
 {
+  "body":{
     "id": "<device Id>",
     "etag": "<etag>",
-    "displayName": "Test Device",
+    "displayName": "Sensor 1",
     "instanceOf": "<device template Id>",
     "simulated": false,
     "provisioned": true,
     "approved": true,
     "properties": {
-        "testComponent": {
-            "testProperty": "test property value",
+        "sensorComponent": {
+            "setTemp": "30",
+            "fwVersion": "2.0.1",
+            "status": { "first": "first", "second": "second" },
             "$metadata": {
-                "testProperty": {
-                    "desiredValue": "test property value",
+                "setTemp": {
+                    "desiredValue": "30",
                     "desiredVersion": 3,
                     "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
                     "ackVersion": 3
                 },
-                "testReadOnly": { "ackVersion": 3 },
-                "testComplex": {
+                "fwVersion": { "ackVersion": 3 },
+                "status": {
                     "desiredValue": {
                         "first": "first",
                         "second": "second"
@@ -282,11 +286,10 @@ This is an example snapshot containing devices and properties data in Blob Stora
                     "ackVersion": 2
                 }
             },
-            "testReadOnly": "test read-only property value",
-            "testComplex": { "first": "first", "second": "second" }
+            
         }
     },
-    "cloudProperties": { "testCloudProperty": "test cloud property value" }
+    "installDate": { "installDate": "2020-02-01" }
 }
 ```
 
@@ -324,7 +327,7 @@ This is an example message about device templates data in event hub or Service B
               {
                   "@id": "<component Id>",
                   "@type": ["InterfaceInstance"],
-                  "name": "Sensor component",
+                  "name": "sensorComponent",
                   "schema": {
                       "@id": "<interface Id>",
                       "@type": ["Interface"],
@@ -391,7 +394,7 @@ This is an example message about device templates data in event hub or Service B
                                   "schema": "string"
                               },
                               "displayName": "Configure sensor",
-                              "name": "sensorconfig"
+                              "name": "sensorConfig"
                           }
                       ]
                   }
