@@ -12,6 +12,8 @@
   items:
   - name: Use GitOps
     href: use-gitops.md
+  - name: IoT workloads
+    href: deploy-azure-iot-edge-workloads.md
 - name: Concepts
   items:
 - name: How-to 
@@ -24,7 +26,7 @@
     items:
     - name: Use Azure Policy
       href: use-azure-policy.md
-    - name: Configure custom service principal
+    - name: Custom service principal
       href: create-onboarding-spn.md
 - name: Resources
   items:
