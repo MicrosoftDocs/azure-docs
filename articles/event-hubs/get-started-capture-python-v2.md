@@ -1,5 +1,5 @@
 ---
-title: Read Azure Event Hubs captured data from a Python app | Microsoft Docs
+title: Read Azure Event Hubs captured data from a Python app (latest)
 description: This article shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account. 
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/05/2019
+ms.topic: quickstart
+ms.date: 01/30/2020
 ms.author: spelluru
 
 ---
 
-# Capture Event Hubs data in Azure Storage and read it by using Python 
+# Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub version 5)
 
 You can configure an event hub so that the data that's sent to an event hub is captured in an Azure storage account or Azure Data Lake Storage. This article shows you how to write Python code to send events to an event hub and read the captured data from Azure Blob storage. For more information about this feature, see [Event Hubs Capture feature overview](event-hubs-capture-overview.md).
 
 This quickstart uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* app sends simulated environmental telemetry to event hubs in JSON format. The event hub is configured to use the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs and creates an append file for each device. The app then writes the data into CSV files.
 
 > [!IMPORTANT]
-> This quickstart uses version 5 of the Azure Event Hubs Python SDK. For a quickstart that uses version 1 of the Python SDK, see [Quickstart: Event Hubs Capture walkthrough - Python](event-hubs-capture-python.md). If you're using version 1 of the SDK, we recommend that you migrate your code to the latest version. For more information, see the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+> This quickstart uses version 5 of the Azure Event Hubs Python SDK. For a quickstart that uses version 1 of the Python SDK, see [this article](event-hubs-capture-python.md). 
 
 In this quickstart, you: 
 
