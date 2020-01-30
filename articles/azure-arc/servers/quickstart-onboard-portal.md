@@ -50,7 +50,7 @@ The script to automate the download and installation, and to establish the conne
 
 ## Install and validate the agent on Windows
 
-### Manual installation
+### Install manually
 You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. 
 
 > [!NOTE]
@@ -162,9 +162,9 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
 
     If you want to script the uninstallation, you can use the following example, which retrieves the product code and uninstalls the agent by using the Msiexec.exe command line - `msiexec /x {Product Code}`. To do so:  
     
-    i. Open the Registry Editor.  
-    ii. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.  
-    iii. You can then uninstall the agent by using Msiexec.
+    a. Open the Registry Editor.  
+    b. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.  
+    c. You can then uninstall the agent by using Msiexec.
 
     The following example demonstrates how to uninstall the agent:
 
