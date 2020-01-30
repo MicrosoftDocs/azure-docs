@@ -125,7 +125,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### [.NET](#tab/tab/dotnet)
+### [.NET](#tab/dotnet)
 
 Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics.
  
@@ -311,6 +311,58 @@ Log entries are created only if there are requests made against the service endp
 - Failed GET requests with error code 304 (Not Modified)
 
   All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
+
+### Azure Storage Log Analytics queries in Azure Monitor
+
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md).
+
+Following are queries that you can use to help you monitor your Azure Storage accounts.
+
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
+* To blah
+
+    ```Kusto
+    Query goes here.
+    ```
 
 ## FAQ
 
