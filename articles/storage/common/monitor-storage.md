@@ -77,131 +77,84 @@ All metrics for Azure storage are located in the following namespaces:
 For a list of all Azure Monitor support metrics (including Azure Storage), see [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 
-### Access metrics with the REST API
+### Access metrics
 
-Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more information, please read Understanding resource ID for services in Storage.
+### [PowerShell](#tab/azure-powershell)
 
-The following example shows how to use [ArmClient](https://github.com/projectkudu/ARMClient)  at the command line to simplify testing with the REST API.
+#### List account level metric definition
 
-#### List account level metric definition with the REST API
+List the metric definition of your storage account by using the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) cmdlet.
 
-The following example shows how to list metric definition at account level:
+In this example, replace the `<resource-ID>` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal.
 
-```
-# Login to Azure and enter your credentials when prompted.
-> armclient login
+  ```powershell
+    $resourceId = "<resource-ID>"
+    Get-AzMetricDefinition -ResourceId $resourceId
+  ```
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
+#### Read account-level metric values
 
-```
+Read account-level metric values by using the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) cmdlet.
 
-If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+In this example, replace the `<resource-ID>` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal.
 
-The response contains the metric definition in JSON format:
+  ```powershell
+    $resourceId = "<resource-ID>"
+    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
+  ```
 
-```Json
-{
-  "value": [
-    {
-      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions/UsedCapacity",
-      "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}",
-      "category": "Capacity",
-      "name": {
-        "value": "UsedCapacity",
-        "localizedValue": "Used capacity"
-      },
-      "isDimensionRequired": false,
-      "unit": "Bytes",
-      "primaryAggregationType": "Average",
-      "metricAvailabilities": [
-        {
-          "timeGrain": "PT1M",
-          "retention": "P30D"
-        },
-        {
-          "timeGrain": "PT1H",
-          "retention": "P30D"
-        }
-      ]
-    },
-    ... next metric definition
-  ]
-}
+### [Azure CLI](#tab/azure-cli)
 
+#### List account level metric definition
+
+List the metric definition of your storage account by using the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) command.
+ 
+In this example, replace the `<resource-ID>` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal.
+
+```azurecli-interactive
+   az monitor metrics list-definitions --resource <resource-ID>
 ```
 
-#### Read account-level metric values with the REST API
+#### Read account-level metric values
 
-The following example shows how to read metric data at account level:
+Read account-level metric values by using the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) command.
+ 
+In this example, replace the `<resource-ID>` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal.
 
-```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
-
-```
-
-In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
-
-The following response contains metric values in JSON format:
-
-```Json
-{
-  "cost": 0,
-  "timespan": "2017-09-07T17:27:41Z/2017-09-07T18:27:41Z",
-  "interval": "PT1H",
-  "value": [
-    {
-      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/Microsoft.Insights/metrics/Availability",
-      "type": "Microsoft.Insights/metrics",
-      "name": {
-        "value": "Availability",
-        "localizedValue": "Availability"
-      },
-      "unit": "Percent",
-      "timeseries": [
-        {
-          "metadatavalues": [],
-          "data": [
-            {
-              "timeStamp": "2017-09-07T17:27:00Z",
-              "average": 100.0
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-
+```azurecli-interactive
+   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### Access metrics with the .NET SDK
+### [.NET](#tab/#tab/dotnet)
 
-Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .NET SDK. For more information, please read Understanding resource ID for services in Storage.
+Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics.
+ 
+In this example, replace the `<Resource-ID` placeholder with the resource ID of your storage account. You can find the resource ID in the **Properties** pages of your storage account on the Azure portal. Replace the `<SubscriptionID>` variable with the ID of your subscription. If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+
+For guidance on how to obtain values for the `<TenantID>`, `<ApplicationID>`, and `<AccessKey>`, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
 
 The following example shows how to use Azure Monitor .NET SDK to read storage metrics.
 
-#### List account level metric definition with the .NET SDK
+#### List account level metric definition
 
-The following example shows how to list metric definition at account level:
+The following examples show how to list metric definition at account level:
 
 ```csharp
     public static async Task ListStorageMetricDefinition()
     {
-        // Resource ID for storage account
-        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
-        var subscriptionId = "{SubscriptionID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
-        var tenantId = "{TenantID}";
-        var applicationId = "{ApplicationID}";
-        var accessKey = "{AccessKey}";
+        var resourceId = "<Resource-ID>";
+        var subscriptionId = "<SubscriptionID>";
+        var tenantId = "<TenantID>";
+        var applicationId = "<ApplicationID>";
+        var accessKey = "<AccessKey>";
 
-        // Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+
         MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
         foreach (var metricDefinition in metricDefinitions)
         {
-            //Enumrate metric definition:
+            // Enumrate metric definition:
             //    Id
             //    ResourceId
             //    Name
@@ -215,22 +168,21 @@ The following example shows how to list metric definition at account level:
 
 ```
 
-If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+ > [!NOTE]
+ > Metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Also, if you stream metrics data to OMS for advanced analysis, you will be billed by Operation Management Suite (OMS) 
 
-#### Read metric values with the .NET SDK
+#### Read account-level metric values
 
 The following example shows how to read `UsedCapacity` data at account level:
 
 ```csharp
     public static async Task ReadStorageMetricValue()
     {
-        // Resource ID for storage account
-        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
-        var subscriptionId = "{SubscriptionID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
-        var tenantId = "{TenantID}";
-        var applicationId = "{ApplicationID}";
-        var accessKey = "{AccessKey}";
+        var resourceId = "<Resource-ID>";
+        var subscriptionId = "<SubscriptionID>";
+        var tenantId = "<TenantID>";
+        var applicationId = "<ApplicationID>";
+        var accessKey = "<AccessKey>";
 
         MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
 
@@ -252,7 +204,7 @@ The following example shows how to read `UsedCapacity` data at account level:
 
         foreach (var metric in Response.Value)
         {
-            //Enumrate metric value
+            // Enumrate metric value
             //    Id
             //    Name
             //    Type
@@ -265,9 +217,7 @@ The following example shows how to read `UsedCapacity` data at account level:
 
 ```
 
-In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
-
-#### Read multi-dimensional metric values with the .NET SDK
+#### Read multi-dimensional metric values
 
 For multi-dimensional metrics, you need to define meta data filter if you want to read metric data on specific dimension value.
 
