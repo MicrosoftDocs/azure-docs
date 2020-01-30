@@ -62,6 +62,8 @@ This template includes sample water consumption device template, simulated devic
 
     ![Azure IoT Central Create Application page](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
 
+     ![Azure IoT Central Create Application Billing Info](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
+
 6. You now have created a water consumption monitoring app using the Azure IoT Central **Water consumption monitoring** template.
 
 Congratulations! You have finished creating your water quality monitoring application, which comes with pre-configured:
