@@ -1,14 +1,10 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, Java - Speech service"
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -16,8 +12,8 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* If this is your first Java (JRE) project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">create an empty sample project</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Install the Speech SDK for your development environment</a>.
+* If this is your first Java (JRE) project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">create an empty sample project <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Install the Speech SDK for your development environment <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -92,7 +88,7 @@ It's important to release the speech resources when you're done using them. Inse
 
 ## Check your code
 
-At this point, your code should look like this:  
+At this point, your code should look like this:
 
 > [!NOTE]
 > We've added some comments to this version.
@@ -101,7 +97,7 @@ At this point, your code should look like this:
 
 ## Build and run your app
 
-Press F11, or select **Run** > **Debug**.
+Press <kbd>F11</kbd>, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
 ## Next steps

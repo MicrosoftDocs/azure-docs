@@ -1,13 +1,14 @@
 ---
 title: Create a cluster error dictionary
 description: Learn how to create a cluster error dictionary.
-ms.reviewer: hrasheed
+
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
 ---
 
 
@@ -206,7 +207,7 @@ Typically, this error is generated when there's a transient problem or an Azure 
 
 ### Resolution
 
-Check the [Azure status](https://status.azure.com/status) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
+Check the [Azure status](https://status.azure.com) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
 
 ## Next steps
 
