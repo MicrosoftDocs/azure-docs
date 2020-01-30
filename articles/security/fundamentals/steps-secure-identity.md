@@ -8,7 +8,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
 ---
 
@@ -23,8 +23,8 @@ This checklist will help you quickly deploy critical recommended actions to prot
 * Strengthen your credentials.
 * Reduce your attack surface area.
 * Automate threat response.
-* Increase your awareness of auditing and monitoring.
-* Enable more predictable and complete end-user security with self-help.
+* Utilize cloud intelligence.
+* Enable end-user self-service.
 
 Make sure you keep track of which features and steps are complete while reading this checklist.
 
@@ -111,7 +111,7 @@ Using the assume breach mentality, you should reduce the impact of compromised u
 
 It’s important to understand the various [Azure AD application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), the [types of permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent), and their implications on your organization’s security posture. By default, all users in Azure AD can grant applications that leverage the Microsoft identity platform to access your organization’s data. While allowing users to consent by themselves does allow users to easily acquire useful applications that integrate with Microsoft 365, Azure and other services, it can represent a risk if not used and monitored carefully.
 
-Microsoft recommends [disabling future user consent operations](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) to help reduce your surface area and mitigate this risk. If end-user consent is disabled, previous consent grants will still be honored but all future consent operations must be performed by an administrator. Admin consent can be requested by users through an integrated [admin consent request workflow](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) or through your own support processes. Before disabling this functionality, it's recommended you review your audit log to understand which applications users are consenting to and plan the change accordingly. For applications you wish to allow all users to access, consider [granting consent on behalf of all users](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), making sure users who have not yet consented individually will be able to access the app. If you do not want these applications to be available to all users in all scenarios, use [application assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) and [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to restrict user access to apps.
+Microsoft recommends [disabling future user consent operations](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) to help reduce your surface area and mitigate this risk. If end-user consent is disabled, previous consent grants will still be honored but all future consent operations must be performed by an administrator. Admin consent can be requested by users through an integrated [admin consent request workflow](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) or through your own support processes. Before disabling end-user consent, use our [recommendations](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) to plan this change in your organization. For applications you wish to allow all users to access, consider [granting consent on behalf of all users](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), making sure users who have not yet consented individually will be able to access the app. If you do not want these applications to be available to all users in all scenarios, use [application assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) and [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to restrict user access to apps.
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consented permissions on a regular basis.
 
@@ -147,7 +147,7 @@ Sign-in risk is the likelihood someone other than the account owner is attemptin
 
 ![Sign in from anonymous IPs](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## Step 4 - Increase your awareness
+## Step 4 - Utilize cloud intelligence
 
 Auditing and logging of security-related events and related alerts are essential components of an efficient protection strategy. Security logs and reports provide you with an electronic record of suspicious activities and help you detect patterns that may indicate attempted or successful external penetration of the network, and internal attacks. You can use auditing to monitor user activity, document regulatory compliance, do forensic analysis, and more. Alerts provide notifications of security events.
 
@@ -200,7 +200,7 @@ There are many aspects to a secure Identity infrastructure, but this five-step c
 * Strengthen your credentials.
 * Reduce your attack surface area.
 * Automate threat response.
-* Increase your awareness of auditing and monitoring.
+* Utilize cloud intelligence.
 * Enable more predictable and complete end-user security with self-help.
 
 We appreciate how seriously you take Identity Security and hope this document is a useful roadmap to a more secure posture for your organization.
