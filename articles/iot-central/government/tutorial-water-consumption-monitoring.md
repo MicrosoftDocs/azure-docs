@@ -123,7 +123,7 @@ The **Water consumption monitoring** application comes with two reference device
 To view the device template:
 
 1. Click on **Device templates** from the left navigation pane of your application in IoT Central. 
-    In the Device templates list you will see two device templates **Flow meterr** and **Smart Valve**
+    In the Device templates list you will see two device templates **Flow meter** and **Smart Valve**
 
    ![Device Template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 

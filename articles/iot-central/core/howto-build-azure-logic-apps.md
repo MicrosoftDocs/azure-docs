@@ -57,7 +57,7 @@ This section shows you how to post a message to Microsoft Teams when a rule is t
 
 1. If you go back to your IoT Central app, you'll see this rule has an Azure Logic Apps action under the Actions area.
 
-You can always start building a workflow using the IoT Central connector in Logic Apps in the Azure Portal. You can then choose which IoT Central app and which rule to connect to, and it still works the same way. There is no need to start from the IoT Central rules page each time.
+You can always start building a workflow using the IoT Central connector in Logic Apps in the Azure portal. You can then choose which IoT Central app and which rule to connect to, and it still works the same way. There is no need to start from the IoT Central rules page each time.
 
 ## Create, update, and delete a device in a workflow
 
