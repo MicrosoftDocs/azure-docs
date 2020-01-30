@@ -21,7 +21,7 @@ Many organizations rely on software as a service (SaaS) applications such as Ser
 
 Azure Active Directory (Azure AD) automatic user provisioning simplifies this process by securely automating the creation, maintenance, and removal of user identities in SaaS applications based on business rules. This automation allows you to effectively scale your identity management systems on both cloud-only and hybrid environments as you expand their dependency on cloud-based solutions.
 
-See [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md) to better understand the functionality.
+See [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md) to better understand the functionality.
 
 ## Learn
 
@@ -70,7 +70,7 @@ This article uses the following terms:
 | Online courses| SkillUp Online:  [Managing Identities](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Learn how to integrate Azure AD with many SaaS applications and to secure user access to those applications. |
 | Books| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference) 1st Edition](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> ‎This is an authoritative, deep-dive guide to building Active Directory authentication solutions for these new environments. |
 | Tutorials| See the [list of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md). |
-| FAQ| [Frequently asked questions](user-provisioning.md) on automated user provisioning |
+| FAQ| [Frequently asked questions](../app-provisioning/user-provisioning.md) on automated user provisioning |
 
 ### Solution architectures
 
@@ -88,9 +88,9 @@ In this example, users and or groups are created in an HR database connected to 
 
 1. **Azure AD Connect agent** runs scheduled synchronizations of identities (users and groups) from the local AD to Azure AD.
 
-1. **Azure AD provisioning service** begins an [initial cycle](user-provisioning.md) against the source system and target system. 
+1. **Azure AD provisioning service** begins an [initial cycle](../app-provisioning/user-provisioning.md) against the source system and target system. 
 
-1. **Azure AD provisioning service** queries the source system for any users and groups changed since the initial cycle, and pushes changes in [incremental cycles](user-provisioning.md).
+1. **Azure AD provisioning service** queries the source system for any users and groups changed since the initial cycle, and pushes changes in [incremental cycles](../app-provisioning/user-provisioning.md).
 
 #### Automatic user provisioning for cloud-only enterprises
 
@@ -102,9 +102,9 @@ In this example, user creation occurs in Azure AD and the  Azure AD provisioning
 
 1. Users/groups are created in Azure AD.
 
-1. **Azure AD provisioning service** begins an [initial cycle](user-provisioning.md) against the source system and target system. 
+1. **Azure AD provisioning service** begins an [initial cycle](../app-provisioning/user-provisioning.md) against the source system and target system. 
 
-1. **Azure AD provisioning service** queries the source system for any users and groups updated since the initial cycle, and performs any [incremental cycles](user-provisioning.md).
+1. **Azure AD provisioning service** queries the source system for any users and groups updated since the initial cycle, and performs any [incremental cycles](../app-provisioning/user-provisioning.md).
 
 #### Automatic user provisioning for cloud HR applications 
 
@@ -156,11 +156,11 @@ If not, follow the steps below:
 
 1. [Create a request](../develop/howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
-1. Use the [BYOA SCIM](use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
+1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
 
-1. If the application is able to utilize the BYOA SCIM connector, then refer to [BYOA SCIM integration tutorial](use-scim-to-provision-users-and-groups.md) to configure the BYOA SCIM connector for the application.
+1. If the application is able to utilize the BYOA SCIM connector, then refer to [BYOA SCIM integration tutorial](../app-provisioning/use-scim-to-provision-users-and-groups.md) to configure the BYOA SCIM connector for the application.
 
-For more information, see [What applications and systems can I use with Azure AD automatic user provisioning?](user-provisioning.md)
+For more information, see [What applications and systems can I use with Azure AD automatic user provisioning?](../app-provisioning/user-provisioning.md)
 
 ### Collect information to authorize application access
 
@@ -214,7 +214,7 @@ Consider the following to reduce issues post-deployment:
 
 * Applications may have specific restrictions and/or requirements that need to be met for user provisioning to work correctly. For example, Slack truncates values for certain attributes. Refer to [automatic user provisioning tutorials](../saas-apps/tutorial-list.md) specific to each application.
 
-* Confirm schema consistency between source and target systems. Common issues include attributes such as UPN or mail not matching. For example, UPN in Azure AD set as *john_smith@contoso.com* and in the app, it's *jsmith@contoso.com*. For more information, see The [User and group schema reference](use-scim-to-provision-users-and-groups.md).
+* Confirm schema consistency between source and target systems. Common issues include attributes such as UPN or mail not matching. For example, UPN in Azure AD set as *john_smith@contoso.com* and in the app, it's *jsmith@contoso.com*. For more information, see The [User and group schema reference](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## Plan testing and security
 
@@ -259,7 +259,7 @@ The provisioning service stores the state of both systems after the initial cycl
 
 ### Configure automatic user provisioning
 
-Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](user-provisioning.md)
+Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
 The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
@@ -269,7 +269,7 @@ Now that you've deployed, you need to manage the solution.
 
 ### Monitor user provisioning operation health
 
-After a successful [initial cycle](user-provisioning.md), the Azure AD provisioning service will run incremental updates indefinitely, at intervals specific to each application, until one of the following events occurs:
+After a successful [initial cycle](../app-provisioning/user-provisioning.md), the Azure AD provisioning service will run incremental updates indefinitely, at intervals specific to each application, until one of the following events occurs:
 
 * The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
 
@@ -295,7 +295,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
 
-* [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
+* [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
 * [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 

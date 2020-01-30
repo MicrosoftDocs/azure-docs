@@ -529,4 +529,4 @@ Content-type: application/json
 ## Related articles
 
 - [Review the synchronization Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
-- [Integrating a custom SCIM app with Azure AD](../manage-apps/use-scim-to-provision-users-and-groups.md)
+- [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)

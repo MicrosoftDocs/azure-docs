@@ -36,7 +36,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## Provisioning using SCIM 2.0
 
-The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
+The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, fill out an [Azure Active Directory Application Request](https://aka.ms/aadapprequest).
 
@@ -187,10 +187,10 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it is used to 
 
 ## Next Steps
 
-[Plan an automatic user provisioning deployment](plan-auto-user-provisioning.md)
+[Plan an automatic user provisioning deployment](../app-provisioning/user-provisioning.md)
 
 [Configure provisioning for a gallery app](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-[Build a SCIM endpoint and configure provisioning when creating your own app](use-scim-to-provision-users-and-groups.md)
+[Build a SCIM endpoint and configure provisioning when creating your own app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 [Troubleshoot problems with configuring and provisioning users to an application](../app-provisioning/application-provisioning-config-problem.md).
