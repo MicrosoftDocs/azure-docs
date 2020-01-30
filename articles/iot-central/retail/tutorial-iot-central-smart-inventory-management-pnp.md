@@ -43,7 +43,7 @@ You can create application using following steps
 > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
 > [!div class="mx-imgBorder"]
-> ![Smart Inventory Management billing info](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create_billinginfo.png)
+> ![Smart Inventory Management billing info](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## Walk through the application 
 
