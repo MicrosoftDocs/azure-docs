@@ -57,6 +57,12 @@
       href: tutorial-1st-r-experiment.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
+  - name: Visual Studio Code
+    items:
+    - name: Set up Azure Machine Learning extension
+      href: tutorial-setup-vscode-extension.md
+    - name: Train and deploy a TensorFlow image classification model
+      href: tutorial-train-deploy-image-classification-model-vscode.md
 
 - name: Samples
   items:
@@ -89,7 +95,9 @@
     displayName: studio
     href: concept-designer.md
   - name: Algorithm cheat sheet
-    href: /azure/machine-learning/algorithm-cheat-sheet   
+    href: /azure/machine-learning/algorithm-cheat-sheet
+  - name: How to select algorithms
+    href: /azure/machine-learning/how-to-select-algorithms       
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -155,9 +163,6 @@
     - name: Set input & output directories
       displayName: large data, write, experiment files, size limit
       href: how-to-save-write-experiment-files.md
-    - name: Use VS Code extension
-      displayName: Visual Studio Code, VSCode, tools, ai, vs
-      href: how-to-vscode-tools.md
     - name: Interactive debugging
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: how-to-set-up-vs-code-remote.md
@@ -175,6 +180,9 @@
     - name: Train with datasets
       displayName: data, dataset, mount
       href: how-to-train-with-datasets.md
+    - name: Import data in the designer
+      displayName: designer, data, import, dataset, datastore
+      href: how-to-designer-import-data.md
     - name: Detect drift on datasets
       displayName: data, dataset
       href: how-to-monitor-datasets.md
@@ -187,6 +195,9 @@
     - name: Label images
       displayName: data, dataset, labeling
       href: how-to-label-images.md
+    - name: Create datasets with labels
+      displayName: data, labels, torchvision
+      href: how-to-use-labeled-dataset.md
   - name: Train models
     items:
     - name: Use the designer
@@ -335,6 +346,9 @@
       href: how-to-schedule-pipelines.md
     - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
+    - name: Debug pipelines in Application Insights
+      displayname: pipelines, log, monitor
+      href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context

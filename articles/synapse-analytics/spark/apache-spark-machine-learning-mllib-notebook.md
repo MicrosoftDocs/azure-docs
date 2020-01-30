@@ -1,6 +1,6 @@
 ---
-title: Machine learning example with Spark MLlib on Azure Synapse Analytics 
-description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
+title: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
+description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 author: euangMS
 ms.reviewer: euang
 ms.service: sql-data-warehouse
@@ -9,11 +9,11 @@ ms.date: 09/10/2019
 ms.author: euang
 
 ---
-# Use Apache Spark to build a machine learning application and analyze a dataset
+# Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
 
-Learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application to do simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries, this example uses *classification* through logistic regression.
+In this article, you learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application that does simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries. This example uses *classification* through logistic regression.
 
-MLlib is a core Spark library that provides many utilities useful for machine learning tasks, including utilities that are suitable for:
+MLlib is a core Spark library that provides many utilities that are useful for machine learning tasks, including utilities that are suitable for:
 
 * Classification
 * Regression
@@ -24,7 +24,7 @@ MLlib is a core Spark library that provides many utilities useful for machine le
 
 ## Understand classification and logistic regression
 
-*Classification*, a popular machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign "labels" to input data that you provide. For example, you could think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks that you should sell and stocks that you should keep.
+*Classification*, a popular machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign "labels" to input data that you provide. For example, you can think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks that you should sell and stocks that you should keep.
 
 Logistic regression is an algorithm that you can use for classification. Spark's logistic regression API is useful for *binary classification*, or classifying input data into one of two groups. For more information about logistic regressions, see [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
@@ -32,10 +32,10 @@ In summary, the process of logistic regression produces a *logistic function* th
 
 ## Predictive analysis example on NYC Taxi data
 
-In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data was acquired through Azure Open datasets, see [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
+In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
-> There may be additional charges for pulling this data from its storage location
+> There may be additional charges for pulling this data from its storage location.
 
 In the steps below, you develop a model to predict whether a particular trip includes a tip or not.
 
@@ -65,7 +65,7 @@ In the steps below, you develop a model to predict whether a particular trip inc
 
 Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. While the code below uses the default options, it is possible to force mapping of data types and other schema attributes if needed.
 
-1. Run the following lines to create a Spark Dataframe by pasting the code into a new cell.
+1. Run the following lines to create a Spark Dataframe by pasting the code into a new cell. The first section assigns Azure storage access information to variables. The second section allows Spark to read from blob storage remotely. The last line of code reads parquet, but no data is loaded at this point.
 
     ```python
     # Azure storage access info
@@ -107,6 +107,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     ```
 
 5. Depending on the dataset size generated above and your need to experiment/run the notebook many times it may be advisable to cache the dataset locally in the workspace. There are three ways to do perform explicit caching:
+
     * Save the dataframe locally as a file
     * Save the dataframe as a temporary table or view
     * Save the dataframe as a permanent table
@@ -175,9 +176,9 @@ The data in its raw form is frequently not suitable for passing directly to a mo
 
 In the code below four classes of operations are performed:
 
-* The removal of outliers/incorrect values through filtering
-* The removal of columns, which are not needed
-* The creation of new columns derived from the raw data to make the model work more effectively, sometimes called featurization
+* The removal of outliers/incorrect values through filtering.
+* The removal of columns, which are not needed.
+* The creation of new columns derived from the raw data to make the model work more effectively, sometimes called featurization.
 * Labeling, as you are undertaking binary classification (will there be a tip or not on a given trip) there is a need to convert the tip amount into a 0 or 1 value.
 
     ```python
@@ -212,9 +213,9 @@ In the code below four classes of operations are performed:
     taxi_df.createOrReplaceTempView("nytaxi_filtered")
     ```
 
-If you do not wish to mix Spark SQL and PySpark, then this version is completely PySpark
+If you do not wish to mix Spark SQL and PySpark, the following code sample is completely PySpark.
 
-```Python
+```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
                                 , 'tripDistance', 'tpepPickupDateTime', 'tpepDropoffDateTime'\
                                 , date_format('tpepPickupDateTime', 'hh').alias('pickupHour')\
@@ -232,7 +233,7 @@ taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paym
                                 )
 ```
 
-A second pass is then made over the data to add the final features
+A second pass is then made over the data to add the final features.
 
 ```python
 # Complete the column reduction, filtering and featurisation
@@ -274,7 +275,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## Create a logistic regression model
 
-The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need converted into integer representations. There are multiple approaches to performing the conversion, however for this example the approach that is being taken is OneHotEncoding, a common approach.
+The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need to be converted into integer representations. There are multiple approaches to performing the conversion, however the approach taken in this example is OneHotEncoding, a common approach.
 
 ```python
 # The sample uses an algorithm that only works with numeric features convert them so they can be consumed
@@ -287,7 +288,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-This results in a new dataframe with the columns all in the right format to train a model.
+This results in a new dataframe with all columns in the right format to train a model.
 
 ## Train a logistic regression model
 
@@ -303,7 +304,7 @@ seed = 1234
 train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, testingFraction], seed=seed)
 ```
 
-Now that there are two dataframes the next task is to create the model formula and run it against the training dataframe, then validate against the testing data frame. You should experiment with different versions of the model formula to see the impact of different combinations.
+Now that there are two DataFrames, the next task is to create the model formula and run it against the training DataFrame, then validate against the testing DataFrame. You should experiment with different versions of the model formula to see the impact of different combinations.
 
 ```python
 ## Create a new LR object for the model
@@ -354,7 +355,7 @@ plt.show()
 
 ## Shut down the Spark instance
 
-After you have finished running the application, you should shut down the notebook to release the resources by closing the tab or select **End Session** from the status panel at the bottom of the notebook.
+After you have finished running the application, shut down the notebook to release the resources by closing the tab or select **End Session** from the status panel at the bottom of the notebook.
 
 ## See also
 

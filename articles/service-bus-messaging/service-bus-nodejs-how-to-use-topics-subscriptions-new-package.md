@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: aschhab
 
 ---

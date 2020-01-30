@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: aparnag
+ms.reviewer: aparnag
 ms.custom: secdec18
 ---
 
@@ -95,9 +95,9 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 ### Customer scope
 
-Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
+Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer in a billing currency. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
 
-The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter.
+The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter. The budgets set at this scope are in the billing currency.
 
 ## Partner access to billing scopes in Cost Management
 
@@ -115,7 +115,7 @@ Regardless of the policy, partners can also view the costs if they have access t
 
 Partners use the following information to enable to the policy to view Azure usage charges for their customers.
 
-In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select a billing account and then select **Customers**. The list of customers is associated with the billing account.
+In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select the relevant Microsoft Partner Agreement billing account, and then select **Customers**. The list of customers is associated with the billing account.
 
 In the list of customers, select the customer that you want to allow to view costs.
 
@@ -132,7 +132,7 @@ When the cost policy is set to **Yes**, subscription users associated to the cus
 
 When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope.
 
-To view costs for the customer tenant, open Cost Management + Billing and then select Billing accounts. In the list of billing accounts, select a billing account.
+To view costs for the customer tenant, open **Cost Management + Billing** and select the relevant Microsoft Partner Agreement billing account.
 
 ![Select a billing account](./media/get-started-partners/select-billing-account.png)
 
@@ -184,7 +184,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | productID | Identifier for the product that has accrued charges by consumption or purchase. It is the concatenated key of productID and SKuID, as shown in the Partner Center. | The ID of the product. |
 | product | Name of the product that has accrued charges by consumption or purchase, as shown on the invoice. | The product name in the catalog. |
 | serviceFamily | Shows the service family for the product purchased or charged. For example, Storage or Compute. | N/A |
-| productOrderID | The identifier of the asset or Azure plan name that the subscription belongs to. For example, Azure Plan. | N/A |
+| productOrderID | The identifier of the asset or Azure plan name that the subscription belongs to. For example, Azure Plan. | CommerceSubscriptionID |
 | productOrderName | The name of the Azure plan that the subscription belongs to. For example, Azure Plan. | N/A|
 | consumedService | Consumed service (legacy taxonomy) as used in legacy EA usage details. | Service shown in the Partner Center. For example, Microsoft.Storage, Microsoft.Compute, and microsoft.operationalinsights. |
 | meterID | Metered identifier for measured consumption. | The ID of the used meter. |
@@ -192,7 +192,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | meterCategory | Identifies the top-level service for usage. | The top-level service for the usage. |
 | meterSubCategory | Defines the type or subcategory of Azure service that can affect the rate. | The type of Azure service that can affect the rate.|
 | meterRegion | Identifies the location of the datacenter for certain services that are priced based on datacenter location. | The regional location of a data center for services, where applicable and populated. |
-| subscription ID | Unique Microsoft generated identifier for the Azure subscription. | N/A |
+| subscription ID | Unique Microsoft generated identifier for the Azure subscription. | EntitlementID |
 | subscriptionName | Name of the Azure subscription. | N/A |
 | Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the term displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. | N/A |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third-party reseller, or third-party agency. | N/A |
@@ -208,7 +208,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | Location | Normalized location of the resource. | N/A |
 | effectivePrice | The effective unit price of the service, in pricing currency. Unique for a product, service family, meter, and offer. Used with pricing in the price sheet for the billing account. When there is tiered pricing or an included quantity, it shows the blended price for consumption. | The unit price after adjustments are made. |
 | Quantity | Measured quantity purchased or consumed. The amount of the meter used during the billing period. | Number of units. Ensure it matches the information in your billing system during reconciliation. |
-| unitOfMeasure | Identifies the unit that the service is charged in. For example, GB and hours. | Identifies the unit that the service is charged in. For example, GB, hours, and 10,000s. |
+| unitOfMeasure | Identifies the unit that the service is charged in. For example, GB and hours. | Identifies the unit that the service is charged in. For example, GB, hours, and 10,000 s. |
 | pricingCurrency | The currency defining the unit price. | The currency in the price list.|
 | billingCurrency | The currency defining the billed cost. | The currency of the customer's geographic region. |
 | chargeType | Defines the type of charge that the cost represents in Azure Cost Management like purchase and refund. | The type of charge or adjustment. Not available for current activity. |
@@ -252,15 +252,19 @@ You can also group and filter by the **PartnerEarnedCreditApplied** property usi
 
 ## Export cost data to Azure Storage
 
-Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a shared service subscription or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring.
+Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a shared service subscription or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring basis.
 
 Users with RBAC access to the subscription can also export the cost data to an Azure storage blob hosted in any subscription in the customer tenant.
 
 ### Create an export in a partner tenant or customer tenant
 
-In the Azure portal, sign in to the partner tenant or customer tenant and select **Cost Management + Billing**. Select an appropriate scope, for example a billing account, and then select **Cost Analysis**. When the page loads, select **Export**. select **View all exports** under Schedule Export.
+In the Azure portal, sign in to the partner tenant or customer tenant and select **Cost Management + Billing**. Select an appropriate scope, for example a Microsoft Partner Agreement billing account, and then select **Cost Analysis**. When the page loads, select **Export**. Select **View all exports** under Schedule Export.
 
-Next, select  **Add** and type the name and select an export type. select the **Storage** tab and enter required information.
+![Select Export and View all exports](./media/get-started-partners/export01.png)
+
+Next, select  **Add** and type the name and select an export type. Select the **Storage** tab and enter required information.
+
+![Add new export and select Storage tab](./media/get-started-partners/export02.png)
 
 When you create an export in the partner tenant, select the pay-as-you-go subscription in the partner tenant. Create an Azure Storage account using that subscription.
 
@@ -268,7 +272,9 @@ For RBAC users in the customer tenant, select a subscription in the customer ten
 
 Review the content and then select **Create** to schedule an export.
 
-To verify data in the export list, select the storage account name. On the storage account page, select **Containers** and then select the container. Navigate to the corresponding folder and select the CSV file. select **Download** to get the CSV file and open it. The exported data exported resembles cost data similar to usage details from the Azure portal.
+To verify data in the export list, select the storage account name. On the storage account page, select **Containers** and then select the container. Navigate to the corresponding folder and select the CSV file. Select **Download** to get the CSV file and open it. The exported data exported resembles cost data similar to usage details from the Azure portal.
+
+![Example of exported data](./media/get-started-partners/example-export-data.png)
 
 ## Cost Management REST APIs
 
@@ -395,7 +401,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 #### Delete a budget
 
 ```
-PUT
+DELETE
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 
