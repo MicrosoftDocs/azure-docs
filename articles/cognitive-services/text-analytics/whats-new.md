@@ -37,7 +37,7 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
     * URL
     * IP Address
 
-Access them using the [endpoints for NER v3](how-tos/text-analytics-how-to-entity-linking?tabs=version-3#sending-a-rest-api-request).
+Access them using the [endpoints for NER v3](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3#sending-a-rest-api-request).
 
 Entity linking supports English and Spanish. NER language support varies by the entity type. 
 
