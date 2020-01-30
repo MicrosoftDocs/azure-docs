@@ -38,6 +38,8 @@ landingContent:
         links:
         - text: Frequently asked questions
           url: faq.md
+        - text: Keys and values in App Config
+          url: concept-key-value
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -54,13 +56,13 @@ landingContent:
           url: quickstart-java-spring-app.md
       - linkListType: tutorial
         links:  
-        - text: Use dynamic configuration in ASP.NET Core
+        - text: Use dynamic config in ASP.NET Core
           url: enable-dynamic-configuration-aspnet-core.md
-        - text: Use dynamic configuration in .NET Core
+        - text: Use dynamic config in .NET Core
           url: enable-dynamic-configuration-dotnet-core.md
-        - text: Use dynamic configuration in .NET Framework
+        - text: Use dynamic config in .NET Framework
           url: enable-dynamic-configuration-dotnet.md
-        - text: Use dynamic configuration in Azure Functions
+        - text: Use dynamic config in Azure Functions
           url: enable-dynamic-configuration-azure-functions-csharp.md
       - linkListType: tutorial
         links:  
