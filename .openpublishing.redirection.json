@@ -36022,6 +36022,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/access-panel-workspaces.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-collections",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/application-access-self-service-how-to.md",
       "redirect_url": "/azure/active-directory/manage-apps/manage-self-service-access",
       "redirect_document_id": true
