@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -90,7 +90,7 @@ The following table shows connectivity locations and the service providers for e
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | du datamena, Megaport, Orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | 10G, 100G | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germany West Central | 10G, 100G | Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
-| **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | 10G, 100G | Equinix |
+| **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | 10G, 100G | Equinix, Megaport |
 | **Hong Kong SAR** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | East Asia | n/a | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Jakarta** | Telkom Indonesia | 4 | n/a | 10G | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | South Africa North | 10G | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Orange, Teraco |
@@ -103,7 +103,7 @@ The following table shows connectivity locations and the service providers for e
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia Southeast | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | n/a | 10G | C3ntro, Equinix, Megaport, Neutrona Networks |
 | **Milan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/a | 10G | |
-| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | n/a | Bell Canada, Cologix, Megaport, Telus, Zayo |
+| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | 2 | West India | n/a | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | 2 | West India | n/a | Airtel, Sify, Vodafone Idea |
 | **Munich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | n/a | 10G, 100G | |
@@ -155,7 +155,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Location** | **Service providers** |
 | --- | --- |
 | **Beijing** |China Telecom |
-| **Beijing2** | China Telecom, GDS |
+| **Beijing2** | China Telecom, China Unicom, GDS |
 | **Shanghai** |China Telecom |
 | **Shanghai2** | China Telecom, GDS |
 
@@ -200,7 +200,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **Cape Town** | Teraco | MTN |
 | **Chicago** | Equinix| Crown Castle, Spectrum Enterprise, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Crown Castle, Data Foundry, Spectrum Enterprise, Transtelco |
-| **Frankfurt** | Interxion | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
+| **Frankfurt** | Interxion | BICS, Cinia, Equinix, Nianet, QSC AG, Telekom Deutschland GmbH |
 | **Hamburg** | Equinix | Cinia |
 | **Hong Kong SAR** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |

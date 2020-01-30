@@ -330,12 +330,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
-
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
