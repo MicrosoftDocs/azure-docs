@@ -114,7 +114,9 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
     ```
 
         [!NOTE]
-       if you are using python client of version 0.4.0 or below, please use "Database" object instead of "ReadWriteDatabase". 
+        If you are using Python version 0.4.0 or below, use Database instead of ReadWriteDatabase.
+
+
 
 
    |**Setting** | **Suggested value** | **Field description**|
