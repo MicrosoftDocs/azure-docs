@@ -142,12 +142,12 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 4. A new window appears. Complete the sign-up process by choosing the correct subscription, resource group, and location to which you want to install Azure FarmBeats.
 
 5. Provide the email address that should receive any service alerts related to Azure FarmBeats in the **FarmBeats Service Alerts** section. Click Next at the bottom of the page to move to the **Dependencies** Tab.
-![Basics Tab](./media/install-azure-farmbeats/BasicsTab.png)
+![Basics Tab](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
 6. Copy the individual entries from the output of [AAD script](#create-an-aad-application) to the inputs in the AAD application section.
 
 7. Enter the [Sentinel account](#create-sentinel-account) user name and password in the Sentinel Account section. Click Next to move to the **Review + Create** Tab
-![Dependencies Tab](./media/install-azure-farmbeats/DependenciesTab.png)
+![Dependencies Tab](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
 
 8. Once the entered details are validated, SELECT **OK**. The Terms of use page appears. Review the terms and select **Create** to start the installation. You will automatically be redirected to a page where you can follow the progress of the installation.
 
