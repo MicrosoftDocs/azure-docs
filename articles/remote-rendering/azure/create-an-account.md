@@ -44,10 +44,10 @@ The samples and tutorials require that you provide the account ID and a key. For
     },
 ```
 
-The values for **`arrAccountId`** and the **`arrAccountKey`** can be found in the portal as described in the following steps:
+The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the portal as described in the following steps:
 
 * Go to the [Azure Portal](https://www.portal.azure.com)
-* Find your **"Remote Rendering Account"** - it should be in the **"Recent Resources"** list. You can also search for it in the search bar on the top. In that case, make sure that the subscription you want to use is selected in the Default subscription filter (filter icon next to search bar):
+* Find your **"Remote Rendering Account"** - it should be in the **"Recent Resources"** list. You can also search for it in the search bar at the top. In that case, make sure that the subscription you want to use is selected in the Default subscription filter (filter icon next to search bar):
 
 ![Subscription filter](./media/azure-subscription-filter.png)
 
@@ -55,7 +55,7 @@ Clicking on your account brings you to this screen, which shows the  **Account I
 
 ![Azure account ID](./media/azure-account-id.png)
 
-For the key, select **Access Keys** in the panel on the left side. The next page shows a primary and a secondary key:
+For the key, select **Access Keys** in the panel on the left. The next page shows a primary and a secondary key:
 
 ![Azure access keys](./media/azure-account-primary-key.png)
 
