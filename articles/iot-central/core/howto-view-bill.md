@@ -35,7 +35,7 @@ To complete this self-service process, follow these steps:
 
     ![Convert trial](media/howto-view-bill/convert.png)
 
-1. and then the Azure subscription to use for your application that uses a paid plan.
+1.  Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
 1. After you select **Convert**, your application now uses a paid plan and you start getting billed.
 
