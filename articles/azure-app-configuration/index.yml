@@ -32,9 +32,13 @@ landingContent:
           url: https://www.youtube.com/watch?v=DJqmA5PcfzE
       - linkListType: whats-new
         links:
+        - text: Azure update information
+          url: https://azure.microsoft.com/updates/?query=%22App%20Configuration%22
+      - linkListType: concept
+        links:
         - text: Frequently asked questions
           url: faq.md
-  - title: 'Create and code with Azure App Configuration'
+  - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
         links:
@@ -50,19 +54,19 @@ landingContent:
           url: quickstart-java-spring-app.md
       - linkListType: tutorial
         links:  
-        - text: Enable dynamic configuration in ASP.NET Core
+        - text: Use dynamic configuration in ASP.NET Core
           url: enable-dynamic-configuration-aspnet-core.md
-        - text: Enable dynamic configuration in .NET Core
+        - text: Use dynamic configuration in .NET Core
           url: enable-dynamic-configuration-dotnet-core.md
-        - text: Enable dynamic configuration in .NET Framework
+        - text: Use dynamic configuration in .NET Framework
           url: enable-dynamic-configuration-dotnet.md
-        - text: Enable dynamic configuration in Azure Functions
+        - text: Use dynamic configuration in Azure Functions
           url: enable-dynamic-configuration-azure-functions-csharp.md
       - linkListType: tutorial
         links:  
         - text: Integrate with a CI/CD pipeline
           url: integrate-ci-cd-pipeline.md
-  - title: 'Add feature flags to an app'
+  - title: Add feature flags to an app
     linkLists:
       - linkListType: quickstart
         links:
