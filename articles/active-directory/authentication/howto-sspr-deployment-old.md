@@ -106,37 +106,11 @@ Before deploying SSPR, you may opt to determine the number and the average cost 
 
 Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
+
+
 The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
 
-## Plan the deployment project
-
-Consider your organizational needs while you determine the strategy for this deployment in your environment.
-
-### Engage the right stakeholders
-
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
-
-#### Required administrator roles
-
-
-| Business Role/Persona| Azure AD Role (if necessary) |
-| - | - |
-| Level 1 helpdesk| Password administrator |
-| Level 2 helpdesk| User administrator |
-| SSPR administrator| Global administrator |
-
-
-### [Plan communications](#plan-communications)
-
-Communication is critical to the success of any new service. You should proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
-
-### [Plan a pilot](#plan-a-pilot)
-
-We recommend that the initial configuration of SSPR be in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-deployment-plans).
-
-To create a group, see how to [create a group and add members in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal). 
-
-## [Plan configuration](#plan-configuration)
+## Plan configuration
 
 The following settings are required to enable SSPR along with recommended values.
 
@@ -154,14 +128,14 @@ The following settings are required to enable SSPR along with recommended values
 | **On-premises integration** | Write back passwords to on-premises AD | Yes |
 |   | Allow users to unlock account without resetting password | Yes |
 
-### [SSPR properties](#sspr-properties) 
+### SSPR properties 
 
 When enabling SSPR, choose an appropriate security group in the pilot environment.
 
 * To enforce SSPR registration for everyone, we recommend using the **All** option.
 * Otherwise, select the appropriate Azure AD or AD security group.
 
-### [Authentication methods](#authentication-methods)
+### Authentication methods
 
 When SSPR is enabled, users can only reset their password if they have data present in the authentication methods that the administrator has enabled. Methods include phone, Authenticator app notification, security questions, etc. For more information, see [What are authentication methods?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods).
 
@@ -173,23 +147,23 @@ We recommend the following authentication method settings:
 
 Note: The user must have the authentication methods configured in the [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
 
-### [Registration settings](#registration-settings)
+### Registration settings
 
 Set **Require users to register when signing in** to **Yes**. This setting requires users to register when signing in, ensuring that all users are protected.
 
 Set **Number of days before users is asked to reconfirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
-### [Notifications settings](#notification-settings)
+### Notifications settings
 
 Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password is reset. It also ensures that all admins are aware when an admin changes a password. If users or admins receive a notification and they haven't initiated the change, they can immediately report a potential security issue.
 
-### [Customization settings](#customization-settings)
+### Customization settings
 
 It’s critical to customize the helpdesk email or URL to ensure users who experience problems can get help immediately. Set this option to a common helpdesk email address or web page that your users are familiar with. 
 
 For more information, see [Customize the Azure AD functionality for self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization).
 
-### [On-premises integration](#on-premesis-integration)
+### On-premises integration
 
 **Password Writeback** is enabled with [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) and writes password resets in the cloud back to an existing on-premises directory in real time. For more information, see [What is Password Writeback?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
 
@@ -222,8 +196,8 @@ At each stage of your deployment from initial pilot groups through organization-
 To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 The following table includes useful test scenarios you can use to document your organizations expected results based on your policies.
-<br>
 
+ 
 
 | Business case| Expected results |
 | - | - |
@@ -253,6 +227,7 @@ To enable your support team’s success, you can create a FAQ based on questions
 | User can't set a new password| A user completes verification during the password reset flow but can't set a new password. |
 | User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Intune device policy isn't enabled |
 
+
 ### Plan roll back
 
 To roll back the deployment:
@@ -263,20 +238,9 @@ To roll back the deployment:
 
 * For everyone, disable SSPR for the Azure AD tenant
 
-
 ## Deploy SSPR
-Before deploying, ensure that you have done the following:
 
-1. Created and begun executing your [communication plan](#communication-plan).
-
-1. Determined the appropriate [configuration settings](#plan-configuration).
-
-1. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
-
-1. [Determined configuration settings](#plan-configuration) for registration and self-service.
-
-1. [Configured password writeback](#on-premesis-integration) if you have a hybrid environment.
-
+[View this process as a video on YouTube](https://youtu.be/Pa0eyqjEjvQ). 
 
 ### Enable Groups for SSPR
 
@@ -286,7 +250,7 @@ Access the Azure portal with an administrator account.
 
 2. On the Properties page under the option for **Self-Service Password Reset Enabled**, choose **Selected**.
 
-3. Choose **Select group**, then select your group. When ready, select **Save**. See [SSPR properties](#sspr_properties)
+3. Choose **Select group**, then select your group. When ready, select **Save**. See [SSPR properties](#_SSPR_properties)
 
 4. If you want all users enabled, select **All**.
 
@@ -294,15 +258,15 @@ Access the Azure portal with an administrator account.
 
  Configure the following settings as per your plan, and then select Save.
 
-1. [Authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+1. [Authentication methods](#_Authentication_methods)
 
-1. [Registration settings](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)
+1. [Registration settings](#_Registration_settings)
 
-1. [Notification settings](#notification-settings)
+1. [Notification settings](#_Notification_Settings)
 
-1. [Customization settings](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+1. [Customization settings](#_Customization_settings)
 
-1. [On-premises integration](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
+1. [On-premises integration](#_On-premesis_integration)
 
 ### Enable SSPR in Windows
 For machines running Windows 7, 8, 8.1, and 10 you can [enable users to reset their password at the Windows login screen](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows)
@@ -315,8 +279,8 @@ Azure AD can provide additional information on your SSPR performance through aud
 
 You can use pre-built reports on Azure portal to measure the SSPR performance. If you're appropriately licensed, you can also create custom queries. For more information, see [Reporting options for Azure AD password management](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)
 
-> [!NOTE]
->  You must be [a global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
+[!NOTE]
+You must be [a global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
 
 Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory), Splunk, or ArcSight.
 
