@@ -98,7 +98,7 @@ Depending on your language, these other files are created:
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
 
-# [PowerShell](#tab/powershell)
+<!-- # [PowerShell](#tab/powershell)
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
  
@@ -107,7 +107,7 @@ Depending on your language, these other files are created:
 * A project-level requirements.txt file that lists packages required by Functions.
     
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
-    
+     -->
 ---
 
 At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).

@@ -18,7 +18,7 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    + **Select Function App in Azure**: Choose `+ Create new Function App` (not `Advanced`). This article doesn't support the [advanced publishing flow](functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
+    + **Select Function App in Azure**: Choose `+ Create new Function App` (not `Advanced`). This article doesn't support the [advanced publishing flow](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
     
     >[!IMPORTANT]
     > Publishing to an existing function app overwrites the content of that app in Azure. 
