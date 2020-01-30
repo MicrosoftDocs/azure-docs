@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/30/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -15,7 +15,7 @@ ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign in (preview)
+# Enable passwordless security key sign-in (preview)
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
 
@@ -76,13 +76,13 @@ In the example below a user has already provisioned their FIDO2 security key. Th
 
 ## Troubleshooting and feedback
 
-If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
+If you'd like to share feedback or encounter issues while previewing this feature, share via the Windows Feedback Hub app using the following steps:
 
 1. Launch **Feedback Hub** and make sure you're signed in.
 1. Submit feedback under the following categorization:
-   1. Category: Security and Privacy
-   1. Subcategory: FIDO
-1. To capture logs, use the option: **Recreate my Problem**
+   - Category: Security and Privacy
+   - Subcategory: FIDO
+1. To capture logs, use the option to **Recreate my Problem**
 
 ## Known issues
 
