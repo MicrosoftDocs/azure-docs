@@ -9,7 +9,7 @@ ms.date: 1/27/2020
 
 You can use the [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) service to seed your large initial MARS backups offline (without using network) to an Azure Recovery Services vault.  This saves both time and network bandwidth, that would otherwise be consumed moving large amounts of backup data online over a high-latency network. This enhancement is currently in preview. Azure Data Box based Offline Backup provides two distinct advantages over the [Azure Import/Export Service-based offline backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-1. No need to procure your own Azure-compatible disks and connectors. Azure Data Box service ships the disks associated with the selected [Data Box SKU](https://docs.microsoft.com/rest/api/databoxedgegateway/skus/list)
+1. No need to procure your own Azure-compatible disks and connectors. Azure Data Box service ships the disks associated with the selected [Data Box SKU](https://azure.microsoft.com/services/databox/data/)
 
 2. Azure Backup (MARS Agent) can directly write backup data onto the supported SKUs of Azure Data Box. This eliminates the need for provisioning a staging location for your initial backup data and the need for utilities to format and copy that data onto the disks.
 
@@ -49,7 +49,7 @@ The process to seed data from the MARS Agent using Azure Data Box is supported o
 
 ## Backup Data Size and supported Data Box SKUs
 
-| **Backup Data Size (post compression by MARS) per server** | **Azure Data Box SKU**                                       |
+| Backup Data Size (post compression by MARS)* per server | Supported Azure Data Box SKU                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <= 7.2 TB                                                    | [Azure   Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
 | > 7.2 TB and <= 80 TB**                                      | [Azure   Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
@@ -67,7 +67,7 @@ The process to seed data from the MARS Agent using Azure Data Box is supported o
 * The process requires an Azure Subscription
 * The process requires that the user designated to perform the offline backup policy is an “Owner” of the Azure Subscription
 * The Data Box job and the Recovery Services Vault (to which the data needs to be seeded) are required to be in the same subscriptions.
-* It is recommended that the target storage account and the Recovery Services Vault be in the same region. However, this is not necessary.
+* It is recommended that the target storage account associated with the Azure Data Box job and the Recovery Services Vault be in the same region. However, this is not necessary.
 
 ### Get Azure PowerShell 3.7.0
 
@@ -120,7 +120,7 @@ Azure PowerShell could have also been installed using an msi file. To remove it,
 The Offline backup process using MARS and Azure Data Box requires that the required Data Box devices are in “Delivered” state before triggering Offline Backup using the MARS Agent. Refer to the [Backup Data Size and supported Data Box SKUs](#backup-data-size-and-supported-data-box-skus) to order the most suitable SKU for your requirement. Follow the steps in [this article](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) to order and receive your Data Box devices.
 
 >[!IMPORTANT]
->Do not select BlobStorage for the Account kind. The MARS agent requires an account that supports Page Blobs which is not supported when BlobStorage is selected.
+>Do not select BlobStorage for the Account kind. The MARS agent requires an account that supports Page Blobs which is not supported when BlobStorage is selected. We strongly advise selecting *Storage V2* (*general purpose v2*) as the Account kind when creating the target storage account for your Azure Data Box job.
 
 ![Choose account kind in instance details](./media/offline-backup-azure-data-box/instance-details.png)
 
@@ -145,7 +145,7 @@ Depending on the Azure Data Box SKU you have ordered, perform the steps covered 
 
 If you ordered one or more Azure Data Box Disks (up to 8 TB each), follow the steps mentioned here to [Unpack, connect, and unlock your Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
 
->[!NOTE] 
+>[!NOTE]
 >It is possible that the server with the MARS Agent does not have a USB port. In that situation you can connect your Azure Data Box Disk to another server/client and expose the root of the device as a network share.
 
 ### Setup Azure Data Box
