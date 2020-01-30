@@ -37,9 +37,9 @@ If you would like to request support for automatic provisioning for a given app,
 
 ## Configuring an application for Automatic Provisioning
 
-*Automatic* means that an Azure AD provisioning connector has been developed for this application. For more information on the Azure AD provisioning service and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
+*Automatic* means that an Azure AD provisioning connector has been developed for this application. For more information on the Azure AD provisioning service and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-For more information on how to provision specific users and groups to an application, see [Managing user account provisioning for enterprise apps](configure-automatic-user-provisioning-portal.md).
+For more information on how to provision specific users and groups to an application, see [Managing user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 
 The actual steps required to enable and configure automatic provisioning varies depending on the application.
 
@@ -51,5 +51,5 @@ App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps w
 An important thing to consider when setting up provisioning is to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. This includes setting the “matching property” that is used to uniquely identify and match users/groups between the two systems. See the link in *Next Steps* for more information on attribute mappings.
 
 ## Next steps
-[Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](customize-application-attributes.md)
+[Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](../app-provisioning/customize-application-attributes.md)
 
