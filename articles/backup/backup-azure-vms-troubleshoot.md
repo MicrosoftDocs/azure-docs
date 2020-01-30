@@ -274,6 +274,6 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
 Get more information on how to set up a static IP through PowerShell:
 
-* [How to add a static internal IP to an existing VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [How to add a static internal IP to an existing VM](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
