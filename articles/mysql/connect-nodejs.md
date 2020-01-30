@@ -10,19 +10,17 @@ ms.topic: quickstart
 ms.date: 12/02/2019
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
-This quickstart demonstrates how to connect to an Azure Database for MySQL using [Node.js](https://nodejs.org/) from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using Node.js and that you are new to working with Azure Database for MySQL.
+In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
+
+This topic assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL.
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-You also need to:
-- Install the [Node.js](https://nodejs.org) runtime.
-- Install [mysql](https://www.npmjs.com/package/mysql) package to connect to MySQL from the Node.js application. 
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## Install Node.js and the MySQL connector
-Depending on your platform, follow the instructions in the appropriate section to install Node.js. Use npm to install the mysql package and its dependencies into your project folder.
+Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql](https://www.npmjs.com/package/mysql) package and its dependencies into your project folder.
 
 ### **Windows**
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.

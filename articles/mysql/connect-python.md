@@ -12,14 +12,15 @@ ms.custom: seo-python-october2019
 ---
 
 # Quickstart: Use Python to connect and query data with Azure Database for MySQL
-This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. You can use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. 
 
-This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL.
+In this quickstart, you connect to an Azure Database for MySQL by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
-## Create an Azure Database for MySQL 
-Create an Azure Database for MySQL server and database by following the instructions at 
-- [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or 
-- [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md) 
+This topic assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL.
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## Install Python and the MySQL connector
 Install Python and the MySQL connector for Python on your computer by using the following steps: 
