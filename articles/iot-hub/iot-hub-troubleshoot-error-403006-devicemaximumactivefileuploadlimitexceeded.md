@@ -23,7 +23,7 @@ Your file upload request fails with the error code **403006** and a message "Num
 
 Each device client is limited to [10 concurrent file uploads](./iot-hub-devguide-quotas-throttling.md#other-limits). 
 
-You can easily exceed the limit if your device doesn't notify IoT Hub when file uploads are completed. This problem is commonly caused by a unreliable device side network.
+You can easily exceed the limit if your device doesn't notify IoT Hub when file uploads are completed. This problem is commonly caused by an unreliable device side network.
 
 ## Solution
 

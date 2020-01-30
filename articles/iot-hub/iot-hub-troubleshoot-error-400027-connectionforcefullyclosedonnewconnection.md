@@ -17,11 +17,11 @@ This article describes the causes and solutions for **400027 ConnectionForcefull
 
 ## Symptoms
 
-Your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code **400027**. 
+Your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code **400027**.
 
 ## Cause
 
-Another client created a new connection to IoT Hub using the same credentials, so IoT Hub closed the previous connection. IoT Hub doesn't allow more than one client to connect to using one set of credentials.
+Another client created a new connection to IoT Hub using the same credentials, so IoT Hub closed the previous connection. IoT Hub doesn't allow more than one client to connect using the same set of credentials.
 
 ## Solution
 
