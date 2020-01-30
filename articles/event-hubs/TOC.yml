@@ -191,6 +191,7 @@
     - name: Resource Manager exceptions
       href: resource-manager-exceptions.md
 - name: Reference
+  items:
   - name: .NET
     items:
     - name: Client library

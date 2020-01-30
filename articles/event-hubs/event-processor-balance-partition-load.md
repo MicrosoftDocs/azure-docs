@@ -88,6 +88,6 @@ By default, event processor or consumer is thread safe and behaves in a synchron
 See the following quick starts:
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
+- [Java](event-hubs-java-get-started-send.md)
 - [Python](get-started-python-send-v2.md)
 - [JavaScript](get-started-node-send-v2.md)
