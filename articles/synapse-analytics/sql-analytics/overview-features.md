@@ -27,7 +27,7 @@ SQL Pools and SQL On-Demand capabilities enable you to use different database ob
 |   | SQL Pool | SQL On-demand |
 | --- | --- | --- |
 | Tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | No, SQL On-Demand capability can query only external data placed on [Azure Storage](#storage-options) |
-| Views | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql) | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql) |
+| Views | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL Pool. | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL On-Demand. |
 | Schemas | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) |
 | Temporary tables | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) |
 | Procedures | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-procedure-transact-sql) | No |
