@@ -35,7 +35,7 @@
     href: policy-samples.md
 - name: Concepts
   items:
-  - name: NAT Service
+  - name: NAT
     href: nat-overview.md
   - name: Security groups
     href: security-overview.md
@@ -95,7 +95,7 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
-    - name: NAT Service
+    - name: NAT
       items:
       - name: Create NAT gateway - Portal
         href: quickstart-create-nat-gateway-portal.md
