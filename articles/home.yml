@@ -755,6 +755,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - developerTools
+        - devops
       url: integrations/index.yml
     # Card
     - title: SDKs
@@ -1459,36 +1460,3 @@ tools:
     - title: Azure portal
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       url: azure-portal/index.yml
-
-additionalContent:
-  sections:
-    - title: DevOps
-      items:
-        # Card
-        - title: Azure DevOps
-          summary: Services for teams to share code, track work, and ship software
-          url: https://docs.microsoft.com/azure/devops/
-        # Card
-        - title: Azure Pipelines
-          summary: Continuously build, test, and deploy to any platform and cloud
-          url: https://docs.microsoft.com/azure/devops/pipelines/
-        # Card
-        - title: Ansible on Azure
-          summary: Automate cloud provisioning, configuration management, and application deployments
-          url: ansible/index.yml
-        # Card
-        - title: Chef Sofware on Azure
-          summary: Deploy and manage Azure resources
-          url: chef/index.yml
-        # Card
-        - title: Jenkins on Azure
-          summary: Automate continuous integration and continuous delivery on Azure
-          url: jenkins/index.yml
-        # Card
-        - title: Terraform on Azure
-          summary: Reliably provision virtual machines and other infrastructure on Azure
-          url: terraform/index.yml
-        # Card
-        - title: Azure DevOps Projects
-          summary: Set up everything you need to develop, deploy, and monitor your applications
-          url: devops-project/index.yml
