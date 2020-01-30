@@ -16,9 +16,34 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## Named Entity Recognition v3 public preview - February 2020
+
+Additional new types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and PII entities found in text. It includes:
+
+* Recognition of the following general entity types (English only):
+    * PersonType
+    * Product
+    * Event
+    * Geopolitical Entity (GPE) as a subtype under Location
+    * Skill
+
+* Recognition of the following personal information entity types (English only):
+    * Person
+    * Organization
+    * Age as a subtype under Quantity
+    * Date as a subtype under DateTime
+    * Email 
+    * Phone Number (US only)
+    * URL
+    * IP Address
+
+> [!div class="nextstepaction"]
+> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
+
+
 ## Named Entity Recognition v3 public preview - October 2019
 
-The next version of Named Entity Recognition(NER) is now available for public preview, and provides expanded detection and categorization of entities found in text. It provides:
+The next version of Named Entity Recognition (NER) is now available for public preview, and provides expanded detection and categorization of entities found in text. It provides:
 
 * Recognition of the following new entity types:
     * Phone number
