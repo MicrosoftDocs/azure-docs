@@ -25,7 +25,7 @@ You can view your authentication details on the Azure portal. Go to your account
 
 ## Configure Azure AD App Registration
 
-1. Select **Azure Active Directory** from list of Azure services in Azure portal.  Select **App registrations** and click **New Registration**.  Next. Enter **Name**, choose **Support account type**, and click **Register**.  If you already have a registered app, proceed to step 2. 
+1. Select **Azure Active Directory** from list of Azure services in Azure portal.  Select **App registrations** and click **New Registration**.  Next. Enter **Name**, choose **Support account type**, and click **Register**.  If you already have a registered app, continue to step 2. 
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
@@ -41,7 +41,7 @@ You can view your authentication details on the Azure portal. Go to your account
 
 4. Complete step a or b, depending on your authentication method. 
 
-    1. If your application uses user-token authentication with the Azure Maps Web SDK, enable oauth2AllowImplicitFlow by setting it to true in the Manifest section of your app registration detail page. 
+    1. If your application uses user-token authentication with the Azure Maps Web SDK, enable `oauth2AllowImplicitFlow`. To enable `oauth2AllowImplicitFlow`, set it to true in the Manifest section of your app registration. 
     
        ![App manifest](./media/how-to-manage-authentication/app-manifest.png)
 
