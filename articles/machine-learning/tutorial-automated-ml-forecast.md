@@ -97,7 +97,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
 After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
 
-1. Populate the **Configure Run** form as follows:
+1. Populate the **Configure run** form as follows:
     1. Enter an experiment name: `automl-bikeshare`
 
     1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
@@ -140,11 +140,11 @@ Complete the setup for your automated ML experiment by specifying the machine le
         Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
         Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
         
-        Select **OK**.
+        Select **Save**.
 
 ## Run experiment
 
-To run your experiment, select **Create**. The **Run Details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
+To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
@@ -167,7 +167,7 @@ Automated machine learning in Azure Machine Learning studio allows you to deploy
 
 For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
 
-Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab.
+Once the run is complete, navigate back to the **Run detail** page and select the **Models** tab.
 
 In this experiment context, **StackEnsemble** is considered the best model, based on the **Normalized root mean squared error** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
