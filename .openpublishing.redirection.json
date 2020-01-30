@@ -36712,11 +36712,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md",
-      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
       "redirect_url": "/azure/application-gateway/create-ssl-portal",
       "redirect_document_id": true
