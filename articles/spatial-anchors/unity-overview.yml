@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Building in Unity with Azure Spatial Anchors
 metadata:
-  document_id:
   title: Azure Spatial Anchors Unity overview
   meta.description: Learn how Azure Spatial Anchors can be used within Unity Apps.
   services: azure-spatial-anchors

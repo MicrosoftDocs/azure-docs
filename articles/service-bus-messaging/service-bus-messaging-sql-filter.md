@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
-description: Details about SQLFilter grammar.
+description: This article provides details about SQLFilter grammar. A SqlFilter supports a subset of the SQL-92 standard.  
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru

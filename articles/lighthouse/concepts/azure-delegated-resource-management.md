@@ -1,7 +1,7 @@
 ---
 title: Azure delegated resource management
 description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
-ms.date: 07/11/2019
+ms.date: 01/30/2020
 ms.topic: conceptual
 ---
 
@@ -34,9 +34,12 @@ At a high level, here's how Azure delegated resource management works:
    - [Deploy an Azure Resource Manager template to the customer's tenant](../how-to/onboard-customer.md) for one or more specific subscriptions or resource groups
 3. Once the customer has been onboarded, authorized users can sign in to your service provider tenant and perform management tasks at the given customer scope, based on the access that you defined.
 
+> [!NOTE]
+> Delegation of a subscription between two tenants across separate clouds is not supported.
+
 ## Support for Azure delegated resource management
 
-If you need help related to Azure delegated resource management, you can open a support request in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Delegated Resource Management** (under **Monitoring & Management**).
+If you need help related to Azure delegated resource management, you can open a support request in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Lighthouse** (under **Monitoring & Management**).
 
 ## Next steps
 

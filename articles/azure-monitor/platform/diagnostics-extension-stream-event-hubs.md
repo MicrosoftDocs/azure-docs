@@ -17,8 +17,7 @@ Supported data types include:
 
 * Event Tracing for Windows (ETW) events
 * Performance counters
-* Windows event logs
-* Application logs
+* Windows event logs, including application logs in the Windows event log
 * Azure Diagnostics infrastructure logs
 
 This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:
@@ -198,7 +197,7 @@ In this example, the sink is applied to logs and is filtered only to error level
 ## Deploy and update a Cloud Services application and diagnostics config
 Visual Studio provides the easiest path to deploy the application and Event Hubs sink configuration. To view and edit the file, open the *.wadcfgx* file in Visual Studio, edit it, and save it. The path is **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx**.  
 
-At this point, all deployment and deployment update actions in Visual Studio, Visual Studio Team System, and all commands or scripts that are based on MSBuild and use the **/t:publish** target include the *.wadcfgx* in the packaging process. In addition, deployments and updates deploy the file to Azure by using the appropriate Azure Diagnostics agent extension on your VMs.
+At this point, all deployment and deployment update actions in Visual Studio, Visual Studio Team System, and all commands or scripts that are based on MSBuild and use the `/t:publish` target include the *.wadcfgx* in the packaging process. In addition, deployments and updates deploy the file to Azure by using the appropriate Azure Diagnostics agent extension on your VMs.
 
 After you deploy the application and Azure Diagnostics configuration, you will immediately see activity in the dashboard of the event hub. This indicates that you're ready to move on to viewing the hot-path data in the listener client or analysis tool of your choice.  
 
@@ -212,14 +211,72 @@ In the following figure, the Event Hubs dashboard shows healthy sending of diagn
 >
 
 ## View hot-path data
-As discussed previously, there are many use cases for listening to and processing Event Hubs data.
+As discussed previously, there are many use cases for listening to and processing Event Hubs data. One simple approach is to create a small test console application to listen to the event hub and print the output stream. 
 
-One simple approach is to create a small test console application to listen to the event hub and print the output stream. You can place the following code, which is explained in more detail
-in [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in a console application.  
+#### [.NET SDK latest (5.0.0 or later)](#tab/latest)
+You can place the following code, which is explained in more detail in [Get started with Event Hubs](../../event-hubs/get-started-dotnet-standard-send-v2.md)), in a console application.
 
-Note that the console application must include the [Event Processor Host NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
+```csharp
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
+namespace Receiver1204
+{
+    class Program
+    {
+        private static readonly string ehubNamespaceConnectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
+        private static readonly string eventHubName = "EVENT HUB NAME";
+        private static readonly string blobStorageConnectionString = "AZURE STORAGE CONNECTION STRING";
+        private static readonly string blobContainerName = "BLOB CONTAINER NAME";
 
-Remember to replace the values in angle brackets in the **Main** function with values for your resources.   
+        static async Task Main()
+        {
+            // Read from the default consumer group: $Default
+            string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
+
+            // Create a blob container client that the event processor will use 
+            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
+
+            // Create an event processor client to process events in the event hub
+            EventProcessorClientOptions options = new EventProcessorClientOptions { }
+            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
+
+            // Register handlers for processing events and handling errors
+            processor.ProcessEventAsync += ProcessEventHandler;
+            processor.ProcessErrorAsync += ProcessErrorHandler;
+
+            // Start the processing
+            await processor.StartProcessingAsync();
+
+            // Wait for 10 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            // Stop the processing
+            await processor.StopProcessingAsync();
+        }
+
+        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            return Task.CompletedTask;
+        }
+
+        static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+        {
+            Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+            Console.WriteLine(eventArgs.Exception.Message);
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+#### [.NET SDK legacy (4.1.0 or earlier)](#tab/legacy)
+
+You can place the following code, which is explained in more detail in [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in a console application. Note that the console application must include the [Event Processor Host Nuget package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). Remember to replace the values in angle brackets in the **Main** function with values for your resources.   
 
 ```csharp
 //Console application code for EventHub test client
@@ -301,6 +358,7 @@ namespace EventHubListener
     }
 }
 ```
+---
 
 ## Troubleshoot Event Hubs sinks
 * The event hub does not show incoming or outgoing event activity as expected.
@@ -308,7 +366,7 @@ namespace EventHubListener
     Check that your event hub is successfully provisioned. All connection info in the **PrivateConfig** section of *.wadcfgx* must match the values of your resource as seen in the portal. Make sure that you have a SAS policy defined ("SendRule" in the example) in the portal and that *Send* permission is granted.  
 * After an update, the event hub no longer shows incoming or outgoing event activity.
 
-    First, make sure that the event hub and configuration info is correct as explained previously. Sometimes the **PrivateConfig** is reset in a deployment update. The recommended fix is to make all changes to *.wadcfgx* in the project and then push a complete application update. If this is not possible, make sure that the diagnostics update pushes a complete **PrivateConfig** that includes the SAS key.  
+    First, make sure that the event hub and configuration info are correct as explained previously. Sometimes the **PrivateConfig** is reset in a deployment update. The recommended fix is to make all changes to *.wadcfgx* in the project and then push a complete application update. If this is not possible, make sure that the diagnostics update pushes a complete **PrivateConfig** that includes the SAS key.  
 * I tried the suggestions, and the event hub is still not working.
 
     Try looking in the Azure Storage table that contains logs and errors for Azure Diagnostics itself: **WADDiagnosticInfrastructureLogsTable**. One option is to use a tool such as [Azure Storage Explorer](https://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
@@ -384,7 +442,7 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
 </ServiceConfiguration>
 ```
 
-Equivalent JSON settings for virtual machines is as follows:
+Equivalent JSON settings for virtual machines are as follows:
 
 Public Settings:
 ```JSON

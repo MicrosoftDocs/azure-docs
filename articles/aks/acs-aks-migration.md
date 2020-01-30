@@ -41,7 +41,7 @@ In this article we will summarize migration details for:
 > * Ensure valid quotas
 > * High Availability and business continuity
 > * Considerations for stateless applications
-> * Considerations for statefull applications
+> * Considerations for stateful applications
 > * Deployment of your cluster configuration
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
@@ -83,9 +83,9 @@ When migrating clusters you may have attached external Azure services. These do 
 
 ## Ensure valid quotas
 
-Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. You may need to request an increase in [vCPU quota](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+Because additional virtual machines will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. You may need to request an increase in [vCPU quota](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
-You may need to request an increase for [Network quotas](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) to ensure you don't exhaust IPs. See [networking and IP ranges for AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) for additional information.
+You may need to request an increase for [Network quotas](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) to ensure you don't exhaust IPs. See [networking and IP ranges for AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) for additional information.
 
 For more information, see [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
 
@@ -107,7 +107,7 @@ To complete the migration, you'll want to point clients to the new services that
 
 Stateless application migration is the most straightforward case. Apply your resource definitions (YAML or Helm) to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
 
-### Considers for stateful applications
+### Considerations for stateful applications
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
@@ -157,7 +157,7 @@ Some open-source tools can help you create managed disks and migrate volumes bet
 
 ### Deployment of your cluster configuration
 
-We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
+We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
 If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 
@@ -173,5 +173,5 @@ In this article we summarized migration details for:
 > * Ensure valid quotas
 > * High Availability and business continuity
 > * Considerations for stateless applications
-> * Considerations for statefull applications
+> * Considerations for stateful applications
 > * Deployment of your cluster configuration

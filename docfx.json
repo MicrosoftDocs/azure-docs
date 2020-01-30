@@ -241,7 +241,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "erhopf",
+        "articles/cognitive-services/Speech-Service/**/*.md": "IEvangelist",
         "articles/cognitive-services/text-analytics/**/*.md": "aahill",
         "articles/container-instances/**/*.md": "dlepow",
         "articles/container-registry/**/*.md": "dlepow",
@@ -293,6 +293,7 @@
         "articles/application-insights/**/*.md": "https://feedback.azure.com/forums/357324-application-insights",
         "articles/automation/**/*.md": "https://feedback.azure.com/forums/246290-automation",
         "articles/availability-zones/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/azure-app-configuration/**/*.md": "https://github.com/Azure/AppConfiguration/issues",
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
@@ -508,7 +509,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "erhopf",
+        "articles/cognitive-services/Speech-Service/**/*.md": "dapine",
         "articles/cognitive-services/text-analytics/**/*.md": "aahi",
         "articles/container-instances/**/*.md": "danlep",
         "articles/container-registry/**/*.md": "danlep",
@@ -602,7 +603,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "personalizer",
         "articles/cognitive-services/QnAMaker/**/*.md": "qna-maker",
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
-        "articles/cognitive-services/Speech-Service/**/*.md": "bing-speech",
+        "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
         "articles/cognitive-services/Translator/**/*.md": "translator-text"
       },
@@ -715,6 +716,9 @@
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
+        ],
+        "articles/active-directory/**/*.md": [
+          "binaryRatingUpdate"
         ]
       },
       "learn_banner_products": {

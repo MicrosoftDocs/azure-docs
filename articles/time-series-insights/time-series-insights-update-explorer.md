@@ -43,7 +43,7 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 
 ## 1. Environment panel
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply click the Time Series Insights environment you want to use to immediately be taken there.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply select the Time Series Insights environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -70,7 +70,7 @@ The Azure Time Series Insights Preview supports full create, read, update, and d
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
 * **Time Series Model instance**: Instances are the time series themselves. In most cases, they're the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
-To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
+To learn more about the Time Series Model, read [Times Series Models](./time-series-insights-update-tsm.md).
 
 ## 3. Hierarchy tree and search panel
 
@@ -93,7 +93,7 @@ Additionally, The explorations control lets you create time shifts and scatter p
   [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
-> If you see the following message, the instance doesn't have any data during the time span selected. To resolve the issue, increase the time span or confirm that the instance is pushing data.
+> If the following message appears, the instance doesn't have any data during the time span selected. To resolve the issue, increase the time span or confirm that the instance is pushing data.
 >
 > ![No data notification](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
@@ -105,9 +105,9 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Chart type**: Controls which data elements are available for visualization.
 
-1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
+1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
-1. **Zoom and pan**: Click this control to zoom and pan the chart.
+1. **Zoom and pan**: Select this control to zoom and pan the chart.
 
 1. **Y-axis control**: Cycles through the available y-axis view options:
 
@@ -117,15 +117,15 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Marker element**: The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and click **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
+You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and then select **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
 
   [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-After you perform the **Zoom** action, you see your selected data set. Select the format control to cycle through the three y-axis representations of your Time Series Insights data.
+After you perform the **Zoom** action, your selected data set will be displayed. Select the format control to cycle through the three y-axis representations of your Time Series Insights data.
 
   [![Preview chart y-axis](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-Here, you can see an example of an **overlapping chart**:
+Here, an example of an **overlapping chart** is provided:
 
   [![Overlapping chart option](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
@@ -202,7 +202,7 @@ Azure Time Series Insights Preview supports two themes:
 
 This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the generally available product and Preview in combination. We’ve added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer. 
 
-Instead of the hierarchy, you see the Time Series Insights terms panel, where you define queries in your environment. Use it to filter your data based on a predicate.
+Instead of the hierarchy, the Time Series Insights terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 
   [![Where query panel](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
@@ -217,7 +217,7 @@ The Time Series Insights Preview terms editor panel takes the following paramete
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
 | `HAS` | String | Only constant string literals are allowed on the right side. Empty string and NULL aren't allowed. |
 
-To learn more about supported query operations and data types, see [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+To learn more about supported query operations and data types, read [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### Examples of where clauses
 

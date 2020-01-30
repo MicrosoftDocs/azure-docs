@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -51,7 +51,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
-To see all recent telemetry logs query:
+To read all recent telemetry logs query:
 
 ```Kusto
 AzureDiagnostics

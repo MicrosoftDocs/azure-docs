@@ -21,7 +21,7 @@ ms.reviewer: johndeu
 # Indexing Media Files with Azure Media Indexer
 
 > [!NOTE]
-> The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> The [Azure Media Indexer](media-services-index-content.md) media processor will be retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
 

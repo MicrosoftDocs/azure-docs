@@ -23,10 +23,12 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes 2.3 Only| Yes | No | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes 2.3 Only | Yes | No | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+
+\* HBase clusters can only be configured for schedule-based scaling, not load-based.
 
 ## How it works
 

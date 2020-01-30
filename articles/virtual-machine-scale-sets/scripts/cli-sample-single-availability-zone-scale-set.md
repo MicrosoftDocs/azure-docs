@@ -1,19 +1,11 @@
 ---
 title: Azure CLI Samples - Single-zone scale set
 description: This script creates an Azure virtual machine scale set running Ubuntu in a single Availability Zone.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc

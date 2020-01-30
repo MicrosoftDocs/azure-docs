@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.custom: seodec18
 ---
 
@@ -23,9 +23,9 @@ This article describes how to use the Azure portal to add an event source that r
 ## Prerequisites
 
 - Create a Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./time-series-insights-update-create-environment.md).
-- Create an event hub. See [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
+- Create an event hub. Read [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
 - The event hub must have active message events sent to it. Learn how to [Send events to Azure Event Hubs by using the .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
-- Create a dedicated consumer group in the event hub that the Time Series Insights environment can consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to see failures. There's a limit of 20 consumer groups per event hub. For details, see the [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md).
+- Create a dedicated consumer group in the event hub that the Time Series Insights environment can consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. There's a limit of 20 consumer groups per event hub. For details, read the [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md).
 
 ### Add a consumer group to your event hub
 

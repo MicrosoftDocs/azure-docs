@@ -166,9 +166,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-You can also find the `input_datasets` from experiments by using [Azure Machine Learning Studio (classic)](https://ml.azure.com/). 
+You can also find the `input_datasets` from experiments by using [Azure Machine Learning studio](https://ml.azure.com/). 
 
-The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio (classic). For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
+The following image shows where to find the input dataset of an experiment on Azure Machine Learning studio. For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
 
 ![Input datasets](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -180,7 +180,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio (classic)](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
+After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning studio](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
 
 ![Input datasets models](./media/how-to-version-track-datasets/dataset-models.png)
 
