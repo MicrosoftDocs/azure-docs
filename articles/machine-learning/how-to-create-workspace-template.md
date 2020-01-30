@@ -105,9 +105,13 @@ az group deployment create \
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## Enable encryption and use existing Azure KeyVault
+## Advanced template
 
-The following example template demonstrates how you can create a workspace with encryption enabled. It also demonstrates how you can use existing resources such as Azure KeyVault.
+The following example template demonstrates how you to create a workspace with the following settings:
+
+* Enable HBI for the workspace
+* Enable encryption for the workspace
+* Uses an existing Azure KeyVault
 
 [TBD - reference template here]
 
