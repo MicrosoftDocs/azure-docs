@@ -270,6 +270,8 @@ The following example shows how to read metric data on the metric supporting mul
 
 ```
 
+---
+
 ## Analyzing log data
 
 Data in Azure Monitor Logs is stored in tables. Azure Storage stores data in the following tables.
@@ -314,7 +316,7 @@ Log entries are created only if there are requests made against the service endp
 
 ### Azure Storage Log Analytics queries in Azure Monitor
 
-Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md).
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos containers. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 Following are queries that you can use to help you monitor your Azure Storage accounts.
 
@@ -334,40 +336,36 @@ Following are queries that you can use to help you monitor your Azure Storage ac
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
-* To blah
+* To list top 10 operations with the longest end to end latency over the last 3 days.
 
     ```Kusto
-    Query goes here.
+    StorageBlobLogs
+    | where TimeGenerated > ago(3d)
+    | top 10 by DurationMs desc
+    | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
-* To blah
+* To list all operations causing server side throttling errors over the last 3 days.
 
     ```Kusto
-    Query goes here.
+    StorageBlobLogs
+    | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
+    | project TimeGenerated, OperationName, StatusCode, StatusText"
     ```
-* To blah
+* To list all requests with anonymous access over the last 3 days.
 
     ```Kusto
-    Query goes here.
+    StorageBlobLogs
+    | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
+    | project TimeGenerated, OperationName, AuthenticationType, Uri"
     ```
-* To blah
+* To create a pie chart of operations used over the last 3 days.
 
     ```Kusto
-    Query goes here.
-    ```
-* To blah
-
-    ```Kusto
-    Query goes here.
-    ```
-* To blah
-
-    ```Kusto
-    Query goes here.
-    ```
-* To blah
-
-    ```Kusto
-    Query goes here.
+    StorageBlobLogs
+    | where TimeGenerated > ago(3d)
+    | summarize count() by OperationName
+    | sort by count_ desc 
+    | render piechart
     ```
 
 ## FAQ
