@@ -3,7 +3,7 @@ title: Troubleshooting for Azure Synapse Studio
 description: Troubleshooting for Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 10/17/2019 
 ms.author: jrasnick 
 ms.reviewer: jrasnick
