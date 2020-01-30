@@ -66,7 +66,7 @@ Users can also delete their entire workspace:
 ![Delete a free workspace in Machine Learning Studio (classic)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## Export Studio (classic) data with PowerShell
-Use PowerShell to export all your information to a portable format from the classic version of Azure Machine Learning Studio using commands. For information, see the [PowerShell module for Azure Machine Learning Studio (classic)](powershell-module.md) article.
+Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio (classic) using commands. For information, see the [PowerShell module for Azure Machine Learning Studio (classic)](powershell-module.md) article.
 
 ## Next steps
 

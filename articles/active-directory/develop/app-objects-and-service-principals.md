@@ -1,5 +1,5 @@
 ---
-title: Application and service principal objects in Azure Active Directory 
+title: Apps & service principals in Azure AD | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the relationship between application and service principal objects in Azure Active Directory.
 author: rwike77
@@ -15,7 +15,6 @@ ms.date: 04/13/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.collection: M365-identity-device-management
 ---
 
 # Application and service principal objects in Azure Active Directory

@@ -31,7 +31,7 @@ There are two types of resource classes:
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
-- To view the resource utilization for the resource classes, see [Memory and concurrency limits]memory-concurrency-limits.md).
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-concurrency-limits.md).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
@@ -305,37 +305,37 @@ WITH
 alloc
 AS
 (
-SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_smallrc,1 AS slots_used_mediumrc,2 AS slots_used_largerc,4 AS slots_used_xlargerc,1 AS slots_used_staticrc10,2 AS slots_used_staticrc20,4 AS slots_used_staticrc30,4 AS slots_used_staticrc40,4 AS slots_used_staticrc50,4 AS slots_used_staticrc60,4 AS slots_used_staticrc70,4 AS slots_used_staticrc80
-  UNION ALL
-    SELECT 'DW200c', 8, 8, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW300c', 12, 12, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW400c', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW500c', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW1000c', 32, 40, 1, 4, 8, 28, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW1500c', 32, 60, 1, 6, 13, 42, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW2000c', 48, 80, 2, 8, 17, 56, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW2500c', 48, 100, 3, 10, 22, 70, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW3000c', 64, 120, 3, 12, 26, 84, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW5000c', 64, 200, 6, 20, 44, 140, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW6000c', 128, 240, 7, 24, 52, 168, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW7500c', 128, 300, 9, 30, 66, 210, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW10000c', 128, 400, 12, 40, 88, 280, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW15000c', 128, 600, 18, 60, 132, 420, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
+SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_smallrc,1 AS slots_used_mediumrc,2 AS slots_used_largerc,4 AS slots_used_xlargerc,1 AS slots_used_staticrc10,2 AS slots_used_staticrc20,4 AS slots_used_staticrc30,4 AS slots_used_staticrc40,4 AS slots_used_staticrc50,4 AS slots_used_staticrc60,4 AS slots_used_staticrc70,4 AS slots_used_staticrc80
+  UNION ALL
+   SELECT 'DW200c',8,8,1,2,4,8,1,2,4,8,8,8,8,8
+  UNION ALL
+   SELECT 'DW300c',12,12,1,2,4,8,1,2,4,8,8,8,8,8
+  UNION ALL
+   SELECT 'DW400c',16,16,1,4,8,16,1,2,4,8,16,16,16,16
+  UNION ALL
+   SELECT 'DW500c',20,20,1,4,8,16,1,2,4,8,16,16,16,16
+  UNION ALL
+   SELECT 'DW1000c',32,40,1,4,8,28,1,2,4,8,16,32,32,32
+  UNION ALL
+   SELECT 'DW1500c',32,60,1,6,13,42,1,2,4,8,16,32,32,32
+  UNION ALL
+   SELECT 'DW2000c',48,80,2,8,17,56,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW2500c',48,100,3,10,22,70,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW3000c',64,120,3,12,26,84,1,2,4,8,16,32,64,64
+  UNION ALL
+   SELECT 'DW5000c',64,200,6,20,44,140,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW6000c',128,240,7,24,52,168,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW7500c',128,300,9,30,66,210,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW10000c',128,400,12,40,88,280,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW15000c',128,600,18,60,132,420,1,2,4,8,16,32,64,128
+  UNION ALL
+   SELECT 'DW30000c',128,1200,36,120,264,840,1,2,4,8,16,32,64,128
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
 ,map  
@@ -589,16 +589,5 @@ GO
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse](./sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
-
-<!--Other Web references-->

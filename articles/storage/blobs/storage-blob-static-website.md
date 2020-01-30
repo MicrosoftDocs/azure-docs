@@ -59,6 +59,9 @@ The index document that you specify when you enable static website hosting, appe
 
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
+
 ## Impact of the setting the public access level of the web container
 
 You can modify the public access level of the **$web** container, but this has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
@@ -73,22 +76,16 @@ For example, if you change the public access level of the **$web** container fro
 
 However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
 
-## Content Delivery Network (CDN) and Secure Socket Layer (SSL) support
+## Mapping a custom domain to a static website URL
 
-To make your static website files available over your custom domain and HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to point your CDN to the primary *static website* endpoint as opposed to the primary *blob service* endpoint. You might need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
+You can make your static website available via a custom domain. 
 
-When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
+It's easier to enable HTTP access for your custom domain, because Azure Storage natively supports it. To enable HTTPS, you'll have to use Azure CDN because Azure Storage does not yet natively support HTTPS with custom domains. see [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md) for step-by-step guidance.
 
-> [!NOTE]
-> HTTPS is supported natively through the account web endpoint, so the web endpoint is accessible via both HTTP and HTTPS. However, if the storage account is configured to require secure transfer over HTTPS, then users must use the HTTPS endpoint. For more information, see [Require secure transfer in Azure Storage](../common/storage-require-secure-transfer.md).
->
-> The use of custom domains over HTTPS requires the use of Azure CDN at this time.
+If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then users must use the HTTPS endpoint. 
 
-## Custom domain names
-
-You can make your static website available via a custom domain. To learn more, see [configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md).
-
-For an in-depth look at hosting your domain on Azure, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+> [!TIP]
+> Consider hosting your domain on Azure. For more information, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## Pricing
 
@@ -103,8 +100,7 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 ## Next steps
 
 * [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
-* [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
-* [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
+* [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

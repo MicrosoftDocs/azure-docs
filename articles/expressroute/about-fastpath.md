@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
 
 ---
@@ -22,12 +22,22 @@ FastPath is available on all ExpressRoute circuits.
 
 ### Gateways
 
-FastPath still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. For more information about virtual network gateways and ExpressRoute, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+FastPath still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. For more information about virtual network gateways and ExpressRoute, including performance information and gateway SKUs, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-The virtual network gateway must be either:
+To configure FastPath, the virtual network gateway must be either:
 
 * Ultra Performance
 * ErGw3AZ
+
+#### <a name="aggthroughput"></a>Estimated performances by gateway SKU
+The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
+>
+>
 
 ## Supported features
 

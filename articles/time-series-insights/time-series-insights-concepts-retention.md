@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
 ---
 
@@ -39,7 +39,7 @@ Both data retention policies are described in greater detail below.
 ## Purge old data
 
 - **Purge old data** is the default setting for Azure Time Series Insights environments.  
-- **Purge old data** is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
+- **Purge old data** is preferred when users want to always have their *most recent data* in their Time Series Insights environment.
 - The **Purge old data** setting *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (the "First In First Out" approach).
 

@@ -1,15 +1,11 @@
 ---
 title: Get started with Azure Service Fabric CLI 
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
-services: service-fabric
 author: jeffj6123
-manager: chackdan
 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-
 ---
 # Azure Service Fabric CLI
 
@@ -29,7 +25,8 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=8)  | Latest (~=6.5)            |
+| Latest (~=9)  | Latest (~=7)              |
+| 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |

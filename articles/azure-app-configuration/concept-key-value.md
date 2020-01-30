@@ -1,18 +1,11 @@
 ---
-title: Azure App Configuration key-value store | Microsoft Docs
-description: An overview of how configuration data is stored in Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: maiye
-editor: ''
-
+title: Azure App Configuration key-value store
+description: An overview of how configuration data is stored in Azure App Configuration.
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 04/19/2019
-ms.author: yegu
 ---
 
 # Keys and values

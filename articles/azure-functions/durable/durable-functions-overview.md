@@ -44,7 +44,7 @@ In the function chaining pattern, a sequence of functions executes in a specific
 
 You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example.
 
-In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 # [C#](#tab/csharp)
 
@@ -252,7 +252,7 @@ const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     const jobId = context.df.getInput();
-    const pollingInternal = getPollingInterval();
+    const pollingInterval = getPollingInterval();
     const expiryTime = getExpiryTime();
 
     while (moment.utc(context.df.currentUtcDateTime).isBefore(expiryTime)) {
@@ -349,7 +349,7 @@ An external client can deliver the event notification to a waiting orchestrator 
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-An event can also be raised using the durable orchestration client from another function:
+An event can also be raised using the durable orchestration client from another function in the same function app:
 
 # [C#](#tab/csharp)
 

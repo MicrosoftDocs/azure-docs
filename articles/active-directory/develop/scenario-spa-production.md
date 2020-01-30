@@ -1,5 +1,5 @@
 ---
-title:  Single-page application (move to production) - Microsoft identity platform
+title: Move single-page app to production - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (move to production)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,7 +16,6 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Single-page application: Move to production

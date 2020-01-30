@@ -141,6 +141,6 @@
   - name: Train SVD Recommender
     href: train-svd-recommender.md
 - name: Module errors & troubleshooting
-  href: machine-learning-module-error-codes.md
+  href: designer-error-codes.md
   
 

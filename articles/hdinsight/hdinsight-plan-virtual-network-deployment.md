@@ -246,7 +246,13 @@ For more information on firewall rules for virtual appliances, see the [virtual 
 
 ## Load balancing
 
-When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/load-balancer-overview.md#skus) which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/concepts-limitations.md#skus) which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+
+## Transport Layer Security
+
+Connections to the cluster via the public cluster endpoint `https://<clustername>.azurehdinsight.net` are proxied through cluster gateway nodes. These connections are secured using a protocol called TLS. Enforcing higher versions of TLS on gateways improves the security for these connections. For more information on why you should use newer versions of TLS, see [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/solving-tls1-problem).
+
+You can control the minimum TLS version(s) supported on the gateway nodes for your HDInsight cluster by using the *minSupportedTlsVersion* property in a resource manager template at deployment time. For a sample template, see [HDInsight minimum TLS 1.2 Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). This property supports three values: “1.0”, “1.1” and “1.2”, which correspond to TLS 1.0+, TLS 1.1+ and TLS 1.2+ respectively. By default, without specifying this property, Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, as well as older versions for backward compatibility. Eventually, HDInsight will enforce TLS 1.2 or later on all gateway node connections.
 
 ## Next steps
 

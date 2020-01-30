@@ -246,7 +246,7 @@ Re-enable the built-in sync scheduler:
 1. Start a PowerShell session.
 2. Re-enable scheduled synchronization by running this cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## Step 8: Verify the result
+## Step 9: Verify the result
 It is now time to verify the configuration and enable it for your users.
 
 1. Add the geo to the selected attribute on a user. The list of available geos can be found in this table.  

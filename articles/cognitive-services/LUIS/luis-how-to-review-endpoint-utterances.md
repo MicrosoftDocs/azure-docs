@@ -1,7 +1,7 @@
 ---
 title: Review user utterances - LUIS
 titleSuffix: Azure Cognitive Services
-description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train and publish.
+description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train, and publish.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ---
 
@@ -17,31 +17,45 @@ ms.author: diberry
 
 The process of reviewing endpoint utterances for correct predictions is called [Active learning](luis-concept-review-endpoint-utterances.md). Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 
-If you have many people contributing to a LUIS app, 
-
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## Enable active learning
 
 To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=true` querystring parameter and value.
 
+Use the LUIS portal to construct the correct endpoint query.
+
+1. In the [preview LUIS portal](https://preview.luis.ai/), select your app from the list of apps.
+1. Go to the **Manage** section, then select **Azure resources**.
+1. For the assigned prediction resource, select **Change query parameters**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Toggle **Save logs** then save by selecting **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     This action changes the example URL by adding the `log=true` querystring parameter. Copy and use the changed example query URL when making prediction queries to the runtime endpoint.
+
 ## Correct intent predictions to align utterances
 
-Each utterance has a suggested intent displayed in the **Aligned intent** column. 
+Each utterance has a suggested intent displayed in the **Aligned intent** column.
 
 > [!div class="mx-imgBorder"]
 > [![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-If you agree with that intent, select the check mark. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. After you select on the check mark, the utterance is moved to the intent and removed from the **Review Endpoint Utterances** list. 
+If you agree with that intent, select the check mark. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. After you select on the check mark, the utterance is moved to the intent and removed from the **Review Endpoint Utterances** list.
 
 > [!TIP]
 > It is important to go to the Intent details page to review and correct the entity predictions from all example utterances from the **Review Endpoint Utterances** list.
 
 ## Delete utterance
 
-Each utterance can be deleted from the review list. Once deleted, it will not appear in the list again. This is true even if the user enters the same utterance from the endpoint. 
+Each utterance can be deleted from the review list. Once deleted, it will not appear in the list again. This is true even if the user enters the same utterance from the endpoint.
 
-If you are unsure if you should delete the utterance, either move it to the None intent, or create a new intent such as `miscellaneous` and move the utterance to that intent. 
+If you are unsure if you should delete the utterance, either move it to the None intent, or create a new intent such as `miscellaneous` and move the utterance to that intent.
 
 ## Disable active learning
 

@@ -76,6 +76,10 @@ When you protect your content with PlayReady, one of the things you need to spec
 
 You can select the **import policy xml** button and provide a different XML that conforms to the XML schema defined in the [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md).
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -5,12 +5,12 @@
   items:
   - name: What is Azure Arc for servers?
     href: ./servers/overview.md
-- name: Quickstarts
+- name: Connect to Azure Arc
   expanded: true
   items:
-  - name: Connect machines to Azure using Azure Arc for servers - Portal
+  - name: Connect machines to Azure Arc from the Azure portal
     href: ./servers/quickstart-onboard-portal.md
-  - name: Connect machines to Azure using Azure Arc for servers - PowerShell
+  - name: Connect machines at scale using a service principal
     href: ./servers/quickstart-onboard-powershell.md
 - name: Reference
   items:

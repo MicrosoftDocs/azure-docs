@@ -1,18 +1,12 @@
 ---
-title: Azure App Configuration point-in-time snapshot | Microsoft Docs
+title: Azure App Configuration point-in-time snapshot
 description: An overview of how point-in-time snapshot works in Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
-
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 02/24/2019
-ms.author: yegu
 ---
 
 # Point-in-time snapshot
@@ -23,8 +17,10 @@ Azure App Configuration keeps records of the precise times when a new key-value 
 
 To retrieve past key values, specify a time at which key values are snapshot in the HTTP header of a REST API call. For example:
 
-        GET /kv HTTP/1.1
-        Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```rest
+GET /kv HTTP/1.1
+Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```
 
 Currently, App Configuration keeps seven days of change history.
 

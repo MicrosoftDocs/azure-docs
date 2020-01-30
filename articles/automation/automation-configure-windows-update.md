@@ -2,13 +2,9 @@
 title: Configure Windows Update settings to work with Azure Update Management
 description: This article describes the Windows Update settings that you configure to work with Azure Update Management.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Configure Windows Update settings for Update Management
 

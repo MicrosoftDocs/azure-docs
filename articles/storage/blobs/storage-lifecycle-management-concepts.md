@@ -65,7 +65,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All resources** and then select your storage account.
+2. In the Azure portal, search for and select your storage account. 
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your rules.
 
@@ -86,7 +86,7 @@ There are two ways to add a policy through the Azure portal.
 #### Azure portal Code view
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All resources** and then select your storage account.
+2. In the Azure portal, search for and select your storage account.
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your policy.
 
@@ -242,6 +242,9 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 ### Sample rule
 
 The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.  
+
+>[!NOTE]
+>Lifecycle management only supports block blob type.  
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification

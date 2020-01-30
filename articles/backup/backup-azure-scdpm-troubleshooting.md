@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot System Center Data Protection Manager
 description: In this article, discover solutions for issues that you might encounter while using System Center Data Protection Manager.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/30/2019
 ---
 

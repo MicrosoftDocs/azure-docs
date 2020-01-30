@@ -3,7 +3,7 @@ title: "How to share Azure Dev Spaces"
 services: azure-dev-spaces
 ms.date: "05/11/2018"
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to use Azure Dev Spaces to share a dev space in Azure Kubernetes Service with others on your team"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Share Azure Dev Spaces

@@ -4,8 +4,8 @@ description: To maintain your existing investment in System Center Operations Ma
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/13/2019
 
 ---

@@ -65,7 +65,7 @@ When an artifact appears to hang, first determine where it's stuck. An artifact 
 - **When trying to execute the artifact**. It could be because of networking or storage issues. See the respective section later in this article for details. It can also happen because of the way the script is authored. For example:
     - A PowerShell script has **mandatory parameters**, but one fails to pass a value to it, either because you allow the user to leave it blank, or because you don’t have a default value for the property in the artifactfile.json definition file. The script will hang because it's awaiting user input.
     - A PowerShell script **requires user input** as part of execution. Scripts must be written to work silently without requiring any user intervention.
-- **VM Agent takes long to be ready**. When the VM is first started, or when the custom script extension is first installed to serve the request to apply artifacts, the VM may require either upgrading the VM Agent or wait for the VM Agent to initialize. There may be services on which the VM Agent depends that are taking a long time to initialize. In such cases, see [Azure Virtual Machine Agent overview](/virtual-machines/extensions/agent-windows.md) for further troubleshooting.
+- **VM Agent takes long to be ready**. When the VM is first started, or when the custom script extension is first installed to serve the request to apply artifacts, the VM may require either upgrading the VM Agent or wait for the VM Agent to initialize. There may be services on which the VM Agent depends that are taking a long time to initialize. In such cases, see [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md) for further troubleshooting.
 
 ### To verify if the artifact appears to hang because of the script
 
@@ -97,7 +97,7 @@ When an artifact appears to hang, first determine where it's stuck. An artifact 
     In this example, you can see that the VM Agent start time took 10 minutes and 20 seconds because a heartbeat was sent. The cause in this case was the OOBE service taking a long time to start.
 
 > [!TIP]
-> For general information about Azure extensions, see [Azure virtual machine extensions and features](/virtual-machines/extensions/overview.md).
+> For general information about Azure extensions, see [Azure virtual machine extensions and features](../virtual-machines/extensions/overview.md).
 
 ## Storage errors
 DevTest Labs requires access to the lab’s storage account that is created to cache artifacts. When DevTest Labs applies an artifact, it will read the artifact configuration and its files from the configured repositories. By default, DevTest Labs configures access to the **public artifact repo**.

@@ -1,5 +1,5 @@
 ---
-title: Single-page application (app's code configuration) - Microsoft identity platform
+title: Configure single-page app - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,7 +16,6 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Single-page application: Code configuration

@@ -63,6 +63,8 @@ landingContent:
             url: how-to/run-dev-spaces-windows-containers.md
           - text: Use traefik for custom ingress and HTTPS
             url: how-to/ingress-https-traefik.md
+          - text: Use NGINX for custom ingress and HTTPS
+            url: how-to/ingress-https-nginx.md
 
 
   # Card
