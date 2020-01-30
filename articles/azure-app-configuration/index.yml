@@ -18,42 +18,36 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure App Configuration?
-            url: overview.md
+        - text: What is Azure App Configuration?
+          url: overview.md
       - linkListType: video
         links:
-          - text: Getting started with Azure App Configuration
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+        - text: Getting started with Azure App Configuration
+          url: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+        - text: Feature management
+          url: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
+        - text: Making centralized configuration easy
+          url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
+        - text: Azure App Configuration on Cloud Native Show
+          url: https://www.youtube.com/watch?v=DJqmA5PcfzE
       - linkListType: whats-new
         links:
-          - text: Frequently asked questions
-            url: faq.md
+        - text: Frequently asked questions
+          url: faq.md
   - title: 'Create and code with Azure App Configuration'
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Code a .NET Core app
-            url: quickstart-dotnet-core-app.md
-          - text: Code a .NET Framework app
-            url: quickstart-dotnet-app.md
-          - text: Code a ASP.NET Core app
-            url: quickstart-aspnet-core-app.md
-          - text: Code an Azure Functions app in C#
-            url: quickstart-azure-functions-csharp.md
-          - text: Code a Java Spring app
-            url: quickstart-java-spring-app.md
-  - title: 'Add feature flags to an app'
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: ASP.NET Core app
-            url: quickstart-feature-flag-aspnet-core.md
-          - text: .NET Framework app
-            url: quickstart-feature-flag-dotnet.md
-          - text: Spring Boot app
-            url: quickstart-feature-flag-spring-boot.md
-  - title: Learn how to use Azure App Configuration
-    linkLists:
+        - text: Code a .NET Core app
+          url: quickstart-dotnet-core-app.md
+        - text: Code a .NET Framework app
+          url: quickstart-dotnet-app.md
+        - text: Code a ASP.NET Core app
+          url: quickstart-aspnet-core-app.md
+        - text: Code an Azure Functions app in C#
+          url: quickstart-azure-functions-csharp.md
+        - text: Code a Java Spring app
+          url: quickstart-java-spring-app.md
       - linkListType: tutorial
         links:  
         - text: Enable dynamic configuration in ASP.NET Core
@@ -64,38 +58,52 @@ landingContent:
           url: enable-dynamic-configuration-dotnet.md
         - text: Enable dynamic configuration in Azure Functions
           url: enable-dynamic-configuration-azure-functions-csharp.md
+      - linkListType: tutorial
+        links:  
+        - text: Integrate with a CI/CD pipeline
+          url: integrate-ci-cd-pipeline.md
+  - title: 'Add feature flags to an app'
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: ASP.NET Core app
+          url: quickstart-feature-flag-aspnet-core.md
+        - text: .NET Framework app
+          url: quickstart-feature-flag-dotnet.md
+        - text: Spring Boot app
+          url: quickstart-feature-flag-spring-boot.md
+      - linkListType: tutorial
+        links: 
         - text: Use feature flags in a .NET Core app
           url: use-feature-flags-dotnet-core.md
         - text: Manage feature flags
           url: manage-feature-flags.md
-        - text: Integrate with a CI/CD pipeline
-          url: integrate-ci-cd-pipeline.md
   - title: Configuration SDKs and samples
     linkLists:
       - linkListType: sample
         links:
-          - text: Azure CLI samples
-            url: cli-samples.md
+        - text: Azure CLI samples
+          url: cli-samples.md
       - linkListType: reference
         links:
-          - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
-          - text: .NET Core provider
-            url: https://go.microsoft.com/fwlink/?linkid=2074664
-          - text: .NET Framework builder
-            url: https://go.microsoft.com/fwlink/?linkid=2074663
-          - text: Azure SDK for .Net
-            url: https://go.microsoft.com/fwlink/?linkid=2092056
-          - text: Java Spring provider
-            url: https://go.microsoft.com/fwlink/?linkid=2074659
-          - text: Azure SDK for Java
-            url: https://go.microsoft.com/fwlink/?linkid=2098196
-          - text: Azure SDK for Python
-            url: https://go.microsoft.com/fwlink/?linkid=2103727
-          - text: Azure SDK for JavaScript
-            url: https://go.microsoft.com/fwlink/?linkid=2103664
-          - text: REST
-            url: https://go.microsoft.com/fwlink/?linkid=2078296
+        - text: Azure CLI
+          url: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+        - text: .NET Core provider
+          url: https://go.microsoft.com/fwlink/?linkid=2074664
+        - text: .NET Framework builder
+          url: https://go.microsoft.com/fwlink/?linkid=2074663
+        - text: Azure SDK for .Net
+          url: https://go.microsoft.com/fwlink/?linkid=2092056
+        - text: Java Spring provider
+          url: https://go.microsoft.com/fwlink/?linkid=2074659
+        - text: Azure SDK for Java
+          url: https://go.microsoft.com/fwlink/?linkid=2098196
+        - text: Azure SDK for Python
+          url: https://go.microsoft.com/fwlink/?linkid=2103727
+        - text: Azure SDK for JavaScript
+          url: https://go.microsoft.com/fwlink/?linkid=2103664
+        - text: REST
+          url: https://go.microsoft.com/fwlink/?linkid=2078296
   - title: Feature Management SDKs
     linkLists:
       - linkListType: reference
