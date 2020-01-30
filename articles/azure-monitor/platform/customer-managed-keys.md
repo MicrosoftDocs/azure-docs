@@ -13,7 +13,7 @@ ms.date: 01/11/2020
 
 This article provides background information and steps to configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key.
 
-We recommend you review [Limitations and constraints](#Limitations and constraints) below before configuration.
+We recommend you review [Limitations and constraints](#limitations-and-constraints) below before configuration.
 
 ## Disclaimers
 
@@ -398,6 +398,45 @@ Content-type: application/json
 
 After the association, data that is sent to your workspaces is stored
 encrypted with your managed key.
+
+### Workspace association verification
+You can verify if a workspace is associated to a *Custer* resource by looking at the [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) response. Associated workspace will have a 'clusterResourceId' property with the *Cluster* resource ID.
+
+```rest
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
+```
+
+**Response**
+
+```json
+{
+  "properties": {
+    "source": "Azure",
+    "customerId": "workspace-name",
+    "provisioningState": "Succeeded",
+    "sku": {
+      "name": "pricing-tier-name",
+      "lastSkuUpdate": "Tue, 28 Jan 2020 12:26:30 GMT"
+    },
+    "retentionInDays": days,
+    "features": {
+      "legacy": 0,
+      "searchVersion": 1,
+      "enableLogAccessUsingOnlyResourcePermissions": true/false,
+      "clusterResourceId": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name"
+    },
+    "workspaceCapping": {
+      "dailyQuotaGb": -1.0,
+      "quotaNextResetTime": "Tue, 28 Jan 2020 14:00:00 GMT",
+      "dataIngestionStatus": "RespectQuota"
+    }
+  },
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
+  "name": "workspace-name",
+  "type": "Microsoft.OperationalInsights/workspaces",
+  "location": "region-name"
+}
+```
 
 ## CMK (KEK) revocation
 
