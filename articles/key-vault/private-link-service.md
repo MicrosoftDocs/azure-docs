@@ -21,10 +21,10 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 
 To integrate a key vault with Azure Private Link (Preview), you will need the following:
 
-1. A key vault.
-1. An Azure virtual network.
-1. A subnet in the virtual network.
-1. Owner or contributor permissions for both the key vault and the virtual network.
+- A key vault.
+- An Azure virtual network.
+- A subnet in the virtual network.
+- Owner or contributor permissions for both the key vault and the virtual network.
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your key vault can be in a different region.
 
@@ -77,13 +77,13 @@ You can choose to create a private endpoint for any Azure resource in using this
 ![Image](./media/private-link-service-3.png)
 ![Image](./media/private-link-service-4.png)
 
-## Manage Private Link Connection
+## Manage private link connection
 
 When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
 There are four provisioning states:
 
-| Service Provide Action | Service Consumer Private Endpoint State | Description |
+| Service provide action | Service consumer private endpoint state | Description |
 |--|--|--|
 | None | Pending | Connection is created manually and is pending approval from the Private Link resource owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
@@ -103,7 +103,7 @@ There are four provisioning states:
 
     ![Image](./media/private-link-service-7.png)
 
-## Validate that the private link connection works 
+## Validate that the private link connection works
 
 You should validate that the resources within the same subnet of the private endpoint resource are connecting to your key vault over a private IP address, and that they have the correct private DNS zone integration.
 
