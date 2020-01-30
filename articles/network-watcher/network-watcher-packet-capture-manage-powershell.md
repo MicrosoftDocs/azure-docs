@@ -4,18 +4,14 @@ titleSuffix: Azure Network Watcher
 description: This page explains how to manage the packet capture feature of Network Watcher using PowerShell
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Manage packet captures with Azure Network Watcher using PowerShell
