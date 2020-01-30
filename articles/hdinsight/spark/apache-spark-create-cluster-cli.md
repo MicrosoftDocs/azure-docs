@@ -15,7 +15,6 @@ ms.author: hrasheed
 
 In this quickstart, you learn how to create an Apache Spark cluster in Azure HDInsight using the Azure command-line interface (CLI). Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
-[)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
