@@ -190,7 +190,7 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 
 ### [Directory Writers](#directory-writers-permissions)
 
-This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
+This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
 
 ### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
 
