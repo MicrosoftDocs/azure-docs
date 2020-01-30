@@ -39,7 +39,7 @@ landingContent:
         - text: Frequently asked questions
           url: faq.md
         - text: Keys and values in App Config
-          url: concept-key-value
+          url: concept-key-value.md
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
