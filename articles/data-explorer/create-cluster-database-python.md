@@ -116,9 +116,6 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
         [!NOTE]
         If you are using Python version 0.4.0 or below, use Database instead of ReadWriteDatabase.
 
-
-
-
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
    | cluster_name | *mykustocluster* | The name of your cluster where the database will be created.|

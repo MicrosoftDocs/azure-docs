@@ -100,9 +100,6 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
         [!NOTE]
         If you are using C# version 2.0.0 or below, use Database instead of ReadWriteDatabase.
 
-
-
-
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
    | clusterName | *mykustocluster* | The name of your cluster where the database will be created.|
