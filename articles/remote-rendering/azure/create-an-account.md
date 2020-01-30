@@ -17,7 +17,7 @@ ms.service: azure-remote-rendering
 
 The following steps are needed to create an account for the Azure Remote Rendering service:
 
-1. Go to [this page](https://aka.ms/MixedRealityPrivatePreview)
+1. Go to [Mixed Reality Private Preview page](https://aka.ms/MixedRealityPrivatePreview)
 1. Click on 'More services'
 1. Click on 'All services'
 1. In the search box, type 'Remote Rendering'
@@ -33,7 +33,7 @@ The following steps are needed to create an account for the Azure Remote Renderi
 
 ## Retrieve the account information
 
-The samples and tutorials require that you provide the account ID and a key. For instance in the **arrconfig.json** file that is used for the powershell scripts:
+The samples and tutorials require that you provide the account ID and a key. For instance in the **arrconfig.json** file that is used for the Powershell sample scripts:
 
 ```json
 {
@@ -45,4 +45,19 @@ The samples and tutorials require that you provide the account ID and a key. For
     ...
 ```
 
-The **`arrAccountId`** and the **`arrAccountKey`** can be found in the portal:
+The values for **`arrAccountId`** and the **`arrAccountKey`** can be found in the portal:
+
+* Go to to the [Azure Portal](http://www.portal.azure.com)
+* Find your **"Remote Rendering Account"** - it should be in the **"Recent Resources"** list. You can also search for it in the search bar on the top. In that case make sure that the subscription you want to use is selected in the Default subscription filter (filter icon next to search bar):
+
+![Subscription filter](./media/azure-subscription-filter.png)
+
+Clicking on your account brings you to this screen, which shows the  **Account ID** right away:
+
+![Aszure account ID](./media/azure-account-id.png)
+
+For the key, select **Access Keys** in the panel on the left side. This shows a primary and a secondary key:
+
+![Aszure access keys](./media/azure-account-primary-key.png)
+
+The value for **`arrAccountKey`** can either be primary or secondary key.
