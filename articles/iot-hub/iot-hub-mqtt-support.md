@@ -165,7 +165,7 @@ Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
 
 Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [above](#using-the-mqtt-protocol-directly-as-a-device)) but you need to use the following:
 
-* Set the client id to `{device_id}/{module_id}`.
+* Set the client ID to `{device_id}/{module_id}`.
 
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` and use the SAS token associated with the module identity as your password.
 
@@ -331,7 +331,7 @@ For more information, see [Device twins developer's guide](iot-hub-devguide-devi
 
 ## Update device twin's reported properties
 
-To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we leverage the notion of request id (`$rid`) provided initially by the device in its update request. This request id is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
+To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we leverage the notion of request ID (`$rid`) provided initially by the device in its update request. This request ID is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
 
 The following sequence describes how a device updates the reported properties in the device twin in IoT Hub:
 
