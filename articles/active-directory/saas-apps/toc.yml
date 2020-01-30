@@ -606,6 +606,8 @@
         href: helpscout-tutorial.md
       - name: Helpshift
         href: helpshift-tutorial.md
+      - name: Health Support System
+        href: health-support-system-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -1328,8 +1330,6 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
-      - name: Spintr SSO
-        href: spintr-sso-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
       - name: StatusPage
