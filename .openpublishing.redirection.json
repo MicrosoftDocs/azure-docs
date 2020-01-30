@@ -35887,7 +35887,6 @@
       "redirect_document_id": true
     },
     {
-<<<<<<< HEAD
       "source_path": "articles/active-directory/manage-apps/plan-auto-user-provisioning.md",
       "redirect_url": "/azure/active-directory/app-provisioning/plan-auto-user-provisioning",
       "redirect_document_id": false
@@ -35910,10 +35909,11 @@
     {
       "source_path": "articles/active-directory/manage-apps/skip-out-of-scope-deletions.md",
       "redirect_url": "/azure/active-directory/app-provisioning/skip-out-of-scope-deletions",
-=======
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/manage-apps/configure-automatic-user-provisioning-portal.md",
       "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
->>>>>>> d07ee305f3e320f5792f82f766575b7b8f941eb0
       "redirect_document_id": false
     },
     {
