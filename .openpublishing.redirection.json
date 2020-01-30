@@ -35958,13 +35958,23 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-scoping-filters.md",
-      "redirect_url": "/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/functions-for-customizing-application-data",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/functions-for-customizing-application-data.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",

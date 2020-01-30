@@ -515,7 +515,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
          * **Constant** - Write a static, constant string value to the AD attribute
 
-         * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more Workday attributes. [For more info, see this article on expressions](../manage-apps/functions-for-customizing-application-data.md).
+         * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more Workday attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
@@ -544,9 +544,9 @@ In this section, you will configure how user data flows from Workday to Active D
 
 * The expression that maps to the *parentDistinguishedName* attribute is used to provision a user to different OUs based on one or more Workday source attributes. This example here places users in different OUs based on what city they are in.
 
-* The *userPrincipalName* attribute in Active Directory is generated using the de-duplication function [SelectUniqueValue](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue) that checks for existence of a generated value in the target AD domain and only sets it if it is unique.  
+* The *userPrincipalName* attribute in Active Directory is generated using the de-duplication function [SelectUniqueValue](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) that checks for existence of a generated value in the target AD domain and only sets it if it is unique.  
 
-* [There is documentation on writing expressions here](../manage-apps/functions-for-customizing-application-data.md). This section includes examples on how to remove special characters.
+* [There is documentation on writing expressions here](../app-provisioning/functions-for-customizing-application-data.md). This section includes examples on how to remove special characters.
 
 | WORKDAY ATTRIBUTE | ACTIVE DIRECTORY ATTRIBUTE |  MATCHING ID? | CREATE / UPDATE |
 | ---------- | ---------- | ---------- | ---------- |
@@ -661,7 +661,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
       * **Constant** - Write a static, constant string value to the AD attribute
 
       * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more Workday
-                attributes. [For more info, see this article on expressions](../manage-apps/functions-for-customizing-application-data.md).
+                attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
    * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
@@ -1041,9 +1041,9 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
     )
      ```
     See also:
-  * [Switch Function Syntax](../manage-apps/functions-for-customizing-application-data.md#switch)
-  * [Join Function Syntax](../manage-apps/functions-for-customizing-application-data.md#join)
-  * [Append Function Syntax](../manage-apps/functions-for-customizing-application-data.md#append)
+  * [Switch Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#switch)
+  * [Join Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#join)
+  * [Append Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#append)
 
 #### How can I use SelectUniqueValue to generate unique values for samAccountName attribute?
 
@@ -1061,13 +1061,13 @@ How the above expression works: If the user is John Smith, it first tries to gen
 
 See also:
 
-* [Mid Function Syntax](../manage-apps/functions-for-customizing-application-data.md#mid)
-* [Replace Function Syntax](../manage-apps/functions-for-customizing-application-data.md#replace)
-* [SelectUniqueValue Function Syntax](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue)
+* [Mid Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#mid)
+* [Replace Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#replace)
+* [SelectUniqueValue Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue)
 
 #### How do I remove characters with diacritics and convert them into normal English alphabets?
 
-Use the function [NormalizeDiacritics](../manage-apps/functions-for-customizing-application-data.md#normalizediacritics) to remove special characters in first name and last name of the user, while constructing the email address or CN value for the user.
+Use the function [NormalizeDiacritics](../app-provisioning/functions-for-customizing-application-data.md#normalizediacritics) to remove special characters in first name and last name of the user, while constructing the email address or CN value for the user.
 
 ## Troubleshooting tips
 
@@ -1227,7 +1227,7 @@ If the provisioning service is unable to connect to Workday or Active Directory,
 |#|Error Scenario |Probable Causes|Recommended Resolution|
 |--|---|---|---|
 |1.| Export operation failures in the audit log with the message *Error: OperationsError-SvcErr: An operation error occurred. No superior reference has been configured for the directory service. The directory service is therefore unable to issue referrals to objects outside this forest.* | This error usually shows up if the *Active Directory Container* OU is not set correctly or if there are issues with the Expression Mapping used for *parentDistinguishedName*. | Check the *Active Directory Container* OU parameter for typos. If you are using *parentDistinguishedName* in the attribute mapping ensure that it always evaluates to a known container within the AD domain. Check the *Export* event in the audit logs to see the generated value. |
-|2.| Export operation failures in the audit log with error code: *SystemForCrossDomainIdentityManagementBadResponse* and message *Error: ConstraintViolation-AtrErr: A value in the request is invalid. A value for the attribute was not in the acceptable range of values. \nError Details: CONSTRAINT_ATT_TYPE - company*. | While this error is specific to the *company* attribute, you may see this error for other attributes like *CN* as well. This error appears due to AD enforced schema constraint. By default, the attributes like *company* and *CN* in AD have an upper limit of 64 characters. If the value coming from Workday is more than 64 characters, then you will see this error message. | Check the *Export* event in the audit logs to see the value for the attribute reported in the error message. Consider truncating the value coming from Workday using the [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) function or changing the mappings to an AD attribute that does not have similar length constraints.  |
+|2.| Export operation failures in the audit log with error code: *SystemForCrossDomainIdentityManagementBadResponse* and message *Error: ConstraintViolation-AtrErr: A value in the request is invalid. A value for the attribute was not in the acceptable range of values. \nError Details: CONSTRAINT_ATT_TYPE - company*. | While this error is specific to the *company* attribute, you may see this error for other attributes like *CN* as well. This error appears due to AD enforced schema constraint. By default, the attributes like *company* and *CN* in AD have an upper limit of 64 characters. If the value coming from Workday is more than 64 characters, then you will see this error message. | Check the *Export* event in the audit logs to see the value for the attribute reported in the error message. Consider truncating the value coming from Workday using the [Mid](../app-provisioning/functions-for-customizing-application-data.md#mid) function or changing the mappings to an AD attribute that does not have similar length constraints.  |
 
 #### AD user account update errors
 
@@ -1366,7 +1366,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 ### Exporting and importing your configuration
 
-Refer to the article [Exporting and importing provisioning configuration](../manage-apps/export-import-provisioning-configuration.md)
+Refer to the article [Exporting and importing provisioning configuration](../app-provisioning/export-import-provisioning-configuration.md)
 
 ## Managing personal data
 

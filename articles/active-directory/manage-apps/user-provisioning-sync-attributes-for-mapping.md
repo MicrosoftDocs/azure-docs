@@ -55,4 +55,4 @@ If the data you need for provisioning is in Active Directory but isn't available
 
 ## Next steps
 
-* [Define who is in scope for provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Define who is in scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)

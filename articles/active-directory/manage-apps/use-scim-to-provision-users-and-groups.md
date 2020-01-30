@@ -139,7 +139,7 @@ Group provisioning and deprovisioning are optional. When implemented and enabled
 This section provides example SCIM requests emitted by the Azure AD SCIM client and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](../app-provisioning/how-provisioning-works.md).
 
 [User Operations](#user-operations)
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
@@ -1316,7 +1316,7 @@ Azure AD can be configured to automatically provision assigned users and groups 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
 > [!IMPORTANT]
-> The Azure AD SCIM implementation is built on top of the Azure AD user provisioning service, which is designed to constantly keep users in sync between Azure AD and the target application, and implements a very specific set of standard operations. It's important to understand these behaviors to understand the behavior of the Azure AD SCIM client. For more information, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> The Azure AD SCIM implementation is built on top of the Azure AD user provisioning service, which is designed to constantly keep users in sync between Azure AD and the target application, and implements a very specific set of standard operations. It's important to understand these behaviors to understand the behavior of the Azure AD SCIM client. For more information, see the section [Provisioning cycles: Initial and incremental](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](../app-provisioning/how-provisioning-works.md).
 
 ### Getting started
 
@@ -1394,8 +1394,8 @@ Certain apps allow inbound traffic to their app. In order for the Azure AD provi
 ## Related articles
 
 * [Automate user provisioning and deprovisioning to SaaS apps](user-provisioning.md)
-* [Customize attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
-* [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-* [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Customize attribute mappings for user provisioning](customize-application-attributes.md)
+* [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
+* [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 * [Account provisioning notifications](user-provisioning.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)

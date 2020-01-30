@@ -131,7 +131,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Promapp User Attributes](media/promapp-provisioning-tutorial/userattributes.png)
 
-11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. To enable the Azure AD provisioning service for Promapp, change the **Provisioning Status** to **On** in the **Settings** section.
 

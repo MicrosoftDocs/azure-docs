@@ -30,7 +30,11 @@ Subsequent syncs after the initial cycle be faster, as the provisioning service 
 
 If the initial cycle is taking more than a few hours, there is one thing you can do to improve performance:
 
+<<<<<<< HEAD:articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md
+-   **User scoping filters.** Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+=======
 -   **User scoping filters.** Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+>>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish.md
 
 ## Next steps
 [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md)

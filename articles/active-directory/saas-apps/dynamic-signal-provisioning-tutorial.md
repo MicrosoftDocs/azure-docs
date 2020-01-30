@@ -123,7 +123,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Dynamic Signal User Attributes](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Dynamic Signal, change the **Provisioning Status** to **On** in the **Settings** section.
 

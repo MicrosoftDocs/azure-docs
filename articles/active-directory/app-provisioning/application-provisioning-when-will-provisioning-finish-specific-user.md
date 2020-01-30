@@ -99,7 +99,11 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 - The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
 
+<<<<<<< HEAD:articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md
+- If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+=======
 - If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+>>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md)
