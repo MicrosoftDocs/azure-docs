@@ -23,7 +23,7 @@ In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
-> * Configure and run an automated ml experiment.
+> * Configure and run an automated ML experiment.
 > * Explore the experiment results.
 > * Deploy the best model.
 
@@ -79,13 +79,14 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. The **Schema** form allows for further configuration of your data for this experiment. 
     
-        1. For this example, choose to ignore the **casual** and **registered** columns. These columns are a breakdown of the  **cnt** column so, therefore unnecessary.
+        1. For this example, choose to ignore the **casual** and **registered** columns. These columns are a breakdown of the  **cnt** column so, therefore we don't include them.
 
-        1. Also for this example, leave the default for
+        1. Also for this example, leave the defaults for the **Properties** and **Type**. 
         
         1. Select **Next**.
 
     1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info** and **Settings and preview** forms.
+
     1. Select **Create** to complete the creation of your dataset.
 
     1. Select your dataset once it appears in the list.
@@ -119,7 +120,7 @@ After you load and configure your data, set up your remote compute target and se
 
 ## Select task type and settings
 
-Complete the setup for your automated ml experiment by specifying the machine learning task type and configuration settings.
+Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
 
 1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type.
 
