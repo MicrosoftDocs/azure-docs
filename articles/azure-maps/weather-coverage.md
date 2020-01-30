@@ -174,7 +174,6 @@ The following table provides information about what kind of weather information 
 | Afghanistan                       | ✓ |   |  ✓| 
 | American Samoa                    | ✓ |   |  ✓| 
 | Australia                         | ✓ | ✓ |  ✓| 
-| Azerbaijan                        | ✓ |   |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
 | British Indian Ocean Territory    | ✓ |   |  ✓| 
@@ -242,7 +241,8 @@ The following table provides information about what kind of weather information 
 | Albania                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
 | Armenia                | ✓ |   |  ✓| 
-| Austria                | ✓ | ✓ |  ✓| 
+| Austria                | ✓ | ✓ |  ✓|
+| Azerbaijan             | ✓ |   |  ✓| 
 | Belarus                | ✓ |   |  ✓| 
 | Belgium                | ✓ | ✓ |  ✓| 
 | Bosnia and Herzegovina | ✓ | ✓ |  ✓| 

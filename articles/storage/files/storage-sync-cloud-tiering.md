@@ -98,11 +98,10 @@ You also can use PowerShell to force a file to be recalled. This option might be
     
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
-
-Specifying `-Order CloudTieringPolicy` will recall the most recently modified files first.
-Other optional parameters:
+Optional parameters:
+* `-Order CloudTieringPolicy` will recall the most recently modified files first.  
 * `-ThreadCount` determines how many files can be recalled in parallel.
 * `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 * `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
