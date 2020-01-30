@@ -176,7 +176,7 @@ The Azure AD provisioning service will soft delete a user in an application when
 * The user account is deleted in Azure AD
 *	The user is unassigned from the application
 *	The user no longer meets a scoping filter and goes out of scope
-    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](../manage-apps/skip-out-of-scope-deletions.md).
+    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](../app-provisioning/skip-out-of-scope-deletions.md).
 *	The AccountEnabled property is set to False
 
 If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app. 
@@ -187,7 +187,7 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it is used to 
 
 ## Next Steps
 
-[Plan an automatic user provisioning deployment](../manage-apps/plan-auto-user-provisioning.md)
+[Plan an automatic user provisioning deployment](../app-provisioning/plan-auto-user-provisioning.md)
 
 [Configure provisioning for a gallery app](../manage-apps/configure-automatic-user-provisioning-portal.md)
 

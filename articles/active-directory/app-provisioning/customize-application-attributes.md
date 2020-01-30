@@ -55,11 +55,7 @@ There are four different mapping types supported:
 - **Direct** – the target attribute is populated with the value of an attribute of the linked object in Azure AD.
 - **Constant** – the target attribute is populated with a specific string you specified.
 - **Expression** - the target attribute is populated based on the result of a script-like expression.
-<<<<<<< HEAD:articles/active-directory/manage-apps/customize-application-attributes.md
   For more information, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
-=======
-  For more information, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../manage-apps/functions-for-customizing-application-data.md).
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/app-provisioning/customize-application-attributes.md
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it's populated with the Default value that you specify.
 
 Along with these four basic types, custom attribute-mappings support the concept of an optional **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there's not a value in Azure AD or on the target object. The most common configuration is to leave this blank.
@@ -71,11 +67,7 @@ Along with this property, attribute-mappings also support the following attribut
 
 - **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (example: ServiceNow).
-<<<<<<< HEAD:articles/active-directory/manage-apps/customize-application-attributes.md
 - **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If, for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
-=======
-- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If, for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](../manage-apps/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/app-provisioning/customize-application-attributes.md
 - **Match objects using this attribute** – Whether this mapping should be used to uniquely identify users between the source and target systems. It's typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
 - **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 - **Apply this mapping**
@@ -197,11 +189,7 @@ Custom attributes can't be referential attributes or multi-value attributes. Cus
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-<<<<<<< HEAD:articles/active-directory/manage-apps/customize-application-attributes.md
 - Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
-=======
-- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../manage-apps/functions-for-customizing-application-data.md). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/app-provisioning/customize-application-attributes.md
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
@@ -326,15 +314,8 @@ Selecting this option will effectively force a resynchronization of all users wh
 
 ## Next steps
 
-<<<<<<< HEAD:articles/active-directory/manage-apps/customize-application-attributes.md
 - [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
 - [Writing Expressions for Attribute-Mappings](../app-provisioning/functions-for-customizing-application-data.md)
 - [Scoping Filters for User Provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
-=======
-- [Automate User Provisioning/Deprovisioning to SaaS Apps](../manage-apps/user-provisioning.md)
-- [Writing Expressions for Attribute-Mappings](../manage-apps/functions-for-customizing-application-data.md)
-- [Scoping Filters for User Provisioning](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../manage-apps/use-scim-to-provision-users-and-groups.md)
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/app-provisioning/customize-application-attributes.md
 - [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
