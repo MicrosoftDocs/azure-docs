@@ -62,12 +62,12 @@ az network front-door waf-policy rule create \
 Next, add match condition to the rule:
 
 ```azurecli
-az network front-door waf-policy rule match-condition add\
+az network front-door waf-policy rule match-condition add \
 --match-variable RemoteAddr \
---operator IPMatch
---values "ip-address-range-1" "ip-address-range-2"
---negate true\
---name IPAllowListRule\
+--operator IPMatch \
+--values "ip-address-range-1" "ip-address-range-2" \
+--negate true \
+--name IPAllowListRule \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI 
   ```
@@ -87,7 +87,7 @@ Set the Azure Front Door Service *WebApplicationFirewallPolicyLink* ID to the po
 
    ```azurecli
    az network front-door update \
-     --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/<resource- name>/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
+     --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/resource-group-name/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
