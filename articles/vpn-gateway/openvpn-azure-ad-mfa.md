@@ -31,7 +31,7 @@ On the **Azure VPN - Properties** page, configure sign-in settings.
 
    ![Permissions](./media/openvpn-azure-ad-mfa/user2.jpg)
 
-## Option 1) Enabling Multi-Factor Authentication (MFA) via Conditional Access
+## Option 1 - Enabling Multi-Factor Authentication (MFA) via Conditional Access
 
 Conditional Access allows for fine-grained access control on a per-application basis.  Please note that to leverage Conditional Access, you should have Azure AD Premium 1 or greater licensing applied to the users that will be subject to the Conditional Access rules.
 
@@ -43,7 +43,7 @@ Conditional Access allows for fine-grained access control on a per-application b
 4. Check **On** under **Enable policy** and click the **Create** button.
 ![Enable Policy](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
 
-## Option 2) Enable Multi-Factor AUthentication (MFA) per User
+## Option 2 - Enable Multi-Factor Authentication (MFA) per User
 
 [!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
