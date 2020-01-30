@@ -36,7 +36,7 @@
 - name: Concepts
   items:
   - name: NAT Service
-    href: nat-service-overview.md
+    href: nat-overview.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
