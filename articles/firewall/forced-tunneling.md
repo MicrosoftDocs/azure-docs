@@ -5,13 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 01/31/2020
 ms.author: victorh
 ---
 
-# Azure Firewall forced tunneling
+# Azure Firewall forced tunneling (preview)
 
 You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet.
+
+> [!IMPORTANT]
+> Azure Firewall forced tunneling is currently in public preview.
+>
+> This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 By default, forced tunneling isn't allowed on Azure Firewall to ensure all its outbound Azure dependencies are met. User Defined Route (UDR) configurations on the AzureFirewallSubnet that 
 have a default route not going directly to the Internet are disabled.
