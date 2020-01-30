@@ -301,16 +301,11 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 ## Clean up resources
 
+Skip this section if you want to continue on with part 2 of the tutorial, [deploying models](tutorial-designer-automobile-price-deploy.md)].
+
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
-
-In part one of this tutorial, you completed the following tasks:
-
-* Create a pipeline
-* Prepare the data
-* Train the model
-* Score and evaluate the model
 
 In part two, you'll learn how to deploy your model as a real-time endpoint.
 
