@@ -28,7 +28,7 @@ Read more about these options below.
 
 ## Stop the cache
 
-You can stop the cache to reduce costs during an inactive period. You are not charged for throughput while the cache is stopped, but you still must pay the cache disk fee for the allocated storage. (See the [pricing](https://aka.ms/hpc-cache-pricing) page for details.)
+You can stop the cache to reduce costs during an inactive period. You are not charged for uptime while the cache is stopped, but you still must pay the cache disk fee for the allocated storage. (See the [pricing](https://aka.ms/hpc-cache-pricing) page for details.)
 
 A stopped cache does not respond to client requests.
 
