@@ -110,7 +110,7 @@ This process requires that your Active Directory is configured with at least one
 1. On the **Set up SignalFx** section, copy the **Azure AD Identifier** value. You will need this information in a later step in the SignalFx UI. 
 
 
-### Step 4: Create an Azure AD test user
+## Step 4: Create an Azure AD test user
 
 Use these instructions to create a test user in the Azure portal called **B.Simon**.
 
@@ -122,7 +122,7 @@ Use these instructions to create a test user in the Azure portal called **B.Simo
    1. Mark **Show password**, and then copy the displayed value in **Password**. You will need this information in later step in order to test this integration. 
    1. Click **Create**.
 
-### Step 5: Assign the Azure AD test user
+## Step 5: Assign the Azure AD test user
 
 Use these instructions to enable the test user to use Azure single sign-on for SignalFx.
 
