@@ -16,24 +16,24 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Provide the following information at the prompts:
 
-    1. **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
+    + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    1. **Select Function App in Azure**: Choose `+ Create new Function App` (not `Advanced`). This article doesn't support the [advanced publishing flow](functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
+    + **Select Function App in Azure**: Choose `+ Create new Function App` (not `Advanced`). This article doesn't support the [advanced publishing flow](functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
     
     >[!IMPORTANT]
     > Publishing to an existing function app overwrites the content of that app in Azure. 
     
-    1. **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. 
+    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. 
     
     ::: zone pivot="programming-language-python"
-    1. **Select a runtime**: Choose the version of Python you've been running on locally. You can use the `python --version` command to check your version.
+    + **Select a runtime**: Choose the version of Python you've been running on locally. You can use the `python --version` command to check your version.
     ::: zone-end
 
     ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    1. **Select a runtime**: Choose the version of Node.js you've been running on locally. You can use the `node --version` command to check your version.
+    + **Select a runtime**: Choose the version of Node.js you've been running on locally. You can use the `node --version` command to check your version.
     ::: zone-end
 
-    1. **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. | 
+    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
     
 1.  When completed, the following Azure resources are created in your subscription:
 

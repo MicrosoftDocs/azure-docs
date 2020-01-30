@@ -19,7 +19,7 @@ Before you get started, you need to install the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [npm]() (Windows-only). 
++ [Node.js and npm](https://nodejs.org/), only [Active Long-Term Support (LTS) versions](https://nodejs.org/about/releases/). Not required for local development on MacOS and Linux. 
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 ::: zone pivot="programming-language-csharp"
@@ -61,34 +61,34 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 1. Provide the following information at the prompts:
 
     ::: zone pivot="programming-language-csharp"
-    1. **Select a language for your function project**: Choose `C#`.
+    + **Select a language for your function project**: Choose `C#`.
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    1. **Select a language for your function project**: Choose `JavaScript`.
+    + **Select a language for your function project**: Choose `JavaScript`.
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    1. **Select a language for your function project**: Choose `TypeScript`.
+    + **Select a language for your function project**: Choose `TypeScript`.
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    1. **Select a language for your function project**: Choose `PowerShell`.
+    + **Select a language for your function project**: Choose `PowerShell`.
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    1. **Select a language for your function project**: Choose `Python`.
+    + **Select a language for your function project**: Choose `Python`.
 
-    1. **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary.  
+    + **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary.  
     ::: zone-end
 
-    1. **Select a template for your project's first function**: Choose `HTTP trigger`.
+    + **Select a template for your project's first function**: Choose `HTTP trigger`.
     
-    1. **Provide a function name**: Type `HttpExample`.
+    + **Provide a function name**: Type `HttpExample`.
     
     ::: zone pivot="programming-language-csharp"
-    1. **Provide a namespace**: Type `My.Functions`. 
+    + **Provide a namespace**: Type `My.Functions`. 
     ::: zone-end
 
-    1. **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys).
+    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys).
 
-    1. **Select how you would like to open your project**: Choose `Add to workspace`.
+    + **Select how you would like to open your project**: Choose `Add to workspace`.
 
 Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
