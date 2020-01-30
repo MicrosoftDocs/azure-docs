@@ -13292,6 +13292,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-managed-service-identity.md",
+      "redirect_url": "/azure/event-hubs/authenticate-managed-identity",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/event-hubs/event-hubs-node-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
       "redirect_document_id": false
@@ -36014,6 +36019,11 @@
     {
       "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
       "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-workspaces.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-collections",
       "redirect_document_id": true
     },
     {
