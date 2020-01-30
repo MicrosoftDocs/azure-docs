@@ -25,9 +25,9 @@ If you are connected to the rendering runtime and loaded a model successfully, b
 
 As a rule of thumb, we recommend testing the following two things before doing a more in-depth analysis:
 
-1. Is the H265 codec installed?
+* Is the H265 codec installed?
 Albeit there should be a fallback to the H264 codec, we have seen cases where this fallback did not work properly.
-1. When using a Unity project, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again. In some cases cached data caused the sample to not function properly for no obvious reason.
+* When using a Unity project, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again. In some cases cached data caused the sample to not function properly for no obvious reason.
 
 If these two steps did not help, it is required to find out whether video frames are received by the client or not. This can be queried programmatically. The `FrameStatistics struct` has a member that indicates how many video frames have been received. If this number is larger than 0 and increasing over time, the client receives actual video frames from the server. Accordingly it must be a problem on the client side.
 
