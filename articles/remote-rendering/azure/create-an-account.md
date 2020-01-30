@@ -17,7 +17,7 @@ ms.service: azure-remote-rendering
 
 The following steps are needed to create an account for the Azure Remote Rendering service:
 
-1. Go to [Mixed Reality Private Preview page](https://aka.ms/MixedRealityPrivatePreview)
+1. Go to the [Mixed Reality Preview page](https://aka.ms/MixedRealityPrivatePreview)
 1. Click on 'More services'
 1. Click on 'All services'
 1. In the search box, type 'Remote Rendering'
