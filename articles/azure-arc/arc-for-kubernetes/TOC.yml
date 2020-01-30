@@ -7,11 +7,18 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Install CLI extensions
-    href: install-cli-extensions.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Use GitOps
+    href: use-gitops.md
 - name: Concepts
   items:
 - name: How-to guides
+  - name: Enable resource providers
+    href: enable-providers.md
+  - name: Install CLI extensions
+    href: install-cli-extensions.md
 - name: Resources
   items:
   - name: Frequently asked questions
