@@ -19,39 +19,40 @@ There are a several ways to start the authoring experience in SQL script. You ca
 
 1. Select the "+" icon and choose SQL script.
 
-> [!div class="mx-imgBorder"] 
->![newsqlscript](./media/author-sql-script/newsqlscript.png)
+    > [!div class="mx-imgBorder"] 
+    >![newsqlscript](./media/author-sql-script/newsqlscript.png)
 
 2. From the Actions menu under Develop SQL scripts Choose "New SQL script" from the "Actions" menu under Develop SQL scripts. 
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlscript2actions.png)
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlscript2actions.png)
 
 or 
 
 3. Choose "Import" from the "Actions" menu under Develop SQL scripts and select an existing SQL script from your local storage.
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlscript3actions.png)
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlscript3actions.png)
 
 ## Create your SQL script
 
 1. Choose a name for your SQL script by clicking on the "Property" button and replace the default name assigned to the SQL script
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlscriptrename.png)
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlscriptrename.png)
 
 1. Choose the specific SQL pool or the SQL on-demand from the "Connect to" drop-down menu and if necessary choose the database from "Use database"
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlchoosepool.png)
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlchoosepool.png)
 
-1. Start authoring your SQL script leveraging the intellisense feature
+1. Start authoring your SQL script leveraging the intellisense feature.
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlintellisense.png)
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlintellisense.png)
 
 ## Run your SQL script
+
 Click the "Run" button to execute your SQL script. The results are displayed by default in a table 
 
 > [!div class="mx-imgBorder"] 
