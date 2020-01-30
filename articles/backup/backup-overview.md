@@ -40,8 +40,6 @@ Azure Backup delivers these key benefits:
   - [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy-grs.md) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
-
 ## Next steps
 
 - [Review](backup-architecture.md) the architecture and components for different backup scenarios.
