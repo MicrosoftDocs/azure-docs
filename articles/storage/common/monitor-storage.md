@@ -318,15 +318,21 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 Following are queries that you can use to help you monitor your Azure Storage accounts.
 
-* To blah
+* To list 10 most common errors over the last 3 days.
 
     ```Kusto
-    Query goes here.
+    StorageBlobLogs
+    | where TimeGenerated > ago(3d) and StatusText !contains ""Success"
+    | summarize count() by StatusText
+    | top 10 by count_ desc
     ```
-* To blah
+* To list top 10 operations causing the most errors over the last 3 days.
 
     ```Kusto
-    Query goes here.
+    StorageBlobLogs
+    | where TimeGenerated > ago(3d) and StatusText !contains "Success"
+    | summarize count() by OperationName
+    | top 10 by count_ desc
     ```
 * To blah
 
