@@ -83,5 +83,5 @@ By selecting the "Actions" menu under data, you can select several actions like:
 
 ## Next steps
 
-For more information about authoring a SQL script, see:
-[Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+For more information about authoring a SQL script, see
+[Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
