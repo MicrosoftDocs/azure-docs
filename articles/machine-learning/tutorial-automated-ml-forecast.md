@@ -215,7 +215,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 In this tutorial, you used automated ML in the Azure Machine Learning studio to create and deploy a time series forecasting model that predicts bike share rental demand. 
 
-See this article for steps on how to create a Power BI supported schema to faciliate consumption of your newly deployed web service:
+See this article for steps on how to create a Power BI supported schema to facilitate consumption of your newly deployed web service:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
