@@ -92,7 +92,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### 5. Configure the transform set
 
-Configure the transform set (TS), which must involve the keyword ```ikev1```. The encryption and hash attributes specified in the TS must match with the parameters listed in [Default configuration for AVS VPN gateways](#default-configuration-for-avs-vpn-gateways).
+Configure the transform set (TS), which must involve the keyword ```ikev1```. The encryption and hash attributes specified in the TS must match with the parameters listed in [Default configuration for AVS VPN gateways](cloudsimple-vpn-gateways.md#cryptographic-parameters).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
