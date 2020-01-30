@@ -25,15 +25,15 @@ While some preview features might be available in the portal and .NET SDK, the R
 
 + [PII Detection (preview)](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
 
-+ [Incremental enrichment(preview)](cognitive-search-incremental-indexing-conceptual.md) adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.
++ [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.
 
 + [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API (preview), Gremlin API (preview), and Cassandra API (preview).
 
 + [Azure Data Lake Storage Gen2 indexer (preview)](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
 
-+ [Knowledge store](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. The physical data structure exists in Azure Blob storage and Azure Table storage, and it is created and populated when you run an indexer that has an attached cognitive skillset. The definition of a knowledge store itself is specified within a skillset definition. Within the knowledge store definition, you control the physical structures of your data through *projection* elements that determine how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
++ [Knowledge store (preview)](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. The physical data structure exists in Azure Blob storage and Azure Table storage, and it is created and populated when you run an indexer that has an attached cognitive skillset. The definition of a knowledge store itself is specified within a skillset definition. Within the knowledge store definition, you control the physical structures of your data through *projection* elements that determine how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
 
-+ [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
++ [moreLikeThis query parameter (preview)](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 
 ## Earlier preview features
 
