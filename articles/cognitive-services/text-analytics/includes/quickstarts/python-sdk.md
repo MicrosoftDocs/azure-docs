@@ -12,7 +12,7 @@ ms.author: aahi
 
 [v3 Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 [v2 Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -37,7 +37,7 @@ After installing Python, you can install the client library with:
 pip install azure-ai-textanalytics
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 ```console
 pip install --upgrade azure-cognitiveservices-language-textanalytics
@@ -67,7 +67,7 @@ When batch processing text is sent to the API as a list of `documents`, which ar
 
 The response object is a list containing the analysis information for each document. 
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
 
@@ -140,7 +140,7 @@ neutral=0.771
 negative=0.017
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Authenticate a client object, and call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function. Iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
@@ -187,7 +187,7 @@ language_detection_example(endpoint, key)
 Language:  French
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
@@ -358,7 +358,7 @@ Linked Entities:
 		Score: 0.281 	Offset:  89 	Length: 5
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 > [!NOTE]
 > In version 2.1, entity linking is included in the NER response.
@@ -447,7 +447,7 @@ key_phrase_extraction_example(endpoint, key)
 		 veterinarian
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 Using the client created earlier, call the [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
 

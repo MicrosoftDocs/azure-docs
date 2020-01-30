@@ -389,7 +389,7 @@ Document ID: 0
                 Offset: 89, Length: 5   Score: 0.052
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 > [!NOTE]
 > In version 2.1, entity linking is included in the NER response.
