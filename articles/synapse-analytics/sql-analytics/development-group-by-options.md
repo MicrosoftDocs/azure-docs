@@ -1,23 +1,29 @@
 ---
 title: Using group by options
-description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
+description: Tips for implementing group by options in SQL Analytics for developing solutions.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 01/06/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.custom: 
 ---
 
-# Group by options in SQL Data Warehouse
-Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
+# Group by options in SQL Analytics
+Tips for implementing group by options in SQL Analytics for developing solutions.
 
 ## What does GROUP BY do?
 
-The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL Data Warehouse does not support. These options have workarounds.
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows.
+
+SQL Analytics on-demand supports whole range of GROUP BY options, while SQL Analytics pool supports limited number of options. 
+
+## GROUP BY options supported in SQL Analytics pool
+GROUP BY has some options that SQL Analytics pool  does not support. These options have workarounds.
 
 These options are
 
@@ -25,7 +31,7 @@ These options are
 * GROUPING SETS
 * GROUP BY with CUBE
 
-## Rollup and grouping sets options
+### Rollup and grouping sets options
 The simplest option here is to use UNION ALL instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same
 
 The following example using the GROUP BY statement with the ROLLUP option:
@@ -77,7 +83,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
-## Cube options
+### Cube options
 It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this, you can use this more advanced approach.
 
 Let's use the example above.

@@ -177,10 +177,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Edit the class file to contain the code in the following two-step process:
+Edit the class file to contain the code in the following three-step process:
 
 1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
-1. Pass the token to your key vault, and then fetch your secret. 
+2. Pass the token to your key vault, and then fetch your secret. 
+3. Add the vault name and secret name to the request.
 
 ```csharp
  class Program
@@ -201,9 +202,10 @@ Edit the class file to contain the code in the following two-step process:
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();
