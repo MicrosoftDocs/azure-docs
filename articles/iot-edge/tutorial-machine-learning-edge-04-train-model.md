@@ -109,15 +109,31 @@ Now that the project is created, run the **01-turbofan\_regression.ipynb** noteb
 
 1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
 
-1. In the notebook, scroll down to the **Set global properties** section and fill in the values for your Azure subscription, settings, and resources.
+1. In the notebook, scroll down to the cell that follows the **Set global properties** instructions and that begins with the code `AZURE_SUBSCRIPTION_ID =` and fill in the values for your Azure subscription, settings, and resources.
 
     ![Set global properties in the notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
 
-1. Above the toolbar, select **Run all** from the **Cell** menu.
+1. Run that cell.
 
-    When a cell is running, it has an asterisk between the square brackets, like **[\*]**. When the cell's operation is complete, the asterisk will be replaced with a number and relevant output may appear. Since cells often build on the work of the previous ones, only one cell can run at a time.
+    When a cell is running, it displays an asterisk (**[\*]**) between the square brackets. When the cell's operation is complete, the asterisk is replaced with a number and relevant output may appear. The cells in a notebook build sequentially and only one can be running at a time.
+
+1. Scroll down to the cell that follows the **Create a workspace** instructions and that begins with the code `from azureml.core import Workspace` and run that cell.
+
+1. Look for the output that that instructs you to open the page https://microsoft.com/devicelogin and enter a code. Open the link and enter the specified code to authenticate the application on the device by the Microsoft Azure Cross-Platform Command Line Interface.  
+
+    ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
+
+1. From the notebook **Cell** menu, select **Run All Below** menu.
+
+1. Scroll down through the notebook and review how the cell operations are completed.
 
     Follow the instructions in the notebook. Correct any errors and run the cell again. Click the **Run** button on the toolbar or press `Ctrl` + `Enter` to run a cell. Press `Shift` + `Enter` to run a cell and navigates to the next cell.
+
+    For information about debugging, see [Debug notebooks using Visual Studio Code](../notebooks/tutorial-create-run-jupyter-notebook.md#debug-notebooks-using-visual-studio-code).
+
+1. In the **Explore the data** section, the cells in the **Sensor readings and RUL** subsection render scatterplots of sensor measurements.
+
+    ![Sensor readings scatterplots](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
 
 1. When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page.
 
