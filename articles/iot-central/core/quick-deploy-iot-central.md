@@ -27,7 +27,7 @@ To create a new Azure IoT Central application from the **Custom app** template:
 
     ![Build your IoT application page](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
 
-1. Choose **Custom app** and make sure that the **Preview application** template is selected.
+1. Choose **Custom app** and make sure that the **Custom application** template is selected.
 
 1. Azure IoT Central automatically suggests an **application name** based on the application template you've selected. You can use this name or enter your own friendly application name.
 
@@ -36,7 +36,7 @@ To create a new Azure IoT Central application from the **Custom app** template:
     ![Azure IoT Central Create an application page](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
 
     > [!NOTE]
-    > If you chose **Custom app** on the previous page, you see an **Application template** dropdown. From here you can switch between preview and legacy templates. You might also see other templates that have been made available for your organization.
+    > If you chose **Custom app** on the previous page, you see an **Application template** dropdown. From here you can switch between custom and legacy templates. You might also see other templates that have been made available for your organization.
 
 1. Choose to create this application using the 7-day free trial pricing plan, or one of the standard pricing plans:
 

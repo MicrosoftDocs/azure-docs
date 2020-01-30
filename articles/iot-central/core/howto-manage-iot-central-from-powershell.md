@@ -68,17 +68,11 @@ The script first creates a resource group in the east US region for the applicat
 |Template          | The application template to use. For more information, see the following table: |
 |DisplayName       |The name of the application as displayed in the UI. |
 
-**Application template with generally available features**
+**Application templates**
 
 | Template name            | Description |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Creates an empty application for you to populate with your own device templates and devices.
-
-
-**Application templates with public preview features**
-
-| Template name            | Description |
-| ------------------------ | ----------- |
 | iotc-pnp-preview@1.0.0   | Creates an empty plug and play preview application for you to populate with your own device templates and devices. |
 | iotc-condition@1.0.0     | Creates an application with a in-store analytics – condition monitoring template. Use this template to connect and monitor store environment. |
 | iotc-consumption@1.0.0   | Creates an application with water consumption monitoring template. Use this template to monitor and control water flow. |

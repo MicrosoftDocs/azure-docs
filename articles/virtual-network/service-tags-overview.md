@@ -38,7 +38,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. | Both | No | Yes |
-| **ApplicationInsightsAvailability** | Application Insights Availability. | Both | No | No |
+| **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web app front ends. | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
@@ -74,7 +74,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
-| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Both | No | Yes |
+| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
