@@ -26,9 +26,9 @@ The objective of this tutorial is to demonstrate the steps to be performed in G 
 
 > [!NOTE]
 > The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
-- Added support for additional G Suite user and group attributes. 
-- Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
-- Updated default attribute mappings.
+> - Added support for additional G Suite user and group attributes. 
+> - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
+> - Updated default attribute mappings.
 
 ## Prerequisites
 
@@ -205,6 +205,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Common issues
 * Authorization failures can occur when the account used to establish a connection is not for an administrator in GSuite. Ensure that the account used to authorize access has admin permissions over **all domains** that users need to be provisioned with. 
+* Azure AD supports disabling users in GSuite so that they cannot access the application, but it does not delete users in GSuite.
 
 ## Next steps
 

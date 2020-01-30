@@ -187,7 +187,7 @@ The next template shows an example creating an Azure Batch Pool (the backend mac
 
 Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the capability templates.
 
-You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) in a separate article.
+You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) in a separate article.
 
 ```json
 {
@@ -363,7 +363,7 @@ Azure Pipelines also used to deploy your application and underlying infrastructu
 
 ### Deploying your application and underlying infrastructure
 
-There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/resource-group-linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
+There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/templates/linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
 1. Create a **New Release Definition**, and select an empty definition. We then need to rename the newly created environment to something relevant for our pipeline.
 

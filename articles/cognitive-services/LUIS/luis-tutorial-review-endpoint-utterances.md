@@ -43,7 +43,7 @@ Use the following steps to import an app.
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. On the [preview LUIS portal](https://preview.luis-ai), import the .json file into a new app.
+1. On the [preview LUIS portal](https://preview.luis.ai), import the .json file into a new app.
 
 1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `review`.
 
