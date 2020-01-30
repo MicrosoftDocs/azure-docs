@@ -11,7 +11,7 @@ ms.date: 10/20/2019
 
 # Architecture of IoT Central smart inventory management application template
 
-Partners & customer can use the app template & following guidance to develop end to end **smart inventory management** solutions.
+Partners and customers can use the app template and following guidance to develop end to end **smart inventory management** solutions.
 
 > [!div class="mx-imgBorder"]
 > ![smart inventory management](./media/concept-smart-inventory-mgmt-architecture/smart-inventory-management-architecture.png)
@@ -36,7 +36,7 @@ Energy beacon broadcasts packets of data at regular intervals. Beacon data is de
 ## RFID & BLE readers
 RFID reader converts the radio waves to a more usable form of data. Information collected from the tags is then stored in local edge server or sent to cloud using JSON-RPC 2.0 over MQTT.
 BLE reader also known as Access Points (AP) are similar to RFID reader. It is used to detect nearby Bluetooth signals and relay its message to local Azure IoT Edge or cloud using JSON-RPC 2.0 over MQTT.
-Many readers are capable for reading RFID & Beacon signals, and providing additional sensor capability related to temperate, humidity, Accelerometer & Gyro.
+Many readers are capable of reading RFID and beacon signals, and providing additional sensor capability related to temperature, humidity, accelerometer, and gyroscope.
 
 ## Azure IoT Edge gateway
 Azure IoT Edge server provides a place to preprocess that data locally before sending it on to the cloud. We can also deploy cloud workloads artificial intelligence, Azure and third-party services, business logic using standard containers.

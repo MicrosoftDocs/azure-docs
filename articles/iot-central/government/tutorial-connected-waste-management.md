@@ -34,7 +34,7 @@ To complete this tutorial, you need:
 
 ## Create Connected Waste Management app in IoT Central
 
-In this section, you can use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
+In this section, you use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
 
 To create a new Azure IoT Central connected waste management application:  
 

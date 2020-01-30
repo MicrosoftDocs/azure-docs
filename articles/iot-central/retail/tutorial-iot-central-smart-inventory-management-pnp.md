@@ -65,7 +65,7 @@ The dashboard is logically divided between two different gateway device manageme
 ## Device Template
 Click on the Device templates tab, and you will see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry & Property** and **Gateway Commands**
 
-**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info, and device twin property capability such as gateway thresholds & update intervals.
+**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info, and device twin property capability such as gateway thresholds and update intervals.
 
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
@@ -88,7 +88,7 @@ Select the rules tab to see two different rules that exist in this application t
 
 ## Jobs
 Select the jobs tab to see five different jobs that exist as part of this application template:
-You can use jobs feature to perform solution-wide operations. Here inventory management jobs are using the device commands & twin capability to perform tasks such as,
+You can use jobs feature to perform solution-wide operations. Here inventory management jobs are using the device commands and twin capability to perform tasks such as,
    * disabling readers across all the gateway
    * modifying the telemetry threshold between 
    * perform on-demand inventory scanning across the entire solution.

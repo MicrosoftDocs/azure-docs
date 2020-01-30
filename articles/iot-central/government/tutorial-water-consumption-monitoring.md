@@ -34,7 +34,7 @@ To complete this tutorial, you need:
 
 ## Create water consumption monitoring app in IoT Central
 
-In this section, you can use the Azure IoT Central **Water consumption monitoring template** to create your water consumption monitoring application in IoT Central.
+In this section, you use the Azure IoT Central **Water consumption monitoring template** to create your water consumption monitoring application in IoT Central.
 
 To create a new Azure IoT Central water consumption monitoring application:  
 
@@ -101,7 +101,7 @@ The dashboard consists of different kinds of tiles:
 
 * **Reset alert threshold content tile**: you can include call to action content tiles embedding the link to an action page. In this case reset alert threshold will take you to the application **Jobs** where you can run updates to devices properties, which we will explore later in the **configure jobs** section of this tutorial.
 
-* **Property tiles**: the dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** which is device properties.  
+* **Property tiles**: the dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info**. 
 
 
 ### Customize dashboard 
@@ -189,7 +189,7 @@ The **Water consumption monitoring** application you have created template has t
 
    ![Rules](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-2. Select and click on **High pH alert, which is one of the pre-configured rules in the application.
+2. Select and click on **High pH alert**, which is one of the pre-configured rules in the application.
 
      ![High pH Alert](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 

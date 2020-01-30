@@ -91,7 +91,7 @@ Select the jobs tab to see five different jobs that exist as part of this applic
 > [!div class="mx-imgBorder"]
 > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
 
-You can use jobs feature to do solution-wide operations. Here jobs are using the device commands & twin capability to do tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
+You can use jobs feature to do solution-wide operations. Here jobs are using the device commands and twin capability to do tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
    * It is a standard operation to disable shock sensors during ocean shipment to conserve battery or decrease temperature threshold during cold chain transportation. 
  
    * Jobs enable you to do system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.

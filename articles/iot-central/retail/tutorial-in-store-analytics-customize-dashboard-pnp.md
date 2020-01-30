@@ -46,7 +46,7 @@ To customize the operator dashboard, you have to edit the default dashboard in y
 
 1. Enter a friendly name for your dashboard in **Dashboard name.** This tutorial uses a fictional company named Contoso, and the example dashboard name is *Contoso dashboard*. 
 
-1. Select **Save**. Your changes will be saved to the dashboard and disables edit mode.
+1. Select **Save**. Your changes are saved to the dashboard and edit mode is disabled.
 
     ![Azure IoT Central change dashboard name](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -243,7 +243,7 @@ To add a command tile to reboot the gateway:
 In this tutorial, you learned how to:
 
 * Change the dashboard name
-* Design customization image tiles on the dashboard
+* Customize image tiles on the dashboard
 * Arrange tiles to modify the layout
 * Add telemetry tiles to display conditions
 * Add property tiles to display device details

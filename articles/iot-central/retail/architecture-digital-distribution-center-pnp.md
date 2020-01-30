@@ -13,7 +13,7 @@ ms.date: 10/20/2019
 
 
 
-Partners & customer can use the app template & following guidance to develop end to end **digital distribution center** solutions.
+Partners and customers can use the app template & following guidance to develop end to end **digital distribution center** solutions.
 
 > [!div class="mx-imgBorder"]
 > ![digital distribution center](./media/concept-ddc-architecture/digital-distribution-center-architecture.png)
@@ -37,8 +37,8 @@ The "cameras-as-sensors" and edge workloads are managed locally by Azure IoT Edg
 ## Device Management with IoT Central 
 Azure IoT Central is a solution development platform that simplifies IoT device & Azure IoT Edge gateway connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers & partners can build an end to end enterprise solutions to achieve a digital feedback loop in distribution centers.
 
-## Business Insights & actions using data egress 
-IoT Central platform provides rich extensibility options through Continuous Data Export (CDE) and APIs. Business insights that are based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application. It can be achieved through webhook, Service Bus, event hub, or blob storage to build, train, and deploy machine learning models & further enrich insights.
+## Business Insights and actions using data egress 
+IoT Central platform provides rich extensibility options through Continuous Data Export (CDE) and APIs. Business insights that are based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application. It can be achieved through webhook, Service Bus, event hub, or blob storage to build, train, and deploy machine learning models and further enrich insights.
 
 ## Next steps
 * Learn how to deploy [digital distribution center template](./tutorial-iot-central-digital-distribution-center-pnp.md)

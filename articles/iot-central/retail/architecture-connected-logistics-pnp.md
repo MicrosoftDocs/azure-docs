@@ -37,7 +37,7 @@ Gateways can also act as IoT tags with their ambient sensing capabilities. The g
 ## Device management with IoT Central 
 Azure IoT Central is a solution development platform that simplifies IoT device connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers & partners can build an end to end enterprise solutions to achieve a digital feedback loop in logistics.
 
-## Business insights & actions using data egress 
+## Business insights and actions using data egress 
 IoT Central platform provides rich extensibility options through Continuous Data Export (CDE) and APIs. Business insights based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application. It can be achieved using webhook, service bus, event hub, or blob storage to build, train, and deploy machine learning models & further enrich insights.
 
 ## Next steps

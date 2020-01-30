@@ -216,7 +216,7 @@ For this tutorial, you use the following set of real and simulated devices to bu
 - A simulated **Occupancy** sensor. The simulated sensor is included in the application template, so you don't need to create it. 
 
 > [!NOTE]
-> If you don/t have real devices, you can still complete this tutorial by creating simulated RuuviTag sensors. The following directions include steps to create a simulated RuuviTag. You don't need to create a simulated gateway.
+> If you don't have real devices, you can still complete this tutorial by creating simulated RuuviTag sensors. The following directions include steps to create a simulated RuuviTag. You don't need to create a simulated gateway.
 
 Complete the steps in the following two articles to connect a real Rigado gateway and RuuviTag sensors. After you're done, return to this tutorial. Because you already created device templates in this tutorial, you don't need to create them again in the following set of directions.
 
