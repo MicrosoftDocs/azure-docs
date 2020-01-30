@@ -59,6 +59,8 @@ Here is an example of a logged request in WAF log:
     }
 }
 
+``` 
+
 The following example query obtains AccessLogs entries:
 
 ``` AccessLogQuery
