@@ -4,30 +4,30 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 01/30/2020
 ms.author: rogarana
 ---
 
 # Enable active directory over SMB for Azure Files
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure AD DS (GA) authentication for Azure Files see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
 
 > [!NOTE]
-> Azure Files only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory (AD). 
+> Azure file shares only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory (AD). 
 >
-> AD identities used for Azure Files authentication must be synced to Azure AD. Password hash synchronization (PSH) is optional. 
+> AD identities used for Azure file share authentication must be synced to Azure AD. Password hash synchronization (PSH) is optional. 
 > 
 > AD authentication does not support authentication against Computer accounts created in AD DS. 
 > 
-> AD authentication can only be supported against one AD forest where the storage account is registered to. Hence, you can only access Azure file share with the AD credentials from the single AD forest.  
+> AD authentication can only be supported against one AD forest where the storage account is registered to. Hence, you can only access Azure file shares with the AD credentials from the single AD forest.  
 > 
 > AD authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
 
-When you enable AD for Azure Files over SMB access, your AD domain joined machines from on-premise or Azure can mount Azure file shares using your existing AD credentials. This capability can be enabled with an AD environment hosted either in on-prem machines or hosted in Azure. AD identities used to access Azure file shares must be synced to Azure AD to enforce share level file permissions through the standard [role-based access control (RBAC)](../../role-based-access-control/overview.md) model. [NTFS DACLs](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+When you enable AD for Azure file shares over SMB access, your AD domain joined machines from on-premise or Azure can mount Azure file shares using your existing AD credentials. This capability can be enabled with an AD environment hosted either in on-prem machines or hosted in Azure. AD identities used to access Azure file shares must be synced to Azure AD to enforce share level file permissions through the standard [role-based access control (RBAC)](../../role-based-access-control/overview.md) model. [NTFS DACLs](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
  
 ## Prerequisites 
 
-Before you enable AD authentication for Azure Files, make sure you have completed the following prerequisites: 
+Before you enable AD authentication for Azure file shares, make sure you have completed the following prerequisites: 
 
 - Select or create your AD environment and sync it to Azure AD. 
 
@@ -51,7 +51,7 @@ Before you enable AD authentication for Azure Files, make sure you have complete
 
 ## Workflow overview
 
-Before you enable AD Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all required steps. This validates that your AD, Azure AD and Azure Storage environments are properly configured. 
+Before you enable AD Authentication over SMB for Azure file shares, we recommend that you walk through the prerequisites to make sure you've completed all required steps. This validates that your AD, Azure AD and Azure Storage environments are properly configured. 
 
 Next, grant access to Azure Files resources with AD credentials with the following steps: 
 
@@ -63,16 +63,16 @@ Next, grant access to Azure Files resources with AD credentials with the followi
 
 - Mount an Azure file share from an AD domain joined VM. 
 
-The following diagram illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure Files. 
+The following diagram illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure file shares. 
 
 ![Files AD workflow diagram](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
 > [!NOTE]
-> AD authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
+> AD authentication over SMB for Azure file shares is supported only on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
 
 ## Enable AD authentication for your account 
 
-To enable AD authentication over SMB for Azure Files, you need to first register your storage account with AD and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end-to-end workflow in the section below. 
+To enable AD authentication over SMB for Azure file shares, you need to first register your storage account with AD and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end-to-end workflow in the section below. 
 
 > [!IMPORTANT]
 > The `join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
@@ -123,7 +123,7 @@ Once you have that key, create either a service (recommended) or computer accoun
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
 Password: Kerberos key for your storage account.
 
-If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure File shares. See [Update AD account password](#update-ad-account-password) for details.
+If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update AD account password](#update-ad-account-password) for details.
 
 Keep the SID of the newly account, you'll need it for the next step.
 
@@ -149,7 +149,7 @@ $storageaccount = Get-AzStorageAccount -ResourceGroupName "your-resource-group-n
 #List the directory service of the selected service account
 $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 
-#List the directory domain information if the storage account is enabled for AD authentication for Files
+#List the directory domain information if the storage account has enabled AD authentication for file shares
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
