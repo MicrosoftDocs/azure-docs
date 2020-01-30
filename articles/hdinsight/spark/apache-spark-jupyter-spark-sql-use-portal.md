@@ -13,20 +13,28 @@ ms.custom: mvc
 
 # Quickstart: Create Apache Spark cluster in Azure HDInsight using Azure portal
 
-Learn how to create Apache Spark cluster in Azure HDInsight, and how to run Spark SQL queries against Hive tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
+In this quickstart, you create an HDInsight Spark cluster in the Azure portal, and then run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. 
 
-In this quickstart, you use the Azure portal to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+[Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/)
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+## Create an HDInsight Spark cluster
+
+You use the Azure portal to create an HDInsight Spark cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+1. In the Azure portal, select **Create a resource**.
 
-## Create an HDInsight Spark cluster
+    ![Azure portal create a resource](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create.png "Create a resource in Azure portal")
 
-1. In the Azure portal, select **Create a resource** > **Analytics** > **HDInsight**.
+1. On the **New** page, select **Analytics** > **HDInsight**.
 
-    ![Azure portal create a resource HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight on Azure portal")
+    ![Azure portal create HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight on Azure portal")
 
 1. Under **Basics**, provide the following values:
 

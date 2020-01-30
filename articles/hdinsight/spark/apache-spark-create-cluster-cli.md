@@ -8,24 +8,24 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-#Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster.
+#Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster.
 ---
 
 # Quickstart: Create Apache Spark cluster in Azure HDInsight using Azure CLI
 
-In this quickstart, you learn how to create an Apache Spark cluster in Azure HDInsight using Azure CLI. Apache Spark enables fast data analytics and cluster computing using in-memory processing. The [Azure command-line interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) is Microsoft's cross-platform command-line experience for managing Azure resources.
+In this quickstart, you learn how to create an Apache Spark cluster in Azure HDInsight using the Azure command-line interface (CLI). Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
+[)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 
 ## Prerequisites
 
-Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for steps.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), if you don't want to use Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create an Apache Spark cluster
 
-1. Sign in to your Azure subscription. If you plan to use Azure Cloud Shell then simply select **Try it** in the upper-right corner of the code block. Else, enter the command below:
+1. Sign in to your Azure subscription. If you plan to use Azure Cloud Shell then simply select **Try it** in the upper-right corner of the following code block. Else, enter the command below:
 
     ```azurecli-interactive
     az login
