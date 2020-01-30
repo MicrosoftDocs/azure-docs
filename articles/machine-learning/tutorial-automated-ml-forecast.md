@@ -17,13 +17,13 @@ ms.date: 01/27/2020
 # Tutorial: Forecast bike sharing demand with automated machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a demand forecasting model for a bike sharing service.
+In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time series forecasting model to predict rental demand for a bike sharing service.
 
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Create an experiment in an Azure Machine Learning workspace.
-> * Configure a remote run of automated ML for a demand forecast model.
+> * Create and load a dataset.
+> * Configure and run an automated ml experiment.
 > * Explore the experiment results.
 > * Deploy the best model.
 
@@ -35,7 +35,7 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Get started in Azure Machine Learning studio
 
-For this tutorial, you create your automated ml experiment run in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -57,7 +57,7 @@ Before you configure your experiment, upload your data file to your workspace in
     
     1. Select **Next** on the bottom left
 
-    1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location for your soon to be uploaded data file. 
+    1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you'll upload your data file. 
 
     1. Select **Browse**. 
     
@@ -121,7 +121,9 @@ After you load and configure your data, set up your remote compute target and se
 
 Complete the setup for your automated ml experiment by specifying the machine learning task type and configuration settings.
 
-1. On the **Task type and settings** form, select **Forecasting** as the machine learning task type.
+1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type.
+
+1. Select **date** as your **Time column** and leave **Group by column(s)** blank. 
 
     1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
 
@@ -134,8 +136,8 @@ Complete the setup for your automated ml experiment by specifying the machine le
         Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
         Additional forecasting settings| Settings |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
         Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 3
-        Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 4
+        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
+        Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
         
         Select **OK**.
 
@@ -146,7 +148,7 @@ To run your experiment, select **Create**. The **Run Details**  screen opens wit
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
 > Once running, it takes **2-3 minutes more for each iteration**.  <br> <br>
-> In production, you'd likely walk away for a bit as this process is rather lengthy. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
+> In production, you'd likely walk away for a bit as this process takes time. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
 
 ##  Explore models
 
@@ -154,15 +156,15 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
+The following example navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
+![Run detail](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
 ## Deploy the model
 
 Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
 
-For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bikes hare rental demand. 
+For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
 
 Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab.
 
@@ -211,9 +213,9 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ## Next steps
 
-In this tutorial, you automated ML  in the Azure Machine Learning studio to create and deploy a demand forecasting model. 
+In this tutorial, you used automated ML in the Azure Machine Learning studio to create and deploy a time series forecasting model that predicts bike share rental demand. 
 
-See this article for steps on how to create a Power BI supported schema and how to consume your newly deployed web service in Power BI:
+See this article for steps on how to create a Power BI supported schema to faciliate consumption of your newly deployed web service:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
