@@ -134,9 +134,6 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-
-> [!div class="nextstepaction"]
 > [Configure Java app](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
