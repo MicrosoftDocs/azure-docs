@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/30/2019
 ms.author: normesta
 ms.reviewer: fryu
 ---
@@ -78,6 +78,9 @@ For a list of all Azure Monitor support metrics (including Azure Storage), see [
 
 
 ### Access metrics
+
+> [!TIP]
+> To view Azure CLI or .NET examples, choose the corresponding tab below.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -316,7 +319,7 @@ Log entries are created only if there are requests made against the service endp
 
 ### Azure Storage Log Analytics queries in Azure Monitor
 
-Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos containers. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Storage accounts. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 Following are queries that you can use to help you monitor your Azure Storage accounts.
 
