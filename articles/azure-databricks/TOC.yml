@@ -1472,7 +1472,7 @@
       - name: Run C++ code in Scala
         href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
         maintainContext: true 
-      - name: Concurent Spark JAR jobs fail
+      - name: Concurrent Spark JAR jobs fail
         href: /azure/databricks/kb/scala/spark-jar-job-error
         maintainContext: true
     - name: SQL
