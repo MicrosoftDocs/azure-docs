@@ -80,11 +80,11 @@
       href: sdk/concepts-spatial-queries.md
   - name: Tools
     items:
-    - name: ArrInspector inspection tool
+    - name: ArrInspector - ARR Inspection tool
       href: tools/arr-inspector.md
-    - name: TexConv texture conversion command line tool
+    - name: TexConv - Texture conversion tool
       href: tools/tex-conv.md
 - name: Resources
   items:
-  -name: Azure Mixed Reality Resource Management REST API
-   href: https://docs.microsoft.com/en-us/rest/api/mixedreality/
+  - name: Azure Mixed Reality Resource Management REST API
+    href: https://docs.microsoft.com/rest/api/mixedreality/
