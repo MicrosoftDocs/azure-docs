@@ -4,7 +4,7 @@ description: Learn about sfctl, the Azure Service Fabric command line interface.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
@@ -76,9 +76,9 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 ### Examples
 
 Start a cluster configuration update
-```	
-sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-	
-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"	
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 ```
 
 ## sfctl sa-cluster upgrade-status

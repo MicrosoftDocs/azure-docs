@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -27,6 +27,9 @@ There are several ways to customize the UI of the user experiences your applicat
 If you use [user flows](user-flow-overview.md), you can change the look of your user flow pages by using built-in *page layout templates*, or by using your own HTML and CSS. Both methods are discussed later in this article.
 
 You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customization for user flows.
+
+> [!TIP]
+> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding (preview)](#company-branding-preview) feature described later in this article.
 
 ### Custom policies
 
@@ -145,6 +148,60 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 | Unified sign-up or sign-in | Handles both sign-up and sign-in of customers who can use social identity providers such as Facebook, Google, or local accounts. |
 | Multi-factor authentication | Customers can verify their phone numbers (using text or voice) during sign-up or sign-in. |
 | Error | Provides error information to the customer. |
+
+## Company branding (preview)
+
+You can customize your user flow pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/customize-branding.md).
+
+To customize your user flow pages, you first configure company branding in Azure Active Directory, then you enable it in the page layouts of your user flows in Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### Configure company branding
+
+Start by setting the banner logo, background image, and background color within **Company branding**.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Under **Manage**, select **Company branding**.
+1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/customize-branding.md).
+
+Keep these things in mind when you configure company branding in Azure AD B2C:
+
+* Company branding in Azure AD B2C is currently limited to **background image**, **banner logo**, and **background color** customization. The other properties in the company branding pane, for example those in **Advanced settings**, are *not supported*.
+* In your user flow pages, the background color is shown before the background image is loaded. We recommended you choose a background color that closely matches the colors in your background image for a smoother loading experience.
+* The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
+
+### Enable branding in user flow pages
+
+Once you've configured company branding, enable it in your user flows.
+
+1. In the left menu of the Azure portal, select **Azure AD B2C**.
+1. Under **Policies**, select **User flows (policies)**.
+1. Select the user flow for which you'd like to enable company branding. Company branding is **not supported** for the *Sign in v1* and *Profile editing v1* user flow types.
+1. Under **Customize**, select **Page layouts**, and then select the layout you'd like to brand. For example, select **Unified sign up or sign in page**.
+1. For the **Page Layout Version (Preview)**, choose version **1.2.0** or above.
+1. Select **Save**.
+
+If you'd like to brand all pages in the user flow, set the page layout version for each page layout in the user flow.
+
+![Page layout selection in Azure AD B2C in the Azure portal](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+This annotated example shows a custom banner logo and background image on a *Sign up and sign in* user flow page that uses the Ocean Blue template:
+
+![Branded sign-up/sign-in page served by Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### Use company branding assets in custom HTML
+
+To use your company branding assets in custom HTML, add the following tags outside the `<div id="api">` tag:
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+The image source is replaced with that of the background image and banner logo. As described in the [Get started with custom HTML and CSS](#get-started-with-custom-html-and-css) section, use CSS classes to style and position the assets on the page .
 
 ## Localize content
 
