@@ -127,6 +127,32 @@ request body that includes **excludedPrincipals**:
 }
 ```
 
+## Exclude an action from a deny assignment
+
+Similar to [excluding a principal](#exclude-a-principal-from-a-deny-assignment) on a
+[deny assignment](../../../role-based-access-control/deny-assignments.md) in a blueprint assignment,
+you can exclude specific
+[RBAC operations](../../../role-based-access-control/resource-provider-operations.md). Within the
+**properties.locks** block, in the same place that **excludedPrincipals** is, an **excludedActions**
+can be added:
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+While **excludedPrincipals** must be explicit, **excludedActions** entries can make use of `*` for
+wildcard matching of RBAC operations.
+
 ## Next steps
 
 - Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
