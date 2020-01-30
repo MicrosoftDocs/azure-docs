@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-In this quickstart, you simulate an X.509 device on a Windows computer, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub.
+In this quickstart, you simulate an X.509 device on a Windows computer and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub.
 
 ## Prerequisites
 
