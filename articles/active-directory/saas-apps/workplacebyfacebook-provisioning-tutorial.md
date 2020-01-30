@@ -25,7 +25,7 @@ This tutorial describes the steps you need to perform in both Workplace by Faceb
 > [!NOTE]
 > The Azure AD third party application in Workplace by Facebook has been approved. Customers will not have an interruption of service on December 16th. You will see a note in the Workplace by Facebook Admin console indicating a deadline of 28-February-2020 by when you will need to transition to the new application. We are working to keep the transition as simple as possible and will provide an update here on the transition by end of month.
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Workplace by Facebook
 > * Remove users in Workplace by Facebook when they do not require access anymore
@@ -153,7 +153,7 @@ Once you've configured provisioning, use the following resources to monitor your
 2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## Troubleshooting Tips
+## Troubleshooting tips
 *  If you see a user unsuccessfully created and there is an audit log event with the code "1789003" it means that the user is from an unverified domain.
 
 ## Additional resources
