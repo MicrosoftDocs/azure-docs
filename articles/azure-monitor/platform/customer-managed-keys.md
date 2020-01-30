@@ -400,7 +400,7 @@ After the association, data that is sent to your workspaces is stored
 encrypted with your managed key.
 
 ### Workspace association verification
-You can verify if a workspace is associated to a *Custer* resource in the response body of [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) API call. Associated workspaces will have a “clusterResourceId” property with the Cluster resource ID.
+You can verify if a workspace is associated to a *Custer* resource by looking at the [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) response. Associated workspace will have a 'clusterResourceId' property with the *Cluster* resource ID.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
