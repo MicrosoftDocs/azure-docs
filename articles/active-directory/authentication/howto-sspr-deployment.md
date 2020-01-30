@@ -126,17 +126,17 @@ When technology projects fail, they typically do so due to mismatched expectatio
 | SSPR administrator| Global administrator |
 
 
-### [Plan communications](#plan-communications)
+### Plan communications
 
 Communication is critical to the success of any new service. You should proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
-### [Plan a pilot](#plan-a-pilot)
+### Plan a pilot
 
-We recommend that the initial configuration of SSPR be in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-deployment-plans).
+We recommend that the initial configuration of SSPR be in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
 
-To create a group, see how to [create a group and add members in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal). 
+To create a group, see how to [create a group and add members in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal). 
 
-## [Plan configuration](#plan-configuration)
+## Plan configuration
 
 The following settings are required to enable SSPR along with recommended values.
 
@@ -154,14 +154,14 @@ The following settings are required to enable SSPR along with recommended values
 | **On-premises integration** | Write back passwords to on-premises AD | Yes |
 |   | Allow users to unlock account without resetting password | Yes |
 
-### [SSPR properties](#sspr-properties) 
+### SSPR properties
 
 When enabling SSPR, choose an appropriate security group in the pilot environment.
 
 * To enforce SSPR registration for everyone, we recommend using the **All** option.
 * Otherwise, select the appropriate Azure AD or AD security group.
 
-### [Authentication methods](#authentication-methods)
+### Authentication methods
 
 When SSPR is enabled, users can only reset their password if they have data present in the authentication methods that the administrator has enabled. Methods include phone, Authenticator app notification, security questions, etc. For more information, see [What are authentication methods?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods).
 
@@ -173,23 +173,23 @@ We recommend the following authentication method settings:
 
 Note: The user must have the authentication methods configured in the [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
 
-### [Registration settings](#registration-settings)
+### Registration settings
 
 Set **Require users to register when signing in** to **Yes**. This setting requires users to register when signing in, ensuring that all users are protected.
 
 Set **Number of days before users is asked to reconfirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
-### [Notifications settings](#notification-settings)
+### Notifications settings
 
 Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password is reset. It also ensures that all admins are aware when an admin changes a password. If users or admins receive a notification and they haven't initiated the change, they can immediately report a potential security issue.
 
-### [Customization settings](#customization-settings)
+### Customization settings
 
 It’s critical to customize the helpdesk email or URL to ensure users who experience problems can get help immediately. Set this option to a common helpdesk email address or web page that your users are familiar with. 
 
 For more information, see [Customize the Azure AD functionality for self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization).
 
-### [On-premises integration](#on-premesis-integration)
+### Password Writeback
 
 **Password Writeback** is enabled with [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) and writes password resets in the cloud back to an existing on-premises directory in real time. For more information, see [What is Password Writeback?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
 
@@ -267,7 +267,7 @@ To roll back the deployment:
 
 Before deploying, ensure that you have done the following:
 
-1. Created and begun executing your [communication plan](#communication-plan).
+1. Created and begun executing your [communication plan](#plan-communications).
 
 1. Determined the appropriate [configuration settings](#plan-configuration).
 
@@ -275,7 +275,7 @@ Before deploying, ensure that you have done the following:
 
 1. [Determined configuration settings](#plan-configuration) for registration and self-service.
 
-1. [Configured password writeback](#on-premesis-integration) if you have a hybrid environment.
+1. [Configured password writeback](#password-writeback) if you have a hybrid environment.
 
 
 ### Enable Groups for SSPR
