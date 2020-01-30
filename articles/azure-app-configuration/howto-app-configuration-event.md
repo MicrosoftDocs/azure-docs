@@ -5,7 +5,6 @@ description: In this tutorial, you learn how to set up Azure App Configuration e
 services: azure-app-configuration
 documentationcenter: ''
 author: jimmyca
-manager: yegu
 editor: ''
 
 ms.assetid: 
@@ -13,7 +12,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/30/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.

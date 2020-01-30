@@ -603,7 +603,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "personalizer",
         "articles/cognitive-services/QnAMaker/**/*.md": "qna-maker",
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
-        "articles/cognitive-services/Speech-Service/**/*.md": "bing-speech",
+        "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
         "articles/cognitive-services/Translator/**/*.md": "translator-text"
       },
