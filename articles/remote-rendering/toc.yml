@@ -2,55 +2,50 @@
   href: index.md
 - name: Overview
   expanded: true
-  items:
-  - name: About Azure Remote Rendering
-    href: overview/about.md
-  - name: System requirements
-    href: overview/system-requirements.md
+  href: overview/toc.yml
 - name: Quickstarts
   expanded: true
+  href: quickstarts/toc.yml
+- name: Tutorials
+  href: tutorials/toc.yml
+- name: Samples
   items:
-  - name: Getting started
-    href: quickstarts/getting-started.md
-  - name: Render a model with Unity
-    href: quickstarts/quickstart-render-model.md
-  - name: Convert a model for rendering
-    href: quickstarts/quickstart-convert-model.md
-- name: Azure account
+  - name: Scripts for frontend authentication
+    href: azure/powershell-example-scripts-for-frontend.md
+- name: How to
   items:
-  - name: Creating an account
+  - name: Create an account
     href: azure/create-an-account.md
+  - name: Get service access tokens
+    href: azure/tokens.md
   - name: Authentication
     href: azure/authentication.md
-  - name: Service access tokens
-    href: azure/tokens.md
-  - name: Example scripts for frontend authentication
-    href: azure/powershell-example-scripts-for-frontend.md
-- name: Model conversion
-  items:
-  - name: The model conversion REST API
-    href: conversion/conversion-rest-api.md
-  - name: Configuring the model conversion
-    href: conversion/configure-model-conversion.md
-  - name: Overriding materials during model conversion
-    href: conversion/override-materials.md
-- name: Session management
-  items:
-  - name: The session management REST API
+  - name: Manage sessions
     href: sessions/session-rest-api.md
-- name: SDK
-  expanded: true
-  items:
-  - name: Concepts
+  - name: Convert models
+    href: conversion/toc.yml
+  - name: Remote rendering with Unity
     items:
-    - name: SDK concepts introduction
+    - name: SDK overview for Unity
+      href: concepts/sdk-unity-concepts.md
+    - name: Install remote rendering package for Unity
+      href: how-tos/install-remote-rendering-unity-package.md
+    - name: Run Unity sample project
+      href: how-tos/run-unity-sample-project.md
+    - name: Create new Unity project
+      href: quickstarts/create-new-unity-project.md
+  - name: Profile performance
+    href: how-tos/performance-tracing.md
+- name: Concepts
+  items:
+    - name: SDK concepts
       href: concepts/sdk-concepts.md
-    - name: Components
-      href: sdk/concepts-components.md
+    - name: Render mode
+      href: sdk/concepts-render-mode.md
     - name: Entities
       href: sdk/concepts-entities.md
-    - name: Materials overview
-      href: concepts/materials-overview.md
+    - name: Components
+      href: sdk/concepts-components.md
     - name: Materials
       href: sdk/concepts-materials.md
     - name: Meshes
@@ -59,18 +54,14 @@
       href: sdk/concepts-textures.md
     - name: Spatial bounds
       href: sdk/concepts-spatial-bounds.md
-    - name: Ray cast queries
-      href: sdk/concepts-spatial-queries.md
     - name: Graphics bindings
       href: sdk/concepts-graphics-binding.md
-    - name: Render mode
-      href: sdk/concepts-render-mode.md
-    - name: Single sided rendering
-      href: sdk/concepts-single-sided-rendering.md
-    - name: Z-fighting mitigation
-      href: sdk/concepts-z-fighting-mitigation.md
+- name: Reference
+  items:
   - name: Features
     items:
+    - name: Materials overview
+      href: concepts/materials-overview.md
     - name: Cut planes
       href: sdk/features-cut-planes.md
     - name: Lights
@@ -81,29 +72,19 @@
       href: sdk/features-override-hierarchical-state.md
     - name: Sky
       href: sdk/features-sky.md
-- name: Remote rendering with Unity
+    - name: Z-fighting mitigation
+      href: sdk/concepts-z-fighting-mitigation.md
+    - name: Single sided rendering
+      href: sdk/concepts-single-sided-rendering.md
+    - name: Ray cast queries
+      href: sdk/concepts-spatial-queries.md
+  - name: Tools
+    items:
+    - name: ArrInspector - ARR Inspection tool
+      href: tools/arr-inspector.md
+    - name: TexConv - Texture conversion tool
+      href: tools/tex-conv.md
+- name: Resources
   items:
-  - name: SDK overview for Unity
-    href: concepts/sdk-unity-concepts.md
-  - name: Install remote rendering package for Unity
-    href: how-tos/install-remote-rendering-unity-package.md
-  - name: Run Unity sample project
-    href: how-tos/run-unity-sample-project.md
-  - name: Create new Unity project
-    href: quickstarts/create-new-unity-project.md
-- name: Tools and analysis
-  items:
-  - name: ArrInspector inspection tool
-    href: tools/arr-inspector.md
-  - name: TexConv texture conversion command line tool
-    href: tools/tex-conv.md
-  - name: Performance profiling in remote rendering
-    href: how-tos/performance-tracing.md
-- name: Tutorials
-  items:
-  - name: "Tutorial 1: Getting-started"
-    href: tutorials/tutorial-1-getting-started.md
-  - name: "Tutorial 2: Working with remote entities"
-    href: tutorials/tutorial-2-working-with-remote-entities.md
-  - name: "Tutorial 3: Changing environment and materials"
-    href: tutorials/tutorial-3-changing-environment-and-materials.md
+  - name: Azure Mixed Reality Resource Management REST API
+    href: https://docs.microsoft.com/rest/api/mixedreality/
