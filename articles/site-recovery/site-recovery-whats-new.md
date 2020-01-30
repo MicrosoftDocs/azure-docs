@@ -300,6 +300,7 @@ Features added this month are summarized in the table.
 
 
 ### Azure VM disaster recovery
+
 Features added this month are summarized in the table.
 
 **Feature** | **Details**
@@ -310,6 +311,7 @@ Features added this month are summarized in the table.
 
 
 ### VMware/physical server disaster recovery
+
 Features added this month are summarized in the table.
 
 **Feature** | **Details**
@@ -364,7 +366,9 @@ Features added this month are summarized in the table.
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
 ### VMware VMs/physical servers replication
+
 Features added this month are summarized in the table.
+
 **Feature** | **Details**
 --- | ---
 **Linux support** |  Support was added for Oracle Linux 6.8, Oracle Linux 6.9 and Oracle Linux 7.0 with the Red Hat Compatible Kernel, and for the Unbreakable Enterprise Kernel (UEK) Release 5.
@@ -375,6 +379,7 @@ Features added this month are summarized in the table.
 **UEFI support** | Azure VMs don't support boot type UEFI. You can now migrate on-premises physical servers with UEFI to Azure with Site Recovery. Site Recovery migrates the server by converting the boot type to BIOS before migration. Site Recovery previously supported this conversion for VMs only. Support is available for physical servers running Windows Server 2012 or later.
 
 ### Azure VM disaster recovery
+
 Features added this month are summarized in the table.
 
 **Feature** | **Details**
