@@ -9,7 +9,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 01/29/2020
 ms.author: ellacroi
 
 ---

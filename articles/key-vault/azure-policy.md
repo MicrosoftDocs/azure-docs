@@ -1,9 +1,9 @@
 ---
 title: Integrate Azure Key Vault with Azure Policy
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library (v4)
+description: Learn how to integrate Azure Key Vault with Azure Policy
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/12/2019
+ms.date: 01/28/2020
 ms.service: key-vault
 ms.topic: quickstart
 
