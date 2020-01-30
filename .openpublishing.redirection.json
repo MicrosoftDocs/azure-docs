@@ -47476,7 +47476,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-chsarp-uwp.md",
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=uwp&pivots=programming-language-csharp",
       "redirect_document_id": false
     },
