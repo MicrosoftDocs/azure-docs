@@ -41,7 +41,7 @@ By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
 * You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) as a low-cost option.
 
-Follow these steps to modify the storage replication type.
+To modify the storage replication type, follow these steps.
 
 1. In the new vault, select **Properties** under the **Settings** section.
 
@@ -67,7 +67,7 @@ Follow these steps to modify the storage replication type.
 
     ![Choose Azure File Share as backup goal](./media/backup-afs/backup-goal.png)
 
-    b.  In **What do you want to backup?**, select **Azure File Share** from the drop-down menu.
+    b.  In **What do you want to back up?**, select **Azure File Share** from the drop-down list.
 
     c.  Select **Backup** to register the Azure file share extension in the vault.
 
@@ -93,7 +93,7 @@ After you set a backup policy, a snapshot of the file shares is taken at the sch
 
 Occasionally, you might want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common reason to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it might be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an on-demand backup is often required before you make planned changes to your file shares.
 
-### Create an on-demand backup
+### Create a backup job on demand
 
 1. Open the Recovery Services vault you used to back up your file share. On the **Overview** pane, select **Backup items** under the **Protected items** section.
 
