@@ -122,7 +122,7 @@
         href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
       - name: JavaScript (azure/event-hubs version 5)
         href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
-      - name: .NET programming guide (Microsoft.Azure.EventHubs)
+      - name: .NET (Microsoft.Azure.EventHubs)
         href: event-hubs-programming-guide.md
     - name: Read captured data using Python (azure-eventhub version 1)
       href: event-hubs-capture-python.md
