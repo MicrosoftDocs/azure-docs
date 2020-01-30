@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 01/28/2020
+  ms.date: 01/29/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -38,7 +38,7 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Anomaly Detector
+    - title: Anomaly Detector (Preview)
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -189,21 +189,21 @@ productDirectory:
         - aiMachineLearning
       url: cognitive-services/face/index.yml
     # Card
-    - title: Form Recognizer
+    - title: Form Recognizer (Preview)
       summary: The AI-powered document extraction service that understands your forms
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/form-recognizer/index.yml
     # Card
-    - title: Immersive Reader
+    - title: Immersive Reader (Preview)
       summary: Empower users of all ages and abilities to read and comprehend text
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/immersive-reader/index.yml
     # Card
-    - title: Ink Recognizer
+    - title: Ink Recognizer (Preview)
       summary: An AI service that recognizes digital ink content, such as handwriting, shapes, and ink document layout
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -255,7 +255,7 @@ productDirectory:
         - aiMachineLearning
       url: cognitive-services/qnamaker/index.yml
     # Card
-    - title: Speaker Recognition
+    - title: Speaker Recognition (Preview)
       summary: Use speech to identify and verify individual speakers
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -407,21 +407,21 @@ productDirectory:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
     # Card
-    - title: Azure Blockchain Service
+    - title: Azure Blockchain Service (Preview)
       summary: Build, govern, and expand consortium blockchain networks
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - blockchain
       url: blockchain/service/index.yml
     # Card
-    - title: Azure Blockchain Tokens
+    - title: Azure Blockchain Tokens (Preview)
       summary: Easily define, create, and manage ledger-based tokens
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - blockchain
       url: blockchain/tokens/index.yml
     # Card
-    - title: Azure Blockchain Workbench
+    - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -689,7 +689,7 @@ productDirectory:
         - hybrid
       url: sql-database/index.yml
     # Card
-    - title: Azure SQL Database Edge
+    - title: Azure SQL Database Edge (Preview)
       summary: Small-footprint, edge-optimized data engine with built-in AI
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -704,7 +704,7 @@ productDirectory:
         - databases
       url: cosmos-db/table-storage-overview.md
     # Card
-    - title: App Configuration
+    - title: App Configuration (Preview)
       summary: Fast, scalable parameter storage for app configuration
       imageSrc: https://static.docs.com/ui/media/product/azure/integration/app-configuration.svg
       azureCategories:
@@ -778,7 +778,7 @@ productDirectory:
         - developerTools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Visual Studio Online
+    - title: Visual Studio Online (Preview)
       summary: Cloud-powered development environments accessible from anywhere
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -838,7 +838,7 @@ productDirectory:
         - security
       url: active-directory/index.yml
     # Card
-    - title: Azure Arc
+    - title: Azure Arc (Preview)
       summary: Bring Azure services and management to any infrastructure
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -933,7 +933,7 @@ productDirectory:
         - integration
       url: service-bus/index.md
     # Card
-    - title: Azure Digital Twins
+    - title: Azure Digital Twins (Preview)
       summary: Build next-generation IoT spatial intelligence solutions
       imageSrc: https://static.docs.com/ui/media/product/azure/iot/digital-twins.svg
       azureCategories:
@@ -971,7 +971,7 @@ productDirectory:
         - web
       url: azure-maps/index.yml
     # Card
-    - title: Azure Sphere
+    - title: Azure Sphere (Preview)
       summary: Securely connect MCU-powered devices from the silicon to the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -1031,7 +1031,7 @@ productDirectory:
         - storage
       url: backup/index.yml
     # Card
-    - title: Azure Blueprints
+    - title: Azure Blueprints (Preview)
       summary: Enabling quick, repeatable creation of governed environments
       imageSrc: https://static.docs.com/ui/media/product/azure/management-goverance/blueprints.svg
       azureCategories:
@@ -1186,7 +1186,7 @@ productDirectory:
         - storage
       url: databox-family/index.md
     # Card
-    - title: Spatial Anchors
+    - title: Spatial Anchors (Preview)
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -1244,7 +1244,7 @@ productDirectory:
         - networking
       url: firewall/index.yml
     # Card
-    - title: Azure Firewall Manager
+    - title: Azure Firewall Manager (Preview)
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
@@ -1258,14 +1258,14 @@ productDirectory:
         - networking
       url: frontdoor/index.yml
     # Card
-    - title: Azure Internet Analyzer
+    - title: Azure Internet Analyzer (Preview)
       summary: Test how networking infrastructure changes will impact your customers' performance
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
         - networking
       url: internet-analyzer/index.yml
     # Card
-    - title: Azure Private Link
+    - title: Azure Private Link (Preview)
       summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
       imageSrc: https://static.docs.com/ui/media/product/azure/general/all-resources.svg
       azureCategories:
