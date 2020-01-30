@@ -358,7 +358,7 @@ To improve upon your plan, Microsoft recommends you regularly validate that your
 
 ### Additional steps for organizations managing access to Azure 
 
-Determine if you need to [transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md).
+Determine if you need to [transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## "Break glass": what to do in an emergency
@@ -371,7 +371,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 3. Access your "break glass" account username/password combination to sign in to Azure AD. 
 
-4. Get help from Microsoft by [opening an Azure support request](../../azure-supportability/how-to-create-azure-support-request.md).
+4. Get help from Microsoft by [opening an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 5. Look at the [Azure AD sign-in reports](../reports-monitoring/overview-reports.md). There may be a lag between an event occurring and when it is included in the report.
 

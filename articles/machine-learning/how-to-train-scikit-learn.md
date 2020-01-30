@@ -143,6 +143,9 @@ estimator = SKLearn(source_directory=project_folder,
                    )
 ```
 
+
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
+
 ## Submit a run
 
 The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.

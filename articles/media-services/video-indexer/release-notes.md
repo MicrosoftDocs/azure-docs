@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/07/2020
 ms.author: juliako
 ---
 
@@ -34,7 +34,13 @@ Update a specific section in the transcript using the [Update-Video-Index](https
 
 ### Fix account configuration from the Video Indexer portal
 
-You can now update Media Services connection configuration in order to self-help with issues like: incorrect Azure Media Services resource, and `____`. To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
+You can now update Media Services connection configuration in order to self-help with issues like: 
+
+* incorrect Azure Media Services resource
+* password changes
+* Media Services resources were moved between subscriptions  
+
+To fix the account configuration, in the Video Indexer portal navigate to Settings > Account tab (as owner).
 
 ### Configure the custom vision account
 

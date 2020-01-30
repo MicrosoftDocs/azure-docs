@@ -44,6 +44,9 @@
     - name: Set resource deployment order
       displayName: dependent resources, dependency
       href: template-tutorial-create-templates-with-dependent-resources.md
+    - name: Use deployment script
+      displayName: custom script
+      href: template-tutorial-deployment-script.md
     - name: Use conditions
       href: template-tutorial-use-conditions.md
     - name: Integrate Key Vault
@@ -85,6 +88,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Complete mode deletion
+    href: complete-mode-deletion.md
   - name: Deployment Manager
     items:
     - name: Overview
@@ -122,6 +127,9 @@
         href: add-resource-extensions.md
     - name: Outputs
       href: template-outputs.md
+    - name: Deployment script
+      displayName: custom script
+      href: deployment-script-template.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: linked-templates.md
@@ -231,12 +239,6 @@
       href: template-functions-resource.md
     - name: String functions
       href: template-functions-string.md
-  - name: Resource capabilities
-    items:
-    - name: Complete mode deletion
-      href: complete-mode-deletion.md
-    - name: Extension resource types
-      href: extension-resource-types.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell

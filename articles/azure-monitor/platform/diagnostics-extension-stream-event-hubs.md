@@ -17,8 +17,7 @@ Supported data types include:
 
 * Event Tracing for Windows (ETW) events
 * Performance counters
-* Windows event logs
-* Application logs
+* Windows event logs, including application logs in the Windows event log
 * Azure Diagnostics infrastructure logs
 
 This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:

@@ -1293,7 +1293,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Model Deploy Started|Model Deploy Started|Count|Total|Number of model deployments started in this workspace|Scenario|
 |Model Deploy Succeeded|Model Deploy Succeeded|Count|Total|Number of model deployments that succeeded in this workspace|Scenario|
 |Model Deploy Failed|Model Deploy Failed|Count|Total|Number of model deployments that failed in this workspace|Scenario,StatusCode|
-|Total Nodes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Premepted Nodes, Leaving Nodes|Scenario,ClusterName|
+|Total Nodes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes|Scenario,ClusterName|
 |Active Nodes|Active Nodes|Count|Average|Number of Acitve nodes. These are the nodes which are actively running a job.|Scenario,ClusterName|
 |Idle Nodes|Idle Nodes|Count|Average|Number of idle nodes. Idle nodes are the nodes which are not running any jobs but can accept new job if available.|Scenario,ClusterName|
 |Unusable Nodes|Unusable Nodes|Count|Average|Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes.|Scenario,ClusterName|
@@ -1845,8 +1845,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Currently available for serverless databases only.|None|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Currently available for serverless databases only.|None|
 |tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
 |tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
 |tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|

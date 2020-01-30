@@ -60,6 +60,7 @@ Distribution      | Serial console access
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Serial console access enabled by default.
 CentOS      | Serial console access enabled by default.
+Debian      | Serial console access enabled by default.
 Ubuntu      | Serial console access enabled by default.
 CoreOS      | Serial console access enabled by default.
 SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you're using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console.

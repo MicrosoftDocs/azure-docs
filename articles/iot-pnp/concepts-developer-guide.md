@@ -40,7 +40,7 @@ The following example shows the device capability model for a thermostat device:
       "schema": "urn:azureiot:deviceManagement:DeviceInformation:1"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -169,7 +169,7 @@ interfaces[1] = deviceInfoInterfaceHandle;
 result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
     digitalTwinClientHandle, // The handle for the connection to Azure IoT
     "urn:example:Thermostat_T_1000:1",
-    interfaceHandleList, 2,
+    interfaces, 2,
     null, null);
 ```
 
