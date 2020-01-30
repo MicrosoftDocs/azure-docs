@@ -96,14 +96,8 @@ For other applications that support SCIM 2.0, follow the steps in the article [B
 ## Related articles
 
 - [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
-<<<<<<< HEAD
 - [Customizing attribute mappings for user provisioning](customize-application-attributes.md)
 - [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 - [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-=======
-- [Customizing attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
-- [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-- [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67
 - [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md)
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

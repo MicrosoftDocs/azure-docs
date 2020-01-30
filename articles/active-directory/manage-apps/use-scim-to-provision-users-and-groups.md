@@ -1394,14 +1394,8 @@ Certain apps allow inbound traffic to their app. In order for the Azure AD provi
 ## Related articles
 
 * [Automate user provisioning and deprovisioning to SaaS apps](user-provisioning.md)
-<<<<<<< HEAD
 * [Customize attribute mappings for user provisioning](customize-application-attributes.md)
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 * [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-=======
-* [Customize attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
-* [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-* [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67
 * [Account provisioning notifications](user-provisioning.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
