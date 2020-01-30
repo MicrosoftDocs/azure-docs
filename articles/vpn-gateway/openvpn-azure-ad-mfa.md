@@ -12,7 +12,7 @@ ms.author: alzam
 ---
 # Enable Azure Multi-Factor Authentication (MFA) for VPN users
 
-If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) on a per user basis or leverage Multi-Factor Authentication (MFA) via [Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) for more fine-grained control. Configuring Multi-Factor Authentication per user can be enabled at no-additional cost, however when enabling MFA per user, the user will be prompted for second factor authentication against all applications tied to the Azure AD tenant. Conditional Access will allow finer grain control over how a second factor should be promoted and can allow assignment of MFA to only VPN and not other applications tied to the Azure AD tenant.
+If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) on a per user basis or leverage Multi-Factor Authentication (MFA) via [Conditional Access](../active-directory/conditional-access/overview.md) for more fine-grained control. Configuring Multi-Factor Authentication per user can be enabled at no-additional cost, however when enabling MFA per user, the user will be prompted for second factor authentication against all applications tied to the Azure AD tenant. Conditional Access will allow finer grain control over how a second factor should be promoted and can allow assignment of MFA to only VPN and not other applications tied to the Azure AD tenant.
 
 ## <a name="enableauth"></a>Enable authentication
 
