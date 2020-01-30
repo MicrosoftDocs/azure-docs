@@ -277,6 +277,9 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing log data
 
+> [!NOTE]
+> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com).  This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
+
 Data in Azure Monitor Logs is stored in tables. Azure Storage stores data in the following tables.
 
 | Table | Description |
