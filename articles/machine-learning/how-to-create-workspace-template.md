@@ -105,6 +105,27 @@ az group deployment create \
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
+## Enable encryption and use existing Azure KeyVault
+
+The following example template demonstrates how you can create a workspace with encryption enabled. It also demonstrates how you can use existing resources such as Azure KeyVault.
+
+[TBD - reference template here]
+
+To get the ID of the Key Vault, and the key URI needed by this template, you can use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID and URI:
+
+```azurecli-interactive
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id,
+properties.vaultUri]```
+
+This command returns a value similar to the following text:
+
+```text
+[
+  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
+  "https://mykeyvault.vault.azure.net/"
+]
+```
+
 ## Troubleshooting
 
 ### Resource provider errors
@@ -190,7 +211,7 @@ To avoid this problem, we recommend one of the following approaches:
         }
         ```
 
-    After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then re-use the Key Vault by setting the `keyVault` property of the workspace to its ID.
+    After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then reuse the Key Vault by setting the `keyVault` property of the workspace to its ID.
 
     To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 
