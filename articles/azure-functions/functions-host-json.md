@@ -174,7 +174,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 

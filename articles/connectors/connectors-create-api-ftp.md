@@ -20,7 +20,7 @@ With Azure Logic Apps and the FTP connector, you can create automated tasks and 
 
 You can use triggers that get responses from your FTP server and make the output available to other actions. You can use run actions in your logic apps for managing files on your FTP server. You can also have other actions use the output from FTP actions. For example, if you regularly get files from your FTP server, you can send email about those files and their content by using the Office 365 Outlook connector or Outlook.com connector. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## Limits
+## Limitations
 
 * The FTP connector supports only explicit FTP over SSL (FTPS) and isn't compatible with implicit FTPS.
 
@@ -31,6 +31,8 @@ You can use triggers that get responses from your FTP server and make the output
   * Use an FTP trigger that returns file properties, such as **When a file is added or modified (properties only)**.
 
   * Follow the trigger with the FTP **Get file content** action, which reads the complete file and implicitly uses chunking.
+
+* If you have an on-premises FTP server, consider creating an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) or using [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without using an on-premises data gateway.
 
 ## How FTP triggers work
 

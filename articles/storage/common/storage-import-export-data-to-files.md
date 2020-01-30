@@ -44,7 +44,7 @@ Perform the following steps to prepare the drives.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Modify the *dataset.csv* file in the root folder where the tool resides. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.  
 
-   - **To import a file**: In the following example, the data to copy resides in the C: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it is created in the Azure Storage account. Folder structure is maintained.
+   - **To import a file**: In the following example, the data to copy resides in the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it is created in the Azure Storage account. Folder structure is maintained.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile

@@ -69,7 +69,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -107,7 +107,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181

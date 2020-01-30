@@ -11,15 +11,8 @@
     displayName: release notes, service updates, videos
 - name: Quickstarts
   items:
-  - name: Using C#
-    href: csharp-quickstart-commandline-feedback-loop.md
-    displayName: code, sample, quickstart, c#
-  - name: Using Node.js
-    href: quickstart-command-line-feedback-loop-nodejs-sdk.md
-    displayName: code, sample, quickstart, node, npm, sdk
-  - name: Using Python
-    href: python-quickstart-commandline-feedback-loop.md
-    displayName: code, sample, quickstart, python
+  - name: Using SDK
+    href: sdk-learning-loop.md
 - name: Tutorials
   items:
   - name: Use Azure Notebook

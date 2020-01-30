@@ -12,7 +12,7 @@ manager: timlt
 
 # Manage authentication in Azure Maps
 
-After you create an Azure Maps account, a client ID and keys are created to support either Azure Active Directory (Azure AD) or Shared Key authentication.
+After you create an Azure Maps account, a client ID and keys are created to support Azure Active Directory (Azure AD) and Shared Key authentication.
 
 ## View authentication details
 
@@ -93,7 +93,7 @@ After you register your app and associated it with Azure Maps, you can request a
 | Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
 | Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+For more information about requesting access tokens from Azure AD, for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 
 ## Next steps

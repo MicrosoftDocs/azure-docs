@@ -27,7 +27,7 @@ There are two types of Run As Accounts:
   * Must be a co-administrator on the subscription to create or renew
 
   > [!NOTE]
-  > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+  > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
   > [!NOTE]
   > The service principal for a Run as Account does not have permissions to read Azure Active Directory by default. If you want to add permissions to read or manage Azure Active directory, you'll need to grant that permission on the service principal under **API permissions**. To learn more, see [Add permissions to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).

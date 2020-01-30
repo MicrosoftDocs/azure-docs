@@ -28,7 +28,7 @@ You can also create a contiguous range of static public IP addresses through a p
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 > 
 
-If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
+If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](/previous-versions/azure/virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## Public IP addresses
 
@@ -40,6 +40,7 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 * Internet-facing load balancers
 * VPN gateways
 * Application gateways
+* Azure Firewall
 
 ### IP address version
 

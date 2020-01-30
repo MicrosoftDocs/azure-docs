@@ -20,7 +20,7 @@ This article teaches you how to use Azure Machine Learning to deploy a GPU-enabl
 Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
 
 > [!IMPORTANT]
-> For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Run batch predictions](how-to-run-batch-predictions.md). 
+> For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Run batch predictions](how-to-use-parallel-run-step.md). 
 
 > [!TIP]
 > Although the code snippets in this article use a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
