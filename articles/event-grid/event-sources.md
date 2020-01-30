@@ -129,6 +129,9 @@ Subscribe to Service Bus events to respond to messages without an active listene
 
 Subscribe to Blob Storage events to respond to blob created and deleted events.
 
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send blob storage events to a WebHook. |
