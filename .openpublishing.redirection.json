@@ -6487,6 +6487,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-monitor-your-logic-apps.md",
+      "redirect_url": "/azure/logic-apps/monitor-logic-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-your-logic-apps-oms.md",
+      "redirect_url": "/azure/logic-apps/monitor-logic-apps-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-b2b-message.md",
+      "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal.md",
+      "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md",
+      "redirect_url": "/azure/logic-apps/create-monitoring-tracking-queries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
       "redirect_document_id": true
@@ -44931,6 +44956,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-blob-static-website-custom-domain.md",
+      "redirect_url": "/azure/storage/blobs/static-website-content-delivery-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-https-custom-domain-cdn.md",
+      "redirect_url": "/azure/storage/blobs/storage-custom-domain-name#enable-https",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-elastic-jobs-overview.md",
       "redirect_url": "/azure/sql-database/elastic-jobs-overview",
       "redirect_document_id": false
@@ -45273,6 +45308,26 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-thumb-sdk.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/form-recognizer/quickstarts/curl-receipts-v1.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/curl-receipts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract-v1.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/form-recognizer/quickstarts/python-train-extract-v1.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/python-train-extract",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/form-recognizer/quickstarts/python-receipts-v1.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/python-receipts",
       "redirect_document_id": false
     },
     {
@@ -47367,6 +47422,16 @@
     },
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-standard-public-zonal-cli.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
       "redirect_document_id": false
     }
