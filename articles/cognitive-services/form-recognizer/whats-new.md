@@ -22,9 +22,6 @@ This article highlights the major changes that come with new versions of the For
 
 ## Form Recognizer 2.0 (preview)
 
-> [!IMPORTANT]
-> Form Recognizer 2.0 is currently available for subscriptions in the `West US 2` and `West Europe` regions. If your subscription is not in this region, use the 1.0 API. The quickstarts for training and using a custom model are available for both v1.0 and v2.0.
-
 ### New features
 
 * **Custom model**

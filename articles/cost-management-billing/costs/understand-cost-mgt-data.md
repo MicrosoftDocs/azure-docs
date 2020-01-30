@@ -82,8 +82,6 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 **Cost and usage data**
 
-Customers with a Free Trial offer (044P) can view usage data for the offer. However, when they convert to the PAYG offer (003P) they lose visibility to Free Trial usage. After conversion, only PAYG usage and costs are shown in Cost Management.
-
 | **Included** | **Not included** |
 | --- | --- |
 | Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
@@ -105,6 +103,10 @@ _<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreem
 | Resource tags<sup>8</sup> | Resource group tags |
 
 _<sup>**8**</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage._
+
+**Free trial to pay-as-you-go upgrade**
+
+Customers with a Free Trial offer (044P) converting to the PAYG offer (003P) can see their usage during the Free trial period. However, they lose visibility to Free Trail usage after conversion. After conversion, only PAYG usage and costs are shown in Cost Management.
 
 ## Rated usage data refresh schedule
 
