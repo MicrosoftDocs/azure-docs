@@ -25,7 +25,7 @@ ApplicationInsightsLoggerProvider is enabled by default in [Microsoft.Applicatio
 
 ILogger logs that ApplicationInsightsLoggerProvider captures are subject to the same configuration as any other telemetry that's collected. They have the same set of TelemetryInitializers and TelemetryProcessors, use the same TelemetryChannel, and are correlated and sampled in the same way as other telemetry. If you use version 2.7.1 or later, no action is required to capture ILogger logs.
 
-Only *Warning* or higher ILogger logs (from all categories) are sent to Application Insights by default. But you can [apply filters to modify this behavior](#control-logging-level). Additional steps are required to capture ILogger logs from **Program.cs** or **Startup.cs**. (See [Capturing ILogger logs from Startup.cs and Program.cs in ASP.NET Core applications](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
+Only *Warning* or higher ILogger logs (from all [categories](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)) are sent to Application Insights by default. But you can [apply filters to modify this behavior](#control-logging-level). Additional steps are required to capture ILogger logs from **Program.cs** or **Startup.cs**. (See [Capturing ILogger logs from Startup.cs and Program.cs in ASP.NET Core applications](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
 
 If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK or you want to just use ApplicationInsightsLoggerProvider without any other Application Insights monitoring, use the following procedure:
 

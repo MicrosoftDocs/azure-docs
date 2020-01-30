@@ -75,14 +75,14 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> Note:
-> Under certain circumstances, it might happen that 2 VMs part of the same AvailabilitySet are sharing the same FaultDomain. This can be confirmed by going into your AvailabilitySet and check the "Fault Domain" column.
-> This behavior can be observed when the following sequence happened while deploying the VMs:
+> [!NOTE]
+> Under certain circumstances, 2 VMs in the same AvailabilitySet could shared the same FaultDomain. This can be confirmed by going into your availability set and checking the **Fault Domain** column.
+> This can be cause from the following sequence while deploying the VMs:
 > - Deploy the 1st VM
 > - Stop/Deallocate the 1st VM
 > - Deploy the 2nd VM
 > Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. 
-> To avoid this issue, it's recommended to not stop/deallocate the VM between their deployments.
+> To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
 
 If you plan to use VMs with unmanaged disks, follow below best practices for Storage accounts where virtual hard disks (VHDs) of VMs are stored as [page blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

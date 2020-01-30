@@ -346,6 +346,9 @@
       href: how-to-schedule-pipelines.md
     - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
+    - name: Debug pipelines in Application Insights
+      displayname: pipelines, log, monitor
+      href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context

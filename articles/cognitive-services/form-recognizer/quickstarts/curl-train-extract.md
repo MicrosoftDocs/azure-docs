@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
@@ -18,9 +18,6 @@ ms.author: pafarley
 In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-> [!IMPORTANT]
-> This quickstart uses the Form Recognizer v2.0 API. If your subscription is not in the `West US 2` or `West Europe` region, you need to use the v1.0 API. Follow the [v1.0 quickstart](./curl-train-extract-v1.md) instead.
 
 ## Prerequisites
 

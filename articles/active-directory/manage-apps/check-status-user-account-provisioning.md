@@ -56,7 +56,7 @@ The [provisioning progress bar](application-provisioning-when-will-provisioning-
 
 The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
- ![Summary report](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Summary report](media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## Provisioning logs (preview)
 
