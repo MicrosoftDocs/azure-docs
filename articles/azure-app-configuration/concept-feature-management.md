@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration feature management
 description: An overview of how Azure App Configuration can be used to turn on and off application features on demand.
-author: yegu-ms
-ms.author: yegu
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
