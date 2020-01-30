@@ -1400,6 +1400,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: TicketManager
+        href: ticketmanager-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger
