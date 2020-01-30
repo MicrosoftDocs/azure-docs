@@ -6,19 +6,23 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/13/2019
+ms.date: 01/29/2020
 
 ---
 
 # Azure Diagnostics extension overview
-Azure Diagnostics extension is an [agent in Azure Monitor](agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and options for installation and configuration. Links are provided to other documentation for detailed information.
+Azure Diagnostics extension is an [agent in Azure Monitor](agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and options for installation and configuration. 
 
 > [!NOTE]
 > Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
+## Costs
+There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
 
 ## Comparison to Log Analytics agent
-See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. The key differences to consider are:
+The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
+
+The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
 - Azure Diagnostics extension send data to Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent primarily collects data to [Azure Monitor Logs](data-platform-logs.md) where it supports [Azure Monitor for VMs](../insights/vminsights-overview.md) and [solutions](../insights/solutions.md).
@@ -52,17 +56,17 @@ The following tables list the data that can be collected by the Windows and Linu
 ## Data destinations
 The Azure Diagnostic extension for both Windows and Linux collects data into an Azure Storage account. See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-to-storage.md) and [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) for a list of specific tables and blobs where this data is collected.
 
-Configure one or more *data sinks* to send data to other destinations. The following sections list the sinks available for the Windows and Linux diagnostics extension.
+Configure one or more *data sinks* to send data to other destinations in addition to Azure Storage. The following sections list the sinks available for the Windows and Linux diagnostics extension.
 
 ### Windows diagnostics extension (WAD)
 
 | Destination | Description |
 |:---|:---|
-| Azure Monitor Metrics | Collect performance data to Azure Monitor Metrics. See [Send Guest OS metrics to the Azure Monitor metric database](collect-custom-metrics-guestos-resource-manager-vm.md) for virtual machines.  |
+| Azure Monitor Metrics | Collect performance data to Azure Monitor Metrics. See [Send Guest OS metrics to the Azure Monitor metric database](collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Event hubs | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 | Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs.  See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table.md). While you can collect WAD data into the Azure Monitor Logs, the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality..  See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table.md). 
 
 
 ### Linux diagnostics extension (LAD)
@@ -78,25 +82,22 @@ LAD writes data to tables in Azure Storage. It supports the sinks in the followi
 ## Installation and configuration
 The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows) and [Virtual machine extensions and features for Linux](/virtual-machines/extensions/features-linux) for general details on installing and maintaining virtual machine extensions.
 
+You can also install and configure both the Windows and Linux diagnostic extension in the Azure portal under **Diagnostic settings** in the **Monitoring** section of the **Azure Monitor** menu.
 
+See the following articles for details on installing and configuring the diagnostics extension for Windows and Linux.
 
-- [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
-- [Use Linux Diagnostic Extension to monitor metrics and logs](/virtual-machines/extensions/diagnostics-linux)
-
-
-## Costs
-There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
-
-## Versioning and configuration schema
-See [Azure Diagnostics Version History and Schema](diagnostics-extension-schema.md).
+- [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-to-storage.md)
+- [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md)
 
 ## Other documentation
-The Azure Diagnostics extension can be used with any Azure compute resource which includes the following:
 
-| Resource | Documentation |
-|:---|:---|
-| Azure Cloud Service (classic) Web and Worker Roles | [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)<br>[Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)<br>[Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)<br> |
-| Azure Service Fabric | [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+###  Azure Cloud Service (classic) Web and Worker Roles
+- [Introduction to Cloud Service Monitoring](../../cloud-services/cloud-services-how-to-monitor.md)
+- [Enabling Azure Diagnostics in Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+- [Application Insights for Azure cloud services](../app/cloudservices.md)<br>[Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) |
+
+### Azure Service Fabric
+- [Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 ## Next steps
 

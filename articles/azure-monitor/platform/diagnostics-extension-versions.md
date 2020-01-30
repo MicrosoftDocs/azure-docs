@@ -1,29 +1,18 @@
 ---
-title: Azure Diagnostics extension configuration schema version history
+title: Windows Azure Diagnostics extension (WAD) configuration schema version history
 description: Relevant to collecting perf counters in Azure Virtual Machines, VM Scale Sets, Service Fabric, and Cloud Services.
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.date: 09/04/2019
+ms.date: 01/29/2020
 
 ---
 
-# Azure Diagnostics extension configuration schema versions and history
-This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
+# Windows Azure Diagnostics extension (WAD) configuration schema versions and history
+This article provides the version history of the [Azure Diagnostics extension for Windows (WAD)](diagnostics-extension-overview.md) schema versions shipped as part of the Microsoft Azure SDK.  
 
-> [!NOTE]
-> The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
-> - Azure Virtual Machines
-> - Virtual Machine Scale Sets
-> - Service Fabric
-> - Cloud Services
-> - Network Security Groups
->
-> This page is only relevant if you are using one of these services.
-
-The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
 
 ## Azure SDK and diagnostics versions shipping chart  
 

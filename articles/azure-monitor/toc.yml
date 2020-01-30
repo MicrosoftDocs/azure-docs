@@ -525,7 +525,7 @@
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
-  - name: Monitor VMs and compute
+  - name: Monitor VMs and guest OS
     items: 
     - name: Agents
       items:
@@ -539,8 +539,6 @@
           href: platform/diagnostics-extension-overview.md
         - name: Windows 
           items:   
-          - name: Version history
-            href: platform/diagnostics-extension-schema.md
           - name: Install and configure
             href: platform/diagnostics-extension-to-storage.md
           - name: Send to Event Hubs
@@ -549,6 +547,8 @@
             href: platform/azure-storage-iis-table.md
           - name: Send to Application Insights
             href: platform/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: platform/diagnostics-extension-schema.md
           - name: Send to Azure Monitor Metrics
             items:   
             - name: Virtual Machine 

@@ -10,12 +10,9 @@ ms.date: 01/20/2020
 ms.author: bwren
 ---
 # Install and configure Windows Azure diagnostics extension (WAD)
-Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
+Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources with a Windows guest operating system. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
 
-The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See the following for details on installing and maintaining virtual machine extensions:
-
-- [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows)
-- [Windows Diagnostics extension schema](diagnostics-extension-schema-windows.md)
+The Diagnostic extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows) for details on installing and maintaining virtual machine extensions.
 
 ## Install with Azure portal
 You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration ith the most common performance counters and events. You can modify this default configuration according to your specific requirements.
@@ -24,7 +21,7 @@ You can install and configure the diagnostics extension on an individual virtual
 > You cannot configure the diagnostics extension to send data to Azure Event Hubs using the Azure portal. To configure this, you must use one of the other configuration methods.
 
 1. Open the menu for a virtual machine in the Azure portal.
-2. Click on ****Diagnostic settings** in the **Monitoring** section of the VM menu.
+2. Click on **Diagnostic settings** in the **Monitoring** section of the VM menu.
 3. Click **Enable guest-level monitoring** if the diagnostics extension hasn't already been enabled.
 4. A new Azure Storage account will be created for the VM with the name will be based on the name of the resource group for the VM. You can attach the VM to another storage account by selecting the **Agent** tab.
 
@@ -40,16 +37,7 @@ You can modify the default configuration once the diagnostics extension has been
 | Agent | Modify the following configuration for the agent:<br>- Change the storage account.<br>- Specify the maximum local disk used for the agent.<br>- Configure logs for the health of the agent itself.|
 
 
-
-- Enables Name:Microsoft.Insights.VMDiagnosticsSettings extension 	
-Type: Microsoft.Azure.Diagnostics.IaaSDiagnostics
-- Creates a new storage account
-- Enables most common performance counters
-- Enables most common event logs
-
-
-
-## Template deployment
+## Resource Manager template
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Azure Diagnostics extension during an Azure Resource Manager template deployment. See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](extensions-diagnostics-template.md).
 
 ## Azure CLI deployment
@@ -109,6 +97,4 @@ Several tools are available to view the data after it is transferred to storage.
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) includes Azure Diagnostics Manager which allows you to view, download and manage the diagnostics data collected by the applications running on Azure.
 
 ## Next Steps
-[Trace the flow in a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-
-
+- See [Send data from Windows Azure diagnostics extension to Event Hubs](diagnostics-extension-stream-event-hubs.md) for details on forwarding monitoring data to Azure Event Hubs.
