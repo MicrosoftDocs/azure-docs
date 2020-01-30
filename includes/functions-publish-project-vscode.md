@@ -16,29 +16,24 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Provide the following information at the prompts:
 
-    ::: zone pivot="programming-language-csharp,programming-language-powershell"
+    1. **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----- |
-    | Select subscription | Your subscription | Shown when you have multiple subscriptions. |
-    | Select Function App in Azure | + Create new Function App | Publishing to an existing function app overwrites the content of that app in Azure. |
-    | Enter a globally unique name for the function app | Unique name | Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | Select a location for new resources | Region | Choose a [region](https://azure.microsoft.com/regions/) near you. | 
-
+    1. **Select Function App in Azure**: Choose `+ Create new Function App` (not `Advanced`). This article doesn't support the [advanced publishing flow](functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
+    
+    >[!IMPORTANT]
+    > Publishing to an existing function app overwrites the content of that app in Azure. 
+    
+    1. **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. 
+    
+    ::: zone pivot="programming-language-python"
+    1. **Select a runtime**: Choose the version of Python you've been running on locally. You can use the `python --version` command to check your version.
     ::: zone-end
 
-    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
-
-    | Prompt | Value | Description |
-    | ------ | ----- | ----- |
-    | Select subscription | Your subscription | Shown when you have multiple subscriptions. |
-    | Select Function App in Azure | + Create new Function App | Publishing to an existing function app overwrites the content of that app in Azure. |
-    | Enter a globally unique name for the function app | Unique name | Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | Select a runtime | Your version | Choose the language version you've been running on locally. |
-    | Select a location for new resources | Region | Choose a [region](https://azure.microsoft.com/regions/) near you. | 
-
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    1. **Select a runtime**: Choose the version of Node.js you've been running on locally. You can use the `node --version` command to check your version.
     ::: zone-end
 
+    1. **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. | 
     
 1.  When completed, the following Azure resources are created in your subscription:
 

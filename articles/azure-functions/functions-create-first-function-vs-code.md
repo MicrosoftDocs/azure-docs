@@ -13,7 +13,13 @@ In this article, you use Visual Studio Code to create a function that responds t
 
 There is also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
 
-## Prerequisites
+## Configure your environment
+
+Before you get started, you need to install the following:
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [npm]() (Windows-only). 
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 ::: zone pivot="programming-language-csharp"
@@ -55,111 +61,36 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 1. Provide the following information at the prompts:
 
     ::: zone pivot="programming-language-csharp"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Select a language for your function project | C# |
-    | Select a version | Azure Functions v2 | 
-    | Select a template for your project's first function | HTTP trigger | 
-    | Provide a function name | HttpExample | 
-    | Provide a namespace | My.Functions | 
-    | Authorization level | Anonymous | 
-    | Select how you would like to open your project | Add to workspace |
-
+    1. **Select a language for your function project**: Choose `C#`.
     ::: zone-end
-
     ::: zone pivot="programming-language-javascript"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Select a language for your function project | JavaScript | 
-    | Select a version | Azure Functions v2 | 
-    | Select a template for your project's first function | HTTP trigger | 
-    | Provide a function name | HttpExample | 
-    | Authorization level | Anonymous | 
-    | Select how you would like to open your project | Add to workspace |
-
+    1. **Select a language for your function project**: Choose `JavaScript`.
     ::: zone-end
-
     ::: zone pivot="programming-language-typescript"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Select a language for your function project | TypeScript | 
-    | Select a version | Azure Functions v2 | 
-    | Select a template for your project's first function | HTTP trigger | 
-    | Provide a function name | HttpExample | 
-    | Authorization level | Anonymous | 
-    | Select how you would like to open your project | Add to workspace |
-
+    1. **Select a language for your function project**: Choose `TypeScript`.
     ::: zone-end
-
     ::: zone pivot="programming-language-powershell"
-
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Select a language for your function project | PowerShell | 
-    | Select a version | Azure Functions v2 | 
-    | Select a template for your project's first function | HTTP trigger | 
-    | Provide a function name | HttpExample | 
-    | Authorization level | Anonymous | 
-    | Select how you would like to open your project | Add to workspace |
-
+    1. **Select a language for your function project**: Choose `PowerShell`.
     ::: zone-end
-
     ::: zone pivot="programming-language-python"
+    1. **Select a language for your function project**: Choose `Python`.
 
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | Select a language for your function project | Python | 
-    | Select a version | Azure Functions v2 | 
-    | Select a Python alias to create a virtual environment | Python alias | 
-    | Select a template for your project's first function | HTTP trigger | 
-    | Provide a function name | HttpExample | 
-    | Authorization level | Anonymous | 
-    | Select how you would like to open your project | Add to workspace | 
-
+    1. **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary.  
     ::: zone-end
 
-1. Visual Studio Code does the following:
-
-    + Creates an Azure Functions project in a new workspace, which contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files. 
-
+    1. **Select a template for your project's first function**: Choose `HTTP trigger`.
+    
+    1. **Provide a function name**: Type `HttpExample`.
+    
     ::: zone pivot="programming-language-csharp"
+    1. **Provide a namespace**: Type `My.Functions`. 
+    ::: zone-end
 
-    + Creates an [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
+    1. **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys).
 
-    ::: zone-end
-        
-    ::: zone pivot="programming-language-javascript"
-    
-    + Creates a package.json file in the root folder.
+    1. **Select how you would like to open your project**: Choose `Add to workspace`.
 
-    + Creates an HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-typescript"
-    
-    + Creates a package.json file and a tsconfig.json file in the root folder.
-
-    + Creates an HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.ts file](functions-reference-node.md#typescript), a TypeScript file that contains the function code.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-powershell"
-    
-    + Creates an HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-python"
-    
-    + Creates a project-level requirements.txt file that lists packages required by Functions.
-    
-    + Creates an HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
-    
-    ::: zone-end
+Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
