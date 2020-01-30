@@ -27,13 +27,13 @@ IoT Hub encountered an error and couldn't confirm if the direct method completed
 
 ### Cause 2
 
-When using an earlier version of the Azure IoT C# SDK (<1.19.0), AMQP link between the device and IoT Hub can be dropped silently because of a bug.
+When using an earlier version of the Azure IoT C# SDK (<1.19.0), the AMQP link between the device and IoT Hub can be dropped silently because of a bug.
 
 ## Solution
 
 ### Solution 1
 
-Issue a retry
+Issue a retry.
 
 ### Solution 2
 

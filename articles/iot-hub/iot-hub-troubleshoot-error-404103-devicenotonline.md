@@ -17,7 +17,7 @@ This article describes the causes and solutions for **404103 DeviceNotOnline** e
 
 ## Symptoms
 
-A Direct method to a device fails with the error **404103 DeviceNotOnline** even if the device is online. 
+A direct method to a device fails with the error **404103 DeviceNotOnline** even if the device is online. 
 
 ## Cause
 

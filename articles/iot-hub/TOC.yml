@@ -390,7 +390,7 @@
               href: iot-hub-troubleshoot-error-404103-devicenotonline.md
             - name: 404104 DeviceConnectionClosedRemotely
               href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
-            - name: 408001 DeviceAlreadyExists
+            - name: 409001 DeviceAlreadyExists
               href: iot-hub-troubleshoot-error-409001-devicealreadyexists.md
             - name: 409002 LinkCreationConflict
               href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md

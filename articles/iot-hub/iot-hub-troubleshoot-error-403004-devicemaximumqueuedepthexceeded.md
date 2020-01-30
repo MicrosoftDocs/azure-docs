@@ -27,8 +27,8 @@ The most likely reason that you're running into this limit is because you're usi
 
 ## Solution
 
-The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). To reduce the likelihood to running into the queue limit, switch to AMQP or MQTT for cloud-to-device messages.
+The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). To reduce the likelihood of running into the queue limit, switch to AMQP or MQTT for cloud-to-device messages.
 
-Otherwise, enhance device side logic to complete, reject, or abandon queued messages quickly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
+Alternatively, enhance device side logic to complete, reject, or abandon queued messages quickly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
 Lastly, consider using the [Purge Queue API](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) to periodically clean up pending messages before the limit is reached.
