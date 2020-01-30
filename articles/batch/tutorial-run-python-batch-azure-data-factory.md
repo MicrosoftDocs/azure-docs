@@ -75,7 +75,6 @@ The following Python script loads the `iris.csv` dataset from your `input` conta
 ``` python
 # Load libraries
 from azure.storage.blob import BlockBlobService
-import subprocess
 import sys
 import pandas as pd
 
