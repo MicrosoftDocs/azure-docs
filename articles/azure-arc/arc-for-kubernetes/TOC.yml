@@ -14,7 +14,8 @@
     href: use-gitops.md
 - name: Concepts
   items:
-- name: How-to guides
+- name: How-to 
+  items:
   - name: Enable resource providers
     href: enable-providers.md
   - name: Install CLI extensions
@@ -22,4 +23,4 @@
 - name: Resources
   items:
   - name: Frequently asked questions
-    href: arc-for-aks-faq.md
+    href: arc-for-Kubernetes-faq.md
