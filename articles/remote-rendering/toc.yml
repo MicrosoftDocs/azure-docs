@@ -10,6 +10,8 @@
   href: tutorials/toc.yml
 - name: Samples
   items:
+  - name: Sample model
+    href: samples/sample-model.md
   - name: Scripts for frontend authentication
     href: azure/powershell-example-scripts-for-frontend.md
 - name: How to
