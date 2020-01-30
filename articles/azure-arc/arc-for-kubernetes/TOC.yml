@@ -20,6 +20,12 @@
     href: enable-providers.md
   - name: Install CLI extensions
     href: install-cli-extensions.md
+  - name: Security
+    items:
+    - name: Use Azure Policy
+      href: use-azure-policy.md
+    - name: Configure custom service principal
+      href: create-onboarding-spn.md
 - name: Resources
   items:
   - name: Frequently asked questions

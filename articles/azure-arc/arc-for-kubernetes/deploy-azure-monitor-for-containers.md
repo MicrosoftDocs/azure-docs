@@ -1,0 +1,74 @@
+# Azure Monitor for containers
+This document describes how to onboard [Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview) to Azure Arc K8s cluster(s).
+
+# Pre-requisites
+- Kubernetes versions: https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
+  - Linux distros for the cluster (master & worker) nodes – Ubuntu (18.04 LTS and 16.04 LTS)
+- Minimum Contributor RBAC role permission on the Azure Subscription of the Azure Arc K8s Cluster
+- Fully Qualified Azure Resource Id of the Azure Arc K8s cluster
+- Kubeconfig context of the Kubernetes cluster
+- Monitoring agent requires cAdvisor on the Kubelet is running on either secure port: 10250 or unsecure port: 10255 on the all nodes to pull the perf metrics   
+   > Note:  Recommended to configure the Kubelet cAdvisor port to secure port:10250 if its not configured already.
+- Monitoring Agent requires the following outbound ports and domains to send the monitoring data to the Azure Monitor backend (If blocked by proxy/firewall)
+    -  *.ods.opinsights.azure.com 443
+    -  *.oms.opinsights.azure.com 443
+    -  *.blob.core.windows.net 443
+    -  dc.services.visualstudio.com 443
+
+# Onboarding
+
+## Using HELM chart
+
+### Option 1: Using Powershell  script
+
+1. Download the Onboarding script
+```console
+curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1
+ ```
+2. Install [Powershell core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) if you dont have installed on your dev machine to execute Powershell onboarding script
+
+3. Execute below script with your cluster Azure Arc K8s Cluster ResourceId and context of the kubernetes cluster
+```console
+.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
+
+For Example ..
+.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
+
+ ```
+### Option 2: Using Bash Script
+
+> **Hint:** The script uses bash 4 features, so make sure your bash is up to date. You can check your current version with `bash --version`.
+
+1. Download the Onboarding script
+```console
+curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh
+ ```
+2. Execute below script with your cluster Azure Arc K8s Cluster ResourceId and context of the kubernetes cluster
+```console
+bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster>  <kube-context>
+
+For Example ..
+bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster
+
+ ```
+
+## Configure agent data collection
+By default agent doesnt collect stdout and stderr logs of containers in kube-system namespace.
+Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config to configure agent with desired data collection settings.
+
+## Configure scraping of Prometheus metrics
+Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend.
+Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions how to configure Prometheus scraping.
+
+# UX
+Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Cluster
+
+# Disable Monitoring
+If you would like to disable monitoring due to some reason, you can just simply delete the azure monitor for containers HELM chart to stop collecting and ingesting  monitoring  data to Azure Monitor for containers backend
+
+```console
+helm del azmon-containers-release-1
+```
+
+# Contact
+If you have any questions or feedback or feature request regarding Azure Monitor for containers integration, please reach us out through [this](mailto:omscontainers@microsoft.com).
