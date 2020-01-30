@@ -152,7 +152,7 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |380 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
@@ -170,9 +170,9 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs | Virtual Workstations | Virtual Applications | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV12s_v3 |12 |112 |320 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
-| Standard_NV24s_v3 |24 |224 |640 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
-| Standard_NV48s_v3 |48 |448 |1280 | 4 | 32 | 32 | 80000 / 800 | 8 | 4 | 100 |
+| Standard_NV12s_v3 |12 |112 |336 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
+| Standard_NV24s_v3 |24 |224 |672 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
+| Standard_NV48s_v3 |48 |448 |1344 | 4 | 32 | 32 | 80000 / 800 | 8 | 4 | 100 |
 
 1 GPU = one-half M60 card.
 
