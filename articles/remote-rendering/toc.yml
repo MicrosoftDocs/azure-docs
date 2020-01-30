@@ -38,6 +38,8 @@
       href: quickstarts/create-new-unity-project.md
   - name: Profile performance
     href: how-tos/performance-tracing.md
+  - name: Troubleshoot
+    href: how-tos/troubleshoot.md
 - name: Concepts
   items:
     - name: SDK concepts
