@@ -171,7 +171,7 @@ Once the run is complete, navigate back to the **Run detail** page and select th
 
 In this experiment context, **StackEnsemble** is considered the best model, based on the **Normalized root mean squared error** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select the **Deploy Best Model** button in the bottom-left corner.
+1. Select the **Deploy best model** button in the bottom-left corner.
 
 1. Populate the **Deploy a model** pane as follows:
 
@@ -192,7 +192,7 @@ In this experiment context, **StackEnsemble** is considered the best model, base
     
 Once deployment succeeds, you have an operational web service to generate predictions. 
 
-Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
+Proceed to the [**Next steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
 
 ## Clean up resources
 
