@@ -38,7 +38,7 @@ The ability to geocode in a country depends on the availability of road data and
 
 ### Limit search results
 
-You can use the Azure Maps Search API to appropriately limit search results. You limit the search results so that your users get relevant data.
+ Azure Maps Search API can help you limit search results appropriately. You limit results so that you can display relevant data to your users.
 
 > [!NOTE]
 > The search APIs support more parameters than just the ones that this article discusses.
@@ -56,11 +56,11 @@ To geobias results to the relevant area for your user, always add as many locati
 
 #### Fuzzy search parameters
 
-We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. The Search Fuzzy API combines POI searching and geocoding into a canonical *single-line search*: 
+We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. The API combines POI searching and geocoding into a canonical *single-line search*: 
 
-* The `minFuzzyLevel` and `maxFuzzyLevel` parameters help return relevant matches even when query parameters don't exactly correspond to the information that the user wants. Most search queries default to `minFuzzyLevel=1` and `maxFuzzyLevel=2`. These default settings increase performance and reduce unusual results. 
+* The `minFuzzyLevel` and `maxFuzzyLevel` parameters help return relevant matches even when query parameters don't exactly match the information that the user wants. To maximize performance and reduce unusual results, set search queries to defaults of `minFuzzyLevel=1` and `maxFuzzyLevel=2`. 
 
-    For example, when the `maxFuzzyLevel` parameter is set to 2, the search term *restrant*, is matched to *restaurant*. You can override the default fuzzy levels when you need to. 
+    For example, when the `maxFuzzyLevel` parameter is set to 2, the search term *restrant* is matched to *restaurant*. You can override the default fuzzy levels when you need to. 
 
 * Use the `idxSet` parameter to prioritize the exact set of result types. To prioritize an exact set of results, you can submit a comma-separated list of indexes. In your list, the item order doesn't matter. Azure Maps supports the following indexes:
 
@@ -80,7 +80,7 @@ We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microso
 
 ### Reverse-geocode and filter for a geography entity type
 
-When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. If your request includes the `entityType` parameter, then you can narrow the search for specific geography entity types. 
+When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
 
 The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -109,11 +109,6 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
                 "municipality": "Redmond",
                 "country": "United States",
                 "countryCodeISO3": "USA",
-                "freeformAddress": "Redmond, WA",
-                "boundingBox": {
-                    "northEast": "47.717105,-122.034537",
-                    "southWest": "47.627016,-122.164998",
-                    "entity": "position"
                 },
                 "countrySubdivisionName": "Washington"
             },
@@ -175,15 +170,6 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
                 "streetName": "Microsoft Way",
                 "municipalitySubdivision": "Redmond",
                 "municipality": "Redmond",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle East",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98052",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "Microsoft Way, Redmond, WA 98052"
             },
             "position": {
                 "lat": 47.63988,
@@ -355,16 +341,6 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
             "address": {
                 "streetName": "Microsoft Way",
                 "municipalitySubdivision": "Yorkmount, Charlotte",
-                "municipality": "Charlotte",
-                "countrySecondarySubdivision": "Mecklenburg",
-                "countryTertiarySubdivision": "Township 1 Charlotte",
-                "countrySubdivision": "NC",
-                "countrySubdivisionName": "North Carolina",
-                "postalCode": "28217",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "Microsoft Way, Charlotte, NC 28217"
             },
             "position": {
                 "lat": 35.14267,
@@ -573,19 +549,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
             "address": {
                 "streetNumber": "2444",
                 "streetName": "Bel Red Rd",
-                "municipalitySubdivision": "Bellevue",
-                "municipality": "Bellevue",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle East",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98007",
-                "extendedPostalCode": "980073803",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "2444 Bel Red Rd, Bellevue, WA 98007",
-                "localName": "Bellevue"
+                "municipalitySubdivision": "Northeast Bellevue, Bellevue",
             },
             "position": {
                 "lat": 47.63201,
@@ -739,18 +703,6 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
                 "streetNumber": "15248",
                 "streetName": "Bel Red Rd",
                 "municipalitySubdivision": "Redmond",
-                "municipality": "Redmond",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle East",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98052",
-                "extendedPostalCode": "980525511",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "15248 Bel Red Rd, Redmond, WA 98052",
-                "localName": "Redmond"
             },
             "position": {
                 "lat": 47.62843,
@@ -853,18 +805,6 @@ The `Score` parameter for each response object indicates how the matching score 
             "address": {
                 "streetNumber": "400",
                 "streetName": "Broad Street",
-                "municipalitySubdivision": "Seattle, Queen Anne",
-                "municipality": "Seattle",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98109",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "400 Broad Street, Seattle, WA 98109",
-                "localName": "Seattle"
             },
             "position": {
                 "lat": 47.62039,
@@ -899,18 +839,6 @@ The `Score` parameter for each response object indicates how the matching score 
             "score": 8.129190444946289,
             "address": {
                 "streetName": "Broad Street",
-                "municipalitySubdivision": "Seattle, Downtown Seattle, Belltown",
-                "municipality": "Seattle",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98109, 98121",
-                "extendedPostalCode": "981094991, 981213206",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "Broad Street, Seattle, WA"
             },
             "position": {
                 "lat": 47.61724,
@@ -935,18 +863,6 @@ The `Score` parameter for each response object indicates how the matching score 
             "score": 8.129190444946289,
             "address": {
                 "streetName": "Broad Street",
-                "municipalitySubdivision": "Seattle, South Lake Union, Queen Anne, Cascade",
-                "municipality": "Seattle",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98109",
-                "extendedPostalCode": "981094612, 981094942, 981094970",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "Broad Street, Seattle, WA 98109"
             },
             "position": {
                 "lat": 47.61965,
@@ -1006,53 +922,8 @@ The `Score` parameter for each response object indicates how the matching score 
             "id": "US/XSTR/p1/232144",
             "score": 6.754479885101318,
             "address": {
-                "streetName": "Broad Street & John Street",
-                "municipalitySubdivision": "Seattle",
-                "municipality": "Seattle",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98109",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "Broad Street & John Street, Seattle, WA 98109"
-            },
-            "position": {
-                "lat": 47.61982,
-                "lon": -122.34886
-            },
-            "viewport": {
-                "topLeftPoint": {
-                    "lat": 47.62072,
-                    "lon": -122.35019,
-                    "valid": true
-                },
-                "btmRightPoint": {
-                    "lat": 47.61892,
-                    "lon": -122.34753,
-                    "valid": true
-                }
-            }
-        },
-        {
-            "type": "Cross Street",
-            "id": "US/XSTR/p1/958466",
-            "score": 6.754479885101318,
-            "address": {
-                "streetName": "Broad Street & Roy Street",
-                "municipalitySubdivision": "South Lake Union, Seattle, Cascade",
-                "municipality": "Seattle",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle",
-                "countrySubdivision": "WA",
-                "countrySubdivisionName": "Washington",
-                "postalCode": "98109",
-                "countryCode": "US",
-                "country": "United States",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "Broad Street & Roy Street, Seattle, WA 98109"
+                "streetName": "Broad Street & Valley Street",
+                "municipalitySubdivision": "South Lake Union, Seattle",
             },
             "position": {
                 "lat": 47.62545,
