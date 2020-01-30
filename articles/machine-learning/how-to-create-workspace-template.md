@@ -118,10 +118,10 @@ The following example template demonstrates how you to create a workspace with t
 To get the ID of the Key Vault, and the key URI needed by this template, you can use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID and URI:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id,
-properties.vaultUri]```
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+```
 
-This command returns a value similar to the following text:
+This command returns a value similar to the following text. The first value is the ID and the second is the URI:
 
 ```text
 [
