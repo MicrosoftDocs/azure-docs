@@ -38,7 +38,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. | Both | No | Yes |
-| **ApplicationInsightsAvailability** | Application Insights Availability. | Both | No | No |
+| **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web app front ends. | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
@@ -59,7 +59,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** and **AzureFrontDoor.Frontend** tags. Please also whitelist following IPs (this dependency will be removed soon): 13.107.6.181 & 13.107.9.181. | Outbound | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
-| **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
+| **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This does not include traffic to your Azure Load Balancer resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has a dependency on the **Storage** tag. | Outbound | No | Yes |
 | **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
@@ -74,11 +74,11 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
-| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Both | No | Yes |
+| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
-| **MicrosoftContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
+| **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>*Note:* Please also whitelist following IP (this dependency will be removed soon): 204.79.197.219. | Outbound | Yes | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 | **ServiceFabric** | Azure Service Fabric. | Outbound | No | No |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. | Outbound | Yes | Yes |
