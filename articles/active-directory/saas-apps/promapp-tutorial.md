@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 01/30/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	    |   |
 
 	   > [!NOTE]
-	   > Azure AD integration with Promapp is currently configured only for service-initiated authentication. (That is, going to a Promapp URL initiates the authentication process.) But the **Reply URL** field is a required field.
+	   > Azure AD integration with Nintex Promapp is currently configured only for service-initiated authentication. (That is, going to a Nintex Promapp URL initiates the authentication process.) But the **Reply URL** field is a required field.
 
     1. In the **Reply URL** box, enter a URL in this pattern:
 
@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign on URL** box, enter a URL in this pattern: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE]
-	> These values are placeholders. You need to use the actual identifier, reply URL, and sign-on URL. Contact the [Promapp support team](https://www.promapp.com/about-us/contact-us/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. You need to use the actual identifier, reply URL, and sign-on URL. Contact the [Nintex Promapp support team](https://www.promapp.com/about-us/contact-us/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Nintex Promapp SSO
 
-1. Sign in to your Promapp company site as an admin.
+1. Sign in to your Nintex Promapp company site as an admin.
 
 2. In the menu at the top of the window, select **Admin**:
 
