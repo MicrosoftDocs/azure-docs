@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/21/2019
+ms.date: 01/30/2019
 ms.author: aahi
 ---
 
@@ -18,9 +18,9 @@ Recognize person names in text.
 Languages:
 * Public preview: `English`
 
-| Subtype name | Description             |
-|--------------|-------------------------|
-| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` * Available starting with model version `2020-02-01`|
+| Subtype name | Description                                               | Available starting with model version: |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
 
 ### Organization  
 
@@ -30,9 +30,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` * Available starting with model version `2020-02-01`|
+| Subtype name | Description                                                                                       |              |
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### Phone Number
 
@@ -42,9 +42,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name           | Description                                           |
-|------------------------|-------------------------------------------------------|
-| N/A                    |  US phone numbers, for example `(312) 555-0176` * Available starting with model version `2020-02-01` |
+| Subtype name | Description                                    | Available starting with model version: |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/A          | US phone numbers, for example `(312) 555-0176` | `2020-02-01`                           |
 
 ### Email
 
@@ -54,9 +54,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                  |
-|----------|----------------------------------------------|
-| N/A         | Email address, for example `support@contoso.com` * Available starting with model version `2020-02-01` |
+| Subtype name | Description                                      | Available starting with model version: |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/A          | Email address, for example `support@contoso.com` | `2020-02-01`                           |
 
 ### URL
 
@@ -66,9 +66,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                           |
-|----------|-------------------------------------------------------|
-| N/A         | URLs to websites, for example `https://www.bing.com` * Available starting with model version `2020-02-01` |
+| Subtype name | Description                                          | Available starting with model version: |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/A          | URLs to websites, for example `https://www.bing.com` | `2020-02-01`                           |
 
 ### IP Address
 
@@ -78,9 +78,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                           |
-|----------|-------------------------------------------------------|
-| N/A         | Network address for example `10.0.0.101` * Available starting with model version `2020-02-01` |
+| Subtype name | Description                              | Available starting with model version: |
+|--------------|------------------------------------------|----------------------------------------|
+| N/A          | Network address for example `10.0.0.101` | `2020-02-01`                           |
 
 ### Quantity 
 
@@ -90,9 +90,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                           |
-|----------|-------------------------------------------------------|
-| Age        | `90 days old`, `30 years old` * Available starting with model version `2020-02-01` |
+| Subtype name | Description                   | Available starting with model version: |
+|--------------|-------------------------------|----------------------------------------|
+| Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
 
 ### DateTime
 
@@ -102,9 +102,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                           |
-|----------|-------------------------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` * Available starting with model version `2020-02-01` |
+| Subtype name | Description                   | Available starting with model version: |
+|--------------|-------------------------------|----------------------------------------|
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### EU GPS Coordinates
 
@@ -114,13 +114,15 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                               |
-|--------------|-------------------------------------------|
-| N/A          | GPS coordinates within the European Union |
+| Subtype name | Description                               | Available starting with model version: |
+|--------------|-------------------------------------------|----------------------------------------|
+| N/A          | GPS coordinates within the European Union | `2019-10-01`                           |
 
 ### Azure information
 
 Identifiable Azure information including authentication information, and connection strings. 
+
+* Available starting with model version `2019-10-01`.
 
 Languages:
 
@@ -141,6 +143,8 @@ Languages:
 | SQL Server Connection String          | Connection string for a SQL server.                                         |
 
 ### Identification
+
+* Available starting with model version `2019-10-01`.
 
 Languages:
 

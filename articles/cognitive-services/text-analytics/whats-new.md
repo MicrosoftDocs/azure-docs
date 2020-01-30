@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/30/2019
 ms.author: aahi
 ---
 
@@ -18,7 +18,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## Named Entity Recognition v3 public preview - February 2020
 
-Additional new types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and PII entities found in text. It includes:
+Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and PII entities found in text. It includes:
 
 * Recognition of the following general entity types (English only):
     * PersonType
@@ -37,20 +37,7 @@ Additional new types are now available in the Named Entity Recognition (NER) v3 
     * URL
     * IP Address
 
-> [!div class="nextstepaction"]
-> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
-
-
-## Named Entity Recognition v3 public preview - October 2019
-
-The next version of Named Entity Recognition (NER) is now available for public preview, and provides expanded detection and categorization of entities found in text. It provides:
-
-* Recognition of the following new entity types:
-    * Phone number
-    * IP address
-
-* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
-* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+Access them using the [endpoints for NER v3](how-tos/text-analytics-how-to-entity-linking?tabs=version-3#sending-a-rest-api-request).
 
 Entity linking supports English and Spanish. NER language support varies by the entity type. 
 

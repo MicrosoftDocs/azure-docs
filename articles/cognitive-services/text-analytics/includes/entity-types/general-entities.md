@@ -18,9 +18,9 @@ Recognize person names in text.
 Languages:
 * Public preview: `English`
 
-| Subtype name | Description             |
-|--------------|-------------------------|
-| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` * Available starting with model version `2019-10-01`|
+| Subtype name | Description                                               | Available starting with model version: |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2019-10-01`                           |
 
 ### PersonType
 Job type or role held by a person.
@@ -28,9 +28,9 @@ Job type or role held by a person.
 Languages:
 * Public preview: `English`
 
-| Subtype name | Description             |
-|--------------|-------------------------|
-| N/A          | Job types for example `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` * Available starting with model version `2020-02-01`|
+| Subtype name | Description                                                                                | Available starting with model version: |
+|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
+| N/A          | Job types for example `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
 
 ### Location
 
@@ -40,10 +40,10 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | locations, for example `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` * Available starting with model version `2019-10-01`|
-| Geopolitical Entity (GPE)    | Cities, countries, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` * Available starting with model version `2020-02-01` |
+| Subtype name              | Description                                                                              | Available starting with model version: |
+|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
+| N/A                       | locations, for example `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
+| Geopolitical Entity (GPE) | Cities, countries, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### Organization  
 
@@ -53,9 +53,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`,`VOA` * Available starting with model version `2019-10-01` |
+| Subtype name | Description                                                                                             | Available starting with model version: |
+|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
+| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`,`VOA` | `2019-10-01`                           |
 
 ### Event  
 
@@ -65,9 +65,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | Events such as `wedding`, `hurricane`, `car accident`, `Holocaust`, `solar eclipse` * Available starting with model version `2020-02-01`|
+| Subtype name | Description                                                            | Available starting with model version: |
+|--------------|------------------------------------------------------------------------|----------------------------------------|
+| N/A          | Events such as `wedding`, `hurricane`, `car accident`, `solar eclipse` | `2020-02-01`                           |
 
 ### Product  
 
@@ -77,10 +77,10 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | For example, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` * Available starting with model version `2020-02-01`|
-| Computing          | `Azure Cosmos DB`, `Microsoft Exchange Server` * Available starting with model version `2020-02-01`|
+| Subtype name | Description                                                                        | Available starting with model version: |
+|--------------|------------------------------------------------------------------------------------|----------------------------------------|
+| N/A          | For example, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
+| Computing    | `Azure Cosmos DB`, `Microsoft Exchange Server`                                     | `2020-02-01`                           |
 
 ### Skill  
 
@@ -90,9 +90,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` * Available starting with model version `2020-02-01`|
+| Subtype name | Description                                                                 | Available starting with model version: |
+|--------------|-----------------------------------------------------------------------------|----------------------------------------|
+| N/A          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
 ### Phone Number
 
@@ -102,9 +102,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                  |
-|----------|----------------------------------------------|
-| N/A         | US phone numbers, for example `(312) 555-0176` * Available starting with model version `2019-10-01` |
+| Subtype name | Description                                    | Available starting with model version: |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/A          | US phone numbers, for example `(312) 555-0176` | `2019-10-01`                           |
 
 ### Email
 
@@ -114,9 +114,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                  |
-|----------|----------------------------------------------|
-| N/A         | Email address, for example `support@contoso.com` * Available starting with model version `2019-10-01` |
+| Subtype name | Description                                      | Available starting with model version: |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/A          | Email address, for example `support@contoso.com` | `2019-10-01`                           |
 
 ### URL
 
@@ -126,9 +126,9 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                           |
-|----------|-------------------------------------------------------|
-| N/A         | URLs to websites, for example `https://www.bing.com` * Available starting with model version `2019-10-01` |
+| Subtype name | Description                                          | Available starting with model version: |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/A          | URLs to websites, for example `https://www.bing.com` | `2019-10-01`                           |
 
 ### IP Address
 
@@ -138,13 +138,15 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                           |
-|----------|-------------------------------------------------------|
-| N/A         | Network address for example `10.0.0.101` * Available starting with model version `2019-10-01` |
+| Subtype name | Description                              | Available starting with model version: |
+|--------------|------------------------------------------|----------------------------------------|
+| N/A          | Network address for example `10.0.0.101` | `2019-10-01`                           |
 
 ###  DateTime
 
-Date and Time entities. * Available starting with model version `2019-10-01`
+Date and Time entities. 
+
+* Available starting with model version `2019-10-01`
 
 Languages:
 
@@ -162,7 +164,9 @@ Languages:
 
 ###  Quantity
 
-Numbers and numeric quantities. * Available starting with model version `2019-10-01`
+Numbers and numeric quantities. 
+
+* Available starting with model version `2019-10-01`
 
 Languages:
 
