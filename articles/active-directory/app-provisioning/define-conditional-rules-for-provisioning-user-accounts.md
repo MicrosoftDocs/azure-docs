@@ -121,8 +121,13 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 |workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
 
 ## Related articles
+<<<<<<< HEAD:articles/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md
 * [Automate user provisioning and deprovisioning to SaaS applications](../manage-apps/user-provisioning.md)
 * [Customize attribute mappings for user provisioning](../manage-apps/customize-application-attributes.md)
+=======
+* [Automate user provisioning and deprovisioning to SaaS applications](user-provisioning.md)
+* [Customize attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
+>>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67:articles/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts.md
 * [Write expressions for attribute mappings](functions-for-customizing-application-data.md)
 * [Account provisioning notifications](../manage-apps/user-provisioning.md)
 * [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../manage-apps/use-scim-to-provision-users-and-groups.md)

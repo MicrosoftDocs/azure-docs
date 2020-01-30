@@ -46,7 +46,7 @@ If the data you need for provisioning is in Active Directory but isn't available
 
 5. Finish the Azure AD Connect wizard and allow a full synchronization cycle to run. When the cycle is complete, the schema is extended and the new values are synchronized between your on-premises AD and Azure AD.
  
-6. In the Azure portal, while you’re [editing user attribute mappings](customize-application-attributes.md), the **Source attribute** list will now contain the added attribute in the format `<attributename> (extension_<appID>_<attributename>)`. Select the attribute and map it to the target application for provisioning.
+6. In the Azure portal, while you’re [editing user attribute mappings](../app-provisioning/customize-application-attributes.md), the **Source attribute** list will now contain the added attribute in the format `<attributename> (extension_<appID>_<attributename>)`. Select the attribute and map it to the target application for provisioning.
 
    ![Azure Active Directory Connect wizard Directory extensions selection page](media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 

@@ -46,7 +46,7 @@ Automating provisioning to an application requires building and integrating a SC
 
 ## Step 1: Design your user and group schema
 
-Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users, groups) and attributes (name, manager, job title, etc.) that your application requires. You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. Note that you can [customize](customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. 
+Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users, groups) and attributes (name, manager, job title, etc.) that your application requires. You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. Note that you can [customize](../app-provisioning/customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. 
 
 User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: https://tools.ietf.org/html/rfc7643.  The default mapping of the attributes of users in Azure AD to the attributes of user resources is provided in Table 1.  
 
@@ -116,7 +116,7 @@ Follow these general guidelines when implementing a SCIM endpoint to ensure comp
     - `and`
 * Don't require a case-sensitive match on structural elements in SCIM, in particular PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emits the values of 'op' as `Add`, `Replace`, and `Remove`.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md)
+* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](../app-provisioning/customize-application-attributes.md)
 
 ### User provisioning and deprovisioning
 
@@ -743,7 +743,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 1. Select **Save** to start the Azure AD provisioning service.
 1. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
 
-Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
@@ -948,7 +948,7 @@ Next, add the following code to that method to have any request to any of the se
 Azure Active Directory queries the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
 
 >[!NOTE]
-> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
+> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](../app-provisioning/customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -1348,7 +1348,7 @@ Applications that support the SCIM profile described in this article can be conn
     > **Test Connection** queries the SCIM endpoint for a user that doesn't exist, using a random GUID as the matching property selected in the Azure AD configuration. The expected correct response is HTTP 200 OK with an empty SCIM ListResponse message.
 
 10. If the attempts to connect to the application succeed, then select **Save** to save the admin credentials.
-11. In the **Mappings** section, there are two selectable sets of [attribute mappings](customize-application-attributes.md): one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
+11. In the **Mappings** section, there are two selectable sets of [attribute mappings](../app-provisioning/customize-application-attributes.md): one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
 
     > [!NOTE]
     > You can optionally disable syncing of group objects by disabling the "groups" mapping.
@@ -1358,7 +1358,7 @@ Applications that support the SCIM profile described in this article can be conn
 14. Select **Save** to start the Azure AD provisioning service.
 15. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
 
-Once the initial cycle has started, you can select **Provisioning logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Provisioning logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > The initial cycle takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
@@ -1394,8 +1394,14 @@ Certain apps allow inbound traffic to their app. In order for the Azure AD provi
 ## Related articles
 
 * [Automate user provisioning and deprovisioning to SaaS apps](user-provisioning.md)
+<<<<<<< HEAD
 * [Customize attribute mappings for user provisioning](customize-application-attributes.md)
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 * [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+=======
+* [Customize attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
+* [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
+* [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+>>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67
 * [Account provisioning notifications](user-provisioning.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)

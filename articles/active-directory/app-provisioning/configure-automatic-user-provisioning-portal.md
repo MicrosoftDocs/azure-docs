@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Managing user account provisioning for enterprise apps in the Azure portal
 
-This article describes the general steps for managing automatic user account provisioning and de-provisioning for applications that support it. *User account provisioning* is the act of creating, updating, and/or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the users role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work. To learn more about automatic user account provisioning, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
+This article describes the general steps for managing automatic user account provisioning and de-provisioning for applications that support it. *User account provisioning* is the act of creating, updating, and/or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the users role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work. To learn more about automatic user account provisioning, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications that are enabled for automatic provisioning with Azure AD. You should start by finding the provisioning setup tutorial specific to your application in the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). You'll likely find step-by-step guidance for configuring both the app and Azure AD to create the provisioning connection.
@@ -34,7 +34,7 @@ Use the Azure Active Directory portal to view and manage all applications that a
 1. Select any app to load its resource pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 
-   ![Provisioning screen to manage user account provisioning settings](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Provisioning screen to manage user account provisioning settings](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## Provisioning modes
 
@@ -54,7 +54,7 @@ Select the **Automatic** option to specify settings for admin credentials, mappi
 
 ### Admin Credentials
 
-Expand **Admin Credentials** to enter the credentials required for Azure AD to connect to the application's user management API. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](user-provisioning.md).
+Expand **Admin Credentials** to enter the credentials required for Azure AD to connect to the application's user management API. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](../manage-apps/user-provisioning.md).
 
 Select **Test Connection** to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
@@ -64,7 +64,7 @@ Expand **Mappings** to view and edit the user attributes that flow between Azure
 
 There's a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Select a mapping in the table to open the mapping editor to the right, where you can view and customize them.
 
-![Shows the Attribute Mapping screen](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Shows the Attribute Mapping screen](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Supported customizations include:
 

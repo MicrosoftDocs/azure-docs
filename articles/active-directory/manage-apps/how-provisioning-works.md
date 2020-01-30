@@ -40,7 +40,7 @@ There's a pre-configured set of attributes and attribute mappings between Azure 
 
 When setting up provisioning, it's important to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. Review and configure the matching property (**Match objects using this attribute**) that is used to uniquely identify and match users/groups between the two systems.
 
-You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings. For details, see [Customizing user provisioning attribute-mappings for SaaS applications](customize-application-attributes.md).
+You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings. For details, see [Customizing user provisioning attribute-mappings for SaaS applications](../app-provisioning/customize-application-attributes.md).
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application. For details, see [Writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
@@ -78,11 +78,11 @@ When Azure AD is the source system, the provisioning service uses the [Different
 
 When the provisioning service is started, the first cycle will:
 
-1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](customize-application-attributes.md).
+1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](../app-provisioning/customize-application-attributes.md).
 
 2. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. When a user is assigned or in scope for provisioning, the service queries the target system for a matching user using the specified [matching attributes](customize-application-attributes.md#understanding-attribute-mapping-properties). Example: If the userPrincipal name in the source system is the matching attribute and maps to userName in the target system, then the provisioning service queries the target system for userNames that match the userPrincipal name values in the source system.
+3. When a user is assigned or in scope for provisioning, the service queries the target system for a matching user using the specified [matching attributes](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-properties). Example: If the userPrincipal name in the source system is the matching attribute and maps to userName in the target system, then the provisioning service queries the target system for userNames that match the userPrincipal name values in the source system.
 
 4. If a matching user isn't found in the target system, it's created using the attributes returned from the source system. After the user account is created, the provisioning service detects and caches the target system's ID for the new user. This ID is used to run all future operations on that user.
 
@@ -92,7 +92,7 @@ When the provisioning service is started, the first cycle will:
 
 7. Persist a watermark at the end of the initial cycle, which provides the starting point for the later incremental cycles.
 
-Some applications such as ServiceNow, G Suite, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](customize-application-attributes.md), the provisioning service synchronizes the users and the groups, and then later synchronizes the group memberships.
+Some applications such as ServiceNow, G Suite, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](../app-provisioning/customize-application-attributes.md), the provisioning service synchronizes the users and the groups, and then later synchronizes the group memberships.
 
 ### Incremental cycles
 
@@ -102,7 +102,7 @@ After the initial cycle, all other cycles will:
 
 2. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. When a user is assigned or in scope for provisioning, the service queries the target system for a matching user using the specified [matching attributes](customize-application-attributes.md#understanding-attribute-mapping-properties).
+3. When a user is assigned or in scope for provisioning, the service queries the target system for a matching user using the specified [matching attributes](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-properties).
 
 4. If a matching user isn't found in the target system, it's created using the attributes returned from the source system. After the user account is created, the provisioning service detects and caches the target system's ID for the new user. This ID is used to run all future operations on that user.
 
@@ -119,7 +119,7 @@ After the initial cycle, all other cycles will:
 10. Persist a new watermark at the end of the incremental cycle, which provides the starting point for the later incremental cycles.
 
 > [!NOTE]
-> You can optionally disable the **Create**, **Update**, or **Delete** operations by using the **Target object actions** check boxes in the [Mappings](customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
+> You can optionally disable the **Create**, **Update**, or **Delete** operations by using the **Target object actions** check boxes in the [Mappings](../app-provisioning/customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
 
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
@@ -139,7 +139,7 @@ Resolve these failures by adjusting the attribute values for the affected user i
 
 ### Quarantine
 
-If most or all of the calls that are made against the target system consistently fail because of an error (for example invalid admin credentials) the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
+If most or all of the calls that are made against the target system consistently fail because of an error (for example invalid admin credentials) the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](../app-provisioning/check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
 
 When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
@@ -147,11 +147,11 @@ The provisioning job exits quarantine after all of the offending errors are fixe
 
 ### How long provisioning takes
 
-Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
+Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### How to tell if users are being provisioned properly
 
-All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## De-provisioning
 
@@ -175,7 +175,7 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it is used to 
 
 [Plan an automatic user provisioning deployment](plan-auto-user-provisioning.md)
 
-[Configure provisioning for a gallery app](configure-automatic-user-provisioning-portal.md)
+[Configure provisioning for a gallery app](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
 [Build a SCIM endpoint and configure provisioning when creating your own app](use-scim-to-provision-users-and-groups.md)
 

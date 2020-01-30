@@ -142,9 +142,9 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

@@ -58,7 +58,7 @@ A Microsoft Graph request to get the status of the provisioning job shows the fo
 
 First, resolve the issue that caused the application to be placed in quarantine.
 
-- Check the application's provisioning settings to make sure you've [entered valid Admin Credentials](../manage-apps/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD must be able to establish a trust with the target application. Ensure that you have entered valid credentials and your account has the necessary permissions.
+- Check the application's provisioning settings to make sure you've [entered valid Admin Credentials](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD must be able to establish a trust with the target application. Ensure that you have entered valid credentials and your account has the necessary permissions.
 
 - Review the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to further investigate what errors are causing quarantine and address the error. Access the provisioning logs in the Azure portal by going to **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
 

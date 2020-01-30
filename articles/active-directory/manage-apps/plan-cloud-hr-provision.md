@@ -232,7 +232,11 @@ Depending on your requirements, when you configure attribute mappings, you can s
 
 ### Determine matching attributes
 
+<<<<<<< HEAD
+With provisioning, you get the ability to match existing accounts between the source and target system. When you integrate the cloud HR app with the Azure AD provisioning service, you can [configure attribute mapping](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) to determine what user data should flow from the cloud HR app to Active Directory or Azure AD.
+=======
 With provisioning, you get the ability to match existing accounts between the source and target system. When you integrate the cloud HR app with the Azure AD provisioning service, you can [configure attribute mapping](configure-automatic-user-provisioning-portal.md#mappings) to determine what user data should flow from the cloud HR app to Active Directory or Azure AD.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88
 
 When you initiate the Joiners process, gather the following requirements:
 
@@ -252,7 +256,11 @@ By default, the attribute in the cloud HR app that represents the unique employe
 
 You can set multiple matching attributes and assign matching precedence. They're evaluated on matching precedence. As soon as a match is found, no further matching attributes are evaluated.
 
+<<<<<<< HEAD
+You can also [customize the default attribute mappings](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), such as changing or deleting existing attribute mappings. You can also create new attribute mappings according to your business needs. For more information, see the cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) for a list of custom attributes to map.
+=======
 You can also [customize the default attribute mappings](customize-application-attributes.md#understanding-attribute-mapping-types), such as changing or deleting existing attribute mappings. You can also create new attribute mappings according to your business needs. For more information, see the cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) for a list of custom attributes to map.
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88
 
 ### Determine user account status
 
@@ -381,7 +389,11 @@ It's common for a security review to be required as part of the deployment of a 
 
 The cloud HR user provisioning implementation might fail to work as desired in the production environment. If so, the following rollback steps can assist you in reverting to a previous known good state.
 
+<<<<<<< HEAD
+1. Review the [provisioning summary report](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
+=======
 1. Review the [provisioning summary report](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88
 2. The last known good state of the users or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Azure AD or Active Directory).
 3. Work with the app owner to update the users or groups affected directly in the app by using the last known good state values.
 
@@ -407,7 +419,11 @@ After a successful [initial cycle](how-provisioning-works.md#initial-cycle), the
 - A new initial cycle is triggered owing to a change in attribute mappings or scoping filters.
 - The provisioning process goes into quarantine because of a high error rate. It stays in quarantine for more than four weeks, at which time it's automatically disabled.
 
+<<<<<<< HEAD
+To review these events and all other activities performed by the provisioning service, [learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md).
+=======
 To review these events and all other activities performed by the provisioning service, [learn how to review logs and get reports on provisioning activity](check-status-user-account-provisioning.md).
+>>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88
 
 #### Azure Monitor logs
 
@@ -430,7 +446,11 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 <<<<<<< HEAD
 - [Problem configuring user provisioning to an Azure AD Gallery application](application-provisioning-config-problem.md)
 - [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
+<<<<<<< HEAD
 - [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
+=======
+- [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
+>>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67
 - [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](application-provisioning-config-problem-storage-limit.md)
 - [No users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-no-users-provisioned.md)
 - [Wrong set of users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-wrong-users-provisioned.md)
