@@ -13,6 +13,8 @@ ms.service: azure-remote-rendering
 
 # Creating an account for Azure Remote Rendering
 
+This chapter guides you through the steps to create an account for the **Azure Remote Rendering** service. A valid account is mandatory for completing any of the quickstarts or tutorials.
+
 ## Create an account
 
 The following steps are needed to create an account for the Azure Remote Rendering service:
@@ -38,15 +40,15 @@ The samples and tutorials require that you provide the account ID and a key. For
 ```json
 {
     "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure Portal>",
-        "arrAccountKey": "<fill in the account key from the Azure Portal>",
+        "arrAccountId": "<fill in the account ID from the Azure portal>",
+        "arrAccountKey": "<fill in the account key from the Azure portal>",
         "region": "<select from available regions: currently either westus2 or westeurope>"
     },
 ```
 
 The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the portal as described in the following steps:
 
-* Go to the [Azure Portal](https://www.portal.azure.com)
+* Go to the [Azure portal](https://www.portal.azure.com)
 * Find your **"Remote Rendering Account"** - it should be in the **"Recent Resources"** list. You can also search for it in the search bar at the top. In that case, make sure that the subscription you want to use is selected in the Default subscription filter (filter icon next to search bar):
 
 ![Subscription filter](./media/azure-subscription-filter.png)
