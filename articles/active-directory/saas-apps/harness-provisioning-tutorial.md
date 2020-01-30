@@ -23,7 +23,7 @@ ms.author: Zhchia
 In this article, you learn how to configure Azure Active Directory (Azure AD) to automatically provision and deprovision users or groups to Harness.
 
 > [!NOTE]
-> This article describes a connector that's built on top of the Azure AD user provisioning service. For important information about this service and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This article describes a connector that's built on top of the Azure AD user provisioning service. For important information about this service and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

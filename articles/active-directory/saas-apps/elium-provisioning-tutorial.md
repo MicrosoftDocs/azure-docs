@@ -23,7 +23,7 @@ ms.author: Zhchia
 This tutorial shows how to configure Elium and Azure Active Directory (Azure AD) to automatically provision and de-provision users or groups to Elium.
 
 > [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD User Provisioning service. For important details about what this service does and how it works, and for frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector that's built on top of the Azure AD User Provisioning service. For important details about what this service does and how it works, and for frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in preview. For the general terms of use for Azure features in preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

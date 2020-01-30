@@ -26,7 +26,7 @@ As an application developer, you can use the System for Cross-Domain Identity Ma
 
 SCIM is a standardized definition of two endpoints: a /Users endpoint and a /Groups endpoint. It uses common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email. Apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the /Users endpoint to create a new user entry. Instead of needing a slightly different API for the same basic actions, apps that conform to the SCIM standard can instantly take advantage of pre-existing clients, tools, and code. 
 
-![Provisioning from Azure AD to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+![Provisioning from Azure AD to an app with SCIM](./media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
 The standard user object schema and rest APIs for management defined in SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) allow identity providers and apps to more easily integrate with each other. Application developers that build a SCIM endpoint can integrate with any SCIM-compliant client without having to do custom work.
 
@@ -42,11 +42,11 @@ Automating provisioning to an application requires building and integrating a SC
 
   * **[Step 5: Publish your application to the Azure AD application gallery.](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** Make it easy for customers to discover your application and easily configure provisioning. 
 
-![Steps for integrating a SCIM endpoint with Azure AD](media/use-scim-to-provision-users-and-groups/process.png)
+![Steps for integrating a SCIM endpoint with Azure AD](./media/use-scim-to-provision-users-and-groups/process.png)
 
 ## Step 1: Design your user and group schema
 
-Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users, groups) and attributes (name, manager, job title, etc.) that your application requires. You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. Note that you can [customize](../app-provisioning/customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. 
+Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users, groups) and attributes (name, manager, job title, etc.) that your application requires. You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. Note that you can [customize](customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. 
 
 User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: https://tools.ietf.org/html/rfc7643.  The default mapping of the attributes of users in Azure AD to the attributes of user resources is provided in Table 1.  
 
@@ -91,7 +91,7 @@ Note that you don't need to support both users and groups or all the attributes 
 
 ## Step 2: Understand the Azure AD SCIM implementation
 > [!IMPORTANT]
-> The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
+> The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](../manage-apps/application-provisioning-config-problem-scim-compatibility.md).
 
 If you're building an application that supports a SCIM 2.0 user management API, this section describes in detail how the Azure AD SCIM client is implemented. It also shows how to model your SCIM protocol request handling and responses. Once you've implemented your SCIM endpoint, you can test it by following the procedure described in the previous section.
 
@@ -116,13 +116,13 @@ Follow these general guidelines when implementing a SCIM endpoint to ensure comp
     - `and`
 * Don't require a case-sensitive match on structural elements in SCIM, in particular PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emits the values of 'op' as `Add`, `Replace`, and `Remove`.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](../app-provisioning/customize-application-attributes.md)
+* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md)
 
 ### User provisioning and deprovisioning
 
 The following illustration shows the messages that Azure Active Directory sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
 
-![Shows the user provisioning and deprovisioning sequence](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
+![Shows the user provisioning and deprovisioning sequence](./media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
 *User provisioning and deprovisioning sequence*
 
 ### Group provisioning and deprovisioning
@@ -132,7 +132,7 @@ Group provisioning and deprovisioning are optional. When implemented and enabled
 * Requests to retrieve groups specify that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
 
-![Shows the group provisioning and deprovisioning sequence](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
+![Shows the group provisioning and deprovisioning sequence](./media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
 *Group provisioning and deprovisioning sequence*
 
 ### SCIM protocol requests and responses
@@ -743,7 +743,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 1. Select **Save** to start the Azure AD provisioning service.
 1. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
 
-Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
@@ -753,7 +753,7 @@ To develop your own web service that conforms to the SCIM specification, first f
 
 * Common Language Infrastructure (CLI) libraries are offered for use with languages based on that infrastructure, such as C#. One of those libraries, Microsoft.SystemForCrossDomainIdentityManagement.Service, declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the following illustration. A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider. The libraries let the developer deploy a web service that conforms to the SCIM specification. The web service can be either hosted within Internet Information Services, or any executable CLI assembly. Request is translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.
   
-   ![Breakdown: A request translated into calls to the provider's methods](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
+   ![Breakdown: A request translated into calls to the provider's methods](./media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
   
 * [Express route handlers](https://expressjs.com/guide/routing.html) are available for parsing node.js request objects representing calls (as defined by the SCIM specification), made to a node.js web service.
 
@@ -948,7 +948,7 @@ Next, add the following code to that method to have any request to any of the se
 Azure Active Directory queries the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
 
 >[!NOTE]
-> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](../app-provisioning/customize-application-attributes.md).
+> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -1329,13 +1329,13 @@ Applications that support the SCIM profile described in this article can be conn
 3. Select **+ New application** > **All** > **Non-gallery application**.
 4. Enter a name for your application, and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
 
-   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![Screenshot shows the Azure AD application gallery](./media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
    *Azure AD application gallery*
 
 5. In the app management screen, select **Provisioning** in the left panel.
 6. In the **Provisioning Mode** menu, select **Automatic**.
 
-   ![Example: An app's Provisioning page in the Azure portal](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
+   ![Example: An app's Provisioning page in the Azure portal](./media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configuring provisioning in the Azure portal*
 
 7. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/
@@ -1348,7 +1348,7 @@ Applications that support the SCIM profile described in this article can be conn
     > **Test Connection** queries the SCIM endpoint for a user that doesn't exist, using a random GUID as the matching property selected in the Azure AD configuration. The expected correct response is HTTP 200 OK with an empty SCIM ListResponse message.
 
 10. If the attempts to connect to the application succeed, then select **Save** to save the admin credentials.
-11. In the **Mappings** section, there are two selectable sets of [attribute mappings](../app-provisioning/customize-application-attributes.md): one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
+11. In the **Mappings** section, there are two selectable sets of [attribute mappings](customize-application-attributes.md): one for user objects and one for group objects. Select each one to review the attributes that are synchronized from Azure Active Directory to your app. The attributes selected as **Matching** properties are used to match the users and groups in your app for update operations. Select **Save** to commit any changes.
 
     > [!NOTE]
     > You can optionally disable syncing of group objects by disabling the "groups" mapping.
@@ -1358,7 +1358,7 @@ Applications that support the SCIM profile described in this article can be conn
 14. Select **Save** to start the Azure AD provisioning service.
 15. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
 
-Once the initial cycle has started, you can select **Provisioning logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Provisioning logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > The initial cycle takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
@@ -1383,7 +1383,7 @@ Best practices (recommended but not required):
 * Support multiple redirect URLs. Administrators can configure provisioning from both "portal.azure.com" and "aad.portal.azure.com". Supporting multiple redirect URLs will ensure that users can authorize access from either portal.
 * Support multiple secrets to ensure smooth secret renewal, without downtime. 
 
-**Long lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](../app-provisioning/application-provisioning-quarantine-status.md) when the token expires. This token must be below 1KB in size.  
+**Long lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires. This token must be below 1KB in size.  
 
 For additional authentication and authorization methods, let us know on [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

@@ -18,7 +18,7 @@ ms.reviewer: arvindha
 
 Historically, IT staff have relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
 
-To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
+To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](../app-provisioning/user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
 
 Azure AD uses this integration to enable the following cloud HR application (app) workflows:
 
@@ -91,7 +91,7 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 | | [How to deploy user provisioning in Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
 | Tutorials | [List of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| FAQ | [Automated user provisioning](user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| FAQ | [Automated user provisioning](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisioning from Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### Solution architecture
@@ -397,10 +397,14 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 
 <<<<<<< HEAD
 - [Problem configuring user provisioning to an Azure AD Gallery application](application-provisioning-config-problem.md)
+<<<<<<< HEAD:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
+- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
+=======
 - [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
 <<<<<<< HEAD
 - [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
 =======
+>>>>>>> 565b7172bc07285014c929542c50cee078471e49:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
 - [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 >>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67
 - [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](application-provisioning-config-problem-storage-limit.md)
@@ -408,7 +412,7 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 - [Wrong set of users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-wrong-users-provisioned.md)
 =======
 - [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
-- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
+- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 - [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
 - [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 - [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)

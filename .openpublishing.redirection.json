@@ -35957,6 +35957,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/use-scim-to-provision-users-and-groups.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/workday-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/workday-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
       "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure",
       "redirect_document_id": true
@@ -35975,6 +35985,16 @@
       "source_path": "articles/active-directory/active-directory-saas-app-provisioning.md",
       "redirect_url": "/azure/active-directory/manage-apps/user-provisioning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
