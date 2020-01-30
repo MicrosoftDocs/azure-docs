@@ -84,7 +84,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 The following example describes the password reset solution architecture for common hybrid environments.
 
-![diagram of solution architecture](./media/howto-sspr-deployment//solution-architecture.png)
+![diagram of solution architecture](./media/howto-sspr-deployment//solutions-architecture.png)
 
 Description of workflow
 
@@ -263,8 +263,8 @@ To roll back the deployment:
 
 * For everyone, disable SSPR for the Azure AD tenant
 
-
 ## Deploy SSPR
+
 Before deploying, ensure that you have done the following:
 
 1. Created and begun executing your [communication plan](#communication-plan).
