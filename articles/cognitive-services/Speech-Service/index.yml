@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: landing-page
-  ms.date: 01/29/2020
+  ms.date: 01/30/2020
   ms.author: dapine
 
 landingContent:
@@ -100,8 +100,14 @@ landingContent:
           url: how-to-recognize-intents-from-speech-csharp.md
     - linkListType: reference
       links:
+        - text: Language Understanding (LUIS) portal
+          url: https://www.luis.ai
         - text: LUIS developer resources
           url: ../luis/developer-reference-resource.md
+        - text: Language support
+          url: ../luis/luis-language-support#languages-supported
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
 
 - title: Speech translation
   linkLists:
@@ -127,8 +133,10 @@ landingContent:
           url: ../translator/tutorial-build-flask-app-translation-synthesis.md
     - linkListType: reference
       links:
-        - text: Speech translation FAQ
-          url: https://www.microsoft.com/translator/business/faq
+        - text: Language support
+          url: language-support.md#speech-translation
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
 
 - title: Conversation scenarios
   linkLists:
@@ -144,14 +152,18 @@ landingContent:
           url: quickstarts/multi-device-conversation.md
     - linkListType: how-to-guide
       links:
+        - text: Call center scenario
+          url: call-center-transcription.md
         - text: Real time conversation transcription
           url: how-to-use-conversation-transcription.md
         - text: Asynchronous conversation transcription
           url: how-to-async-conversation-transcription.md
     - linkListType: reference
       links:
-        - text: Conversation transcription REST APIs
-          url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+        - text: Language support
+          url: conversation-transcription.md#language-support
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
 
 - title: Voice assistants
   linkLists:
@@ -182,7 +194,7 @@ landingContent:
       links:
         - text: Supported regions
           url: regions.md
-        - text: Sovereign Clouds
+        - text: Sovereign clouds
           url: sovereign-clouds.md
 
 - title: Resources and support
