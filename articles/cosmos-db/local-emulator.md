@@ -469,6 +469,15 @@ cp YourCTR.crt /usr/local/share/ca-certificates/
 update-ca-certificates
 ```
 
+If you are working on Mac:
+
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key). 
+2. Copy that PFX file into your Mac environment.
+3. Open the *Keychain Access* application and import the PFX file.
+4. Open the list of Certificates and identify the one with the name `localhost`.
+5. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
+![Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust](./media/local-emulator/mac-trust-certificate.png)
+
 After following these steps, your environment will trust the certificate used by the Emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
 
 ## Troubleshooting
