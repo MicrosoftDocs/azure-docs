@@ -15,15 +15,15 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-
-These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) and a sample Node.js application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry. Although these steps will work on both Windows and Linux machines, we will use a Windows development machine for the purpose of this article.
+In this quickstart, you programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the Node.js Service SDK and a sample Node.js application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry.
 
 ## Prerequisites
 
-- Make sure to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed. 
--  Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine.
-- If you want to enroll a simulated device at the end of this quickstart, follow the steps in [Create and provision a simulated device](quick-create-simulated-device.md) up until the step where you get an endorsement key for the device. Note down the endorsement key, you will use it later in this quickstart. **Do not follow the steps to create an individual enrollment using the Azure portal.**
- 
+- Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0+](https://nodejs.org).
+- Endorsement key (optional). Follow the steps in [Create and provision a simulated device](quick-create-simulated-device.md) until you get the key. Do not create an individual enrollment using the Azure portal.
+
 ## Create the individual enrollment sample 
 
  
