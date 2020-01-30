@@ -19,7 +19,7 @@ ms.author: mathoma
 ---
 # Configure a workgroup availability group 
 
-This article explains the steps necessary to create an Active Directory Domain-independent cluster with an Always On availability group; this is also known as a workgroup cluster. This article focuses on the steps that are relevant to preparing and configuring the workgroup and availability group, and glosses over steps that are covered in other articles, such as how to create the cluster, or deploy the availability group. 
+This article explains the steps necessary to create an Active Directory domain-independent cluster with an Always On availability group; this is also known as a workgroup cluster. This article focuses on the steps that are relevant to preparing and configuring the workgroup and availability group, and glosses over steps that are covered in other articles, such as how to create the cluster, or deploy the availability group. 
 
 
 ## Prerequisites
@@ -30,7 +30,7 @@ To configure a workgroup availability group, you need the following:
 - An account on each machine in the administrator group that also has sysadmin rights within SQL Server. 
 - Open ports: TCP 1433, TCP 5022, TCP 59999. 
 
-For reference, the following parameters are used in this article: 
+For reference, the following parameters are used in this article, but can be modified as is necessary: 
 
 | **Name** | **Parameter** |
 | :------ | :---------------------------------- |
@@ -38,7 +38,6 @@ For reference, the following parameters are used in this article:
 | **Node2**   | AGNode2 (10.0.0.5) |
 | **Cluster name** | AGWGAG (10.0.0.6) |
 | **Listener** | AGListener (10.0.0.7) | 
-| **User account** | SQLAGADMIN|
 | **DNS Suffix** | ag.wgcluster.example.com | 
 | **Work group name** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
@@ -112,7 +111,7 @@ Notable differences between the tutorial and what should be done for a workgroup
 
 Once the cluster has been created, assign a static Cluster IP address. To do so, follow these steps:
 
-1. On one of the nodes, open **Failover Cluster Manager**, select the cluster, right-click on the **Name: \<ClusterNam>** under **Cluster Core Resources** and then select **Properties**. 
+1. On one of the nodes, open **Failover Cluster Manager**, select the cluster, right-click the **Name: \<ClusterNam>** under **Cluster Core Resources** and then select **Properties**. 
 
    ![Launch properties for the cluster name](media/virtual-machines-windows-sql-workgroup-availability-group/5-launch-cluster-name-properties.png)
 
@@ -158,7 +157,7 @@ To configure the first node, follow these steps:
    GO  
    ```
 
-1. Next, create the HADR endpoint, and use the certificate for authentication by running this Transact-SQL statement:
+1. Next, create the HADR endpoint, and use the certificate for authentication by running this Transact-SQL (T-SQL) statement:
 
    ```sql
    --CREATE or ALTER the mirroring endpoint
@@ -199,7 +198,7 @@ To configure the second node, follow these steps:
    GO
    ```
 
-1. Next, create the HADR endpoint, and use the certificate for authentication by running this Transact-SQL statement:
+1. Next, create the HADR endpoint, and use the certificate for authentication by running this Transact-SQL (T-SQL) statement:
 
    ```sql
    --CREATE or ALTER the mirroring endpoint
