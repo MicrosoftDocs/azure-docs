@@ -149,7 +149,7 @@ NAT is supported through normal support channels.
 
 ## Feedback
 
-Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us so we can build what you need.
+Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.
 
 ## Limitations
 
