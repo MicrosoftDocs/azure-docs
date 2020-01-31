@@ -73,13 +73,15 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 
 To configure and test Azure AD single sign-on with iProva, you need to complete the following building blocks:
 
-1. **[Retrieve configuration information from iProva](#retrieve-configuration-information-from-iprova)** as a preparation for the next steps.
+1. **[Retrieve configuration information from iProva](#retrieve-configuration-information-from-iprova)** - as a preparation for the next steps.
 2. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-3. **[Configure iProva Single Sign-On](#configure-iprova-single-sign-on)** - to configure the Single Sign-On settings on application side.
-4. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Create iProva test user](#create-iprova-test-user)** - to have a counterpart of Britta Simon in iProva that is linked to the Azure AD representation of user.
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Create iProva test user](#create-iprova-test-user)** - to have a counterpart of Britta Simon in iProva that is linked to the Azure AD representation of user.
+6. **[Configure iProva Single Sign-On](#configure-iprova-single-sign-on)** - to configure the Single Sign-On settings on application side.
 7. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+
+
 
 ### Retrieve configuration information from iProva
 
@@ -157,47 +159,6 @@ To configure Azure AD single sign-on with iProva, perform the following steps:
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-### Configure iProva Single Sign-On
-
-1. Sign in to iProva by using the **Administrator** account.
-
-2. Open the **Go to** menu.
-
-3. Select **Application management**.
-
-4. Select **General** in the **System settings** panel.
-
-5. Select **Edit**.
-
-6. Scroll down to **Access control**.
-
-	![iProva Access control settings](media/iprova-tutorial/iprova-accesscontrol.png)
-
-7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
-
-8. Select **Set up**.
-
-9. Select **Next**.
-
-10. iProva asks if you want to download federation data from a URL or upload it from a file. Select the **From URL** option.
-
-	![Download Azure AD metadata](media/iprova-tutorial/iprova-download-metadata.png)
-
-11. Paste the metadata URL you saved in the last step of the "Configure Azure AD single sign-on" section.
-
-12. Select the arrow-shaped button to download the metadata from Azure AD.
-
-13. When the download is complete, the confirmation message **Valid Federation Data file downloaded** appears.
-
-14. Select **Next**.
-
-15. Skip the **Test login** option for now, and select **Next**.
-
-16. In the **Claim to use** drop-down box, select **windowsaccountname**.
-
-17. Select **Finish**.
-
-18. You now return to the **Edit general settings** screen. Scroll down to the bottom of the page, and select **OK** to save your configuration.
 
 ### Create an Azure AD test user 
 
@@ -270,6 +231,52 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 9. In the **E-mail address** box, enter the email address of user like `BrittaSimon@contoso.com`.
 
 10. Scroll down to the end of the page, and select **Finish**.
+
+
+### Configure iProva Single Sign-On
+
+1. Sign in to iProva by using the **Administrator** account.
+
+2. Open the **Go to** menu.
+
+3. Select **Application management**.
+
+4. Select **General** in the **System settings** panel.
+
+5. Select **Edit**.
+
+6. Scroll down to **Access control**.
+
+	![iProva Access control settings](media/iprova-tutorial/iprova-accesscontrol.png)
+
+7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
+
+8. Select **Set up**.
+
+9. Select **Next**.
+
+10. iProva asks if you want to download federation data from a URL or upload it from a file. Select the **From URL** option.
+
+	![Download Azure AD metadata](media/iprova-tutorial/iprova-download-metadata.png)
+
+11. Paste the metadata URL you saved in the last step of the "Configure Azure AD single sign-on" section.
+
+12. Select the arrow-shaped button to download the metadata from Azure AD.
+
+13. When the download is complete, the confirmation message **Valid Federation Data file downloaded** appears.
+
+14. Select **Next**.
+
+15. Click the **Test login** button. The Azure AD login experience will now appear, and you should be able to log on with the Azure AD test user you created earlier in this procedure. After succesfull logon, a message should appear on the screen, confirming that the test was succesfull.
+
+16. Click the **Next** button.
+
+17. In the dropdown named **Claim to use**, select `windowsaccountname` (if available) or `samaccountname`. 
+
+18. Select **Finish**.
+
+19. You now return to the **Edit general settings** screen. Scroll down to the bottom of the page, and select **OK** to save your configuration.
+
 
 ### Test single sign-on
 
