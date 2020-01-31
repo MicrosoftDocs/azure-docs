@@ -108,7 +108,7 @@ For each drill-down level, the following filters are applied to the report:
 
 The recommendations table provides recommendations for the reservation purchase, based on the VM sizes used.
 
-The _Normalizedsize_ and _RecommendedQuantityNormalized_ values help you normalize the purchase to the smallest size for an instance size flexibility group. The information is helpful if you plan to purchase just one reservation for all sizes in the instance size flexibility group.
+The _Normalized Size_ and _Recommended Quantity Normalized_ values help you normalize the purchase to the smallest size for an instance size flexibility group. The information is helpful if you plan to purchase just one reservation for all sizes in the instance size flexibility group.
 
 ![RI recommendations](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recomendations.png)
 
