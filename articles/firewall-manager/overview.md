@@ -26,7 +26,7 @@ Firewall Manager can provide security management for two network architecture ty
 
 For a detailed comparison of *secured virtual hub* and *hub virtual network* architectures, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md).
 
-![firewall-manager](media/overview/firewallmanagerv4.png)
+![firewall-manager](media/overview/firewallmanagerv5.png)
 
 ## Azure Firewall Manager Preview features
 
