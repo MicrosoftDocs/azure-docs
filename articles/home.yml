@@ -1437,23 +1437,23 @@ tools:
   title: Languages and tools
   items:
     # Card
-    - title: Azure for Node.js developers
+    - title: Azure for Node.js devs
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/javascript/
     # Card
-    - title: Azure for Go developers
+    - title: Azure for Go devs
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/go/
     # Card
-    - title: Azure for .NET developers
+    - title: Azure for .NET devs
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
-    - title: Azure for Python developers
+    - title: Azure for Python devs
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/python/
     # Card
-    - title: Azure for Java developers
+    - title: Azure for Java devs
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/java/
     # Card
