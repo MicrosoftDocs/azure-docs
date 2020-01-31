@@ -153,7 +153,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 ![Select notifications hyperlink](./media/restore-afs/notifications-link.png)
 
-You can also monitor restore progress from the Recovery Services vault. To check the restore operation status, follow these steps.
+You can also monitor restore progress from the Recovery Services vault:
 
 1. Open the Recovery Services vault from where you triggered the restore operation.
 1. In the overview pane, select **Backup Jobs** under the **Monitoring** section to see the status of operations running against different workloads.
