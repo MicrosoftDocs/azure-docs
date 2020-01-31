@@ -44,7 +44,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.  Add the `System.Reflection' namespace as well.
+1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.  Add the `System.Reflection` namespace as well.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
