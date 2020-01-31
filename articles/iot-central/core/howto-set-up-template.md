@@ -29,7 +29,7 @@ From this device template, an operator can create and connect real fan devices. 
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Devices** page from existing device templates.
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices, without you writing any embedded device code. At the core of IoT Plug and Play is a device capability model schema that describes device capabilities. In an IoT Central application, device templates use these IoT Plug and Play device capability models.
+[IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices, without you writing any embedded device code. At the core of IoT Plug and Play (preview) is a device capability model schema that describes device capabilities. In an IoT Central application, device templates use these IoT Plug and Play (preview) device capability models.
 
 As a builder, you have several options for creating device templates:
 
@@ -40,10 +40,10 @@ As a builder, you have several options for creating device templates:
 
 ## Create a device template from the device catalog
 
-As a builder, you can quickly start building out your solution by using an IoT Plug and Play certified device. See the list in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog so you can import a device capability model from any of these IoT Plug and Play certified devices. To create a device template from one of these devices in IoT Central:
+As a builder, you can quickly start building out your solution by using an IoT Plug and Play (preview) certified device. See the list in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog so you can import a device capability model from any of these IoT Plug and Play (preview) certified devices. To create a device template from one of these devices in IoT Central:
 
 1. Go to the **Device Templates** page in your IoT Central application.
-1. Select **+ New**, and then select any of the IoT Plug and Play certified devices from the catalog. IoT Central creates a device template based on this device capability model.
+1. Select **+ New**, and then select any of the IoT Plug and Play (preview) certified devices from the catalog. IoT Central creates a device template based on this device capability model.
 1. Add any cloud properties, customizations, or views to your device template.
 1. Select **Publish** to make the template available for operators to view and connect devices.
 

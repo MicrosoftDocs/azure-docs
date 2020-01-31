@@ -31,7 +31,7 @@ This article describes the following use cases:
 - [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
 - [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
 - [Connect without first registering devices](#connect-without-registering-devices)
-- [Connect devices using IoT Plug and Play features](#connect-devices-with-iot-plug-and-play)
+- [Connect devices using IoT Plug and Play (preview) features](#connect-devices-with-iot-plug-and-play)
 
 ## Connect a single device
 
@@ -152,9 +152,9 @@ IoT Central supports the following attestation mechanisms
 1. **X.509 certificates:** X.509 certificates as the title suggests is a certificate-based attestation mechanism, an excellent way to scale production. To create an individual enrollment with Symmetric keys select Individual Enrollment and Mechanism "X.509" and upload the primary and secondary certificates and save to create the enrollment. Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to code samples to help write your device code to provision devices using X509. Device certificates used with an [Individual enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment) entry have a requirement that the Subject Name must be set to the Device ID (also known as registration ID) of the Individual Enrollment entry.
 1. **TPM attestation:** TPM stands for Trusted Platform Module and is a type of hardware security module (HSM) and is one of the most secure ways to connect your devices.  This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. To create an individual enrollment with Symmetric keys select Individual Enrollment and Mechanism "TPM" and input the endorsement keys to create the enrollment. For more information about types of TPMs, you can learn more about TPM attestation [here](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation). Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/TpmSample) to code samples to help write your device code to provision devices using TPM. To create a TPM-based attestation, type in the endorsement key and save.
 
-## Connect devices with IoT Plug and Play
+## Connect devices with IoT Plug and Play (preview)
 
-One of the key features of IoT Plug and Play with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call and IoT Central will discover and associate the device template. The discovery process follows the following order:
+One of the key features of IoT Plug and Play (preview) with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call and IoT Central will discover and associate the device template. The discovery process follows the following order:
 
 1. Associates with the device template if it's already published in the IoT Central application.
 1. Fetches from the public repository of published and certified capability models.
