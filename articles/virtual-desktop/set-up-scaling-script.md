@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/31/2020
 ms.author: helohr
 ---
 # Scale session hosts using Azure Automation
@@ -29,9 +29,12 @@ The scaling tool uses a combination of Azure Automation PowerShell runbooks, web
 
 During peak usage time, the job checks the current number of sessions and the VM capacity of the current running session host for each host pool. It uses this information to calculate if the running session host VMs can support existing sessions based on the *SessionThresholdPerCPU* parameter defined for the **createazurelogicapp.ps1** file. If the session host VMs can't support existing sessions, the job starts additional session host VMs in the host pool.
 
-During the off-peak usage time, the job determines which session host VMs should shut down based on the *MinimumNumberOfRDSH* parameter. The job will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the *LimitSecondsToForceLogOffUser* parameter to a non-zero positive value, the script will notify any currently signed in users to save their work, wait the configured amount of time, and then force the users to sign out. Once all user sessions on the session host VM have been signed out, the script will shut down the server.
+>[!NOTE]
+>*SessionThresholdPerCPU* doesn't restrict the number of sessions on the VM. This parameter only determines when new VMs need to be started to load-balance the connections. To restrict the number of sessions, you need to follow the instructions [Set-RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) to configure the *MaxSessionLimit* parameter accordingly.
 
-If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job will allow the session configuration setting in specified group policies to handle signing off user sessions. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there are no active sessions, the job will shut down the session host VM.
+During the off-peak usage time, the job determines which session host VMs should shut down based on the *MinimumNumberOfRDSH* parameter. The job will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the *LimitSecondsToForceLogOffUser* parameter to a non-zero positive value, the script will notify any currently signed in users to save their work, wait the configured amount of time, and then force the users to sign out. Once all user sessions on the session host VM have been signed out, the script will shut down the VM.
+
+If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job will allow the session configuration setting in specified group policies to handle signing off user sessions. To see these group policies, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Terminal Services** > **Terminal Server** > **Session Time Limits**. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there are no active sessions, the job will shut down the session host VM.
 
 The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Windows Virtual Desktop environment, but remember that starting and shutting down virtual machines can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
 
