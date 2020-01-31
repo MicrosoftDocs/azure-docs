@@ -13,14 +13,15 @@ ms.author: aahi
 ## General entity types:
 
 ### Person
+
 Recognize person names in text.
 
 Languages:
 * Public preview: `English`
 
-| Subtype name | Description                                               | Available starting with model version: |
-|--------------|-----------------------------------------------------------|----------------------------------------|
-| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2019-10-01`                           |
+| Subtype name | Description                                                      | Available starting with model version | Languages |
+|--------------|------------------------------------------------------------------|---------------------------------------|-----------|
+| N/A          | Recognized person names, for example `Bill Gates`, `Marie Curie` | `2019-10-01`                          | `English` |
 
 ### PersonType
 Job type or role held by a person.
@@ -67,7 +68,7 @@ Languages:
 
 | Subtype name | Description                                                            | Available starting with model version: |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| N/A          | Events such as `wedding`, `hurricane`, `car accident`, `solar eclipse` | `2020-02-01`                           |
+| N/A          | Events such as `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
 
 ### Product  
 
@@ -80,7 +81,7 @@ Languages:
 | Subtype name | Description                                                                        | Available starting with model version: |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
 | N/A          | For example, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
-| Computing    | `Azure Cosmos DB`, `Microsoft Exchange Server`                                     | `2020-02-01`                           |
+| Computing    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
 ### Skill  
 

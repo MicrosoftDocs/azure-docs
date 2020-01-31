@@ -7,15 +7,17 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 01/31/2019
 ms.author: aahi
 ---
 
-Version 3 of the Text Analytics API lets you choose the Text Analytics model used on your data. Use the optional `model-version` parameter to select a version of the model in your requests. If this parameter isn't specified the API will default to `latest`, the latest stable model version.
+Version 3 of the Text Analytics API lets you choose the Text Analytics model used on your data. Use the optional `model-version` parameter to select a version of the model in your requests. If this parameter isn't specified the API will default to `latest`, the latest stable version. See [What's new](../whats-new.md) for details on these model versions.
 
-Available model versions:
-* `2019-10-01` 
-* `2020-02-01` (`latest`)
+| Model version           | Features updated         |
+|-------------------------|--------------------------|
+| `2020-02-01` (`latest`) | NER                      |
+| `2019-10-01`            | NER, Sentiment analysis  |
+
 
 Each response from the v3 endpoints includes a `model-version` field specifying the model version that was used.
 

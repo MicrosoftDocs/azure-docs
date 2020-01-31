@@ -18,7 +18,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## Named Entity Recognition v3 public preview - February 2020
 
-Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and PII entities found in text. It includes:
+Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2020-02-01`, which includes:
 
 * Recognition of the following general entity types (English only):
     * PersonType
@@ -37,29 +37,33 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
     * URL
     * IP Address
 
+> [!div class="nextstepaction"]
+> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
+
 ### October 2019
 
-The next version of Named Entity Recognition(NER) is now available for public preview, and provides expanded detection and categorization of entities found in text. It provides:
-
-* Recognition of the following new entity types:
-    * Phone number
-    * IP address
+#### Named Entity Recognition (NER)
 
 * A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
 
 * Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
+* [Model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2019-10-01`, which includes:
+    * Expanded detection and categorization of entities found in text. 
+    * Recognition of the following new entity types:
+        * Phone number
+        * IP address
+
 Entity linking supports English and Spanish. NER language support varies by the entity type.
 
-> [!div class="nextstepaction"]
-> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
+#### Sentiment Analysis v3 public preview
 
-## Sentiment Analysis v3 public preview - October 2019
+* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) for analyzing sentiment.
+* [Model version](how-tos/text-analytics-how-to-sentiment-analysis.md#named-entity-recognition-versions-and-features) `2019-10-01`, which includes:
 
-The [next version of Sentiment Analysis](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) is now available for public preview, and provides significant improvements in the accuracy and detail of the API's text categorization and scoring. It additionally provides:
-
-* Automatic labeling for different sentiments in text.
-* Sentiment analysis and output on a document and sentence level. 
+    * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
+    * Automatic labeling for different sentiments in text.
+    * Sentiment analysis and output on a document and sentence level. 
 
 It supports English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`), and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`. 
 
