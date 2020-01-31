@@ -138,8 +138,8 @@ $policySettingGlobal = New-AzApplicationGatewayFirewallPolicySetting `
 
 $wafPolicyGlobal = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicyGlobal `
-  -ResourceGroup $rgname `
-  -Location $location `
+  -ResourceGroup myResourceGroupAG `
+  -Location eastus `
   -PolicySetting $PolicySettingGlobal
 
 $policySettingSite = New-AzApplicationGatewayFirewallPolicySetting `
@@ -150,8 +150,8 @@ $policySettingSite = New-AzApplicationGatewayFirewallPolicySetting `
 
 $wafPolicySite = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicySite `
-  -ResourceGroup $rgname `
-  -Location $location `
+  -ResourceGroup myResourceGroupAG `
+  -Location eastus `
   -PolicySetting $PolicySettingSite
 ```
 
@@ -190,7 +190,7 @@ $sku = New-AzApplicationGatewaySku `
 
 $policySetting = New-AzApplicationGatewayFirewallPolicySetting -Mode Prevention -State Enabled -MaxRequestBodySizeInKb 100 -MaxFileUploadInMb 256
 
-$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -PolicySetting $PolicySetting
+$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup myResourceGroupAG -Location eastus -PolicySetting $PolicySetting
 
 $appgw = New-AzApplicationGateway `
   -Name myAppGateway `
@@ -220,13 +220,13 @@ $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
 
 $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicySite `
-  -ResourceGroup $rgname `
-  -Location $location `
+  -ResourceGroup myResourceGroupAG `
+  -Location eastus `
   -PolicySetting $PolicySettingURI
 
 $Gateway = Get-AzApplicationGateway -Name "myAppGateway"
 
-Get-AzPublicIPAddress -ResourceGroupName <your RG name> -Name myAGIPConfig
+Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 
 $AddressPool = New-AzApplicationGatewayBackendAddressPool -Name "appGatewayBackendPool" `
 -BackendIPAddresses "192.168.1.1", "192.168.1.2"
