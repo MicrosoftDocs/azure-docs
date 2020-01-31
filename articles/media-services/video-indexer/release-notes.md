@@ -43,7 +43,7 @@ https://github.com/Azure-Samples/media-services-video-indexer
  
 ### Swagger update
 
-Video Indexer unified **authentications** and **operations** into a single Video Indexer OpenAPI Specification (swagger).
+Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
 
 ## December 2019
 
