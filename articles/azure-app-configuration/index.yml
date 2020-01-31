@@ -20,6 +20,8 @@ landingContent:
         links:
         - text: What is Azure App Configuration?
           url: overview.md
+        - text: Frequently asked questions
+          url: faq.md
       - linkListType: video
         links:
         - text: Getting started with Azure App Configuration
@@ -32,14 +34,16 @@ landingContent:
           url: https://www.youtube.com/watch?v=DJqmA5PcfzE
       - linkListType: whats-new
         links:
+        - text: Follow our announcements
+          url: https://github.com/Azure/AppConfiguration-Announcements/issues/
         - text: Azure update information
           url: https://azure.microsoft.com/updates/?query=%22App%20Configuration%22
       - linkListType: concept
         links:
-        - text: Frequently asked questions
-          url: faq.md
         - text: Keys and values in App Config
           url: concept-key-value.md
+        - text: Sync your App Configuration instance using GitHub Actions
+          url: concept-github-action.md
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -68,6 +72,10 @@ landingContent:
         links:  
         - text: Integrate with a CI/CD pipeline
           url: integrate-ci-cd-pipeline.md
+        - text: Use Key Vault references in an ASP.NET Core app
+          url: use-key-vault-references-dotnet-core.md
+        - text: Use Key Vault references in a Java Spring app
+          url: use-key-vault-references-spring-boot.md
   - title: Add feature flags to an app
     linkLists:
       - linkListType: quickstart
