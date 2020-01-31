@@ -3,7 +3,7 @@ title: Handle map events | Microsoft Azure Maps
 description: In this article, you'll learn how to make an interactive Web SDK map with map events using the Microsoft Azure Maps web SDK.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 01/30/2020
+ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
