@@ -8,14 +8,16 @@ ms.date: 5/1/2017
 # Transactions and lock modes in Azure Service Fabric Reliable Collections
 
 ## Transaction
-A transaction is a sequence of operations performed as a single logical unit of work.
-A transaction must exhibit the following ACID properties. (see: https://technet.microsoft.com/library/ms190612)
+
+A transaction is a sequence of operations performed as a single logical unit of work. It exhibits the common [ACID](https://en.wikipedia.org/wiki/ACID) (*atomicity*, *consistency*, *isolation*, *durability*) properties of database transactions:
+
 * **Atomicity**: A transaction must be an atomic unit of work. In other words, either all its data modifications are performed, or none of them is performed.
 * **Consistency**: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
 * **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an ITransaction is determined by the IReliableState performing the operation.
 * **Durability**: After a transaction has completed, its effects are permanently in place in the system. The modifications persist even in the event of a system failure.
 
 ### Isolation levels
+
 Isolation level defines the degree to which the transaction must be isolated from modifications made by other transactions.
 There are two isolation levels that are supported in Reliable Collections:
 
