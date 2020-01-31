@@ -5,8 +5,8 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 ## Prerequisites
@@ -15,7 +15,7 @@ ms.author: diberry
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
-* [Node.js](https://nodejs.org/) programming language 
+* [Node.js](https://nodejs.org/) programming language
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
@@ -29,21 +29,21 @@ ms.author: diberry
 
 ## Change model programmatically
 
-Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
+Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
 
 1. Create a new file named `model.js`. Add the following code:
 
     ```javascript
     var request = require('request');
     var requestpromise = require('request-promise');
-    
+
     const LUIS_authoringKey = "YOUR-KEY";
     const LUIS_endpoint = "YOUR-ENDPOINT";
     const LUIS_appId = "YOUR-APP-ID";
     const LUIS_versionId = "0.1";
     const addUtterancesURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
     const addTrainURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-    
+
     const utterances = [
     		{
     		  'text': 'go to Seattle today',
@@ -62,17 +62,17 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     			'entityLabels': []
     		}
     	  ];
-    
+
     const main = async() =>{
-    
-    
+
+
         await addUtterance();
         await train("POST");
         await trainStatus("GET");
-    
+
     }
     const addUtterance = async () => {
-    
+
         const options = {
             uri: addUtterancesURI,
             method: 'POST',
@@ -82,26 +82,26 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             json: true,
             body: utterances
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
     const train = async (verb) => {
-    
+
         const options = {
             uri: addTrainURI,
-            method: verb, 
+            method: verb,
             headers: {
                 'Ocp-Apim-Subscription-Key': LUIS_authoringKey
             },
             json: true,
             body: null // The body can be empty for a training request
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
-    
+
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
@@ -115,15 +115,11 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
     ```console
     node model.js
-    ```  
-
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```
 
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

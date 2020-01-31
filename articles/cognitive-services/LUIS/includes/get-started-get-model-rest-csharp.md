@@ -5,8 +5,8 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
@@ -29,9 +29,9 @@ ms.author: diberry
 
 ## Change model programmatically
 
-Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
+Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
 
-1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`. 
+1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`.
 
     ```console
     dotnet new console -lang C# -n model-with-rest
@@ -53,29 +53,29 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using System.Linq;
-    
+
     // 3rd party NuGet packages
     using JsonFormatterPlus;
-    
+
     namespace AddUtterances
     {
         class Program
         {
             // NOTE: use your starter key value
             static string authoringKey = "YOUR-KEY";
-    
+
             // NOTE: Replace this endpoint with your starter key endpoint
             // for example, westus.api.cognitive.microsoft.com
             static string endpoint = "YOUR-ENDPOINT";
-    
+
             // NOTE: Replace this with the ID of your LUIS application
             static string appID = "YOUR-APP-ID";
-    
+
             // NOTE: Replace this your version number
             static string appVersion = "0.1";
-    
+
             static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
-    
+
             // GET request with authentication
             async static Task<HttpResponseMessage> SendGet(string uri)
             {
@@ -96,21 +96,21 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                 {
                     request.Method = HttpMethod.Post;
                     request.RequestUri = new Uri(uri);
-    
+
                     if (!String.IsNullOrEmpty(requestBody))
                     {
                         request.Content = new StringContent(requestBody, Encoding.UTF8, "text/json");
                     }
-    
+
                     request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
                     return await client.SendAsync(request);
                 }
-            }        
+            }
             // Add utterances as string with POST request
             async static Task AddUtterances(string utterances)
             {
                 string uri = host + "examples";
-    
+
                 var response = await SendPost(uri, utterances);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Added utterances.");
@@ -120,12 +120,12 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             async static Task Train()
             {
                 string uri = host  + "train";
-    
+
                 var response = await SendPost(uri, null);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Sent training request.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Check status of training
             async static Task Status()
             {
@@ -133,7 +133,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Requested training status.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Add utterances, train, check status
             static void Main(string[] args)
             {
@@ -156,7 +156,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                         'entityLabels': []
                     }
                 ]
-                ";            
+                ";
                 AddUtterances(utterances).Wait();
                 Train().Wait();
                 Status().Wait();
@@ -171,7 +171,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
     * `YOUR-APP-ID` with your app's ID
 
-1. Build the console application. 
+1. Build the console application.
 
     ```console
     dotnet build
@@ -183,13 +183,9 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     dotnet run
     ```
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

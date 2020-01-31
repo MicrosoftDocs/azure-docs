@@ -5,8 +5,8 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 11/20/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
@@ -24,13 +24,13 @@ ms.author: diberry
 
 Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
-1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
+1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`.
 
     ```console
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:  
+1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:
 
     ```console
     cd predict-with-rest
@@ -38,12 +38,12 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
     ```
 
 1. Open `Program.cs` in your favorite IDE or editor. Then overwrite `Program.cs` with the following code:
-    
+
    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
-    
+
     namespace predict_with_rest
     {
         class Program
@@ -52,17 +52,17 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
             {
                 // YOUR-KEY: for example, the starter key
                 var key = "YOUR-KEY";
-                
+
                 // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
                 var endpoint = "YOUR-ENDPOINT";
 
                 // //public sample app
-                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; 
-    
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+
                 var utterance = "turn on all lights";
-    
+
                 MakeRequest(key, endpoint, appId, utterance);
-    
+
                 Console.WriteLine("Hit ENTER to exit...");
                 Console.ReadLine();
             }
@@ -70,25 +70,25 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
             {
                 var client = new HttpClient();
                 var queryString = HttpUtility.ParseQueryString(string.Empty);
-    
+
                 // The request header contains your subscription key
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-    
+
                 // The "q" parameter contains the utterance to send to LUIS
                 queryString["query"] = utterance;
-    
+
                 // These optional request parameters are set to their default values
                 queryString["verbose"] = "true";
                 queryString["show-all-intents"] = "true";
                 queryString["staging"] = "false";
                 queryString["timezoneOffset"] = "0";
-    
+
                 var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
-    
+
                 var response = await client.GetAsync(endpointUri);
-    
+
                 var strResponseContent = await response.Content.ReadAsStringAsync();
-                
+
                 // Display the JSON result from LUIS
                 Console.WriteLine(strResponseContent.ToString());
             }
@@ -102,7 +102,7 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
     * `YOUR-KEY` with your starter key.
     * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
-1. Build the console application with this command: 
+1. Build the console application with this command:
 
     ```console
     dotnet build
@@ -121,7 +121,7 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    The JSON response formatted for readability:
 
     ```JSON
     {
@@ -164,13 +164,9 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
     }
     ```
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

@@ -5,8 +5,8 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
@@ -16,7 +16,7 @@ ms.author: diberry
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
-* [Go](https://golang.org/) programming language  
+* [Go](https://golang.org/) programming language
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
@@ -29,10 +29,10 @@ ms.author: diberry
 
 ## Change model programmatically
 
-Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
+Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
 
 1. Create a new file named `predict.go`. Add the following code:
-    
+
     ```go
     // dependencies
     package main
@@ -43,21 +43,21 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     	"log"
     	"strings"
     )
-    
+
     // main function
     func main() {
-    
+
     	// NOTE: change to your app ID
     	var appID = "YOUR-APP-ID"
-    
+
     	// NOTE: change to your starter key
     	var authoringKey = "YOUR-KEY"
-    
+
     	// NOTE: change to your starter key's endpoint, for example, westus.api.cognitive.microsoft.com
-    	var endpoint = "YOUR-ENDPOINT"	
-    
+    	var endpoint = "YOUR-ENDPOINT"
+
     	var version = "0.1"
-    
+
     	var exampleUtterances = `
     	[
     		{
@@ -78,50 +78,50 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     		}
     	  ]
     	`
-    
+
     	fmt.Println("add example utterances requested")
     	addUtterance(authoringKey, appID, version, exampleUtterances, endpoint)
-    
+
     	fmt.Println("training selected")
     	requestTraining(authoringKey, appID, version, endpoint)
-    
+
     	fmt.Println("training status selected")
     	getTrainingStatus(authoringKey, appID, version, endpoint)
     }
-    
+
     // get utterances from file and add to model
     func addUtterance(authoringKey string, appID string,  version string, labeledExampleUtterances string, endpoint string){
-    
+
     	var authoringUrl = fmt.Sprintf("https://%s/luis/authoring/v3.0-preview/apps/%s/versions/%s/examples", endpoint, appID, version)
-    
+
     	httpRequest("POST", authoringUrl, authoringKey, labeledExampleUtterances)
     }
     func requestTraining(authoringKey string, appID string,  version string, endpoint string){
-    
+
     	trainApp("POST", authoringKey, appID, version, endpoint)
     }
     func trainApp(httpVerb string, authoringKey string, appID string,  version string, endpoint string){
-    
+
     	var authoringUrl = fmt.Sprintf("https://%s/luis/authoring/v3.0-preview/apps/%s/versions/%s/train", endpoint, appID, version)
-    
+
     	httpRequest(httpVerb,authoringUrl, authoringKey, "")
     }
     func getTrainingStatus(authoringKey string, appID string, version string, endpoint string){
-    
+
     	trainApp("GET", authoringKey, appID, version, endpoint)
     }
     // generic HTTP request
     // includes setting header with authoring key
     func httpRequest(httpVerb string, url string, authoringKey string, body string){
-    
+
     	client := &http.Client{}
-    
+
     	request, err := http.NewRequest(httpVerb, url, strings.NewReader(body))
     	request.Header.Add("Ocp-Apim-Subscription-Key", authoringKey)
-    
+
     	fmt.Println("body")
     	fmt.Println(body)
-    
+
     	response, err := client.Do(request)
     	if err != nil {
     		log.Fatal(err)
@@ -134,7 +134,7 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     		fmt.Println("   ", response.StatusCode)
     		fmt.Println(string(contents))
     	}
-    }    
+    }
     ```
 
 1. Replace the following values:
@@ -147,21 +147,17 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
     ```console
     go build model.go
-    ```  
+    ```
 
-1. Run the Go application from the command line by entering the following text in the command prompt: 
+1. Run the Go application from the command line by entering the following text in the command prompt:
 
     ```console
     go run model.go
     ```
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

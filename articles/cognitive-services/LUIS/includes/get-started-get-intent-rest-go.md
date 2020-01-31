@@ -5,14 +5,14 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 11/20/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
 ## Prerequisites
 
-* [Go](https://golang.org/) programming language  
+* [Go](https://golang.org/) programming language
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
@@ -25,10 +25,10 @@ ms.author: diberry
 Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Create a new file named `predict.go`. Add the following code:
-    
+
     ```go
     package main
-    
+
     /* Do dependencies */
     import (
         "fmt"
@@ -38,41 +38,41 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
         "log"
     )
     func main() {
-    	
+
     	// public app
         var appID = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"
-    	
+
     	// utterance for public app
     	var utterance = "turn on all lights"
-    	
+
     	// YOUR-KEY - your starter or prediction key
     	var endpointKey = "YOUR-KEY"
-    	
+
     	// YOUR-ENDPOINT - example is westus2.api.cognitive.microsoft.com
         var endpoint = "YOUR-ENDPOINT"
-    
+
     	endpointPrediction(appID, endpointKey, endpoint, utterance)
     }
     func endpointPrediction(appID string, endpointKey string, endpoint string, utterance string) {
-    
+
         var endpointUrl = fmt.Sprintf("https://%s/luis/prediction/v3.0/apps/%s/slots/production/predict?subscription-key=%s&verbose=true&show-all-intents=true&query=%s", endpoint, appID, endpointKey, url.QueryEscape(utterance))
-        
+
         response, err := http.Get(endpointUrl)
-    
+
         if err!=nil {
             // handle error
             fmt.Println("error from Get")
             log.Fatal(err)
         }
-        
+
         response2, err2 := ioutil.ReadAll(response.Body)
-    
+
         if err2!=nil {
             // handle error
             fmt.Println("error from ReadAll")
             log.Fatal(err2)
         }
-    
+
         fmt.Println("response")
         fmt.Println(string(response2))
     }
@@ -87,16 +87,16 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
 
     ```console
     go build predict.go
-    ```  
+    ```
 
-1. Run the Go application from the command line by entering the following text in the command prompt: 
+1. Run the Go application from the command line by entering the following text in the command prompt:
 
     ```console
     go run predict.go
     ```
-    
-    The command prompt response is: 
-    
+
+    The command prompt response is:
+
     ```console
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
     endpointKey has value a7b206911f714e71a1ddae36928a61cc
@@ -150,13 +150,9 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
     ```
 
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

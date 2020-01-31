@@ -5,8 +5,8 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 11/20/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
@@ -29,17 +29,17 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
     ```python
     ########### Python 3.6 #############
     import requests
-    
+
     try:
-    
+
         key = 'YOUR-KEY'
-        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com' 
+        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com'
         appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
         utterance = 'turn on all lights'
-    
+
         headers = {
         }
-    
+
         params ={
             'query': utterance,
             'timezoneOffset': '0',
@@ -49,10 +49,10 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
             'staging': 'false',
             'subscription-key': key
         }
-    
+
         r = requests.get(f'https://{endpoint}/luis/prediction/v3.0/apps/{appId}/slots/production/predict',headers=headers, params=params)
         print(r.json())
-    
+
     except Exception as e:
         print(f'{e}')
     ```
@@ -72,7 +72,7 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
 
     ```console
     python predict.py
-    ``` 
+    ```
 
 1. Review the prediction response, which is returned as JSON:
 
@@ -80,7 +80,7 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Here's the JSON response formatted for readability: 
+    Here's the JSON response formatted for readability:
 
     ```JSON
     {
@@ -123,13 +123,9 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
     }
     ```
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 
