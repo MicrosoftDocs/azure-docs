@@ -133,14 +133,11 @@ With the event hub data sink defined, you can configure metrics and logs from gu
 }
 ```
 
-
-
 As discussed previously, all default and custom diagnostics data, that is, metrics and logs, is automatically sent to Azure Storage in the configured intervals. With Event Hubs and any additional sink, you can specify any root or leaf node in the hierarchy to be sent to the event hub. This includes ETW events, performance counters, Windows event logs, and application logs.   
 
-## Recommendations
 
-It is important to consider how many data points should actually be transferred to Event Hubs. Typically, developers transfer low-latency hot-path data that must be consumed and interpreted quickly. Systems that monitor alerts or autoscale rules are examples. A developer might also configure an alternate analysis store or search store -- for example, Azure Stream Analytics, Elasticsearch, a custom monitoring system, or a favorite monitoring system from others.
 
+## Apply data to data sink
 In the following example, the **sinks** attribute is defined to the **PerformanceCounters** node which will cause all child performance counters to be sent to the event hub.
 
 ```xml
@@ -213,7 +210,7 @@ In the following example, the **sinks** attribute is applied directly to three c
 }
 ```
 
-
+## Filter data
 
 The following example shows how you can limit the amount of data sent to the critical metrics that are used for this service’s health. In this example, the sink is applied to logs and is filtered only to error level trace.
 
@@ -230,7 +227,7 @@ The following example shows how you can limit the amount of data sent to the cri
 
 
 
-## Viewing data sent to event hub
+## View data sent to event hub
 A simple approach is view the data sent to the event hub is to create a small test console application to listen to the event hub and print the output stream. You can place the following code, which is explained in more detail
 in [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in a console application. The console application must include the [Event Processor Host NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). Replace the values in angle brackets in the **Main** function with values for your resources.   
 
