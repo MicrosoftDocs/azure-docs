@@ -68,7 +68,7 @@ GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
-&scope=https://tenant-name>.onmicrosoft.com/api/read
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
 &response_type=code
 ```
 
