@@ -137,7 +137,9 @@
   - name: Implement client-side failover
     href: custom-disaster-recovery.md
   - name: Troubleshoot errors  
-    href: troubleshoot-errors.md    
+    href: troubleshoot-errors.md   
+  - name: Enable diagnostic logs for a topic
+    href: enable-diagnostic-logs-topic.md 
 - name: Reference
   items:
   - name: Azure CLI
