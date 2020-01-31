@@ -13,14 +13,14 @@ ms.custom: codepen
 
 # Add a bubble layer to a map
 
-This article shows you how you can render point data from a data source as a bubble layer on a map. Bubble layers render points as circles on the map with fixed pixel radius. 
+This article shows you how to render point data from a data source as a bubble layer on a map. Bubble layers render points as circles on the map with fixed pixel radius. 
 
 > [!TIP]
 > Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
 ## Add a bubble layer
 
-The following code loads an array of points into a data source and connects it to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). The bubble layer is given options to render the radius of each bubble at five pixels, a fill color of white, a stroke color of blue, and stroke width of six pixels. 
+The following code loads an array of points into a data source. Then, the data points are connected to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). The bubble layer renders the radius of each bubble with five pixels, a fill color of white, a stroke color of blue, and a stroke width of six pixels. 
 
 ```javascript
 //Add point locations.
