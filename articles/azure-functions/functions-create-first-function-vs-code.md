@@ -114,9 +114,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Run the function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. 
-
-1. Paste this new URL for the HTTP request into your browser's address bar. Again, add the `name` query string as `?name=Functions` to the end of this URL and execute the request. The URL that calls your HTTP-triggered function should be in the following format:
+1. Paste the new URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
 
         http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
         
