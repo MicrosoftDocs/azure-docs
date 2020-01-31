@@ -21,7 +21,7 @@ ms.author: danis
 # cloud-init support for virtual machines in Azure
 This article explains the support that exists for [cloud-init](https://cloudinit.readthedocs.io) to configure a virtual machine (VM) or virtual machine scale sets at provisioning time in Azure. These cloud-init configurations are run on first boot once the resources have been provisioned by Azure.  
 
-VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, password etc, and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
+VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, password etc., and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
 
 Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedocs.io), and the [Azure Linux Agent (WALA)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
 
@@ -31,9 +31,9 @@ Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedoc
 cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. cloud-init automatically uses the native package management tool for the distro you select.
 
 We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. 
-These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. Initially we collaborate with the endorsed Linux distro partners and upstream to ensure cloud-init functions with the OS on Azure, then the packages are updated and made publically available in the distro package repositries. 
+These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. Initially we collaborate with the endorsed Linux distro partners and upstream to ensure cloud-init functions with the OS on Azure, then the packages are updated and made publically available in the distro package repositories. 
 
-There are two stages to making cloud-init available to the endorsed Linux distro OS's omn Azure, package support, and then image support:
+There are two stages to making cloud-init available to the endorsed Linux distro OS's on Azure, package support, and then image support:
 * 'cloud-init package support on Azure' documents which cloud-init packages onwards are supported or in preview, so you can use these packages with the OS in a custom image.
 * 'image cloud-init ready' documents if the image is already configured to use cloud-init.
 
@@ -49,7 +49,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this was a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed at a later date, date to be updated here) | yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | yes - support from package version: *18.5-3.el7*|
 |RedHat 7.7 |RHEL |7-RAW | n/a| no - image updates to start Feb 2020| yes - support from package version: *18.5-3.el7*|
 |RedHat 7.7 |RHEL |7-LVM | n/a| no - image updates to start Feb 2020| yes - support from package version: *18.5-3.el7*|
 |RedHat 7.7 |RHEL |7.7 | n/a| no - image updates to start Feb 2020 | yes - support from package version: *18.5-3.el7*|
@@ -59,7 +59,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this was a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed at a later date, date to be updated here) | yes - support from package version: *18.5-3.el7.centos*|
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | yes - support from package version: *18.5-3.el7.centos*|
 
 * CentOS 7.7 images that will be cloud-init enabled be updated here in Feb 2020 
 
@@ -67,7 +67,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed, date to be set here) | no, in preview, package is: *18.5-3.0.1.el7*
+|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | no, in preview, package is: *18.5-3.0.1.el7*
 
 ### Debian & SuSE SLES
 We are currently working to preview support, expect updates in February and March 2020.
@@ -78,11 +78,11 @@ Currently Azure Stack will support the provisioning of cloud-init enabled images
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle [Azure extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
 
-We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts, or new customers to take advantage of the rich cloud-init configuraton functionality. If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable cloud-init process them. 
+We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts, or new customers to take advantage of the rich cloud-init configuration functionality. If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable cloud-init process them. 
 
-cloud-init cannot process Azure extensions, so WALA is still required in the image to process extensions, but will need to have its provisioning code disabled, for endorsed Linux distos images that are being converted to provision by cloud-init, they will have WALA installed, and setup correctly.
+cloud-init cannot process Azure extensions, so WALA is still required in the image to process extensions, but will need to have its provisioning code disabled, for endorsed Linux distros images that are being converted to provision by cloud-init, they will have WALA installed, and setup correctly.
 
-When creating a VM, if you do not include the Azure CLI `--custom-data` switch at provisioning time, cloud-init or WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init configuraton with the `--custom-data` switch, whatever is contained in your custom data will be available to cloud-init when the VM boots.
+When creating a VM, if you do not include the Azure CLI `--custom-data` switch at provisioning time, cloud-init or WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init configuration with the `--custom-data` switch, whatever is contained in your custom data will be available to cloud-init when the VM boots.
 
 cloud-init configurations applied to VMs do not have time constraints and will not cause a deployment to fail by timing out. This is not true for WALA, if you change the WALA defaults to process custom-data, it cannot exceed the total VM provisioning time allowance of 40mins, if so, the VM Create will fail.
 
