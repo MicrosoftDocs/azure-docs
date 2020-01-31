@@ -13,14 +13,14 @@ ms.custom: mvc
 
 # Quickstart: Create Apache Spark cluster in Azure HDInsight using PowerShell
 
-In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluster, and then run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. 
+In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluster. You then create a Jupyter notebook, and use it to run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. Jupyter notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
 
-[Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/)
+[Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/) | [Jupyter Notebook](https://jupyter.org/)
 
 ## Prerequisite
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- The [PowerShell Az Module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- The [PowerShell Az Module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## Create an HDInsight Spark cluster
 
