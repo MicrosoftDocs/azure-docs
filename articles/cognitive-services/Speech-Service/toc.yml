@@ -238,18 +238,18 @@
       href: https://www.microsoft.com/translator/faq.aspx
 - name: Conversation scenarios
   expanded: false
-  items:      
+  items:
   - name: Conversation transcription
     items:
     - name: Overview
       items:
-      - name: What is conversation transcription?
+      - name: About Conversation transcription
         href: conversation-transcription.md
     - name: How-to guides
       items:
-      - name: Real time Conversation Transcription
+      - name: Real time Conversation transcription
         href: how-to-use-conversation-transcription.md
-      - name: Asynchronous Conversation Transcription
+      - name: Asynchronous Conversation transcription
         href: how-to-async-conversation-transcription.md
     - name: Reference
       items:
@@ -284,7 +284,7 @@
     items:
     - name: Overview
       items:
-      - name: What is multi-device conversation?
+      - name: About Multi-device conversation
         href: multi-device-conversation.md
     - name: Quickstarts
       items:
@@ -303,7 +303,7 @@
   items:
   - name: Overview
     items:
-    - name: What is a voice assistant?
+    - name: About voice assistants
       href: voice-assistants.md
   - name: Custom Commands (preview)
     items:

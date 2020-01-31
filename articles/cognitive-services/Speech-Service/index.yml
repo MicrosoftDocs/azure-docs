@@ -23,12 +23,30 @@ landingContent:
       links:
         - text: What is the Speech service?
           url: overview.md
+    - linkListType: sample
+      links:
+        - text: Speech SDK samples
+          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+        - text: Speech Devices SDK samples
+          url: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
     - linkListType: whats-new
       links:
         - text: Speech SDK release notes
           url: releasenotes.md
         - text: Speech Devices SDK release notes
           url: devices-sdk-release-notes.md
+    - linkListType: reference
+      links:
+        - text: Speech SDK
+          url: speech-sdk.md
+        - text: Scenario availability
+          url: scenario-availability.md
+        - text: Speech Devices SDK
+          url: speech-devices-sdk.md
+        - text: Regions
+          url: regions.md
+        - text: Support
+          url: support.md
 
 - title: Speech-to-text
   linkLists:
@@ -142,9 +160,9 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: What is conversation transcription?
+      - text: Conversation transcription
         url: conversation-transcription.md
-      - text: What is multi-device conversation?
+      - text: Multi-device conversation
         url: multi-device-conversation.md
     - linkListType: quickstart
       links:
@@ -169,7 +187,7 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: What is a voice assistant?
+      - text: About voice assistants
         url: voice-assistants.md
       - text: About direct line speech
         url: direct-line-speech.md
@@ -197,23 +215,13 @@ landingContent:
         - text: Sovereign clouds
           url: sovereign-clouds.md
 
-- title: Resources and support
+- title: Support
   linkLists:
     - linkListType: reference
       links:
-        - text: Speech SDK
-          url: speech-sdk.md
-        - text: Scenario availability
-          url: scenario-availability.md
-        - text: Speech Devices SDK
-          url: speech-devices-sdk.md
-        - text: Regions
-          url: regions.md
-        - text: Support
-          url: support.md
-    - linkListType: sample
-      links:
-        - text: Speech SDK samples
-          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-        - text: Speech Devices SDK samples
-          url: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+        - text: GitHub issues
+          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+        - text: Stack Overflow
+          url: https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech
+        - text: UserVoice forum
+          url: https://cognitive.uservoice.com/forums/912208-speech-service
