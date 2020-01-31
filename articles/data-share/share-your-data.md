@@ -36,7 +36,7 @@ In this tutorial, you'll learn how to:
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role.
 * Permission for the data share to access the data warehouse. This can be done through the following steps: 
-    1. Set yourself as the Azure Active Directory Admin for the server.
+    1. Set yourself as the Azure Active Directory Admin for the SQL server.
     1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
     1. Use Query Editor (preview) to execute the following script to add the Data Share resource Managed Identity as a db_datareader. You must connect using Active Directory and not SQL Server authentication. 
     
@@ -46,7 +46,7 @@ In this tutorial, you'll learn how to:
 ```                   
 Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
 
-* An [Azure SQL Database User with 'db_datareader' access](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users) to navigate and select the tables and/or views you wish to share. 
+* An Azure SQL Database User with 'db_datareader' access to navigate and select the tables and/or views you wish to share. 
 
 * Client IP SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*

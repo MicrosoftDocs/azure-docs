@@ -24,24 +24,21 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
+* Register the Microsoft.DataShare resource provider. Follow the instructions documented in [Troubleshoot Azure Data Share](data-share-troubleshoot.md) to register the data share resource provider.
 
 ### Receive data into a storage account: 
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
-* Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role. 
-* Resource Provider registration for Microsoft.DataShare. See the [Azure Resource Providers](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) documentation for information on how to do this. 
-
-> [!IMPORTANT]
-> To accept and receive an Azure Data Share, you must first register the Microsoft.DataShare resource provider and you must be an owner of the storage account that you accept data into. Follow the instructions documented in [Troubleshoot Azure Data Share](data-share-troubleshoot.md) to register the data share resource provider as well as add yourself as an owner of the storage account. 
+* Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
 ### Receive data into a SQL-based source:
 
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role. 
 * Permission for the data share resource's managed identity to access the Azure SQL Database or Azure SQL Data Warehouse. This can be done through the following steps: 
-    1. Set yourself as the Azure Active Directory Admin for the server.
+    1. Set yourself as the Azure Active Directory Admin for the SQL server.
     1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
-    1. Use Query Editor (preview) to execute the following script to add the Data Share Managed Identity as a db_owner. You must connect using Active Directory and not SQL Server authentication. 
+    1. Use Query Editor (preview) to execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
 
 ```sql
 create user "<share_acc_name>" from external provider; 
