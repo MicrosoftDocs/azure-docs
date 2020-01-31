@@ -101,7 +101,7 @@ The following example describes the end-to-end user provisioning solution archit
 - **Authoritative HR data flow from cloud HR app to Active Directory.** In this flow, the HR event (Joiners-Movers-Leavers process) is initiated in the cloud HR app tenant. The Azure AD provisioning service and Azure AD Connect provisioning agent provision the user data from the cloud HR app tenant into Active Directory. Depending on the event, it might lead to create, update, enable, and disable operations in Active Directory.
 - **Sync with Azure AD and write back email and username from on-premises Active Directory to cloud HR app.** After the accounts are updated in Active Directory, it's synced with Azure AD through Azure AD Connect. The email addresses and username attributes can be written back to the cloud HR app tenant.
 
-![Workflow diagram](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
+![Workflow diagram](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img1.png)
 
 #### Description of workflow
 
@@ -145,13 +145,13 @@ To facilitate Azure AD provisioning workflows between the cloud HR app and Activ
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
 
-![Azure Active Directory portal app gallery](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img2.png)
+![Azure Active Directory portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
 ### Decision flow chart
 
 Use the following decision flow chart to identify which cloud HR provisioning apps are relevant to your scenario.
 
-![Decision flow chart](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img3.png)
+![Decision flow chart](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
 
 ## Design the Azure AD Connect provisioning agent deployment topology
 
@@ -179,7 +179,7 @@ We recommend the following production configuration:
 |Number of provisioning connector apps to configure|One app per child domain|
 |Server host for Azure AD Connect provisioning agent|Windows 2012 R2+ with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
 
-![Flow to on-premises agents](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
+![Flow to on-premises agents](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
 ### Single cloud HR app tenant -> target multiple child domains in a disjoint Active Directory forest
 
@@ -193,13 +193,13 @@ We recommend the following production configuration:
 |Number of provisioning connector apps to configure|One app per child domain|
 |Server host for Azure AD Connect provisioning agent|Windows 2012 R2+ with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
 
-![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img5.png)
+![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
 ### Azure AD Connect provisioning agent requirements
 
 The cloud HR app to Active Directory user provisioning solution requires that you deploy one or more Azure AD Connect provisioning agents on servers that run Windows 2012 R2 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
 
-To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
 The provisioning agent uses a service account to communicate with the Active Directory domains. Before you install the agent, create a service account in Active Directory Users and Computers that meets the following requirements:
 
@@ -395,29 +395,12 @@ Azure AD provisioning service doesn't generate reports, perform analytics, or pr
 
 To troubleshoot any issues that might turn up during provisioning, see the following articles:
 
-<<<<<<< HEAD
 - [Problem configuring user provisioning to an Azure AD Gallery application](application-provisioning-config-problem.md)
-<<<<<<< HEAD:articles/active-directory/manage-apps/plan-cloud-hr-provision.md
-- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-=======
 - [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](user-provisioning-sync-attributes-for-mapping.md)
-<<<<<<< HEAD
 - [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
-=======
->>>>>>> 565b7172bc07285014c929542c50cee078471e49:articles/active-directory/app-provisioning/plan-cloud-hr-provision.md
-- [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
->>>>>>> 2e3429a2f26a27eab3834fc8558a27caf1ae0d67
 - [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](application-provisioning-config-problem-storage-limit.md)
 - [No users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-no-users-provisioned.md)
 - [Wrong set of users are being provisioned to an Azure AD Gallery application](application-provisioning-config-problem-wrong-users-provisioned.md)
-=======
-- [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
-- [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-- [User provisioning to an Azure AD Gallery application is taking hours or more](application-provisioning-when-will-provisioning-finish.md)
-- [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
-- [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
-- [Wrong set of users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
->>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88
 - [Setting up Windows Event Viewer for agent troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Setting up Azure portal Audit Logs for service troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Understanding logs for AD User Account create operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
@@ -426,11 +409,7 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 
 ### Next steps
 
-<<<<<<< HEAD
-- [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
-=======
 - [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
->>>>>>> 60488eb85d06431e109bffc2467b15048c7eea88
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 - [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 - [Azure AD Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)
