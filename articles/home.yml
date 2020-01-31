@@ -156,7 +156,7 @@ productDirectory:
     # Card
     - title: Computer Vision
       summary: Distill actionable information from images
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/computer-vision/index.yml
@@ -177,35 +177,35 @@ productDirectory:
     # Card
     - title: Data Science Virtual Machines
       summary: Rich pre-configured environment for AI development
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - aiMachineLearning
       url: machine-learning/data-science-virtual-machine/index.yml
     # Card
     - title: Face
       summary: Detect, identify, analyze, organize, and tag faces in photos
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/face/index.yml
     # Card
     - title: Form Recognizer (Preview)
       summary: The AI-powered document extraction service that understands your forms
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/form-recognizer/index.yml
     # Card
     - title: Immersive Reader (Preview)
       summary: Empower users of all ages and abilities to read and comprehend text
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/immersive-reader/index.yml
     # Card
     - title: Ink Recognizer (Preview)
       summary: An AI service that recognizes digital ink content, such as handwriting, shapes, and ink document layout
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/ink-recognizer/index.yml
@@ -221,14 +221,14 @@ productDirectory:
     # Card
     - title: Language Understanding
       summary: Teach your apps to understand commands from your users
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/luis/index.yml
     # Card
     - title: Machine Learning Studio
       summary: Easily build, deploy, and manage predictive analytics solutions
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
       azureCategories:
         - aiMachineLearning
         - iot
@@ -243,63 +243,63 @@ productDirectory:
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/personalizer/index.yml
     # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/qnamaker/index.yml
     # Card
     - title: Speaker Recognition (Preview)
       summary: Use speech to identify and verify individual speakers
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/speaker-recognition/home.md
     # Card
     - title: Speech to Text
       summary: Convert spoken audio to text for more natural interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
     # Card
     - title: Speech Translation
       summary: Easily integrate real-time speech translation to your app
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/text-analytics/index.yml
     # Card
     - title: Text to Speech
       summary: Convert text to speech to create more natural, accessible interfaces
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
     # Card
     - title: Translator Text
       summary: Easily conduct machine translation with a simple REST API call
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - aiMachineLearning
       url: cognitive-services/translator/index.yml
     # Card
     - title: Video Indexer
       summary: Unlock video insights
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - aiMachineLearning
         - media
@@ -321,7 +321,7 @@ productDirectory:
     # Card
     - title: Azure Data Lake Storage
       summary: Massively scalable, secure data lake functionality built on Azure Blob Storage
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
         - analytics
         - storage
@@ -409,7 +409,7 @@ productDirectory:
     # Card
     - title: Azure Blockchain Service (Preview)
       summary: Build, govern, and expand consortium blockchain networks
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
       azureCategories:
         - blockchain
       url: blockchain/service/index.yml
@@ -699,7 +699,7 @@ productDirectory:
     # Card
     - title: Table Storage
       summary: NoSQL key-value store using semi-structured datasets
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
         - databases
       url: cosmos-db/table-storage-overview.md
@@ -1137,7 +1137,7 @@ productDirectory:
     # Card
     - title: Azure Media Player
       summary: A single player for all your playback needs
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
       url: media-services/latest/use-azure-media-player.md
@@ -1160,14 +1160,14 @@ productDirectory:
     # Card
     - title: Encoding
       summary: Studio grade encoding at cloud scale
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
       url: media-services/latest/encoding-concept.md
     # Card
     - title: Live and On-Demand Streaming
       summary: Deliver content to virtually all devices with scale to meet business needs
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
       url: media-services/latest/stream-live-tutorial-with-api.md
@@ -1360,7 +1360,7 @@ productDirectory:
     # Card
     - title: Blob Storage
       summary: REST-based object storage for unstructured data
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
         - storage
       url: storage/blobs/index.yml
@@ -1374,7 +1374,7 @@ productDirectory:
     # Card
     - title: File Storage
       summary: File shares that use the standard SMB 3.0 protocol
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
         - storage
       url: storage/files/index.yml
@@ -1388,7 +1388,7 @@ productDirectory:
     # Card
     - title: Queue Storage
       summary: Effectively scale apps according to traffic
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
         - storage
       url: storage/queues/index.yml
