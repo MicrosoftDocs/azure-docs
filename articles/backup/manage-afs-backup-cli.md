@@ -24,7 +24,7 @@ This article assumes you already have an Azure file share backed up by [Azure Ba
 
 ## Monitor jobs
 
-When you trigger backup or restore operations, the backup service creates a job for tracking. To monitor completed or currently running jobs, use the [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet. With the CLI, you also can [suspend a currently running job](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) or [wait until a job completes](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
+When you trigger backup or restore operations, the backup service creates a job for tracking. To monitor completed or currently running jobs, use the [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet. With the CLI, you also can [suspend a currently running job](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) or [wait until a job finishes](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
 
 The following example displays the status of backup jobs for the *azurefilesvault* Recovery Services vault:
 
@@ -235,4 +235,4 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 ## Next steps
 
-For more information, see [Troubleshoot Azure file shares backup](troubleshoot-azure-files.md)
+For more information, see [Troubleshoot Azure file shares backup](troubleshoot-azure-files.md).
