@@ -1,37 +1,39 @@
 ---
-title: REST API version 2019-05-06-Preview
+title: Preview features in REST API
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and indexer caching for incremental enrichment..
+description: Azure Cognitive Search service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and indexer caching for incremental enrichment.
 
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/30/2020
 ---
-# Azure Cognitive Search service REST api-version 2019-05-06-Preview
+# Preview features in Azure Cognitive Search
 
-This article describes the `api-version=2019-05-06-Preview` version of Search service REST API, offering experimental features not yet generally available.
+This article lists features currently in preview. Features that transition from preview to general availability are removed from this list. You can check [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md) for announcements regarding general availability.
 
-> [!NOTE]
-> Preview features are available for testing and experimentation with the goal of gathering feedback and are subject to change. We strongly advise against using preview APIs in production applications.
+While some preview features might be available in the portal and .NET SDK, the REST API always has preview features. The current preview API version is `2019-05-06-Preview`.
 
-## Features in 2019-05-06-Preview
+> [!IMPORTANT]
+> Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This section lists features having preview status. Most were added in the current 2019-05-06-Preview API, but some like `moreLikeThis` are from earlier preview versions that rolled into the latest preview API. 
+## Features in public preview
 
-Once a preview feature becomes generally available, it is removed from this list. You can check [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md) for announcements regarding general availability.
++ [Custom Entity Lookup (preview)](cognitive-search-skill-custom-entity-lookup.md ) looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. 
 
-+ [Incremental enrichment(preview)](cognitive-search-incremental-indexing-conceptual.md) adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.
++ [PII Detection (preview)](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
+
++ [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.
 
 + [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API (preview), Gremlin API (preview), and Cassandra API (preview).
 
 + [Azure Data Lake Storage Gen2 indexer (preview)](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
 
-+ [Knowledge store](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. The physical data structure exists in Azure Blob storage and Azure Table storage, and it is created and populated when you run an indexer that has an attached cognitive skillset. The definition of a knowledge store itself is specified within a skillset definition. Within the knowledge store definition, you control the physical structures of your data through *projection* elements that determine how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
++ [Knowledge store (preview)](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. The physical data structure exists in Azure Blob storage and Azure Table storage, and it is created and populated when you run an indexer that has an attached cognitive skillset. The definition of a knowledge store itself is specified within a skillset definition. Within the knowledge store definition, you control the physical structures of your data through *projection* elements that determine how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
 
-+ [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
++ [moreLikeThis query parameter (preview)](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 
 ## Earlier preview features
 
