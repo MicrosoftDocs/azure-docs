@@ -59,4 +59,4 @@ Azure Data Explorer provides the capability to connect to [Sisense](https://www.
 
 ## Redash
 
-Use can use [Redash](https://redash.io/) to build dashboards and visualize data. You [set up Azure Data Explorer as a data source for Redash, and then visualize the data](/azure/data-explorer/redash).
+You can use [Redash](https://redash.io/) to build dashboards and visualize data. [Set up Azure Data Explorer as a data source for Redash, and then visualize the data](/azure/data-explorer/redash).
