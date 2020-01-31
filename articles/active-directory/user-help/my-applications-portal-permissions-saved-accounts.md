@@ -2,7 +2,7 @@
 title: Manage application permissions from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
 description: Learn how to manage application permissions for your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
 ms.date: 10/30/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help
 ---
 
@@ -41,7 +41,7 @@ The bottom part of the permissions window shows what your administrator consente
 
 After you manage app permissions and saved accounts in the **My Apps** portal, you can:
 
-- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
+- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps (preview) portal](my-applications-portal-collections.md).
 
 ## Related articles
 

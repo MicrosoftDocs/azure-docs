@@ -2,19 +2,19 @@
 title: Access and start apps from My Apps (preview) portal - Azure AD
 description: Learn how to access and start your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help
 ---
 
-# Access and start apps from the My Apps (preview) portal
+# Sign in and start apps from the My Apps portal
 
 You can use your work or school account with the web-based **My Apps** (preview) portal, to view, organize, and start many of your organization’s cloud-based apps. If you don’t have access to the **My Apps** portal, contact your organization's Helpdesk for permission.
 
@@ -93,12 +93,12 @@ You can start any of the available cloud-based apps from the **My Apps** portal.
 
 After you get to the **My Apps** portal, you can:
 
-- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
+- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps (preview) portal](my-applications-portal-collections.md).
 
 - Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
->If you don't see any workspaces or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared workspaces.
+>If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
 
 ## Related articles
 
