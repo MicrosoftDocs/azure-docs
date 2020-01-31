@@ -21,14 +21,14 @@ An Automation credential asset holds an object, which contains security credenti
 
 ## Azure PowerShell Az cmdlets
 
-For Azure PowerShell Az module, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell. They ship as part of the [AzureAz.Automation module](/powershell/azure/new-azureps-module-az), which is available for use in Automation runbooks and DSC configurations.
+For Azure PowerShell Az module, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell. They ship as part of the [AzureAz.Automation module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), which is available for use in Automation runbooks and DSC configurations.
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential) |Retrieves information about a credential asset. This does not return a PSCredential object.  |
-| [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential) |Creates a new Automation credential. |
-| [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential) |Removes an Automation credential. |
-| [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential) |Sets the properties for an existing Automation credential. |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Retrieves information about a credential asset. This does not return a PSCredential object.  |
+| [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Creates a new Automation credential. |
+| [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Removes an Automation credential. |
+| [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Sets the properties for an existing Automation credential. |
 
 ## Activities
 
@@ -92,7 +92,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve it with [Get-AzAutomationConnection](../automation-connections.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.3.0). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve it with [Get-AzAutomationConnection](../automation-connections.md).
 
 ```azurepowershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
