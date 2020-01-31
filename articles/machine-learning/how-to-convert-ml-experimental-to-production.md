@@ -390,8 +390,7 @@ For the model to provide real-time inference capabilities, the score code needs 
 ### Update Evaluation Code
 The MLOpsPython template uses the evaluate_model script to compare the performance of the newly trained model and the current production model based on Mean Squared Error. If the performance of the newly trained model is better than the current production model, then the pipelines continue. Otherwise, the pipelines are stopped. To keep evaluation, replace all instances of `mse` in `code/evaluate/evaluate_model.py` with the metric that you want. 
 
-To get rid of evaluation, enable the switch to skip the evaluation step in the pipeline.
-
+To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `.pipelines\diabetes_regression-variables` to false.
 
 ## Next steps
 
