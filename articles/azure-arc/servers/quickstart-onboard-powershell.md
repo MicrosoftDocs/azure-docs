@@ -1,17 +1,24 @@
 ---
-title: Quickstart - Connect machines to Azure using Azure Arc for servers - PowerShell
-description: In this quickstart you learn how to connect machines to Azure using Azure Arc for servers using PowerShell
+title: Connect hybrid machines to Azure at scale
+description: In this article, you learn how to connect machines to Azure using Azure Arc for servers (preview) using a service principal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid, onboard
-ms.date: 11/04/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 01/30/2020
 ms.custom: mvc
 ms.topic: quickstart
 ---
-# Quickstart: Connect machines to Azure using Azure Arc for servers - PowerShell
+# Connect hybrid machines to Azure at scale
+
+You can enable Azure Arc for servers (preview) for all of the Windows or Linux machines in your environment by performing a set of steps manually, or using an automated method by running a template script that we provide. This script automates the download and installation of both agents.
+
+This installation method requires that you have administrative rights on the machine to install and configure the agent. On Linux, using the root account and on Windows, you are member of the Local Administrators group.
+
+Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
