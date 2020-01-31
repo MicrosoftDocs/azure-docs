@@ -127,7 +127,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
 * To use a custom DNS server, deploy an AD server with DNS to forward to this IP 168.63.129.16
 
 ## Limitations 
-* Availability Zones are not currently supported
+* Availability Zones are currently only supported for East US 2 and West US 2 regions
 * [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
 * No support for Azure DevOps integration out of the box with private clusters
