@@ -90,7 +90,7 @@ OMS logs are causing high CPU utilization.
 
 ### Resolution
 
-* Disable OMS logging using the [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/en-us/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) PowerShell module. 
+* Disable OMS logging using the [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) PowerShell module. 
 * Delete the `mdsd.warn` log file
 
 ---
