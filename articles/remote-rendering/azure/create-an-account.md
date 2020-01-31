@@ -30,15 +30,14 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource group' to a resource group of your choice
     1. Set 'Location' to 'East US2'
 1. Once the account is created, navigate to it and:
-    1. In the Overview tab, note the 'Account ID'
-    1. In the Keys tab, note the 'Primary key' - this is the account's secret account key
+    1. In the *Overview* tab, note the 'Account ID'
+    1. In the *AssetKeys* tab, note the 'Primary key' - this is the account's secret account key
 
 ## Retrieve the account information
 
 The samples and tutorials require that you provide the account ID and a key. For instance in the **arrconfig.json** file that is used for the Powershell sample scripts:
 
 ```json
-{
     "accountSettings": {
         "arrAccountId": "<fill in the account ID from the Azure portal>",
         "arrAccountKey": "<fill in the account key from the Azure portal>",
