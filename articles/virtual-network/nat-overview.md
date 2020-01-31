@@ -63,7 +63,7 @@ The public side of NAT doesn't generate TCP Reset packets or any other traffic. 
 
 ## Configurable idle timeout
 
-A default idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any inactivity on a flow can also reset the idle timer, including TCP keepalives.
+A default idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
 ## Regional or zone isolation with availability zones
 
