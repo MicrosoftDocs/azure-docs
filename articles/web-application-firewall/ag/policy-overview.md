@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: victorh
 ---
 
@@ -36,7 +36,7 @@ Say your application gateway has a global policy applied to it. Then you apply a
 
 For even more customization down to the URI level, you can associate a WAF policy with a path-based rule. If there are certain pages within a single site that require different policies, you can make changes to the WAF policy that only affect a given URI. This might apply to a payment or sign-in page, or any other URIs that need an even more specific WAF policy than the other sites behind your WAF.
 
-As with per-site WAF policies, more specific policies overrides less specific ones. This means a per-URI policy on a URL path map overrides any per-site or gloabl WAF policy above it.
+As with per-site WAF policies, more specific policies overrides less specific ones. This means a per-URI policy on a URL path map overrides any per-site or global WAF policy above it.
 
 ## Example
 
