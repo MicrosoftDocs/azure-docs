@@ -481,7 +481,7 @@ productDirectory:
     # Card
     - title: Azure Functions
       summary: Process events with serverless code
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
       azureCategories:
         - compute
         - containers
@@ -520,7 +520,7 @@ productDirectory:
     # Card
     - title: Cloud Services
       summary: Create highly-available, infinitely-scalable cloud applications and APIs
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
       azureCategories:
         - compute
       url: cloud-services/index.md
@@ -789,7 +789,7 @@ productDirectory:
     # Card
     - title: Azure Artifacts
       summary: Create, host, and share packages with your team
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/artifacts.svg
       azureCategories:
         - devops
       url: https://docs.microsoft.com/azure/devops/artifacts/
@@ -937,7 +937,7 @@ productDirectory:
     # Card
     - title: Azure IoT Central
       summary: Accelerate the creation of IoT solutions
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/iot-central.svg
       azureCategories:
         - iot
       url: iot-central/index.yml
@@ -974,7 +974,7 @@ productDirectory:
     # Card
     - title: Azure Time Series Insights
       summary: Explore and analyze time-series data from IoT devices
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/time-series-insights-environments.svg
       azureCategories:
         - iot
       url: time-series-insights/index.yml
@@ -1041,7 +1041,7 @@ productDirectory:
     # Card
     - title: Azure Managed Applications
       summary: Simplify management of cloud offerings
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/managed-applications.svg
       azureCategories:
         - managementAndGovernance
       url: azure-resource-manager/managed-applications/index.yml
@@ -1063,7 +1063,7 @@ productDirectory:
     # Card
     - title: Azure Resource Manager
       summary: Simplify how you manage your app resources
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
       azureCategories:
         - managementAndGovernance
       url: azure-resource-manager/index.yml
@@ -1077,7 +1077,7 @@ productDirectory:
     # Card
     - title: Azure Site Recovery
       summary: Keep your business running with built-in disaster recovery service
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg
       azureCategories:
         - managementAndGovernance
         - migration
@@ -1098,7 +1098,7 @@ productDirectory:
         - migration
       url: cost-management-billing/index.yml
     # Card
-    - title: Microsoft Azure portal
+    - title: Azure portal
       summary: Build, manage, and monitor all Azure products in a single, unified console
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
@@ -1233,14 +1233,14 @@ productDirectory:
     # Card
     - title: Azure Firewall
       summary: Native firewalling capabilities with built-in high availability, unrestricted cloud scalability, and zero maintenance
-      imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/firewall.svg
       azureCategories:
         - networking
       url: firewall/index.yml
     # Card
     - title: Azure Firewall Manager (Preview)
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
       azureCategories:
         - networking
       url: firewall-manager/index.yml
@@ -1275,7 +1275,7 @@ productDirectory:
     # Card
     - title: Virtual Network
       summary: Provision private networks, optionally connect to on-premises datacenters
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-networks.svg
       azureCategories:
         - networking
       url: virtual-network/index.yml
@@ -1289,7 +1289,7 @@ productDirectory:
     # Card
     - title: VPN Gateway
       summary: Establish secure, cross-premises connectivity
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-network-gateways.svg
       azureCategories:
         - networking
         - security
@@ -1360,7 +1360,7 @@ productDirectory:
     # Card
     - title: Disk Storage
       summary: Persistent, secured disk options supporting virtual machines
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/disk-storage.svg
       azureCategories:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
@@ -1449,10 +1449,22 @@ tools:
     - title: Azure PowerShell
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/powershell/azure/
-    # Card
-    - title: Azure portal
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
-      url: azure-portal/index.yml
+    # Card	
+    - title: Ansible on Azure	
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
+      url: ansible/index.yml	
+    # Card	
+    - title: Chef Software on Azure	
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
+      url: chef/index.yml	
+    # Card	
+    - title: Jenkins on Azure	
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
+      url: jenkins/index.yml	
+    # Card	
+    - title: Terraform on Azure	
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
+      url: terraform/index.yml	
 
 additionalContent:
   sections:
