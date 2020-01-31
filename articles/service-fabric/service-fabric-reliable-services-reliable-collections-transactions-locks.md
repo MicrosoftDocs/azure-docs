@@ -1,9 +1,9 @@
 ---
 title: Transactions And Lock Modes in Reliable Collections
 description: Azure Service Fabric Reliable State Manager and Reliable Collections Transactions and Locking.
-
 ms.topic: conceptual
 ms.date: 5/1/2017
+ms.custom: sfrev
 ---
 # Transactions and lock modes in Azure Service Fabric Reliable Collections
 
@@ -13,7 +13,7 @@ A transaction is a sequence of operations performed as a single logical unit of 
 
 * **Atomicity**: A transaction must be an atomic unit of work. In other words, either all its data modifications are performed, or none of them is performed.
 * **Consistency**: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
-* **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an ITransaction is determined by the IReliableState performing the operation.
+* **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) is determined by the [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) performing the operation.
 * **Durability**: After a transaction has completed, its effects are permanently in place in the system. The modifications persist even in the event of a system failure.
 
 ### Isolation levels
@@ -40,24 +40,26 @@ Following is the table that depicts isolation level defaults for Reliable Dictio
 > Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
 > 
 
-Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
+Both the Reliable Dictionary and the Reliable Queue support *Read Your Writes*.
 In other words, any write within a transaction will be visible to a following read
 that belongs to the same transaction.
 
 ## Locks
+
 In Reliable Collections, all transactions implement rigorous two phase locking: a transaction does not release
 the locks it has acquired until the transaction terminates with either an abort or a commit.
 
-Reliable Dictionary uses row level locking for all single entity operations.
+Reliable Dictionary uses row-level locking for all single entity operations.
 Reliable Queue trades off concurrency for strict transactional FIFO property.
-Reliable Queue uses operation level locks allowing one transaction with `TryPeekAsync` and/or `TryDequeueAsync` and one transaction with `EnqueueAsync` at a time.
+Reliable Queue uses operation-level locks allowing one transaction with `TryPeekAsync` and/or `TryDequeueAsync` and one transaction with `EnqueueAsync` at a time.
 Note that to preserve FIFO, if a `TryPeekAsync` or `TryDequeueAsync` ever observes that the Reliable Queue is empty, they will also lock `EnqueueAsync`.
 
 Write operations always take Exclusive locks.
-For read operations, the locking depends on a couple of factors.
-Any read operation done using Snapshot isolation is lock free.
-Any Repeatable Read operation by default takes Shared locks.
-However, for any read operation that supports Repeatable Read, the user can ask for an Update lock instead of the Shared lock.
+For read operations, the locking depends on a couple of factors:
+
+- Any read operation done using Snapshot isolation is lock-free.
+- Any Repeatable Read operation by default takes Shared locks.
+- However, for any read operation that supports Repeatable Read, the user can ask for an Update lock instead of the Shared lock.
 An Update lock is an asymmetric lock used to prevent a common form of deadlock that occurs when multiple transactions lock resources for potential updates at a later time.
 
 The lock compatibility matrix can be found in the following table:
@@ -68,17 +70,15 @@ The lock compatibility matrix can be found in the following table:
 | Update |No conflict |No conflict |Conflict |Conflict |
 | Exclusive |No conflict |Conflict |Conflict |Conflict |
 
-Time-out argument in the Reliable Collections APIs is used for deadlock detection.
+The timeout argument in Reliable Collections APIs is used for deadlock detection.
 For example, two transactions (T1 and T2) are trying to read and update K1.
 It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out.
-
-This deadlock scenario is a great example of how an Update lock can prevent deadlocks.
+In this case, one or both of the operations will time out. I this scenario, an Update lock could prevent such a deadlock.
 
 ## Next steps
+
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

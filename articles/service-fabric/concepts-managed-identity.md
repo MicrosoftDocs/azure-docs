@@ -40,7 +40,7 @@ Managed identities for Service Fabric is only supported in Azure-deployed Servic
 
 2. Within the application's definition, map one of the identities assigned to the application to any individual service comprising the application.
 
-The system-assigned identity of an application is unique to that application; a user-assigned identity is a standalone resource, which may be assigned to multiple applications. Within an application, a single identity (whether system-assigned or user-assigned) can be assigned to multiple services of the application, but each individual service can only be assigned one identity. Lastly, a service must be assigned an identity explicitly to have access to this feature. In effect, the mapping of an application's identities to its constituent services allows for *in-application isolation* — a service may only use the identity mapped to it.  
+The system-assigned identity of an application is unique to that application; a user-assigned identity is a standalone resource, which may be assigned to multiple applications. Within an application, a single identity (whether system-assigned or user-assigned) can be assigned to multiple services of the application, but each individual service can only be assigned one identity. Lastly, a service must be assigned an identity explicitly to have access to this feature. In effect, the mapping of an application's identities to its constituent services allows for in-application isolation — a service may only use the identity mapped to it.  
 
 Currently, the following scenarios are supported for this preview feature:
 
@@ -61,9 +61,8 @@ The following scenarios are not supported or not recommended; note these actions
 
 ## Next steps
 
-- [Deploy a new Azure Service Fabric cluster with managed identity support](./configure-new-azure-service-fabric-enable-managed-identity.md) 
-- [Enable managed identity support in an existing Azure Service Fabric cluster](./
-configure-existing-cluster-enable-managed-identity-token-service.md)
+- [Deploy a new Azure Service Fabric cluster with managed identity support](./configure-new-azure-service-fabric-enable-managed-identity.md)
+- [Enable managed identity support in an existing Azure Service Fabric cluster](./configure-existing-cluster-enable-managed-identity-token-service.md)
 - [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 - [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 - [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
