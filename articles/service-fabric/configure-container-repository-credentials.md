@@ -49,7 +49,7 @@ Service Fabric then uses the default repository credentials which can be specifi
 * DefaultContainerRepositoryAccountName (string)
 * DefaultContainerRepositoryPassword (string)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType (string) --- Supported starting with the 6.4 runtime
+* DefaultContainerRepositoryPasswordType (string)
 
 Here is an example of what can be added inside the `Hosting` section in the ClusterManifestTemplate.json file. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
 
@@ -84,15 +84,15 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
 ]
 ```
 
-## Leveraging the Managed Identity of the virtual machine scale set by using Managed Identity Service (MSI)
+## Use tokens as registry credentials
 
-Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the managed identity of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more on MSI.  Using this feature requires the follows steps:
+Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the *managed identity* of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview) for more info.  Using this feature requires the follows steps:
 
-1.  Ensure that *System Assigned Managed Identity* is enabled for the VM.
+1. Ensure that *System Assigned Managed Identity* is enabled for the VM.
 
     ![Azure portal: Create virtual machine scale set identity option](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
-2.  Grant permissions to the virtual machine scale set to pull/read images from the registry. From the Access Control (IAM) blade of your Azure Container Registry in the Azure portal, add a *role assignment* for your virtual machine:
+2. Grant permissions to the virtual machine scale set to pull/read images from the registry. From the Access Control (IAM) blade of your Azure Container Registry in the Azure portal, add a *role assignment* for your virtual machine:
 
     ![Add VM principal to ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
