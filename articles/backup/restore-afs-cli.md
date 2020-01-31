@@ -168,4 +168,4 @@ The **Name** attribute in the output corresponds to the name of the job that's c
 
 ## Next steps
 
-Learn how to [Manage Azure file share backups with the Azure CLI](manage-afs-backup-cli.md)
+Learn how to [Manage Azure file share backups with the Azure CLI](manage-afs-backup-cli.md).
