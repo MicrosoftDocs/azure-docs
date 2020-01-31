@@ -24,6 +24,7 @@ In this tutorial, you learn how to:
 
 - Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/generate) 
 and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks.
+- Install nbconvert. Follow only the installation instructions under the Installing nbconvert section on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
 
 ## Remove all nonessential code
 
@@ -235,7 +236,7 @@ Third, related functions need to be merged into Python files to better help code
 - The Diabetes Ridge Regression Scoring Notebook(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### Create Python file for the Diabetes Ridge Regression Training Notebook
-Convert your notebook to an executable script by running the following statement in a command prompt, which has Jupyter and the Diabetes Ridge Regression Training notebook in its path:
+Convert your notebook to an executable script by running the following statement in a command prompt, which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
@@ -280,7 +281,7 @@ main()
 The `train.py` file found in the `diabetes_regression/training directory` in the MLOpsPython repository supports command-line arguments (namely `build_id`, `model_name`, and `alpha`). Support for command-line arguments can be added to your `train.py` file to support dynamic model names and `alpha` values, but it's not necessary for the code to execute successfully.
 
 ### Create Python file for the Diabetes Ridge Regression Scoring Notebook
-Covert your notebook to an executable script by running the following statement in a command prompt that has Jupyter and the Diabetes Ridge Regression Scoring notebook in its path:
+Covert your notebook to an executable script by running the following statement in a command prompt that which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
