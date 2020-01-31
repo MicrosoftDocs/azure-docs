@@ -44956,6 +44956,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/scripts/storage-common-transfer-between-storage-accounts.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-use-azcopy.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
       "redirect_document_id": false
