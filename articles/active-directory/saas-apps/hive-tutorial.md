@@ -157,7 +157,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Hive Configuration](./media/hive-tutorial/configure2.png)
 
-    a. Copy **Your ACS URL** and paste it into **Reply URL** textbox in the **Basic SAML Configuration Section** in the Azure portal.
+    a. Copy **Your Workspace ID** and append it to the **SignOn URL** and  **Reply URL** in the **Basic SAML Configuration Section** in the Azure portal.
 
     b. In the **SAML SSO URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 
