@@ -28,10 +28,10 @@ In this tutorial, you learn how to,
 You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
-> [!div class="mx-imgBorder"]
-> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
-2. Select **Retail** tab and select **Create app** under ** smart inventory management **
+2. Select **Retail** tab and select **Create app** under **smart inventory management**
 
 3. **Create app** will open New application form and fill up the requested details as show below.
    **Application name**: you can use default suggested name or enter your friendly application name.
@@ -39,11 +39,11 @@ You can create application using following steps
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
-> [!div class="mx-imgBorder"]
-> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
-> [!div class="mx-imgBorder"]
-> ![Smart Inventory Management billing info](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    > [!div class="mx-imgBorder"]
+    > ![Smart Inventory Management billing info](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## Walk through the application 
 
