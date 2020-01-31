@@ -286,7 +286,7 @@ Access the Azure portal with an administrator account.
 
 2. On the Properties page under the option for **Self-Service Password Reset Enabled**, choose **Selected**.
 
-3. Choose **Select group**, then select your group. When ready, select **Save**. See [SSPR properties](#sspr_properties)
+3. Choose **Select group**, then select your group. When ready, select **Save**. See [SSPR properties](#sspr-properties)
 
 4. If you want all users enabled, select **All**.
 
@@ -298,7 +298,7 @@ Access the Azure portal with an administrator account.
 
 1. [Registration settings](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)
 
-1. [Notification settings](#notification-settings)
+1. [Notifications settings](#notifications-settings)
 
 1. [Customization settings](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
 
