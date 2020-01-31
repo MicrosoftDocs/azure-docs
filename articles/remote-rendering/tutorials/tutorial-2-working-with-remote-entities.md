@@ -13,7 +13,7 @@ ms.service: azure-remote-rendering
 
 # Tutorial: Working with remote entities in Unity
 
-The [previous tutorial](tutorial-1-unity-project-setup.md) showed how to configure a new Unity project to work with Azure Remote Rendering. In this tutorial we will have a look at the most common functionality that every ARR user needs.
+The [previous tutorial](tutorial-1-unity-project-setup.md) showed how to configure a new Unity project to work with Azure Remote Rendering. In this tutorial, we have a look at the most common functionality that every ARR user needs.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Pick objects
 
-To be able to interact with objects in a scene, the first thing we want to do, is pick objects under the mouse cursor.
+We want to interact with objects, so the first thing we need, is picking objects under the mouse cursor.
 
 Create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) called **RemoteRaycaster** and replace its entire content with the code below:
 
@@ -107,11 +107,11 @@ Add this component to the *RemoteRendering* object in your scene.
 > The *RemoteRaycaster* component requires an *ARRServiceUnity* component to be attached to the same object. *ARRServiceUnity* is a helper class to access some ARR functionality more easily. However, there can only be a single instance of this component in the scene. Therefore, be sure to add all components that require *ARRServiceUnity* to the same GameObject.
 > If you want to access ARR functionality from multiple game objects, either add the *ARRServiceUnity* component only to one of them and reference that in the other scripts, or access the ARR functionality directly.
 
-When you now press play, connect to a session and load a model, you can point at objects in the scene and watch the console output. It should print the object name of each part that you hover over.
+Press play, connect to a session and load a model. Now point at objects in the scene and watch the console output. It should print the object name of each part that you hover over.
 
 ## Highlight objects
 
-As the next step, we want to give visual feedback to the user, which parts of a model she is pointing at. To achieve this, we attach a [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) to the remote entity that we picked. This component can be used to enable or disable various features on an object. Here we use it to set a tint color and enable [outline rendering](../sdk/features-outlines.md) on the picked object.
+As a next step, we want to give visual feedback, which parts of a model the user is pointing at. To achieve this, we attach a [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) to the entity that we picked. This component can be used to enable or disable various features on an object. Here we use it to set a tint color and enable [outline rendering](../sdk/features-outlines.md).
 
 Create another script file called **RemoteModelEntity** and replace its content with the following code:
 
@@ -183,7 +183,7 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 
-The next step is to extend our raycasting component to add our new RemoteModelEntity component to picked game objects. The idea is to add it to objects that we never picked before, and deactivate the state override when the user does not point at the object anymore.
+Next up, we have to extend our *RemoteRaycaster* to add the *RemoteModelEntity* component to the object that we just picked.
 
 Add the following code to the **RemoteRaycaster** implementation and remove the duplicate functions:
 
@@ -235,7 +235,7 @@ Run your project and point at a model, you should see it getting a red tint and 
 
 ## Isolate the selected object
 
-Another use of the [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) is the ability to override visibility. This allows you to isolate a selected object from the rest of the model. Open the **RemoteModelEntity** script, add the following code and remove the duplicate functions:
+Another use of the [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) is the ability to override visibility. This enables you to isolate a selected object from the rest of the model. Open the **RemoteModelEntity** script, add the following code, and remove the duplicate functions:
 
 ```csharp
     private bool isolated = false;
@@ -293,9 +293,9 @@ Another use of the [HierarchicalStateOverrideComponent](../sdk/features-override
     }
 ```
 
-This code relies on having a state override component at the top-most object in the hierarchy, which makes all objects invisible. Then it overrides the visibility again at the selected object, to make that one object visible. Therefore we need to create this state override component at the root object.
+This code relies on having a state override component at the top-most object in the hierarchy, which makes all objects invisible. Then it overrides the visibility again at the selected object, to make that one object visible. Therefore, we need to create a state override component at the root object.
 
-Open the **RemoteRendering** script and insert this at the top of the *LoadModel* function:
+Open the **RemoteRendering** script and insert the code below at the top of the *LoadModel* function:
 
 ```csharp
     public async void LoadModel()
@@ -333,7 +333,7 @@ Finally we need a way to toggle visibility. Open the **RemoteRaycaster** script 
 
 You may have noticed that the code keeps creating objects, but never cleans them up. This is also visible in the object hierarchy panel. When you expand the remote object hierarchy during simulation, you can see more and more objects appearing every time you hover over a new part of the model.
 
-The more objects you have in the scene, the more this affects performance. You should always clean up objects that are not needed anymore.
+Having many objects in a scene negatively affects performance. You should always clean up objects that are not needed anymore.
 
 Insert the code below into the **RemoteRaycaster** script and remove the duplicate functions:
 
@@ -359,7 +359,7 @@ Insert the code below into the **RemoteRaycaster** script and remove the duplica
 
 ## Move objects
 
-As a next step we want to move a selected object around. In the **RemoteRaycaster** script, insert this this code and remove the duplicate function:
+As a next step we want to move a selected object around. In the **RemoteRaycaster** script, insert this code and remove the duplicate function:
 
 ```csharp
     private Vector3 lastPosition = Vector3.zero;
@@ -400,7 +400,7 @@ As a next step we want to move a selected object around. In the **RemoteRaycaste
 > [!IMPORTANT]
 > If you run this code, you will notice that nothing happens. That's because changing an object's transform does not automatically synchronize the state change to the server, for performance reasons. Instead, you either have to push this state change to the server manually, or you enable **SyncEveryFrame** on the *RemoteEntitySyncObject* component.
 
-Here we will do the latter. Open the **RemoteModelEntity** script and add this line:
+Open the **RemoteModelEntity** script and add this line:
 
 ```csharp
     public void OnEnable()
@@ -411,11 +411,11 @@ Here we will do the latter. Open the **RemoteModelEntity** script and add this l
     }
 ```
 
-If you run the code again, you should be able to left-click on an object and drag the mouse to move the object around.
+Running the code again, you should be able to left-click on an object and drag it around.
 
 ## Add a cut plane
 
-The final feature we want to try out in this tutorial are [cut planes](../sdk/features-cut-planes.md). A cut plane can be used to cut away parts of the rendered objects, such that you can look inside of them.
+The final feature we want to try out in this tutorial, is using [cut planes](../sdk/features-cut-planes.md). A cut plane cuts away parts of rendered objects, such that you can look inside of them.
 
 Create a new GameObject in the scene **CutPlane**. Create a new script and call it **RemoteCutPlane**. Add the component to the new GameObject.
 
@@ -477,7 +477,7 @@ When you run your code now, you should see how the model is cut open by the plan
 
 ## Next steps
 
-You now know the most frequently used methods for interacting with a scene. In the next tutorial, we will have a look at customizing a scene's look by modifying the sky map and materials on models.
+You now know the most important functionality for interacting with remote objects. In the next tutorial, we will have a look at customizing a scene's look.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Changing the environment and materials](tutorial-3-changing-environment-and-materials.md)
