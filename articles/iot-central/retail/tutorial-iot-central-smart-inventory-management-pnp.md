@@ -71,7 +71,7 @@ The dashboard is logically divided between two different gateway device manageme
 ## Device Template
 Click on the Device templates tab, and you will see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry & Property** and **Gateway Commands**
 
-**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info as well as device twin property capability such as gateway thresholds & update intervals.
+**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info, and device twin property capability such as gateway thresholds and update intervals.
 
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
@@ -85,16 +85,16 @@ Click on the Device templates tab, and you will see the gateway capability model
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
 
-**Gateway offline**: This rule will trigger if the gateway does not report to the cloud for a prolonged period. Gateway could be unresponsive due to low battery mode, loss of connectivity, device health.
+**Gateway offline**: This rule will trigger if the gateway doesn't report to the cloud for a prolonged period. Gateway could be unresponsive because of low battery mode, loss of connectivity, device health.
 
-**Unknown tags**: It is critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, this is an indication of synchronization challenges with tag sourcing applications.
+**Unknown tags**: It's critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, it's an indication of synchronization challenges with tag sourcing applications.
 
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## Jobs
 Select the jobs tab to see five different jobs that exist as part of this application template:
-You can leverage jobs feature to perform solution-wide operations. Here inventory management jobs are using the device commands & twin capability to perform tasks such as,
+You can use jobs feature to perform solution-wide operations. Here inventory management jobs are using the device commands and twin capability to perform tasks such as,
    * disabling readers across all the gateway
    * modifying the telemetry threshold between 
    * perform on-demand inventory scanning across the entire solution.

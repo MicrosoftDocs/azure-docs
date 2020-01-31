@@ -29,12 +29,12 @@ The tutorial will learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you need:
+To complete this tutorial, you need:
 -  An Azure subscription is recommended. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Create Connected Waste Management app in IoT Central
 
-In this section, we will use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
+In this section, you use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
 
 To create a new Azure IoT Central connected waste management application:  
 
@@ -128,9 +128,9 @@ To view the device template:
 
     ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-2. In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
+2. In the Device templates list, you will see **Connected Waste Bin**. Open by clicking on the name.
 
-3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
+3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location*, and others.
 
    ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
@@ -148,7 +148,7 @@ Try to customize the following:
 ### Add a cloud property 
 
 1. Navigate to **Cloud property** from the device template menu
-2. Add a new cloud property by clicking **+ Add Cloud Property**. In IoT Central, you can add a property that is relevant to the device but not expected to be sent by a device. As an example, a cloud property could be an alerting threshold specific to installation area, asset information, or maintenance information etc. 
+2. Add a new cloud property by clicking **+ Add Cloud Property**. In IoT Central, you can add a property that is relevant to the device but not expected to be sent by a device. As an example, a cloud property could be an alerting threshold specific to installation area, asset information, or maintenance information, and other information. 
 3. **Save** any changes 
  
 ### Views 
