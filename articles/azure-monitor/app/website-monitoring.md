@@ -20,7 +20,7 @@ With Azure Monitor Application Insights, you can easily monitor your website for
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* A website to which you can add the Application Insights JavaScript SDK
+* A website to which you can add the Application Insights JavaScript SDK.
 
 ## Sign in to the Azure portal
 
