@@ -389,6 +389,8 @@
         href: cognitive-search-predefined-skills.md
       - name: Conditional
         href: cognitive-search-skill-conditional.md
+      - name: Custom Entity Lookup
+        href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
       - name: Entity Recognition

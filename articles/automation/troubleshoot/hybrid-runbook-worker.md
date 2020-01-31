@@ -28,7 +28,7 @@ Runbook execution fails and you receive the following error:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Your runbook is suspended shortly after it attempts to execute it three times. There are conditions that may interrupt the runbook from completing. When this happens, the related error message may not include any additional information that tells you why.
+Your runbook is suspended shortly after it attempts to execute it three times. There are conditions that may interrupt the runbook from completing. The related error message may not include any additional information.
 
 #### Cause
 
@@ -40,15 +40,15 @@ The following are potential possible causes:
 
 * The runbooks can't authenticate with local resources
 
-* The computer configured to run the Hybrid Runbook Worker feature does not meet the minimum hardware requirements.
+* The computer configured to run the Hybrid Runbook Worker feature doesn't meet the minimum hardware requirements.
 
 #### Resolution
 
 Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before it is configured to host this feature. Runbooks and the background processes they use may cause the system to be over utilized and cause runbook job delays or timeouts.
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background processes they use may cause the system to be over-used and cause runbook job delays or timeouts.
 
-Confirm the computer that will run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there's memory or CPU pressure, this may indicate the need to upgrade resources. You can also select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
+Confirm the computer that will run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure may indicate the need to upgrade resources. You can also select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
 Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
 
@@ -73,7 +73,7 @@ This error occurs when you attempt to use a [Run As Account](../manage-runas-acc
 
 #### Resolution
 
-If your Hybrid Runbook Worker is an Azure VM, you can use [Managed Identities for Azure Resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario allows you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As Account, simplifying authentication. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As Account certificate on the machine. To learn how to install the certificate, see the steps to run the [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
+If your Hybrid Runbook Worker is an Azure VM, you can use [Managed Identities for Azure Resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As Account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As Account certificate on the machine. To learn how to install the certificate, see the steps to run the [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
 
 ## Linux
 
@@ -83,7 +83,7 @@ The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](.
 
 #### Issue
 
-The Log Analytics agent for Linux is not running
+The Log Analytics agent for Linux isn't running
 
 #### Cause
 
@@ -106,7 +106,7 @@ The following list shows the processes that are started for a Linux Hybrid Runbo
 
 * **worker.conf** - This process is the Auto Registered Hybrid worker process, it's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
 
-* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled, and the DIY Linux Hybrid Worker isn't registered.
+* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled and the DIY Linux Hybrid Worker isn't registered.
 
 If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -137,9 +137,9 @@ Your Log Analytics workspace and Automation Account must be in a linked region. 
 
 You might also need to update the date and or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
 
-### <a name="class-does-not-exist"></a>Scenario: The specified class does not exist
+### <a name="class-does-not-exist"></a>Scenario: The specified class doesn't exist
 
-If you see the error **The specified class does not exist...** in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
+If you see the error **The specified class does not exist..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log`, the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -199,7 +199,7 @@ This issue can be caused by a corrupt cache on the Hybrid Runbook Worker.
 
 #### Resolution
 
-To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Microsoft Monitoring Agent, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
+To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Microsoft Monitoring Agent, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to redownload its configuration from Azure Automation.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -209,7 +209,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: You are unable to add a Hybrid Runbook Worker
+### <a name="already-registered"></a>Scenario: You can't add a Hybrid Runbook Worker
 
 #### Issue
 
@@ -221,7 +221,7 @@ Machine is already registered
 
 #### Cause
 
-This issue can be caused if the machine is already registered with a different Automation Account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
+This issue can be caused if the machine is already registered with a different Automation Account or if you try to readd the Hybrid Runbook Worker after removing it from a machine.
 
 #### Resolution
 
@@ -236,4 +236,3 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
-
