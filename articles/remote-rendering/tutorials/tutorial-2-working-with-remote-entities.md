@@ -202,8 +202,7 @@ Add the following code to the **RemoteRaycaster** implementation and remove the 
                 return;
             }
 
-            focusedModel.SetFocus(false);
-            focusedModel = null;
+            ClearFocus();
         }
 
         if (remoteEntity == null)
@@ -223,6 +222,12 @@ Add the following code to the **RemoteRaycaster** implementation and remove the 
         }
 
         focusedModel.SetFocus(true);
+    }
+
+    private void ClearFocus()
+    {
+        focusedModel.SetFocus(false);
+        focusedModel = null;
     }
 ```
 
@@ -324,37 +329,26 @@ Finally we need a way to toggle visibility. Open the **RemoteRaycaster** script 
     }
 ```
 
+## Remove GameObject Instances of remote entities
 
+You may have noticed that the code keeps creating objects, but never cleans them up. This is also visible in the object hierarchy panel. When you expand the remote object hierarchy during simulation, you can see more and more objects appearing every time you hover over a new part of the model.
 
+The more objects you have in the scene, the more this affects performance. You should always clean up objects that are not needed anymore.
 
-
-
-
-
-## Remove created GameObject Instances
-
-By now, you may noticed under the Hierarchy panel, the remote model that represents the remote model, is growing with every object that gets focus. The more objects in the scene will negatively affect performance.
-
-Below is a quick way to remove child nodes that are no longer required:
+Insert the code below into the **RemoteRaycaster** script and remove the duplicate functions:
 
 ```csharp
     private void ClearFocus()
     {
-        ...
-        focusedModel.ResetFocus();
-
+        focusedModel.SetFocus(false);
         CleanHierarchy(focusedModel.gameObject);
-
         focusedModel = null;
-        ...
     }
-```
 
-```csharp
     private void CleanHierarchy(GameObject focusedGO)
     {
         var sync = focusedGO?.GetComponent<RemoteEntitySyncObject>();
-        if (sync == null ||!sync.IsEntityValid)
+        if (sync == null || !sync.IsEntityValid)
         {
             return;
         }
@@ -362,8 +356,6 @@ Below is a quick way to remove child nodes that are no longer required:
         sync.Entity.DestroyGameObject(EntityExtensions.DestroyGameObjectFlags.DestroyEmptyParents | EntityExtensions.DestroyGameObjectFlags.KeepRemoteRoot);
     }
 ```
-
-
 
 
 
