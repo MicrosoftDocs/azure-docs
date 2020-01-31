@@ -16,7 +16,7 @@ ms.date: 02/01/2020
 
 # Monitor Azure AD B2C with Azure Monitor
 
-Use Azure Monitor to route your Azure Active Directory B2C (Azure AD B2C) activity logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
+Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) usage activity events to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 
 For example, you can route logs to:
 
@@ -38,11 +38,11 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com), which include
 
 Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-In this case, the **Customer** is your Azure AD tenant, while the **Service Provider** is your Azure AD B2C tenant.
+You authorize a user in your Azure AD B2C directory (the **Service Provider**) to configure the Azure Monitor instance within the tenant that contains your Azure subscription (the **Customer**). To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription. The following sections walk you through the process.
 
 ## Create a resource group
 
-In the Azure AD tenant that contains your subscription (not the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
+In the Azure Active Directory (Azure AD) tenant that contains your subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
 
 - **Subscription**: Select your Azure subscription.
 - **Resource group**: Enter name for the resource group. For example, *azure-ad-b2c-monitor*.
@@ -50,24 +50,22 @@ In the Azure AD tenant that contains your subscription (not the directory that c
 
 ## Delegate resource management
 
-Start by gathering the following information.
+Next, gather the following information:
 
 **Directory ID** of your Azure AD B2C directory (also known as the tenant ID).
 
 * To get the directory ID, sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* role (or higher), and then use the **Directory + Subscription** filter to switch to the directory that contains your Azure AD B2C tenant. Select **Azure Active Directory**, select **Properties**, and then record the **Directory ID**.
 
-**Object ID** of Azure AD B2C user or group that you want to give contributor permission to the subscription.
+**Object ID** of the Azure AD B2C user you want to give contributor permission to the subscription.
 
 * With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user. Record the user's **Object ID**.
 
-  You authorize the user in your Azure AD B2C directory to configure the Azure Monitor instance within the tenant that contains your Azure Subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription.
-
 ### Create an Azure Resource Manager template
 
-To onboard your Azure AD tenant, create an [Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md) for your offer with the following information. The `mspOfferName` and `mspOfferDescription` values are visible when you view offer details in the [Service providers page](../lighthouse/how-to/view-manage-service-providers.md) of the Azure portal.
+To onboard your Azure AD tenant (the **Customer**), create an [Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md) for your offer with the following information. The `mspOfferName` and `mspOfferDescription` values are visible when you view offer details in the [Service providers page](../lighthouse/how-to/view-manage-service-providers.md) of the Azure portal.
 
-|Field  |Definition  |
-|---------|---------|
+| Field   | Definition |
+|---------|------------|
 | `mspOfferName`                     | A name describing this definition. This value is displayed to the customer as the title of the offer. |
 | `mspOfferDescription`              | A brief description of your offer (for example, "Contoso Azure AD subscription") |
 | `rgName`                           | The name of the resource group you create earlier in your Azure AD tenant. For example, *azure-ad-b2c-monitor*. |
@@ -113,23 +111,21 @@ Next, update the parameters file with the values you recorded earlier. The follo
 
 ### Deploy the Azure Resource Manager templates
 
-Once you've updated your parameters file, deploy the Azure Resource Manager template into the Azure tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
+Once you've updated your parameters file, deploy the Azure Resource Manager template into the Azure tenant as a subscription-level deployment. Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. You can deploy by using the Azure PowerShell module or the Azure CLI. The Azure PowerShell method is shown below.
 
-Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using Azure PowerShell or the Azure CLI. The Azure PowerShell method is shown below.
-
-Sign in to the directory containing your subscription by using [Connect-AzAccount](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-3.1.0). Use the `-tenant` flag to force authentication to the correct directory.
+Sign in to the directory containing your subscription by using [Connect-AzAccount](/powershell/azure/authenticate-azureps). Use the `-tenant` flag to force authentication to the correct directory.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
 ```
 
-Use the [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.1.0) cmdlet to list the subscriptions that the current account can access under the Azure AD tenant. Copy the ID of the subscription you want to project into Azure AD B2C tenant.
+Use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to list the subscriptions that the current account can access under the Azure AD tenant. Record the ID of the subscription you want to project into your Azure AD B2C tenant.
 
 ```PowerShell
 Get-AzSubscription
 ```
 
-Then, switch to the subscription you want to project to Azure AD B2C tenant:
+Next, switch to the subscription you want to project into the Azure AD B2C tenant:
 
 ``` PowerShell
 Select-AzSubscription <subscription ID>
@@ -147,7 +143,7 @@ New-AzDeployment -Name "AzureADB2C" `
 
 ### Confirm successful onboarding (optional)
 
-When a customer subscription (Azure AD) has successfully been onboarded to Azure delegated resource management, users in the service provider's (Azure AD B2C) tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
+When a customer subscription (Azure AD) has successfully been onboarded to Azure delegated resource management, users in the service provider's (Azure AD B2C) tenant will be able to see the subscription and its resources (if they've been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
 
 In the Azure AD B2C tenant:
 
