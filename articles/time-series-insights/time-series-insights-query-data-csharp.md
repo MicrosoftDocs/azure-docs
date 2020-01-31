@@ -9,29 +9,64 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/31/2020
 ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights GA environment using C#
 
-This C# example demonstrates how to query data from the Azure Time Series Insights GA environment.
+This C# example demonstrates how to use the [GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) to query data from Azure Time Series Insights GA environments.
 
-The sample shows several basic examples of Query API usage:
+## Summary
 
-1. As a preparation step, acquire the access token through the Azure Active Directory API. Pass this token in the `Authorization` header of every Query API request. For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Also, ensure all the constants defined at the beginning of the sample are correctly set.
-1. The list of environments that the user has access to is obtained. One of the environments is picked up as the environment of interest, and further data is queried for this environment.
-1. As an example of HTTPS request, availability data is requested for the environment of interest.
-1. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
+The sample code below demonstrates the following features:
+
+1. How to acquire an access token through Azure Active Directory using [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+1. How to pass that acquired access token in the `Authorization` header of subsequent Query API requests. 
+1. The sample calls each of the core Query APIs demonstrating:
+    1. HTTP requests made to the [Get Environments API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) to return the list of environments the user has access to.
+    1. HTTP requests made to the [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api).
+    1. HTTP request made to the [Get Environment Metadata API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) to retrieve environment metadata.
+    1. Both HTTP requests made to the [Get Environments Events API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and WSS messaging to the [Get Environment Events Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
+    1. Both HTTP requests to the [Get Environment Aggregates API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) and WSS messaging to the [Get Environment Aggregates Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
 
 > [!NOTE]
 > The example code is available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
-## Project Dependencies
+## Prerequisites and setup
 
-Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newtonsoft.Json`.
+Complete the following steps before you compile and run the sample code:
 
-## C# example
+1. [Provision a GA Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) environment.
+
+1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). 
+
+1. Install the required project dependencies.
+
+1. Edit the sample code below by replacing each **#DUMMY#** with the appropriate environment identifier.
+
+1. Execute the code inside Visual Studio.
+
+> [!TIP]
+> * View other GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
+## Project dependencies
+
+It's recommended that you use the newest version of Visual Studio:
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
+
+The sample code has two required dependencies:
+
+* [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -  5.2.6 package.
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 12.0.3 package.
+
+Add the packages using [NuGet 2.12+](https://www.nuget.org/):
+
+* `dotnet add package Newtonsoft.Json --version 12.0.3`
+* `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 5.2.6`
+
+## C# sample code
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
 
