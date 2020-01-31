@@ -558,7 +558,7 @@
           - name: Send to Application Insights
             href: platform/diagnostics-extension-to-application-insights.md
           - name: Version history
-            href: platform/diagnostics-extension-schema.md
+            href: platform/diagnostics-extension-versions.md
           - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
@@ -604,7 +604,7 @@
           - name: Linux application performance
             href: platform/data-sources-linux-applications.md
           - name: IIS logs
-            href: platform/data-sources-iis-logs.md
+            href: platform/diagnostics-extension-logs.md
           - name: Custom logs
             href: platform/data-sources-custom-logs.md
           - name: Custom fields

@@ -98,6 +98,9 @@ Example private configurations are shown below in both JSON and XML.
 }
 ```
 
+## Example configuration
+See [Example configuration](diagnostics-extension-schema-windows.md#example-configuration) for a complete sample private and public configuration that includes the configuration for events hubs.
+
 
 
 ## Configure Azure Diagnostics to send logs and metrics to Event Hubs
