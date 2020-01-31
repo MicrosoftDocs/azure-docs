@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Setting up a Unity project from scratch
+title: Setting up a Unity project from scratch
 description: Explains how to configure a blank Unity project for the use with Azure Remote Rendering.
 author: FlorianBorn71
 manager: jlyons

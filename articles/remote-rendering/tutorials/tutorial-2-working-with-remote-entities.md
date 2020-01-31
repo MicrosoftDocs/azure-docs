@@ -1,29 +1,48 @@
 ---
-title: Tutorial 2 - Working with remote entities
-description: Tutorial that provides sample code to work with remote entities
+title: Working with remote entities in Unity
+description: Tutorial that shows how to work with ARR entities.
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/01/2020
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Tutorial 2 - Working with remote entities
+# Tutorial: Working with remote entities in Unity
 
-## Ray casting
+The [previous tutorial](tutorial-1-unity-project-setup.md) showed how to configure a new Unity project to work with Azure Remote Rendering. In this tutorial, we have a look at the most common functionality that every ARR user needs.
 
-Create a new script called RemoteRaycaster.cs and add the following member variables:
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Be awesome.
+
+## Prerequisites
+
+* This tutorial builds on top of the [previous tutorial](tutorial-1-unity-project-setup.md).
+
+## Pick objects
+
+We want to interact with objects, so the first thing we need, is picking objects under the mouse cursor.
+
+Create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) called **RemoteRaycaster** and replace its entire content with the code below:
 
 ```csharp
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
+
 [RequireComponent(typeof(ARRServiceUnity))]
 public class RemoteRaycaster : MonoBehaviour
 {
     public double MaxDistance = 30.0;
-
-    public HitCollectionPolicy HitCollectionPolicy = HitCollectionPolicy.ClosestHit;
 
     private ARRServiceUnity arrService = null;
 
@@ -31,18 +50,15 @@ public class RemoteRaycaster : MonoBehaviour
     {
         arrService = GetComponent<ARRServiceUnity>();
     }
-```
 
-Create a function that will ray cast from a specific origin and direction:
-
-```csharp
     private async Task<Entity> RemoteRayCast(Vector3 origin, Vector3 dir)
     {
         Entity entity = null;
 
-        var raycast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), MaxDistance, HitCollectionPolicy);
+        var raycast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), MaxDistance, HitCollectionPolicy.ClosestHit);
 
-        var hits = await arrService.CurrentSession.Actions.RayCastQueryAsync(raycast).AsTask();
+        var hits = await arrService.CurrentActiveSession.Actions.RayCastQueryAsync(raycast).AsTask();
+
         if (hits != null)
         {
             foreach (var hit in hits)
@@ -60,9 +76,239 @@ Create a function that will ray cast from a specific origin and direction:
 
         return entity;
     }
+
+    private void Update()
+    {
+        if (!RemoteManagerUnity.IsConnected)
+        {
+            return;
+        }
+
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Raycast(ray.origin, ray.direction);
+    }
+
+    public async void Raycast(Vector3 origin, Vector3 direction)
+    {
+        var entity = await RemoteRayCast(origin, direction);
+        if (entity != null)
+        {
+            Debug.Log("Object Hit: " + entity.Name);
+        }
+    }
+}
 ```
 
-Call this function from Update(). To keep things simple, ray cast locations will be from the mouse position:
+Add this component to the *RemoteRendering* object in your scene.
+
+> [!WARNING]
+>
+> The *RemoteRaycaster* component requires an *ARRServiceUnity* component to be attached to the same object. *ARRServiceUnity* is a helper class to access some ARR functionality more easily. However, there can only be a single instance of this component in the scene. Therefore, be sure to add all components that require *ARRServiceUnity* to the same GameObject.
+> If you want to access ARR functionality from multiple game objects, either add the *ARRServiceUnity* component only to one of them and reference that in the other scripts, or access the ARR functionality directly.
+
+Press play, connect to a session and load a model. Now point at objects in the scene and watch the console output. It should print the object name of each part that you hover over.
+
+## Highlight objects
+
+As a next step, we want to give visual feedback, which parts of a model the user is pointing at. To achieve this, we attach a [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) to the entity that we picked. This component can be used to enable or disable various features on an object. Here we use it to set a tint color and enable [outline rendering](../sdk/features-outlines.md).
+
+Create another script file called **RemoteModelEntity** and replace its content with the following code:
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+
+public class RemoteModelEntity : MonoBehaviour
+{
+    public Color HighlightColor = new Color(1.0f, 0.0f, 0.0f, 0.1f);
+
+    public Entity Entity => localSyncObject != null ? localSyncObject?.Entity : null;
+
+    private RemoteEntitySyncObject localSyncObject = null;
+    private ARRHierarchicalStateOverrideComponent localStateOverride = null;
+
+    public void OnEnable()
+    {
+        localSyncObject = GetComponent<RemoteEntitySyncObject>();
+        localStateOverride = GetComponent<ARRHierarchicalStateOverrideComponent>();
+
+        if (localStateOverride == null)
+        {
+            localStateOverride = gameObject.AddComponent<ARRHierarchicalStateOverrideComponent>();
+            var remoteStateOverride = localSyncObject.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>();
+
+            if (remoteStateOverride == null)
+            {
+                // if there is no HierarchicalStateOverrideComponent on the remote side yet, create one
+                localStateOverride.Create(RemoteManagerUnity.CurrentSession);
+            }
+            else
+            {
+                // otherwise, bind our local stateOverride component to the remote component
+                localStateOverride.Bind(remoteStateOverride);
+            }
+        }
+
+        localStateOverride.RemoteComponent.TintColor = HighlightColor.toRemote();
+    }
+
+    public void OnDisable()
+    {
+        SetStateOverride(false);
+
+        if (localStateOverride.IsComponentValid)
+        {
+            localStateOverride.RemoteComponent.Enabled = false;
+            localStateOverride.enabled = false;
+        }
+    }
+
+    private void SetStateOverride(bool on)
+    {
+        if (localStateOverride.IsComponentValid)
+        {
+            localStateOverride.RemoteComponent.UseTintColorState = on ? HierarchicalEnableState.ForceOn : HierarchicalEnableState.InheritFromParent;
+            localStateOverride.RemoteComponent.SelectedState = on ? HierarchicalEnableState.ForceOn : HierarchicalEnableState.InheritFromParent;
+        }
+    }
+
+    public void SetFocus(bool on)
+    {
+        SetStateOverride(on);
+    }
+}
+```
+
+Next up, we have to extend our *RemoteRaycaster* to add the *RemoteModelEntity* component to the object that we just picked.
+
+Add the following code to the **RemoteRaycaster** implementation and remove the duplicate functions:
+
+```csharp
+    private RemoteModelEntity focusedModel = null;
+
+    public async void Raycast(Vector3 origin, Vector3 direction)
+    {
+        var remoteEntity = await RemoteRayCast(origin, direction);
+
+        if (focusedModel != null)
+        {
+            if (focusedModel.Entity == remoteEntity)
+            {
+                // picked the same object as before
+                return;
+            }
+
+            ClearFocus();
+        }
+
+        if (remoteEntity == null)
+        {
+            // picked no object at all
+            return;
+        }
+
+        // get the instance of a Unity GameObject for the ARR entity
+        var entityGO = remoteEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
+
+        // ensure the game object has the RemoteModelEntity component
+        focusedModel = entityGO.GetComponent<RemoteModelEntity>();
+        if (focusedModel == null)
+        {
+            focusedModel = entityGO.AddComponent<RemoteModelEntity>();
+        }
+
+        focusedModel.SetFocus(true);
+    }
+
+    private void ClearFocus()
+    {
+        focusedModel.SetFocus(false);
+        focusedModel = null;
+    }
+```
+
+Run your project and point at a model, you should see it getting a red tint and a white selection outline.
+
+## Isolate the selected object
+
+Another use of the [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) is the ability to override visibility. This enables you to isolate a selected object from the rest of the model. Open the **RemoteModelEntity** script, add the following code, and remove the duplicate functions:
+
+```csharp
+    private bool isolated = false;
+    private HierarchicalStateOverrideComponent parentOverride = null;
+
+    public void ToggleIsolate()
+    {
+        SetIsolated(!isolated);
+    }
+
+    public void SetIsolated(bool on)
+    {
+        if (localStateOverride == null || !localStateOverride.IsComponentValid || isolated == on)
+        {
+            return;
+        }
+
+        // find the top most parent object that has a HierarchicalStateOverrideComponent
+        if (parentOverride == null)
+        {
+            var modelRoot = transform;
+
+            while (modelRoot.parent != null)
+            {
+                modelRoot = modelRoot.parent;
+
+                var parentSyncObject = modelRoot.GetComponent<RemoteEntitySyncObject>();
+
+                var stateOverrideComp = parentSyncObject?.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>();
+
+                if (stateOverrideComp != null)
+                {
+                    parentOverride = stateOverrideComp;
+                }
+            }
+        }
+
+        if (parentOverride != null)
+        {
+            isolated = on;
+
+            parentOverride.HiddenState = isolated ? HierarchicalEnableState.ForceOn : HierarchicalEnableState.InheritFromParent;
+            localStateOverride.RemoteComponent.HiddenState = isolated ? HierarchicalEnableState.ForceOff : HierarchicalEnableState.InheritFromParent;
+        }
+    }
+
+    public void SetFocus(bool on)
+    {
+        SetStateOverride(on);
+
+        if (!on)
+        {
+            SetIsolated(false);
+        }
+    }
+```
+
+This code relies on having a state override component at the top-most object in the hierarchy, which makes all objects invisible. Then it overrides the visibility again at the selected object, to make that one object visible. Therefore, we need to create a state override component at the root object.
+
+Open the **RemoteRendering** script and insert the code below at the top of the *LoadModel* function:
+
+```csharp
+    public async void LoadModel()
+    {
+        // create a root object to parent a loaded model to
+        modelEntity = arrService.CurrentActiveSession.Actions.CreateEntity();
+        arrService.CurrentActiveSession.Actions.CreateComponent(ObjectType.HierarchicalStateOverrideComponent, modelEntity);
+
+        ...
+    }
+```
+
+Finally we need a way to toggle visibility. Open the **RemoteRaycaster** script and replace the *Update* function:
 
 ```csharp
     private void Update()
@@ -75,291 +321,34 @@ Call this function from Update(). To keep things simple, ray cast locations will
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         Raycast(ray.origin, ray.direction);
-    }
-```
 
-```csharp
-    public async void Raycast(Vector3 origin, Vector3 direction)
-    {
-        var entity = await RemoteRayCast(origin, direction);
-        if (entity != null)
+        if (Input.GetMouseButtonDown(1) && focusedModel != null)
         {
-            Debug.Log("Object Hit: " + hitObject.Name);
+            focusedModel.ToggleIsolate();
         }
     }
 ```
 
-From the Unity Editor Hierarchy, select the "RemoteRendering" object. From the Inspector, click the Add Component button and add RemoteRaycaster to this GameObject.\
-![add component in inspector](media/inspector-add-component.png)
+## Remove GameObject Instances of remote entities
 
-## Highlight remote objects (ARRHierarchicalStateOverrideComponent)
+You may have noticed that the code keeps creating objects, but never cleans them up. This is also visible in the object hierarchy panel. When you expand the remote object hierarchy during simulation, you can see more and more objects appearing every time you hover over a new part of the model.
 
-As with local objects in the scene, being able to change the rendering of the object that the mouse is over provides a method to notify the user of what they might be selecting. Extending on the ray cast above, add another script that represents the remote object. Create a RemoteModelEntity.cs script and add the following:
+Having many objects in a scene negatively affects performance. You should always clean up objects that are not needed anymore.
 
-```csharp
-    public Color HighlightColor = new Color(1.0f, 0.0f, 0.0f, 0.1f);
-
-    public Entity Entity => syncObject != null ? syncObject?.Entity : null;
-
-    private RemoteEntitySyncObject syncObject = null;
-    private ARRHierarchicalStateOverrideComponent stateOverride = null;
-```
-
-```csharp
-    public void OnEnable()
-    {
-        syncObject = GetComponent<RemoteEntitySyncObject>();
-
-        stateOverride = GetComponent<ARRHierarchicalStateOverrideComponent>();
-        if (stateOverride == null)
-        {
-            stateOverride = gameObject.AddComponent<ARRHierarchicalStateOverrideComponent>();
-            if (syncObject.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>() == null)
-            {
-                stateOverride.Create(RemoteManagerUnity.CurrentSession);
-            }
-            else
-            {
-                stateOverride.Bind(syncObject.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>());
-            }
-        }
-        
-        stateOverride.enabled = true;
-        stateOverride.RemoteComponent.Enabled = true;
-        stateOverride.RemoteComponent.TintColor = HighlightColor.toRemote();
-    }
-
-    public void OnDisable()
-    {
-        if (syncObject != null)
-        {
-            syncObject.SyncEveryFrame = false;
-        }
-
-        if (stateOverride != null)
-        {
-            ResetStateOverride();
-
-            stateOverride.RemoteComponent.Enabled = false;
-            stateOverride.enabled = false;
-        }
-    }
-
-    public bool SetFocus()
-    {
-        if (syncObject == null)
-        {
-            return false;
-        }
-
-        syncObject.SyncEveryFrame = true;
-
-        SetStateOverride();
-
-        return true;
-    }
-
-    public void ResetFocus()
-    {
-        ResetStateOverride();
-
-        syncObject.SyncEveryFrame = false;
-    }
-
-
-    private void SetStateOverride()
-    {
-        if (!stateOverride.IsComponentValid)
-        {
-            return;
-        }
-
-        stateOverride.RemoteComponent.UseTintColorState = HierarchicalEnableState.ForceOn;
-        stateOverride.RemoteComponent.SelectedState = HierarchicalEnableState.ForceOn;
-    }
-
-    private void ResetStateOverride()
-    {
-        if (!stateOverride.IsComponentValid)
-        {
-            return;
-        }
-
-        stateOverride.RemoteComponent.UseTintColorState = HierarchicalEnableState.InheritFromParent;
-        stateOverride.RemoteComponent.SelectedState = HierarchicalEnableState.InheritFromParent;
-    }
-```
-
-Change the previous RemoteRaycaster implementation with the following to use the new component:
-
-```csharp
-    private RemoteModelEntity focusedModel = null;
-```
-
-```csharp
-    public async void Raycast(Vector3 origin, Vector3 direction)
-    {
-        var entity = await RemoteRayCast(origin, direction);
-
-        if (focusedModel != null && focusedModel.Entity == entity)
-        {
-            return;
-        }
-
-        ClearFocus();
-
-        if (entity == null)
-        {
-            return;
-        }
-
-        // gets the instance of a Unity GameObject for the entity
-        var entityGO = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
-
-        // ensure the game object has the RemoteModelEntity component
-        var model = entityGO.GetComponent<RemoteModelEntity>();
-        if (model == null)
-        {
-            model = entityGO.AddComponent<RemoteModelEntity>();
-        }
-
-        if (model.SetFocus())
-        {
-            focusedModel = model;
-        }
-    }
-
-    private void ClearFocus()
-    {
-        if (focusedModel == null)
-        {
-            return;
-        }
-
-        focusedModel.ResetFocus();
-
-        focusedModel = null;
-    }
-```
-
-## Isolate selected entity (HierarchicalStateFlags)
-
-Another use of the [HierarchicalStateOverrideComponent](../sdk/features-override-hierarchical-state.md) is the ability to override visibility. The will allow you to isolate a selected entity from the entire model. Open the RemoteModelEntity.cs file and add the following:
-
-```csharp
-    private bool isolated = false;
-```
-
-```csharp
-    private void ToggleIsolate()
-    {
-        if (stateOverride == null && !stateOverride.IsComponentValid)
-        {
-            return;
-        }
-
-        isolated = !isolated;
-
-        // get the model's remote parent node
-        if (parentOverride == null)
-        {
-            var modelRoot = transform.parent;
-            var rootSyncEntity = modelRoot.GetComponent<RemoteEntitySyncObject>();
-            while (modelRoot.parent != null && rootSyncEntity != null)
-            {
-                modelRoot = modelRoot.parent;
-                rootSyncEntity = modelRoot.GetComponent<RemoteEntitySyncObject>();
-            }
-
-            if (rootSyncEntity == null)
-            {
-                rootSyncEntity = syncObject;
-            }
-
-            parentOverride = rootSyncEntity.Entity.FindComponentOfType<HierarchicalStateOverrideComponent>();
-        }
-
-        if (isolated)
-        {
-            // hide entire model, then show the focused object
-            parentOverride.HiddenState = HierarchicalEnableState.ForceOn;
-            stateOverride.RemoteComponent.HiddenState = HierarchicalEnableState.ForceOff;
-        }
-        else
-        {
-            parentOverride.HiddenState = HierarchicalEnableState.ForceOff;
-            stateOverride.RemoteComponent.HiddenState = HierarchicalEnableState.InheritFromParent;
-        }
-    }
-```
-
-This code requires an instance of the component to run to ensure the isolation will be active. In the Update function, the following will call ToggleIsolate() when the right button is held down:
-
-```csharp
-    private void Update()
-    {
-        ...
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            ToggleIsolate();
-        }
-    }
-```
-
-Update the ResetFocus function so when an object that has activated isolation, will reset it back to default:
-
-```csharp
-    public void ResetFocus()
-    {
-        ...
-
-        if (isolated)
-        {
-            ToggleIsolate();
-        }
-    }
-```
-
-Open the RemoteRendering.cs file and update the LoadModel() function to add a HierarchicalStateOverrideComponent to the root model entity:
-
-```csharp
-    public async void LoadModel()
-    {
-        ...
-
-        // create a root object to parent a loaded model to
-        modelEntity = arrService.CurrentSession.Actions.CreateEntity();
-        RemoteManager.CreateComponent(ObjectType.HierarchicalStateOverrideComponent, modelEntity);
-
-        ...
-    }
-```
-
-## Remove created GameObject Instances
-
-By now, you may noticed under the Hierarchy panel, the remote model that represents the remote model, is growing with every object that gets focus. The more objects in the scene will negatively affect performance.
-
-Below is a quick way to remove child nodes that are no longer required:
+Insert the code below into the **RemoteRaycaster** script and remove the duplicate functions:
 
 ```csharp
     private void ClearFocus()
     {
-        ...
-        focusedModel.ResetFocus();
-
+        focusedModel.SetFocus(false);
         CleanHierarchy(focusedModel.gameObject);
-
         focusedModel = null;
-        ...
     }
-```
 
-```csharp
     private void CleanHierarchy(GameObject focusedGO)
     {
         var sync = focusedGO?.GetComponent<RemoteEntitySyncObject>();
-        if (sync == null ||!sync.IsEntityValid)
+        if (sync == null || !sync.IsEntityValid)
         {
             return;
         }
@@ -368,242 +357,127 @@ Below is a quick way to remove child nodes that are no longer required:
     }
 ```
 
-## Moving focused RemoteObjects
+## Move objects
 
-In the previous tutorial, the Unity GameObject transform was used to set an offset location for the model's root node. This was achieved using the RemoteEntitySyncObject SyncEveryFrame property.
-
-This can also be done dynamically by using focus to determine which object is selected and using the mouse to move the object around:
-
-```csharp
-    private bool hasFocus = false;
-```
-
-```csharp
-    public bool SetFocus()
-    {
-        ...
-
-        hasFocus = true;
-
-        ...
-    }
-
-    public void ResetFocus()
-    {
-        ...
-
-        hasFocus = false;
-
-        ...
-    }
-```
-
-Knowing the object has focus, in the Update method, track the mouse button state and determine how much to move the object:
+As a next step we want to move a selected object around. In the **RemoteRaycaster** script, insert this code and remove the duplicate function:
 
 ```csharp
     private Vector3 lastPosition = Vector3.zero;
-```
 
-```csharp
     private void Update()
     {
-        if (!hasFocus)
+        if (!RemoteManagerUnity.IsConnected)
         {
             return;
         }
 
         if (Input.GetMouseButton(0))
         {
-            var curPosition = Input.mousePosition;
-            if (lastPosition == Vector3.zero)
+            if (focusedModel)
             {
-                lastPosition = curPosition;
+                // note: mousePosition is in 2D screen-space coordinates and has no relation with
+                // the 3D object position. This just happens to work good enough for demonstration.
+                var delta = Input.mousePosition - lastPosition;
+                focusedModel.transform.position += delta * Time.deltaTime;
             }
-
-            var delta = curPosition - lastPosition;
-
-            lastPosition = curPosition;
-
-            // update position
-            transform.position = Vector3.Lerp(transform.position, transform.position + delta, Time.deltaTime * 0.75f);
         }
         else
         {
-            lastPosition = Vector3.zero;
-        }
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        ...
-    }
-```
-
-For a focused object, when you hold the mouse button down, you can move the object in the scene. The Ray caster Update method will need to be modified to prevent losing the focus when the mouse is down. Remove the call to Ray cast and replace with the following in the RemoteRaycaster.cs file:
-
-```csharp
-    private void Update()
-    {
-        ...
-
-        if (Input.GetMouseButtonDown(0))
-        {
             Raycast(ray.origin, ray.direction);
-        }
-        else if (!Input.GetMouseButton(0)) // held down this frame?
-        {
-            Raycast(ray.origin, ray.direction);
-        }
-    }
-```
 
-## Bounds of an entity
-
-Modify the RemoveModelEntity.cs file. Having a Unity bounding box helps with localized physics collision detection. Using this method will only generate bounds for a single entity, not including its children. If a node has children, you would have to take that into account and expand this further.
-
-```csharp
-    private ARRMeshComponent meshComponent = null;
-    private BoxCollider boxCollider = null;
-```
-
-```csharp
-    private void OnEnable()
-    {
-        ...
-
-        meshComponent = GetComponent<ARRMeshComponent>();
-        if (meshComponent == null)
-        {
-            var mesh = syncObject.Entity.FindComponentOfType<MeshComponent>();
-            if (mesh != null)
+            if (Input.GetMouseButtonDown(1) && focusedModel != null)
             {
-                gameObject.BindArrComponent<ARRMeshComponent>(mesh);
-                meshComponent = gameObject.GetComponent<ARRMeshComponent>();
+                focusedModel.ToggleIsolate();
             }
         }
-        meshComponent.enabled = true;
 
-        boxCollider = GetComponent<BoxCollider>();
-        if (boxCollider == null)
-        {
-            boxCollider = gameObject.AddComponent<BoxCollider>();
-        }
-        boxCollider.enabled = true;
-        boxCollider.center = meshComponent.RemoteComponent.Mesh.Bounds.toUnity().center;
-        boxCollider.size = meshComponent.RemoteComponent.Mesh.Bounds.toUnity().size;
+        lastPosition = Input.mousePosition;
     }
+```
 
-    private void OnDisable()
+> [!IMPORTANT]
+> If you run this code, you will notice that nothing happens. That's because changing an object's transform does not automatically synchronize the state change to the server, for performance reasons. Instead, you either have to push this state change to the server manually, or you enable **SyncEveryFrame** on the *RemoteEntitySyncObject* component.
+
+Open the **RemoteModelEntity** script and add this line:
+
+```csharp
+    public void OnEnable()
     {
         ...
 
-        if (meshComponent)
-        {
-            meshComponent.enabled = false;
-        }
-
-        if (boxCollider)
-        {
-            boxCollider.enabled = false;
-        }
+        localSyncObject.SyncEveryFrame = true;
     }
 ```
 
-## Cut plane
+Running the code again, you should be able to left-click on an object and drag it around.
 
-Create a new GameObject in the scene hierarchy and name it "RemoteCutPlane". Change its position to a point near the model root is. Create a new script and call it RemoteCutPlane.cs and add the component to the new GameObject.
+## Add a cut plane
 
-Add these variables to track state and components that represent the clip plane on the server:
+The final feature we want to try out in this tutorial, is using [cut planes](../sdk/features-cut-planes.md). A cut plane cuts away parts of rendered objects, such that you can look inside of them.
+
+Create a new GameObject in the scene **CutPlane**. Create a new script and call it **RemoteCutPlane**. Add the component to the new GameObject.
+
+Open the script file and replace its content with the following code:
 
 ```csharp
-    private bool cutEnabled = false;
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-    private ARRCutPlaneComponent cutPlaneComponent = null;
-
+public class RemoteCutPlane : MonoBehaviour
+{
+    private ARRCutPlaneComponent localCutPlaneComponent = null;
     private RemoteEntitySyncObject remoteEntitySync = null;
-```
 
-Add a function to create the cut plane object and its sync component:
-
-```csharp
-    private void ToggleCutPlane()
+    void Update()
     {
-        cutEnabled = !cutEnabled;
-
-        if (cutPlaneComponent == null)
+        if (!RemoteManagerUnity.IsConnected)
         {
-            cutPlaneComponent = gameObject.CreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
-            cutPlaneComponent.RemoteComponent.Normal = Axis.X;
-            cutPlaneComponent.RemoteComponent.FadeLength = 0.025f;
-            cutPlaneComponent.RemoteComponent.FadeColor = new ColorUb(255, 128, 0, 255);
+            // can't do anything while we are not connected
+            return;
+        }
+
+        if (localCutPlaneComponent == null)
+        {
+            localCutPlaneComponent = gameObject.CreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
         }
 
         if (remoteEntitySync == null)
         {
             remoteEntitySync = gameObject.GetComponent<RemoteEntitySyncObject>();
+            remoteEntitySync.SyncEveryFrame = true;
         }
 
-        remoteEntitySync.SyncEveryFrame = cutEnabled;
-
-        if (cutPlaneComponent != null && cutPlaneComponent.RemoteComponent.IsValid)
-        {
-            cutPlaneComponent.RemoteComponent.Enabled = cutEnabled;
-        }
+        localCutPlaneComponent.RemoteComponent.Normal = Axis.X;
+        localCutPlaneComponent.RemoteComponent.FadeLength = 0.025f;
+        localCutPlaneComponent.RemoteComponent.FadeColor = new ColorUb(255, 128, 0, 255);
+        localCutPlaneComponent.RemoteComponent.Enabled = true;
     }
-```
 
-To activate the clip plane, create a GUI button:
-
-```csharp
-#if UNITY_EDITOR
-    private void OnGUI()
+    void OnDisable()
     {
-        if (RemoteManager.IsConnected)
+        if (localCutPlaneComponent && localCutPlaneComponent.IsComponentValid)
         {
-            int y = Screen.height - 50;
+            localCutPlaneComponent.RemoteComponent.Enabled = false;
+        }
 
-            if (GUI.Button(new Rect(50, y, 175, 30), "Toggle Cut Plane"))
-            {
-                ToggleCutPlane();
-            }
+        if (remoteEntitySync && remoteEntitySync.IsEntityValid)
+        {
+            remoteEntitySync.SyncEveryFrame = false;
         }
     }
-#endif
+}
 ```
 
-At this point, the cut plane is using an arbitrary plane direction along the x-axis, but may be difficult to see. Add an Update() function that will use the arrow keys to move and rotate the cut plane:
+When you run your code now, you should see how the model is cut open by the plane. You can select the *CutPlane* object and move and rotate it in the *Scene* window. You can toggle the cut plane on and off by disabling the cut plane object.
 
-```csharp
-    private void Update()
-    {
-        if (!RemoteManagerUnity.IsConnected || !cutEnabled)
-        {
-            return;
-        }
+## Next steps
 
-        Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            movement += Vector3.left;
-        }
+You now know the most important functionality for interacting with remote objects. In the next tutorial, we will have a look at customizing a scene's look.
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            movement += Vector3.right;
-        }
-
-        UnityEngine.Quaternion rotation = UnityEngine.Quaternion.identity;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            rotation *= UnityEngine.Quaternion.FromToRotation(transform.forward, transform.forward + Vector3.left);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            rotation *= UnityEngine.Quaternion.FromToRotation(transform.forward, transform.forward + Vector3.right);
-        }
-
-        // align the movement value to the objects rotation
-        movement = transform.rotation * movement;
-
-        transform.position = Vector3.Lerp(transform.position, transform.position + movement, Time.deltaTime * 0.5f);
-        transform.rotation = UnityEngine.Quaternion.Slerp(transform.rotation, transform.rotation * rotation, Time.deltaTime * 0.5f);
-    }
-```
+> [!div class="nextstepaction"]
+> [Tutorial: Changing the environment and materials](tutorial-3-changing-environment-and-materials.md)
