@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-In this quickstart, you use Python to programmatically create an *enrollment group* that uses intermediate or root CA X.509 certificates. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. The enrollment group is created using the V1 Python Provisioning Service SDK and a sample Python application.
+In this quickstart, you use Python to programmatically create an *enrollment group* that uses intermediate or root CA X.509 certificates. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. The enrollment group is created using the Python Provisioning Service SDK and a sample Python application.
 
 ## Prerequisites
 
