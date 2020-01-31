@@ -357,94 +357,64 @@ Insert the code below into the **RemoteRaycaster** script and remove the duplica
     }
 ```
 
+## Move objects
 
-
-
-## Moving focused RemoteObjects
-
-In the previous tutorial, the Unity GameObject transform was used to set an offset location for the model's root node. This was achieved using the RemoteEntitySyncObject SyncEveryFrame property.
-
-This can also be done dynamically by using focus to determine which object is selected and using the mouse to move the object around:
-
-```csharp
-    private bool hasFocus = false;
-```
-
-```csharp
-    public bool SetFocus()
-    {
-        ...
-
-        hasFocus = true;
-
-        ...
-    }
-
-    public void ResetFocus()
-    {
-        ...
-
-        hasFocus = false;
-
-        ...
-    }
-```
-
-Knowing the object has focus, in the Update method, track the mouse button state and determine how much to move the object:
+As a next step we want to move a selected object around. In the **RemoteRaycaster** script, insert this this code and remove the duplicate function:
 
 ```csharp
     private Vector3 lastPosition = Vector3.zero;
-```
 
-```csharp
     private void Update()
     {
-        if (!hasFocus)
+        if (!RemoteManagerUnity.IsConnected)
         {
             return;
         }
 
         if (Input.GetMouseButton(0))
         {
-            var curPosition = Input.mousePosition;
-            if (lastPosition == Vector3.zero)
+            if (focusedModel)
             {
-                lastPosition = curPosition;
+                // note: mousePosition is in 2D screen-space coordinates and has no relation with
+                // the 3D object position. This just happens to work good enough for demonstration.
+                var delta = Input.mousePosition - lastPosition;
+                focusedModel.transform.position += delta * Time.deltaTime;
             }
-
-            var delta = curPosition - lastPosition;
-
-            lastPosition = curPosition;
-
-            // update position
-            transform.position = Vector3.Lerp(transform.position, transform.position + delta, Time.deltaTime * 0.75f);
         }
         else
         {
-            lastPosition = Vector3.zero;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            Raycast(ray.origin, ray.direction);
+
+            if (Input.GetMouseButtonDown(1) && focusedModel != null)
+            {
+                focusedModel.ToggleIsolate();
+            }
         }
 
-        ...
+        lastPosition = Input.mousePosition;
     }
 ```
 
-For a focused object, when you hold the mouse button down, you can move the object in the scene. The Ray caster Update method will need to be modified to prevent losing the focus when the mouse is down. Remove the call to Ray cast and replace with the following in the RemoteRaycaster.cs file:
+> [!IMPORTANT]
+> If you run this code, you will notice that nothing happens. That's because changing an object's transform does not automatically synchronize the state change to the server, for performance reasons. Instead, you either have to push this state change to the server manually, or you enable **SyncEveryFrame** on the *RemoteEntitySyncObject* component.
+
+Here we will do the latter. Open the **RemoteModelEntity** script and add this line:
 
 ```csharp
-    private void Update()
+    public void OnEnable()
     {
         ...
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Raycast(ray.origin, ray.direction);
-        }
-        else if (!Input.GetMouseButton(0)) // held down this frame?
-        {
-            Raycast(ray.origin, ray.direction);
-        }
+        localSyncObject.SyncEveryFrame = true;
     }
 ```
+
+If you run the code again, you should be able to left-click on an object and drag the mouse to move the object around.
+
+
+
 
 ## Bounds of an entity
 
