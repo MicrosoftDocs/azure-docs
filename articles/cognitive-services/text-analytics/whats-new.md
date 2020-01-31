@@ -59,7 +59,7 @@ Entity linking supports English and Spanish. NER language support varies by the 
 #### Sentiment Analysis v3 public preview
 
 * A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) for analyzing sentiment.
-* [Model version](how-tos/text-analytics-how-to-sentiment-analysis.md#named-entity-recognition-versions-and-features) `2019-10-01`, which includes:
+* [Model version](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) `2019-10-01`, which includes:
 
     * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
     * Automatic labeling for different sentiments in text.

@@ -18,7 +18,7 @@ Recognize person names in text.
 Languages:
 * Public preview: `English`
 
-| Subtype name | Description                                               | Available starting with model version: |
+| Subtype name | Description                                               | Available starting with model version |
 |--------------|-----------------------------------------------------------|----------------------------------------|
 | N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
 
@@ -42,7 +42,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                    | Available starting with model version: |
+| Subtype name | Description                                    | Available starting with model version |
 |--------------|------------------------------------------------|----------------------------------------|
 | N/A          | US phone numbers, for example `(312) 555-0176` | `2020-02-01`                           |
 
@@ -54,7 +54,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                      | Available starting with model version: |
+| Subtype name | Description                                      | Available starting with model version |
 |--------------|--------------------------------------------------|----------------------------------------|
 | N/A          | Email address, for example `support@contoso.com` | `2020-02-01`                           |
 
@@ -66,7 +66,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                          | Available starting with model version: |
+| Subtype name | Description                                          | Available starting with model version |
 |--------------|------------------------------------------------------|----------------------------------------|
 | N/A          | URLs to websites, for example `https://www.bing.com` | `2020-02-01`                           |
 
@@ -78,7 +78,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                              | Available starting with model version: |
+| Subtype name | Description                              | Available starting with model version |
 |--------------|------------------------------------------|----------------------------------------|
 | N/A          | Network address for example `10.0.0.101` | `2020-02-01`                           |
 
@@ -90,7 +90,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                   | Available starting with model version: |
+| Subtype name | Description                   | Available starting with model version |
 |--------------|-------------------------------|----------------------------------------|
 | Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
 
@@ -102,7 +102,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                   | Available starting with model version: |
+| Subtype name | Description                   | Available starting with model version |
 |--------------|-------------------------------|----------------------------------------|
 | Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
@@ -114,7 +114,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                               | Available starting with model version: |
+| Subtype name | Description                               | Available starting with model version |
 |--------------|-------------------------------------------|----------------------------------------|
 | N/A          | GPS coordinates within the European Union | `2019-10-01`                           |
 
