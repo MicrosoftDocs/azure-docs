@@ -21,15 +21,12 @@ Application Insights is an extensible analytics service for web developers that 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * A functioning Java application.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
 ## Get an Application Insights instrumentation key
 
-1. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
-2. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
+3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
 

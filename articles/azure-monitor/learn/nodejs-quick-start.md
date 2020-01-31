@@ -22,15 +22,13 @@ With Azure Application Insights, you can easily monitor your web application for
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * A functioning Node.js application.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
 ## Enable Application Insights
 
 Application Insights can gather telemetry data from any internet-connected application, whether or not it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **Create a resource** > **Developer tools** > **Application Insights**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
    ![Add an Azure Application Insights resource](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -45,7 +43,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host AppInsights data. You can create a new resource group or use an existing one. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-2. Select **Create**.
+3. Select **Create**.
 
 ## Configure AppInsights SDK
 

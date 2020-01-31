@@ -22,15 +22,12 @@ With Azure Monitor Application Insights, you can easily monitor your website for
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * A website to which you can add the Application Insights JavaScript SDK.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
 ## Enable Application Insights
 
 Application Insights can gather telemetry data from any internet-connected application, running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **Create a resource** > **Management tools** > **Application Insights**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select **Create a resource** > **Management tools** > **Application Insights**.
 
    > [!NOTE]
    >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) article.
@@ -43,7 +40,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host Application Insights data. You can create a new resource group or use an existing one. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-2. Click **Create**.
+3. Click **Create**.
 
 ## Create an HTML file
 
