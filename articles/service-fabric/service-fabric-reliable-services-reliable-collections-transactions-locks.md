@@ -21,13 +21,12 @@ A transaction is a sequence of operations performed as a single logical unit of 
 Isolation level defines the degree to which the transaction must be isolated from modifications made by other transactions.
 There are two isolation levels that are supported in Reliable Collections:
 
-* **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes.
 * **Snapshot**: Specifies that data read by any statement in a transaction is the transactionally consistent version of the data that existed at the start of the transaction.
   The transaction can recognize only data modifications that were committed before the start of the transaction.
   Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
   The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
   Snapshots are consistent across Reliable Collections.
-  For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.
 Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
