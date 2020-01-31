@@ -43,9 +43,9 @@ landingContent:
           url: scenario-availability.md
         - text: Speech Devices SDK
           url: speech-devices-sdk.md
-        - text: Regions
+        - text: Supported regions
           url: regions.md
-        - text: Support
+        - text: Support and help
           url: support.md
 
 - title: Speech-to-text
@@ -89,7 +89,7 @@ landingContent:
           url: quickstarts/text-to-speech-audio-file.md
         - text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
-        - text: Async synthesis for long-form audio
+        - text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
     - linkListType: how-to-guide
       links:
@@ -200,6 +200,32 @@ landingContent:
         - text: Voice enable your bot with Speech SDK
           url: tutorial-voice-enable-your-bot-speech-sdk.md
 
+- title: Devices
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: About the Speech Devices SDK
+          url: speech-devices-sdk.md
+    - linkListType: quickstart
+      links:
+        - text: Use Speech Device SDK (Windows)
+          url: speech-devices-sdk-windows-quickstart.md
+        - text: Use Speech Device SDK (Linux)
+          url: speech-devices-sdk-linux-quickstart.md
+        - text: Use Speech Device SDK (Android)
+          url: speech-devices-sdk-android-quickstart.md
+
+- title: Migration
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Migrate from Bing Speech
+          url: how-to-migrate-from-bing-speech.md
+        - text: Migrate from the Custom Speech service
+          url: how-to-migrate-from-custom-speech-service.md
+        - text: Migrate from the Translator Speech API
+          url: how-to-migrate-from-translator-speech-api.md
+
 - title: Hosting
   linkLists:
     - linkListType: how-to-guide
@@ -208,6 +234,12 @@ landingContent:
           url: get-started.md#create-a-speech-resource-in-azure
         - text: Deploy Speech service containers
           url: speech-container-howto.md
+        - text: Configure containers
+          url: speech-container-configuration.md
+        - text: Deploy Speech service containers with Kubernetes
+          url: speech-container-howto-on-premises.md
+        - text: Deploy Speech service containers on Azure Container Instances
+          url: speech-container-howto-on-container instances.md
     - linkListType: reference
       links:
         - text: Supported regions
