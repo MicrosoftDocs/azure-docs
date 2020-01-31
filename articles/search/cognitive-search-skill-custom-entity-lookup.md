@@ -24,9 +24,9 @@ This skill is not bound to a Cognitive Services API and can be used free of char
 Microsoft.Skills.Text.CustomEntityLookupSkill 
 
 ## Data limits
-1. The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
-1. The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefitionUri* parameter. 
-1. If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
++ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
++ The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefitionUri* parameter. 
++ If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
 
 ## Skill parameters
 
