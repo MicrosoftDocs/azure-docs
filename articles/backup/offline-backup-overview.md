@@ -22,7 +22,7 @@ Offline-Backup is offered in two modes based on the ownership of the storage dev
 
 ## Azure Data Box based Offline Backup (Preview)
 
-This mode is currently supported in only in preview. With the MARS Agent, this option takes advantage of the [Azure Data Box service](https://azure.microsoft.com/services/databox/) to ship Microsoft-proprietary, secure, and tamper-resistant transfer appliances with USB connectors, to your datacenter or remote office and backup data is  directly written onto these devices. **This option saves the effort required to procure your own Azure compatible disks and connectors or provisioning temporary storage as a staging location.** In addition, Microsoft handles the end-to-end transfer logistics, which you can track through the Azure portal. An architecture describing the movement of backup data with this option is shown below.
+This mode is currently supported with the MARS Agent, in preview. This option takes advantage of the [Azure Data Box service](https://azure.microsoft.com/services/databox/) to ship Microsoft-proprietary, secure, and tamper-resistant transfer appliances with USB connectors, to your datacenter or remote office and backup data is  directly written onto these devices. **This option saves the effort required to procure your own Azure compatible disks and connectors or provisioning temporary storage as a staging location.** In addition, Microsoft handles the end-to-end transfer logistics, which you can track through the Azure portal. An architecture describing the movement of backup data with this option is shown below.
 
 ![Azure Backup Data Box architecture](./media/offline-backup-overview/azure-backup-databox-architecture.png)
 
