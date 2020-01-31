@@ -66,7 +66,7 @@ To configure and test Azure AD SSO with Tableau Online, complete the following b
     1. **[Create Tableau Online test user](#create-tableau-online-test-user)** - to have a counterpart of B.Simon in Tableau Online that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -220,7 +220,7 @@ In this section, you create a user called Britta Simon in Tableau Online.
 
 3. Click **Add Users**.
 
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

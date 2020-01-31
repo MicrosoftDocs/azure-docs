@@ -66,7 +66,7 @@ To configure and test Azure AD SSO with Wdesk, complete the following building b
     1. **[Create Wdesk test user](#create-wdesk-test-user)** - to have a counterpart of B.Simon in Wdesk that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -240,7 +240,7 @@ To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdes
 
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser5.png)
 
-### Test single sign-on 
+### Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

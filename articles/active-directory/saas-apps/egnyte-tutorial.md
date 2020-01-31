@@ -69,7 +69,7 @@ To configure and test Azure AD SSO with Egnyte, complete the following building 
     1. **[Create Egnyte test user](#create-egnyte-test-user)** - to have a counterpart of B.Simon in Egnyte that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -232,7 +232,7 @@ To enable Azure AD users to sign in to Egnyte, they must be provisioned into Egn
 >You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision Azure AD user accounts.
 >
 
-### Test single sign-on 
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
