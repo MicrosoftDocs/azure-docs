@@ -17,7 +17,7 @@ In this quickstart, you upload input data into an Azure Blob storage account, an
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- [Python 2.7.12+](https://www.python.org/downloads/release/python-2714/), with `pip` installed, and `python` in your system path.
+- [Python 2.7.12+](https://www.python.org/downloads/release/python-2714/), with `pip` installed, and `python` in your system path. The Microsoft Genomics client isn't compatible with Python 3. 
 
 ## Set up: Create a Microsoft Genomics account in the Azure portal
 
