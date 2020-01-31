@@ -32,7 +32,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 ## Updates (January 2020)
 
 ### Update rollup 44
-[Update rollup 44](hhttps://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) provides the following updates.
+[Update rollup 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) provides the following updates.
 
 **Update** | **Details**
 --- | ---
@@ -40,7 +40,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 ### Azure VMware disaster recovery
 
-Azure virtual machines now support VMs enable for encryption-at-rest with customer-managed keys. [Learn more](azure-to-azure-how-to-enable-replication-cmk-disks.md)
+Azure virtual machines now support VMs enable for encryption-at-rest with customer-managed keys. [Learn more](azure-to-azure-how-to-enable-replication-cmk-disks.md).
 
 
 ### Update rollup 43
