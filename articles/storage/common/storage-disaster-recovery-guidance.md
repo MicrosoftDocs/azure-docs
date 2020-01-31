@@ -123,21 +123,6 @@ Account failover is available in preview for all customers using GRS or RA-GRS w
 
 The preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
-### Register for the preview
-
-To register for the preview, run the following commands in PowerShell. Make sure to replace the placeholder in brackets with your own subscription ID:
-
-```powershell
-Connect-AzAccount -SubscriptionId <subscription-id>
-Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
-It can take 5-7 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
-
-```powershell
-Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
 ### Additional considerations
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.

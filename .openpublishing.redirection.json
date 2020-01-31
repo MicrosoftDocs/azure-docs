@@ -790,7 +790,6 @@
       "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-kb-nodejs-sdk.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/quickstart-sdk",
@@ -4241,7 +4240,7 @@
       "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/azure-supportability/classic-deployment-model-quota-increase-requests.md",
       "redirect_url": "/azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests",
       "redirect_document_id": true
@@ -4286,7 +4285,7 @@
       "redirect_url": "/azure/azure-portal/supportability/resource-manager-core-quotas-request",
       "redirect_document_id": true
     },
-	    {
+    {
       "source_path": "articles/azure-supportability/sku-series-unavailable.md",
       "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
       "redirect_document_id": true
@@ -5592,49 +5591,49 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-apps.md",
-        "redirect_url": "/azure/active-directory-b2c/application-types",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-apps.md",
+      "redirect_url": "/azure/active-directory-b2c/application-types",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-configure-signup-self-asserted-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-configure-user-input",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-configure-signup-self-asserted-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-configure-user-input",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-create-custom-attributes-profile-edit-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-custom-attributes",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-create-custom-attributes-profile-edit-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-custom-attributes",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
-        "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-guide-eventlogger-appins.md",
+      "redirect_url": "/azure/active-directory-b2c/analytics-with-application-insights",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-developer-notes-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-developer-notes",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-developer-notes-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-developer-notes",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-get-started",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-get-started",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-overview-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-manage-sso-and-token-configuration.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-manage-sso-and-token-config",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-manage-sso-and-token-configuration.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-manage-sso-and-token-config",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-mfa.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-multi-factor-authentication",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-mfa.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-multi-factor-authentication",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-audit-logs.md",
@@ -5642,44 +5641,44 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-custom-attr.md",
-        "redirect_url": "/azure/active-directory-b2c/user-flow-custom-attributes",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-custom-attr.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-custom-attributes",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-disable-ev.md",
-        "redirect_url": "/azure/active-directory-b2c/user-flow-disable-email-verification",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-disable-ev.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-disable-email-verification",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-language-customization.md",
-        "redirect_url": "/azure/active-directory-b2c/user-flow-language-customization",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-language-customization.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-language-customization",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-complexity.md",
-        "redirect_url": "/azure/active-directory-b2c/user-flow-password-complexity",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-complexity.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-password-complexity",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-policies.md",
-        "redirect_url": "/azure/active-directory-b2c/user-flow-overview",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-policies.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-overview",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api.md",
-        "redirect_url": "/azure/active-directory-b2c/view-usage-reports",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api.md",
+      "redirect_url": "/azure/active-directory-b2c/view-usage-reports",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
-        "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
+      "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-user-migration.md",
-        "redirect_url": "/azure/active-directory-b2c/user-migration",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-user-migration.md",
+      "redirect_url": "/azure/active-directory-b2c/user-migration",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-guide-troubleshooting-custom.md",
@@ -5687,49 +5686,49 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-threat-management.md",
-        "redirect_url": "/azure/active-directory-b2c/threat-management",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-threat-management.md",
+      "redirect_url": "/azure/active-directory-b2c/threat-management",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-tokens.md",
-        "redirect_url": "/azure/active-directory-b2c/tokens-overview",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-tokens.md",
+      "redirect_url": "/azure/active-directory-b2c/tokens-overview",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-troubleshoot-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/troubleshoot-with-application-insights",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-troubleshoot-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/troubleshoot-with-application-insights",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi.md",
-        "redirect_url": "/azure/active-directory-b2c/tutorial-desktop-app-webapi",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-desktop-app-webapi",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-desktop-app.md",
-        "redirect_url": "/azure/active-directory-b2c/tutorial-desktop-app",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-desktop-app.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-desktop-app",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi.md",
-        "redirect_url": "/azure/active-directory-b2c/tutorial-single-page-app-webapi",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-single-page-app-webapi",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-spa.md",
-        "redirect_url": "/azure/active-directory-b2c/tutorial-single-page-app",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-spa.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-single-page-app",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-web-api.md",
-        "redirect_url": "/azure/active-directory-b2c/tutorial-web-api-dotnet",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-web-api.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-web-api-dotnet",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-web-app.md",
-        "redirect_url": "/azure/active-directory-b2c/tutorial-web-app-dotnet",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-tutorials-web-app.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-web-app-dotnet",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md",
@@ -5737,49 +5736,49 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
-        "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
-        "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
+      "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
-        "redirect_url": "/azure/active-directory-b2c/signin-appauth-android",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
+      "redirect_url": "/azure/active-directory-b2c/signin-appauth-android",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-ios.md",
-        "redirect_url": "/azure/active-directory-b2c/signin-appauth-ios",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-ios.md",
+      "redirect_url": "/azure/active-directory-b2c/signin-appauth-ios",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app.md",
-        "redirect_url": "/azure/active-directory-b2c/quickstart-native-app-desktop",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app.md",
+      "redirect_url": "/azure/active-directory-b2c/quickstart-native-app-desktop",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-spa.md",
-        "redirect_url": "/azure/active-directory-b2c/quickstart-single-page-app",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-spa.md",
+      "redirect_url": "/azure/active-directory-b2c/quickstart-single-page-app",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-web-app.md",
-        "redirect_url": "/azure/active-directory-b2c/quickstart-web-app-dotnet",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-quickstarts-web-app.md",
+      "redirect_url": "/azure/active-directory-b2c/quickstart-web-app-dotnet",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-protocols.md",
-        "redirect_url": "/azure/active-directory-b2c/protocols-overview",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-protocols.md",
+      "redirect_url": "/azure/active-directory-b2c/protocols-overview",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-support.md",
-        "redirect_url": "/azure/active-directory-b2c/support-options",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-support.md",
+      "redirect_url": "/azure/active-directory-b2c/support-options",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-twitter-idp.md",
@@ -5787,49 +5786,49 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet.md",
-        "redirect_url": "/azure/active-directory-b2c/manage-user-accounts-graph-api",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/manage-user-accounts-graph-api",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-overview.md",
-        "redirect_url": "/azure/active-directory-b2c/overview",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/overview",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-oidc.md",
-        "redirect_url": "/azure/active-directory-b2c/openid-connect",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-oidc.md",
+      "redirect_url": "/azure/active-directory-b2c/openid-connect",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-spa.md",
-        "redirect_url": "/azure/active-directory-b2c/implicit-flow-single-page-application",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-spa.md",
+      "redirect_url": "/azure/active-directory-b2c/implicit-flow-single-page-application",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-goog-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-goog-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-twitter-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-twitter-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-wechat-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-wechat",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-wechat-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-wechat",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-weibo-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-weibo",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-weibo-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-weibo",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
-        "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-social-migration.md",
+      "redirect_url": "/azure/active-directory-b2c/migrate-social-identities",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
@@ -5837,49 +5836,49 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin-custom",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin-custom",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-msa-idp.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account-custom",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-msa-idp.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account-custom",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-fb-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-facebook",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-fb-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-facebook",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-github-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-github",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-github-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-github",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-msa-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-msa-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-oidc-idp.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-generic-openid-connect",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-oidc-idp.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-generic-openid-connect",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-qq-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-qq",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-qq-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-qq",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-sf-app-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-salesforce-custom",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-sf-app-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-salesforce-custom",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-adfs2016-idp.md",
@@ -5887,99 +5886,99 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
-        "redirect_url": "/azure/active-directory-b2c/faq",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-faqs.md",
+      "redirect_url": "/azure/active-directory-b2c/faq",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-extensions-app.md",
-        "redirect_url": "/azure/active-directory-b2c/extensions-app",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-extensions-app.md",
+      "redirect_url": "/azure/active-directory-b2c/extensions-app",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-tenant-type.md",
-        "redirect_url": "/azure/active-directory-b2c/data-residency",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-tenant-type.md",
+      "redirect_url": "/azure/active-directory-b2c/data-residency",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-aad-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant-custom",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-aad-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant-custom",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-amzn-app.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-amzn-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-commonaad-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-commonaad-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom-dynamic.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization-dynamic",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom-dynamic.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization-dynamic",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/setup-amazon-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon-custom",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/setup-amazon-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon-custom",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-change-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-password-change",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-change-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-password-change",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-complexity-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-password-complexity",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-password-complexity-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-password-complexity",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-sso-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-reference-sso",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-sso-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-reference-sso",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-trustframeworks-defined-ief-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-trust-frameworks",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-trustframeworks-defined-ief-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-trust-frameworks",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-rest-api-step-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-exchange",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-rest-api-step-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-exchange",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-rest-api-validation-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-validation",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-rest-api-validation-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-validation",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
-        "redirect_url": "/azure/active-directory-b2c/billing",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
+      "redirect_url": "/azure/active-directory-b2c/billing",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-kmsi-custom.md",
-        "redirect_url": "/azure/active-directory-b2c/custom-policy-keep-me-signed-in",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-kmsi-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-keep-me-signed-in",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-oauth-code.md",
-        "redirect_url": "/azure/active-directory-b2c/authorization-code-flow",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-oauth-code.md",
+      "redirect_url": "/azure/active-directory-b2c/authorization-code-flow",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-app-registration.md",
@@ -6484,6 +6483,31 @@
     {
       "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-decode.md",
       "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-your-logic-apps.md",
+      "redirect_url": "/azure/logic-apps/monitor-logic-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-your-logic-apps-oms.md",
+      "redirect_url": "/azure/logic-apps/monitor-logic-apps-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-monitor-b2b-message.md",
+      "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal.md",
+      "redirect_url": "/azure/logic-apps/monitor-b2b-messages-log-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md",
+      "redirect_url": "/azure/logic-apps/create-monitoring-tracking-queries",
       "redirect_document_id": false
     },
     {
@@ -13267,6 +13291,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-managed-service-identity.md",
+      "redirect_url": "/azure/event-hubs/authenticate-managed-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-node-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
       "redirect_document_id": false
@@ -14671,7 +14700,6 @@
       "redirect_url": "/azure/machine-learning/how-to-enable-logging",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/machine-learning/service/how-to-enable-virtual-network.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
@@ -14848,9 +14876,9 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
-        "redirect_url": "/azure/machine-learning/tutorial-setup-vscode-extension",
-        "redirect_document_id": true
+      "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
+      "redirect_url": "/azure/machine-learning/tutorial-setup-vscode-extension",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/monitor-azure-machine-learning.md",
@@ -19259,7 +19287,8 @@
     },
     {
       "source_path": "articles/service-fabric/service-fabric-backuprestoreservice-ondemand-backup.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-backup-restore-service-ondemand-backup"
+      "redirect_url": "/azure/service-fabric/service-fabric-backup-restore-service-ondemand-backup",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/service-fabric/service-fabric-reliable-services-reliable-collections-internals.md",
@@ -35992,6 +36021,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/access-panel-workspaces.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-collections",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/application-access-self-service-how-to.md",
       "redirect_url": "/azure/active-directory/manage-apps/manage-self-service-access",
       "redirect_document_id": true
@@ -37058,7 +37092,8 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart"
+      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
@@ -41796,10 +41831,10 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
-        "redirect_document_id": true
-      },
+      "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -44921,6 +44956,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/scripts/storage-common-transfer-between-storage-accounts.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-use-azcopy.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
       "redirect_document_id": false
@@ -47285,7 +47325,7 @@
       "redirect_url": "/azure/cost-management-billing/understand/mpa-overview",
       "redirect_document_id": true
     },
-       {
+    {
       "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
       "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
       "redirect_document_id": false
@@ -47311,9 +47351,9 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/backup/backup-azure-files.md",
-        "redirect_url": "/azure/backup/backup-afs",
-        "redirect_document_id": false
+      "source_path": "articles/backup/backup-azure-files.md",
+      "redirect_url": "/azure/backup/backup-afs",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/load-balancer/load-balancer-arm.md",
@@ -47408,6 +47448,61 @@
     {
       "source_path": "articles/load-balancer/load-balancer-standard-public-zonal-cli.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-cpp-linux.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-cpp-macos.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-dotnet-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet&pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-dotnetcore-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnetcore&pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-unity.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=unity&pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=uwp&pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-xamarin.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=xaml&pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python",
       "redirect_document_id": false
     }
   ]

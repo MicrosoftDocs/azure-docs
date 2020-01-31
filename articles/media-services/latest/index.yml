@@ -121,6 +121,8 @@ landingContent:
         links:
           - text: Media analytics
             url: analyzing-video-audio-files-concept.md
+          - text: Compliance, Privacy and Security
+            url: analyzing-video-audio-files-concept.md#compliance-privacy-and-security
       - linkListType: tutorial
         links:
           - text: Analyze videos
