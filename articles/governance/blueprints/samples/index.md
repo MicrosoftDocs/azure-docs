@@ -1,5 +1,5 @@
 ---
-title: Index of Blueprint samples
+title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
 ms.date: 01/10/2020
 ms.topic: sample
@@ -29,13 +29,13 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |
 | [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you set up for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index). |
 
-## Samples Strategy
+## Samples strategy
 
 ![Blueprint samples strategy](../media/blueprint-samples-strategy.png)
 
 The CAF foundation and the CAF Migrate landing zone blueprints assume that the customer is preparing
-an existing clean single subscription for migrating on premises assets / workloads in to Azure.
-(Region A and B in Figure above).  
+an existing clean single subscription for migrating on-premises assets and workloads in to Azure.
+(Region A and B in the figure).  
 
 There's an opportunity to iterate on the sample blueprints and look for patterns of customizations
 that a customer is applying. There is also an opportunity to proactively address blueprints that are
@@ -45,8 +45,8 @@ high availability, cross region resources and customers who are implementing con
 subscriptions and resources (Region C and D).
 
 There are sample blueprints that address customer scenario where the compliance requirements are
-high and the architectural complexities are high (Region E in Figure above). The region F above is
-one that will be addressed by customers and partners leveraging the sample blueprints and
+high and the architectural complexities are high (Region E in the figure). Region F in the figure is
+one that will be addressed by customers and partners who are leveraging the sample blueprints and
 customizing it for their unique needs.
 
 ## Next steps
