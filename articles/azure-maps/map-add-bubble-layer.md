@@ -3,7 +3,7 @@ title: Add a Bubble layer to a map | Microsoft Azure Maps
 description: In this article, you will learn about how to add a Bubble layer to a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 01/30/2020
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
