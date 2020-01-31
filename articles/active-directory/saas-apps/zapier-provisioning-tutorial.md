@@ -1,54 +1,50 @@
 ---
 title: 'Tutorial: Configure Zapier for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zapier.
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zapier.
 services: active-directory
 documentationcenter: ''
-author: zchia
-writer: zchia
+author: Zhchia
+writer: Zhchia
 manager: beatrizd
 
-ms.assetid: 5367947b-0557-4a60-935b-52029551ac42
+ms.assetid: 66e224f9-2311-4564-bb84-99fce59a398f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 01/24/2020
 ms.author: Zhchia
 ---
 
 # Tutorial: Configure Zapier for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Zapier and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Zapier.
+This tutorial describes the steps you need to perform in both Zapier and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Zapier](https://zapier.com/pricing) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
->
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Capabilities Supported
+> [!div class="checklist"]
+> * Create users in Zapier
+> * Remove users in Zapier when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and Zapier
+> * Provision groups and group memberships in Zapier
+> * Single sign-on to Zapier (recommended)
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant
-* [A Zapier tenant](https://zapier.com/pricing)
+* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A user account in Zapier with Admin permissions.
 
-## Assigning users to Zapier
+## Step 1. Plan your provisioning deployment
+1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine what data to [map between Azure AD and Zapier](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
-
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zapier. Once decided, you can assign these users and/or groups to Zapier by following the instructions here:
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
-
-## Important tips for assigning users to Zapier
-
-* It is recommended that a single Azure AD user is assigned to Zapier to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
-
-* When assigning a user to Zapier, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
-
-## Setup Zapier for provisioning
+## Step 2. Configure Zapier to support provisioning with Azure AD
 
 1. Sign in to your [Zapier Admin Console](https://zapier.com/app/login/). Navigate to **Settings** under the tenant ID.
 
@@ -62,36 +58,24 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Zapier Create Token](media/zapier-provisioning-tutorial/token.png)
 
-## Add Zapier from the gallery
+## Step 3. Add Zapier from the Azure AD application gallery
 
-Before configuring Zapier for automatic user provisioning with Azure AD, you need to add Zapier from the Azure AD application gallery to your list of managed SaaS applications.
+Add Zapier from the Azure AD application gallery to start managing provisioning to Zapier. If you have previously setup Zapier for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-**To add Zapier from the Azure AD application gallery, perform the following steps:**
+## Step 4. Define who will be in scope for provisioning 
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-	![The Azure Active Directory button](common/select-azuread.png)
+* When assigning users and groups to Zapier, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, select the **New application** button at the top of the pane.
+## Step 5. Configure automatic user provisioning to Zapier 
 
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Zapier**, select **Zapier** in the results panel, and then click the **Add** button to add the application.
-
-	![Zapier in the results list](common/search-new-app.png)
-
-## Configuring automatic user provisioning to Zapier 
-
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zapier based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Zapier in Azure AD:
-
-> [!NOTE]
-> To learn more about Zapier's SCIM endpoint, refer [Provision user accounts with SCIM](https://zapier.com/help/account/companies/provision-user-accounts-with-scim#user-provisioning-scim).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -109,31 +93,37 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input **SCIM Base URL** retrieved earlier in **Tenant URL**. Input the **SCIM Bearer Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zapier. If the connection fails, ensure your Zapier account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input your Zapier **Tenant URL** and **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zapier. If the connection fails, ensure your Zapier account has Admin permissions and try again.
 
-	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+ 	![provisioning](./media/zapier-provisioning-tutorial/provisioning.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+7. Select **Save**.
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zapier**.
 
-	![Zapier User Mappings](media/zapier-provisioning-tutorial/usermappings.png)
+9. Review the user attributes that are synchronized from Azure AD to Zapier in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zapier for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the Zapier API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-9. Review the user attributes that are synchronized from Azure AD to Zapier in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zapier for update operations. Select the **Save** button to commit any changes.
-
-	![Zapier User Attributes](media/zapier-provisioning-tutorial/userattributes.png)
+   |Variable|Type|
+   |---|---|
+   |userName|String|
+   |active|Boolean|
+   |externalId|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |emails[type eq "work"].value|String|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zapier**.
 
-	![Zapier Group Mappings](media/zapier-provisioning-tutorial/groupmappings.png)
+11. Review the group attributes that are synchronized from Azure AD to Zapier in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zapier for update operations. Select the **Save** button to commit any changes.
 
-11. Review the group attributes that are synchronized from Azure AD to Zapier in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zapier for update operations. Select the **Save** button to commit any changes.
-
-	![Zapier Group Attributes](media/zapier-provisioning-tutorial/groupattributes.png)
+      |Variable|Type|
+      |---|---|
+      |displayName|String|
+      |members|Reference|
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,9 +139,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zapier.
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
+
+1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## Additional resources
 
@@ -161,4 +156,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
