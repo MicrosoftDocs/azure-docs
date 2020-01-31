@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/16/2019
+ms.date: 01/31/2020
 #Customer intent: As a professional data scientist, I want to learn how to get started with the Azure Machine Learning Visual Studio Code Extension.
 ---
 
@@ -27,6 +27,7 @@ In this tutorial, you learn the following tasks:
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor. 
+- [Python 3](https://www.python.org/downloads/)
 
 ## Install the extension
 
@@ -47,7 +48,7 @@ In order to provision resources and run workloads on Azure, you have to sign in 
 1. Open the command palette by selecting **View > Command Palette** from the menu bar. 
 1. Enter the command "Azure: Sign In" into the text box to start the sign in process.
 
-## Run a script in Azure
+## Run a machine learning model training script in Azure
 
 Now that you have signed into Azure with your account credentials, Use the steps in this section to learn how to use the extension to train a machine learning model.
 
@@ -75,16 +76,16 @@ Now that you have signed into Azure with your account credentials, Use the steps
 
     ```json
     {
-        "workspace": "WS12191742",
-        "resourceGroup": "WS12191742-rg2",
+        "workspace": "WS01311608",
+        "resourceGroup": "WS01311608-rg1",
         "location": "South Central US",
-        "experiment": "WS12191742-exp2",
+        "experiment": "WS01311608-exp1",
         "compute": {
-            "name": "WS12191742-com2",
+            "name": "WS01311608-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS12191742-com2-rc1",
+            "filename": "WS01311608-com1-rc1",
             "condaDependencies": [
                 "python=3.6.2",
                 "tensorflow=1.15.0"
@@ -97,7 +98,31 @@ Now that you have signed into Azure with your account credentials, Use the steps
     ```
 
 1. Select **Submit experiment** to run your experiment in Azure. This sends the `train.py` and configuration file to your Azure Machine Learning workspace. The training job is then started on a compute resource in Azure.
-1. After several minutes, a directory called `output` is created locally containing a trained TensorFlow model.
+
+### Track the progress of the training script
+
+Running your script can take several minutes. To track its progress:
+
+1. Select the **Azure** icon from the activity bar.
+1. Expand your subscription node.
+1. Expand your currently running experiment's node. This is located inside the `{workspace}/Experiments/{experiment}` node where the values for your workspace and experiment are the same as the properties defined in the configuration file.
+1. All of the runs as well as their status for the experiment are listed. To get the most recent status, click the refresh icon at the top of the Azure Machine Learning View.
+
+    > [!div class="mx-imgBorder"]
+    > ![Track Experiment Progress](./media/tutorial-setup-vscode-extension/track-experiment-progress.PNG)
+
+### Download the trained model
+
+When the experiment run is complete, the output is a trained model. To download the outputs locally:
+
+1. Right-click the most recent run and select **Download Outputs**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Download Trained Model](./media/tutorial-setup-vscode-extension/download-trained-model.PNG)
+
+1. Select a location where to save the outputs to.
+1. A folder with the name of your run is downloaded locally. Navigate to it.
+1. The model files are inside the `outputs/outputs/model` directory.
 
 ## Next steps
 
