@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -74,7 +74,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. Additionally, the internal cmdlets allow you to retrieve secrets from encrypted **Variable** values, **Credentials**, and encrypted **Connection** fields. The Azure PowerShell cmdlets are not able to retrieve these secrets. These cmdlets do not require you to implicitly connect to Azure when using them, such as using a Run As Account to authenticate to Azure.
 
 >[!NOTE]
->These internal cmdlets are not available on a Hybrid Runbook Worker, they are only accessible from runbooks running in Azure. Use the corresponding [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) or [Az modules](../az-modules.md) for runbooks running directly on the computer or against resources in your environment. 
+>These internal cmdlets are available on a Windows Hybrid Runbook Worker, they are not available on a Linux Hybrid Runbook Worker. Use the corresponding [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) or [Az modules](../az-modules.md) for runbooks running directly on the computer or against resources in your environment. 
 >
 
 |Name|Description|
