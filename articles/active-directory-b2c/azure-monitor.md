@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure AD B2C with Azure Monitor
 titleSuffix: Azure AD B2C
-description: Learn how to log events in your Azure AD B2C directory with Azure Monitor by using delegated resource management.
+description: Learn how to log Azure AD B2C events with Azure Monitor by using delegated resource management.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -15,9 +15,9 @@ ms.subservice: B2C
 
 # Monitor Azure AD B2C with Azure Monitor
 
-With Azure Active Directory B2C (Azure AD B2C) monitoring, you can route your Azure AD B2C activity logs to different monitoring solutions. You can either retain them for long-term use or integrate with third-party Security Information and Event Management (SIEM) tools to gain insights into your environment.
+With Azure Active Directory B2C (Azure AD B2C) monitoring, you can route your Azure AD B2C activity logs to different monitoring solutions. You can either retain them for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 
-Currently, you can route the logs to:
+You can route logs to:
 
 - An Azure storage account.
 - An Azure event hub (and integrate with your Splunk and Sumologic instances).
@@ -35,7 +35,9 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com) which includes
 
 ## Delegated resource management
 
-Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable **Diagnostic settings** to use Azure Monitor for your Azure AD B2C directory, you use [delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+
+In this case, the **Customer** is your Azure AD tenant, while the **Service Provider** is your Azure AD B2C tenant.
 
 ## Create a resource group
 
@@ -57,11 +59,11 @@ Start by gathering the following information.
 
 * With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user. Record the users's **Object ID**.
 
-  You authorize the user in the Azure AD B2C directory to configure Azure Monitor, which is hosted in an Azure Subscription within another tenant, by [deploying an Azure Resource Manager template to your Azure AD tenant](../lighthouse/how-to/onboard-customer.md) for one or more specific subscriptions or resource groups.
+  You authorize the user in your Azure AD B2C directory to configure the Azure Monitor instance within the tenant that contains your Azure Subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant] for the subscription.
 
 ### Create an Azure Resource Manager template
 
-To onboard your Azure AD tenant, you'll need to create an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) template for your offer with the following information. The **mspOfferName** and **mspOfferDescription** values are visible to the you when viewing offer details in the [Service providers page](https://docs.microsoft.com/azure/lighthouse/how-to/view-manage-service-providers) of the Azure portal.
+To onboard your Azure AD tenant, create an [Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md) for your offer with the following information. The `mspOfferName` and `mspOfferDescription` values are visible when you view offer details in the [Service providers page](../lighthouse/how-to/view-manage-service-providers.md) of the Azure portal.
 
 |Field  |Definition  |
 |---------|---------|
@@ -76,7 +78,7 @@ Download the Azure resource manager template and parameter files:
 - [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-The following is an example of an Azure Resource Manager Template parameters file. For the authorizations.value.roleDefinitionId you can use the **Contributor role** `b24988ac-6180-42a0-ab88-20f7382dd24c`. See the list of [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+Next, update the parameters file with the values you recorded earlier. The following JSON snippet shows an example of an Azure Resource Manager template parameters file. For the `authorizations.value.roleDefinitionId` use the [built-in role](../role-based-access-control/built-in-roles.md) value for the *Contributor role*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
 ```JSON
 {
@@ -110,41 +112,35 @@ The following is an example of an Azure Resource Manager Template parameters fil
 
 ### Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Azure Resource Manager template into the Azure tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
+Once you've updated your parameters file, deploy the Azure Resource Manager template into the Azure tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
 
-Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below. Learn more bout [Onboard a customer to Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#deploy-the-azure-resource-manager-templates). Note: In this case, the **Customer** is your Azure AD tenant, while the **Service Provider** is your Azure AD B2C tenant.
+Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using Azure PowerShell or the Azure CLI. The Azure PowerShell method is shown below.
 
-Log in with [Connect-AzAccount](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-3.1.0) to your subscription, with into the Azure AD tenant. You can use the `-tenant` flag to force the authentication to the correct Azure AD.
-
-```PowerShell
-Connect-AzAccount
-```
-
-Or to force the authentication against the appropriate tenant
+Sign in to the directory containing your subscription by using [Connect-AzAccount](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-3.1.0). Use the `-tenant` flag to force authentication to the correct directory.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
 ```
 
-Use the [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.1.0) cmdlet to list the subscriptions that the current account can access under the Azure AD tenant. Copy the Id of the subscription you want to project into Azure AD B2C tenant.
+Use the [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.1.0) cmdlet to list the subscriptions that the current account can access under the Azure AD tenant. Copy the ID of the subscription you want to project into Azure AD B2C tenant.
 
 ```PowerShell
 Get-AzSubscription
 ```
 
-Then switch to the subscription you want to project to Azure AD B2C tenant, using the Select-AzSubscription
+Then, switch to the subscription you want to project to Azure AD B2C tenant:
 
 ``` PowerShell
-Select-AzSubscription <subscription Id>
+Select-AzSubscription <subscription ID>
 ```
 
-Deploy Azure Resource Manager template using template and parameter file locally, using the [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment?view=azps-3.1.0)
+Finally, deploy the Azure Resource Manager template template and parameter files you downloaded and updated earlier. Replace the `Location`, `TemplateFile`, and `TemplateParameterFile` values accordingly.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
                  -Location "centralus" `
-                 -TemplateFile "C:\Users\david\Documents\rgDelegatedResourceManagement.json" `
-                 -TemplateParameterFile "C:\Users\david\Documents\rgDelegatedResourceManagement.parameters.json" `
+                 -TemplateFile "C:\Users\azureuser\Documents\rgDelegatedResourceManagement.json" `
+                 -TemplateParameterFile "C:\Users\azureuser\Documents\rgDelegatedResourceManagement.parameters.json" `
                  -Verbose
 ```
 
@@ -158,8 +154,7 @@ In the Azure AD B2C tenant:
 2. Select **Customers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
-> [!IMPORTANT]
-> In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
+    In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
 
 In the Azure AD tenant:
 
@@ -167,8 +162,7 @@ In the Azure AD tenant:
 2. Select **Service provider offers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
-> [!NOTE]
-> It may take a few minutes after your deployment is complete before the updates are reflected in the Azure portal.
+It might take several minutes after your deployment is complete before the updates are reflected in the Azure portal.
 
 ## Select your subscription
 
@@ -183,13 +177,18 @@ To associate an existing subscription to your Azure AD directory, follow these s
 
     ![Switch directory](./media/azure-monitor/switch-directory.png)
 
-## Next steps
+## Configure diagnostic settings
 
-After you delegate permissions to your Azure AD B2C user or group, you can [Create diagnostic settings in Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/overview-monitoring).
+After you delegate permissions to your Azure AD B2C user or group, you can [Create diagnostic settings in Azure portal](../active-directory/reports-monitoring/overview-monitoring.md).
 
 To configure monitoring settings for Azure AD B2C activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the **Diagnostic settings** configuration page in two ways:
 
 - Select **Diagnostic settings** from the **Monitoring** section.
 
     ![Diagnostics settings](https://docs.microsoft.com/azure/active-directory/reports-monitoring/media/overview-monitoring/diagnostic-settings.png)
+
 - Select **+Add diagnostic setting**.
+
+## Next steps
+
+TODO
