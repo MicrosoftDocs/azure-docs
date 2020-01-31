@@ -13,6 +13,18 @@ ms.service: azure-remote-rendering
 
 # Tutorial: Working with remote entities in Unity
 
+The [previous tutorial](tutorial-1-unity-project-setup.md) showed how to configure a new Unity project to work with Azure Remote Rendering. In this tutorial we will have a look at the most common functionality that every ARR user needs.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Be awesome.
+
+## Prerequisites
+
+* A Unity project that is [configured for ARR usage](tutorial-1-unity-project-setup.md).
+
 ## Ray casting
 
 Create a new script called RemoteRaycaster.cs and add the following member variables:
@@ -607,3 +619,10 @@ At this point, the cut plane is using an arbitrary plane direction along the x-a
         transform.rotation = UnityEngine.Quaternion.Slerp(transform.rotation, transform.rotation * rotation, Time.deltaTime * 0.5f);
     }
 ```
+
+## Next steps
+
+You now know the most frequently used methods for interacting with a scene. In the next tutorial, we will have a look at customizing a scenes look by modifying the sky map and materials on models.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Changing the environment and materials](tutorial-3-changing-environment-and-materials.md)
