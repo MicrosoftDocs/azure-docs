@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-In this quickstart, you use Node.js to programmatically create an *enrollment group* that uses intermediate or root CA X.509 certificates. The enrollment group is created using the IoT SDK for Node.js and a sample Node.js application.
+In this quickstart, you use Node.js to programmatically create an enrollment group that uses intermediate or root CA X.509 certificates. The enrollment group is created using the IoT SDK for Node.js and a sample Node.js application.
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ An enrollment group controls access to the provisioning service for devices that
 
     ![Verified certificate in the portal](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
-1. To create an enrollment group for your certificate, run the following command (include the quotes around the command arguments):
+1. To create an [enrollment group](concepts-service.md#enrollment-group) for your certificate, run the following command (include the quotes around the command arguments):
  
      ```cmd\sh
      node create_enrollment_group.js "<the connection string for your provisioning service>" "<your certificate's .pem file>"

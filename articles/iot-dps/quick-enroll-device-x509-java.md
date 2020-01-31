@@ -15,13 +15,13 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-In this quickstart, you use Java to programmatically enroll a group of X.509 simulated devices to the Azure IoT Hub Device Provisioning Service. Devices are enrolled to a provisioning service instance by creating an *enrollment group*, or an *individual enrollment*. This quickstart shows how to create both types of enrollments by using the Java Service SDK and a sample Java application.
+In this quickstart, you use Java to programmatically enroll a group of X.509 simulated devices to the Azure IoT Hub Device Provisioning Service. Devices are enrolled to a provisioning service instance by creating an enrollment group, or an individual enrollment. This quickstart shows how to create both types of enrollments by using the Java Service SDK and a sample Java application.
 
 ## Prerequisites
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). The Java Service SDK works on both Windows and Linux. This quickstart uses Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -36,7 +36,7 @@ This section uses a self-signed X.509 certificate, it is important to keep in mi
 
 The following steps show how to add the provisioning details of your X.509 device to the sample code. 
 
-1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the Java Service SDK:
+1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -125,6 +125,8 @@ The following steps show how to add the provisioning details of your X.509 devic
 <a id="runjavasample"></a>
 
 ## Build and run sample group enrollment
+
+Devices are enrolled to a provisioning service instance by creating an [*enrollment group*](concepts-service.md#enrollment-group) or an [*individual enrollment*](concepts-service.md#individual-enrollment). This procedure uses an enrollment group. The next section uses an individual enrollment.
 
 1. Open a command window, and navigate to the folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
