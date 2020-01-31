@@ -14,14 +14,14 @@ ms.author: curtand
 ms.custom: user-help
 ---
 
-# Access and use collections on the My Apps portal
+# Use collections in the My Apps portal
 
 Workspaces are different app views you see in the **My Apps** portal. Apps can be grouped into collections by department function or user role, for example. If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
 ## Access apps using collections
 
