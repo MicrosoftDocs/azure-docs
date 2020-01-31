@@ -99,7 +99,7 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 7. Under **Data to export**, choose the types of data to export by setting the type to **On**.
 
-8. To turn on continuous data export, make sure the **Data export** toggle is **On**. Select **Save**.
+8. To turn on continuous data export, make sure the **Enabled** toggle is **On**. Select **Save**.
 
 9. After a few minutes, your data appears in your chosen destination.
 
@@ -187,8 +187,11 @@ This is an example record exported to blob storage:
 Each message or record in a snapshot represents one or more changes to a device and its properties since the last exported message. This includes:
 
 - `id` of the device in IoT Central
-- `name` of the device
-- Device template Id in `instanceOf` 
+- `displayName` of the device
+- Device template Id in `instanceOf`
+- `simulated` flag, true if the device is a simulated device
+- `provisioned` flag, true if the device has been provisioned
+- `approved` flag, true if the device has been approved to send data
 - Property values
 
 Deleted devices aren't exported. Currently, there are no indicators in exported messages for deleted devices.
@@ -255,51 +258,49 @@ This is an example snapshot containing devices and properties data in Blob Stora
 
 ```json
 {
-  "body":{
-    "id": "<device Id>",
-    "etag": "<etag>",
-    "displayName": "Sensor 1",
-    "instanceOf": "<device template Id>",
-    "simulated": false,
-    "provisioned": true,
-    "approved": true,
-    "properties": {
-        "sensorComponent": {
-            "setTemp": "30",
-            "fwVersion": "2.0.1",
-            "status": { "first": "first", "second": "second" },
-            "$metadata": {
-                "setTemp": {
-                    "desiredValue": "30",
-                    "desiredVersion": 3,
-                    "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
-                    "ackVersion": 3
-                },
-                "fwVersion": { "ackVersion": 3 },
-                "status": {
-                    "desiredValue": {
-                        "first": "first",
-                        "second": "second"
-                    },
-                    "desiredVersion": 2,
-                    "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
-                    "ackVersion": 2
-                }
-            },
-            
-        }
-    },
-    "installDate": { "installDate": "2020-02-01" }
+  "id": "<device Id>",
+  "etag": "<etag>",
+  "displayName": "Sensor 1",
+  "instanceOf": "<device template Id>",
+  "simulated": false,
+  "provisioned": true,
+  "approved": true,
+  "properties": {
+      "sensorComponent": {
+          "setTemp": "30",
+          "fwVersion": "2.0.1",
+          "status": { "first": "first", "second": "second" },
+          "$metadata": {
+              "setTemp": {
+                  "desiredValue": "30",
+                  "desiredVersion": 3,
+                  "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
+                  "ackVersion": 3
+              },
+              "fwVersion": { "ackVersion": 3 },
+              "status": {
+                  "desiredValue": {
+                      "first": "first",
+                      "second": "second"
+                  },
+                  "desiredVersion": 2,
+                  "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
+                  "ackVersion": 2
+              }
+          },
+          
+      }
+  },
+  "installDate": { "installDate": "2020-02-01" }
 }
 ```
 
 ## Device templates
 
-Each message or snapshot record represents one or more changes to a device template since the last exported message. Information sent in each message or record includes:
+Each message or snapshot record represents one or more changes to a published device template since the last exported message. Information sent in each message or record includes:
 
 - `id` of the device template which matches the `instanceOf` of the devices stream above
-- `name` of the device template
-- `version` of the device template
+- `displayName` of the device template
 - The device `capabilityModel` including its `interfaces`, and the telemetry, properties, and commands definitions
 - `cloudProperties` definitions
 - Overrides and initial values, inline with the `capabilityModel`
@@ -548,22 +549,22 @@ This is an example snapshot containing devices and properties data in Blob Stora
 ## Data format change notice
 
 > [!Note]
-> The telemetry stream data format is unaffected by this change. Only the Devices and device templates streams of data are affected.
+> The telemetry stream data format is unaffected by this change. Only the devices and device templates streams of data are affected.
 
 If you have an existing data export in your preview application with the *Devices* and *Device templates* streams turned on, you will need to update your export by **30 June 2020**. This applies to exports to Azure Blob Storage, Azure Event Hubs, and Azure Service Bus.
 
-Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created prior to this will remain on the old data format until 30 June 2020, after which time these exports will automatically be migrated to the new data format. The new data format matches the [device](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [device component properties](https://docs.microsoft.com/rest/api/iotcentral/devices/getcomponentproperties), and [device template](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) objects in the IoT Central public API. 
+Starting 3 February 2020, all new exports in applications with Devices and Device templates enabled will have the data format described above. All exports created prior to this will remain on the old data format until 30 June 2020, after which time these exports will automatically be migrated to the new data format. The new data format matches the [devices](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [device properties](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [device cloud property]([device cloud properties](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties) and [device templates](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) objects in the IoT Central public API. 
  
 For **Devices**, notable differences between the old data format and the new data format include:
 - `@id` for device is removed, `deviceId` is renamed to `id` 
 - `provisioned` flag is added to describe the provisioning status of the device
 - `approved` flag is added to describe the approval state of the device
-- `properties` match the component properties of the API
+- `properties` including device and cloud properties, matches entities in the public API
 
 For **Device templates**, notable differences between the old data format and the new data format include:
 
 - `@id` for device template is renamed to `id`
-- `@type` is renamed to `types`, and is now an array
+- `@type` for the device template is renamed to `types`, and is now an array
 
 ### Devices (format deprecated as of 3 February 2020)
 ```json
