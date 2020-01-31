@@ -48,7 +48,3 @@ In this section, you create a function app and related resources in your Azure s
 1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
     ![Create complete notification](media/functions-publish-project-vscode/function-create-notifications.png)
-
-1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (MacOS) on **HttpExample**, and then choose **Copy function URL**.
-
-    ![Copy the function URL for the new HTTP trigger](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

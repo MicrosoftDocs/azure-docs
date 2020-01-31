@@ -114,7 +114,11 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Run the function in Azure
 
-1. Paste the new URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
+1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (MacOS) on **HttpExample**, and then choose **Copy function URL**.
+
+    ![Copy the function URL for the new HTTP trigger](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
+
+1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
 
         http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
         
