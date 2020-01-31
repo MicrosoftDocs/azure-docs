@@ -19,7 +19,7 @@
     items:
     - name: What is speech-to-text?
       href: speech-to-text.md
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Recognize speech from an audio file
       href: quickstarts/speech-to-text-from-file.md
@@ -114,7 +114,7 @@
     items:
     - name: What is text-to-speech?
       href: text-to-speech.md
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Synthesize speech into an audio file
       href: quickstarts/text-to-speech-audio-file.md
@@ -203,7 +203,7 @@
 - name: Intent recognition
   expanded: false
   items:
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Recognize speech, intents, and entities
       href: quickstarts/intent-recognition.md
@@ -248,7 +248,7 @@
     items:
     - name: What is speech translation?
       href: speech-translation.md
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Translate speech-to-text
       href: quickstarts/translate-speech-to-text.md
@@ -342,7 +342,7 @@
       items:
       - name: About Multi-device conversation
         href: multi-device-conversation.md
-    - name: Quickstarts
+    - name: Quickstart
       items:
       - name: Start and join a conversation
         href: quickstarts/multi-device-conversation.md
@@ -493,7 +493,7 @@
       href: scenario-availability.md
     - name: Ship an application
       href: ship-application.md
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Create a project
       href: quickstarts/create-project.md
@@ -546,7 +546,7 @@
       href: speech-devices-sdk-microphone.md
     - name: Roobo v1 kit
       href: speech-devices-sdk-roobo-v1.md
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Windows
       href: speech-devices-sdk-windows-quickstart.md
