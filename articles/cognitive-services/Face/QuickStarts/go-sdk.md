@@ -101,7 +101,7 @@ Your workspace will contain three folders:
 
 * **src** - This directory will contain source code and packages. Any packages installed with the `go get` command will go here.
 * **pkg** - This directory will contain the compiled Go package objects. These files all have a `.a` extension.
-* **bin** - This directory will contains the binary executable files that are created when you run `go install`.
+* **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
 > [!TIP]
 > To learn more about the structure of a Go workspace, see the [Go language documentation](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
@@ -172,13 +172,13 @@ Create a **main** function and add the following code to it to instantiate a cli
 
 ## Detect faces in an image
 
-Add the following code in your **main** method. This defines a remote sample image and specifies which face features to extract from the image. It also specifies which AI model to use to extract data from the detected face(s). See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on these options. Finally, the **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** method performs the face detection operation on the image and saves the results in program memory.
+Add the following code in your **main** method. This code defines a remote sample image and specifies which face features to extract from the image. It also specifies which AI model to use to extract data from the detected face(s). See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on these options. Finally, the **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** method does the face detection operation on the image and saves the results in program memory.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
 ### Display detected face data
 
-The next block of code takes the first element in the array of [DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace) objects and prints its attributes to the console. If you used an image with multiple faces, you should iterate through teh array instead.
+The next block of code takes the first element in the array of [DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace) objects and prints its attributes to the console. If you used an image with multiple faces, you should iterate through the array instead.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect_display)]
 
@@ -188,11 +188,11 @@ The following code takes a single detected face (source) and searches a set of o
 
 ### Detect faces for comparison
 
-First, save a reference to the face you detected in the [Detect faces in an image](#detect-faces-in-an-image) section. This will be the source face.
+First, save a reference to the face you detected in the [Detect faces in an image](#detect-faces-in-an-image) section. This face will be the source.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
 
-Then enter the following code to detect a set of faces in a different image. These will be the target faces.
+Then enter the following code to detect a set of faces in a different image. These faces will be the target.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_multiple_ref)]
 
@@ -223,7 +223,7 @@ Once you've downloaded your images, add the following code to the bottom of your
 
 ### Create PersonGroup Persons
 
-The next block of code authenticates a **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** and uses it to define three new **PersonGroup Person** objects. These each represent a single person in the set of images.
+The next block of code authenticates a **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** and uses it to define three new **PersonGroup Person** objects. These objects each represent a single person in the set of images.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_setup)]
 
@@ -235,7 +235,7 @@ The following code sorts the images by their prefix, detects faces, and assigns 
 
 ### Train PersonGroup
 
-Once you've assigned faces, you must train the **PersonGroup** so that it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
+Once you've assigned faces, you train the **PersonGroup** so it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
@@ -298,15 +298,15 @@ The following code compares each of the source images to the target image and pr
 
 ## Take a snapshot for data migration
 
-The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to use this feature if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
+The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You might use this feature if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
 
-In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
+In this example, you'll migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
 
 ### Set up target subscription
 
 First, you must have a second Azure subscription with a Face resource; you can do this by repeating the steps in the [Setting up](#setting-up) section. 
 
-Then, create the following variables near the top of your **main** method. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account. 
+Then, create the following variables near the top of your **main** method. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_target_client)]
 
@@ -340,7 +340,7 @@ Again, query the ID until the operation has completed.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply_query)]
 
-Once you've completed these steps, you'll be able to access your face data constructs from your new (target) subscription.
+Once you've completed these steps, you can access your face data constructs from your new (target) subscription.
 
 ## Run the application
 
