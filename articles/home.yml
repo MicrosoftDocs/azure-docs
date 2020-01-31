@@ -42,6 +42,7 @@ productDirectory:
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
+        - featured
         - aiMachineLearning
       url: cognitive-services/anomaly-detector/index.yml
     # Card
@@ -193,6 +194,7 @@ productDirectory:
       summary: The AI-powered document extraction service that understands your forms
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
+        - featured
         - aiMachineLearning
       url: cognitive-services/form-recognizer/index.yml
     # Card
@@ -200,6 +202,7 @@ productDirectory:
       summary: Empower users of all ages and abilities to read and comprehend text
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
+        - featured
         - aiMachineLearning
       url: cognitive-services/immersive-reader/index.yml
     # Card
@@ -207,6 +210,7 @@ productDirectory:
       summary: An AI service that recognizes digital ink content, such as handwriting, shapes, and ink document layout
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
+        - featured
         - aiMachineLearning
       url: cognitive-services/ink-recognizer/index.yml
     # Card
@@ -259,6 +263,7 @@ productDirectory:
       summary: Use speech to identify and verify individual speakers
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
+        - featured
         - aiMachineLearning
       url: cognitive-services/speaker-recognition/home.md
     # Card
@@ -411,6 +416,7 @@ productDirectory:
       summary: Build, govern, and expand consortium blockchain networks
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
       azureCategories:
+        - featured
         - blockchain
       url: blockchain/service/index.yml
     # Card
@@ -418,6 +424,7 @@ productDirectory:
       summary: Easily define, create, and manage ledger-based tokens
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
       azureCategories:
+        - featured
         - blockchain
       url: blockchain/tokens/index.yml
     # Card
@@ -425,6 +432,7 @@ productDirectory:
       summary: Easily prototype blockchain apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
       azureCategories:
+        - featured
         - blockchain
       url: blockchain/workbench/index.yml
     # Card
@@ -693,6 +701,7 @@ productDirectory:
       summary: Small-footprint, edge-optimized data engine with built-in AI
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
+        - featured
         - databases
         - iot
       url: sql-database-edge/index.yml
@@ -708,6 +717,7 @@ productDirectory:
       summary: Fast, scalable parameter storage for app configuration
       imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
       azureCategories:
+        - featured
         - developerTools
       url: azure-app-configuration/index.yml
     # Card
@@ -776,6 +786,7 @@ productDirectory:
       summary: Cloud-powered development environments accessible from anywhere
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
+        - featured
         - developerTools
       url: https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline
     # Card
@@ -836,6 +847,7 @@ productDirectory:
       summary: Bring Azure services and management to any infrastructure
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
+        - featured
         - hybrid
       url: azure-arc/index.yml
     # Card
@@ -931,6 +943,7 @@ productDirectory:
       summary: Build next-generation IoT spatial intelligence solutions
       imageSrc: https://static.docs.com/ui/media/product/azure/digital-twins.svg
       azureCategories:
+        - featured
         - iot
         - mixedReality
       url: digital-twins/index.yml
@@ -969,6 +982,7 @@ productDirectory:
       summary: Securely connect MCU-powered devices from the silicon to the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
       azureCategories:
+        - featured
         - iot
       url: https://docs.microsoft.com/azure-sphere/
     # Card
@@ -1029,6 +1043,7 @@ productDirectory:
       summary: Enabling quick, repeatable creation of governed environments
       imageSrc: https://static.docs.com/ui/media/product/azure/blueprints.svg
       azureCategories:
+        - featured
         - managementAndGovernance
       url: governance/blueprints/index.yml
     # Card
@@ -1184,6 +1199,7 @@ productDirectory:
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
       azureCategories:
+        - featured
         - mixedReality
       url: spatial-anchors/index.yml
     # Card
@@ -1242,6 +1258,7 @@ productDirectory:
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
       imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
       azureCategories:
+        - featured
         - networking
       url: firewall-manager/index.yml
     # Card
@@ -1256,6 +1273,7 @@ productDirectory:
       summary: Test how networking infrastructure changes will impact your customers' performance
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
+        - featured
         - networking
       url: internet-analyzer/index.yml
     # Card
@@ -1263,6 +1281,7 @@ productDirectory:
       summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
+        - featured
         - networking
       url: private-link/index.yml
     # Card
