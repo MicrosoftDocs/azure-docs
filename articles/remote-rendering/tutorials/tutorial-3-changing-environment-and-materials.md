@@ -6,17 +6,97 @@ manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/03/2020
 ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
 # Tutorial: Changing the environment and materials
 
-This tutorial requires a model that contains [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials. The Khronos Group has a repository of [glTF Sample Models](https://github.com/KhronosGroup/glTF-Sample-Models) that are in the correct format for Azure Remote Rendering.
+In this tutorial, you learn how to:
 
-Once you have completed conversion of the new model, generate a SAS url for the `.arrAsset` file and change the _RemoteRendering ModelName_ property from "builtin://UnitySampleModel" to the url.\
-![changing model name property](media/change-model-name-property.png)
+> [!div class="checklist"]
+>
+> * Change the environment map of a scene.
+> * Modify material parameters.
+> * Load custom textures.
+
+## Prerequisites
+
+This tutorial builds on top of [Tutorial: Working with remote entities in Unity](tutorial-2-working-with-remote-entities.md).
+
+## Modify the environment map
+
+Azure Remote Rendering supports the use of [sky boxes](../sdk/features-sky.md) (sometimes also called 'environment maps') to simulate ambient lighting. This is especially useful when your objects use *[Physically Based Rendering](../sdk/concepts-materials.md#pbr-material)*, as our sample models do. ARR also comes with a variety of built-in sky textures, that we will use in this tutorial.
+
+Create a new script called **RemoteSky** and add it to a new GameObject. Open the script file and replace it with the following code:
+
+```csharp
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RemoteSky : MonoBehaviour
+{
+    private int skyIndex = 0;
+
+    private LoadTextureParams[] builtIns =
+    {
+        new LoadTextureParams("builtin://GreenPointPark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://SataraNight", TextureType.CubeMap),
+        new LoadTextureParams("builtin://SnowyForestPath", TextureType.CubeMap),
+        new LoadTextureParams("builtin://SunnyVondelpark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://Syferfontein", TextureType.CubeMap),
+        new LoadTextureParams("builtin://TearsOfSteelBridge", TextureType.CubeMap),
+        new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap),
+        new LoadTextureParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap),
+        new LoadTextureParams("builtin://WinterEvening", TextureType.CubeMap),
+        new LoadTextureParams("builtin://WinterRiver", TextureType.CubeMap),
+        new LoadTextureParams("builtin://DefaultSky", TextureType.CubeMap)
+    };
+
+    public async void ToggleSky()
+    {
+        if (!RemoteManagerUnity.IsConnected)
+        {
+            return;
+        }
+
+        skyIndex = (skyIndex + 1) % builtIns.Length;
+
+        var texture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureAsync(builtIns[skyIndex]).AsTask();
+
+        Debug.Log($"Switching sky to: {builtIns[skyIndex].TextureId}");
+
+        var settings = RemoteManagerUnity.CurrentSession.Actions.GetSkyReflectionSettings();
+
+        settings.SkyReflectionTexture = texture;
+    }
+
+    private void OnGUI()
+    {
+        if (RemoteManagerUnity.IsConnected)
+        {
+            if (GUI.Button(new Rect(10, Screen.height - 50, 175, 30), "Toggle Sky"))
+            {
+                ToggleSky();
+            }
+        }
+    }
+}
+```
+
+When you run the code and toggle through the sky maps, you will notice drastically different lighting on your model. However, the background will stay black and you cannot see the actual sky texture. This is intentional, as rendering a background would be distracting with an Augmented Reality device. In a proper application, you should use sky textures that are similar to your real world surroundings. This will help make the object appear more real.
+
+
+
+
+
+
+
+
 
 ## Modify materials
 
@@ -208,67 +288,7 @@ Again, change _SetFocus/ResetFocus_ to use the new function:
     }
 ```
 
-## Modify sky box
+## Next steps
 
-If your object has any type of PBR materials with reflections, using a sky box will help simulate the lighting and reflections in the scene. Remote Rendering supports using a [sky box](../sdk/features-sky.md) texture and has several built-in textures you can choose from.
+TODO
 
-In the scene _Hierarchy_ panel, create a new _GameObject_ and set its name to "RemoteSky". Then create a new component called RemoteSky.cs and add the following code:
-
-```csharp
-    private int index = 0;
-
-    private LoadTextureParams[] builtIns =
-    {
-        new LoadTextureParams("builtin://GreenPointPark", TextureType.CubeMap),
-        new LoadTextureParams("builtin://SataraNight", TextureType.CubeMap),
-        new LoadTextureParams("builtin://SnowyForestPath", TextureType.CubeMap),
-        new LoadTextureParams("builtin://SunnyVondelpark", TextureType.CubeMap),
-        new LoadTextureParams("builtin://Syferfontein", TextureType.CubeMap),
-        new LoadTextureParams("builtin://TearsOfSteelBridge", TextureType.CubeMap),
-        new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap),
-        new LoadTextureParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap),
-        new LoadTextureParams("builtin://WinterEvening", TextureType.CubeMap),
-        new LoadTextureParams("builtin://WinterRiver", TextureType.CubeMap),
-        new LoadTextureParams("builtin://DefaultSky", TextureType.CubeMap)
-    };
-```
-
-```csharp
-    public async void ToggleSky()
-    {
-        if (!RemoteManagerUnity.IsConnected)
-        {
-            return;
-        }
-
-        var textureParams = builtIns[index++ % builtIns.Length];
-
-        if (textureParams.TextureType == TextureType.Texture3D)
-        {
-            Debug.LogError($"ToggleSky() : Not a valid texture type.");
-
-            return;
-        }
-
-        var texture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureAsync(textureParams).AsTask();
-
-        var settings = RemoteManagerUnity.CurrentSession.Actions.GetSkyReflectionSettings();
-
-        settings.SkyReflectionTexture = texture;
-    }
-```
-
-```csharp
-    private void OnGUI()
-    {
-        int y = Screen.height - 50;
-
-        if (RemoteManagerUnity.IsConnected)
-        {
-            if (GUI.Button(new Rect(250, y, 175, 30), "Toggle Sky"))
-            {
-                ToggleSky();
-            }
-        }
-    }
-```
