@@ -37,7 +37,7 @@ landingContent:
         links:
           - text: Set up a device template
             url: howto-set-up-template.md
-          - text: Connect an IoT Plug and Play device
+          - text: Connect an IoT Plug and Play (preview) device
             url: tutorial-add-device.md
       - linkListType: how-to-guide
         links:
