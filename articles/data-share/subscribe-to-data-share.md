@@ -40,13 +40,13 @@ Ensure that all pre-requisites are complete before accepting a data share invita
     1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
     1. Use Query Editor (preview) to execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
 
-```sql
-create user "<share_acc_name>" from external provider; 
-exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-```      
-Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.         
+    ```sql
+    create user "<share_acc_name>" from external provider; 
+    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+    ```      
+    Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.         
 
 * Client IP SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    ![Invitations](./media/invitations.png "List of invitations") 
 
-Select the share you would like to view. 
+1. Select the share you would like to view. 
 
 ## Accept invitation
 1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
@@ -87,13 +87,13 @@ Select the share you would like to view.
 
    ![Target data share account](./media/target-data-share.png "Target data share account") 
 
-1. Once you've agreed to the terms of use and specified a location for your share, Select on *Accept and Configure*. A share subscription will be created.
+1. Once you've agreed to the terms of use and specified a location for your share, Select on *Accept and configure*. A share subscription will be created.
 
    For snapshot-based sharing, the next screen will ask you to select a target storage account for your data to be copied into. 
 
    ![Accept options](./media/accept-options.png "Accept options") 
 
-   If you prefer to accept the invitation now but configure your target data store at a later time, Select *Accept and Configure later*. To continue configuring your storage later, see [configure dataset mappings](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
+   If you prefer to accept the invitation now but configure your target data store at a later time, select *Accept and configure later*. To continue configuring your storage later, see [configure dataset mappings](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
 
    For in-place sharing, see [configure dataset mappings](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
 
