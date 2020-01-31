@@ -1,5 +1,5 @@
 ---
-title: Assign Azure AD custom role - Privileged Identity Management
+title: Assign Azure AD custom role - Privileged Identity Management (PIM)
 description: How to assign an Azure AD custom role for assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
