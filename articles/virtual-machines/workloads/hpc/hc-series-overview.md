@@ -37,7 +37,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 
 | Hardware Specifications          | HC-series VM                     |
 |----------------------------------|----------------------------------|
-| Cores                            | 40 (HT disabled)                 |
+| Cores                            | 44 (HT disabled)                 |
 | CPU                              | Intel Xeon Platinum 8168*        |
 | CPU Frequency (non-AVX)          | 3.7 GHz (single core), 2.7-3.4 GHz (all cores) |
 | Memory                           | 8 GB/core (352 total)            |
@@ -49,7 +49,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 
 | Software Specifications     | HC-series VM          |
 |-----------------------------|-----------------------|
-| Max MPI Job Size            | 4400 cores (100 virtual machine scale sets), 8800 cores (200 virtual machine scale sets) |
+| Max MPI Job Size            | 13200 cores (300 VMs in a single VMSS with singlePlacementGroup=true) |
 | MPI Support                 | MVAPICH2, OpenMPI, MPICH, Platform MPI, Intel MPI  |
 | Additional Frameworks       | Unified Communication X, libfabric, PGAS |
 | Azure Storage Support       | Std + Premium (max 4 disks) |
