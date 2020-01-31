@@ -28,4 +28,4 @@ Visual Studio Code integrates with [Azure Functions Core Tools](../articles/azur
 
     ![Function execution in Terminal panel](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
 
-1. Press Shift + F5 to stop Core Tools and disconnect the debugger.
+1. Press Ctrl + C to stop Core Tools and disconnect the debugger.

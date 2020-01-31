@@ -33,7 +33,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     ![Function execution in Terminal panel](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
 
-1. To stop debugging, press Shift + F5.
+1. To stop debugging, press Ctrl + C to stop Core Tools.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
