@@ -165,7 +165,7 @@ These code samples show you how to complete basic tasks using the Face service c
 > [!NOTE] 
 > This quickstart assumes you've [created environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Face key and endpoint, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT` respectively.
 
-Create a **main** function and add the following code to it to instantiate a client with your endpoint and key. You create a [CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer) object with your key, and use it with your endpoint to create a [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) object. This code also instantiates a context object, which is needed for the creation of client objects. It also defines a remote location where some of the sample images in this quickstart are found.
+Create a **main** function and add the following code to it to instantiate a client with your endpoint and key. You create a **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** object with your key, and use it with your endpoint to create a **[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** object. This code also instantiates a context object, which is needed for the creation of client objects. It also defines a remote location where some of the sample images in this quickstart are found.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_main_client)]
 
@@ -178,7 +178,7 @@ Add the following code in your **main** method. This code defines a remote sampl
 
 ### Display detected face data
 
-The next block of code takes the first element in the array of [DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace) objects and prints its attributes to the console. If you used an image with multiple faces, you should iterate through the array instead.
+The next block of code takes the first element in the array of **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** objects and prints its attributes to the console. If you used an image with multiple faces, you should iterate through the array instead.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect_display)]
 
