@@ -31,7 +31,7 @@ This article describes the following use cases:
 - [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
 - [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
 - [Connect without first registering devices](#connect-without-registering-devices)
-- [Connect devices using IoT Plug and Play (preview) features](#connect-devices-with-iot-plug-and-play)
+- [Connect devices using IoT Plug and Play (preview) features](#connect-devices-with-iot-plug-and-play-preview)
 
 ## Connect a single device
 
