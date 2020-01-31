@@ -540,15 +540,7 @@
         - name: Windows 
           items:   
           - name: Install and configure
-            href: platform/diagnostics-extension-to-storage.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Logs
-            href: platform/azure-storage-iis-table.md
-          - name: Send to Application Insights
-            href: platform/diagnostics-extension-to-application-insights.md
-          - name: Version history
-            href: platform/diagnostics-extension-schema.md
+            href: platform/diagnostics-extension-windows-install.md
           - name: Send to Azure Monitor Metrics
             items:   
             - name: Virtual Machine 
@@ -559,6 +551,14 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+          - name: Send to Event Hubs
+            href: platform/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
+            href: platform/azure-storage-iis-table.md
+          - name: Send to Application Insights
+            href: platform/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: platform/diagnostics-extension-schema.md
           - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
@@ -578,15 +578,37 @@
         - name: Linux agents
           href: platform/agent-linux.md
         - name: VM Extension for Windows
-          href: ../virtual-machines/windows/extensions-oms.md
+          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Linux
-          href: ../virtual-machines/linux/extensions-oms.md
+          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
           href: platform/agent-manage.md
         - name: Agent Health
           href: insights/solution-agenthealth.md
+        - name: Data sources
+          items:
+          - name: Overview
+            href: platform/agent-data-sources.md
+          - name: Windows events
+            href: platform/data-sources-windows-events.md
+          - name: Custom JSON data
+            href: platform/data-sources-json.md
+          - name: CollectD performance data
+            href: platform/data-sources-collectd.md
+          - name: Syslog
+            href: platform/data-sources-syslog.md
+          - name: Performance counters
+            href: platform/data-sources-performance-counters.md
+          - name: Linux application performance
+            href: platform/data-sources-linux-applications.md
+          - name: IIS logs
+            href: platform/data-sources-iis-logs.md
+          - name: Custom logs
+            href: platform/data-sources-custom-logs.md
+          - name: Custom fields
+            href: platform/custom-fields.md
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
@@ -598,28 +620,6 @@
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
           href: platform/agent-linux-troubleshoot.md
-    - name: Agent data sources
-      items:
-      - name: Overview
-        href: platform/agent-data-sources.md
-      - name: Windows events
-        href: platform/data-sources-windows-events.md
-      - name: Custom JSON data
-        href: platform/data-sources-json.md
-      - name: CollectD performance data
-        href: platform/data-sources-collectd.md
-      - name: Syslog
-        href: platform/data-sources-syslog.md
-      - name: Performance counters
-        href: platform/data-sources-performance-counters.md
-      - name: Linux application performance
-        href: platform/data-sources-linux-applications.md
-      - name: IIS logs
-        href: platform/data-sources-iis-logs.md
-      - name: Custom logs
-        href: platform/data-sources-custom-logs.md
-      - name: Custom fields
-        href: platform/custom-fields.md
     - name: Azure Monitor for VMs
       items:
       - name: Overview
