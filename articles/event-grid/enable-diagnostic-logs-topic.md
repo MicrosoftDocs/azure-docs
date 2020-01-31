@@ -5,7 +5,7 @@ services: event-grid
 author: spelluru
 
 ms.service: event-grid
-ms.topic: howto
+ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: spelluru
 ---
