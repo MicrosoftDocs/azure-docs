@@ -24,7 +24,7 @@ In this quickstart, you simulate an X.509 device on a Windows computer and use a
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.
 - [CMake build system](https://cmake.org/download/).
-- [Latest version of git tools](https://git-scm.com/download/).
+- [Git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
 > This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.

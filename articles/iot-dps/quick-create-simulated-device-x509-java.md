@@ -24,7 +24,7 @@ In this quickstart, you simulate an X.509 device on a Windows computer and use a
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 - [Maven](https://maven.apache.org/install.html).
-- [Latest version of git tools](https://git-scm.com/download/).
+- [Git](https://git-scm.com/download/).
 
 ## Prepare the environment 
 

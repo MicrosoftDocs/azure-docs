@@ -24,7 +24,7 @@ In this quickstart, you create an enrollment entry in the Device Provisioning Se
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Node.js v4.0 or above](https://nodejs.org).
 - [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
-- [Latest version of git tools](https://git-scm.com/download/).
+- [Git](https://git-scm.com/download/).
 - [OpenSSL](https://www.openssl.org/).
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
