@@ -413,166 +413,71 @@ Here we will do the latter. Open the **RemoteModelEntity** script and add this l
 
 If you run the code again, you should be able to left-click on an object and drag the mouse to move the object around.
 
+## Add a cut plane
 
+The final feature we want to try out in this tutorial are [cut planes](../sdk/features-cut-planes.md). A cut plane can be used to cut away parts of the rendered objects, such that you can look inside of them.
 
+Create a new GameObject in the scene **CutPlane**. Create a new script and call it **RemoteCutPlane**. Add the component to the new GameObject.
 
-## Bounds of an entity
-
-Modify the RemoveModelEntity.cs file. Having a Unity bounding box helps with localized physics collision detection. Using this method will only generate bounds for a single entity, not including its children. If a node has children, you would have to take that into account and expand this further.
-
-```csharp
-    private ARRMeshComponent meshComponent = null;
-    private BoxCollider boxCollider = null;
-```
+Open the script file and replace its content with the following code:
 
 ```csharp
-    private void OnEnable()
-    {
-        ...
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-        meshComponent = GetComponent<ARRMeshComponent>();
-        if (meshComponent == null)
-        {
-            var mesh = syncObject.Entity.FindComponentOfType<MeshComponent>();
-            if (mesh != null)
-            {
-                gameObject.BindArrComponent<ARRMeshComponent>(mesh);
-                meshComponent = gameObject.GetComponent<ARRMeshComponent>();
-            }
-        }
-        meshComponent.enabled = true;
-
-        boxCollider = GetComponent<BoxCollider>();
-        if (boxCollider == null)
-        {
-            boxCollider = gameObject.AddComponent<BoxCollider>();
-        }
-        boxCollider.enabled = true;
-        boxCollider.center = meshComponent.RemoteComponent.Mesh.Bounds.toUnity().center;
-        boxCollider.size = meshComponent.RemoteComponent.Mesh.Bounds.toUnity().size;
-    }
-
-    private void OnDisable()
-    {
-        ...
-
-        if (meshComponent)
-        {
-            meshComponent.enabled = false;
-        }
-
-        if (boxCollider)
-        {
-            boxCollider.enabled = false;
-        }
-    }
-```
-
-## Cut plane
-
-Create a new GameObject in the scene hierarchy and name it "RemoteCutPlane". Change its position to a point near the model root is. Create a new script and call it RemoteCutPlane.cs and add the component to the new GameObject.
-
-Add these variables to track state and components that represent the clip plane on the server:
-
-```csharp
-    private bool cutEnabled = false;
-
-    private ARRCutPlaneComponent cutPlaneComponent = null;
-
+public class RemoteCutPlane : MonoBehaviour
+{
+    private ARRCutPlaneComponent localCutPlaneComponent = null;
     private RemoteEntitySyncObject remoteEntitySync = null;
-```
 
-Add a function to create the cut plane object and its sync component:
-
-```csharp
-    private void ToggleCutPlane()
+    void Update()
     {
-        cutEnabled = !cutEnabled;
-
-        if (cutPlaneComponent == null)
+        if (!RemoteManagerUnity.IsConnected)
         {
-            cutPlaneComponent = gameObject.CreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
-            cutPlaneComponent.RemoteComponent.Normal = Axis.X;
-            cutPlaneComponent.RemoteComponent.FadeLength = 0.025f;
-            cutPlaneComponent.RemoteComponent.FadeColor = new ColorUb(255, 128, 0, 255);
+            // can't do anything while we are not connected
+            return;
+        }
+
+        if (localCutPlaneComponent == null)
+        {
+            localCutPlaneComponent = gameObject.CreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
         }
 
         if (remoteEntitySync == null)
         {
             remoteEntitySync = gameObject.GetComponent<RemoteEntitySyncObject>();
+            remoteEntitySync.SyncEveryFrame = true;
         }
 
-        remoteEntitySync.SyncEveryFrame = cutEnabled;
-
-        if (cutPlaneComponent != null && cutPlaneComponent.RemoteComponent.IsValid)
-        {
-            cutPlaneComponent.RemoteComponent.Enabled = cutEnabled;
-        }
+        localCutPlaneComponent.RemoteComponent.Normal = Axis.X;
+        localCutPlaneComponent.RemoteComponent.FadeLength = 0.025f;
+        localCutPlaneComponent.RemoteComponent.FadeColor = new ColorUb(255, 128, 0, 255);
+        localCutPlaneComponent.RemoteComponent.Enabled = true;
     }
-```
 
-To activate the clip plane, create a GUI button:
-
-```csharp
-#if UNITY_EDITOR
-    private void OnGUI()
+    void OnDisable()
     {
-        if (RemoteManager.IsConnected)
+        if (localCutPlaneComponent && localCutPlaneComponent.IsComponentValid)
         {
-            int y = Screen.height - 50;
+            localCutPlaneComponent.RemoteComponent.Enabled = false;
+        }
 
-            if (GUI.Button(new Rect(50, y, 175, 30), "Toggle Cut Plane"))
-            {
-                ToggleCutPlane();
-            }
+        if (remoteEntitySync && remoteEntitySync.IsEntityValid)
+        {
+            remoteEntitySync.SyncEveryFrame = false;
         }
     }
-#endif
+}
 ```
 
-At this point, the cut plane is using an arbitrary plane direction along the x-axis, but may be difficult to see. Add an Update() function that will use the arrow keys to move and rotate the cut plane:
-
-```csharp
-    private void Update()
-    {
-        if (!RemoteManagerUnity.IsConnected || !cutEnabled)
-        {
-            return;
-        }
-
-        Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            movement += Vector3.left;
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            movement += Vector3.right;
-        }
-
-        UnityEngine.Quaternion rotation = UnityEngine.Quaternion.identity;
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            rotation *= UnityEngine.Quaternion.FromToRotation(transform.forward, transform.forward + Vector3.left);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            rotation *= UnityEngine.Quaternion.FromToRotation(transform.forward, transform.forward + Vector3.right);
-        }
-
-        // align the movement value to the objects rotation
-        movement = transform.rotation * movement;
-
-        transform.position = Vector3.Lerp(transform.position, transform.position + movement, Time.deltaTime * 0.5f);
-        transform.rotation = UnityEngine.Quaternion.Slerp(transform.rotation, transform.rotation * rotation, Time.deltaTime * 0.5f);
-    }
-```
+When you run your code now, you should see how the model is cut open by the plane. You can select the *CutPlane* object and move and rotate it in the *Scene* window. You can toggle the cut plane on and off by disabling the cut plane object.
 
 ## Next steps
 
-You now know the most frequently used methods for interacting with a scene. In the next tutorial, we will have a look at customizing a scenes look by modifying the sky map and materials on models.
+You now know the most frequently used methods for interacting with a scene. In the next tutorial, we will have a look at customizing a scene's look by modifying the sky map and materials on models.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Changing the environment and materials](tutorial-3-changing-environment-and-materials.md)
