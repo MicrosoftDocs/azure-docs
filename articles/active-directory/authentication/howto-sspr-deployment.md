@@ -15,10 +15,10 @@ ms.reviewer: sahenry
 
 ms.collection: M365-identity-device-management
 ---
-# Deploy Azure Active Directory self-service password reset
+# Plan an Azure Active Directory self-service password reset
 
 > [!NOTE]
-> This guide explains self-service password reset and how to deploy it. <br>**If you are looking for the self service password reset tool to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**. 
+> This deployment plan offers planning guidance and best practices for deploying Azure AD self-service password reset (SSPR). <br>**If you are looking for the SSPR tool to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 [Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues. 
 
@@ -233,7 +233,7 @@ The following table includes useful test scenarios you can use to document your 
 | User signs in when enforced to do password reset registration| Prompts the user to register security information |
 | User signs in when password reset registration is complete| Prompts the user to register security information |
 | SSPR portal is accessible when the user does not have a license| Is accessible |
-| Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen after user has registered| User can reset password |
+| Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen| User can reset password |
 | SSPR registration and usage data are available to administrators in near real time| Is available via audit logs |
 
 You can also refer to [Complete out an Azure AD self-service password reset pilot roll](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot). In this tutorial, you will enable a pilot roll out of SSPR in your organization and test using a non-administrator account.
