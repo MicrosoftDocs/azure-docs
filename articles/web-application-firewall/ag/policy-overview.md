@@ -20,22 +20,23 @@ Web Application Firewall Policies contain all the WAF settings and configuration
 
 There's no limit on the number of policies you can create. When you create a policy, it must be associated to an application gateway to take effect. It can be associated with any combination of application gateways, listeners, and path-based rules.
 
-When you associate a WAF policy globally, every site behind your Application Gateway WAF is protected with the same managed rules, custom rules, exclusions, and any other configured settings.
-
-Say your application gateway has a global policy applied to it. Then you apply a different policy to a listener on that application gateway. The listener's policy now takes effect for that listener. The application gateway’s global policy still applies to all other listeners and path-based rules that don't have a specific policy assigned to them.
-
 ## Global WAF policy
+
+When you associate a WAF policy globally, every site behind your Application Gateway WAF is protected with the same managed rules, custom rules, exclusions, and any other configured settings.
 
 If you want a single policy to apply to all sites, you can associate the policy with the application gateway. For more information, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md) to create and apply a WAF policy using the Azure portal. 
 
 ## Per-site WAF policy
 
-You can protect multiple sites with different needs behind a single WAF by using per-site policies.
-For example, if there are five sites behind your WAF, you can have five separate WAF policies (one for each listener) to customize the exclusions, custom rules, and managed rule sets for each site.
+With per-site WAF policies, you can protect multiple sites with differing security needs behind a single WAF by using per-site policies. For example, if there are five sites behind your WAF, you can have five separate WAF policies (one for each listener) to customize the exclusions, custom rules, managed rule sets, and all other WAF settings for each site.
+
+Say your application gateway has a global policy applied to it. Then you apply a different policy to a listener on that application gateway. The listener's policy now takes effect for just that listener. The application gateway’s global policy still applies to all other listeners and path-based rules that don't have a specific policy assigned to them.
 
 ## Per-URI policy
 
-For even more customization down to the URI level, you can associate a WAF policy with a path-based rule. If there are certain pages within a single site that require different policies, you can make changes to the WAF policy that only affect a given URI. This might apply to payment or sign-in pages.
+For even more customization down to the URI level, you can associate a WAF policy with a path-based rule. If there are certain pages within a single site that require different policies, you can make changes to the WAF policy that only affect a given URI. This might apply to a payment or sign-in page, or any other URIs that need an even more specific WAF policy than the other sites behind your WAF.
+
+As with per-site WAF policies, more specific policies overrides less specific ones. This means a per-URI policy on a URL path map overrides any per-site or gloabl WAF policy above it.
 
 ## Example
 
