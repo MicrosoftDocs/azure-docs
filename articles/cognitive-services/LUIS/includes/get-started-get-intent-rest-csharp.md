@@ -18,7 +18,7 @@ ms.author: diberry
 
 ## Create LUIS runtime key for predictions
 
-[!INCLUDE [Create LUIS runtime key for predictions](../includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS runtime key for predictions](create-luis-resource.md)]
 
 ## Get intent programmatically
 
@@ -99,7 +99,7 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
 
 1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
 
-[!INCLUDE [Use prediction key and endpoint URL](get-key-quickstart-explain-key-and-endpoint.md)]
+    [!INCLUDE [Use prediction key and endpoint URL](get-key-quickstart-explain-key-and-endpoint.md)]
 
 1. Build the console application with this command:
 
