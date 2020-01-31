@@ -1,7 +1,6 @@
 ---
 
 title: What is Azure Virtual Network NAT?
-titlesuffix: Azure Virtual Network NAT
 description: Overview of Virtual Network NAT features, resources, architecture, and implementation. Learn how Virtual Network NAT works and how to use NAT Gateway resources in the cloud.
 services: virtual-network
 documentationcenter: na
@@ -17,9 +16,9 @@ ms.date: 01/29/2020
 ms.author: allensu
 ---
 
-# What is Virtual Network NAT (Public Preview)
+# What is Virtual Network NAT (Public Preview)?
 
-Virtual network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses.  Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
+Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses.  Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
 <!-- illustration goes here -->
 
@@ -34,7 +33,7 @@ NAT is compatible with standard SKU [public IP address resources](./virtual-netw
 
 All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other [outbound scenarios](../load-balancer/load-balancer-outbound-connections.md) and replaces the default Internet destination of a subnet.
 
-## On-demand SNAT with multiple IP addresses for scale.
+## SNAT with multiple IP addresses for scale
 
 NAT uses "port network address translation" (PNAT or PAT) and is recommended for most workloads. Dynamic or divergent workloads can be easily accommodated with on-demand outbound flow allocation. Extensive pre-planning, pre-allocation, and ultimately overprovisioning of outbound resources is avoided. SNAT port resources are shared and available across all subnets using a specific NAT gateway resource and are provided when needed.
 
@@ -108,28 +107,29 @@ Subscriptions must be registered to allow participation in the Public Preview.  
 
 1. register subscription for Public Preview
 
-```azurecli-interactive
-  az feature register --namespace Microsoft.Network --name AllowNatGateway
-```
+    ```azurecli-interactive
+      az feature register --namespace Microsoft.Network --name AllowNatGateway
+    ```
 
 2. activate registration
 
-```azurecli-interactive
-  az provider register --namespace Microsoft.Network
-```
+    ```azurecli-interactive
+      az provider register --namespace Microsoft.Network
+    ```
 
 ### Azure PowerShell
 
 1. register subscription for Public Preview
 
-```azurepowershell-interactive
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
-```
+    ```azurepowershell-interactive
+      Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
+    ```
 
 2. activate registration
-```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+
+    ```azurepowershell-interactive
+      Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
 
 ## Pricing
 
