@@ -42,7 +42,7 @@ You authorize a user in your Azure AD B2C directory (the **Service Provider**) t
 
 ## Create a resource group
 
-In the Azure Active Directory (Azure AD) tenant that contains your subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
+In the Azure Active Directory (Azure AD) tenant that contains your Azure subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
 
 - **Subscription**: Select your Azure subscription.
 - **Resource group**: Enter name for the resource group. For example, *azure-ad-b2c-monitor*.
@@ -54,11 +54,15 @@ Next, gather the following information:
 
 **Directory ID** of your Azure AD B2C directory (also known as the tenant ID).
 
-* To get the directory ID, sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* role (or higher), and then use the **Directory + Subscription** filter to switch to the directory that contains your Azure AD B2C tenant. Select **Azure Active Directory**, select **Properties**, and then record the **Directory ID**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* role (or higher).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Select **Azure Active Directory**, select **Properties**.
+1. Record the **Directory ID**.
 
-**Object ID** of the Azure AD B2C user you want to give contributor permission to the subscription.
+**Object ID** of the Azure AD B2C user you want to give contributor permission to the resource group you created earlier in the directory containing your subscription.
 
-* With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user. Record the user's **Object ID**.
+1. With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user.
+1. Record the user's **Object ID**.
 
 ### Create an Azure Resource Manager template
 
@@ -141,51 +145,76 @@ New-AzDeployment -Name "AzureADB2C" `
                  -Verbose
 ```
 
-### Confirm successful onboarding (optional)
+Successful deployment of the template produces output similar to the following (output truncated for brevity):
 
-When a customer subscription (Azure AD) has successfully been onboarded to Azure delegated resource management, users in the service provider's (Azure AD B2C) tenant will be able to see the subscription and its resources (if they've been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
+```Console
+PS /usr/csuser/clouddrive> New-AzDeployment -Name "AzureADB2C" `
+>>                  -Location "centralus" `
+>>                  -TemplateFile "rgDelegatedResourceManagement.json" `
+>>                  -TemplateParameterFile "rgDelegatedResourceManagement.parameters.json" `
+>>                  -Verbose
+WARNING: Breaking changes in the cmdlet 'New-AzDeployment' :
+WARNING:  - The cmdlet 'New-AzSubscriptionDeployment' is replacing this cmdlet.
 
-In the Azure AD B2C tenant:
 
-1. Navigate to the [My customers page](../lighthouse/how-to/view-manage-customers.md).
-2. Select **Customers**.
-3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+WARNING: NOTE : Go to https://aka.ms/azps-changewarnings for steps to suppress this breaking change warning, and other information on breaking changes in Azure PowerShell.
+VERBOSE: 7:25:14 PM - Template is valid.
+VERBOSE: 7:25:15 PM - Create template deployment 'AzureADB2C'
+VERBOSE: 7:25:15 PM - Checking deployment status in 5 seconds
+VERBOSE: 7:25:42 PM - Resource Microsoft.ManagedServices/registrationDefinitions '44444444-4444-4444-4444-444444444444' provisioning status is succeeded
+VERBOSE: 7:25:48 PM - Checking deployment status in 5 seconds
+VERBOSE: 7:25:53 PM - Resource Microsoft.Resources/deployments 'rgAssignment' provisioning status is running
+VERBOSE: 7:25:53 PM - Checking deployment status in 5 seconds
+VERBOSE: 7:25:59 PM - Resource Microsoft.ManagedServices/registrationAssignments '11111111-1111-1111-1111-111111111111' provisioning status is running
+VERBOSE: 7:26:17 PM - Checking deployment status in 5 seconds
+VERBOSE: 7:26:23 PM - Resource Microsoft.ManagedServices/registrationAssignments '11111111-1111-1111-1111-111111111111' provisioning status is succeeded
+VERBOSE: 7:26:23 PM - Checking deployment status in 5 seconds
+VERBOSE: 7:26:29 PM - Resource Microsoft.Resources/deployments 'rgAssignment' provisioning status is succeeded
 
-    In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../role-based-access-control/built-in-roles.md#reader) role (or another built-in role that includes *Reader* access) when the subscription was onboarded for Azure delegated resource management.
-
-In the Azure AD tenant:
-
-1. Navigate to the [Service providers page](../lighthouse/how-to/view-manage-service-providers.md).
-2. Select **Service provider offers**.
-3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
-
-It might take several minutes after your deployment is complete before the updates are reflected in the Azure portal.
+DeploymentName          : AzureADB2C
+Location                : eastus
+ProvisioningState       : Succeeded
+Timestamp               : 1/31/20 7:26:24 PM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name                   Type                       Value
+                          =====================  =========================  ==========
+                          mspOfferName           String                     Azure AD B2C Managed Services
+                          mspOfferDescription    String                     Enables Azure Monitor in Azure AD B2C
+...
+```
 
 ## Select your subscription
 
-To associate an existing subscription to your Azure AD directory, follow these steps:
+To associate an existing subscription to your Azure AD B2C directory, follow these steps:
 
 1. Sign in to the Azure portal with your Azure AD B2C administrative account.
-1. Select the Directory + Subscription icon in the portal toolbar
+1. Select the **Directory + Subscription** icon in the portal toolbar.
+1. Select the directory that contains your subscription.
 
-    ![Switch directory menu](./media/azure-monitor/switch-directory-menu.png)
+    ![Switch directory](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
+1. Verify that you've selected the correct directory and subscription. In this example, all directories and subscriptions are selected.
 
-1. select the directory that contains your Azure AD B2C tenant.
-
-    ![Switch directory](./media/azure-monitor/switch-directory.png)
+    ![All directories selected in Directory & Subscription filter](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+1. **Sign out** of the Azure portal and then **sign in** again to refresh your credentials.
 
 ## Configure diagnostic settings
 
 After you delegate permissions to your Azure AD B2C user or group, you can [Create diagnostic settings in Azure portal](../active-directory/reports-monitoring/overview-monitoring.md).
 
-To configure monitoring settings for Azure AD B2C activity logs, sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the **Diagnostic settings** configuration page in two ways:
+To configure monitoring settings for Azure AD B2C activity logs:
 
-- Under **Monitoring**, select **Diagnostic settings**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Select **Azure Active Directory**
+1. Under **Monitoring**, select **Diagnostic settings**.
+1. Select **+ Add diagnostic setting**.
 
-    ![Diagnostics settings](https://docs.microsoft.com/azure/active-directory/reports-monitoring/media/overview-monitoring/diagnostic-settings.png)
-
-- Select **+ Add diagnostic setting**.
+    ![Diagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
 ## Next steps
 
-TODO
+For more information about adding and configuring diagnostic settings in Azure Monitor, see this tutorial in the Azure Monitor documentation:
+
+[Tutorial: Collect and analyze resource logs from an Azure resource](/azure-monitor/learn/tutorial-resource-logs.md)
