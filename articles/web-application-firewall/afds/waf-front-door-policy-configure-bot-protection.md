@@ -23,7 +23,7 @@ Create a basic WAF policy for Front Door by following the instructions described
 
 In the **Managed Rules** page when creating a Web Application Firewall policy, first find **Managed rule set** section, select the check box in front of the rule **Microsoft_BotManager_1.0** from the drop-down menu, and then select **Review + Create**.
 
-   ![Bot protection rule](.././media/waf-front-door-configure-bot-protection/botManager112019.png)
+   ![Bot protection rule](.././media/waf-front-door-configure-bot-protection/botmanager112019.png)
 
 ## Next steps
 
