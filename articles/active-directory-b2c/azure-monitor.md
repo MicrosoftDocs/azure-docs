@@ -11,6 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
+ms.date: 02/01/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -154,11 +155,11 @@ In the Azure AD B2C tenant:
 2. Select **Customers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
-    In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
+    In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
 
 In the Azure AD tenant:
 
-1. Navigate to the [Service providers page](view-manage-service-providers.md).
+1. Navigate to the [Service providers page](../lighthouse/how-to/view-manage-service-providers.md).
 2. Select **Service provider offers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
