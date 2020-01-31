@@ -17,31 +17,25 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your Azure IoT hub with a Java application. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. 
-
-The quickstart uses two pre-written Java applications:
-
-* A simulated device application that responds to direct methods called from a back-end application. To receive the direct method calls, this application connects to a device-specific endpoint on your IoT hub.
-
-* A back-end application that calls the direct methods on the simulated device. To call a direct method on a device, this application connects to service-side endpoint on your IoT hub.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you use a *direct method* to control a simulated device connected to your Azure IoT hub with a Java application. IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud and ingest high volumes of device telemetry to the cloud for storage or processing. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. This quickstart uses two Java applications: a simulated device application that responds to direct methods called from a back-end application and a service application that calls the direct method on the simulated device.
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Java. You need Java SE 8 on your development machine.
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-You can download Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+
+* [Apache Maven 3](https://maven.apache.org/download.cgi).
+
+* [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 You can verify the current version of Java on your development machine using the following command:
 
 ```cmd/sh
 java -version
 ```
-
-To build the samples, you need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi).
 
 You can verify the current version of Maven on your development machine using the following command:
 
@@ -54,8 +48,6 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-If you haven't already done so, download the sample Java project from https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
