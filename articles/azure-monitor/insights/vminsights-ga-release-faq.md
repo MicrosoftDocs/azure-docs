@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
+ms.date: 01/31/2020
 
 ---
 
@@ -33,7 +33,9 @@ In the past, we enabled the ServiceMap solution on your workspace and setup perf
 
 
 ## How do I upgrade?
-Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. You can upgrade a single VM or select multiple to upgrade together. Use the following command to upgrade using PowerShell:
+When a Log Analytics workspace is upgraded to the latest version of Azure Monitor to VMs, it will upgrade the dependency agent on each of the VMs attached to that workspace. Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. When you choose to upgrade a VM, it will upgrade the workspace for that VM along with any other VMs attached to that workspace. You can select a single VM or multiple VMs, resource groups, or subscriptions. 
+
+Use the following command to upgrade a workspace using PowerShell:
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
