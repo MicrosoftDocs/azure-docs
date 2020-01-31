@@ -76,20 +76,28 @@ landingContent:
           url: use-key-vault-references-dotnet-core.md
         - text: Use Key Vault references in a Java Spring app
           url: use-key-vault-references-spring-boot.md
+      - linkListType: sample
+        links:
+        - text: Work with key-values
+          url: scripts/cli-work-with-keys.md
   - title: Add feature flags to an app
     linkLists:
+      - linkListType: concept
+        links:
+          - text: What are feature flags?
+            url: concept-feature-management.md
       - linkListType: quickstart
         links:
+        - text: .NET Core app
+          url: use-feature-flags-dotnet-core.md
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
         - text: .NET Framework app
           url: quickstart-feature-flag-dotnet.md
-        - text: Spring Boot app
+        - text: Java Spring app
           url: quickstart-feature-flag-spring-boot.md
       - linkListType: tutorial
         links: 
-        - text: Use feature flags in a .NET Core app
-          url: use-feature-flags-dotnet-core.md
         - text: Manage feature flags
           url: manage-feature-flags.md
   - title: Configuration SDKs and samples
