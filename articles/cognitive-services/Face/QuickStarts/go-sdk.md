@@ -30,7 +30,7 @@ Use the Face service client library for Go to:
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * The latest version of [Go](https://golang.org/dl/)
 
-## Setting up
+## Set up
 
 ### Create a Face Azure resource 
 
@@ -99,7 +99,7 @@ cd my-app
 
 Your workspace will contain three folders:
 
-* **src** - This directory will contain source code and packages. Any packages installed with the `go get` command will go here.
+* **src** - This directory will contain source code and packages. Any packages installed with the `go get` command will be in this folder.
 * **pkg** - This directory will contain the compiled Go package objects. These files all have a `.a` extension.
 * **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
