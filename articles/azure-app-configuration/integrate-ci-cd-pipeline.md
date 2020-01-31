@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to generate a configuration file by using data in Azure App Configuration during continuous integration and delivery
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 
 #Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.

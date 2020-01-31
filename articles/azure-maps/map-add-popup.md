@@ -17,7 +17,7 @@ This article shows you how to add a popup to a point on a map.
 
 ## Understand the code
 
-The following code adds a point feature, that has `name` and `description` properties, to the map using a symbol layer. An instance of the [Popup class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) is created but not displayed. Mouse events are added to the symbol layer to trigger opening and closing the popup when the mouse hovers over and off of the symbol marker. When the marker symbol is hovered, the popup's `position` property is updated with position of the marker and the `content` option is updated with some HTML that wraps the  `name` and `description` properties of the point feature being hovered. The popup is then displayed on the map using its `open` function.
+The following code adds a point feature, that has `name` and `description` properties, to the map using a symbol layer. An instance of the [Popup class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) is created but not displayed. Mouse events are added to the symbol layer to trigger opening and closing the popup. When the marker symbol is hovered, the popup's `position` property is updated with position of the marker, and the `content` option is updated with some HTML that wraps the  `name` and `description` properties of the point feature being hovered. The popup is then displayed on the map using its `open` function.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -80,7 +80,7 @@ Below is the complete running code sample of the above functionality.
 
 ## Reusing a popup with multiple points
 
-When you have a large number of points and only want to show one popup at a time, the best approach is to create one popup and reuse it rather than creating a popup for each point feature. By reusing the popup, the number of DOM elements created by the application is greatly reduced which can provide better performance. The following sample creates 3-point features. If you click on any of them, a popup will be displayed with the content for that point feature.
+When you have a large number of points and only want to show one popup at a time, the best approach is to create one popup and reuse. By reusing the popup, the number of DOM elements created by the application is greatly reduced which can provide better performance. The following sample creates 3-point features. If you click on any of them, a popup will be displayed with the content for that point feature.
 
 <br/>
 
@@ -89,7 +89,7 @@ When you have a large number of points and only want to show one popup at a time
 
 ## Customizing a popup
 
-By default the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `shoCloseButton` option to false. The HTML content of the popup use padded 10 pixels from the edges of the popup and the text is made white so it shows up nicely on the black background.  
+By default the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `CloseButton` option to false. The HTML content of the popup uses padded of 10 pixels from the edges of the popup. The text is made white, so it shows up nicely on the black background.  
 
 <br/>
 
@@ -100,7 +100,7 @@ By default the popup has a white background, a pointer arrow on the bottom, and 
 
 ## Popup events
 
-Popups can be opened, closed, and dragged. The popup class provides events for the help developers react to these actions. The following sample highlights which events are firing when you open, close, or drag the popup. 
+Popups can be opened, closed, and dragged. The popup class provides events to help developers react to these events. The following sample highlights which events fire when the user opens, closes, or drags the popup. 
 
 <br/>
 
