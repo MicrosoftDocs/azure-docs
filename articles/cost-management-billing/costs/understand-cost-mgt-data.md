@@ -112,17 +112,17 @@ If you do not see a specific tag in Cost Management, consider the following:
 1. Was the tag applied directly to the resource?
 2. Was the tag applied more than 24 hours ago? See [Usage data update frequency varies](#usage-data-update-frequency-varies)
 3. Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/tag-support) for the full list of what is supported.
-  1. Azure Active Directory B2C Directories
-  2. Azure Firewalls
-  3. Azure NetApp Files
-  4. Data Factory
-  5. Databricks
-  6. Load balancers
-  7. Network Watcher
-  8. Notification Hubs
-  9. Service Bus
-  10. Time Series Insights
-  11. VPN gateway
+    - Azure Active Directory B2C Directories
+    - Azure Firewalls
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - Load balancers
+    - Network Watcher
+    - Notification Hubs
+    - Service Bus
+    - Time Series Insights
+    - VPN gateway
 	
 Here are a few tips for working with tags:
 
