@@ -19,6 +19,7 @@ Application Insights is an extensible analytics service for web developers that 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* A functioning Java application.
 
 ## Sign in to the Azure portal
 

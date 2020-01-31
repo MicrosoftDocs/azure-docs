@@ -20,6 +20,7 @@ With Azure Application Insights, you can easily monitor your web application for
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* A functioning Node.js application.
 
 ## Sign in to the Azure portal
 
