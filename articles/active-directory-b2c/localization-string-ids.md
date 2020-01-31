@@ -201,7 +201,7 @@ The following example shows the use of some of the user interface elements in th
 
 ## Verification display control user interface elements
 
-The Following are the IDs for a [Verification display control](display-control-verification)
+The following are the IDs for a [Verification display control](display-control-verification.md)
 
 | ID | Default value |
 | -- | ------------- |
