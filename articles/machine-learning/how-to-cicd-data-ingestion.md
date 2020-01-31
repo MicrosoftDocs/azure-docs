@@ -353,7 +353,7 @@ stages:
     displayName: 'Publish linting and unit test results'    
 
     # The CI stage produces two artifacts (notebooks and ADF pipelines).
-    # The pipelines ARM templates are stored in a technical branch "adf_publish"
+    # The pipelines Azure Resource Manager templates are stored in a technical branch "adf_publish"
     - publish: $(Build.SourcesDirectory)/$(Build.Repository.Name)/code/dataingestion
       artifact: di-notebooks
     - checkout: git://${{variables['System.TeamProject']}}@adf_publish    
