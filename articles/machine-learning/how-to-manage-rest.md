@@ -200,7 +200,7 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 |Artifacts|artifact/v2.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Data stores|datastore/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |Hyperparameter tuning|hyperdrive/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Models|modelmanagement/v1.0/|[REST API Reference](tk)|
+|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
 |Run history|execution/v1.0/ and history/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/runs)|
 
 You can explore the REST API using the general pattern of:
@@ -400,4 +400,24 @@ You should receive a `202 Accepted` response and, in the returned headers, a `Lo
 
 - Explore the complete [AzureML REST API Reference](https://docs.microsoft.com/rest/api/azureml/)
 - Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)
-- [Explore Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure/machine-learning/samples-notebooks)
+- [Explore Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure/machine-learnin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+s
