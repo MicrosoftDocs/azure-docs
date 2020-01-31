@@ -41,7 +41,7 @@ The bottom part of the permissions window shows what your administrator consente
 
 After you manage app permissions and saved accounts in the **My Apps** portal, you can:
 
-- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-collections.md).
+- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
 
 ## Related articles
 
