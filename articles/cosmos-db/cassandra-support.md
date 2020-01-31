@@ -190,7 +190,7 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
 ## Secondary Index
-Cassandra API supports secondary indexes on all data types except FROZEN collection types, decimal and variant types. 
+Cassandra API supports secondary indexes on all data types except frozen collection types, decimal and variant types. 
 
 ## Usage of Cassandra retry connection policy
 
