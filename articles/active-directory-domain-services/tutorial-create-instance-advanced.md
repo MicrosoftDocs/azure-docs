@@ -103,9 +103,9 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 
 1. To manually configure additional options, choose **Next - Networking**. Otherwise, select **Review + create** to accept the default configuration options, then skip to the section to [Deploy your managed domain](#deploy-the-managed-domain). The following defaults are configured when you choose this create option:
 
-* Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
-* Creates a subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
-* Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
+    * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
+    * Creates a subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
+    * Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
 
 ## Create and configure the virtual network
 
