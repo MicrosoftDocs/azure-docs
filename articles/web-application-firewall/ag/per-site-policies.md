@@ -22,8 +22,9 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
-> * Create a global and a per-site policy
+> * Create a WAF policy
 > * Create an application gateway with WAF enabled
+> * Apply the WAF policy globally, per-site, and per-URI
 > * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 > * Test the application gateway
@@ -204,6 +205,40 @@ $appgw = New-AzApplicationGateway `
   -RequestRoutingRules $frontendRule `
   -Sku $sku `
   -FirewallPolicy $wafPolicyGlobal
+```
+
+### Apply a per-URI policy
+
+To apply a per-URI policy, simply create a new policy and apply it to the path rule config. 
+
+```azurepowershell-interactive
+$policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
+  -Mode Prevention `
+  -State Enabled `
+  -MaxRequestBodySizeInKb 100 `
+  -MaxFileUploadInMb 5
+
+$wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
+  -Name wafpolicySite `
+  -ResourceGroup $rgname `
+  -Location $location `
+  -PolicySetting $PolicySettingURI
+
+$Gateway = Get-AzApplicationGateway -Name "myAppGateway"
+
+Get-AzPublicIPAddress -ResourceGroupName <your RG name> -Name myAGIPConfig
+
+$AddressPool = New-AzApplicationGatewayBackendAddressPool -Name "appGatewayBackendPool" `
+-BackendIPAddresses "192.168.1.1", "192.168.1.2"
+
+$HttpSettings = New-AzApplicationGatewayBackendHttpSettings -Name "PerURIHttpSettings" `
+-Port 80 -Protocol "Http" -CookieBasedAffinity "Disabled"
+
+$PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" -Paths "/base" `
+-BackendAddressPool $AddressPool -BackendHttpSettings $HttpSettings -FirewallPolicy $wafPolicyURI
+
+Add-AzApplicationGatewayUrlPathMapConfig -ApplicationGateway $Gateway -Name "UrlPathMap" `
+-PathRules $PathRuleConfig -DefaultBackendAddressPool $AddressPool -DefaultBackendHttpSettings $HttpSettings
 ```
 
 ## Create a virtual machine scale set
