@@ -8,9 +8,9 @@ ms.custom: sfrev
 
 # Using Managed identities for Azure with Service Fabric (Preview)
 
-A common challenge when building cloud applications is how to securely manage the credentials in your code for authenticating to cloud services (without saving them locally on developer workstations or in source control). *Managed identities for Azure* solves this problem for all your resources in Azure Active Directory (Azure AD) by providing them with automatically managed identities within Azure AD. You can use a service's identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials stored in your code.
+A common challenge when building cloud applications is how to securely manage the credentials in your code for authenticating to various services without saving them locally on a developer workstation or in source control. *Managed identities for Azure* solve this problem for all your resources in Azure Active Directory (Azure AD) by providing them with automatically managed identities within Azure AD. You can use a service's identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials stored in your code.
 
-The *Managed identities* feature for Azure resources is free with Azure AD for Azure subscriptions. There is no additional cost.
+*Managed identities for Azure resources* are free with Azure AD for Azure subscriptions. There's no additional cost.
 
 > [!NOTE]
 > *Managed identities for Azure* is the new name for the service formerly known as Managed Service Identity (MSI).
@@ -30,11 +30,11 @@ The are two types of managed identities:
 - A **System-assigned managed identity** is enabled directly on an Azure service instance.  The lifecycle of a system-assigned identity is unique to the Azure service instance that it's enabled on.
 - A **user-assigned managed identity** is created as a standalone Azure resource. The identity can be assigned to one or more Azure service instances and is managed separately from the lifecycles of those instances.
 
-To further understand the difference between managed identity types, see [How do managed identities for Azure resources work?](../active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work.)
+To further understand the difference between managed identity types, see [How do managed identities for Azure resources work?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
 
 ## Supported scenarios for Service Fabric applications
 
-Managed identities for Service Fabric is only supported in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application which is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
+Managed identities for Service Fabric are only supported in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application that is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
 
 1. Assign one or more managed identities to the application resource; an application may be assigned a single system-assigned identity, and/or up to 32 user-assigned identities, respectively.
 

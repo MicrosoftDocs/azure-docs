@@ -86,7 +86,7 @@ Here is an example of what can be added inside the `Hosting` section in the Clus
 
 ## Use tokens as registry credentials
 
-Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the *managed identity* of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview) for more info.  Using this feature requires the follows steps:
+Service Fabric supports using tokens as credentials to download images for your containers.  This feature leverages the *managed identity* of the underlying virtual machine scale set to authenticate to the registry, eliminating the need for managing user credentials.  See [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) for more info.  Using this feature requires the follows steps:
 
 1. Ensure that *System Assigned Managed Identity* is enabled for the VM.
 
@@ -115,4 +115,4 @@ Service Fabric supports using tokens as credentials to download images for your 
 
 ## Next steps
 
-* See more about [Container registry authentication](../container-registry/container-registry-authentication).
+* See more about [Container registry authentication](../container-registry/container-registry-authentication.md).
