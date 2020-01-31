@@ -19,9 +19,9 @@ Recognize person names in text.
 Languages:
 * Public preview: `English`
 
-| Subtype name | Description                                                      | Available starting with model version | Languages |
-|--------------|------------------------------------------------------------------|---------------------------------------|-----------|
-| N/A          | Recognized person names, for example `Bill Gates`, `Marie Curie` | `2019-10-01`                          | `English` |
+| Subtype name | Description                                                      | Available starting with model version: |
+|--------------|------------------------------------------------------------------|---------------------------------------|
+| N/A          | Recognized person names, for example `Bill Gates`, `Marie Curie` | `2019-10-01`                          | 
 
 ### PersonType
 Job type or role held by a person.
