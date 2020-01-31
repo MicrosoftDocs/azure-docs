@@ -16,9 +16,9 @@ ms.author: diberry
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## Get LUIS key
+## Create LUIS runtime key for predictions
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+[!INCLUDE [Create LUIS runtime key for predictions](../includes/create-luis-resource.md)]
 
 ## Get intent programmatically
 
@@ -50,10 +50,10 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
         {
             static void Main(string[] args)
             {
-                // YOUR-KEY: for example, the starter key
+                // YOUR-KEY: 32 character key
                 var key = "YOUR-KEY";
 
-                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+                // YOUR-ENDPOINT: example is your-resource-name.api.cognitive.microsoft.com
                 var endpoint = "YOUR-ENDPOINT";
 
                 // //public sample app
@@ -97,10 +97,9 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
 
    ```
 
-1. Replace the following values:
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
 
-    * `YOUR-KEY` with your starter key.
-    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
+[!INCLUDE [Use prediction key and endpoint URL](get-key-quickstart-explain-key-and-endpoint.md)]
 
 1. Build the console application with this command:
 

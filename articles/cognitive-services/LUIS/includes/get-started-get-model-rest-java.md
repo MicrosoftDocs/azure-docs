@@ -11,7 +11,7 @@ ms.author: diberry
 ---
 ## Prerequisites
 
-* Starter key.
+* Azure Language Understanding - Authoring resource 32 character key and authoring endpoint URL.
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
@@ -67,7 +67,7 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                 // Add your endpoint key
                 String Key = "YOUR-KEY";
 
-                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+                // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
                 String Endpoint = "YOUR-ENDPOINT";
 
                 String Utterance = "[{'text': 'go to Seattle today','intentName': 'BookFlight','entityLabels': [{'entityName': 'Location::LocationTo',"
@@ -127,11 +127,10 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
         }
     }
     ```
-1. Replace the following values:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` with your app's ID
+1. Replace the values starting with `YOUR-` with your own values.
+
+[!INCLUDE [Replace values](../includes/get-key-quickstart-explain-key-endpoint-appid-authoring.md)]
 
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Java file:
 

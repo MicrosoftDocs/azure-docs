@@ -16,9 +16,9 @@ ms.author: diberry
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## Get LUIS key
+## Create LUIS runtime key for predictions
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+[!INCLUDE [Create LUIS runtime key for predictions](../includes/create-luis-resource.md)]
 
 ## Get intent from the prediction endpoint
 
@@ -33,7 +33,7 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
     try:
 
         key = 'YOUR-KEY'
-        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com'
+        endpoint = 'YOUR-ENDPOINT' # such as 'your-resource-name.api.cognitive.microsoft.com'
         appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
         utterance = 'turn on all lights'
 
@@ -57,10 +57,9 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
         print(f'{e}')
     ```
 
-1. Replace the following values:
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
 
-    * `YOUR-KEY` with your starter key.
-    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
+[!INCLUDE [Use prediction key and endpoint URL](get-key-quickstart-explain-key-and-endpoint.md)]
 
 1. Install the `requests` dependency. This is used to make HTTP requests:
 

@@ -16,9 +16,9 @@ ms.author: diberry
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## Get LUIS key
+## Create LUIS runtime key for predictions
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+[!INCLUDE [Create LUIS runtime key for predictions](../includes/create-luis-resource.md)]
 
 ## Get intent programmatically
 
@@ -35,10 +35,10 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
     //
     getPrediction = async () => {
 
-        // YOUR-KEY - Language Understanding starter key
+        // YOUR-KEY - Language Understanding runtime key
         var endpointKey = "YOUR-KEY";
 
-        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is westus2.api.cognitive.microsoft.com
+        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is your-resource-name.api.cognitive.microsoft.com
         var endpoint = "YOUR-ENDPOINT";
 
         // Set the LUIS_APP_ID environment variable
@@ -71,10 +71,9 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Replace the following values:
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
 
-    * `YOUR-KEY` to your starter key.
-    * `YOUR-ENDPOINT` to your endpoint URL. For example, `westus2.api.cognitive.microsoft.com`.
+[!INCLUDE [Use prediction key and endpoint URL](get-key-quickstart-explain-key-and-endpoint.md)]
 
 1. Install the `request`, `request-promise`, and `querystring` dependencies with this command:
 
