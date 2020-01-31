@@ -27,7 +27,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|
-| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
 | Agent dependencies  | None | None | Requires Log Analytics agent |
 | Data collected | Event Logs<br>ETW events<br>Performance<br>Custom logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Diagnostics logs | Event Logs<br>Performance<IIS logs><br>Custom logs<br>Data from solutions | Process details and dependencies<br>Network connection metrics |
 | Data sent to | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
@@ -38,7 +38,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|
-| Environments supported | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
 | Agent dependencies  | None | None | None | Requires Log Analytics agent |
 | Data collected | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
 | Data sent to | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
@@ -106,8 +106,8 @@ Consider the following when using the Dependency agent:
 - On Linux VMs, the Log Analytics agent must be installed before the Azure Diagnostic Extension.
 
 
-## Log Analytics extension
-The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. This is the same Log Analytics agent that is installed through other methods, but it allows you to manage the agent through [virtual machine extensions](../../virtual-machines/extensions/overview.md).
+## Log Analytics extension and Dependency extension
+The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensionsagent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). These extensions are used, for example, when enabling the agent through Azure Monitor for VMs.
 
 
 ## Next steps
