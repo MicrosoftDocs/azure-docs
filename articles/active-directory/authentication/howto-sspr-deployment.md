@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/31/2020
 
 ms.author: baselden
 author: barbaraselden
@@ -15,7 +15,7 @@ ms.reviewer: sahenry
 
 ms.collection: M365-identity-device-management
 ---
-# Deploy Azure AD self-service password reset
+# Deploy Azure Active Directory self-service password reset
 
 > [!NOTE]
 > This guide explains self-service password reset and how to deploy it. <br>**If you are looking for the self service password reset tool to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**. 
@@ -73,8 +73,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | Online courses|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the “[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)” module. |
 |Pluralsight Paid courses |[The Issues of Identity and Access Management](https://www.pluralsight.com/courses/identity-access-management-issues) Learn about IAM and security issues to be aware of in your organization. See especially the “Other Authentication Methods” module.|
 | |[Getting Started with the Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) Learn the best practices for extending on-premises assets to the cloud in a manner that allows for authentication, authorization, encryption, and a secured mobile experience. See especially the “Configuring Advanced Features of Microsoft Azure Active Directory Premium” module.
-| Tutorials|[Quickstart: Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)|
-| |[Complete an Azure AD self-service password reset pilot roll out](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
+|Tutorials |[Complete an Azure AD self-service password reset pilot roll out](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
 | |[Enabling password writeback](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
 | |[Azure AD password reset from the login screen for Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
 | FAQ|[Password management frequently asked questions](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
@@ -278,21 +277,9 @@ Before deploying, ensure that you have done the following:
 1. [Configured password writeback](#password-writeback) if you have a hybrid environment.
 
 
-### Enable Groups for SSPR
+**You're now ready to deploy SSPR!**
 
-Access the Azure portal with an administrator account.
-
-1. In the Azure portal menu or from the Home page, select **Azure Active Directory** and then choose **Password reset**.
-
-2. On the Properties page under the option for **Self-Service Password Reset Enabled**, choose **Selected**.
-
-3. Choose **Select group**, then select your group. When ready, select **Save**. See [SSPR properties](#sspr-properties)
-
-4. If you want all users enabled, select **All**.
-
-5. Repeat this process for each group.
-
- Configure the following settings as per your plan, and then select Save.
+See [Enable self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) for complete step-by-step directions on configuring the following areas.
 
 1. [Authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
 
@@ -344,7 +331,9 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * [What is password writeback?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
 
-## Next Steps
+## Next steps
+
+* To get started deploying SSPR, see [Complete an Azure AD self-service password reset pilot roll out](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot)
 
 * [Consider implementing Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 
