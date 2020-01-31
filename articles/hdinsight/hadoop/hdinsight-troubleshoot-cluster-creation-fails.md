@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.date: 08/26/2019
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---
+
 # Troubleshoot cluster creation failures with Azure HDInsight
 
 The following issues are most common root causes for cluster creation failures:
@@ -73,7 +74,7 @@ Other naming restrictions also apply for cluster creation. See [Cluster name res
 
 ## Service outages
 
-Check [Azure status](https://status.azure.com/status) for any potential outages or service issues.
+Check [Azure status](https://status.azure.com) for any potential outages or service issues.
 
 ## Next steps
 
