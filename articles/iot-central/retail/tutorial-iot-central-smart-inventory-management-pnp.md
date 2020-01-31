@@ -20,18 +20,20 @@ In this tutorial, you learn how to,
 * walk through the application 
 
 ## Prerequisites
+
 * No specific pre-requisites required to deploy this app
 * Recommended to have Azure subscription, but you can even try without it
 
 ## Create smart inventory management application template
 
 You can create application using following steps
+
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
-> [!div class="mx-imgBorder"]
-> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
-2. Select **Retail** tab and select **Create app** under ** smart inventory management **
+2. Select **Retail** tab and select **Create app** under **smart inventory management**
 
 3. **Create app** will open New application form and fill up the requested details as show below.
    **Application name**: you can use default suggested name or enter your friendly application name.
@@ -39,15 +41,16 @@ You can create application using following steps
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
-> [!div class="mx-imgBorder"]
-> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
-> [!div class="mx-imgBorder"]
-> ![Smart Inventory Management billing info](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    > [!div class="mx-imgBorder"]
+    > ![Smart Inventory Management billing info](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## Walk through the application 
 
 ### Dashboard 
+
 After successfully deploying the app template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you will see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform. 
 This dashboard is pre-configured to showcase the critical smart inventory management device operations activity.
 The dashboard is logically divided between two different gateway device management operations, 
