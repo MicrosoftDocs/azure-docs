@@ -5,7 +5,7 @@ description: Build a classifier and use custom Python scripts to predict credit 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
