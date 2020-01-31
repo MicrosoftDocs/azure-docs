@@ -78,7 +78,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 3. Run the following cmdlet to download the script for creating the Azure Automation account:
 
      ```powershell
-     Invoke-WebRequest -Uri “https://raw.githubusercontent.com/Azure/RDS-Templates/ptg-wvdautoscaling-automation/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazureautomationaccount.ps1" -OutFile “your local machine path\ createazureautomationaccount.ps1”
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
      ```
 
 4. Run the following cmdlet to execute the script and create the Azure Automation account:
@@ -150,7 +150,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 3. Run the following cmdlet to download the createazurelogicapp.ps1 script file on your local machine.
 
      ```powershell
-     Invoke-WebRequest -Uri “https://raw.githubusercontent.com/Azure/RDS-Templates/ptg-wvdautoscaling-automation/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazurelogicapp.ps1" -OutFile “your local machine path\ createazurelogicapp.ps1”
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
      ```
 
 4. Run the following cmdlet to sign into Windows Virtual Desktop with an account that has RDS Owner or RDS Contributor permissions.
@@ -162,43 +162,43 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 5. Run the following PowerShell script to create the Azure Logic app and execution schedule.
 
      ```powershell
-     $aadTenantId = Read-Host -Prompt “Enter your Azure AD tenant ID”
+     $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
 
-     $subscriptionId = Read-Host -Prompt “Enter your Azure Subscription ID”
+     $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
 
-     $tenantName = Read-Host -Prompt “Enter the name of your WVD tenant”
+     $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
 
-     $hostPoolName = Read-Host -Prompt “Enter the name of the host pool you’d like to scale”
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
 
-     $recurrenceInterval = Read-Host -Prompt “Enter how often you’d like the job to run in minutes, e.g. ‘15’”
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
 
-     $beginPeakTime = Read-Host -Prompt “Enter the start time for peak hours in local time, e.g. 9:00”
+     $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
 
-     $endPeakTime = Read-Host -Prompt “Enter the end time for peak hours in local time, e.g. 18:00”
+     $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
 
-     $timeDifference = Read-Host -Prompt “Enter the time difference between local time and UTC in hours, e.g. +5:30”
+     $timeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
 
-     $sessionThresholdPerCPU = Read-Host -Prompt “Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours”
+     $sessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
 
-     $minimumNumberOfRdsh = Read-Host -Prompt “Enter the minimum number of session host VMs to keep running during off-peak hours”
+     $minimumNumberOfRdsh = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
 
-     $limitSecondsToForceLogOffUser = Read-Host -Prompt “Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately”
+     $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
 
-     $logOffMessageTitle = Read-Host -Prompt “Enter the title of the message sent to the user before they are forced to sign out”
+     $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
 
-     $logOffMessageBody = Read-Host -Prompt “Enter the body of the message sent to the user before they are forced to sign out”
+     $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
 
-     $location = Read-Host -Prompt “Enter the name of the Azure region where you will be creating the logic app”
+     $location = Read-Host -Prompt "Enter the name of the Azure region where you will be creating the logic app"
 
-     $connectionAssetName = Read-Host -Prompt “Enter the name of the Azure RunAs connection asset”
+     $connectionAssetName = Read-Host -Prompt "Enter the name of the Azure RunAs connection asset"
 
-     $webHookURI = Read-Host -Prompt “Enter the URI of the WebHook returned by when you created the Azure Automation Account”
+     $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
 
-     $automationAccountName = Read-Host -Prompt “Enter the name of the Azure Automation Account”
+     $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
 
-     $maintenanceTagName = Read-Host -Prompt “Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool”
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
 
-     .\createazurelogicapp.ps1 -ResourceGroupName “Name of the resource group” `
+     .\createazurelogicapp.ps1 -ResourceGroupName "Name of the resource group" `
 
      -AADTenantID $aadTenantId `
 
