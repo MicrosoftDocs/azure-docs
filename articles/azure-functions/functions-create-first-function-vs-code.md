@@ -20,11 +20,11 @@ Before you get started, make sure you have the following requirements in place:
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions ](https://nodejs.org/about/releases/).  
++ [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions ](https://nodejs.org/about/releases/). Use the `npm --version` command to check your version.
     Not required for local development on MacOS and Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended).  
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `npm --version` command to check your version.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which as supported by Azure Functions. Python 3.8 isn't yet supported. 
@@ -92,7 +92,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     + **Select how you would like to open your project**: Choose `Add to workspace`.
 
-Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
+1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -114,13 +114,13 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Run the function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. Again, add the `name` query string as `?name=<yourname>` to the end of this URL and execute the request.
+1. Copy the URL of the HTTP trigger from the **Output** panel. 
 
-    The URL that calls your HTTP-triggered function should be in the following format:
+1. Paste this new URL for the HTTP request into your browser's address bar. Again, add the `name` query string as `?name=Functions` to the end of this URL and execute the request. The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=<yourname> 
-
-1. Paste this new URL for the HTTP request into your browser's address bar. The following example shows the response in the browser to the remote GET request returned by the function: 
+        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+        
+    The following example shows the response in the browser to the remote GET request returned by the function: 
 
     ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
