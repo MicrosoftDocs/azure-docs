@@ -23,7 +23,7 @@ If you already upgraded to 16.4 and the Azure PowerShell component was checked, 
 
 ## Update the deployment script in your project
 
-Replace all occurrences of the string 'AzureRm' with 'Az' in your deployment script. You can refer to revisions in this [gist](https://gist.github.com/cweining/d2da2479418ea403499c4306dcf4f619) to see the changes. For more information about upgrading scripts to the Az module, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az) .
+Replace all occurrences of the string 'AzureRm' with 'Az' in your deployment script. You can refer to revisions in this [gist](https://gist.github.com/cweining/d2da2479418ea403499c4306dcf4f619) to see the changes. For more information about upgrading scripts to the Az module, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
 ## Next steps
 
