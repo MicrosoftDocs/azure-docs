@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 09/21/2019
+ms.date: 01/30/2020
 ms.author: juliako
 ---
 
@@ -24,6 +24,10 @@ To analyze your content using Media Services v3 presets, you create a **Transfor
 
 > [!NOTE]
 > When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
+
+## Compliance, Privacy and Security
+ 
+As an important reminder, you must comply with all applicable laws in your use of Video Indexer, and you may not use Video Indexer or any other Azure service in a manner that violates the rights of others or may be harmful to others. Before uploading any videos, including any biometric data, to the Video Indexer service for processing, You must have all the proper rights, including all proper consents, from the individuals in the video. To learn about compliance, privacy and security in Video Indexer, please visit the Microsoft [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement) and the Online Services [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”). By using Video Indexer, you agree to be bound by the Cognitive Services Terms, the DPA and the Microsoft Privacy Statement. 
 
 ## Built-in presets
 
