@@ -20,6 +20,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 >
 > For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
 
+> [!NOTE]
+> For a list of namespaces belong to which services see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
 
 
 
