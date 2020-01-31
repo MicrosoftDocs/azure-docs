@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl events commands.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
