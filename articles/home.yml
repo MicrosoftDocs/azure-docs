@@ -1487,7 +1487,7 @@ tools:
 
 additionalContent:
   sections:
-    - title: Sovereign Clouds
+    - title: Sovereign clouds
       items:
         # Card
         - title: Azure Government
