@@ -27,11 +27,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: SAP Cloud Platform Identity Authentication provisioning
-            url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
+            url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial
           - text: Oracle Fusion ERP provisioning
-            url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial.md
+            url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial
           - text: Atlassian Cloud provisioning
-            url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial.md
+            url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial
       - linkListType: how-to-guide
         links:
           - text: Adding a gallery app? Configure provisioning to the app

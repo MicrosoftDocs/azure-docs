@@ -37,7 +37,7 @@
     - name: Edit the attribute mappings
       items:
       - name: Customize attribute mappings
-        href: Customize-application-attributes.md
+        href: customize-application-attributes.md
       - name: Write expressions for attribute mappings
         href: functions-for-customizing-application-data.md
     - name: Include or exclude users and groups from scope
@@ -62,8 +62,6 @@
         href: application-provisioning-config-problem.md
       - name: Quarantine status
         href: application-provisioning-quarantine-status.md
-      - name: Provisioning logs
-        href: /azure/active-directory/reports-monitoring/concept-provisioning-logs
       - name: Authorization issue (unable to save admin credentials)
         href: application-provisioning-config-problem-storage-limit.md
       - name: Users are not provisioned 
