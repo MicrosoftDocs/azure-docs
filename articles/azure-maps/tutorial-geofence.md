@@ -169,7 +169,7 @@ Once the Postman app is installed, follow these steps to upload the construction
 
 In this section, We create an event handler that receives notifications. This event handler should notify the Operations Manager about enter and exit events of any equipment.
 
-We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) services to handle, enter, and exit events. When the events in the Logic Apps trigger, more events trigger in sequence. The idea is to send alerts, in this case emails, to the Operations Manager. The following figure illustrates creation of a Logic App for geofence enter event. Similarly, you can create another one for exit event. You can see all [supported event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers) for more info.
+We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) services to handle enter and exit events. When the events in the Logic Apps trigger, more events trigger in sequence. The idea is to send alerts, in this case emails, to the Operations Manager. The following figure illustrates creation of a Logic App for geofence enter event. Similarly, you can create another one for exit event. You can see all [supported event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers) for more info.
 
 1. Create a Logic App in Azure portal
 
@@ -189,7 +189,7 @@ We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handl
 
 ## Create an Azure Maps Events subscription
 
-Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps. We need two different event subscriptions, one for the enter event and one for the exit events.
+Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). We need two different event subscriptions, one for the enter event and one for the exit events.
 
 Follow the steps below to create an event subscription for the geofence enter events. You can subscribe to geofence exit events in a similar manner.
 

@@ -230,10 +230,10 @@ The following example shows how you can limit the amount of data sent to the cri
 
 
 
-
 ## Viewing data sent to event hub
 A simple approach is view the data sent to the event hub is to create a small test console application to listen to the event hub and print the output stream. You can place the following code, which is explained in more detail
 in [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in a console application. The console application must include the [Event Processor Host NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). Replace the values in angle brackets in the **Main** function with values for your resources.   
+
 
 ```csharp
 //Console application code for EventHub test client
@@ -315,6 +315,7 @@ namespace EventHubListener
     }
 }
 ```
+---
 
 ## Troubleshoot Event Hubs sinks
 Look at the Azure Storage table **WADDiagnosticInfrastructureLogsTable** which contains logs and errors for Azure Diagnostics itself. One option is to use a tool such as [Azure Storage Explorer](https://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
