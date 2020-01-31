@@ -1,13 +1,13 @@
 ---
 
 title: What is Azure Virtual Network NAT?
-description: Overview of Virtual Network NAT features, resources, architecture, and implementation. Learn how Virtual Network NAT works and how to use NAT Gateway resources in the cloud.
+description: Overview of Virtual Network NAT features, resources, architecture, and implementation. Learn how Virtual Network NAT works and how to use NAT gateway resources in the cloud.
 services: virtual-network
 documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
-Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT Gateway resources, and what I can use them for. 
+Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for. 
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -27,7 +27,7 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 ## Static IP addresses for outbound-only
 
-Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT Gateway resource <!-- "ADD when PM is done"[NAT gateway resource](./nat-gateway-resource.md) --> to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. All outbound Internet flows will always use the configured static public IP addresses assigned to the NAT gateway resource.
+Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource <!-- "ADD when PM is done"[NAT gateway resource](./nat-gateway-resource.md) --> to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. All outbound Internet flows will always use the configured static public IP addresses assigned to the NAT gateway resource.
 
 NAT is compatible with standard SKU [public IP address resources](./virtual-network-ip-addresses-overview-arm.md#standard) or [public IP prefix resources](./public-ip-address-prefix.md) or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to a specific range of IP addresses.  Any IP whitelisting of your deployments is now easy.
 
@@ -53,9 +53,7 @@ NAT and compatible features are aware of the direction the flow was originated i
 
 ## Fully managed, highly resilient
 
-NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.
-
-NAT is ready for use and fully resilient even with one configured IP address.  You don't need multiple addresses for resiliency. NAT always has multiple fault domains and can sustain multiple failures without service outage.
+NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
 ## TCP Reset for unrecognized flows
 
@@ -149,7 +147,9 @@ During public preview, pricing is discounted at 50%.
 
 NAT is supported through normal support channels.
 
-You may also provide [feedback on the Public Preview](https://aka.ms/natfeedback).
+## Feedback
+
+Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us so we can build what you need.
 
 ## Limitations
 
