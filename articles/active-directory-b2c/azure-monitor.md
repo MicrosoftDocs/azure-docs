@@ -172,7 +172,7 @@ VERBOSE: 7:26:23 PM - Checking deployment status in 5 seconds
 VERBOSE: 7:26:29 PM - Resource Microsoft.Resources/deployments 'rgAssignment' provisioning status is succeeded
 
 DeploymentName          : AzureADB2C
-Location                : eastus
+Location                : centralus
 ProvisioningState       : Succeeded
 Timestamp               : 1/31/20 7:26:24 PM
 Mode                    : Incremental
