@@ -57,7 +57,7 @@ Workspaces, the filters admins can configure to organize their users apps, will 
 
 ---
  
-### Azure AD B2C Phone sign-up and sign-in using custom policy
+### Azure AD B2C Phone sign-up and sign-in using custom policy (Public Preview)
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
