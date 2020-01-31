@@ -67,8 +67,9 @@ Use these instructions to begin the configuraiton process for the SignalFx SSO.
 1. In the search field, enter and select **Azure Active Directory**.
 1. Click **Create New Integration**.
 1. In **Name**, enter an easily recognizable name that your users will understand.
-	* As an optional step, you can activate the **Show on login page** option, which will display a customized text in the login button. 
-	* If you activate the **Show on login page** option, note that the information entered in **Name** will appear in the button on the login page. As a result, enter a **Name** that your users will recognize. 
+1. Mark **Show on login page**.
+	* This feature will display a customized button in the login page that your users can click on. 
+	* The information you entered in **Name** will appear on the button. As a result, enter a **Name** that your users will recognize. 
 	* This option will only function if you use a custom subdomain for the SignalFx application, such as **yourcompanyname.signalfx.com**. To obtain a custom subdomain, contact SignalFx support. 
 1. Copy the **Integration ID**. You will need this information in a later step. 
 1. Leave the SignalFx UI open. 
@@ -89,7 +90,7 @@ Use these instructions to enable Azure AD SSO in the Azure portal.
 
     b. In **Reply URL**, enter the following URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` and replace `<realm>` with your SignalFx realm, as well as `<integration ID>` with the **Integration ID** you copied earlier from the SignalFx UI.
 
-1. SignalFx application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. SignalFx application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. 
 	
 1. Review and verify that the following claims map to the source attributes that are populated in the Active Directory. 
 
@@ -154,8 +155,7 @@ Review the following information regarding how to test SSO, as well as expectati
 
 ### Test logins
 * To test the login, you should use a private / incognito window, or you can log out of the Azure portal. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
-	* When a user logs into SignalFx from the SAML SSO for the first time, the user will receive a SignalFx email with a link. The user must click the link for authentication purposes. This email validation will only take place for first-time users. For a test user, you must open the link in a private / incognito window.  
-* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not function; the test user will be directed to the Azure portal. To troubleshoot, the test user should navigate to the SignalFx login screen or to the Access Panel and try again.
+* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login screen or to the Access Panel and try again.
 	* When you click the SignalFx tile in the Access Panel, you should be automatically logged into the SignalFx. 
 		* For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 * SignalFx application can be accessed from the Access Panel or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
