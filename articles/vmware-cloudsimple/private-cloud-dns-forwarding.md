@@ -18,9 +18,9 @@ Private Cloud DNS servers can forward DNS lookup for any on-premises resources t
 
 Forwarding DNS lookup for your on-premises DNS server allows you to use your Private Cloud for the following scenarios:
 
-1. Use Private Cloud as a disaster recovery setup for your on-premises VMware solution
-2. Use on-premises Active Directory as an identity source for your Private Cloud vSphere
-3. Use HCX for migrating virtual machines from on-premises to Private Cloud
+* Use Private Cloud as a disaster recovery setup for your on-premises VMware solution
+* Use on-premises Active Directory as an identity source for your Private Cloud vSphere
+* Use HCX for migrating virtual machines from on-premises to Private Cloud
 
 ## Before you begin
 
