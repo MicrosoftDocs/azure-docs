@@ -46,7 +46,7 @@ You need to install both Python and the Microsoft Genomics Python client in your
 
 ### Install Python
 
-The Microsoft Genomics Python client is compatible with Python 2.7. 12 or later 2.7.xx version. 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/release/python-2714/). 
+The Microsoft Genomics Python client is compatible with Python 2.7.12 or a later 2.7.xx version. 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
 > Python 3.x isn't compatible with Python 2.7.xx.  MSGen is a Python 2.7 application. When running MSGen, make sure that your active Python environment is using a 2.7.xx version of Python. You may get errors when trying to use MSGen with a 3.x version of Python.
