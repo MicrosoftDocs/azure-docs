@@ -252,8 +252,9 @@ You can change `scriptFile` to invoke a different Python file if desired.
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json":::
+
 ::: zone-end
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json":::
 
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
 
