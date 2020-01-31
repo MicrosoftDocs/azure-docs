@@ -28,17 +28,17 @@ Read more about these options below.
 
 ## Stop the cache
 
-You can stop the cache to reduce costs during an inactive period. You are not charged for uptime while the cache is stopped, but you still must pay the cache disk fee for the allocated storage. (See the [pricing](https://aka.ms/hpc-cache-pricing) page for details.)
+You can stop the cache to reduce costs during an inactive period. You are not charged for uptime while the cache is stopped, but you are charged for the cache's allocated disk storage. (See the [pricing](https://aka.ms/hpc-cache-pricing) page for details.)
 
 A stopped cache does not respond to client requests. You should unmount clients before stopping the cache.
 
-The **Stop** button suspends an active cache. The **Stop** button is available only when a cache is active and its status is **Healthy**.
+The **Stop** button suspends an active cache. The **Stop** button is available when a cache's status is **Healthy** or **Degraded**.
 
 ![screenshot of the top buttons with Stop highlighted and a pop-up message describing the stop action and asking 'do you want to continue?' with Yes (default) and No buttons](media/stop-cache.png)
 
 After you click Yes to confirm stopping the cache, the cache automatically flushes its contents to the storage targets. This process might take some time, but it ensures data consistency. Finally, the cache status changes to **Stopped**.
 
-To re-activate a stopped cache, click the **Start** button. No confirmation is needed.
+To reactivate a stopped cache, click the **Start** button. No confirmation is needed.
 
 ![screenshot of the top buttons with Start highlighted](media/start-cache.png)
 
