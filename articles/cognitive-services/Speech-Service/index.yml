@@ -13,7 +13,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: landing-page
-  ms.date: 01/30/2020
+  ms.date: 01/31/2020
   ms.author: dapine
 
 landingContent:
@@ -222,6 +222,6 @@ landingContent:
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
         - text: Stack Overflow
-          url: https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech
+          url: https://aka.ms/SOspeechquestions
         - text: UserVoice forum
           url: https://cognitive.uservoice.com/forums/912208-speech-service
