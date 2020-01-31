@@ -40,7 +40,7 @@
       href: ./ag/custom-waf-rules-overview.md
     - name: Request size limits and exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
-    - name: Policy overview
+    - name: WAF Policy overview
       href: ./ag/policy-overview.md
   - name: Front Door
     items:
