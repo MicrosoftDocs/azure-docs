@@ -17,7 +17,7 @@ ms.date: 11/12/2019
 
 In the two previous tutorials, you created and customized an IoT Central application using the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 > [!div class="checklist"]
 > * Configure an IoT Central application to export telemetry to an event hub.
 > * Use Logic Apps to send data from an event hub to a Power BI streaming dataset.
