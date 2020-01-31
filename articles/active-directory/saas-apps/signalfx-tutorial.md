@@ -138,15 +138,15 @@ Use these instructions to enable the test user to use Azure single sign-on for S
 	![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog box, from the **Users** list, select **B.Simon**, and then at the bottom of the page, click **Select**.
-1. If you are expecting any role value in the SAML assertion, then in the **Select Role** dialog box, select the appropriate role for the user from the list, and then click **Select** at the bottom of the screen.
+1. If you are expecting any role value in the SAML assertion, then in the **Select Role** dialog box, select the appropriate role for the user from the list, and then click **Select** at the bottom of the page.
 1. In the **Add Assignment** dialog box, click the **Assign**.
 
 ## Step 6: Complete the SignalFx SSO configuration 
 
 1. Open the previous tab, and return to the SignalFx UI to view the current Azure Active Directory integration page. 
-1. Next to **Certificate**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded from Azure portal.
-1. Next to **Issuer URL (Azure AD Identifier)**, paste the **Azure AD Identifier** value that you copied earlier from the Azure portal. 
-1. Next to **Metadata URL (Federation Metadata )**, paste the **App Federation Metadata Url** value that you copied earlier from the Azure portal. 
+1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded from Azure portal.
+1. Next to **Azure AD Identifier**, paste the **Azure AD Identifier** value that you copied earlier from the Azure portal. 
+1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier from the Azure portal. 
 1. Click **Save**.
 
 ## Step 7: Test SSO
@@ -155,7 +155,7 @@ Review the following information regarding how to test SSO, as well as expectati
 
 ### Test logins
 * To test the login, you should use a private / incognito window, or you can log out of the Azure portal. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
-* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login screen or to the Access Panel and try again.
+* When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the Access Panel and try again.
 	* When you click the SignalFx tile in the Access Panel, you should be automatically logged into the SignalFx. 
 		* For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 * SignalFx application can be accessed from the Access Panel or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
