@@ -239,7 +239,7 @@ landingContent:
         - text: Deploy Speech service containers with Kubernetes
           url: speech-container-howto-on-premises.md
         - text: Deploy Speech service containers on Azure Container Instances
-          url: speech-container-howto-on-container instances.md
+          url: speech-container-howto-on-container-instances.md
     - linkListType: reference
       links:
         - text: Supported regions
