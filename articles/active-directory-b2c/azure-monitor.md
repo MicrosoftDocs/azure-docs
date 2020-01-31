@@ -66,11 +66,11 @@ To onboard your Azure AD tenant (the **Customer**), create an [Azure Resource Ma
 
 | Field   | Definition |
 |---------|------------|
-| `mspOfferName`                     | A name describing this definition. This value is displayed to the customer as the title of the offer. |
-| `mspOfferDescription`              | A brief description of your offer (for example, "Contoso Azure AD subscription") |
+| `mspOfferName`                     | A name describing this definition. For example, *Azure AD B2C Managed Services*. This value is displayed to the customer as the title of the offer. |
+| `mspOfferDescription`              | A brief description of your offer. For example, *Enables Azure Monitor in Azure AD B2C*.|
 | `rgName`                           | The name of the resource group you create earlier in your Azure AD tenant. For example, *azure-ad-b2c-monitor*. |
 | `managedByTenantId`                | The **Directory ID** of your Azure AD B2C tenant (also known as the tenant ID). |
-| `authorizations.value.principalId` | The **Object ID** of the B2C user you recorded earlier that will have access to resources in this Azure Subscription. |
+| `authorizations.value.principalId` | The **Object ID** of the B2C user you recorded earlier that will have access to resources in this Azure subscription. |
 
 Download the Azure Resource Manager template and parameter files:
 
@@ -88,7 +88,7 @@ Next, update the parameters file with the values you recorded earlier. The follo
             "value": "Azure AD B2C Managed Services"
         },
         "mspOfferDescription": {
-            "value": "Azure AD B2C Managed Services"
+            "value": "Enables Azure Monitor in Azure AD B2C"
         },
         "rgName": {
             "value": "azure-ad-b2c-monitor"
