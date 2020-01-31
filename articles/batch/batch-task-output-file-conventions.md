@@ -1,6 +1,6 @@
 ---
-title: Persist job and task output to Azure Storage with the File Conventions library for .NET - Azure Batch | Microsoft Docs
-description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task and job output to Azure Storage, and view the persisted output in the Azure portal.
+title: Persist output data to Azure Storage with .NET File Conventions library - Azure Batch
+description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task & job output to Azure Storage, and view that output in the Azure portal.
 services: batch
 documentationcenter: .net
 author: ju-shim
