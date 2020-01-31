@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch pool delete complete event | Microsoft Docs"
-description: Reference for Batch pool delete complete event.
+title: Azure Batch pool delete complete event
+description: Reference for Batch pool delete complete event. This event is emitted when a pool delete operation has completed.
 services: batch
 author: ju-shim
 manager: gwallace
