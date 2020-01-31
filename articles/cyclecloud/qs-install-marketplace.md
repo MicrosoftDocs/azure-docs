@@ -10,7 +10,7 @@ ms.author: adjohnso
 
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute workloads. In this quickstart, you will install CycleCloud on Azure resources using the Marketplace image. 
 
-The CycleCLoud Marketplace image is the recommended way of installing CycleCloud and it is the easiest way to quickly get a working version of CycleCloud that will allow you to start and scale clusters. CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](qs-install-manual.md)
+The CycleCloud Marketplace image is the recommended way of installing CycleCloud and it is the easiest way to quickly get a working version of CycleCloud that will allow you to start and scale clusters. CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](qs-install-manual.md)
 
 ## Prerequisites
 
@@ -42,11 +42,10 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 ## Create Virtual Machine
 
 1. Log into the [Azure Portal](https://ms.portal.azure.com)
-1. In the search bar, enter "Virtual" and select "Virtual machines" from the dropdown to bring up the VM blade
-1. Click on **Add** button
-1. Click on the **Create VM from Azure Marketplace** link
-1. Search for "CycleCloud" and select the **Azure CycleCloud** image
+1. In the search bar, enter "CycleCloud" and select "Azure CycleCloud" from under the **Marketplace** category
 1. Click on the **Create** button to bring up the Create Virtual Machine form.
+
+![Create CycleCloud VM](~/images/create-cyclecloud-vm.png)
 
 ### Customize CycleCloud instance
 
@@ -56,20 +55,24 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 1. Select the **Region**
 1. Create the **Username** that you will use to log into the instance
 1. Add your **SSH public key**
+1. If you are planning on using [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) (recommended), Select the **Management** tab and enable **System assigned managed identity**.
+1. Click on the **Review** button and then the **Create** button
 
-The image has a number of default settings including Size and built-in Network Security Groups.
+The image has a number of recommended default settings including **Size** and built-in **Network Security Groups**. These can be modified if necessary.
+
+![Customize CycleCloud instance](~/images/customize-marketplace-image.png)
+
+## Assign Managed Identity
+
+If you are using Managed Identities for authentication, you should follow the [Managed Identities Guide](./how-to/managed-identities.md) to assign the system managed identity to the newly created application VM.
 
 ## Log into the CycleCloud Application Server
 
-To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
+To connect to the CycleCloud webserver, retrieve the public IP address of the CycleServer VM from the Azure Portal.
 
-```azurecli-interactive
-# Replace "MyQuickstart" with the resource group you created above.
-export RESOURCE_GROUP="MyQuickstart"
-az network public-ip show -g ${RESOURCE_GROUP?} -n cycle-ip --query dnsSettings.fqdn
-```
+![Get Public IP address](~/images/get-public-ip.png)
 
-Browse to `https://<FQDN>/`. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
+Browse to `https://<public IP>/`. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
 
 Create a **Site Name** for your installation. You can use any name here:
 
@@ -81,9 +84,13 @@ The Azure CycleCloud End User License Agreement will be displayed - click to acc
 
 Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
 
+You will need to set up you Azure provider account in CycleCloud. You can either use [Managed Identities](./how-to/managed-identities.md) or [Service Principals](./how-to/service-principals.md).
+
 You should now have a running CycleCloud application that allows you to create and run clusters.
 
 ## Further Reading
 
 * [Install CycleCloud manually](./qs-install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
+* [Use Managed Identities for account](./how-to/managed-identities.md)
+* [Use Service Principals for account](./how-to/service-principals.md)
