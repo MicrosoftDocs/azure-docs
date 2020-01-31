@@ -60,7 +60,7 @@ These commands first create a resource group in the east US region for the appli
 | Template name            | Description |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Creates an empty application for you to populate with your own device templates and devices.
-| iotc-pnp-preview@1.0.0   | Creates an empty plug and play preview application for you to populate with your own device templates and devices. |
+| iotc-pnp-preview@1.0.0   | Creates an empty Plug and Play (preview) application for you to populate with your own device templates and devices. |
 | iotc-condition@1.0.0     | Creates an application with a in-store analytics – condition monitoring template. Use this template to connect and monitor store environment. |
 | iotc-consumption@1.0.0   | Creates an application with water consumption monitoring template. Use this template to monitor and control water flow. |
 | iotc-distribution@1.0.0  | Creates an application with a Digital distribution template. Use this template to improve warehouse output efficiency by digitalizing key assets and actions. |

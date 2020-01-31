@@ -78,7 +78,7 @@ You can create IoT Central application using a 7-day free trial, or use a standa
 
 ### Create device templates
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play, is a device capability model schema that describes device capabilities. In an IoT Central application, device templates use these IoT Plug and Play device capability models.
+[IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play (preview), is a device capability model schema that describes device capabilities. In an IoT Central application, device templates use these IoT Plug and Play (preview) device capability models.
 
 As a solution builder, you have several options for creating device templates:
 
@@ -189,6 +189,6 @@ Now that you have an overview of IoT Central, here are suggested next steps:
 - Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
-- Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md).
+- Learn more about [IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).
 - Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).
