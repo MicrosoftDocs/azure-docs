@@ -231,9 +231,9 @@ You can start any of the available cloud-based apps from the **My Apps** portal.
 
 After you get to the **My Apps** portal, you can:
 
-- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps (preview) portal](my-applications-portal-collections.md).
+- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-collections.md).
 
-- Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
+- Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
 >If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.

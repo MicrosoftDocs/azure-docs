@@ -1,6 +1,6 @@
 ---
 title:  Organize apps using collections from the My Apps portal - Azure Active Directory | Microsoft Docs
-description: Learn how to access and use collections for your organization's cloud-based apps from the My Apps (preview) portal.
+description: Learn how to access and use collections for your organization's cloud-based apps from the My Apps portal.
 services: active-directory
 author: curtand
 manager: daveba
@@ -16,7 +16,7 @@ ms.custom: user-help
 
 # Access and use collections on the My Apps portal
 
-Workspaces are different app views you see in the **My Apps** (preview) portal. Apps can be grouped into collections by department function or user role, for example. If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
+Workspaces are different app views you see in the **My Apps** portal. Apps can be grouped into collections by department function or user role, for example. If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -39,11 +39,11 @@ When you select and view a collection, you only see the default applications tha
 
 After you organize your apps into the various categories in the **My Apps** portal, you can:
 
-- Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
+- Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps portal](my-applications-portal-permissions-saved-accounts.md).
 
 ## Related articles
 
-- [Update your profile and account info](my-account-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** (preview) portal.
+- [Update your profile and account info](my-account-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** portal.
 
 - [Manage your organizations](my-account-portal-organizations-page.md). Instructions about how to view and manage your organization-related information on the **Organizations** page of the **My Profile** portal.
 
