@@ -41,7 +41,7 @@ By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
 * You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) as a low-cost option.
 
-To modify the storage replication type, follow these steps.
+To modify the storage replication type:
 
 1. In the new vault, select **Properties** under the **Settings** section.
 
