@@ -16,7 +16,7 @@ ms.date: 02/01/2020
 
 # Monitor Azure AD B2C with Azure Monitor
 
-With Azure Active Directory B2C (Azure AD B2C) monitoring, you can route your Azure AD B2C activity logs to different monitoring solutions. You can either retain them for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
+Use Azure Monitor to route your Azure Active Directory B2C (Azure AD B2C) activity logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 
 You can route logs to:
 
@@ -32,7 +32,7 @@ To complete the steps in this article, you deploy an Azure Resource Manager temp
 
 * [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 6.13.1 or higher
 
-You can also use the [Azure Cloud Shell](https://shell.azure.com) which includes the latest version of the Azure PowerShell module.
+You can also use the [Azure Cloud Shell](https://shell.azure.com), which includes the latest version of the Azure PowerShell module.
 
 ## Delegated resource management
 
@@ -52,15 +52,15 @@ In the Azure AD tenant that contains your subscription (not the directory that c
 
 Start by gathering the following information.
 
-**Directory ID** of your Azure AD B2C directory.
+**Directory ID** of your Azure AD B2C directory (also known as the tenant ID).
 
 * To get the directory ID, sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* role (or higher), and then use the **Directory + Subscription** filter to switch to the directory that contains your Azure AD B2C tenant. Select **Azure Active Directory**, select **Properties**, and then record the **Directory ID**.
 
 **Object ID** of Azure AD B2C user or group that you want to give contributor permission to the subscription.
 
-* With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user. Record the users's **Object ID**.
+* With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user. Record the user's **Object ID**.
 
-  You authorize the user in your Azure AD B2C directory to configure the Azure Monitor instance within the tenant that contains your Azure Subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant] for the subscription.
+  You authorize the user in your Azure AD B2C directory to configure the Azure Monitor instance within the tenant that contains your Azure Subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription.
 
 ### Create an Azure Resource Manager template
 
@@ -68,18 +68,18 @@ To onboard your Azure AD tenant, create an [Azure Resource Manager template](../
 
 |Field  |Definition  |
 |---------|---------|
-| `mspOfferName`     |A name describing this definition. This value is displayed to the customer as the title of the offer.         |
-| `mspOfferDescription`     |A brief description of your offer (for example, "Contoso Azure AD subscription")      |
-| `rgName`| The name of the resource group you create earlier in your Azure AD tenant `azure-ad-b2c-monitor` |
-| `managedByTenantId`     |Your Azure AD B2C tenant ID         |
-| `authorizations.value.principalId`     |The Azure AD B2C user or group Object Id which will have access to resources within this Azure Subscription.     |
+| `mspOfferName`                     | A name describing this definition. This value is displayed to the customer as the title of the offer. |
+| `mspOfferDescription`              | A brief description of your offer (for example, "Contoso Azure AD subscription") |
+| `rgName`                           | The name of the resource group you create earlier in your Azure AD tenant. For example, *azure-ad-b2c-monitor*. |
+| `managedByTenantId`                | The **Directory ID** of your Azure AD B2C tenant (also known as the tenant ID). |
+| `authorizations.value.principalId` | The **Object ID** of the B2C user you recorded earlier that will have access to resources in this Azure Subscription. |
 
-Download the Azure resource manager template and parameter files:
+Download the Azure Resource Manager template and parameter files:
 
 - [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Next, update the parameters file with the values you recorded earlier. The following JSON snippet shows an example of an Azure Resource Manager template parameters file. For the `authorizations.value.roleDefinitionId` use the [built-in role](../role-based-access-control/built-in-roles.md) value for the *Contributor role*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+Next, update the parameters file with the values you recorded earlier. The following JSON snippet shows an example of an Azure Resource Manager template parameters file. For `authorizations.value.roleDefinitionId`, use the [built-in role](../role-based-access-control/built-in-roles.md) value for the *Contributor role*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
 ```JSON
 {
@@ -96,12 +96,12 @@ Next, update the parameters file with the values you recorded earlier. The follo
             "value": "azure-ad-b2c-monitor"
         },
         "managedByTenantId": {
-            "value": "<Replace with your B2C tenant Id>"
+            "value": "<Replace with DIRECTORY ID of Azure AD B2C tenant (tenant ID)>"
         },
         "authorizations": {
             "value": [
                 {
-                    "principalId": "<Replace with the group or user object id>",
+                    "principalId": "<Replace with user's OBJECT ID>",
                     "principalIdDisplayName": "Azure AD B2C tenant administrator",
                     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 }
@@ -135,7 +135,7 @@ Then, switch to the subscription you want to project to Azure AD B2C tenant:
 Select-AzSubscription <subscription ID>
 ```
 
-Finally, deploy the Azure Resource Manager template template and parameter files you downloaded and updated earlier. Replace the `Location`, `TemplateFile`, and `TemplateParameterFile` values accordingly.
+Finally, deploy the Azure Resource Manager template and parameter files you downloaded and updated earlier. Replace the `Location`, `TemplateFile`, and `TemplateParameterFile` values accordingly.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -155,7 +155,7 @@ In the Azure AD B2C tenant:
 2. Select **Customers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
-    In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
+    In order to see the delegated subscription in [My customers](../lighthouse/how-to/view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../role-based-access-control/built-in-roles.md#reader) role (or another built-in role that includes *Reader* access) when the subscription was onboarded for Azure delegated resource management.
 
 In the Azure AD tenant:
 
@@ -182,13 +182,13 @@ To associate an existing subscription to your Azure AD directory, follow these s
 
 After you delegate permissions to your Azure AD B2C user or group, you can [Create diagnostic settings in Azure portal](../active-directory/reports-monitoring/overview-monitoring.md).
 
-To configure monitoring settings for Azure AD B2C activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the **Diagnostic settings** configuration page in two ways:
+To configure monitoring settings for Azure AD B2C activity logs, sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the **Diagnostic settings** configuration page in two ways:
 
-- Select **Diagnostic settings** from the **Monitoring** section.
+- Under **Monitoring**, select **Diagnostic settings**.
 
     ![Diagnostics settings](https://docs.microsoft.com/azure/active-directory/reports-monitoring/media/overview-monitoring/diagnostic-settings.png)
 
-- Select **+Add diagnostic setting**.
+- Select **+ Add diagnostic setting**.
 
 ## Next steps
 
