@@ -153,7 +153,7 @@ Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us 
 
 ## Limitations
 
-- NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources must be placed on a subnet not configured with NAT.
+- NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources and any products derived from them are not compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
 - NSG on subnet or NIC isn't honored for outbound flows to public endpoints using NAT.
 - NSG flow logging isn't supported when using NAT.
