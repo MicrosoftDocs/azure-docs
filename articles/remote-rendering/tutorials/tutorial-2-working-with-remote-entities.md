@@ -19,7 +19,11 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Be awesome.
+> * Pick objects using ray casts.
+> * Override object states such as tint color, selection state, and visibility.
+> * Delete remote entities.
+> * Move remote entities around.
+> * Use cut planes to look inside objects.
 
 ## Prerequisites
 
@@ -329,7 +333,7 @@ Finally we need a way to toggle visibility. Open the **RemoteRaycaster** script 
     }
 ```
 
-## Remove GameObject Instances of remote entities
+## Remove GameObject instances of remote entities
 
 You may have noticed that the code keeps creating objects, but never cleans them up. This is also visible in the object hierarchy panel. When you expand the remote object hierarchy during simulation, you can see more and more objects appearing every time you hover over a new part of the model.
 
