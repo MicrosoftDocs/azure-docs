@@ -470,7 +470,7 @@
         - name: Advanced analytics for HDInsight
           href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
       - name: Use Apache Pig
-        href: ./hadoop/use-pig.md
+        href: ./use-pig.md
       - name: Manage
       items:
       - name: Use empty edge nodes
