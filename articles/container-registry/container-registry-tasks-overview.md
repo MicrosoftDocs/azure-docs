@@ -117,6 +117,7 @@ The following table shows a few examples of supported context locations for ACR 
 | GitHub master branch | Files within the master (or other default) branch of a public or private GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub branch | Specific branch of a public or private GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub subfolder | Files within a subfolder in a public or private GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| GitHub commit | Specific commit in a public or private GitHub repo. Example shows combination of a commit hash (SHA) and subfolder specification. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Azure DevOps subfolder | Files within a subfolder in a public or private Azure repo. Example shows combination of branch and subfolder specification. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
 
