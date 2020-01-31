@@ -18,11 +18,11 @@ ms.date: 02/01/2020
 
 Use Azure Monitor to route your Azure Active Directory B2C (Azure AD B2C) activity logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 
-You can route logs to:
+For example, you can route logs to:
 
 - An Azure storage account.
-- An Azure event hub (and integrate with your Splunk and Sumologic instances).
-- Azure Log Analytics workspace (to analyze data, create dashboards and alert on specific events).
+- An Azure event hub (and integrate with your Splunk and Sumo Logic instances).
+- An Azure Log Analytics workspace (to analyze data, create dashboards, and alert on specific events).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
