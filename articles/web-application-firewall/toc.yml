@@ -38,6 +38,8 @@
       href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
+    - name: Geomatch custom rules
+      href: ./ag/geomatch-custom-rules.md
     - name: Request size limits and exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
   - name: Front Door
