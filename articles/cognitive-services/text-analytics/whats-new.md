@@ -37,7 +37,19 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
     * URL
     * IP Address
 
-Entity linking supports English and Spanish. NER language support varies by the entity type. 
+### October 2019
+
+The next version of Named Entity Recognition(NER) is now available for public preview, and provides expanded detection and categorization of entities found in text. It provides:
+
+* Recognition of the following new entity types:
+    * Phone number
+    * IP address
+
+* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
+
+* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+
+Entity linking supports English and Spanish. NER language support varies by the entity type.
 
 > [!div class="nextstepaction"]
 > [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
