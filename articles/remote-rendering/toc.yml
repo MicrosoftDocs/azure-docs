@@ -14,6 +14,8 @@
     href: samples/sample-model.md
   - name: Scripts for frontend authentication
     href: azure/powershell-example-scripts-for-frontend.md
+  - name: Khronos Group glTF sample models
+    href: https://github.com/KhronosGroup/glTF-Sample-Models
 - name: How to
   items:
   - name: Create an account
