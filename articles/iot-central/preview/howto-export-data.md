@@ -184,7 +184,7 @@ This is an example record exported to blob storage:
 
 ## Devices
 
-Each message or record in a snapshot represents one or more changes to a device and its properties since the last exported message. This includes:
+Each message or record in a snapshot represents one or more changes to a device and its device and cloud properties since the last exported message. This includes:
 
 - `id` of the device in IoT Central
 - `displayName` of the device
@@ -193,6 +193,7 @@ Each message or record in a snapshot represents one or more changes to a device 
 - `provisioned` flag, true if the device has been provisioned
 - `approved` flag, true if the device has been approved to send data
 - Property values
+- `properties` including device and cloud properties values
 
 Deleted devices aren't exported. Currently, there are no indicators in exported messages for deleted devices.
 
