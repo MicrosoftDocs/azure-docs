@@ -9,15 +9,15 @@
     expanded: true
     items:
     - name: G Suite
-      href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial
+      href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: ServiceNow
-      href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial
+      href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Amazon Web Services (AWS) - Role Provisioning
-      href: /azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont
+      href: /azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Workday
-      href: /azure/active-directory/saas-apps/workday-inbound-tutorial
+      href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: SAP SuccessFactors
-      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial
+      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: All integrated gallery apps
       href: /azure/active-directory/saas-apps
   - name: Concepts
@@ -73,7 +73,7 @@
       - name: Provisioning job is slow
         href: application-provisioning-when-will-provisioning-finish.md
       - name: Provisioning logs
-        href: /azure/active-directory/reports-monitoring/concept-provisioning-logs
+        href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Automate configuration using MS Graph
       href: application-provisioning-configure-api.md
   - name: Reference
