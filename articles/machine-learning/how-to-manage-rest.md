@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 ## Retrieve a service principal authentication token
 
-Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your workspace's service principal. To retrieve this token, you'll need:
+Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your subscription's service principal. To retrieve this token, you'll need:
 
 - Your tenant ID (identifying the organization to which your subscription belongs)
 - Your client ID (which will be associated with the created token)
@@ -113,6 +113,7 @@ The above call will result in a compacted JSON response of the form:
     ]
 }
 ```
+
 
 ## Drill down into workspaces and their resources
 
@@ -199,7 +200,7 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 |Artifacts|artifact/v2.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Data stores|datastore/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |Hyperparameter tuning|hyperdrive/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodel)|
+|Models|modelmanagement/v1.0/|[REST API Reference](tk)|
 |Run history|execution/v1.0/ and history/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/runs)|
 
 You can explore the REST API using the general pattern of:
@@ -207,7 +208,7 @@ You can explore the REST API using the general pattern of:
 |URL component|Example|
 |-|-|
 | https://| |
-| regional-api-server/ | centralus.experiments.azureml.net/ |
+| regional-api-server/ | centralus.api.azureml.ms/ |
 | operations-path/ | history/v1.0/ |
 | subscriptions/{your-subscription-id}/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
 | resourceGroups/{your-resource-group}/ | resourceGroups/MyResourceGroup/ |
@@ -346,7 +347,7 @@ Some, but not all, resources support the DELETE verb. Check the [API Reference](
 ```bash
 curl
   -X DELETE \
-'https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models/{your-model-id}' \
+'https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models/{your-model-id}?api-version=2019-11-01' \
   -H 'Authorization:Bearer {your-access-token}' 
 ```
 
@@ -360,6 +361,40 @@ curl 'https://{scoring-uri}' \
  -H 'Content-Type: application/json' \
   -d '{ "data" : [ {model-specific-data-structure} ] }
 ```
+
+## Create a workspace using REST 
+
+Every Azure ML workspace has a dependency on four other Azure resources: a container registry with administration enabled, a key vault, an Application Insights resource, and a storage account. You cannot create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+
+To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}\
+/providers/Microsoft.MachineLearningServices/workspaces/{your-new-workspace-name}?api-version=2019-11-01' \
+  -H 'Authorization: Bearer {your-access-token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "{desired-region}",
+    "properties": {
+        "friendlyName" : "{your-workspace-friendly-name}",
+        "description" : "{your-workspace-description}",
+        "containerRegistry" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.ContainerRegistry/registries/{your-registry-name}",
+        keyVault" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}\
+/providers/Microsoft.Keyvault/vaults/{your-keyvault-name}",
+        "applicationInsights" : "subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.insights/components/{your-application-insights-name}",
+        "storageAccount" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
+    },
+    "identity" : {
+        "type" : "systemAssigned"
+    }
+}'
+```
+
+You should receive a `202 Accepted` response and, in the returned headers, a `Location` URI. You can GET this URI for information on the deployment, including helpful debugging information if there is a problem with one of your dependent resources (for instance, if you forgot to enable admin access on your container registry). 
 
 ## Next steps
 
