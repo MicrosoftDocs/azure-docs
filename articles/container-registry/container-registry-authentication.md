@@ -2,7 +2,7 @@
 title: Registry authentication options
 description: Authentication options for an Azure container registry, including signing in with an Azure Active Directory identity, using service principals, and using optional admin credentials.
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 01/30/2020
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -12,6 +12,18 @@ There are several ways to authenticate with an Azure container registry, each of
 
 Recommended ways include authenticating to a registry directly via [individual login](#individual-login-with-azure-ad), or your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
 
+## Authentication options
+
+The following table lists available options and recommended scenarios. See linked content for details.
+
+| Method                               | How to use                                            | Best for                                                            | RBAC                             | Limitations                                |
+|---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
+| Individual AD identity                | `az acr login` in Azure CLI                             | Interactive push/pull by developers, testers                                    | Yes                              | AD token must be renewed every 3 hours     |
+| AD service principal                  | * `docker login`<br>* `az acr login` in Azure CLI<br/>* Kubernetes pull secret                                           | Unattended push from CI/CD pipeline, unattended pull to deployment target in Azure services or external services  | Yes                              | SP password default expiry is 1 year       |                                                           |                                  |                                            |
+| Integrate with AKS                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster                                                  | No, pull access only             | Only available with AKS cluster            |
+| Managed identity for Azure resources  | * `docker login`<br/>* `az acr login` in Azure CLI                                       | Unattended push from CI/CD pipeline in Azure, pull to deployment target in Azure services   | Yes                              | Use only from Azure services that support managed identities for Azure resources                     |
+| Admin user                            | `docker login`                                          | Interactive push/pull by individual developer or tester                           | No, always pull and push access  | Not recommended for multiple users         |
+| Repository-scoped token               | `docker login`                                          | Interactive push/pull by individual developer or tester, unattended pull by individual external system or device                  | Yes                              | Not currently integrated with AD identity  |
 ## Individual login with Azure AD
 
 When working with your registry directly, such as pulling images to and pushing images from a development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) command in the [Azure CLI](/cli/azure/install-azure-cli):
