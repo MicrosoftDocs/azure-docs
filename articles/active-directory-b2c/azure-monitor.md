@@ -187,7 +187,7 @@ Parameters              :
 
 ## Select your subscription
 
-To associate an existing subscription to your Azure AD B2C directory, follow these steps:
+Once you've deployed the template, associate your  subscription to your Azure AD B2C directory by following these steps:
 
 1. Sign in to the Azure portal with your Azure AD B2C administrative account.
 1. Select the **Directory + Subscription** icon in the portal toolbar.
@@ -197,11 +197,11 @@ To associate an existing subscription to your Azure AD B2C directory, follow the
 1. Verify that you've selected the correct directory and subscription. In this example, all directories and subscriptions are selected.
 
     ![All directories selected in Directory & Subscription filter](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
-1. **Sign out** of the Azure portal and then **sign in** again to refresh your credentials.
+1. Close the **Directory + Subscription** filter, **Sign out** of the Azure portal, and then **sign in** again to refresh your credentials.
 
 ## Configure diagnostic settings
 
-After you delegate permissions to your Azure AD B2C user or group, you can [Create diagnostic settings in Azure portal](../active-directory/reports-monitoring/overview-monitoring.md).
+After you've delegated resource management and have selected your subscription, you're ready to [Create diagnostic settings](../active-directory/reports-monitoring/overview-monitoring.md) in the Azure portal.
 
 To configure monitoring settings for Azure AD B2C activity logs:
 
