@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure AD B2C with Azure Monitor
 titleSuffix: Azure AD B2C
-description: Learn how to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
+description: Learn how to log events in your Azure AD B2C directory with Azure Monitor by using delegated resource management.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
