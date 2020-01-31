@@ -136,3 +136,4 @@ For cloud-init examples of configuration changes, see the following documents:
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)
+ 
