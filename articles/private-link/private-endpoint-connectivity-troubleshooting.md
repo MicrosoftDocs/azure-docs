@@ -37,20 +37,29 @@ If you are experiencing connectivity problems with your private endpoint setup, 
 
     a) Go to **Private Link Center**
 
-    ![Private Link Center](./media/private-link-center.png)
+    ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
 
-    b) Select Private Endpoints
+    b) Select Private Endpoints from the left navigation pane
+    
+    ![Private Endpoints](./media/private-endpoint-tsg/private-endpoints.png)
 
     c) Filter and select the private endpoint that you want to diagnose
 
     d) Review the virtual network and DNS information
     - Make sure the VM has connectivity to the VNet hosting the Private Endpoints
+    
+    ![VM Connectivity](./media/private-endpoint-tsg/vm-connectivity.png)
+    
     - FQDN information (copy) and Private IP address assigned
+    
+    ![DNS Configuration](./media/private-endpoint-tsg/dns-config.png)
 
 2. Use [**Azure Monitor**](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to review data is flowing
 
     a) On Private Endpoint resource, select **Monitor**
     - Select data-in or out and review if the data is flowing when attempting to connect to the Private Endpoint (expect a delay of approx 10 mins)
+    
+    ![Verify Private Endpoint Telemetry](./media/private-endpoint-tsg/private-endpoint-monitor.png)
 
 3. Use VM Connection Troubleshoot from **Network Watcher**
 
@@ -65,6 +74,8 @@ If you are experiencing connectivity problems with your private endpoint setup, 
     - Provide a port ( *typically 443 for Azure Storage or COSMOS, 1336 for Sql ...* )
 
     e) Click **Test** and validate the test results
+    
+    ![Network Watcher for Private Endpoints](./media/private-endpoint-tsg/network-watcher.png)
         
 4. DNS resolution from the test results must have the same private IP address assigned to the Private Endpoint
 
@@ -72,9 +83,14 @@ If you are experiencing connectivity problems with your private endpoint setup, 
     - Using Private Zone: 
         - Make sure client VM VNet is associated with the Private Zone
         - Review Private DNS zone record exists, create if not existing
+        
+    ![DNS private Zone](./media/private-endpoint-tsg/dns-private-zone.png)
+    
     - Using custom DNS:
         - Review your customer DNS settings and validate DNS configuration is correct.
         Refer to [Private Endpoint overview - DNS Configuration](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview#dns-configuration) for guidance.
+        
+    ![DNS custom Zone](./media/private-endpoint-tsg/dns-custom-zone.png)
 
     b) If connectivity is failing due to NSG/UDRs
     - Review NSG outbound rules and create appropriate outbound rules to allow traffic
