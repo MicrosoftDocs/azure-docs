@@ -40,11 +40,11 @@ In this tutorial, you'll learn how to:
     1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
     1. Use Query Editor (preview) to execute the following script to add the Data Share resource Managed Identity as a db_datareader. You must connect using Active Directory and not SQL Server authentication. 
     
-    ```sql
+        ```sql
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-    ```                   
-   Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
+        ```                   
+       Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
 
 * An Azure SQL Database User with 'db_datareader' access to navigate and select the tables and/or views you wish to share. 
 
