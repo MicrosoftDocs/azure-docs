@@ -1,16 +1,16 @@
 ---
 title: Azure PowerShell samples - Event Grid | Microsoft Docs
-description: Azure PowerShell samples for Event Grid
+description: This article includes a table with links to Azure PowerShell scripting samples for Azure Event Grid.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 08/06/2018
-ms.author: tomfitz
+ms.date: 01/23/2020
+ms.author: spelluru
 ---
 # Azure PowerShell samples for Event Grid
 

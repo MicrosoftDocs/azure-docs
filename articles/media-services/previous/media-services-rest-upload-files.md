@@ -4,7 +4,7 @@ description: Learn how to get media content into Media Services by creating and 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using REST
+# Upload files into a Media Services account using REST  
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -41,6 +41,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - Review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
+- Also for more information Review the [Use Azure AD authentication to access the Media Services API with REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) article.
 - Configure **Postman** as described in [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md).
 
 ## Considerations
@@ -48,7 +49,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 The following considerations apply when using Media Services REST API:
  
 * When accessing entities using Media Services REST API, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md). <br/>The Postman collection used in this tutorial takes care of setting all the necessary headers.
-* Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+* Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 * The length of the name should not be greater than 260 characters.
 * There is a limit to the maximum file size supported for processing in Media Services. See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
 
@@ -84,7 +85,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 	```
 4. On the left of the **Postman** window, click on **1. Get AAD Auth token** -> **Get Azure AD Token for Service Principal**.
 
-    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of [environment variables](#configure-the-environment) that support the [collection](#configure-the-collection)).
+    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of environment variables that support the collection).
 
     ![Upload a file](./media/media-services-rest-upload-files/postment-get-token.png)
 
@@ -172,7 +173,7 @@ Now that you have the upload URL, you need to write some code using the Azure Bl
 
 - [Using the Azure Storage REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Upload blobs to Blob storage](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Upload blobs to Blob storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### Upload a file with Postman
 

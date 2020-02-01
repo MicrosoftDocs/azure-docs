@@ -1,20 +1,13 @@
 ---
-title: How to Create an App Service Environment v1
-description: Creation flow description for an app service environment v1
-services: app-service
-documentationcenter: ''
+title: Create an ASE v1
+description: Creation flow description for an app service environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # How to Create an App Service Environment v1 
@@ -36,7 +29,7 @@ It is important to be aware of the things you cannot change. Those aspects you c
 * Subnet used 
 * Subnet size
 
-When picking a VNet and specifying a subnet, make sure it is large enough to accomodate any future growth. 
+When picking a VNet and specifying a subnet, make sure it is large enough to accommodate any future growth. 
 
 ### Creating an App Service Environment v1
 To create an App Service Environment v1, you can search the Azure Marketplace for ***App Service Environment v1***, or go through **Create a resource** -> **Web + Mobile** -> **App Service Environment**. To create an ASEv1:
@@ -82,8 +75,8 @@ To get started with App Service Environment v1, see [Introduction to the App Ser
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

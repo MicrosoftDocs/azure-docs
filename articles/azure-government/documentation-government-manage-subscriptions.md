@@ -1,6 +1,6 @@
 ---
 title: Azure Government Subscriptions | Microsoft Docs
-description: Information on managing your subscription in Azure Government
+description: This article provides information on managing your subscription in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -32,7 +32,7 @@ If you are looking for more information, you can check out:
 
 * [PowerShell docs on GitHub](https://github.com/Azure/azure-powershell)
 * [Step-by-step instruction on connecting to Resource Management](https://blogs.msdn.microsoft.com/azuregov/2015/10/08/configuring-arm-on-azure-gc/)
-* [Azure PowerShell docs on MSDN](https://msdn.microsoft.com/library/mt619274.aspx)
+* [Azure PowerShell docs on MSDN](/powershell/azure/overview?redirected=msdn&view=azps-1.6.0)
 
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
 

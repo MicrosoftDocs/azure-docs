@@ -1,20 +1,18 @@
 ---
-title: Quickstart - Azure Kubernetes cluster for Windows
+title: (DEPRECATED) Quickstart - Azure Kubernetes cluster for Windows
 description: Quickly learn to create a Kubernetes cluster for Windows containers in Azure Container Service with the Azure CLI.
-services: container-service
 author: dlepow
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
-# Deploy Kubernetes cluster for Windows containers
+# (DEPRECATED) Deploy Kubernetes cluster for Windows containers
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](../container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.
 
@@ -61,7 +59,7 @@ After several minutes, the command completes, and shows you information about yo
 
 To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) command.
 
 The following Azure CLI example installs `kubectl` to your system. On Windows, run this command as an administrator.
 
@@ -72,7 +70,7 @@ az acs kubernetes install-cli
 
 ## Connect with kubectl
 
-To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
 ```azurecli-interactive 

@@ -15,3 +15,5 @@
     href: /azure/app-service-web/app-service-web-get-started-php
   - name: Xamarin
     href: https://azure.microsoft.com/features/xamarin
+  - name: Go
+    href: /azure/go/

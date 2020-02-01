@@ -1,25 +1,18 @@
 ---
-title: Operationalize Spark-built machine learning models | Microsoft Docs
+title: Operationalize Spark-built machine learning models - Team Data Science Process
 description: How to load and score learning models stored in Azure Blob Storage (WASB) with Python.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
-ms.author: deguhath
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Operationalize Spark-built machine learning models
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 This topic shows how to operationalize a saved machine learning model (ML) using Python on HDInsight Spark clusters. It describes how to load machine learning models that have been built using Spark MLlib and stored in Azure Blob Storage (WASB), and how to score them with datasets that have also been stored in WASB. It shows how to pre-process the input data, transform features using the indexing and encoding functions in the MLlib toolkit, and how to create a labeled point data object that can be used as input for scoring with the ML models. The models used for scoring include Linear Regression, Logistic Regression, Random Forest Models, and Gradient Boosting Tree Models.
 
@@ -36,7 +29,7 @@ To modify the Jupyter notebook for Spark 1.6 to use with an HDInsight Spark 2.0 
 ## Prerequisites
 
 1. You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. 
-2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](spark-data-exploration-modeling.md) topic for the Spark 1.6 cluster or the Spark 2.0 notebooks. 
+2. Create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](spark-data-exploration-modeling.md) topic for the Spark 1.6 cluster or the Spark 2.0 notebooks. 
 3. The Spark 2.0 notebooks use an additional data set for the classification task, the well-known Airline On-time departure dataset from 2011 and 2012. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -105,7 +98,7 @@ Set spark context and import necessary libraries with the following code
 
 
 ### Preset Spark context and PySpark magics
-The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These are available for you by default. These contexts are:
+The PySpark kernels that are provided with Jupyter notebooks have a preset context. Therefore, you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available by default:
 
 * sc - for Spark 
 * sqlContext - for Hive
@@ -113,7 +106,7 @@ The PySpark kernels that are provided with Jupyter notebooks have a preset conte
 The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 * **%%local** Specified that the code in subsequent lines is executed locally. Code must be valid Python code.
-* **%%sql -o <variable name>** 
+* **%%sql -o \<variable name>** 
 * Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
 
 For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -191,9 +184,9 @@ This section shows how to index, encode, and scale categorical features to prepa
 ### Feature transformation: index and encode categorical features for input into models for scoring
 This section shows how to index categorical data using a `StringIndexer` and encode features with `OneHotEncoder` input into the models.
 
-The [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) encodes a string column of labels to a column of label indices. The indices are ordered by label frequencies. 
+The [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) encodes a string column of labels to a column of label indices. The indices are ordered by label frequencies. 
 
-The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect continuous valued features, such as logistic regression, to be applied to categorical features.
+The [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect continuous valued features, such as logistic regression, to be applied to categorical features.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -258,7 +251,7 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 Time taken to execute above cell: 5.37 seconds
 
 ### Create RDD objects with feature arrays for input into models
-This section contains code that shows how to index categorical text data as an RDD object and one-hot encode it so it can be used to train and test MLlib logistic regression and tree-based models. The indexed data is stored in [Resilient Distributed Dataset (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. These are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
+This section contains code that shows how to index categorical text data as an RDD object and one-hot encode it so it can be used to train and test MLlib logistic regression and tree-based models. The indexed data is stored in [Resilient Distributed Dataset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. The RDDs are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
 
 It also contains code that shows how to scale data with the `StandardScalar` provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of machine learning models. The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) is used to scale the features to unit variance. Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. 
 
@@ -280,7 +273,7 @@ It also contains code that shows how to scale data with the `StandardScalar` pro
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -398,9 +391,9 @@ Time taken to execute above cell: 16.63 seconds
 ## Score classification and regression Random Forest Models
 The code in this section shows how to load the saved classification and regression Random Forest Models saved in Azure blob storage, score their performance with standard classifier and regression measures, and then save the results back to blob storage.
 
-[Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
+[Random forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 
-[spark.mllib](http://spark.apache.org/mllib/) supports random forests for binary and multiclass classification and for regression, using both continuous and categorical features. 
+[spark.mllib](https://spark.apache.org/mllib/) supports random forests for binary and multiclass classification and for regression, using both continuous and categorical features. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -444,9 +437,9 @@ Time taken to execute above cell: 31.07 seconds
 ## Score classification and regression Gradient Boosting Tree Models
 The code in this section shows how to load classification and regression Gradient Boosting Tree Models from Azure blob storage, score their performance with standard classifier and regression measures, and then save the results back to blob storage. 
 
-**spark.mllib** supports GBTs for binary classification and for regression, using both continuous and categorical features. 
+**spark.mllib** supports GBTS for binary classification and for regression, using both continuous and categorical features. 
 
-[Gradient Boosting Trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
+[Gradient Boosting Trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) are ensembles of decision trees. GBTS train decision trees iteratively to minimize a loss function. GBTS can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. This algorithm can also be used in a multiclass-classification setting.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -557,7 +550,7 @@ Here is the Python code for the HTTP call:
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER

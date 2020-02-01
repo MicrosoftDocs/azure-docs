@@ -1,6 +1,6 @@
 ---
-title: List deny assignments using RBAC and the REST API - Azure | Microsoft Docs
-description: Learn how to list deny assignments for users, groups, and applications, using role-based access control (RBAC) and the REST API.
+title: List deny assignments for Azure resources using the REST API - Azure | Microsoft Docs
+description: Learn how to list deny assignments for users, groups, and applications using role-based access control (RBAC) for Azure resources and the REST API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -13,14 +13,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# List deny assignments using RBAC and the REST API
+# List deny assignments for Azure resources using the REST API
 
-Currently, deny assignments are **read-only** and can only be set by Azure. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. This article describes how you to list deny assignments using RBAC and the REST API.
+[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the REST API.
+
+> [!NOTE]
+> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
+
+## Prerequisites
+
+To get information about a deny assignment, you must have:
+
+- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md).
 
 ## List a single deny assignment
 
@@ -91,6 +100,6 @@ Currently, deny assignments are **read-only** and can only be set by Azure. Even
 
 ## Next steps
 
-- [Understand deny assignments](deny-assignments.md)
+- [Understand deny assignments for Azure resources](deny-assignments.md)
 - [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md)
 - [Azure REST API Reference](/rest/api/azure/)

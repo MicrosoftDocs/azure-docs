@@ -1,23 +1,20 @@
 ---
-title: Offline Data Sync in Azure Mobile Apps | Microsoft Docs
+title: Offline Data Sync
 description: Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps
-documentationcenter: windows
 author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: crdun
-
 ---
 # Offline Data Sync in Azure Mobile Apps
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
+
 ## What is offline data sync?
 Offline data sync is a client and server SDK feature of Azure Mobile Apps that makes it easy for
 developers to create apps that are functional without a network connection.
@@ -73,7 +70,7 @@ format on the mobile client, you can define a local store that uses SQLCipher fo
 ## What is a sync context?
 A *sync context* is associated with a mobile client object (such as `IMobileServiceClient` or `MSClient`)
 and tracks changes that are made with sync tables. The sync context maintains an *operation queue*, which
-keeps an ordered list of CUD operations (Create, Update, Delete) that is later be sent to the server.
+keeps an ordered list of CUD operations (Create, Update, Delete) that is later sent to the server.
 
 A local store is associated with the sync context using an initialize method such as
 `IMobileServicesSyncContext.InitializeAsync(localstore)` in the [.NET client SDK].

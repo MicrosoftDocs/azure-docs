@@ -1,3 +1,10 @@
+---
+author: tanmaygore
+ms.author: tagore
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+---
 > [!WARNING]
 > When you enable diagnostics for an existing role, any extensions that you have already set are disabled when the package is deployed. These include:
 >

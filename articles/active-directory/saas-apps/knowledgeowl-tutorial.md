@@ -1,119 +1,96 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with KnowledgeOwl | Microsoft Docs'
+---
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with KnowledgeOwl | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and KnowledgeOwl.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 2ae30996-864d-4872-90bc-f770e1ea159a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 10/14/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with KnowledgeOwl
 
-In this tutorial, you learn how to integrate KnowledgeOwl with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with KnowledgeOwl
 
-Integrating KnowledgeOwl with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate KnowledgeOwl with Azure Active Directory (Azure AD). When you integrate KnowledgeOwl with Azure AD, you can:
 
-- You can control in Azure AD who has access to KnowledgeOwl.
-- You can enable your users to automatically get signed-on to KnowledgeOwl (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to KnowledgeOwl.
+* Enable your users to be automatically signed-in to KnowledgeOwl with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with KnowledgeOwl, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A KnowledgeOwl single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* KnowledgeOwl single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding KnowledgeOwl from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* KnowledgeOwl supports **SP and IDP** initiated SSO
+* KnowledgeOwl supports **Just In Time** user provisioning
 
 ## Adding KnowledgeOwl from the gallery
+
 To configure the integration of KnowledgeOwl into Azure AD, you need to add KnowledgeOwl from the gallery to your list of managed SaaS apps.
 
-**To add KnowledgeOwl from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **KnowledgeOwl** in the search box.
+1. Select **KnowledgeOwl** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+## Configure and test Azure AD single sign-on for KnowledgeOwl
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+Configure and test Azure AD SSO with KnowledgeOwl using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in KnowledgeOwl.
 
-	![The Enterprise applications blade][2]
+To configure and test Azure AD SSO with KnowledgeOwl, complete the following building blocks:
+
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure KnowledgeOwl SSO](#configure-knowledgeowl-sso)** - to configure the single sign-on settings on application side.
+    * **[Create KnowledgeOwl test user](#create-knowledgeowl-test-user)** - to have a counterpart of B.Simon in KnowledgeOwl that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+## Configure Azure AD SSO
+
+Follow these steps to enable Azure AD SSO in the Azure portal.
+
+1. In the [Azure portal](https://portal.azure.com/), on the **KnowledgeOwl** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
+
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+
+    a. In the **Identifier** text box, type a URL using the following pattern:
 	
-1. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button][3]
-
-1. In the search box, type **KnowledgeOwl**, select **KnowledgeOwl** from result panel then click **Add** button to add the application.
-
-	![KnowledgeOwl in the results list](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_addfromgallery.png)
-
-## Configure and test Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with KnowledgeOwl based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in KnowledgeOwl is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in KnowledgeOwl needs to be established.
-
-To configure and test Azure AD single sign-on with KnowledgeOwl, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a KnowledgeOwl test user](#create-a-knowledgeowl-test-user)** - to have a counterpart of Britta Simon in KnowledgeOwl that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your KnowledgeOwl application.
-
-**To configure Azure AD single sign-on with KnowledgeOwl, perform the following steps:**
-
-1. In the Azure portal, on the **KnowledgeOwl** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_samlbase.png)
-
-1. On the **KnowledgeOwl Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
-
-	![KnowledgeOwl Domain and URLs single sign-on information](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
-
-    a. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
-	|||
+	| | |
 	|-|-|
 	| `https://app.knowledgeowl.com/sp`|
 	| `https://app.knowledgeowl.com/sp/id/<unique ID>`|
-	|||
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
-	|||
+	b. In the **Reply URL** text box, type a URL using the following pattern:
+	
+	| | |
 	|-|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
 	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
@@ -121,14 +98,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://privatedomain.com/help/saml-login`|
 	| `https://privatedomain.com/docs/saml-login`|
 	| `https://privatedomain.com/home/saml-login`|
-	|||
 
-1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![KnowledgeOwl Domain and URLs single sign-on information](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern:
-	|||
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+	
+	| | |
 	|-|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
 	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
@@ -136,73 +111,86 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://privatedomain.com/help/saml-login`|
 	| `https://privatedomain.com/docs/saml-login`|
 	| `https://privatedomain.com/home/saml-login`|
-	|||
-	 
+
 	> [!NOTE]
-	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
+	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
 
-1. The KnowledgeOwl application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page.
+1. KnowledgeOwl application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Configure Single Sign-On](./media/knowledgeowl-tutorial/attribute.png)
+	![image](common/default-attributes.png)
 
-1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
-	| Attribute Name | Attribute Value | Namespace|
-	| ------------------- | -------------------- | -----|
+1. In addition to above, KnowledgeOwl application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name | Source Attribute | Namespace |
+	| ------------ | -------------------- | -----|
 	| ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-	
-	![Configure Single Sign-On](./media/knowledgeowl-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On](./media/knowledgeowl-tutorial/tutorial_attribute_05.png)
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
+	![The Certificate download link](common/certificateraw.png)
 
-	d.From the **Namespace** list, enter the namespace value shown for that row.
-	
-	e. Click **Ok**.
+1. On the **Set up KnowledgeOwl** section, copy the appropriate URL(s) based on your requirement.
 
-1. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![The Certificate download link](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_certificate.png) 
+### Create an Azure AD test user
 
-1. Click **Save** button.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Configure Single Sign-On Save button](./media/knowledgeowl-tutorial/tutorial_general_400.png)
-	
-1. On the **KnowledgeOwl Configuration** section, click **Configure KnowledgeOwl** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_configure.png)
+### Assign the Azure AD test user
 
-1. In a different web browser window, log into your KnowledgeOwl company site as an administrator.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to KnowledgeOwl.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **KnowledgeOwl**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+
+   ![The "Users and groups" link](common/users-groups-blade.png)
+
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+
+	![The Add User link](common/add-assign-user.png)
+
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure KnowledgeOwl SSO
+
+1. In a different web browser window, sign into your KnowledgeOwl company site as an administrator.
 
 1. Click on **Settings** and then select **Security**.
 
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Scroll down upto the **SAML SSO Integration** and perform the following steps:
-	
+1. Scroll to **SAML SSO Integration** and perform the following steps:
+
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure2.png)
 
 	a. Select **Enable SAML SSO**.
 
-	b. Copy the **SP Entity ID** value and paste it into the **Identifier (Entity ID)** in the **KnowledgeOwl Domain and URLs** section on the Azure portal.
+	b. Copy the **SP Entity ID** value and paste it into the **Identifier (Entity ID)** in the **Basic SAML Configuration** section on the Azure portal.
 
-	c. Copy the **SP Login URL** value and paste it into the **Sign-on URL and Reply URL** textboxes in the **KnowledgeOwl Domain and URLs** section on the Azure portal.
+	c. Copy the **SP Login URL** value and paste it into the **Sign-on URL and Reply URL** textboxes in the **Basic SAML Configuration** section on the Azure portal.
 
-	d. In the **IdP entityID** textbox, paste the **SAML Entity ID** value, which you have copied from the Azure portal.
+	d. In the **IdP entityID** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-	e. In the **IdP Login URL** textbox, paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal.
+	e. In the **IdP Login URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-	f. In the **IdP Logout URL** textbox, paste the **Sign-Out URL** value, which you have copied from the Azure portal
+	f. In the **IdP Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal
 
 	g. Upload the downloaded certificate form the Azure portal by clicking the **Upload IdP Certificate**.
 
 	h. Click on **Map SAML Attributes** to map attributes and perform the following steps:
-	
+
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure3.png)
 
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox
@@ -215,99 +203,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure4.png)
 
-### Create an Azure AD test user
+### Create KnowledgeOwl test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, a user called B.Simon is created in KnowledgeOwl. KnowledgeOwl supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in KnowledgeOwl, a new one is created after authentication.
 
-   ![Create an Azure AD test user][100]
+> [!Note]
+> If you need to create a user manually, contact [KnowledgeOwl support team](mailto:support@knowledgeowl.com).
 
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/knowledgeowl-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/knowledgeowl-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/knowledgeowl-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/knowledgeowl-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a KnowledgeOwl test user
-
-The objective of this section is to create a user called Britta Simon in KnowledgeOwl. KnowledgeOwl supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access KnowledgeOwl if it doesn't exist yet.
->[!Note]
->If you need to create a user manually, contact [KnowledgeOwl support team](mailto:support@knowledgeowl.com).
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to KnowledgeOwl.
-
-![Assign the user role][200] 
-
-**To assign Britta Simon to KnowledgeOwl, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **KnowledgeOwl**.
-
-	![The KnowledgeOwl link in the Applications list](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_app.png)  
-
-1. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the KnowledgeOwl tile in the Access Panel, you should get automatically signed-on to your KnowledgeOwl application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the KnowledgeOwl tile in the Access Panel, you should be automatically signed in to the KnowledgeOwl for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/knowledgeowl-tutorial/tutorial_general_01.png
-[2]: ./media/knowledgeowl-tutorial/tutorial_general_02.png
-[3]: ./media/knowledgeowl-tutorial/tutorial_general_03.png
-[4]: ./media/knowledgeowl-tutorial/tutorial_general_04.png
-
-[100]: ./media/knowledgeowl-tutorial/tutorial_general_100.png
-
-[200]: ./media/knowledgeowl-tutorial/tutorial_general_200.png
-[201]: ./media/knowledgeowl-tutorial/tutorial_general_201.png
-[202]: ./media/knowledgeowl-tutorial/tutorial_general_202.png
-[203]: ./media/knowledgeowl-tutorial/tutorial_general_203.png
-
+- [Try KnowledgeOwl with Azure AD](https://aad.portal.azure.com/)

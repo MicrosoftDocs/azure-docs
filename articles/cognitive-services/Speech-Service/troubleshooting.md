@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot the Cognitive Services Speech SDK
-description: Troubleshoot the Cognitive Services Speech SDK.
+title: Troubleshoot the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
+description: This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 services: cognitive-services
-author: wolfma61
-
+author: jhakulin
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: wolfma
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 07/23/2019
+ms.author: jhakulin
 ---
 # Troubleshoot the Speech SDK
 
@@ -17,7 +17,7 @@ This article provides information to help you solve issues you might encounter w
 
 ## Error: WebSocket Upgrade failed with an authentication error (403)
 
-You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct. 
+You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct.
 
 Also, there might be a problem with your subscription key or authorization token. For more information, see the next section.
 
@@ -60,6 +60,8 @@ You can verify that you have a valid subscription key by running one of the foll
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+If you entered a valid subscription key, the command returns an authorization token, otherwise an error is returned.
+
 ### Validate an authorization token
 
 If you use an authorization token for authentication, run one of the following commands to verify that the authorization token is still valid. Tokens are valid for 10 minutes.
@@ -72,19 +74,19 @@ If you use an authorization token for authentication, run one of the following c
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -94,6 +96,8 @@ If you use an authorization token for authentication, run one of the following c
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+If you entered a valid authorization token, the command returns the transcription for your audio file, otherwise an error is returned.
 
 ---
 
@@ -116,4 +120,3 @@ This issue usually is caused by audio data. You might see this error because:
 ## Next steps
 
 * [Review the release notes](releasenotes.md)
-

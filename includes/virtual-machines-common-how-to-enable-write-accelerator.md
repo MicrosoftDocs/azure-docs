@@ -5,12 +5,12 @@
  author: msraiye
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 6/8/2018
+ ms.date: 11/27/2019
  ms.author: raiye
  ms.custom: include file
 ---
 
-# Enable Write Accelerator
+
 
 Write Accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks exclusively. As the name states, the purpose of the functionality is to improve the I/O latency of writes against Azure Premium Storage. Write Accelerator is ideally suited where log file updates are required to persist to disk in a highly performant manner for modern databases.
 
@@ -36,18 +36,20 @@ Enabling Write Accelerator for OS disks should not be necessary for SAP-related 
 When using Write Accelerator for an Azure disk/VHD, these restrictions apply:
 
 - The Premium disk caching must be set to 'None' or 'Read Only'. All other caching modes are not supported.
-- Snapshots on a Write Accelerator enabled disk is not supported yet. This restriction blocks Azure Backup Service ability to perform an application consistent snapshot of all disks of the virtual machine.
-- Only smaller I/O sizes (<=32 KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
+- Snapshot are not currently supported for Write Accelerator-enabled disks. During backup, the Azure Backup service automatically excludes Write Accelerator-enabled disks attached to the VM.
+- Only smaller I/O sizes (<=512 KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
 
 There are limits of Azure Premium Storage VHDs per VM that can be supported by Write Accelerator. The current limits are:
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M416ms_v2, M416s_v2| 16 | 20000 |
+| M208ms_v2, M208s_v2| 8 | 10000 |
+| M128ms, M128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM.
 
@@ -69,36 +71,36 @@ In order to enable or deploy disks supported by Write Accelerator, the following
 
 A new switch parameter, **-WriteAccelerator** has been added to the following cmdlets:
 
-- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
-- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 Not giving the parameter sets the property to false and will deploy disks that have no support by Write Accelerator.
 
 A new switch parameter, **-OsDiskWriteAccelerator** was added to the following cmdlets:
 
-- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
+- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 Not specifying the parameter sets the property to false by default, returning disks that don't leverage Write Accelerator.
 
 A new optional Boolean (non-nullable) parameter, **-OsDiskWriteAccelerator** was added to the following cmdlets:
 
-- [Update-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
-- [Update-AzureRmVmss](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
+- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Specify either $true or $false to control support of Azure Write Accelerator with the disks.
 
 Examples of commands could look like:
 
-```PowerShell
-New-AzureRmVMConfig | Set-AzureRmVMOsDisk | Add-AzureRmVMDataDisk -Name "datadisk1" | Add-AzureRmVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVM
+```powershell
+New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
-Get-AzureRmVM | Update-AzureRmVM -OsDiskWriteAccelerator $true
+Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
 
-New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | Add-AzureRmVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzureRmVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVmss
+New-AzVmssConfig | Set-AzVmssStorageProfile -OsDiskWriteAccelerator | Add-AzVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVmss
 
-Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
+Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 ```
 
 Two main scenarios can be scripted as shown in the following sections.
@@ -109,7 +111,7 @@ You can use this script to add a new disk to your VM. The disk created with this
 
 Replace `myVM`, `myWAVMs`, `log001`, size of the disk, and LunID of the disk with values appropriate for your specific deployment.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -121,18 +123,18 @@ $lunid=8
 #size
 $size=1023
 #Pulls the VM info for later
-$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+$vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
+Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 ### Enabling Write Accelerator on an existing Azure disk using PowerShell
 
 You can use this script to enable Write Accelerator on an existing disk. Replace `myVM`, `myWAVMs`, and `test-log001` with values appropriate for your specific deployment. The script adds Write Accelerator to an existing disk where the value for **$newstatus** is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -142,11 +144,11 @@ $datadiskname = "test-log001"
 #new Write Accelerator status ($true for enabled, $false for disabled) 
 $newstatus = $true
 #Pulls the VM info for later
-$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+$vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
+Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 > [!Note]
@@ -160,13 +162,13 @@ You can enable Write Accelerator via the portal where you specify your disk cach
 
 ## Enabling Write Accelerator using the Azure CLI
 
-You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator.
+You can use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to enable Write Accelerator.
 
-To enable Write Accelerator on an existing disk, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), you may use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+To enable Write Accelerator on an existing disk, use [az vm update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), you may use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-To attach a disk with Write Accelerator enabled use [az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), you may use the following example if you substitute in your own values: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+To attach a disk with Write Accelerator enabled use [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), you may use the following example if you substitute in your own values: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), setting the properties to false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), setting the properties to false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## Enabling Write Accelerator using Rest APIs
 

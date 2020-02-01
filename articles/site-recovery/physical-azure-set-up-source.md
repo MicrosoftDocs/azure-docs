@@ -1,24 +1,25 @@
 ---
-title: 'Set up the source environment (physical servers to Azure) | Microsoft Docs'
-description: This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
+title: Set up the configuration server for disaster recovery of physical servers to Azure using Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up the on-premises configuration server for disaster recovery of on-premises physical servers to Azure.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/21/2018
-ms.author: raynew
+ms.topic: conceptual
+ms.date: 07/03/2019
+ms.author: ramamill
 ---
 
-# Set up the source environment (physical server to Azure)
+# Set up the configuration server for disaster recovery of physical servers to Azure
 
 This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 
 ## Prerequisites
 
 The article assumes that you already have:
-- A Recovery Services vault in the [Azure portal](http://portal.azure.com "Azure portal").
+- A Recovery Services vault in the [Azure portal](https://portal.azure.com "Azure portal").
 - A physical computer on which to install the configuration server.
-- If you've disabled TLS 1.0 on the machine on which you're installing the configuration server, make sure that TLs 1.2 is enabled, and that the .NET Framework version 4.6 or later is installed on the machine (with strong cryptography disabled). [Learn more](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- If you've disabled TLS 1.0 on the machine on which you're installing the configuration server, make sure that TLs 1.2 is enabled, and that the .NET Framework version 4.6 or later is installed on the machine (with strong cryptography enabled). [Learn more](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### Configuration server minimum requirements
 The following table lists the minimum hardware, software, and network requirements for a configuration server.
@@ -41,7 +42,7 @@ The following table lists the minimum hardware, software, and network requiremen
 
 1. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
-  ![Set up source](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Set up source](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.

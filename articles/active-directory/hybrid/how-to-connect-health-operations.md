@@ -3,17 +3,19 @@ title: Azure Active Directory Connect Health operations
 description: This article describes additional operations that can be performed after you have deployed Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
-manager: mtillman
+author: zhiweiwangmsft
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect Health operations
 This topic describes the various operations you can perform by using Azure Active Directory (Azure AD) Connect Health.
@@ -26,7 +28,6 @@ You can configure the Azure AD Connect Health service to send email notification
 > [!NOTE]
 > Email notifications are enabled by default.
 >
->
 
 ### To enable Azure AD Connect Health email notifications
 1. Open the **Alerts** blade for the service for which you want to receive email notification.
@@ -35,6 +36,13 @@ You can configure the Azure AD Connect Health service to send email notification
 4. Select the check box if you want all global administrators to receive email notifications.
 5. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
 6. To finalize the changes, click **Save**. Changes take effect only after you save.
+
+>[!NOTE] 
+> When there are issues processing synchronization requests in our backend service, this service sends a notification email with the details of the error to the administrative contact email address(es) of your tenant. We heard feedback from customers that in certain cases the volume of these messages is prohibitively large so we are changing the way we send these messages. 
+>
+> Instead of sending a message for every sync error every time it occurs we will send out a daily digest of all errors the backend service has returned. This enables customers to process these errors in a more efficient manner and reduces the number of duplicate error messages.
+>
+> We plan for this change to be implemented on January 15th, 2020.
 
 ## Delete a server or service instance
 
@@ -59,6 +67,7 @@ Azure AD Connect Health for Active Directory Federation Services (AD FS) and Azu
 
 1. Open the **Server** blade from the **Server List** blade by selecting the server name to be removed.
 2. On the **Server** blade, from the action bar, click **Delete**.
+![Screenshot of Azure AD Connect Health delete server](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Confirm by typing the server name in the confirmation box.
 4. Click **Delete**.
 
@@ -81,8 +90,9 @@ When you're deleting a service instance, be aware of the following:
 * After performing this action, if you want to start monitoring the service, uninstall and reinstall the Health Agent on all the servers. After performing this action, if you want to start monitoring the same server again, uninstall, reinstall, and register the Health Agent on that server.
 
 #### To delete a service instance from the Azure AD Connect Health service
-1. Open the **Service** blade from the **Service List** blade by selecting the service identifier (farm name) that you want to remove.
-2. On the **Server** blade, from the action bar, click **Delete**.
+1. Open the **Service** blade from the **Service List** blade by selecting the service identifier (farm name) that you want to remove. 
+2. On the **Service** blade, from the action bar, click **Delete**. 
+![Screenshot of Azure AD Connect Health delete service](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirm by typing the service name in the confirmation box (for example: sts.contoso.com).
 4. Click **Delete**.
    <br><br>

@@ -1,45 +1,59 @@
 ---
-title: Change the key vault tenant ID after a subscription move | Microsoft Docs
+title: Change the key vault tenant ID after a subscription move - Azure Key Vault | Microsoft Docs
 description: Learn how to switch the tenant ID for a key vault after a subscription is moved to a different tenant
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/07/2017
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
 
 ---
 # Change a key vault tenant ID after a subscription move
-### Q: My subscription was moved from tenant A to tenant B. How do I change the tenant ID for my existing key vault and set correct ACLs for principals in tenant B?
-When you create a new key vault in a subscription, it is automatically tied to the default Azure Active Directory tenant ID for that subscription. All access policy entries are also tied to this tenant ID. When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to:
 
-* Change the tenant ID associated with all existing key vaults in this subscription to tenant B.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+
+When you create a new key vault in a subscription, it is automatically tied to the default Azure Active Directory tenant ID for that subscription. All access policy entries are also tied to this tenant ID. 
+
+If you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to:
+
+* Change the tenant ID associated with all existing key vaults in the subscription to tenant B.
 * Remove all existing access policy entries.
-* Add new access policy entries that are associated with tenant B.
+* Add new access policy entries associated with tenant B.
 
-For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
+For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, you can use Azure PowerShell to to change the tenant ID and remove old access policies.
 
-<pre>
-Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
-$vault.Properties.AccessPolicies = @()
-Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
-</pre>
+```azurepowershell
+Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
+$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your key vault's Resource ID 
+$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
+$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your key vault resides in
+$vault.Properties.AccessPolicies = @()                                     # Access policies can be updated with real
+                                                                           # applications/users/rights so that it does not need to be                             # done after this whole activity. Here we are not setting 
+                                                                           # any access policies. 
+Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the key vault's properties.
+````
 
-Because this vault was in tenant A before the move, the original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
+Or you can use the Azure CLI.
 
-Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy).
+```azurecli
+az account set <your-subscriptionId>                                       # Select your Azure Subscription
+tenantId=$(az account show --query tenantId)                               # Get your tenantId
+az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
+az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
+```
+
+Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet or the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
+
+If you are using a managed identity for Azure resources, you will need to update it to the new Azure AD tenant as well. For more information on managed identities, see [Provide Key Vault authentication with a managed identity](managed-identity.md).
+
+
+If you are using MSI, you'll also have to update the MSI identity since the old identity will no longer be in the correct AAD tenant.
 
 ## Next steps
-If you have questions about Azure Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
+If you have questions about Azure Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

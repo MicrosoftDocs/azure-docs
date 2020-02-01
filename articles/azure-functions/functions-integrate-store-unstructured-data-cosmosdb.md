@@ -1,18 +1,9 @@
 ---
-title: Store unstructured data using Azure Cosmos DB and Functions | Microsoft Docs
+title: Store unstructured data using Azure Cosmos DB and Functions 
 description: Store unstructured data using Azure Functions and Cosmos DB
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, Cosmos DB, dynamic compute, serverless architecture
 
-ms.assetid: 
-ms.service: azure-functions
-ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
@@ -69,7 +60,7 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 Replace the existing function code with the following code, in your chosen language:
 
-# [C\#](#tab/csharp)
+# [C#](#tab/csharp)
 
 Replace the existing C# function with the following code:
 
@@ -78,6 +69,7 @@ Replace the existing C# function with the following code:
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, out object taskDocument, ILogger log)
 {
@@ -102,9 +94,10 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
         taskDocument = null;
         return (ActionResult)new BadRequestResult();
     }
+}
 ```
 
-# [JavaScript](#tab/nodejs)
+# [JavaScript](#tab/javascript)
 
 Replace the existing JavaScript function with the following code:
 
@@ -162,6 +155,6 @@ You've successfully added a binding to your HTTP trigger to store unstructured d
 
 ## Next steps
 
-[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
-
 For more information about binding to a Cosmos DB database, see [Azure Functions Cosmos DB bindings](functions-bindings-cosmosdb.md).
+
+[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps-2.md)]

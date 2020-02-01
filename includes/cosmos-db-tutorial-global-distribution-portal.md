@@ -3,21 +3,15 @@
  description: Learn how to replicate data globally with Azure Cosmos DB in the Azure portal
  services: cosmos-db
  author: SnehaGunda
+ ms.author: sngun
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 03/26/2018
- ms.author: sngun
+ ms.date: 12/26/2018
  ms.custom: include file
 ---
 
-You can learn about Azure Cosmos DB global distribution in the following video, where Azure Cosmos DB Program Manager Andrew Liu walks through global distribution functionality.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
-
 ## <a id="addregion"></a>Add global database regions using the Azure portal
-Azure Cosmos DB is available in all [Azure regions][azureregions] world-wide. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
+Azure Cosmos DB is available in all [Azure regions][azureregions] worldwide. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
 1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **Azure Cosmos DB**.
 2. In the **Azure Cosmos DB** page, select the database account to modify.

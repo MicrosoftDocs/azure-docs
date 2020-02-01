@@ -1,20 +1,13 @@
 ---
-title: Retrieve offers API | Microsoft Docs
+title: Retrieve offers API | Azure Marketplace
 description: API retrieves a summarized list of offers under a publisher namespace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -29,7 +22,7 @@ Retrieves a summarized list of offers under a publisher namespace.
 URI parameters
 --------------
 
-| ** Name**        |  **Description**                         |  **Data type** |
+| **Name**         |  **Description**                         |  **Data type** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Publisher identifier, for example `contoso` |   String    |
 |  api-version     | Latest version of API                    |    Date        |
@@ -77,7 +70,7 @@ Body example
 |  status         | Status of the offer. For the list of possible values, see [Offer status](#offer-status) below.                         |
 |  id             | GUID that uniquely identifies the offer in the publisher namespace.                                                    |
 |  version        | Current version of the offer. The version property cannot be modified by the client. It's incremented after each publishing. |
-|  definition     | Contains a summarized view of the actual definition of the workload. To get a detailed definition, use the [Retrieve specific offer] (./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  definition     | Contains a summarized view of the actual definition of the workload. To get a detailed definition, use the [Retrieve specific offer](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | UTC time when the offer was last modified                                                                              |
 |  |  |
 

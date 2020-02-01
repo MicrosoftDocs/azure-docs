@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
@@ -30,7 +29,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is an API App in your subscription. For more information, see [App Service Documentation][https://docs.microsoft.com/azure/app-service/]
++ Make sure there is an API App in your subscription. For more information, see [App Service Documentation](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -39,7 +38,7 @@ In this article, you learn how to:
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **API App** from the **Add a new API** list.
 
-    !(API app)[./media/import-api-app-as-api/api-app.png]
+    ![API app](./media/import-api-app-as-api/api-app.png)
 3. Press **Browse** to see the list of API Apps in your subscription.
 4. Select the app. APIM finds the swagger associated with the selected app, fetches it, and imports it. 
 
@@ -55,7 +54,7 @@ In this article, you learn how to:
     * **Unlimited**   
 7. Select **Create**.
 
-## Test the new APIM API in the Azure portal
+## Test the new API in the Azure portal
 
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
 
@@ -67,21 +66,6 @@ Operations can be called directly from the Azure portal, which provides a conven
 1. Press **Send**.
 
     Backend responds with **200 OK** and some data.
-
-## <a name="call-operation"> </a>Call an operation from the developer portal
-
-Operations can also be called **Developer portal** to test APIs. 
-
-1. Select the API you created in the "Import and publish a back-end API" step.
-2. Press **Developer portal**.
-
-    The "Developer portal" site opens up.
-3. Select the **API** that you created.
-4. Click the operation you want to test.
-5. Press **Try it**.
-6. Press **Send**.
-    
-    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

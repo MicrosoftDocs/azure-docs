@@ -1,12 +1,9 @@
 ---
-title: Add conditional statements to workflows - Azure Logic Apps | Microsoft Docs
+title: Add conditional statements to workflows
 description: How to create conditions that control actions in workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ---
@@ -130,7 +127,7 @@ Here's the high-level code definition behind a conditional statement:
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on features and suggestions, visit the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

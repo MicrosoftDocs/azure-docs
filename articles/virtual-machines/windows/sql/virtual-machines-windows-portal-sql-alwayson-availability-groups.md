@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -38,12 +38,12 @@ All resources in this solution belong to a single resource group.
 
 Before you start this tutorial, confirm the following:
 
-* You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
+* You already have an Azure account. If you don't have one, [sign up for a trial account](https://azure.microsoft.com/pricing/free-trial/).
 * You already know how to use the GUI to provision a SQL Server virtual machine from the virtual machine gallery. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
-* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 
 > [!NOTE]
-> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](/SharePoint/administration/configure-an-alwayson-availability-group).
 >
 >
 
@@ -73,7 +73,7 @@ Click **Basics** and configure the following settings:
 * **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial, use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
 * **Subscription** is the subscription that Azure bills to run all deployed resources for the availability group. If your account has multiple subscriptions, you can specify a different subscription.
-* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Location** is the Azure region where the tutorial creates the resources. Choose an Azure region.
 
 The following screenshot is a completed **Basics** blade:
@@ -121,7 +121,7 @@ On **VM size, storage settings**, choose a SQL Server virtual machine size, and 
 * **SQL Server virtual machine size** is the size for both virtual machines that run SQL Server. Choose an appropriate virtual machine size for your workload. If you are building this environment for the tutorial, use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
-> Azure installs the Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+> Azure installs the Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 >
 >
 
@@ -157,8 +157,8 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 For additional information about storage space and storage pools, see:
 
-* [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx)
-* [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
+* [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739.aspx)
+* [Windows Server Backup and Storage Pools](https://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
 [Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-sql-performance.md).

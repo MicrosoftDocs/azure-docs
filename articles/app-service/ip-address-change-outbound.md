@@ -1,16 +1,10 @@
 ---
-title: How to prepare for an outbound IP address change - Azure
+title: Prepare for outbound IP address change
 description: If your outbound IP address is going to be changed, learn what to do so that your app continues to work after the change.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: 
 
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
+ms.custom: seodec18
 ---
 
 # How to prepare for an outbound IP address change
@@ -35,7 +29,7 @@ The new outbound IP addresses are shown in the portal before they take effect. W
 
 3.	Select your App Service app from the list.
 
-4.  If the app is a function app, see [Function app outbound IP addresses](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
+1.  If the app is a function app, see [Function app outbound IP addresses](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
 
 4.	Under the **Settings** header, click **Properties** in the left navigation, and find the section labeled **Outbound IP addresses**.
 
@@ -43,4 +37,4 @@ The new outbound IP addresses are shown in the portal before they take effect. W
 
 ## Next steps
 
-This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
+This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](overview-inbound-outbound-ips.md).

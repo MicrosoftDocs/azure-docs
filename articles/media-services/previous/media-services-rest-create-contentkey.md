@@ -1,10 +1,10 @@
 ---
 title: Create content keys with REST | Microsoft Docs
-description: Learn how to create content keys that provide secure access to Assets.
+description: This article demonstrates how to create content keys that provide secure access to assets.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -41,7 +41,7 @@ The following are general steps for generating content keys that you associate w
 3. Encrypt your content key with the public key of the X.509 Certificate. 
    
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Create a checksum value (based on the PlayReady AES key checksum algorithm) calculated using the key identifier and content key. For more information, see the “PlayReady AES Key Checksum Algorithm” section of the PlayReady Header Object document located [here](http://www.microsoft.com/playready/documents/).
+4. Create a checksum value (based on the PlayReady AES key checksum algorithm) calculated using the key identifier and content key. For more information, see the “PlayReady AES Key Checksum Algorithm” section of the PlayReady Header Object document located [here](https://www.microsoft.com/playready/documents/).
    
    The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
    
@@ -67,9 +67,9 @@ The following are general steps for generating content keys that you associate w
 
 This article does not show how to generate an AES key, encrypt the key, and calculate the checksum. 
 
->[!NOTE]
-
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
 ## Connect to Media Services
 
@@ -86,7 +86,7 @@ Request:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 
@@ -118,7 +118,7 @@ Request:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -185,7 +185,7 @@ Request
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -235,7 +235,7 @@ Request:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 

@@ -1,17 +1,16 @@
 ---
-title: Public IP Address with Site Recovery  | Microsoft Docs
-description: Describes how to setup Public IP addresses using Azure Site Recovery and Azure Traffic Manager for disaster recovery and migration
+title: Assign public IP addresses after failover with Azure Site Recovery 
+description: Describes how to set up public IP addresses with Azure Site Recovery and Azure Traffic Manager for disaster recovery and migration
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 09/28/2018
+ms.topic: conceptual
+ms.date: 04/08/2019
 ms.author: mayg
 
 ---
-# Public IP Address with Site Recovery
+# Set up public IP addresses after failover
 
 Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses also enable Azure resources to communicate outbound to Internet and public-facing Azure services with an IP address assigned to the resource.
 - Inbound communication from the Internet to the resource, such as Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, and others. You can still communicate with some resources, such as VMs, from the Internet, if a VM doesn't have a public IP address assigned to it, as long as the VM is part of a load balancer back-end pool, and the load balancer is assigned a public IP address.
@@ -40,7 +39,7 @@ The setup is as follows:
 Azure Traffic Manager enables DNS level routing between endpoints and can assist with [driving down your RTOs](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) for a DR scenario. 
 
 Read more about failover scenarios with Traffic Manager:
-1. [On-Prem to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) with Traffic Manager 
+1. [On-premises to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) with Traffic Manager 
 2. [Azure to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) with Traffic Manager 
 
 The setup is as follows:

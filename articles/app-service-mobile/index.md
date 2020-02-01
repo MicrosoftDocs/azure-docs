@@ -2,18 +2,20 @@
 title: Azure Mobile Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Mobile Apps in Azure App Service to build and host native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova.
 services: app-service-mobile
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: 
 ms.service: app-service-mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2018
-ms.author: carolz
+ms.author: gwallace
 ---
 # Mobile Apps Documentation
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova. Tutorials, videos, client SDK documentation, and more show you how to build and host the backend for any mobile app.
 
@@ -25,7 +27,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" alt="Mobile Apps" />
+                            <img src="https://docs.microsoft.com/media/common/i_learn-about.svg" alt="Mobile Apps" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,7 +45,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/common/i_video.svg" alt="Videos" />
+                            <img src="https://docs.microsoft.com/media/common/i_video.svg" alt="Videos" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -61,7 +63,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_android.svg" alt="Android" />
+                            <img src="https://docs.microsoft.com/media/logos/logo_android.svg" alt="Android" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -79,7 +81,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_cordova.svg" alt="Cordova" />
+                            <img src="https://docs.microsoft.com/media/logos/logo_cordova.svg" alt="Cordova" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -97,7 +99,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_ios.svg" alt="iOS" />
+                            <img src="https://docs.microsoft.com/media/logos/logo_ios.svg" alt="iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -115,7 +117,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Windows.svg" alt="Windows" />
+                            <img src="https://docs.microsoft.com/media/logos/logo_Windows.svg" alt="Windows" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -151,7 +153,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_xamarin.svg" alt="Xamarin.Forms" />
+                            <img src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" alt="Xamarin.Forms" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -169,7 +171,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/common/i_mobile-app-developement.svg" alt="Xamarin.iOS" />
+                            <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="Xamarin.iOS" />
                         </div>
                     </div>
                     <div class="cardText">

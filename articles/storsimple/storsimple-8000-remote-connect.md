@@ -1,18 +1,9 @@
 ---
-title: Connect remotely to your StorSimple device | Microsoft Docs
+title: Connect remotely to your StorSimple device
 description: Explains how to configure your device for remote management and how to connect to Windows PowerShell for StorSimple via HTTP or HTTPS.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
@@ -42,7 +33,7 @@ Connecting to Windows PowerShell for StorSimple through an HTTP session offers m
 
 You can use either the Azure portal or the serial console to configure remote management. Select from the following procedures:
 
-* [Use the Azure portal to enable remote management over HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* Use the Azure portal to enable remote management over HTTP
 * [Use the serial console to enable remote management over HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
 After you enable remote management, use the following procedure to prepare the client for a remote connection.
@@ -120,7 +111,7 @@ Connecting to Windows PowerShell for StorSimple through an HTTPS session is the 
 
 You can use either the Azure portal or the serial console to configure remote management. Select from the following procedures:
 
-* [Use the Azure portal to enable remote management over HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* Use the Azure portal to enable remote management over HTTPS
 * [Use the serial console to enable remote management over HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
 After you enable remote management, use the following procedures to prepare the host for a remote management and connect to the device from the remote host.

@@ -3,20 +3,21 @@ title: Problem creating an Application Proxy application | Microsoft Docs
 description: How to troubleshoot issues creating Application Proxy applications in the Azure AD Admin portal
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem creating an Application Proxy application 
@@ -25,7 +26,7 @@ Below are some of the common issues people face when creating a new application 
 
 ## Recommended documents 
 
-To learn more about creating an Application Proxy application through the Admin Portal, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+To learn more about creating an Application Proxy application through the Admin Portal, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
 If you are following the steps in that document and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. 
 
@@ -48,4 +49,4 @@ The error message should display in the top right corner when you create the app
    ![Notification prompt](./media/application-proxy-config-problem/error-message.png)
 
 ## Next steps
-[Enable Application Proxy in the Azure portal](application-proxy-enable.md)
+[Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md)

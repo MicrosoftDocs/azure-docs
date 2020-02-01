@@ -1,18 +1,9 @@
-﻿---
-title: Tutorial - Autoscale a scale set with Azure PowerShell | Microsoft Docs
+---
+title: Tutorial - Autoscale a scale set with Azure PowerShell
 description: Learn how to automatically scale a virtual machine scale set with Azure PowerShell as CPU demands increases and decreases
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
@@ -20,6 +11,9 @@ ms.custom: mvc
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -28,11 +22,9 @@ When you create a scale set, you define the number of VM instances that you wish
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+There's a known issue that affects Azure PowerShell module version 6.8.1 or later, including the current version of the Azure Cloud Shell. This tutorial can only run using  Azure PowerShell module version 6.0.0 to 6.8.0. Run `Get-Module -ListAvailable AzureRM` to find the version. If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 
 ## Create a scale set
@@ -76,7 +68,7 @@ The following parameters are used for this rule:
 | *-Operator*             | Operator used to compare the metric data against the threshold.                                                     | Greater Than   |
 | *-Threshold*            | The value that causes the autoscale rule to trigger an action.                                                      | 70%            |
 | *-ScaleActionDirection* | Defines if the scale set should scale up or down when the rule applies.                                             | Increase       |
-| *–ScaleActionScaleType* | Indicates that the number of VM instances should be changed by a specific value.                                    | Change Count   |
+| *-ScaleActionScaleType* | Indicates that the number of VM instances should be changed by a specific value.                                    | Change Count   |
 | *-ScaleActionValue*     | The percentage of VM instances should be changed when the rule triggers.                                            | 3              |
 | *-ScaleActionCooldown*  | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes      |
 
@@ -92,7 +84,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -114,7 +106,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 
@@ -132,7 +124,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## Apply autoscale rules to a scale set
+## Apply autoscale profile to a scale set
 The final step is to apply the autoscale profile to your scale set. Your scale set is then able to automatically scale in or out based on the application demand. Apply the autoscale profile with [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) as follows:
 
 ```azurepowershell-interactive
@@ -183,7 +175,7 @@ IpAddress
 52.168.121.216
 ```
 
-Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, they are *azureuser* and *P@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *0*:
+Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, they are *azureuser* and *P\@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

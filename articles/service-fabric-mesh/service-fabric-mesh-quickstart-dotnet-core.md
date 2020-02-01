@@ -1,19 +1,10 @@
 ---
-title: Quickstart - Create and deploy a web app to Azure Service Fabric Mesh | Microsoft Docs
-description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
-author: tylermsft
-manager: jeconnoc
-editor: ''
-ms.assetid: 
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
+title: Quickstart - Deploy a web app to Azure Service Fabric Mesh 
+description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh using Visual Studio.
+author: dkkapur
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA 
 ms.date: 07/17/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
@@ -84,7 +75,7 @@ In the publish dialog, click the **Publish** button to deploy your Service Fabri
 
 When you publish to Azure for the first time, the docker image is pushed to the Azure Container Registry (ACR) which takes time depending on the size of the image. Subsequent publishes of the same project will be faster. You can monitor the progress of the deployment by selecting **Service Fabric Tools** in the Visual Studio **Output** window dropdown. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll

@@ -1,16 +1,12 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 #Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
-title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh | Microsoft Docs
+title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh 
 description: This quickstart shows you how to deploy a Service Fabric Mesh application to Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: Don’t add or edit keywords without consulting your SEO champ. 
-author: rwike77
-ms.author: ryanwi
-ms.date: 08/24/2018
+author: dkkapur
+ms.author: dekapur
+ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt 
 ---
 # Quickstart: Deploy Hello World to Service Fabric Mesh
 
@@ -44,14 +40,32 @@ az group create --name myResourceGroup --location eastus
 Create your application in the resource group using the `az mesh deployment create` command.  Run the following:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-The preceding command deploys a Linux application using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
+The preceding command deploys a Linux application using [linux.json template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). If you want to deploy a Windows application, use [windows.json template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
-In a few minutes, the command returns:
+This command will produce a JSON snippet that is shown below. Under the ```outputs``` section of the JSON output, copy the ```publicIPAddress``` property.
 
-`helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+This information comes from the ```outputs``` section in the ARM template. As shown below, this section references the Gateway resource to fetch the public IP address. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## Open the application
 Once the application successfully deploys, copy the public IP address for the service endpoint from the CLI output. Open the IP address in a web browser. A web page with the Azure Service Fabric Mesh logo displays.
@@ -91,5 +105,5 @@ To learn more about creating and deploying Service Fabric Mesh applications, con
 [sfm-app-browser]: ./media/service-fabric-mesh-quickstart-deploy-container/HelloWorld.png
 
 <!-- Links / Internal -->
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-group-delete]: /cli/azure/group
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

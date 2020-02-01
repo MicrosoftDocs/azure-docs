@@ -1,5 +1,5 @@
 ---
-title: Copy data easily with Copy Wizard - Azure | Microsoft Docs
+title: Copy data easily with Copy Wizard - Azure 
 description: Learn about how to use the Data Factory Copy Wizard to copy data from supported data sources to sinks.
 services: data-factory
 documentationcenter: ''
@@ -10,8 +10,8 @@ editor:
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang

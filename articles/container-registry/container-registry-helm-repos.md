@@ -1,13 +1,8 @@
 ---
-title: Use Helm repositories in Azure Container Registry
+title:  Store Helm charts
 description: Learn how to use a Helm repository with Azure Container Registry to store charts for your applications
-services: container-registry
-author: iainfoulds
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: iainfou
 ---
 
 # Use Azure Container Registry as a Helm repository for your application charts
@@ -26,7 +21,7 @@ This article shows you how to use a Helm chart repository stored in Azure Contai
 To complete the steps in this article, the following pre-requisites must be met:
 
 - **Azure Container Registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client** to search and install charts. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and use Helm, see [Installing Helm][helm-install].
+- **Helm client version 2.11.0 (not an RC version) or later** - Run `helm version` to find your current version. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
 - **Azure CLI version 2.0.46 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Add a repository to Helm client
@@ -133,7 +128,7 @@ $ helm inspect myacrhelm/wordpress
 appVersion: 4.9.8
 description: Web publishing platform for building blogs and websites.
 engine: gotpl
-home: http://www.wordpress.com/
+home: https://www.wordpress.com/
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
 - wordpress
@@ -221,7 +216,7 @@ For more information on how to use and manage Azure Container Registry, see the 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
-[develop-helm-charts]: https://docs.helm.sh/developing_charts/
+[develop-helm-charts]: https://helm.sh/docs/topics/charts/
 [semver2]: https://semver.org/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

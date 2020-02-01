@@ -1,6 +1,6 @@
 ---
-title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
-description: Frequently asked questions for Remote Monitoring solution accelerator
+title: Remote Monitoring solution accelerator FAQ - Azure | Microsoft Docs
+description: This article answers the frequently asked questions for the Remote Monitoring solution accelerators.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

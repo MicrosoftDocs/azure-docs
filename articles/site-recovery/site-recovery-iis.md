@@ -1,16 +1,15 @@
 ---
-title: Replicate a multi-tier IIS-based web application using Azure Site Recovery | Microsoft Docs
+title: Set up disaster recovery for an IIS web app using Azure Site Recovery 
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
-services: site-recovery
-author: nsoneji
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: nisoneji
+ms.date: 11/27/2018
+ms.author: mayg
 
 ---
-# Replicate a multi-tier IIS-based web application
+# Set up disaster recovery for a multi-tier IIS-based web application
 
 Application software is the engine of business productivity in an organization. Various web applications can serve different purposes in an organization. Some applications, like applications used for payroll processing, financial applications, and customer-facing websites, might be critical to an organization. To prevent loss of productivity, it's important for the organization to have these applications continuously up and running. More importantly, having these applications consistently available can help prevent damage to the brand or image of the organization.
 
@@ -105,7 +104,7 @@ If the connection string refers to the database virtual machine by using an IP a
 		</connectionStrings>
 		</configuration>
 
-To update the connection string in the web tier, add an [IIS connection update script](https://aka.ms/asr-update-webtier-script-classic) after Group 3 in the recovery plan.
+To update the connection string in the web tier, add an [IIS connection update script](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) after Group 3 in the recovery plan.
 
 #### Site bindings for the application
 Every site consists of binding information. The binding information includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number, and the host names for the site. During the failover, you might need to update these bindings if there's a change in the IP address that's associated with them.

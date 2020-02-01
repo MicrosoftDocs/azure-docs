@@ -61,7 +61,7 @@ ms.date: 08/23/2018
 
 **Node.js backend**:
 
-1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
+1. Set up your backend project.    
 
 2. Replace the todoitem.js table script with the following code:
 
@@ -75,7 +75,7 @@ ms.date: 08/23/2018
     // When adding record, send a push notification via APNS
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK, 
-        // see http://aka.ms/nodejshubs
+        // see https://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
 
         // Create a payload that contains the new item Text.

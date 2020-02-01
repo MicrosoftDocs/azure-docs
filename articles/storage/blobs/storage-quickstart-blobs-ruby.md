@@ -1,15 +1,13 @@
 ---
 title: Azure Quickstart - Create a blob in object storage using Ruby | Microsoft Docs
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Ruby to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-services: storage
-author: tamram
+author: mhopkins-msft
 
-
-ms.custom: mvc
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/09/2018
-ms.author: seguler
 ---
 
 # Quickstart: Upload, download, and list blobs using Ruby
@@ -18,18 +16,17 @@ In this quickstart, you learn how to use Ruby to upload, download, and list bloc
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Install the [Azure Storage library for Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) using the rubygem package. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+Make sure you have the following additional prerequisites installed:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Azure Storage library for Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage), using the rubygem package: 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) used in this quickstart is a basic Ruby application.  
 
@@ -72,7 +69,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, check your 'Documents' folder for the two files. You can open them and see they are identical.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the example.rb file to look at the code. 
 

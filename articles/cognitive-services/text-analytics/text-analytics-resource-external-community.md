@@ -1,16 +1,16 @@
 ---
 title: External & community content for Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Partner blogs, youtube videos, training for Microsoft Cognitive Services Text Analytics API on Azure.
+description: Partner blogs, YouTube videos, training for Azure Cognitive Services Text Analytics API.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: heidist
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 # External & community content for the Text Analytics Cognitive Service
 
@@ -20,7 +20,7 @@ ms.author: heidist
 
 + [Text Analytics API original announcement (Azure blog)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
-+ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (MSDN blog)](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
++ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (AutomationNext blog)](https://automationnext.wordpress.com/tag/text-analytics/)
 
 + [R Quick tip: Microsoft Cognitive Services’ Text Analytics API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
@@ -45,4 +45,4 @@ Are you looking for information about a feature or use-case that we don't cover?
 ## See also
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

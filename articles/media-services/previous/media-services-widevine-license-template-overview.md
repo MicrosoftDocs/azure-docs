@@ -2,7 +2,7 @@
 title: Widevine license template overview | Microsoft Docs
 description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Widevine license template overview
+# Widevine license template overview 
 You can use Azure Media Services to configure and request Google Widevine licenses. When the player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
 A Widevine license request is formatted as a JSON message.  
@@ -26,31 +26,31 @@ A Widevine license request is formatted as a JSON message.
 > You can create an empty message with no values, just "{}." Then a license template is created with defaults. The default works for most cases. Microsoft-based license-delivery scenarios should always use the defaults. If you need to set the "provider" and "content_id" values, a provider must match Widevine credentials.
 
     {  
-       “payload”:“<license challenge>”,
-       “content_id”: “<content id>” 
-       “provider”: ”<provider>”
-       “allowed_track_types”:“<types>”,
-       “content_key_specs”:[  
+       "payload": "<license challenge>",
+       "content_id": "<content id>" 
+       "provider": "<provider>"
+       "allowed_track_types": "<types>",
+       "content_key_specs": [  
           {  
-             “track_type”:“<track type 1>”
+             "track_type": "<track type 1>"
           },
           {  
-             “track_type”:“<track type 2>”
+             "track_type": "<track type 2>"
           },
           …
        ],
-       “policy_overrides”:{  
-          “can_play”:<can play>,
-          “can persist”:<can persist>,
-          “can_renew”:<can renew>,
-          “rental_duration_seconds”:<rental duration>,
-          “playback_duration_seconds”:<playback duration>,
-          “license_duration_seconds”:<license duration>,
-          “renewal_recovery_duration_seconds”:<renewal recovery duration>,
-          “renewal_server_url”:”<renewal server url>”,
-          “renewal_delay_seconds”:<renewal delay>,
-          “renewal_retry_interval_seconds”:<renewal retry interval>,
-          “renew_with_usage”:<renew with usage>
+       "policy_overrides": {  
+          "can_play": <can play>,
+          "can persist": <can persist>,
+          "can_renew": <can renew>,
+          "rental_duration_seconds": <rental duration>,
+          "playback_duration_seconds": <playback duration>,
+          "license_duration_seconds": <license duration>,
+          "renewal_recovery_duration_seconds": <renewal recovery duration>,
+          "renewal_server_url": "<renewal server url>",
+          "renewal_delay_seconds": <renewal delay>,
+          "renewal_retry_interval_seconds": <renewal retry interval>,
+          "renew_with_usage": <renew with usage>
        }
     }
 
@@ -185,6 +185,9 @@ The following example shows how to use .NET APIs to configure a simple Widevine 
         return configuration;
     }
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,21 +1,16 @@
 ---
-title: Mount an emptyDir volume in Azure Container Instances
+title: Mount emptyDir volume to container group
 description: Learn how to mount an emptyDir volume to share data between the containers in a container group in Azure Container Instances
-services: container-instances
-author: dlepow
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
-ms.author: danlep
 ---
 
 # Mount an emptyDir volume in Azure Container Instances
 
-Learn how to mount an *emptyDir* volume to share data between the containers in a container group in Azure Container Instances.
+Learn how to mount an *emptyDir* volume to share data between the containers in a container group in Azure Container Instances. Use *emptyDir* volumes as ephemeral caches for your containerized workloads.
 
 > [!NOTE]
-> Mounting an *emptyDir* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Mounting an *emptyDir* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## emptyDir volume
 
@@ -27,7 +22,7 @@ Some example uses for an *emptyDir* volume:
 * Checkpointing during long-running tasks
 * Store data retrieved by a sidecar container and served by an application container
 
-Data in an *emptyDir* volume is persisted through container crashes. Containers that are restarted, however, are not guaranteed to persist the data in an *emptyDir* volume.
+Data in an *emptyDir* volume is persisted through container crashes. Containers that are restarted, however, are not guaranteed to persist the data in an *emptyDir* volume. If you stop a container group, the *emptyDir* volume is not persisted.
 
 ## Mount an emptyDir volume
 

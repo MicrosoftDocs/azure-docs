@@ -1,11 +1,10 @@
 ---
 title: Check the health of an Azure Data Explorer cluster
-description: This article describes steps to determine if your Azure Data Explorer cluster is healthy.
+description: This article describes steps to monitor the health of your Azure Data Explorer cluster.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
@@ -30,6 +29,8 @@ There are several factors that impact the health of an Azure Data Explorer clust
 
     ![Cluster Keep Alive metric](media/check-cluster-health/portal-metrics.png)
 
-1. Add other metrics like CPU and Memory Caching to gauge resource utilization for the cluster.
+1. It's possible to add other metrics to the chart. Select the chart then **Add metric**. Select another metric - this example shows **CPU**.
 
-1. If you need assistance diagnosing issues with the health of a cluster, please open a support request in the [Azure portal](https://portal.azure.com).
+    ![Add metric](media/check-cluster-health/add-metric.png)
+
+1. If you need assistance diagnosing issues with the health of a cluster, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

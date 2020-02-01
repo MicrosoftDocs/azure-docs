@@ -1,25 +1,14 @@
 ---
-title: Import certificates into a container running on Azure Service Fabric| Microsoft Docs
+title: Import certificates into a container
 description: Learn now to import certificate files into a Service Fabric container service.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
 ---
 
 # Import a certificate file into a container running on Service Fabric
 
-You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in LocalMachine on all nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
+You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in a certificate store under LocalMachine on all nodes of the cluster. The private key corresponding to the certificate must be available, accessible and - on Windows - exportable. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -27,7 +16,7 @@ You can secure your container services by specifying a certificate. Service Fabr
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-For Windows clusters, when starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
+For Windows clusters, when starting the application, the runtime exports each referenced certificate and its corresponding private key into a PFX file, secured with a randomly-generated password. The PFX and password files, respectively, are accessible inside the container using the following environment variables: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

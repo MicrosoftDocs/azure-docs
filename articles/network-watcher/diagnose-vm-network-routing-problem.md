@@ -1,10 +1,10 @@
 ---
-title: Diagnose a virtual machine network routing problem - tutorial - Azure portal | Microsoft Docs
+title: 'Tutorial: Diagnose a VM network routing problem - Azure portal'
+titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: damendo
 ms.custom: mvc
 
 ---
@@ -86,7 +86,7 @@ Azure automatically creates routes to default destinations. You may create custo
     | Virtual machine         | Select myVm                                            |
     | Network interface       | myvm - Your network interface name may be different.   |
     | Source IP address       | 10.0.0.4                                               |
-    | Destination IP address  | 13.107.21.200 - One of the addresses for www.bing.com. |
+    | Destination IP address  | 13.107.21.200 - One of the addresses for <www.bing.com>. |
 
     ![Next hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

@@ -1,22 +1,16 @@
 ---
 title: Azure Blockchain Workbench architecture
-description: Overview of Azure Blockchain Workbench architecture and its components.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
+description: Overview of Azure Blockchain Workbench Preview architecture and its components.
+ms.date: 09/05/2019
+ms.topic: conceptual
+ms.reviewer: brendal
 #Customer intent: As a developer, I want to understand the architecture and components of Azure Blockchain Workbench.
 ---
 # Azure Blockchain Workbench architecture
 
-Azure Blockchain Workbench simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows you to pick modules and components to deploy including blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
+Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows you to pick modules and components to deploy including blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
 
-![Blockchain Workbench Architecture](./media/architecture/architecture.png)
+![Blockchain Workbench architecture](./media/architecture/architecture.png)
 
 ## Identity and authentication
 
@@ -40,6 +34,8 @@ In the web application, authorized users can access the Administrator Console. T
 * Deploy Microsoft provided smart contracts for popular scenarios. For example, an asset transfer scenario.
 * Upload and deploy their own smart contracts.
 * Assign a user access to the smart contract in the context of a specific role.
+
+For more information, see the [Azure Blockchain Workbench sample client applications on GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## Gateway service API
 

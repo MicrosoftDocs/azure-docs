@@ -1,17 +1,14 @@
 ---
-title: How To Restore a Server in Azure Database for PostgreSQL
-description: This article describes how to restore a server in Azure Database for PostgreSQL using the Azure portal.
-services: postgresql
+title: Backup and restore - Azure portal - Azure Database for PostgreSQL - Single Server
+description: This article describes how to restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 10/25/2019
 ---
 
-# How to backup and restore a server in Azure Database for PostgreSQL using the Azure portal
+# How to backup and restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal
 
 ## Backup happens automatically
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
@@ -55,20 +52,23 @@ The following steps restore the sample server to a point-in-time:
 
 3. Fill out the Restore form with the required information:
 
-   ![Azure Database for PostgreSQL - Restore information ](./media/howto-restore-server-portal/3-restore.png)
-  - **Restore point**: Select the point-in-time you want to restore to.
-  - **Target server**: Provide a name for the new server.
-  - **Location**: You cannot select the region. By default it is same as the source server.
-  - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
+   ![Azure Database for PostgreSQL - Restore information](./media/howto-restore-server-portal/3-restore.png)
+   - **Restore point**: Select the point-in-time you want to restore to.
+   - **Target server**: Provide a name for the new server.
+   - **Location**: You cannot select the region. By default it is same as the source server.
+   - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
 
 4. Click **OK** to restore the server to restore to a point-in-time. 
 
 5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
 
->[!Note]
->The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
+The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
+
+The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+
 
 ## Geo restore
+
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for PostgreSQL**.
@@ -84,8 +84,10 @@ If you configured your server for geographically redundant backups, a new server
 
 3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
 
->[!Note]
->The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
+The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
+The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
 
 ## Next steps

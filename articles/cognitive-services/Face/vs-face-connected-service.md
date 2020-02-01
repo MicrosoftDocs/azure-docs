@@ -1,31 +1,31 @@
 ---
-title: "Tutorial: Face API C#"
+title: "Tutorial: Face Connected Service"
 titleSuffix: Azure Cognitive Services
-description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
+description: Create a Windows app that uses the Cognitive Services Face service to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 12/05/2019
 ms.author: ghogen
 ---
-# Connecting to Cognitive Services Face API by using Connected Services in Visual Studio
+# Connect to the Face service by using Connected Services in Visual Studio
 
-By using the Cognitive Services Face API, you can detect, analyze, organize, and tag faces in photos.
+By using the Azure Face service, you can detect, analyze, organize, and tag faces in photos.
 
-This article and its companion articles provide details for using the Visual Studio Connected Service feature for Cognitive Services Face API. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
+This article and its companion articles provide details for using the Visual Studio Connected Service feature for the Face service. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
 ## Prerequisites
 
-- **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7 or later with the **Web Development** workload installed. [Download it now](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## Create a project and add support for Cognitive Services Face API
+## Create a project and add support for Face
 
 1. Create a new ASP.NET Core web project. Use the Empty project template. 
 
@@ -42,16 +42,16 @@ This article and its companion articles provide details for using the Visual Stu
 
    ![Select your subscription](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Select the subscription you want to use, and then choose a name for the Face API, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
+1. Select the subscription you want to use, and then choose a name for the Face service, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
 
    ![Edit connected service details](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    Follow the link for details on the pricing tiers.
 
 1. Choose Add to add supported for the Connected Service.
-   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Face API.
+   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Face service.
 
-## Use the Face API to detect attributes of faces in an image
+## Use the Face service to detect attributes of faces in an image
 
 1. Add the following using statements in Startup.cs.
  
@@ -74,7 +74,7 @@ This article and its companion articles provide details for using the Visual Stu
       }
    ```
 
-1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Face API page](https://azure.microsoft.com/services/cognitive-services/face/). Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choosee **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer:
+1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on the [Face page](https://azure.microsoft.com/services/cognitive-services/face/) of the Azure portal. Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choose **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer:
  
    ![images folder with image file](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -82,7 +82,7 @@ This article and its companion articles provide details for using the Visual Stu
 
    ![Copy if newer](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Replace the Configure method with the following code to access the Face API and test an image. Change the imagePath string to the correct path and filename for your face image.
+1. Replace the Configure method with the following code to access the Face service and test an image. Change the imagePath string to the correct path and filename for your face image.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -142,7 +142,7 @@ This article and its companion articles provide details for using the Visual Stu
             });
         }
    ```
-    The code in this step constructs a HTTP request with a call to the Face REST API, using the key you added when you added the connected service.
+    The code in this step constructs an HTTP request with a call to the Face REST API, using the key you added when you added the connected service.
 
 1. Add the helper functions GetImageAsByteArray and JsonPrettyPrint.
 
@@ -226,18 +226,18 @@ This article and its companion articles provide details for using the Visual Stu
         }
    ```
 
-1. Run the web application and see what Face API found in the image.
+1. Run the web application and see what the Face service found in the image.
  
-   ![Face API image and formatted results](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Face service image and formatted results](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## Clean up resources
 
 When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
-1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 1. Select **Delete resource group**.
 1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
 ## Next steps
 
-Learn more about the Face API by reading the [Face API Documentation](Overview.md).
+Learn more about the Face service by reading the [Face Documentation](Overview.md).

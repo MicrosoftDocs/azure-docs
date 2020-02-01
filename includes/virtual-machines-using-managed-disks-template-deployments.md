@@ -10,7 +10,7 @@ ms.author: jaboes
 ms.custom: "include file"
 ---
 
-# Using Managed Disks in Azure Resource Manager Templates
+
 
 This document walks through the differences between managed and unmanaged disks when using Azure Resource Manager templates to provision virtual machines. The examples help you to update existing templates that are using unmanaged Disks to managed disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
 
@@ -21,8 +21,8 @@ To begin, let's take a look at how unmanaged disks are deployed. When creating u
 ```json
 {
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2018-07-01",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2016-01-01",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -36,8 +36,8 @@ Within the virtual machine object, add a dependency on the storage account to en
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -91,12 +91,21 @@ With Azure Managed Disks, the disk becomes a top-level resource and no longer re
 
 ### Default managed disk settings
 
-To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2017-03-30` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use a Storage type based on the size of the VM. For example, if you are using a Premium capable VM Size (sizes with "s" in their name such as Standard_D2s_v3) then system will use Premium_LRS storage. Use the sku setting of the disk to specify a Storage type. If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+To create a VM with managed disks, you no longer need to create the storage account resource. Referencing the template example below, there are some differences from the previous unmanged disk examples to note:
+
+- The `apiVersion` is a version that supports managed disks.
+- `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD.
+- When deploying without specifying additional properties, the disk will use a storage type based on the size of the VM. For example, if you are using a VM size that supports premium storage (sizes with "s" in their name such as Standard_D2s_v3) then premium disks will be configured by default. You can change this by using the sku setting of the disk to specify a storage type.
+- If no name for the disk is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk.
+  - If a VM is being created from a custom image then the default settings for storage account type and disk name are retrieved from the disk properties defined in the custom image resource. These can be overridden by specifying values for these in the template.
+- By default, Azure disk encryption is disabled.
+- By default, disk caching is Read/Write for the OS disk and None for data disks.
+- In the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -137,8 +146,8 @@ As an alternative to specifying the disk configuration in the virtual machine ob
 ```json
 {
     "type": "Microsoft.Compute/disks",
+    "apiVersion": "2018-06-01",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -156,8 +165,8 @@ Within the VM object, reference the disk object to be attached. Specifying the r
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -197,12 +206,12 @@ Within the VM object, reference the disk object to be attached. Specifying the r
 
 ### Create managed availability sets with VMs using managed disks
 
-To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This property ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2017-03-30`.
+To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This property ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2018-10-01`.
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
+    "apiVersion": "2018-10-01",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
@@ -247,8 +256,7 @@ To find full information on the REST API specifications, please review the [crea
 * For full templates that use managed disks visit the following Azure Quickstart Repo links.
     * [Windows VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Full list of managed disk templates](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * Visit the [Azure Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks) document.
-* For information on how to use managed disks in Azure virtual machine scale sets, visit the [Use data disks with scale sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) document.
+* For information on how to use managed disks in Azure virtual machine scale sets, visit the [Use data disks with scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) document.

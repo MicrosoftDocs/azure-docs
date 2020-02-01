@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/19/2018
+ms.author: jingwang
+---
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
@@ -5,7 +12,7 @@
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
-| &nbsp; |[Azure Search Index](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
+| &nbsp; |[Azure Cognitive Search Index](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
 | &nbsp; |[Azure Table storage](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |
 | **Databases** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |
 | &nbsp; |[DB2](../articles/data-factory/v1/data-factory-onprem-db2-connector.md)* |✓ | |
@@ -29,6 +36,4 @@
 | &nbsp; |[Generic ODBC](../articles/data-factory/v1/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/v1/data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/v1/data-factory-web-table-connector.md) |✓ | |
-| &nbsp; |[GE Historian](../articles/data-factory/v1/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
-
 
