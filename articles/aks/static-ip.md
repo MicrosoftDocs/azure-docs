@@ -117,7 +117,8 @@ spec:
     app: azure-load-balancer
 ```
 
-NOTE: To publish the service on your own domain, please see [Azure DNS][azure-dns-zone] and the [external-dns][external-dns] project.
+> [!NOTE] 
+> To publish the service on your own domain, see [Azure DNS][azure-dns-zone] and the [external-dns][external-dns] project.
 
 ## Troubleshoot
 
