@@ -38,7 +38,7 @@ You can modify the default configuration once the diagnostics extension has been
 
 
 ## Resource Manager template
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Azure Diagnostics extension during an Azure Resource Manager template deployment. See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/extensions/extensions-diagnostics-template.md).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Azure Diagnostics extension during an Azure Resource Manager template deployment. See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/extensions-diagnostics-template.md).
 
 ## Azure CLI deployment
 The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. The protected settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element) of the configuration schema, while the public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element). See [Example configuration](diagnostics-extension-schema-windows.md#example-configuration) for a complete example of the private and public settings.
@@ -57,7 +57,7 @@ az vm extension set \
 PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension). The public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element). See [Example configuration](diagnostics-extension-schema-windows.md#example-configuration) for a complete example of the public settings.
 
 
-See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/extensions/diagnostics-windows.md).
+See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../../virtual-machines/extensions/diagnostics-windows.md).
 
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
