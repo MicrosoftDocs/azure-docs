@@ -12,13 +12,14 @@ ms.author: alzam
 ---
 # Enable Azure Multi-Factor Authentication (MFA) for VPN users
 
-If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) for your Azure AD tenant. The steps in this article help you enable a requirement for two-step verification.
+If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) on a per user basis or leverage Multi-Factor Authentication (MFA) via [Conditional Access](../active-directory/conditional-access/overview.md) for more fine-grained control. Configuring Multi-Factor Authentication per user can be enabled at no-additional cost, however when enabling MFA per user, the user will be prompted for second factor authentication against all applications tied to the Azure AD tenant. Conditional Access will allow finer grain control over how a second factor should be promoted and can allow assignment of MFA to only VPN and not other applications tied to the Azure AD tenant.
 
-## <a name="prereq"></a>Prerequisite
+## <a name="enableauth"></a>Enable authentication
 
-The prerequisite for this configuration is a configured Azure AD tenant using the steps in [Configure a tenant](openvpn-azure-ad-tenant.md).
+1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
+2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
 
-[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
+   ![Directory ID](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)
 
 ## <a name="enablesign"></a> Configure sign-in settings
 
@@ -29,6 +30,22 @@ On the **Azure VPN - Properties** page, configure sign-in settings.
 3. Save your changes.
 
    ![Permissions](./media/openvpn-azure-ad-mfa/user2.jpg)
+
+## Option 1 - Enable Multi-Factor Authentication (MFA) via Conditional Access
+
+Conditional Access allows for fine-grained access control on a per-application basis.  Please note that to leverage Conditional Access, you should have Azure AD Premium 1 or greater licensing applied to the users that will be subject to the Conditional Access rules.
+
+1. On the **Enterprise applications - All applications** page, select **Azure VPN**, select **Conditional Access**, and click **New policy**.
+2. Under Users and groups, on the *Include* tab check **Select users and groups**, check **Users and groups**, and select a group or set of users that should be subject for MFA.  Click **Done**.
+![Assignments](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
+3. Under **Grant**, check **Grant access**, check **Require multi-factor authentication**, check **Require all the selected controls**, and click the **Select** button.
+![Grant access - MFA](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
+4. Check **On** under **Enable policy** and click the **Create** button.
+![Enable Policy](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
+
+## Option 2 - Enable Multi-Factor Authentication (MFA) per User
+
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## Next steps
 

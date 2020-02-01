@@ -75,6 +75,8 @@ The Functions extension lets you create a function app project, along with your 
 
     ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
 
+### Generated project files
+
 The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](functions-host-json.md).
@@ -83,6 +85,30 @@ The project template creates a project in your chosen language and installs requ
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
+
+Depending on your language, these other files are created:
+
+# [C\#](#tab/csharp)
+
+* [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
+
+# [JavaScript](#tab/nodejs)
+
+* A package.json file in the root folder.
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
 
 At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
