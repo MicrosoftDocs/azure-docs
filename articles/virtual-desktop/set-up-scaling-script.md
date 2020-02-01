@@ -78,7 +78,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 3. Run the following cmdlet to download the script for creating the Azure Automation account:
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
      ```
 
 4. Run the following cmdlet to execute the script and create the Azure Automation account:
@@ -150,7 +150,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 3. Run the following cmdlet to download the createazurelogicapp.ps1 script file on your local machine.
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/wvdscaling-automation/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
      ```
 
 4. Run the following cmdlet to sign into Windows Virtual Desktop with an account that has RDS Owner or RDS Contributor permissions.
