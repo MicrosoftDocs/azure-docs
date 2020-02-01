@@ -1,5 +1,5 @@
 ---
-title: Managing scale with Cassandra API
+title: Elastic scale with Cassandra API
 description: The different options for scaling up/down in a Cassandra API account and their advantages/disadvantages
 author: TheovanKraay
 ms.service: cosmos-db
@@ -8,9 +8,9 @@ ms.date: 01/13/2020
 ms.author: thvankra
 ---
 
-# Managing scale with Cassandra API
+# Elastic scale with Cassandra API
 
-To understand how to scale effectively in Cosmos DB, it is important to understand request units (RUs), and how to ensure they are provisioned properly to account for the performance demands in your system. To learn more about RUs, first consult our article on [request units](https://docs.microsoft.com/azure/cosmos-db/request-units). 
+There are variety of options to explore the elastic nature of the Azure Cosmos DB API for Cassandra. To understand how to scale effectively in Cosmos DB, it is important to understand request units (RUs), and how to ensure they are provisioned properly to account for the performance demands in your system. To learn more about RUs, first consult our article on [request units](https://docs.microsoft.com/azure/cosmos-db/request-units). 
 
 ![Database operations consume Request Units](./media/request-units/request-units.png)
 
@@ -20,7 +20,7 @@ Cosmos DB will return rate limit (429) errors if clients are consuming more reso
 
 If your system is not sensitive to latency, it may be sufficient to handle higher than expected throughput using retries. See code sample [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) for how to handle rate limiting transparently using the [Cosmos DB Extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for [Cassandra Retry Policy](https://docs.datastax.com/en/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) in Java. We also have a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) extension.
 
-If you need to minimise the latency, there are variety of options to explore the elastic nature of Azure Cosmos DB. In this article, we will outline the spectrum of options for managing scale and provisioning throughput (RUs) in the Cassandra API:
+If you need to minimise latency, there is a spectrum of options for managing scale and provisioning throughput (RUs) in the Cassandra API:
 
 * Manually using the Azure portal
 * Programmatically using the Control Plane

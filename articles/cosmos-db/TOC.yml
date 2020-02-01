@@ -549,7 +549,7 @@
         href: cassandra-introduction.md
       - name: Wire protocol support
         href: cassandra-support.md
-      - name: Managing scale
+      - name: Elastic scale
         href: manage-scale-cassandra.md      
       - name: Quickstarts
         items:
