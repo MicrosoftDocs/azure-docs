@@ -1,6 +1,6 @@
 ---
-title: Performance tracing
-description: Best practices for performance profiling using WPF
+title: Create client-side performance traces
+description: Best practices for client-side performance profiling using WPF
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
@@ -11,9 +11,11 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Performance tracing
+# Create client-side performance traces
 
-There are many reasons why the performance of Azure Remote Rendering may not be as good as desired. Apart from pure rendering performance on the cloud server, especially the quality of the network connection has a significant influence on the experience. There are multiple tools to find potential bottlenecks. One such tool is doing *performance traces*.
+There are many reasons why the performance of Azure Remote Rendering may not be as good as desired. Apart from pure rendering performance on the cloud server, especially the quality of the network connection has a significant influence on the experience. To profile the server's performance, refer to chapter [Server-side performance queries](../sdk/concepts-performance-queries.md).
+
+This chapter focuses on how to identify potential client-side bottlenecks through *performance traces*.
 
 ## Getting started
 
@@ -38,7 +40,7 @@ When searching for information about performance traces, you will inevitably com
 
 **WPR** stands for [**W**indows **P**erformance **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) and is the name of the application that starts and stops the recording of event traces. WPR takes a profile file (\*.wprp) that configures which exact events to log. Such a `wprp` file is provided with the ARR SDK. When doing traces on a desktop PC, you may launch WPR directly. When doing a trace on the HoloLens, you typically go through the web interface instead.
 
-**WPA** stands for [**W**indows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) and is the name of the GUI application that is used to open \*.etl files and sift through the data to identify performance issues. WPA allows you to sort data by various criteria, display the data in several ways, dig down into details and correlate information.
+**WPA** stands for [**W**indows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) and is the name of the GUI application that is used to open \*.etl files and sift through the data to identify performance issues. WPA allows you to sort data by various criteria, display the data in several ways, dig down into details, and correlate information.
 
 While ETL traces can be created on any Windows device (local PC, HoloLens, cloud server, etc.), they are typically saved to disk and analyzed with WPA on a desktop PC. ETL files can be sent to other developers for them to have a look. Be aware that sensitive information, such as file-paths and IP addresses, may be captured in ETL traces, though. You can use ETW in two ways: to record traces, or to analyze traces. Recording traces is straight-forward and requires minimal setup. Analyzing traces on the other hand does require a decent understanding of both the WPA tool and the problem that you are investigating. General material for learning WPA will be given below, as well as guidelines for how to interpret ARR-specific traces.
 
@@ -123,3 +125,7 @@ To properly analyze a trace, you will need to figure out your own workflow and p
 ![Presets](./media/wpa-arr-trace.png)
 
 The image above shows views of various ARR-specific events plus a view of the overall CPU utilization.
+
+## See also
+
+* [Server-side performance queries](../sdk/concepts-performance-queries.md)

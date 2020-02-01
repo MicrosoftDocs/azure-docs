@@ -38,7 +38,7 @@
       href: how-tos/run-unity-sample-project.md
     - name: Create new Unity project
       href: quickstarts/create-new-unity-project.md
-  - name: Create WPA performance traces
+  - name: Create client-side performance traces
     href: how-tos/performance-tracing.md
   - name: Troubleshoot
     href: how-tos/troubleshoot.md

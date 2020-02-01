@@ -19,7 +19,6 @@ Most impactful for the rendering performance is the model input data. You can tw
 
 Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it is recommended to take a [performance trace](../how-tos/performance-tracing.md).
 
-
 ## Frame statistics queries
 
 Frame statistics provide some high-level information for the last frame such as latency. The following API call queries the statistics from the last frame:
