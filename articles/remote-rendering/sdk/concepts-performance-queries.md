@@ -29,9 +29,9 @@ Frame statistics provide some high-level information for the last frame such as 
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
-    if (session.GraphicsBinding.GetLastFrameStatistics(out frameStatistics) != Result.Success)
+    if (session.GraphicsBinding.GetLastFrameStatistics(out frameStatistics) == Result.Success)
     {
-        return;
+        // do something with the result
     }
 
 }
