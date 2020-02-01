@@ -88,4 +88,4 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Next Steps
 * [Learn more about the Azure Diagnostics Extension](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

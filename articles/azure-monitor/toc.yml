@@ -554,7 +554,7 @@
           - name: Send to Event Hubs
             href: platform/diagnostics-extension-stream-event-hubs.md
           - name: Send to Logs
-            href: platform/azure-storage-iis-table.md
+            href: platform/diagnostics-extension-logs.md
           - name: Send to Application Insights
             href: platform/diagnostics-extension-to-application-insights.md
           - name: Version history
@@ -604,7 +604,7 @@
           - name: Linux application performance
             href: platform/data-sources-linux-applications.md
           - name: IIS logs
-            href: platform/diagnostics-extension-logs.md
+            href: platform/data-sources-iis-logs.md
           - name: Custom logs
             href: platform/data-sources-custom-logs.md
           - name: Custom fields
