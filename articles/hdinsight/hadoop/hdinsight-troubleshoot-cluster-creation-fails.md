@@ -60,7 +60,7 @@ If you are using an express route or your own custom DNS server, see [Plan a vir
 
 ## Resources locks  
 
-Ensure that there are no [locks on your virtual network and resource group](../../azure-resource-manager/management/lock-resources.md).  
+Ensure that there are no [locks on your virtual network and resource group](../../azure-resource-manager/management/lock-resources.md). Clusters cannot be created or deleted if the resource group is locked. 
 
 ## Unsupported component versions
 
