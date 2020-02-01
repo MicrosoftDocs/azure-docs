@@ -10,7 +10,7 @@ ms.date: 12/04/2018
 In this quickstart, you migrate a Jupyter notebook from your local computer or another accessible file URL to Azure Notebooks. You can instantly share your Azure Notebook project with your collaborators, who need only a browser to view and run your notebook. If they sign in to Azure Notebooks, they can also make changes.
 
 ## Prerequisites
-- A [Jupyter notebook](https://jupyter.org/) on your local computer or at another accessible file URL. 
+- A [Jupyter notebook](https://jupyter-notebook.readthedocs.io) on your local computer or at another accessible file URL. 
 
 ## Create a project on Azure Notebooks
 

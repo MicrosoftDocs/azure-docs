@@ -7,7 +7,7 @@ ms.date: 12/04/2018
 
 # Quickstart: Clone a notebook in Azure Notebooks Preview
 
-In this quickstart, you create a copy of a GitHub notebook in an Azure Notebooks account. Because your Azure Notebooks clone is in the cloud, you can share it with collaborators, who need not make any local copies or even have Jupyter installed on their computers. You might also clone a notebook simply as a starting point for a project of your own, or to obtain data files. 
+In this quickstart, you create a copy of a GitHub Jupyter notebook in an Azure Notebooks account. Because your Azure Notebooks clone is in the cloud, you can share it with collaborators, who need not make any local copies or even have Jupyter installed on their computers. You might also clone a notebook simply as a starting point for a project of your own, or to obtain data files. 
 
 ## Prerequisites
 None.
