@@ -2,7 +2,7 @@
 title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services 
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
 author: tomarchermsft
-manager: jpconnock
+
 tags: azure-resource-manager
 
 ms.assetid: 

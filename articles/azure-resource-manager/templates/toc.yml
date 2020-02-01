@@ -64,8 +64,6 @@
     - name: Continuous integration with Azure Pipelines
       displayName: DevOps
       href: template-tutorial-use-azure-pipelines.md
-    - name: Update VS Deployment script to Az Powershell
-      href: update-visual-studio-deployment-script.md
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
@@ -88,6 +86,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Complete mode deletion
+    href: complete-mode-deletion.md
   - name: Deployment Manager
     items:
     - name: Overview
@@ -143,6 +143,8 @@
       href: use-vs-code-to-create-template.md
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
+    - name: Update VS deployment script to Az module
+      href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
   - name: Deploy templates
@@ -237,12 +239,6 @@
       href: template-functions-resource.md
     - name: String functions
       href: template-functions-string.md
-  - name: Resource capabilities
-    items:
-    - name: Complete mode deletion
-      href: complete-mode-deletion.md
-    - name: Extension resource types
-      href: extension-resource-types.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell

@@ -15,7 +15,6 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform application authentication certificate credentials
@@ -128,6 +127,6 @@ In the Azure app registration for the client application:
 ## Code sample
 
 > [!NOTE]
-> You must calculate the X5T header by using the certificate's hash and  converting it to a base64 string. In C# it would look something similar to that of : `System.Convert.ToBase64String(cert.GetCertHash());`
+> You must calculate the X5T header by converting it to a base 64 string using the certificate's hash. The code to perform this in C# is : `System.Convert.ToBase64String(cert.GetCertHash());`
 
 The code sample on [Authenticating to Microsoft identity platform in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) using the `New-SelfSignedCertificate` Powershell command. You can also take advantage and use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) to create the certificates, compute the thumbprint, and so on.

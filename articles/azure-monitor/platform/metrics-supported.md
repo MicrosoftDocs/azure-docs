@@ -11,7 +11,7 @@ ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 
-Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. The metrics are organized by namespace. For a list of services and the namespaces that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -19,7 +19,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 >
 > For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
-
 
 
 
@@ -1293,7 +1292,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Model Deploy Started|Model Deploy Started|Count|Total|Number of model deployments started in this workspace|Scenario|
 |Model Deploy Succeeded|Model Deploy Succeeded|Count|Total|Number of model deployments that succeeded in this workspace|Scenario|
 |Model Deploy Failed|Model Deploy Failed|Count|Total|Number of model deployments that failed in this workspace|Scenario,StatusCode|
-|Total Nodes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Premepted Nodes, Leaving Nodes|Scenario,ClusterName|
+|Total Nodes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes|Scenario,ClusterName|
 |Active Nodes|Active Nodes|Count|Average|Number of Acitve nodes. These are the nodes which are actively running a job.|Scenario,ClusterName|
 |Idle Nodes|Idle Nodes|Count|Average|Number of idle nodes. Idle nodes are the nodes which are not running any jobs but can accept new job if available.|Scenario,ClusterName|
 |Unusable Nodes|Unusable Nodes|Count|Average|Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes.|Scenario,ClusterName|
@@ -1845,8 +1844,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses.|None|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Currently available for serverless databases only.|None|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Currently available for serverless databases only.|None|
 |tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
 |tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
 |tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|

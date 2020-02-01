@@ -78,6 +78,21 @@ The alerts are caused by the Ambari agent not running.
 
     If failover controller services are not running, it is likely due to a problem prevent hdinsight-agent from starting failover controller. Check hdinsight-agent log from `/var/log/hdinsight-agent/hdinsight-agent.out` file.
 
+## Scenario: Heartbeat lost for Ambari
+
+### Issue
+
+Ambari heartbeat agent was lost.
+
+### Cause
+
+OMS logs are causing high CPU utilization.
+
+### Resolution
+
+* Disable OMS logging using the [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) PowerShell module. 
+* Delete the `mdsd.warn` log file
+
 ---
 
 ## Next steps

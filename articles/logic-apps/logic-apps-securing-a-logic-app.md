@@ -322,7 +322,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 #### Considerations when hiding inputs and outputs
 
-* When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that trigger or action for monitoring.
+* When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
@@ -624,7 +624,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 
 ### Basic authentication
 
-If the [Basic](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) option is available, specify these property values:
+If the [Basic](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) option is available, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -686,7 +686,7 @@ For more information about securing services by using client certificate authent
 
 * [Secure APIs using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Secure back-end services using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Secure your RESTfuL service by using client certificates](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Secure your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
@@ -810,7 +810,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 ## Next steps
 
-* [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)  
-* [Diagnose logic app failures and issues](logic-apps-diagnosing-failures.md)  
-* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)  
+* [Diagnose logic app failures and issues](../logic-apps/logic-apps-diagnosing-failures.md)  
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

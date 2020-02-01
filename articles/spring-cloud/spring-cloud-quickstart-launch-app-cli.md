@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Launch a Java Spring application using the Azure CLI"
 description: In this quickstart, you deploy a sample application to Azure Spring Cloud on the Azure CLI.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # Quickstart: Launch a Java Spring application using the Azure CLI
