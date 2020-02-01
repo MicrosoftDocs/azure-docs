@@ -5,7 +5,7 @@ description: Build an ML regression model to predict an automobile's price witho
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
