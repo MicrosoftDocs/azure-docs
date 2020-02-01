@@ -1,5 +1,5 @@
 ---
-title: Cluster horizontal scaling to match demand: Azure Data Explorer
+title: 'Cluster horizontal scaling to match demand: Azure Data Explorer'
 description: This article describes steps to scale out and scale in an Azure Data Explorer cluster based on changing demand.
 author: orspod
 ms.author: orspodek
