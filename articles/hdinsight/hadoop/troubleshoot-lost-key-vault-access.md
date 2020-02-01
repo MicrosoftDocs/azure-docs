@@ -31,7 +31,7 @@ Look at [Azure Key Vault availability and redundancy](../../key-vault/key-vault-
 
 ### KV accidental deletion
 
-* Restore deleted key on KV to auto recover. For more information, see [Recover Deleted Key](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey) .
+* Restore deleted key on KV to auto recover. For more information, see [Recover Deleted Key](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey).
 * Reach out to KV team to recover from accidental deletions.
 
 ### KV access policy changed
