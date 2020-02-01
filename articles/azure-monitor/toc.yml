@@ -1132,7 +1132,7 @@
   - name: Service limits
     href: service-limits.md
   - name: Diagnostics extension
-   items:
+    items:
     - name: Schema
       href: platform/diagnostics-extension-schema-1dot3.md
   - name: Application Insights
