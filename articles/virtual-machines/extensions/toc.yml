@@ -71,9 +71,7 @@
       - name: Linux
         href: diagnostics-linux.md
       - name: Windows
-        href: diagnostics-windows.md
-      - name: Use templates
-        href: diagnostics-template.md
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
     - name: Log Analytics
       items:
       - name: Linux

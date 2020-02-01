@@ -535,23 +535,17 @@
         href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
-        - name: Windows 
+        - name: Windows diagnostics extension
           items:   
           - name: Overview
             href: platform/diagnostics-extension-overview.md
-          - name: Collect logs
-            href: platform/azure-storage-iis-table.md
-          - name: Version history
-            href: platform/diagnostics-extension-schema.md
-          - name: Schema
-            href: platform/diagnostics-extension-schema-1dot3.md
-          - name: Send to Azure Storage
-            href: platform/diagnostics-extension-to-storage.md
-          - name: Send to Application Insights
-            href: platform/diagnostics-extension-to-application-insights.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Azure Monitor as custom metrics
+          - name: Install and configure
+            items:
+            - name: PowerShell
+              href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Resource Manager template
+              href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+          - name: Send to Azure Monitor Metrics
             items:   
             - name: Virtual Machine 
               href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
@@ -561,15 +555,25 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+          - name: Collect logs
+            href: platform/azure-storage-iis-table.md
+          - name: Send to Azure Storage
+            href: platform/diagnostics-extension-to-storage.md
+          - name: Send to Application Insights
+            href: platform/diagnostics-extension-to-application-insights.md
+          - name: Send to Event Hubs
+            href: platform/diagnostics-extension-stream-event-hubs.md
+          - name: Version history
+            href: platform/diagnostics-extension-schema.md
           - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
-        - name: Linux
+        - name: Linux diagnostics extension
           items: 
-          - name: Use with VMs
-            href: ../virtual-machines/extensions/diagnostics-linux.md   
-          - name: Custom metrics with Telegraf
+          - name: Overview
+            href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+          - name: Collect metrics with Telegraf
             href: platform/collect-custom-metrics-linux-telegraf.md   
       - name: Log Analytics agent
         items:
@@ -1127,6 +1131,10 @@
   items:
   - name: Service limits
     href: service-limits.md
+  -name: Diagnostics extension
+   items:
+    - name: Schema
+      href: platform/diagnostics-extension-schema-1dot3.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
