@@ -440,37 +440,37 @@ if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 if(![string]::IsNullOrEmpty($ExpressCustomSetup))
 {
     if($ExpressCustomSetup -eq "RunCmdkey")
-	{
+    {
         $addCmdkeyArgument = "YourFileShareServerName or YourAzureStorageAccountName.file.core.windows.net"
         $userCmdkeyArgument = "YourDomainName\YourUsername or azure\YourAzureStorageAccountName"
         $passCmdkeyArgument = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourPassword or YourAccessKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.CmdkeySetup($addCmdkeyArgument, $userCmdkeyArgument, $passCmdkeyArgument)
-	}
-	if($ExpressCustomSetup -eq "SetEnvironmentVariable")
-	{
+    }
+    if($ExpressCustomSetup -eq "SetEnvironmentVariable")
+    {
         $variableName = "YourVariableName"
         $variableValue = "YourVariableValue"
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
-	}
-	if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
-	{
+    }
+    if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
+    {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
-	}
-	if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
-	{
+    }
+    if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
+    {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
-	}
-	if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
-	{
+    }
+    if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
+    {
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup)
-	}
+    }
     # Create an array of one or more express custom setups
     $setups = New-Object System.Collections.ArrayList
     $setups.Add($setup)
 
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
         -ExpressCustomSetup $setups
@@ -479,29 +479,29 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
 # Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
         -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
         -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
 
-	if(![string]::IsNullOrEmpty($DataProxyStagingPath))
-	{
-		Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-        -DataFactoryName $DataFactoryName `
-        -Name $AzureSSISName `
-        -DataProxyStagingPath $DataProxyStagingPath
-	}
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
 }
 
 # Add public IP address parameters if you bring your own static public IP addresses
 if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
 {
     $publicIPs = @($FirstPublicIP, $SecondPublicIP)
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
-		-PublicIPs $publicIPs
+        -PublicIPs $publicIPs
 }
 ```
 
@@ -682,37 +682,37 @@ if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 if(![string]::IsNullOrEmpty($ExpressCustomSetup))
 {
     if($ExpressCustomSetup -eq "RunCmdkey")
-	{
+    {
         $addCmdkeyArgument = "YourFileShareServerName or YourAzureStorageAccountName.file.core.windows.net"
         $userCmdkeyArgument = "YourDomainName\YourUsername or azure\YourAzureStorageAccountName"
         $passCmdkeyArgument = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourPassword or YourAccessKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.CmdkeySetup($addCmdkeyArgument, $userCmdkeyArgument, $passCmdkeyArgument)
-	}
-	if($ExpressCustomSetup -eq "SetEnvironmentVariable")
-	{
+    }
+    if($ExpressCustomSetup -eq "SetEnvironmentVariable")
+    {
         $variableName = "YourVariableName"
         $variableValue = "YourVariableValue"
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
-	}
-	if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
-	{
+    }
+    if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
+    {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
-	}
-	if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
-	{
+    }
+    if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
+    {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
-	}
-	if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
-	{
+    }
+    if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
+    {
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup)
-	}
+    }
     # Create an array of one or more express custom setups
     $setups = New-Object System.Collections.ArrayList
     $setups.Add($setup)
 
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
         -ExpressCustomSetup $setups
@@ -721,29 +721,29 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
 # Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
         -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
         -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
 
-	if(![string]::IsNullOrEmpty($DataProxyStagingPath))
-	{
-		Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-        -DataFactoryName $DataFactoryName `
-        -Name $AzureSSISName `
-        -DataProxyStagingPath $DataProxyStagingPath
-	}
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
 }
 
 # Add public IP address parameters if you bring your own static public IP addresses
 if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
 {
     $publicIPs = @($FirstPublicIP, $SecondPublicIP)
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
-		-PublicIPs $publicIPs
+        -PublicIPs $publicIPs
 }
 
 ### Start the integration runtime

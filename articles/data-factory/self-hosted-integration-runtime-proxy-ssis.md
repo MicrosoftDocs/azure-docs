@@ -79,19 +79,19 @@ $DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data 
 # Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
         -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
         -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
 
-	if(![string]::IsNullOrEmpty($DataProxyStagingPath))
-	{
-		Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-        -DataFactoryName $DataFactoryName `
-        -Name $AzureSSISName `
-        -DataProxyStagingPath $DataProxyStagingPath
-	}
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
 }
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $DataFactoryName `

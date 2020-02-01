@@ -522,10 +522,10 @@ Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
 {
     $publicIPs = @($FirstPublicIP, $SecondPublicIP)
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
         -DataFactoryName $DataFactoryName `
         -Name $AzureSSISName `
-		-PublicIPs $publicIPs
+        -PublicIPs $publicIPs
 }
 ```
 
