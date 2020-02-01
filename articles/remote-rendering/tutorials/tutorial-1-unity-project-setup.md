@@ -29,10 +29,11 @@ In this tutorial you will learn:
 
 For this tutorial you need:
 
-* The prerequisites from [Quickstart: Convert a model for rendering](../quickstarts/quickstart-render-model.md#prerequisites).
-* The prerequisites from [Quickstart: Render a model with Unity](../quickstarts/quickstart-convert-model.md#prerequisites).
+* The prerequisites from [Quickstart: Render a model with Unity](../quickstarts/quickstart-render-model.md#prerequisites).
 * Your account information (account ID, account key, subscription ID)
-* Add the package source to NuGet:
+
+> [!TIP]
+> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials, that you can use as reference.
 
 ## Prepare a folder
 
