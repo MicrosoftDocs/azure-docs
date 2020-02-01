@@ -69,7 +69,7 @@ There are multiple methods to install the Log Analytics agent and connect your m
 |-------|-------------|-------------|
 |Azure VM| [Manually from the Azure portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Specify VMs to deploy from the Log Analytics workspace. |
 | | Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) using Azure CLI or with an Azure Resource Manager template | The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace. |
-| | [Azure Monitor for VMs](vminsights-enable-overview.md) | When you enable monitoring with Azure Monitor for VMs, it installs the Log Analytics extension and agent. |
+| | [Azure Monitor for VMs](../insights/vminsights-enable-overview.md) | When you enable monitoring with Azure Monitor for VMs, it installs the Log Analytics extension and agent. |
 | | [Azure Security Center Automatic provisioning](../../security-center/security-center-enable-data-collection.md) | Azure Security Center can provision the Log Analytics agent on all supported Azure VMs and any new ones that are created if you enable it to monitor for security vulnerabilities and threats. If enabled, any new or existing VM without an installed agent will be provisioned. |
 | Hybrid Windows computer| [Manual install](agent-windows.md) | Install the Microsoft Monitoring agent from the command line. |
 | | [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation) | Automate the installation with Azure Automation DSC. |

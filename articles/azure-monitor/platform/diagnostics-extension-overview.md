@@ -54,7 +54,7 @@ The following tables list the data that can be collected by the Windows and Linu
 | Log files | Entries sent to a file based log.  |
 
 ## Data destinations
-The Azure Diagnostic extension for both Windows and Linux collects data into an Azure Storage account. See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-to-storage.md) and [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) for a list of specific tables and blobs where this data is collected.
+The Azure Diagnostic extension for both Windows and Linux collects data into an Azure Storage account. See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md) and [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) for a list of specific tables and blobs where this data is collected.
 
 Configure one or more *data sinks* to send data to other destinations in addition to Azure Storage. The following sections list the sinks available for the Windows and Linux diagnostics extension.
 
@@ -66,7 +66,7 @@ Configure one or more *data sinks* to send data to other destinations in additio
 | Event hubs | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 | Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality..  See [Collect Azure diagnostic logs from Azure Storage](azure-storage-iis-table.md). 
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.  See [Collect Azure diagnostic logs from Azure Storage](diagnostics-extension-logs.md). 
 
 
 ### Linux diagnostics extension (LAD)
@@ -86,7 +86,7 @@ You can also install and configure both the Windows and Linux diagnostic extensi
 
 See the following articles for details on installing and configuring the diagnostics extension for Windows and Linux.
 
-- [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-to-storage.md)
+- [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md)
 - [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md)
 
 ## Other documentation

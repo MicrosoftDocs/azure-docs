@@ -85,7 +85,7 @@ Use the Log Analytics agent if you need to:
 * Use [Azure Monitor for VMs](../insights/vminsights-overview.md) which allows you to monitor your virtual machines at scale and monitors their processes and dependencies on other resources and external processes..  
 * Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-intro.md)  or [Azure Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update management](../../automation/automation-update-management.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md) to deliver comprehensive management of your Azure VMs
-* Use different [solutions](monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
+* Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent include:
 
@@ -107,7 +107,7 @@ Consider the following when using the Dependency agent:
 
 
 ## Log Analytics extension and Dependency extension
-The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensionsagent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). These extensions are used, for example, when enabling the agent through Azure Monitor for VMs.
+The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). These extensions are used, for example, when enabling the agent through Azure Monitor for VMs.
 
 
 ## Next steps
