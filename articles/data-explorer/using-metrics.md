@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Data Explorer performance, health, and usage with metrics
+title: Performance, health, usage metrics - Azure Data Explorer
 description: Learn how to use Azure Data Explorer metrics to monitor the cluster's performance, health, and usage.
 author: orspod
 ms.author: orspodek
