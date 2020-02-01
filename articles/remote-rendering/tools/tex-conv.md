@@ -44,7 +44,7 @@ To assemble the output from multiple input files, specify each input file using 
 
 When assembling a cubemap from 2D textures, one can also use `-right`, `-left`, `-top`, `-bottom`, `-front`, `-back` or `-px`, `-nx`, `-py`, `-ny`, `-pz`, `-nz`.
 
-To map these inputs to the output file a proper channel mapping is needed.
+To map these inputs to the output file, a proper channel mapping is needed.
 
 ## Channel mappings
 
