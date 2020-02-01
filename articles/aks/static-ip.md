@@ -98,7 +98,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## Apply a DNS label to the service
 
-If your service is using a Dynamic or Static Public IP address, you can use the service annotation `service.beta.kubernetes.io/azure-dns-label-name` to set a public facing DNS label.  This will publish a FQDN for your service using Azure's public DNS servers and top level domain.  The annotation value Must be unique within the Azure location , so its recommended to use a sufficiently qualified label.   
+If your service is using a dynamic or static public IP address, you can use the service annotation `service.beta.kubernetes.io/azure-dns-label-name` to set a public facing DNS label. This publishes a fully qualified domain name for your service using Azure's public DNS servers and top level domain.  The annotation value must be unique within the Azure location, so its recommended to use a sufficiently qualified label.   
 
 Azure will then automatically append a default subnet such as `<location>.cloudapp.azure.com` (where location is the region you selected) to the name you provide, to create the fully qualified DNS name. For example:
 
