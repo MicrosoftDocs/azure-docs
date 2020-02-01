@@ -41,9 +41,9 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 
 In the provisioned compute tier, the compute cost reflects the total compute capacity that is provisioned for the application.
 
-In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the high I/O and low latency of the SSD storage.
+In the Business Critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the Business Critical service tier than it is in the General Purpose service tier. Likewise, the higher storage price per GB in the Business Critical service tier reflects the higher IO limits and lower latency of the SSD storage.
 
-The cost of backup storage is the same for the business critical service tier and the general purpose service tier because both tiers use standard storage.
+The cost of backup storage is the same for the Business Critical service tier and the General Purpose service tier because both tiers use standard storage for backups.
 
 ### Serverless compute costs
 
@@ -61,7 +61,7 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based upon your workload needs.
 
-In the vCore-based purchasing model, you can choose between the [general purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for [single databases](sql-database-single-database-scale.md), [elastic pools](sql-database-elastic-pool.md), and [managed instances](sql-database-managed-instance.md). For single databases, you can also choose the [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
+In the vCore-based purchasing model, you can choose between the [General Purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for [single databases](sql-database-single-database-scale.md), [elastic pools](sql-database-elastic-pool.md), and [managed instances](sql-database-managed-instance.md). For single databases, you can also choose the [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -77,8 +77,8 @@ If your single database or elastic pool consumes more than 300 DTUs, converting 
 
 To convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size by using the following rules of thumb:
 
-- Every 100 DTUs in the standard tier require at least 1 vCore in the general purpose service tier.
-- Every 125 DTUs in the premium tier require at least 1 vCore in the business critical service tier.
+- Every 100 DTUs in the standard tier require at least 1 vCore in the General Purpose service tier.
+- Every 125 DTUs in the premium tier require at least 1 vCore in the Business Critical service tier.
 
 ## DTU-based purchasing model
 
