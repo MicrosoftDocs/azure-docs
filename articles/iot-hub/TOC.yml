@@ -412,15 +412,15 @@
       href: /cli/azure/iot
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iot
+    - name: .NET (Device)
+      href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
-    - name: .NET (Devices)
-      href: /dotnet/api/microsoft.azure.devices.client
+    - name: Java (Device)
+      href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
       href: /java/api/com.microsoft.azure.sdk.iot.service
-    - name: Java (Devices)
-      href: /java/api/com.microsoft.azure.sdk.iot.device
-    - name: Node.js (Devices)
+    - name: Node.js (Device)
       href: https://docs.microsoft.com/javascript/api/azure-iot-device/
     - name: Node.js (Service)
       href: https://docs.microsoft.com/javascript/api/azure-iothub/
