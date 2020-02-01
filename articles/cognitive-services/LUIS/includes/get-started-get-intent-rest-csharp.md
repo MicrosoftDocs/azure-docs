@@ -33,8 +33,6 @@ ms.author: diberry
 1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
 1. Collect configured `endpoint` and a `key`.
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
-
 ## Get intent programmatically
 
 Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
