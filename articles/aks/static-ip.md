@@ -157,7 +157,7 @@ For additional control over the network traffic to your applications, you may wa
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[azure-dns-zone]: https://azure.microsoft.com/en-us/services/dns/
+[azure-dns-zone]: https://azure.microsoft.com/services/dns/
 [external-dns]: https://github.com/kubernetes-sigs/external-dns
 
 <!-- LINKS - Internal -->
