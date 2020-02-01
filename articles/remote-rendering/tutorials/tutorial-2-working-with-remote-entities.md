@@ -29,6 +29,9 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on top of the [previous tutorial](tutorial-1-unity-project-setup.md).
 
+> [!TIP]
+> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials, that you can use as reference.
+
 ## Pick objects
 
 We want to interact with objects, so the first thing we need, is picking objects under the mouse cursor.
@@ -332,6 +335,8 @@ Finally we need a way to toggle visibility. Open the **RemoteRaycaster** script 
         }
     }
 ```
+
+Run the code and right click on a part of the model. The rest of the model will disappear and only the highlighted piece will stay visible.
 
 ## Remove GameObject instances of remote entities
 
