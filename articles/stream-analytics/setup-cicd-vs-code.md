@@ -20,7 +20,7 @@ For more information about deploying with Powershell, see [deploy with a Resourc
 
 You can enable continuous integration and deployment for Azure Stream Analytics jobs using the **asa-streamanalytics-cicd** npm package. The npm package provides the tools to generate Azure Resource Manager templates of [Stream Analytics Visual Studio Code projects](quick-create-vs-code.md). It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
 
-You can [download the package](https://www.npmjs.com/package/azure-streamanalytics-cicd) directly, or install it [globally](https://docs.npmjs.com/downloading-and-installing-packages-globally) via the `npm install -g azure-streamanalytics-cicd` command. This is the recommended approach, which can also be used in a PowerShell or Azure CLI script task of a build pipeline in **Azure DevOps Pipelines**.
+You can [download the package](https://www.npmjs.com/package/azure-streamanalytics-cicd) directly, or install it [globally](https://docs.npmjs.com/downloading-and-installing-packages-globally) via the `npm install -g azure-streamanalytics-cicd` command. This is the recommended approach, which can also be used in a PowerShell or Azure CLI script task of a build pipeline in **Azure Pipelines**.
 
 Once you have installed the package, use the following command to output the Azure Resource Manager templates. The **scriptPath** argument is the absolute path to the **asaql** file in your project. Make sure the asaproj.json and JobConfig.json files are in the same folder with the script file. If the **outputPath** is not specified, the templates will be placed in the **Deploy** folder under the project's **bin** folder.
 
@@ -176,7 +176,7 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 
 To create a release, select **Create release** in the top right corner.
 
-![Create a release using Azure pipelines](./media/setup-cicd-vs-code/create-release.png)
+![Create a release using Azure Pipelines](./media/setup-cicd-vs-code/create-release.png)
 
 ## Additional resources
 
