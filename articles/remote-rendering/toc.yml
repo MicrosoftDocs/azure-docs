@@ -38,7 +38,7 @@
       href: how-tos/run-unity-sample-project.md
     - name: Create new Unity project
       href: quickstarts/create-new-unity-project.md
-  - name: Profile performance
+  - name: Create WPA performance traces
     href: how-tos/performance-tracing.md
   - name: Troubleshoot
     href: how-tos/troubleshoot.md
@@ -62,6 +62,8 @@
       href: sdk/concepts-spatial-bounds.md
     - name: Graphics bindings
       href: sdk/concepts-graphics-binding.md
+    - name: Server-side performance queries
+      href: sdk/concepts-performance-queries.md
 - name: Reference
   items:
   - name: Features
