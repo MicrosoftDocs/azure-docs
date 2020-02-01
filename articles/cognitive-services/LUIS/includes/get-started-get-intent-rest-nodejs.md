@@ -31,7 +31,7 @@ ms.author: diberry
     |Resource Group|Select an available resource group|
 
 1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
-1. Collect configured `endpoint` and a `key`, see [gathering required parameters](#gathering-required-parameters).
+1. Collect configured `endpoint` and a `key`.
 
 ## Get intent programmatically
 

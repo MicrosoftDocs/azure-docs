@@ -37,6 +37,9 @@ ms.author: diberry
     |Pricing Tier|`F0` - the minimal pricing tier|
     |Resource Group|Select an available resource group|
 
+1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
+1. Collect configured `endpoint` and a `key`.
+
 ## Change model programmatically
 
 Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
