@@ -535,8 +535,9 @@
         href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
-        - name: Windows diagnostics extension
-          items:   
+        - name: Windows
+          displayname: diagnostics extension
+          items:
           - name: Overview
             href: platform/diagnostics-extension-overview.md
           - name: Install and configure
@@ -555,21 +556,22 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
-          - name: Collect logs
+          - name: Send to Event Hubs
+            href: platform/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
             href: platform/azure-storage-iis-table.md
           - name: Send to Azure Storage
             href: platform/diagnostics-extension-to-storage.md
           - name: Send to Application Insights
             href: platform/diagnostics-extension-to-application-insights.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
           - name: Version history
             href: platform/diagnostics-extension-schema.md
           - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
-        - name: Linux diagnostics extension
+        - name: Linux
+          displayname: diagnostics extension
           items: 
           - name: Overview
             href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
