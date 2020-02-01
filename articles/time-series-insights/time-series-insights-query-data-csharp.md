@@ -17,6 +17,9 @@ ms.custom: seodec18
 
 This C# example demonstrates how to use the [GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) to query data from Azure Time Series Insights GA environments.
 
+> [!TIP]
+> View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
 ## Summary
 
 The sample code below demonstrates the following features:
@@ -37,9 +40,6 @@ The sample code below demonstrates the following features:
    * [Get Environment Events Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
    * [Get Environment Aggregates Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
 
-> [!NOTE]
-> The example code is available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
-
 ## Prerequisites and setup
 
 Complete the following steps before you compile and run the sample code:
@@ -53,9 +53,6 @@ Complete the following steps before you compile and run the sample code:
 1. Edit the sample code below by replacing each **#DUMMY#** with the appropriate environment identifier.
 
 1. Execute the code inside Visual Studio.
-
-> [!TIP]
-> * View other GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## Project dependencies
 
