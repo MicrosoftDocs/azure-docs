@@ -96,7 +96,7 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
     |Information|Purpose|
     |--|--|
     |`YOUR-KEY`|Your 32 character prediction key.|
-    |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `westus2.api.cognitive.microsoft.com`.|
+    |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 

@@ -183,8 +183,8 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     |Information|Purpose|
     |--|--|
     |`YOUR-KEY`|Your 32 character authoring key.|
-    |`YOUR-ENDPOINT`| Your authoring URL endpoint. For example, `your-resource-name.api.cognitive.microsoft.com`. You set your resource name when you created the resource.|
-    |`YOUR-APP-ID`| Your LUIS app ID. For example, `westus2.api.cognitive.microsoft.com`.|
+    |`YOUR-ENDPOINT`| Your authoring URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`. You set your resource name when you created the resource.|
+    |`YOUR-APP-ID`| Your LUIS app ID. |
 
     Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
 
