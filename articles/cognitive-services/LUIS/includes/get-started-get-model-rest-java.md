@@ -11,7 +11,7 @@ ms.author: diberry
 ---
 ## Prerequisites
 
-* Azure Language Understanding - Authoring resource 32 character key and authoring endpoint URL.
+* Azure Language Understanding - Authoring resource 32 character key and authoring endpoint URL. Create with the [Azure portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
