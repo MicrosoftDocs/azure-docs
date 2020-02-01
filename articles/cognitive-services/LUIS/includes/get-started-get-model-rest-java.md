@@ -22,9 +22,19 @@ ms.author: diberry
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## Get LUIS key
+## Create LUIS authoring key for model management
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Sign into the [Azure portal](https://portal.azure.com)
+1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Enter all required settings for Authoring key:
+
+    |Setting|Value|
+    |--|--|
+    |Name|Desired name (2-64 characters)|
+    |Subscription|Select appropriate subscription|
+    |Location|Select any nearby and available location|
+    |Pricing Tier|`F0` - the minimal pricing tier|
+    |Resource Group|Select an available resource group|
 
 ## Change model programmatically
 
@@ -130,7 +140,13 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
 1. Replace the values starting with `YOUR-` with your own values.
 
-[!INCLUDE [Replace values](../includes/get-key-quickstart-explain-key-endpoint-appid-authoring.md)]
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-KEY`|Your 32 character authoring key.|
+    |`YOUR-ENDPOINT`| Your authoring URL endpoint. For example, `your-resource-name.api.cognitive.microsoft.com`. You set your resource name when you created the resource.|
+    |`YOUR-APP-ID`| Your LUIS app ID. For example, `westus2.api.cognitive.microsoft.com`.|
+
+    Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
 
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Java file:
 

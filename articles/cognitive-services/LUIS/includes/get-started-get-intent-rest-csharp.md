@@ -18,7 +18,22 @@ ms.author: diberry
 
 ## Create LUIS runtime key for predictions
 
-[!INCLUDE [Create LUIS runtime key for predictions](create-luis-resource.md)]
+1. Sign into the [Azure portal](https://portal.azure.com)
+1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Enter all required settings for Runtime key:
+
+    |Setting|Value|
+    |--|--|
+    |Name|Desired name (2-64 characters)|
+    |Subscription|Select appropriate subscription|
+    |Location|Select any nearby and available location|
+    |Pricing Tier|`F0` - the minimal pricing tier|
+    |Resource Group|Select an available resource group|
+
+1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
+1. Collect configured `endpoint` and a `key`, see [gathering required parameters](#gathering-required-parameters).
+
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
 ## Get intent programmatically
 
@@ -99,7 +114,10 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
 
 1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
 
-    [!INCLUDE [Use prediction key and endpoint URL](get-key-quickstart-explain-key-and-endpoint.md)]
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-KEY`|Your 32 character prediction key.|
+    |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `westus2.api.cognitive.microsoft.com`.|
 
 1. Build the console application with this command:
 
