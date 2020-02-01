@@ -20,6 +20,8 @@ Cosmos DB will return rate limit (429) errors if clients are consuming more reso
 
 If your system is not sensitive to latency, it may be sufficient to handle higher than expected throughput using retries. See code sample [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) for how to handle rate limiting transparently using the [Cosmos DB Extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for [Cassandra Retry Policy](https://docs.datastax.com/en/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) in Java. We also have a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) extension.
 
+## Managing scale
+
 If you need to minimize latency, there is a spectrum of options for managing scale and provisioning throughput (RUs) in the Cassandra API:
 
 * Manually using the Azure portal
