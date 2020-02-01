@@ -36,6 +36,26 @@ void QueryFrameData(AzureSession session)
 }
 ````
 
+The retrieved `FrameStatistics` object holds a range of different details about session performance:
+
+| Member | Explanation |
+|:-|:-|
+| latencyPoseToReceive | Roundtrip latency from requesting a frame for a new camera pose on the client to receiving this frame |
+| latencyReceiveToPresent | Latency from receiving the new frame information to using it in a present operation |
+| latencyPresentToDisplay  | Delay between the present operation beginning and the display showing the next frame |
+| timeSinceLastPresent | Time-delta to the most recently finished present operation |
+| videoFramesReceived | The total amount of frames received from the server in the last second |
+| videoFrameReusedCount | Amount of received frames per second reused in subsequent present calls due to unavailable newer frames |
+| videoFramesDiscarded | Amount of received frames per second which are unused (never shown) due to newer frames already being available |
+| videoFrameMinDelta | Minimum amount of time between two consecutive frames arriving |
+| videoFrameMaxDelta | Maximum amount of time between two consecutive frames arriving |
+
+The `latency*` members are notable in that they give a general indicator which part of the client-server chain in the service present problems if the framerate is insufficient. If for example latencyPoseToReceive is high but latencyReceiveToPresent and latencyPresentToDisplay are low, this indicates a problem with the network or the server. Conversely, if latencyReceiveToPresent, latencyPresentToDisplay, or both are high while latencyPoseToReceive is low this indicates a problem on the client.
+
+videoFramesReceived, videoFrameReusedCount and videoFramesDiscarded can be used to gauge network and server performance. If videoFramesReceived is low and videoFrameReusedCount is high, this can indicate network congestion or poor server performance. A high videoFramesDiscarded value also indicates network congestion.
+
+Lastly, timeSinceLastPresent, videoFrameMinDelta, and videoFrameMaxDelta give an idea of the variance of incomming video frames and local present calls, which can be used to judge frame stability and in consequence the user experience.
+
 ## Performance assessment queries
 
 Performance assessment queries provide more in-depth information about the CPU and GPU workload on the server. Performance snapshots can be queries via asynchronous API calls.
@@ -60,6 +80,20 @@ A single performance snapshot is represented by class `PerformanceAssessment`. I
     }
 ```
 
+Contrary to the `FrameStatistics` object the `PerformanceAssessment` object contains mostly server side information:
+
+| Member | Explanation |
+|:-|:-|
+| timeCPU | Average CPU time per frame in milliseconds |
+| timeGPU | Average GPU time per frame in milliseconds |
+| utilizationCPU | Total CPU utilization in percent on the server host machine |
+| utilizationGPU | Total GPU utilization in percent on the server host machine |
+| memoryCPU | Total main memory utilization in percent on the server host machine |
+| memoryGPU | Total dedicated video memory utilization in percent of the server GPU |
+| networkLatency | The approximate average roundtrip network latency in milliseconds. More accurate than latencyPoseToReceive of `FrameStatistics` |
+| polygonsRendered | The average amount of polygons rendered for one frame |
+
+The `*CPU` and `*GPU` members give an idea about the health of the VM. For all the values given by the `PerformanceAssessment` object lower values are better.
 
 ## Output statistics
 
@@ -91,6 +125,8 @@ void Update()
 }
     
 ```
+
+Beside the `GetStatsString` API, which gives a preformatted string of all the values to be used in debug outputs, the ARRServiceStats object wil also hold all of the values from `FrameStatistics` and `PerformanceAssessment` as public members. Some of these are additionally aggregated and are therefore postfixed with `*Avg`, `*Max`, or `*Total`. The special member `FramesUsedForAverage` gives the corresponding window used for this aggregation.
 
 ## See also
 
