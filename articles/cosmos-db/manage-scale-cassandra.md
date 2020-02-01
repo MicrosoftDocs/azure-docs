@@ -14,18 +14,24 @@ To understand how to scale effectively in Cosmos DB, it is important to understa
 
 ![Database operations consume Request Units](./media/request-units/request-units.png)
 
-In this article, we will outline the spectrum of different options for managing scale and provisioning throughput (RUs) appropriately in the Azure Cosmos DB API for Cassandra: 
+## Handling rate limiting (429 errors)
+
+Cosmos DB will return rate limit (429) errors if clients are consuming more resources (RUs) than have been provisioned in the system. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. 
+
+If your system is not sensitive to latency, it may be sufficient to handle higher than expected throughput using retries. See code sample [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) for how to handle rate limiting transparently using the [Cosmos DB Extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for [Cassandra Retry Policy](https://docs.datastax.com/en/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) in Java. We also have a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) extension.
+
+If you need to minimise the latency, there are variety of options to explore the elastic nature of Azure Cosmos DB. In this article, we will outline the spectrum of options for managing scale and provisioning throughput (RUs) in the Cassandra API:
 
 * Manually using the Azure portal
 * Programmatically using the Control Plane
 * Programmatically using CQL with your chosen SDK
-* Using Autopilot
+* Dynamically using Autopilot
 
-We will discuss the advantages and disadvantages of each approach, so you can decide on the best strategy for the needs of your system and overall architecture.  
+We will discuss the advantages and disadvantages of each approach, so you can decide on the best strategy for balancing the scale needs of your system, and the overall cost and efficiency needs for your solution.
 
 ## Using the Azure portal
 
-You can consult our article [Provision throughput on containers and databases](https://docs.microsoft.com/azure/cosmos-db/set-throughput), which discusses the relative benefits of setting throughput at either [database](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-database) or [container](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-container) level in the [Azure portal](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-database-and-a-container).
+You can consult our article [Provision throughput on containers and databases](https://docs.microsoft.com/azure/cosmos-db/set-throughput), which discusses the relative benefits of setting throughput at either [database](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-database) or [container](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-container) level in the [Azure portal](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-database-and-a-container). Note that the terms "database" and "container" mentioned in these articles map to "keyspace" and "table" respectively for the Cassandra API.
 
 The advantage of this method is that it is a straightforward turnkey way to manage throughput capacity in the database. However, the disadvantage is that in many cases, your approach to scaling may require certain levels of automation to be both cost effective and high performing. We discuss relevant scenarios and methods below.
 
@@ -39,15 +45,15 @@ A disadvantage with this approach may be that you cannot respond to unpredictabl
 
 ## Using CQL with your chosen SDK
 
-Cosmos DB will return rate limit (429) errors if clients are consuming more resources (RUs) than have been provisioned in the system. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. Use SDK level mechanisms to execute retries where necessary. For Java, we have a [Cosmos DB Extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for implementation of [Retry Policy](https://docs.datastax.com/en/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) (ensure that you account for query [idempotence](https://docs.datastax.com/en/developer/java-driver/3.0/manual/idempotence/), and the relevant rules for [retries](https://docs.datastax.com/en/developer/java-driver/3.0/manual/retries/#retries-and-idempotence)). We also have a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) extension. When a retry is required due to the system being overloaded, you can scale the system dynamically at this point by executing [ALTER commands in CQL](https://docs.microsoft.com/azure/cosmos-db/cassandra-support#keyspace-and-table-options) for the given database or container.
+You can scale the system dynamically in code by executing [ALTER commands in CQL](https://docs.microsoft.com/azure/cosmos-db/cassandra-support#keyspace-and-table-options) for the given database or container.
 
 The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application, while still leveraging the standard RU charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using Autopilot. The disadvantage with this approach is that it can be quite complex to implement, and retries while rate limiting may increase latency.
 
 ## Using Autopilot
 
-In addition to manual or programmatic provisioning of throughput, you can also configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs. You can consult our article [Create Azure Cosmos containers and databases in autopilot mode](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) for details on how to configure autopilot. 
+In addition to manual or programmatic provisioning of throughput, you can also configure Azure cosmos containers in Autopilot mode. Within specified RU ranges, Autopilot mode will automatically and instantly scale to your consumption needs without compromising SLAs. You can consult our article [Create Azure Cosmos containers and databases in autopilot mode](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) for details on how to configure Autopilot.
 
-The advantage of this approach is that it is the easiest way of managing the scaling needs in your system, and guarantees not to apply rate limiting within the configured RU ranges. The disadvantage is that, if the scaling needs in your system are not volatile and can largely be predicted, it may be a less cost effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
+The advantage of this approach is that it is the easiest way of managing the scaling needs in your system, and guarantees not to apply rate limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, Autopilot may be a less cost effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 
 ## Next steps
 
