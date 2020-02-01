@@ -5,7 +5,7 @@ author: chrissie926
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 02/01/2020
 ms.author: menchi
 ---
 
@@ -231,11 +231,15 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
+* **Keys**: All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
 
-* All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed. The maximum value for integers is 4503599627370495 and the minimum value for integers is -4503599627370496.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+    * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
+
+    * String values are UTF-8 encoded and can have a maximum length of 512 bytes.
+
+* **Depth**: All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
 
     ```json
     {
@@ -257,13 +261,37 @@ Tags, desired properties, and reported properties are JSON objects with the foll
     }
     ```
 
-* All string values can be at most 512 bytes in length.
-
 ## Module twin size
 
-IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
 
 The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
+
+For example, consider the following JSON fragment for reported properties. Read-only elements like `$version` and `$metadata/$lastUpdated` are not shown as they are excluded from computation of the property size limit.
+
+```json
+"properties" : {
+    ...
+    "reported" : {
+        "intProperty" : 14000,
+        "boolProperty" : true,
+        "floatProperty" : 1.463E+200,
+        "stringProperty" : "This is a string value",
+        "objectProperty" : {
+               "property1" : 1,
+               "property2" : 2
+        }
+    }
+}
+```
+
+The size of the reported properties for this fragment would be computed based on the UTF-8 encoded value of the following JSON, which represents the value of `properties/reported` with the white-space removed:
+
+```json
+{"intProperty":14000,"boolProperty":true,"floatProperty":1.463E+200,"stringProperty":"This is a string value","objectProperty":{"property1":1,"property2":2}}
+```
+
+This yields a length of 157 bytes.
 
 IoT Hub rejects with an error all operations that would increase the size of those documents above the limit.
 

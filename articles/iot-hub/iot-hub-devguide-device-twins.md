@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 02/01/2020
 ---
 
 # Understand and use device twins in IoT Hub
@@ -246,7 +246,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
     * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 
-    * Strings are UTF-8 encoded and can have a maximum length of 4 KB.
+    * String values are UTF-8 encoded and can have a maximum length of 4 KB.
 
 * **Depth**: The maximum depth of JSON objects in tags, desired properties, and reported properties is 10. For example, the following object is valid:
 
@@ -294,7 +294,7 @@ For example, consider the following JSON fragment for reported properties. Read-
     "reported" : {
         "intProperty" : 14000,
         "boolProperty" : true,
-        "floatProperty" : 1.463E+2,
+        "floatProperty" : 1.463E+200,
         "stringProperty" : "This is a string value",
         "objectProperty" : {
                "property1" : 1,
@@ -307,10 +307,10 @@ For example, consider the following JSON fragment for reported properties. Read-
 The size of the reported properties for this fragment would be computed based on the UTF-8 encoded value of the following JSON, which represents the value of `properties/reported` with the white-space removed:
 
 ```json
-{"intProperty":14000,"boolProperty":true,"floatProperty":1.463E+2,"stringProperty":"This is a string value","objectProperty":{"property1":1,"property2":2}}
+{"intProperty":14000,"boolProperty":true,"floatProperty":1.463E+200,"stringProperty":"This is a string value","objectProperty":{"property1":1,"property2":2}}
 ```
 
-This yields a length of 155 bytes.
+This yields a length of 157 bytes.
 
 IoT Hub rejects with an error all operations that would increase the size of the `tags`, `properties/desired`, or `properties/reported` documents above the limit.
 
