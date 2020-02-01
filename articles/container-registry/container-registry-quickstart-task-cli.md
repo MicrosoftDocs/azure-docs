@@ -107,7 +107,7 @@ Run ID: ca8 was successful after 10s
 
 ## Run the image
 
-Now quickly run the image you built and pushed to your registry, using [az acr run][az-acr-run]. In your container development workflow, this might be a validation step before you deploy the image, or one step in a [multi-step YAML file][container-registry-tasks-multi-step]. 
+Now quickly run the image you built and pushed to your registry. Here you use [az acr run][az-acr-run] to run the container command. In your container development workflow, this might be a validation step before you deploy the image, or you could include the command in a [multi-step YAML file][container-registry-tasks-multi-step]. 
 
 The following example uses `$Registry` to specify the registry where you run the command:
 
