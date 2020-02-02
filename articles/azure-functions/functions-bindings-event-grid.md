@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
+ms.custom: fasttrack-edit
 ---
 
 # Event Grid trigger for Azure Functions
@@ -14,7 +15,7 @@ This article explains how to handle [Event Grid](../event-grid/overview.md) even
 
 Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and [a blob upload or deletion is an event](../storage/blobs/storage-blob-event-overview.md). Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources).
 
-Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid.
+Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid, and to use the output binding to send events to an [Event Grid custom topic](../event-grid/post-to-custom-topic.md).
 
 If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Receive events to an HTTP endpoint](../event-grid/receive-events.md). Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). Instead, use an HTTP trigger.
 
@@ -22,7 +23,7 @@ If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Rec
 
 ## Packages - Functions 2.x and higher
 
-The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 2.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub repository.
+The Event Grid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 2.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -32,7 +33,7 @@ The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.Ev
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## Example
+## Trigger
 
 # [C#](#tab/csharp)
 
@@ -292,7 +293,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ---
 
-## Attributes
+## Trigger - attributes
 
 # [C#](#tab/csharp)
 
@@ -328,7 +329,7 @@ The [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blo
 
 ---
 
-## Configuration
+## Trigger - configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
@@ -338,7 +339,7 @@ The following table explains the binding configuration properties that you set i
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code for the parameter that receives the event data. |
 
-## Usage
+## Trigger - usage
 
 # [C#](#tab/csharp)
 
@@ -382,7 +383,7 @@ The Event Grid event instance is available via the parameter associated to the `
 
 ---
 
-## Event schema
+## Trigger - event schema
 
 Data for an Event Grid event is received as a JSON object in the body of an HTTP request. The JSON looks similar to the following example:
 
@@ -420,7 +421,7 @@ For explanations of the common and event-specific properties, see [Event propert
 
 The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
 
-## Create a subscription
+## Trigger - create a subscription
 
 To start receiving Event Grid HTTP requests, create an Event Grid subscription that specifies the endpoint URL that invokes the function.
 
@@ -520,7 +521,7 @@ For more information, see [Authorization keys](functions-bindings-http-webhook.m
 
 Alternatively, you can send an HTTP PUT to specify the key value yourself.
 
-## Local testing with viewer web app
+## Trigger - local testing with viewer web app
 
 To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
 
@@ -593,6 +594,86 @@ The following screenshots show the headers and request body in Postman:
 The Event Grid trigger function executes and shows logs similar to the following example:
 
 ![Sample Event Grid trigger function logs](media/functions-bindings-event-grid/eg-output.png)
+
+## Output
+
+Use the Event Grid output binding to write events to a custom topic. You must have send permission to a custom topic to write events to it (TODO check terminology here).
+
+Make sure the required package references are in place before you try to implement an output binding.
+
+# [C#](#tab/csharp)
+
+The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
+
+```csharp
+TODO
+```
+
+The following example shows how to use the `IAsyncCollector` interface to send a batch of messages.
+
+```csharp
+TODO
+```
+
+# [C# Script](#tab/csharp-script)
+
+TODO
+
+---
+
+## Output - attributes and annotations
+
+# [C#](#tab/csharp)
+
+For [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) attribute.
+
+The attribute's constructor takes the name of an app setting that contains the name of the custom topic, and the name of an app setting that contains the topic key. For more information about these settings, see [Output - configuration](#output---configuration). Here's an `EventGrid` attribute example:
+
+```csharp
+TODO
+```
+
+For a complete example, see [Output - C# example](#output).
+
+---
+
+## Output - configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `EventGrid` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to "eventGrid". |
+|**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
+|**name** | n/a | The variable name used in function code that represents the event. |
+|**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that ocntains the name of the custom topic. |
+|**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains the connection string to the event hub's namespace. TODO:Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
+
+[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+TODO check all the above is correct
+
+# [C# Script](#tab/csharp-script)
+
+Attributes are not supported by C# Script.
+
+---
+
+## Output - usage
+
+# [C#](#tab/csharp)
+
+Send messages by using a method parameter such as `out EventGridMessage paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridMessage>` or
+`IAsyncCollector<EventGridMessage>` in place of `out EventGridMessage`.
+
+# [C# Script](#tab/csharp-script)
+
+Send messages by using a method parameter such as `out EventGridMessage paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridMessage>` or
+`IAsyncCollector<EventGridMessage>` in place of `out EventGridMessage`.
+
+TODO check the above is correct
+
+---
 
 ## Next steps
 
