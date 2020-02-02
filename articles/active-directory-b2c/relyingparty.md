@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 02/02/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -174,8 +174,8 @@ The **TechnicalProfile** contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | The string that contains the name of the technical profile that is displayed to users. |
-| Description | 0:1 | The string that contains the description of the technical profile that is displayed to users. |
+| DisplayName | 1:1 | The string that contains the name of the technical profile. |
+| Description | 0:1 | The string that contains the description of the technical profile. |
 | Protocol | 1:1 | The protocol used for the federation. |
 | Metadata | 0:1 | The collection of *Item* of key/value pairs utilized by the protocol for communicating with the endpoint in the course of a transaction to configure interaction between the relying party and other community participants. |
 | OutputClaims | 0:1 | A list of claim types that are taken as output in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
