@@ -34,7 +34,7 @@ To further understand the difference between managed identity types, see [How do
 
 ## Supported scenarios for Service Fabric applications
 
-Managed identities for Service Fabric are only supported in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application that is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
+Managed identities for Service Fabric are only supported in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application that is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in an Azure Service Fabric cluster consists of two phases:
 
 1. Assign one or more managed identities to the application resource; an application may be assigned a single system-assigned identity, and/or up to 32 user-assigned identities, respectively.
 
