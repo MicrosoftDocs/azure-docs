@@ -597,7 +597,10 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Output
 
-Use the Event Grid output binding to write events to a custom topic. You must have send permission to a custom topic to write events to it (TODO check terminology here).
+Use the Event Grid output binding to write events to a custom topic. You must have a valid [access key for the custom topic](../event-grid/security-authentication#custom-topic-publishing).
+
+> [!NOTE]
+> The Event Grid output binding does not support shared access signatures (SAS tokens). You must use the topic's access key.
 
 Make sure the required package references are in place before you try to implement an output binding.
 
@@ -606,13 +609,29 @@ Make sure the required package references are in place before you try to impleme
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
 
 ```csharp
-TODO
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "EventGridTopicUri", TopicKeySetting = "EventGridTopicKey")]
+public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
 ```
 
 The following example shows how to use the `IAsyncCollector` interface to send a batch of messages.
 
 ```csharp
-TODO
+[FunctionName("EventGridAsyncOutput")]
+public static async Task Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    [EventGrid(TopicEndpointUri = "EventGridTopicUri", TopicKeySetting = "EventGridTopicKey")]IAsyncCollector<EventGridEvent> outputEvents,
+    ILogger log)
+{
+    for (var i = 0; i < 3; i++)
+    {
+        var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+        await outputEvents.AddAsync(myEvent);
+    }
+}
 ```
 
 # [C# Script](#tab/csharp-script)
@@ -630,7 +649,12 @@ For [C# class libraries](../articles/azure-functions/functions-dotnet-class-libr
 The attribute's constructor takes the name of an app setting that contains the name of the custom topic, and the name of an app setting that contains the topic key. For more information about these settings, see [Output - configuration](#output---configuration). Here's an `EventGrid` attribute example:
 
 ```csharp
-TODO
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "EventGridTopicUri", TopicKeySetting = "EventGridTopicKey")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    ...
+}
 ```
 
 For a complete example, see [Output - C# example](#output).
@@ -647,11 +671,11 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | n/a | The variable name used in function code that represents the event. |
 |**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that ocntains the name of the custom topic. |
-|**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains the connection string to the event hub's namespace. TODO:Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
+|**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
-TODO check all the above is correct
+TODO check all the above is correct for scripting
 
 # [C# Script](#tab/csharp-script)
 
@@ -663,13 +687,13 @@ Attributes are not supported by C# Script.
 
 # [C#](#tab/csharp)
 
-Send messages by using a method parameter such as `out EventGridMessage paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridMessage>` or
-`IAsyncCollector<EventGridMessage>` in place of `out EventGridMessage`.
+Send messages by using a method parameter such as `out EventGridEvent paramName`. To write multiple messages, you can use `ICollector<EventGridEvent>` or
+`IAsyncCollector<EventGridEvent>` in place of `out EventGridEvent`.
 
 # [C# Script](#tab/csharp-script)
 
-Send messages by using a method parameter such as `out EventGridMessage paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridMessage>` or
-`IAsyncCollector<EventGridMessage>` in place of `out EventGridMessage`.
+Send messages by using a method parameter such as `out EventGridEvent paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridEvent>` or
+`IAsyncCollector<EventGridEvent>` in place of `out EventGridEvent`.
 
 TODO check the above is correct
 
