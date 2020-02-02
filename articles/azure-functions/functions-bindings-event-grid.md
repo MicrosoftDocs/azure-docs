@@ -67,7 +67,7 @@ namespace Company.Function
 }
 ```
 
-For more information, see Packages, [Attributes](#trigger-attributes), [Configuration](#trigger-configuration), and [Usage](#trigger-usage).
+For more information, see Packages, [Attributes](#trigger---attributes), [Configuration](#trigger---configuration), and [Usage](#trigger---usage).
 
 ### Version 1.x
 
@@ -128,7 +128,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-For more information, see Packages, [Attributes](#trigger-attributes), [Configuration](#trigger-configuration), and [Usage](#trigger-usage).
+For more information, see Packages, [Attributes](#trigger---attributes), [Configuration](#trigger---configuration), and [Usage](#trigger---usage).
 
 ### Version 1.x
 
@@ -329,7 +329,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#trigger-example) and [configuration](#trigger-configuration) sections for more detail.
+The [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#trigger---example) and [configuration](#trigger---configuration) sections for more detail.
 
 ---
 
