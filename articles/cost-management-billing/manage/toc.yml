@@ -75,6 +75,8 @@
       href: pay-by-invoice.md
     - name: Create additional subscriptions
       href: create-subscription.md
+    - name: Transfer CSP subscriptions
+      href: transfer-subscriptions-subscribers-csp.md
     - name: Export subscription information
       href: export-subscriptions.md
   - name: Manage Enterprise Agreement subscriptions

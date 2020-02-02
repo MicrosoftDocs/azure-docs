@@ -127,7 +127,7 @@ If this doesn't work and you're discovering VMware servers:
 
 ## VM data not in portal
 
-If discovered VMs don't appear in the portal, wait a few minutes. It takes up to 30 minutes for discovered data to appear in the portal. If there's no data after 30 mins, try refreshing, as follows
+If discovered VMs don't appear in the portal or if the VM data is outdated, wait a few minutes. It takes up to 30 minutes for changes in discovered VM configuration data to appear in the portal. It may take a few hours for changes in application data to appear. If there's no data after this time, try refreshing, as follows
 
 1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
 2. Under **Manage**, select **Agent Health**.
@@ -162,7 +162,8 @@ Typical app discovery errors are summarized in the table.
 9009: "Unable to retrieve the applications installed the server". | Can occur if the Windows User Account Control (UAC) settings on the server are restrictive, and prevent discovery of installed applications. | Search for 'User Account Control' settings on the server, and configure the UAC setting on the server to one of the lower two levels.
 9010: "Unable to retrieve the applications installed the server". | Might be an internal error.  | Tf the issue doesn't resolve itself within 24 hours, contact support.
 8084: "Unable to discover applications due to VMware error: <Exception from VMware>" | The Azure Migrate appliance uses VMware APIs to discover applications. This issue can happen if an exception is thrown by vCenter Server while trying to discover applications. The fault message from VMware is displayed in the error message shown in portal. | Search for the message in the [VMware documentation](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), and follow the steps to fix. If you can't fix, contact Microsoft support.
-
+9012: "Unable to discover the applications installed on the server" | The issue can occur due to an internal error.  | If the issue doesn't resolve itself within 24 hours, contact support.
+9013: "Unable to discover the applications installed on the server" | A new temporary profile is created each time there is  log in to the VM.  | Ensure that a temporary profile is not created for the guest user provided.
 
 
 

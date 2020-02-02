@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -75,7 +75,7 @@ The following example localizes the Facebook identity provider to Arabic:
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
-## Sign-up or sign-in error messages
+### Sign-up or sign-in error messages
 
 | ID | Default value |
 | -- | ------------- |
@@ -128,7 +128,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **ver_intro_msg** | Verification is necessary. Please click Send button. |
 | **ver_input** | Verification code |
 
-## Sign-up and self asserted pages error messages
+### Sign-up and self asserted pages error messages
 
 | ID | Default value |
 | -- | ------------- |
@@ -198,6 +198,29 @@ The following example shows the use of some of the user interface elements in th
 The following example shows the use of some of the user interface elements in the MFA validation page:
 
 ![Sign-up page email verification UX elements](./media/localization-string-ids/localization-mfa2.png)
+
+## Verification display control user interface elements
+
+The following are the IDs for a [Verification display control](display-control-verification.md)
+
+| ID | Default value |
+| -- | ------------- |
+|verification_control_but_change_claims |Change |
+|verification_control_fail_send_code |Failed to send the code, please try again later. |
+|verification_control_fail_verify_code |Failed to verify the code, please try again later. |
+|verification_control_but_send_code |Send Code |
+|verification_control_but_send_new_code |Send New Code |
+|verification_control_but_verify_code |Verify Code |
+
+### Verification display control error messages
+
+| ID | Default value |
+| -- | ------------- |
+|UserMessageIfMaxRetryAttempted |One time password provided verification has exceeded maximum number of attempts |
+|UserMessageIfSessionDoesNotExist |One time password verification session has expired |
+|UserMessageIfSessionConflict |One time password verification session has conflict |
+|UserMessageIfInvalidCode |One time password provided for verification is incorrect |
+
 
 
 
