@@ -399,6 +399,6 @@ You should receive a `202 Accepted` response and, in the returned headers, a `Lo
 
 ## Next steps
 
-- Explore the complete [AzureML REST API Reference](https://docs.microsoft.com/rest/api/azureml/)
-- Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)
-- [Explore Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure//machine-learning/samples-notebooks
+- Explore the complete [AzureML REST API reference](https://docs.microsoft.com/rest/api/azureml/).
+- Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Explore [Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).
