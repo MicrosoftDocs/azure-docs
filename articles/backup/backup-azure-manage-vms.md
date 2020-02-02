@@ -40,7 +40,7 @@ To view VMs on the vault dashboard:
 
 6. On the **Backup Items** pane, you can view the list of protected VMs. In this example, the vault protects one virtual machine: demobackup.  
 
-    ![View the Backup Items pane](./media/backup-azure-manage-vms/backup-items-pane-select-item.png)
+    ![View the Backup Items pane](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
 7. From the vault item's dashboard, modify backup policies, run an on-demand backup, stop or resume protection of VMs,  delete backup data, view restore points, and run a restore.
 
@@ -57,7 +57,7 @@ To manage a backup policy:
 
 3. On the **Backup Items** pane, you can view the list of protected VMs and last backup status with latest restore points time.
 
-    ![View the Backup Items pane](./media/backup-azure-manage-vms/backup-items-pane-select-item.png)
+    ![View the Backup Items pane](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
 4. From the vault item's dashboard, you can select a backup policy.
 
