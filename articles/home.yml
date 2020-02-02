@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 01/31/2020
+  ms.date: 02/02/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -1437,23 +1437,23 @@ tools:
   title: Languages and tools
   items:
     # Card
-    - title: Azure for Node.js devs
+    - title: Node.js
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/javascript/
     # Card
-    - title: Azure for Go devs
+    - title: Go
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/go/
     # Card
-    - title: Azure for .NET devs
+    - title: .NET
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
-    - title: Azure for Python devs
+    - title: Python
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/python/
     # Card
-    - title: Azure for Java devs
+    - title: Java
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/azure/java/
     # Card
