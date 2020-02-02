@@ -17,7 +17,7 @@ ms.author: alkohli
 
 The following release notes identify the critical open issues and the resolved issues for the 1905 release for Azure Data Box Edge and Azure Data Box Gateway.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Data Box Edge/Data Box Gateway, carefully review the information contained in the release notes.
+The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Data Box Edge/Data Box Gateway, carefully review the information contained in the release notes. 
 
 This release corresponds to the software versions:
 
