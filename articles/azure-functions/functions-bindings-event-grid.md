@@ -684,6 +684,18 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+The Event Grid output binding is not available for JavaScript.
+
+# [Python](#tab/python)
+
+The Event Grid output binding is not available for JavaScript.
+
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for JavaScript.
+
 ---
 
 ## Output - attributes and annotations
@@ -705,6 +717,22 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 For a complete example, see [Output - C# example](#output).
 
+# [C# Script](#tab/csharp-script)
+
+Attributes are not supported by C# Script.
+
+# [JavaScript](#tab/javascript)
+
+The Event Grid output binding is not available for JavaScript.
+
+# [Python](#tab/python)
+
+The Event Grid output binding is not available for JavaScript.
+
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for JavaScript.
+
 ---
 
 ## Output - configuration
@@ -724,12 +752,6 @@ The following table explains the binding configuration properties that you set i
 > [!IMPORTANT]
 > Ensure that you set the value of the `TopicEndpointUri` configuration property to the name of an app setting that contains the URI of the custom topic. Do not specify the name of the custom topic directly in this property.
 
-# [C# Script](#tab/csharp-script)
-
-Attributes are not supported by C# Script.
-
----
-
 ## Output - usage
 
 # [C#](#tab/csharp)
@@ -741,6 +763,18 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 
 Send messages by using a method parameter such as `out EventGridEvent paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridEvent>` or
 `IAsyncCollector<EventGridEvent>` in place of `out EventGridEvent`.
+
+# [JavaScript](#tab/javascript)
+
+The Event Grid output binding is not available for JavaScript.
+
+# [Python](#tab/python)
+
+The Event Grid output binding is not available for JavaScript.
+
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for JavaScript.
 
 ---
 
