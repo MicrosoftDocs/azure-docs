@@ -604,13 +604,16 @@ Use the Event Grid output binding to write events to a custom topic. You must ha
 
 Make sure the required package references are in place before you try to implement an output binding.
 
+> [!IMPORTANT]
+> The Event Grid output binding is only available for Functions 2.x and higher.
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
 
 ```csharp
 [FunctionName("EventGridOutput")]
-[return: EventGrid(TopicEndpointUri = "EventGridTopicUri", TopicKeySetting = "EventGridTopicKey")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
 public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
@@ -623,7 +626,7 @@ The following example shows how to use the `IAsyncCollector` interface to send a
 [FunctionName("EventGridAsyncOutput")]
 public static async Task Run(
     [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
-    [EventGrid(TopicEndpointUri = "EventGridTopicUri", TopicKeySetting = "EventGridTopicKey")]IAsyncCollector<EventGridEvent> outputEvents,
+    [EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]IAsyncCollector<EventGridEvent> outputEvents,
     ILogger log)
 {
     for (var i = 0; i < 3; i++)
@@ -636,7 +639,46 @@ public static async Task Run(
 
 # [C# Script](#tab/csharp-script)
 
-TODO
+The following example shows the Event Grid output binding data in the *function.json* file.
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Here's C# script code that creates one event:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogger log)
+{
+    outputEvent = new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+Here's C# script code that creates multiple events:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent, ILogger log)
+{
+    outputEvent.Add(new EventGridEvent("message-id-1", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+    outputEvent.Add(new EventGridEvent("message-id-2", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+}
+```
 
 ---
 
@@ -650,7 +692,7 @@ The attribute's constructor takes the name of an app setting that contains the n
 
 ```csharp
 [FunctionName("EventGridOutput")]
-[return: EventGrid(TopicEndpointUri = "EventGridTopicUri", TopicKeySetting = "EventGridTopicKey")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     ...
@@ -670,12 +712,13 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "eventGrid". |
 |**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | n/a | The variable name used in function code that represents the event. |
-|**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that ocntains the name of the custom topic. |
+|**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `https://mycustomtopic.australiaeast-1.eventgrid.azure.net/api/events`. |
 |**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
-TODO check all the above is correct for scripting
+> [!IMPORTANT]
+> Ensure that you set the value of the `TopicEndpointUri` configuration property to the name of an app setting that contains the URI of the custom topic. Do not specify the name of the custom topic directly in this property.
 
 # [C# Script](#tab/csharp-script)
 
@@ -694,8 +737,6 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 
 Send messages by using a method parameter such as `out EventGridEvent paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridEvent>` or
 `IAsyncCollector<EventGridEvent>` in place of `out EventGridEvent`.
-
-TODO check the above is correct
 
 ---
 
