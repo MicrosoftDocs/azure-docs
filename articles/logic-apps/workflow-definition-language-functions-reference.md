@@ -2128,7 +2128,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'is-is')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "$17.35".
 
 ```
-formatNumber(17.36, '{0:C2}')
+formatNumber(17.36, 'C2')
 ```
 
 *Example 4*
@@ -2136,7 +2136,7 @@ formatNumber(17.36, '{0:C2}')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.36, '{0:C2}', 'is-is')
+formatNumber(17.36, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
