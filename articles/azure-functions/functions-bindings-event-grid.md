@@ -383,7 +383,7 @@ The Event Grid instance is available via the parameter configured in the *functi
 
 # [Java](#tab/java)
 
-The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. See the [example](#trigger-example) for more detail.
+The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. See the [example](#trigger---example) for more detail.
 
 ---
 
@@ -686,15 +686,71 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # [JavaScript](#tab/javascript)
 
-The Event Grid output binding is not available for JavaScript.
+The following example shows the Event Grid output binding data in the *function.json* file.
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Here's JavaScript code that creates a single event:
+
+```javascript
+module.exports = async function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = {
+        id: 'message-id',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    };
+    context.done();
+};
+```
+
+Here's JavaScript code that creates multiple events:
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = [];
+
+    context.bindings.outputEvent.push({
+        id: 'message-id-1',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.bindings.outputEvent.push({
+        id: 'message-id-2',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.done();
+};
+```
 
 # [Python](#tab/python)
 
-The Event Grid output binding is not available for JavaScript.
+The Event Grid output binding is not available for Python.
 
 # [Java](#tab/java)
 
-The Event Grid output binding is not available for JavaScript.
+The Event Grid output binding is not available for Java.
 
 ---
 
@@ -723,15 +779,15 @@ Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-The Event Grid output binding is not available for JavaScript.
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-The Event Grid output binding is not available for JavaScript.
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The Event Grid output binding is not available for JavaScript.
+The Event Grid output binding is not available for Java.
 
 ---
 
@@ -766,15 +822,15 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 
 # [JavaScript](#tab/javascript)
 
-The Event Grid output binding is not available for JavaScript.
+Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 
 # [Python](#tab/python)
 
-The Event Grid output binding is not available for JavaScript.
+The Event Grid output binding is not available for Python.
 
 # [Java](#tab/java)
 
-The Event Grid output binding is not available for JavaScript.
+The Event Grid output binding is not available for Java.
 
 ---
 
