@@ -1,5 +1,5 @@
 ---
-title: Knowledge store projections Tutorial 
+title: Define projections in a knowledge store 
 titleSuffix: Azure Cognitive Search
 description: Examples of common patterns on how to project enriched documents into the knowledge store for use with Power BI or Azure ML.
 
@@ -11,34 +11,23 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ---
 
-# Knowledge store projections Tutorial: Effectively use projections to export enrichments to the knowledge store
+# Knowledge store projections: How to shape and export enrichments to the knowledge store
 
 > [!IMPORTANT] 
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
-Projections enable you to export your enriched documents for use in scenarios other than search. If you are new to the knowledge store or projections, start [here](knowledge-store-concept-intro.md).
+Projections are the physical expression of enriched documents in a knowledge store. Effective use of your enriched documents require structure.In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across projection types you create. To create a projection, you either use a shaper skill to create a custom object that contains all the data you intend to project, or, you use the inline shaping syntax for inputs to define the projections. This document gives you an example of each options, you can choose to use either of the options for projections you create.
+
 
 Knowledge store projections support three types of projections
 1. Tables
 2. Objects
 3. Files
 
-As the knowledge store is an Azure Storage account, table projections are Azure Storage tables and are governed by the storage limits on tables, for more information, see [table storage limits](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities. 
+Table projections are stored in Azure Table storage. Object and file projections are written to blob storage, object projections are saved as JSON files and can contain content from the document and any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
 
-Object and file projections are written to blob storage, object projections are saved as JSON files and can contain content from the document and any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
-
-To learn how you work with projections, let's start with a few example scenarios. This tutorial assumes you're familiar with the enrichment process specifically, [skillsets](cognitive-search-working-with-skillsets.md). Projections are defined in the knowledge store object of the skillset, see [knowledge store](knowledge-store-concept-intro.md) for details. For all the scenarios, we will work with a sample skillset that you can use the [`import data wizard`](cognitive-search-quickstart-blob.md) to generate. In the `import data wizard` start with a blob datasource, on the add cognitive skills tab,
-
-1. Attach a cognitive services resource
-2. Under add enrichments. select the `Enable OCR and merge all text into merged_content field` option.
-3. Select the ```Extract people names``` skill
-4. Select the ```Extract organization names``` skill
-5. Select the ```Extract location names``` skill
-6. Select the ```Extract key phrases``` skill
-7. Leave the knowledge store options with the default value, we'll be working with the knowledge store object in the skillset in the rest of this tutorial. 
-
-Once you complete the import data workflow, you should have a valid enrichment pipeline of a datasource, skillset, indexer, and index. In the following sections of this tutorial, we will use the [REST APIs to work with the enrichment pipeline](search-get-started-postman.md).
+To understand the intersection between data shaping and projections, we'll use the following skillset as the basis for exploring various configurations. This skillset processes raw image and text content. Projections will be defined from the contents of the document and the outputs of the skills, for the scenarios we want to support.
 
 > [!IMPORTANT] 
 > When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any Cognitive Services charges.
@@ -202,15 +191,18 @@ If you view the skillset JSON in the portal, or GET the skillset using the REST 
 }
 ```
 
-We can now add the `knowledgeStore` object and configuring the projections for each of the scenarios as needed. To create a projection, you either use a shaper skill to create a custom object that contains all the data you intend to project, or you use the inline shaping syntax for inputs to define the projections. This tutorial will demonstrate both options, you can choose to use either of the options for projections you create.
+We can now add the `knowledgeStore` object and configure the projections for each of the scenarios as needed. 
 
 ## Projecting to Tables for scenarios like Power BI
+
+> [!NOTE] 
+> As the knowledge store is an Azure Storage account, table projections are Azure Storage tables and are governed by the storage limits on tables, for more information, see [table storage limits](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
 
 Power BI can read from tables and discover relationships based on the keys that the knowledge store projections create, this makes tables a good option to project data when you're trying to build a dashboard on your enriched data. Assuming we're trying to build a dashboard where we can visualize the key phrases extracted from documents as a word cloud, we can add a shaper skill to the skillset to create a custom shape that has the document-specific details and key phrases. Add the shaper skill to the skillset to create a new enrichment called ```pbiShape``` on the ```document```.
 
 ### Using a Shaper skill to create a custom shape
 
-Create a custom shape that you would like to project, here we create a custom object that contains some metadata properties, key phrases, and entities. The object is called pbiShape and is parented under `/document`. 
+Create a custom shape that you can project into table storage. Without a custom shape, a projection can only reference a sigle node (one projection per output). Creating a custom shape lets you aggregate various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. In this example, the custom shape combines metadata and identified entites and key phrases. The object is called pbiShape and is parented under `/document`. 
 
 > [!IMPORTANT] 
 > Source paths for enrichments are required to be well formed JSON objects, before they can be projected. The enrichment tree can represent enrichments that are not well formed JSON, for example when a enrichment is parented to a primitve like a string. Note how `KeyPhrases` and `Entities` are wrapped into a valid JSON object with the `sourceContext`, this is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
@@ -279,9 +271,9 @@ Create a custom shape that you would like to project, here we create a custom ob
             ]
         }
 ```
-Add the shaper skill to skills list in the skillset, we will also edit the knowledgeStore property before we PUT the skillset. Now that we have all the data needed to project to tables we can update the knowledgeStore object with the table definitions.
+Add the shaper skill we just defined to skills list in the skillset. 
 
-Start by setting the knowledgeStore property on the skillset. 
+Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. 
 
 ```json
 
@@ -327,7 +319,9 @@ Save the updated skillset and run the indexer, you now have a working projection
 ## Projecting to Objects
 
 Object projections do not have the same limitations as table projections, are better suited for projecting large documents. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container.
-To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. The projections property is an array, for this example we are adding a new projection instance to the array. Updte the knowledgeStore definition with the projections defined inline, you do not need a shaper skill when using inline projections.
+To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
+Inline shaping is the ability for you to create a new shape in the defintion of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a similar shaper would produce. Inline shaping is useful if you are defining a shape the you do not plan to reuse.
+The projections property is an array, for this example we are adding a new projection instance to the array. Update the knowledgeStore definition with the projections defined inline, you do not need a shaper skill when using inline projections.
 
 ```json
 "knowledgeStore" : {
@@ -379,7 +373,7 @@ To define an object projection, we will use the ```objects``` array in the proje
         ]
     }
 ```
-## Projecting to Files
+## File Projections
 
 File projections are images that are either extracted from the source document or outputs of enrichments that can be projected out of the enrichment process. File projections, similar to object projections are implemented as blobs and contain the image. To generate a file projection, we use the ```files``` array in the projection object. This example projects all images extracted from the document to a container called samplefile.
 
@@ -403,7 +397,7 @@ File projections are images that are either extracted from the source document o
 
 ## Projecting to multiple types
 
-Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now create a projection object in the knowledge store to project the document, key phrases and entities as tables, OCR text and layout text as object projections and the images as files. Start by adding a new shaper skill to the skill array that creates a shaped object. 
+Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now create a projection for the document, key phrases and entities as tables, OCR text and layout text as object projections and the images as files. Start by adding a new shaper skill to the skill array that creates a shaped object. 
 
 ```json
 {
@@ -418,7 +412,30 @@ Sometimes you might need to project content across projection types. For example
                     "sourceContext": null,
                     "inputs": []
                 },
-                 
+                {
+                    "name": "keyPhrases",
+                    "source": null,
+                    "sourceContext": "/document/merged_content/keyphrases/*",
+                    "inputs": [
+                        {
+                            "name": "KeyPhrases",
+                            "source": "/document/merged_content/keyphrases/*"
+                        }
+
+                    ]
+                },
+                {
+                    "name": "entities",
+                    "source": null,
+                    "sourceContext": "/document/merged_content/entities/*",
+                    "inputs": [
+                        {
+                            "name": "Entities",
+                            "source": "/document/merged_content/entities/*/name"
+                        }
+
+                    ]
+                },
                 {
                     "name": "images",
                     "source": null,
@@ -461,6 +478,16 @@ Sometimes you might need to project content across projection types. For example
                         "source": "/document/crossProjection"
                     },
                     {
+                        "tableName": "crossEntities",
+                        "generatedKeyName": "EntityId",
+                        "source": "/document/crossProjection/entities/*"
+                    },
+                    {
+                        "tableName": "crossKeyPhrases",
+                        "generatedKeyName": "KeyPhraseId",
+                        "source": "/document/crossProjection/keyPhrases/*"
+                    },
+                    {
                         "tableName": "crossReference",
                         "generatedKeyName": "CrossId",
                         "source": "/document/crossProjection/images/*"
@@ -494,7 +521,7 @@ Sometimes you might need to project content across projection types. For example
     }
 ```
 
-Object projections require a container name for each projection, multiple object projections or file projections cannot share containers. Notice that the `generatedKeyName` and `referenceKeyName` properties are optional for objects and files.
+Object projections require a container name for each projection, object projections or file projections cannot share a container. 
 
 ### Relationships
 
