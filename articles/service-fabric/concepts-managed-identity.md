@@ -25,7 +25,7 @@ Managed identities for Azure is based upon several key concepts:
 
 - **Service Principal** - an Azure Active Directory object, which represents the projection of an AAD application in a given tenant (also see [service principal](../active-directory/develop/developer-glossary.md#service-principal-object).)
 
-The are two types of managed identities:
+There are two types of managed identities:
 
 - A **System-assigned managed identity** is enabled directly on an Azure service instance.  The lifecycle of a system-assigned identity is unique to the Azure service instance that it's enabled on.
 - A **user-assigned managed identity** is created as a standalone Azure resource. The identity can be assigned to one or more Azure service instances and is managed separately from the lifecycles of those instances.
