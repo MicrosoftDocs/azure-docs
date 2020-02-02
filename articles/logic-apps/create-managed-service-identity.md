@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 02/10/2020
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -405,21 +405,22 @@ These steps show how to use the managed identity with a trigger or action throug
    | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
    | **Headers** | Yes, for Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | The `x-ms-blob-type` and `x-ms-version` header values that are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. <p>For more information, see these topics: <p><p>- [Request headers - Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Queries** | Yes, for this operation | `comp` = `snapshot` | The query parameter name and value for the Snapshot Blob operation. |
-   | **Authentication** | Yes | `Managed Identity` | The authentication type to use for authenticating access to the Azure blob |
    |||||
 
    Here is the example HTTP action that shows all these property values:
 
    ![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
 
-1. From the **Authentication** list, select **Managed Identity**, which shows the **Managed Identity** list.
+1. Now add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
 
-   ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
+   ![Add "Authentication" property to HTTP action](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
-   > If the [**Authentication** property is supported](logic-apps-securing-a-logic-app.md#add-authentication-outbound) 
-   > but appears hidden, open the **Add new parameter** list, and select **Authentication**. 
-   > Not all triggers and actions let you select an authentication type. For more information, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   > Not all triggers and actions support letting you add an authentication type. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+
+1. From the **Authentication type** list, select **Managed Identity**.
+
+   ![For "Authentication", select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
 1. From the managed identity list, select from the available options based on your scenario.
 
@@ -433,11 +434,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
    This example continues with the **System Assigned Managed Identity**.
 
-1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. If the **Audience** property is supported but appears hidden, open the **Add new parameter** list, and select **Audience**.
-
-   !["Audience" property set to target resource ID](./media/create-managed-service-identity/show-audience-property.png)
-
-1. Set the **Audience** value to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
+1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
 
    > [!IMPORTANT]
    > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
@@ -447,7 +444,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
    This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://fabrikamstorageaccount.blob.core.windows.net`, for a specific storage account.
 
-   ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
+   ![Set "Audience" property to target resource ID](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
    For more information about authorizing access with Azure AD for Azure Storage, see these topics:
 
