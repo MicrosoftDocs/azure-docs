@@ -213,7 +213,7 @@ public class RemoteRaycaster : MonoBehaviour
 }
 ```
 
-Add the component to your **RemoteRendering* game object. It is responsible for picking objects under the mouse and adding *RemoteModelEntity* components to the picked objects. That component class is where we implement the actual material change functionality.
+Add the component to your *RemoteRendering* game object. It is responsible for picking objects under the mouse and adding *RemoteModelEntity* components to the picked objects. That component class is where we implement the actual material change functionality.
 
 If you don't have a **RemoteModelEntity** script yet, create it and replace its content with this code:
 
