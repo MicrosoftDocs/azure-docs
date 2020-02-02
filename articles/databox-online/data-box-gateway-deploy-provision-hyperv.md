@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This tutorial describes how to provision a Data Box Gateway on a host system running Hyper-V on Windows Server 2016, Windows Server 2012 R2, or Windows Server 2012. 
 
-You need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
+You need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete. 
 
 In this tutorial, you learn how to:
 
