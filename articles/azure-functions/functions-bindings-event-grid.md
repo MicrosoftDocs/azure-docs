@@ -35,6 +35,10 @@ The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.Ev
 
 ## Trigger
 
+Use the function trigger to respond to an event sent to an Event Grid topic.
+
+## Trigger - example
+
 # [C#](#tab/csharp)
 
 For an HTTP trigger example, see [Receive events to an HTTP endpoint](../event-grid/receive-events.md).
@@ -63,7 +67,7 @@ namespace Company.Function
 }
 ```
 
-For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#trigger-attributes), [Configuration](#trigger-configuration), and [Usage](#trigger-usage).
 
 ### Version 1.x
 
@@ -124,7 +128,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#trigger-attributes), [Configuration](#trigger-configuration), and [Usage](#trigger-usage).
 
 ### Version 1.x
 
@@ -325,7 +329,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#example) and [configuration](#configuration) sections for more detail.
+The [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#trigger-example) and [configuration](#trigger-configuration) sections for more detail.
 
 ---
 
@@ -379,7 +383,7 @@ The Event Grid instance is available via the parameter configured in the *functi
 
 # [Java](#tab/java)
 
-The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. See the [example](#example) for more detail.
+The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. See the [example](#trigger-example) for more detail.
 
 ---
 
@@ -597,7 +601,7 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Output
 
-Use the Event Grid output binding to write events to a custom topic. You must have a valid [access key for the custom topic](../event-grid/security-authentication#custom-topic-publishing).
+Use the Event Grid output binding to write events to a custom topic. You must have a valid [access key for the custom topic](../event-grid/security-authentication.md#custom-topic-publishing).
 
 > [!NOTE]
 > The Event Grid output binding does not support shared access signatures (SAS tokens). You must use the topic's access key.
@@ -609,7 +613,7 @@ Make sure the required package references are in place before you try to impleme
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
+The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -686,7 +690,7 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # [C#](#tab/csharp)
 
-For [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) attribute.
+For [C# class libraries](functions-dotnet-class-library.md), use the [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) attribute.
 
 The attribute's constructor takes the name of an app setting that contains the name of the custom topic, and the name of an app setting that contains the topic key. For more information about these settings, see [Output - configuration](#output---configuration). Here's an `EventGrid` attribute example:
 
@@ -715,7 +719,7 @@ The following table explains the binding configuration properties that you set i
 |**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `https://mycustomtopic.australiaeast-1.eventgrid.azure.net/api/events`. |
 |**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic.|
 
-[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
 > Ensure that you set the value of the `TopicEndpointUri` configuration property to the name of an app setting that contains the URI of the custom topic. Do not specify the name of the custom topic directly in this property.
