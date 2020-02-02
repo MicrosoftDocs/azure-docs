@@ -6,7 +6,7 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/27/2019
+ms.date: 02/03/2020
 ---
 
 # Add database principals for Azure Data Explorer by using an Azure Resource Manager template
