@@ -18,7 +18,6 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 
-ms.collection: M365-identity-device-management
 ---
 
 # Add a multitenant application to the Azure AD application gallery

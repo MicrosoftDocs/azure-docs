@@ -21,7 +21,7 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
-    - name: .Net
+    - name: .NET
       href: connect-csharp.md    
     - name: Python
       href: connect-python.md
@@ -92,7 +92,13 @@
     - name: Advanced Threat Protection
       href: concepts-data-access-and-security-threat-protection.md   
     - name: Private Link
-      href: concepts-data-access-security-private-link.md   
+      href: concepts-data-access-security-private-link.md
+    - name: Data Encryption
+      href: concepts-data-encryption-mysql.md
+    - name: Data Encryption
+      href: concepts-data-encryption-mysql.md
+    - name: Azure AD authentication
+      href: concepts-azure-ad-authentication.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -232,6 +238,14 @@
       href: howto-configure-privatelink-portal.md
     - name: Azure CLI
       href: howto-configure-privatelink-cli.md
+  - name: Data Encryption
+    items:
+    - name: Azure portal
+      href: howto-data-encryption-portal.md
+  - name: Azure AD Integration
+    items:
+    - name: Configure Azure AD integration
+      href: howto-configure-sign-in-azure-ad-authentication.md
   - name: Restart server
     items:
     - name: Azure portal

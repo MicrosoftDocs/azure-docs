@@ -43,7 +43,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
    This example renames the trigger to "HTTP trigger" so that the step has a more descriptive name. Also, the example later adds an HTTP action, and both names must be unique.
 
-1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
+1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
 
    ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -76,7 +76,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    This example renames the action to "HTTP action" so that the step has a more descriptive name.
 
-1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) that you want to include in the call to the target endpoint.
+1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the target endpoint.
 
    ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
 
@@ -139,8 +139,8 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 
 For more information about trigger and action parameters, see these sections:
 
-* [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### Output details
 

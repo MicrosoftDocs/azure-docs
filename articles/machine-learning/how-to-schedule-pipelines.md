@@ -122,7 +122,7 @@ def stop_by_schedule_id(ws, schedule_id):
     s.disable()
     return s
 
-stop_by_schedule(ws, schedule_id)
+stop_by_schedule_id(ws, schedule_id)
 ```
 
 If you then run `Schedule.list(ws)` again, you should get an empty list.

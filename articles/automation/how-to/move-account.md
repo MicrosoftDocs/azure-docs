@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Move your Azure Automation account to another subscription
 
-Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md).
+Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Azure Automation accounts are one of the resources that can be moved. In this article, you'll learn the steps to move Automation accounts to another resource or subscription.
 
@@ -141,4 +141,4 @@ When the move is complete, check the following list of tasks that should be veri
 
 ## Next steps
 
-To learn more about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/move-support-resources.md).
+To learn more about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md).

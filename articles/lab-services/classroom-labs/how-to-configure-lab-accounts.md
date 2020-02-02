@@ -1,6 +1,6 @@
 ---
 title: Configure lab accounts in Azure Lab Services | Microsoft Docs
-description: Learn how to configure a lab account after it's created. 
+description: This article describes how to create a lab account, view all lab accounts, or delete a lab account in Azure Lab Services. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---

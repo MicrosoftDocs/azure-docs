@@ -157,7 +157,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     The response from this command is similar to the following text, and is the ID for your key vault:
 

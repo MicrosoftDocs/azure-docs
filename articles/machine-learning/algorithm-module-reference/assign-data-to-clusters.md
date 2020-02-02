@@ -42,5 +42,5 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
   
 ### Results
 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
++  To view the values in the dataset, right-click the module, and then select **Visualize**. Or Select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
 

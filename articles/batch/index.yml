@@ -8,8 +8,8 @@ metadata:
   services: batch
   ms.service: batch 
   ms.topic: landing-page 
-  author: laurenhughes 
-  ms.author: lahugh 
+  author: ju-shim 
+  ms.author: jushiman 
   ms.date: 09/23/2019 
 
 landingContent:

@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 > [!NOTE]
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.
 
-[Management solutions](solutions.md) will typically include [saved searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to analyze data collected by the solution. They may also define [alerts](../../azure-monitor/platform/alerts-overview.md) to notify the user or automatically take action in response to a critical issue. This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](solutions-creating.md).
+[Management solutions](solutions.md) will typically include [saved searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to analyze data collected by the solution. They may also define [alerts](../../azure-monitor/platform/alerts-overview.md) to notify the user or automatically take action in response to a critical issue. This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](solutions-creating.md).
 
 > [!NOTE]
 > The samples in this article use parameters and variables that are either required or common to management solutions and described in [Design and build a management solution in Azure](solutions-creating.md)

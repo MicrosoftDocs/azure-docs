@@ -309,6 +309,8 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Coda
+        href: coda-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -369,6 +371,8 @@
       items:
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: DataCamp
+        href: datacamp-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
       - name: Dealpath
@@ -492,6 +496,8 @@
         href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
+      - name: Fastly Edge Cloud
+        href: fastly-edge-cloud-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
       - name: Fieldglass
@@ -502,6 +508,8 @@
         href: filecloud-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
+      - name: Firmex VDR
+        href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
       - name: Firstbird
@@ -746,6 +754,8 @@
         href: jobscore-tutorial.md
       - name: join.me
         href: joinme-tutorial.md
+      - name: JOSA
+        href: josa-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
       - name: Juno Journey
@@ -1124,6 +1134,8 @@
         href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
+      - name: Reprints Desk - Article Galaxy
+        href: reprints-desk-article-galaxy-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
@@ -1316,6 +1328,8 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
+      - name: Spintr SSO
+        href: spintr-sso-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
       - name: StatusPage
@@ -1366,10 +1380,14 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
       - name: Templafy
         href: templafy-tutorial.md
+      - name: Terraform Enterprise
+        href: terraform-enterprise-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1408,6 +1426,8 @@
         href: trakstar-tutorial.md
       - name: Trello
         href: trello-tutorial.md
+      - name: TripActions
+        href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
       - name: TurboRater
@@ -1420,6 +1440,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: Upshotly
+        href: upshotly-tutorial.md
       - name: Upwork Enterprise
         href: upwork-enterprise-tutorial.md
       - name: Useall
@@ -1661,6 +1683,8 @@
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
         href: meta-networks-connector-provisioning-tutorial.md
+      - name: Mixpanel
+        href: mixpanel-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle

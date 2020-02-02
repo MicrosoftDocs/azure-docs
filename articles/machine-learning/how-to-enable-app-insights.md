@@ -35,7 +35,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 ## Web service metadata and response data
 
 >[!Important]
-> Azure Application Insights only logs payloads of upto 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
 
 The metadata and response to the service - corresponding to the web service metadata and the model's predictions - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
 

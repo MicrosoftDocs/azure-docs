@@ -8,6 +8,9 @@ articles/chef/ @TomArcherMsft
 articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
 
+# Requires Internal Review
+articles/best-practices-availability-paired-regions.md @jpconnock @arob98 @syntaxc4 @tysonn @snoviking
+
 # Governance
 articles/governance/ @DCtheGeek
 

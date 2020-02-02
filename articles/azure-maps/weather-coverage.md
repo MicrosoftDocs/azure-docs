@@ -1,6 +1,6 @@
 ---
-title: Weather coverage in Azure Maps | Microsoft Docs
-description: Learn about Weather coverage in Azure Maps
+title: Weather coverage | Microsoft Azure Maps
+description: In this article, you will learn about Weather coverage in Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -174,7 +174,6 @@ The following table provides information about what kind of weather information 
 | Afghanistan                       | ✓ |   |  ✓| 
 | American Samoa                    | ✓ |   |  ✓| 
 | Australia                         | ✓ | ✓ |  ✓| 
-| Azerbaijan                        | ✓ |   |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
 | British Indian Ocean Territory    | ✓ |   |  ✓| 
@@ -242,7 +241,8 @@ The following table provides information about what kind of weather information 
 | Albania                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
 | Armenia                | ✓ |   |  ✓| 
-| Austria                | ✓ | ✓ |  ✓| 
+| Austria                | ✓ | ✓ |  ✓|
+| Azerbaijan             | ✓ |   |  ✓| 
 | Belarus                | ✓ |   |  ✓| 
 | Belgium                | ✓ | ✓ |  ✓| 
 | Bosnia and Herzegovina | ✓ | ✓ |  ✓| 

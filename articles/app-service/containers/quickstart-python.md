@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 10/22/2019
 ms.custom: seo-python-october2019
 
-experimental: false
-experiment_id: 1e304dc9-5add-4b
+experimental: true
+experiment_id: 01a9132f-eaab-4c
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
@@ -75,7 +75,7 @@ flask run
 
 Open a web browser, and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello World!**.
 
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 In your terminal window, press **Ctrl**+**C** to exit the web server.
 

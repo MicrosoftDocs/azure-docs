@@ -42,7 +42,7 @@ This article gives you an overview of the audit report.
 
 ## Audit logs
 
-The Azure AD audit logs provide records of system activities for compliance. To access the audit report, select **Audit logs** in the **Activity** section of **Azure Active Directory**. Note that audit logs may have a latency of upto an hour, so it may take that long for audit activity data to show up in the portal after you have completed the task.
+The Azure AD audit logs provide records of system activities for compliance. To access the audit report, select **Audit logs** in the **Activity** section of **Azure Active Directory**. Note that audit logs may have a latency of up to an hour, so it may take that long for audit activity data to show up in the portal after you have completed the task.
 
 
 

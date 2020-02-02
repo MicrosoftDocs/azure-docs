@@ -617,6 +617,8 @@
       href: solution-template-copy-new-files-lastmodifieddate.md
     - name: Bulk copy from database
       href: solution-template-bulk-copy-with-control-table.md
+    - name: Bulk copy from files to database
+      href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
     - name: Migrate data from Amazon S3 to Azure Storage

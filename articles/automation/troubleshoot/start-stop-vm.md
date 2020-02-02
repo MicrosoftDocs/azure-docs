@@ -61,13 +61,13 @@ Deployments may fail because of one of the following reasons:
 Review the following list for potential solutions to your problem or places to look:
 
 1. Automation accounts need to be unique within an Azure region, even if they are in different resource groups. Check your existing Automation Accounts in the target region.
-2. An existing policy prevents a resource that is required for the Start/Stop VM solution to be deployed. Go to your policy assignments in the Azure portal and check whether you have a policy assignment that disallows the deployment of this resource. To learn more about this, see [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+2. An existing policy prevents a resource that is required for the Start/Stop VM solution to be deployed. Go to your policy assignments in the Azure portal and check whether you have a policy assignment that disallows the deployment of this resource. To learn more about this, see [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
 3. In order to deploy the Start/Stop VM solution, your subscription needs to be registered to the following Azure resource namespaces:
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   See, [Resolve errors for resource provider registration](../../azure-resource-manager/resource-manager-register-provider-errors.md) to learn more about errors when registering providers.
+   See, [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md) to learn more about errors when registering providers.
 4. If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
 5. If the resolutions above do not solve your issue, follow the instructions under [Update the Solution](../automation-solution-vm-management.md#update-the-solution) to re-deploy the Start/Stop solution.
 
