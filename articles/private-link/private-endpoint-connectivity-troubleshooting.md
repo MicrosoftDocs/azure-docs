@@ -52,7 +52,7 @@ Go over the steps listed below to make sure all the usual configurations are as 
     
     ![VNet and DNS Configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
     
-2. Use [**Azure Monitor**](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to review data is flowing
+2. Use [**Azure Monitor**](https://docs.microsoft.com/azure/azure-monitor/overview) to review data is flowing
 
     a) On Private Endpoint resource, select **Monitor**
     - Select data-in or data-out and review if the data is flowing when attempting to connect to the Private Endpoint. Expect a delay of approx. 10 mins.
@@ -89,7 +89,7 @@ Go over the steps listed below to make sure all the usual configurations are as 
     
     - Using custom DNS:
         - Review your customer DNS settings and validate DNS configuration is correct.
-        Refer to [Private Endpoint overview - DNS Configuration](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview#dns-configuration) for guidance.
+        Refer to [Private Endpoint overview - DNS Configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration) for guidance.
 
     b) If connectivity is failing because of NSG/UDRs
     - Review NSG outbound rules and create appropriate outbound rules to allow traffic
@@ -97,12 +97,12 @@ Go over the steps listed below to make sure all the usual configurations are as 
     ![NSG outbound rules](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
 5. If the connection has validated results, the connectivity issue might be related to other aspects like secrets, tokens, passwords at the application layer.
-- In this case, review configuration of the Private Link resource associated with the private endpoint. Refer to [Private Link troubleshooting guide](https://docs.microsoft.com/en-us/azure/private-link/private-link-connectivity-troubleshooting). 
+- In this case, review configuration of the Private Link resource associated with the private endpoint. Refer to [Private Link troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting). 
 
 6. Contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and connectivity problem still exists. 
 
 ## Next steps
 
-* [Create a Private Endpoint on the updated subnet (Azure portal)](https://docs.microsoft.com/en-us/azure/private-link/create-private-endpoint-portal)
+* [Create a Private Endpoint on the updated subnet (Azure portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
 
-* [Private Link troubleshooting guide](https://docs.microsoft.com/en-us/azure/private-link/private-link-connectivity-troubleshooting)
+* [Private Link troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting)
