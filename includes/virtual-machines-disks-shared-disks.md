@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-Azure shared disks (preview) is a new feature for Azure managed disks, allowing you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Shared disks enables you to either deploy new or migrate existing clustered applications to Azure. The virtual machines in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using SCSI Persistent Reservations (SCSI PR). SCSI PR is a well-known industry standard elveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk enables these applications to migrate as-si to Azure.
+Azure shared disks (preview) is a new feature for Azure managed disks, allowing you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Shared disks enable you to either deploy new or migrate existing clustered applications to Azure. The virtual machines in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using SCSI Persistent Reservations (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk enables these applications to migrate as-si to Azure.
 
-Managed disks that have shared disks enabled offer a SAN-like block-level storage protocol, data is stored and accessed in blocks. These blocks of data are stored in Logical Unit Numbers (LUNs). Luns are then presetend to an initiator (host) from a target (storage system). To an end device like a server, these LUNs appear to be direct-attached-storage (DAS) or a local drive. When you enable shared disks, you will need to format the drive with an operating system specific cile system. On Windows, you will need to use a clustered file system like Windows Server failover cluster (WSFC), that handles locking for writes from multiple hosts to prevent data corruption.
+Managed disks that have shared disks enabled offer a SAN-like block-level storage protocol, data is stored and accessed in blocks. These blocks of data are stored in Logical Unit Numbers (LUNs). LUNs are then presented to an initiator (host) from a target (storage system). To an end device like a server, these LUNs appear to be direct-attached-storage (DAS) or a local drive. When you enable shared disks, you will need to format the drive with an operating system-specific file system. On Windows, you will need to use a clustered file system like Windows Server failover cluster (WSFC), that handles locking for writes from multiple hosts to prevent data corruption.
 
 > [!NOTE]
 > This is different from Azure Files, which offers a fully-managed file service where the data lives in directories consisting of files and folders. Because Azure Files is a full-fledged file system, data is completely independent of the devices that they are connected to.
@@ -36,7 +36,7 @@ There could be a number of clustered servers, file systems, and database servers
 
 ### Windows
 
-Most Windows-based clustering builds on WSFC, which handles all core infrastructure for cluster node communication. This allows your applications to take advantage of parralel access patterns. WSFC enables both CSV and non-CSV based options depending on your version of Windows Server. For details, refer to [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Most Windows-based clustering builds on WSFC, which handles all core infrastructure for cluster node communication. This allows your applications to take advantage of parallel access patterns. WSFC enables both CSV and non-CSV-based options depending on your version of Windows Server. For details, refer to [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
 Some popular applications running on WSFC include:
 
@@ -59,12 +59,12 @@ The following diagram illustrates a sample 2-node clustered database application
 
 The flow is as follows:
 
-- The clsutered application running on both Azure VM1 and VM2 registers the intent to read or write to the disk.
+- The clustered application running on both Azure VM1 and VM2 registers the intent to read or write to the disk.
 - The application instance on VM1 then takes exclusive reservation to write to the disk.
 - This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 will not succeed.
-- If the application instance on VM1 goes down, the instance on VM2 can now initiate an database vailover and take-over of the disk (simple or hostile).
+- If the application instance on VM1 goes down, the instance on VM2 can now initiate a database failover and take-over of the disk (simple or hostile).
 - This reservation is now enforced on the Azure disk and the disk will no longer accept writes from the application on VM1. It will only accept writes from the application on VM2.
-- The clsutered application can complete the database failover and serve requests from VM2.
+- The clustered application can complete the database failover and serve requests from VM2.
 
 The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from the disk for running parallel processes, such as training of ML models.
 
@@ -72,8 +72,8 @@ The following diagram illustrates another common clustered workload consisting o
 
 The flow is as follows:
 
-- The clsutered application running on all VMs registeres the intent to read or write to the disk.
-- The application instance on VM1 takes an exclusive reservation to write to the disk while opening up reads to teh disk from other VMs.
+- The clustered application running on all VMs registers the intent to read or write to the disk.
+- The application instance on VM1 takes an exclusive reservation to write to the disk while opening up reads to the disk from other VMs.
 - This reservation is enforced on your Azure disk.
 - All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
 
@@ -127,7 +127,7 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
 ### Using Azure shared disks with your VMs
 
-Once you ahve deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
+Once you have deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 ```azurepowershell-interactive
 $vm = New-AzVm -ResourceGroupName "mySharedDiskRG" -Name "myVM" -Location "WestCentralUS" -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" 
@@ -181,7 +181,7 @@ If any commands you expect to be in the list are missing, contact us at SharedDi
 
 ## Disk sizes
 
-For now, only premium SSDs can enable shared disks. The disk sizes which support this feature are P15 and greater. For each disk you can define a maxShares value which represents the maximum number of nodes you expect will share the disk. For example, if you plan to setup a 2-node failover cluster, you can set maxShares=2. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specificed `maxShares` value.
+For now, only premium SSDs can enable shared disks. The disk sizes that support this feature are P15 and greater. For each disk, you can define a maxShares value that represents the maximum number of nodes you expect will share the disk. For example, if you plan to set up a 2-node failover cluster, you can set maxShares=2. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specified `maxShares` value.
 
 > [!NOTE]
 > The maxShares value can only be set or edited when the disk is detached from all nodes.
