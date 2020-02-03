@@ -90,6 +90,9 @@ There are multiple ways to create a workspace:
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](tutorial-setup-vscode-extension.md).
 
+> [!NOTE]
+> The workspace name is case-insensitive.
+
 ## <a name="upgrade"></a> Upgrade to Enterprise edition
 
 You can [upgrade your workspace from Basic to Enterprise edition](how-to-manage-workspace.md#upgrade) using Azure portal. You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
