@@ -259,7 +259,7 @@
   - name: Monitor and Alerts
     items:
     - name: Using Backup Explorer
-      href: backup-azure-monitor-with-backup-explorer.md
+      href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor

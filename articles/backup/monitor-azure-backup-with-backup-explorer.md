@@ -3,7 +3,7 @@ title: Monitor your backups with Backup Explorer
 description: An article describing how to use Backup Explorer to perform real-time monitoring of backups across vaults, subscriptions, regions and tenants
 ms.reviewer: dcurwin
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 02/03/2020
 ---
 
 # Monitor your backups with Backup Explorer
@@ -23,7 +23,7 @@ The above capabilities are provided out-of-the-box by native integration with Az
 > * The Backup Explorer is meant to be an operational dashboard for viewing information about your backups over the last 7 days (maximum).
 > * Currently, customizing of Backup Explorer template is not supported. Also, we currently do not recommend writing custom automations on Azure Resource Graph data.
 
-## Getting Started
+## Getting started
 
 You can access the Backup Explorer by navigating to any of your Recovery Services Vaults and clicking on the **Backup Explorer** link in the **Overview** page.
 
