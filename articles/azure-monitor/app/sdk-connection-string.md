@@ -11,7 +11,7 @@ ms.date: 01/17/2020
 ms.reviewer: mbullwin
 ---
 
-# Connection Strings
+# Connection strings
 
 ## Overview
 
