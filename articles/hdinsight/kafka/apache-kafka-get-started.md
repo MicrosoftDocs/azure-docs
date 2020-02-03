@@ -68,7 +68,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     |Primary storage account|Use the drop-down list to select an existing storage account, or select **Create new**. If you create a new account, the name must be between 3 and 24 characters in length, and can include numbers and lowercase letters only|
     |Container|Use the autopopulated value.|
 
-    ![HDInsight Linux get started provide cluster storage values](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Provide storage values for creating an HDInsight cluster")
+    ![HDInsight Linux get started provide cluster storage values](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Provide storage values for creating an HDInsight cluster")
 
     Select the **Security + networking** tab.
 
