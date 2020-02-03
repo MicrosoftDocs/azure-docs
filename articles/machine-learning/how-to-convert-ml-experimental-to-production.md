@@ -58,7 +58,7 @@ joblib.dump(value=reg, filename=model_name)
 
 ## Refactor code into functions
 
-Second, the Jupyter code needs to be refactored into functions. Refactoring code into function makes unit testing easier and makes the code more maintainable. In this section, you'll refactor:
+Second, the Jupyter code needs to be refactored into functions. Refactoring code into functions makes unit testing easier and makes the code more maintainable. In this section, you'll refactor:
 - The Diabetes Ridge Regression Training Notebook(`experimentation/Diabetes Ridge Regression Training.ipynb`)
 - The Diabetes Ridge Regression Scoring Notebook(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
@@ -193,7 +193,7 @@ def run(raw_data, request_headers):
     return {"result": result.tolist()}
 ```
 
-Once the `run` function has been created, replace all the code under the “Prepare Data” and “Score Data” headings with following code:
+Once the `run` function has been created, replace all the code under the “Prepare Data” and “Score Data” headings with the following code:
 
 ```python
 raw_data = '{"data":[[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}'
@@ -278,7 +278,7 @@ def main():
 main()
 ```
 
-The `train.py` file found in the `diabetes_regression/training directory` in the MLOpsPython repository supports command-line arguments (namely `build_id`, `model_name`, and `alpha`). Support for command-line arguments can be added to your `train.py` file to support dynamic model names and `alpha` values, but it's not necessary for the code to execute successfully.
+The `train.py` file found in the `diabetes_regression/training` directory in the MLOpsPython repository supports command-line arguments (namely `build_id`, `model_name`, and `alpha`). Support for command-line arguments can be added to your `train.py` file to support dynamic model names and `alpha` values, but it's not necessary for the code to execute successfully.
 
 ### Create Python file for the Diabetes Ridge Regression Scoring Notebook
 Covert your notebook to an executable script by running the following statement in a command prompt that which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
@@ -379,16 +379,16 @@ If you have been following the steps in this guide, you'll have a set of scripts
 Following the getting started guide is necessary to have the supporting infrastructure and pipelines to execute MLOpsPython.  We recommended deploying the MLOpsPython code as-is before putting in your own code to ensure the structure and pipeline is working properly.  It's also useful to familiarize yourself with the code structure of the repository.
 
 ### Replace Training Code
-Replacing the code use to train the model and removing or replacing corresponding unit tests is required for the solution to function with your own code.  Follow these steps specifically:
+Replacing the code used to train the model and removing or replacing corresponding unit tests is required for the solution to function with your own code.  Follow these steps specifically:
 
-- Replace `code\training\train.py`. This script trains your model locally or on the Azure ML compute.
+- Replace `diabetes_regression\training\train.py`. This script trains your model locally or on the Azure ML compute.
 - Remove or replace training unit tests found in `tests/unit/code_test.py`
 
 ### Replace Score Code
-For the model to provide real-time inference capabilities, the score code needs to be replaced. The MLOpsPython template uses the score code to deploy the model to do real-time scoring on ACI, AKS, or Web apps.  If you want to keep scoring, replace `code/scoring/score.py`.
+For the model to provide real-time inference capabilities, the score code needs to be replaced. The MLOpsPython template uses the score code to deploy the model to do real-time scoring on ACI, AKS, or Web apps.  If you want to keep scoring, replace `diabetes_regression/scoring/score.py`.
 
 ### Update Evaluation Code
-The MLOpsPython template uses the evaluate_model script to compare the performance of the newly trained model and the current production model based on Mean Squared Error. If the performance of the newly trained model is better than the current production model, then the pipelines continue. Otherwise, the pipelines are stopped. To keep evaluation, replace all instances of `mse` in `code/evaluate/evaluate_model.py` with the metric that you want. 
+The MLOpsPython template uses the evaluate_model script to compare the performance of the newly trained model and the current production model based on Mean Squared Error. If the performance of the newly trained model is better than the current production model, then the pipelines continue. Otherwise, the pipelines are stopped. To keep evaluation, replace all instances of `mse` in `diabetes_regression/evaluate/evaluate_model.py` with the metric that you want. 
 
 To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `.pipelines\diabetes_regression-variables` to false.
 
@@ -398,5 +398,4 @@ Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
 > [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
 > [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
-> [Data Ingestion Overview](https://docs.microsoft.com/azure/machine-learning/overview-data-ingestion)
 > [DevOps for a Data Ingestion Pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion
