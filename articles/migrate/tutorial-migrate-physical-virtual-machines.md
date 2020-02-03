@@ -166,7 +166,7 @@ The first step of migration is to set up the replication appliance. You  downloa
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project > **Servers**, in ***Azure Migrate: Server Migration**, click **Discover**.
+1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
 
     ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -257,8 +257,7 @@ Now, select machines for migration.
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
-4. In **vCenter server**, specify the name of the vCenter server managing the VMs, or the vSphere server on which the VMs are hosted.
-5. In **Process Server**, select the name of the replication appliance.
+4. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, you specify a VM admin account that will be used for push installation of the Mobility service. In this tutorial we're installing the Mobility service manually, so you can add any dummy account. Then click **Next: Virtual machines**.
 
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
