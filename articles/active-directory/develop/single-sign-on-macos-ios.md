@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 02/03/2020
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
@@ -67,9 +67,9 @@ For the Microsoft identity platform to know which applications can share tokens,
 
 The way the Microsoft identity platform tells apps that use the same Application ID apart is by their **Redirect URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. For example:
 
-App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`
-App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
-App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
+App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`  
+App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`  
+App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -204,6 +204,16 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
+
+## Add a new keychain group
+
+Add a new keychain group to your project **Capabilities**. The keychain group should be:
+* `com.microsoft.adalcache` on iOS 
+* `com.microsoft.identity.universalstorage` on macOS.
+
+![](media/single-sign-on-macos-ios/keychain_example.png)
+
+For more information, see [keychain groups](howto-v2-keychain-objc.md).
     
 ## Next steps
 
