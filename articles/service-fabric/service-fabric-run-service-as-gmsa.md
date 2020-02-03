@@ -60,7 +60,7 @@ Pre-requisites:
 > If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy**.  For more information, see [Assign a security access policy for HTTP and HTTPS endpoints](service-fabric-assign-policy-to-endpoint.md).
 >
 
-## Next steps
+The following articles will guide you through next steps:
 
 - [Understand the application model](service-fabric-application-model.md)
 - [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
