@@ -39,7 +39,7 @@ In order to make a connection, the following roles are required:
 
 ### Ports
 
-In order to connect to the Linux VM via SSH, you must have the following ports open:
+In order to connect to the Linux VM via SSH, you must have the following ports open on your VM:
 
 * Inbound port: SSH (22)
 
