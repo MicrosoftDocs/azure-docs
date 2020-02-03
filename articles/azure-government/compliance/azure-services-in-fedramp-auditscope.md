@@ -228,7 +228,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Cognitive Services: Translator Text](https://azure.microsoft.com/services/cognitive-services/speech-translation/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [D365 Integrator App](https://docs.microsoft.com/power-platform/admin/data-integrator) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Dynamics 365 Service Omni-Channel Engagement Hub](https://docs.microsoft.com/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Dynamics 365 Forms Pro](https://docs.microsoft.com/en-us/forms-pro/get-started) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Dynamics 365 Forms Pro](https://docs.microsoft.com/forms-pro/get-started) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Flow](https://docs.microsoft.com/flow/getting-started) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
