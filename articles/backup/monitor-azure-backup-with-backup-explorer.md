@@ -19,7 +19,7 @@ The Backup Explorer Workbook is a built-in Azure Monitor Workbook enabling Backu
 The above capabilities are provided out-of-the-box by native integration with Azure Resource Graph and Azure Monitor Workbooks.
 
 > [!NOTE]
-> * The Backup Explorer is currently available only for Azure VM data. Support for other workload types will be added soon.
+> * The Backup Explorer is currently available only for Azure VM data.
 > * The Backup Explorer is meant to be an operational dashboard for viewing information about your backups over the last 7 days (maximum).
 > * Currently, customizing of Backup Explorer template is not supported. Also, we currently do not recommend writing custom automations on Azure Resource Graph data.
 
