@@ -58,7 +58,7 @@
       href: sdk/concepts-meshes.md
     - name: Textures
       href: sdk/concepts-textures.md
-    - name: Spatial bounds
+    - name: Object bounds
       href: sdk/concepts-spatial-bounds.md
     - name: Graphics bindings
       href: sdk/concepts-graphics-binding.md
