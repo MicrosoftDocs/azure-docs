@@ -190,10 +190,10 @@ Given the calculation above the minimum size of the subnet, in which API Managem
 
 ## <a name="control-plane-ips"> </a> Control Plane IP Addresses
 
-The IP Addresses are divided by Azure Environment. When allowing inbound requests IP address marked with **Global** must be whitelisted along with the Region specific IP Address.
+The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be whitelisted along with the **Region** specific IP Address.
 
-| **Azure Environment** | **Region**                    | **IP Address**      |
-|-------------------|---------------------------|-----------------|
+| **Azure Environment** |         **Region**        |  **IP Address** |
+|:-----------------:|:-------------------------:|:---------------:|
 | Azure Public      | South Central US (Global) | 104.214.19.224  |
 | Azure Public      | North Central US (Global) | 52.162.110.80   |
 | Azure Public      | West Central US           | 52.253.135.58   |
