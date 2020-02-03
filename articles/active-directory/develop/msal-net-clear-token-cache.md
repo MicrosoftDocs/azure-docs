@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how how to clear the token cache so I can .
-ms.collection: M365-identity-device-management
 ---
 
 # Clear the token cache using MSAL.NET

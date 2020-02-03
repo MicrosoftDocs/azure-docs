@@ -343,7 +343,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-If there is no IPsec/IKE policy configured, the command (PS> $connection6.policy) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
+If there is no IPsec/IKE policy configured, the command (PS> $connection6.IpsecPolicies) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
 
 #### 2. Add or update an IPsec/IKE policy for a connection
 

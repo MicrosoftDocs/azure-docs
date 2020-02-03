@@ -158,7 +158,7 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
     | Subnet | Select *mySubnet*. |
     |**PRIVATE DNS INTEGRATION**||
     |Integrate with private DNS zone |Select **Yes**. |
-    |Private DNS Zone |Select *(New)privatelink.database.azure.com* |
+    |Private DNS Zone |Select *(New)privatelink.postgres.database.azure.com* |
     |||
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
@@ -196,14 +196,14 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup mydemopostgresserver.database.azure.com`. 
+2. Enter `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
+    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
@@ -213,7 +213,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.postgres.privatelink.database.azure.com* |
+    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
     |Password |Enter a password provided during the PostgreSQL server creation. |
     |SSL|Select **Required**.|

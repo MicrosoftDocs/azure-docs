@@ -19,7 +19,7 @@ A common challenge when building cloud applications is credentials management in
 
 The Azure Active Directory (Azure AD) managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. For more information about this service, see [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) overview page.
 
-## Data Encryption
+## Data encryption
 
 ### Azure Disk Encryption
 

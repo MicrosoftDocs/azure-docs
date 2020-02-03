@@ -1,11 +1,11 @@
 ---
 title:  az spring cloud
 description: Manage Azure Spring Cloud using the Azure CLI
-author:  jpconnock
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 
 # az spring-cloud

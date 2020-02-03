@@ -15,10 +15,10 @@ Start using the Text Analytics API with one of the options below.
     * This is a great option if you want to try the Text Analytics API, but don’t have an Azure subscription.
     
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">Create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    * Available through the Azure portal until you delete the resource.
+    * Available until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
      
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a resource for multiple services" target="_blank">Create a Multi-Service resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    * Available through the Azure portal until you delete the resource.  
-    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
+    * Available until you delete the resource.  
+    * Use the same key and endpoint to access multiple Cognitive Services.
     

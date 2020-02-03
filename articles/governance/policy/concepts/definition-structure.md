@@ -218,6 +218,12 @@ You use **displayName** and **description** to identify the policy definition an
 for when it's used. **displayName** has a maximum length of _128_ characters and **description**
 a maximum length of _512_ characters.
 
+> [!NOTE]
+> During the creation or updating of a policy definition, **id**, **type**, and **name** are defined
+> by properties external to the JSON and aren't necessary in the JSON file. Fetching the policy
+> definition via SDK returns the **id**, **type**, and **name** properties as part of the JSON, but
+> each are read-only information related to the policy definition.
+
 ## Policy rule
 
 The policy rule consists of **If** and **Then** blocks. In the **If** block, you define one or more
@@ -880,10 +886,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 

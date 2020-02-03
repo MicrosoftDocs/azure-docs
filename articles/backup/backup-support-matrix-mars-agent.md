@@ -99,6 +99,8 @@ For more information, see [Supported MABS and DPM operating systems](backup-supp
 
 ## Backup limits
 
+### Size limits
+
 Azure Backup limits the size of a file or folder data source that can be backed up. The items that you back up from a single volume can't exceed the sizes summarized in this table:
 
 **Operating system** | **Size limit**
@@ -108,6 +110,10 @@ Windows Server 2008 R2 SP1 |1,700 GB
 Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
+
+### Other limitations
+
+- MARS does not support protection of multiple machines with the same name to a single vault.
 
 ## Supported file types for backup
 

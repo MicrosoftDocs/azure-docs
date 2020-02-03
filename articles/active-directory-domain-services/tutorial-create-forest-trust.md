@@ -43,7 +43,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Make sure that you create an Azure AD DS managed domain using a *resource* forest. The default option creates a *user* forest. Only resource forests can create trusts to on-prem AD DS environments.
+    > Make sure that you create an Azure AD DS managed domain using a *resource* forest. The default option creates a *user* forest. Only resource forests can create trusts to on-prem AD DS environments. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for an Azure AD DS managed domain][howto-change-sku].
 
 ## Sign in to the Azure portal
 
@@ -218,3 +218,4 @@ For more conceptual information about forest types in Azure AD DS, see [What are
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md
