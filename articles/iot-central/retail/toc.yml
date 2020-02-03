@@ -26,6 +26,10 @@
     items:    
     - name: Create a digital distribution center application
       href: tutorial-iot-central-digital-distribution-center-pnp.md 
+  - name : Micro-fulfillment center 
+    items:    
+    - name: Create a micro-fulfillment  center application
+      href: tutorial-micro-fulfillment-center-pnp.md 
         
 - name: Concepts
   items:
