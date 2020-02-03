@@ -72,7 +72,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
 This article demonstrates individual enrollments.
 
