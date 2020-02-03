@@ -56,7 +56,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
    ![Register a new application 3][api-management-howto-aad-b2c-app-details]
 
-1. If you're using the new developer portal (not the legacy developer portal), include the **Given Name**, **Surname**, and **User's Object Id** in the application claims.
+1. If you're using the new developer portal (not the legacy developer portal), include the **Given Name**, **Surname**, and **User's Object ID** in the application claims.
 
     ![Application claims](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 
@@ -88,11 +88,11 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 ## Developer portal - add Azure AD B2C account authentication
 
-In the developer portal, sign-in with AAD B2C is possible with the **OAuth buttons** widget. The widget is already included on the sign-in page of the default developer portal content.
-
-![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
+In the developer portal, sign-in with AAD B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
 Although a new account will be automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget to the sign-up page.
+
+The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
 > [!IMPORTANT]
 > You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the AAD changes to take effect.
