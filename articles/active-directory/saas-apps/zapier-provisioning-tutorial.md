@@ -120,24 +120,24 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to Zapier in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zapier for update operations. Select the **Save** button to commit any changes.
 
-   |Variable|Type|
-   |---|---|
-   |displayName|String|
-   |members|Reference|
+    |Variable|Type|
+    |---|---|
+    |displayName|String|
+    |members|Reference|
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Zapier, change the **Provisioning Status** to **On** in the **Settings** section.
 
-   ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
 14. Define the users and/or groups that you would like to provision to Zapier by choosing the desired values in **Scope** in the **Settings** section.
 
-   ![Provisioning Scope](common/provisioning-scope.png)
+    ![Provisioning Scope](common/provisioning-scope.png)
 
 15. When you are ready to provision, click **Save**.
 
-   ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
