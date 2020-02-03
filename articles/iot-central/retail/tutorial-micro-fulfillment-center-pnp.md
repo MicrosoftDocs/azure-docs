@@ -62,7 +62,7 @@ To create a new micro-fulfillment center application that uses preview features:
 
 ### Dashboard 
 
-After successfully deploying the app template, you will first land on the **Northwind Traders micro-fulfillment center dashboard**. Northwind Trader's is a fictitious retailer that has a micro-fulfillment center being managed in this IoT Central application. On this operator dashboard, you will see information and telemetry about the devices in this template along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two section (left and right). On the left, you have the ability to monitor the environmental conditions within the fulfillment structure and on the right, you can monitor the health of a robotic carrier within the facility.  
+After successfully deploying the app template, you will first land on the **Northwind Traders micro-fulfillment center dashboard**. Northwind Trader's is a fictitious retailer that has a micro-fulfillment center being managed in this IoT Central application. On this operator dashboard, you will see information and telemetry about the devices in this template along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections (left and right). On the left, you have the ability to monitor the environmental conditions within the fulfillment structure and on the right, you can monitor the health of a robotic carrier within the facility.  
 
 From the dashboard you can:
    * See device telemetry such as # of picks, # of orders processed, and properties such as the structure system status, etc.  
@@ -71,7 +71,7 @@ From the dashboard you can:
 
 > [!div class="mx-imgBorder"]
 > ![Micro-fulfillment Center Dashboard](./media/tutorial-micro-fulfillment-center-app-pnp/mfc-dashboard1.png)
-   * See an example of the dashboard that an operator can leverage to monitor the conditions within the fulfilment center. 
+   * See an example of the dashboard that an operator can leverage to monitor the conditions within the fulfillment center. 
    * Monitor the health of the payloads running on the gateway device within the fulfillment center.    
 
 > [!div class="mx-imgBorder"]
@@ -79,7 +79,7 @@ From the dashboard you can:
 
 ## Device Template
 If you click on the Device templates tab, you will see that there are two different device types that are part of the template: 
-   * **Robotic Carrier**: This device template represents the definition for a functioning robotic carrier that has been deployed in the fulfillment structure and is performing appropriate storage and retrieval operations. If you click on teh template, you'll see that the robot is sending device data such as temperature, axis position and properties like robotic carrier status, etc. 
+   * **Robotic Carrier**: This device template represents the definition for a functioning robotic carrier that has been deployed in the fulfillment structure and is performing appropriate storage and retrieval operations. If you click on the template, you'll see that the robot is sending device data such as temperature, axis position and properties like robotic carrier status, etc. 
    * **Structure Condition Monitoring**: This device template represents a device collection that allows you to monitor environment condition as well as the gateway device hosting various edge workloads to power your fulfillment center. The device sends telemetry data such as the temperature, # of picks, # of orders, etc. in addition to state and health of the compute workloads running in your environment. 
 
 > [!div class="mx-imgBorder"]
@@ -90,7 +90,7 @@ If you click on the Device groups tab you will also see that these device templa
 ## Rules
 When jumping to the rules tab, you will see a sample rule that exists in the application template to monitor the temperature conditions for the robotic carrier. You could use this rule to alert the operator if a specific robot in the facility is overheating and needs to be taken offline for servicing. 
 
-Please leverage the sample rule as inspiration to define rules that are more appropriate for your business functions. .
+Please leverage the sample rule as inspiration to define rules that are more appropriate for your business functions.
 
    - **Robotic carrier too warm**: This rule will trigger if the robotic carrier reaches a temperature threshold over a period of time. 
 
