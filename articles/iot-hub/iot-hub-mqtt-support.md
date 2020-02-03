@@ -28,6 +28,24 @@ A device can use the MQTT protocol to connect to an IoT hub using any of the fol
 * Libraries in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 * The MQTT protocol directly.
 
+MQTT protocol uses port 8883. This port is blocked in many corporate and educational networking environments. If you can't open port 8883 in your firewall, we recommend using MQTT over Web Sockets. MQTT over Web Sockets communicates over port 443, which is almost always open in networking environments. When using the Azure IoT SDKs, you typically specify the transport or protocol type in the call to create a client as in the following examples.
+
+```csharp
+private static TransportType s_transportType = TransportType.Mqtt_WebSocket_Only;
+DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(s_deviceConnectionString, s_transportType);
+```
+
+```node.js
+var Client = require('azure-iot-device').Client;
+var Protocol = require('azure-iot-device-mqtt').MqttWs;
+var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+```
+
+```python
+from azure.iot.device.aio import IoTHubDeviceClient
+device_client = IoTHubDeviceClient.create_from_connection_string(conn_str, websockets=True)
+```
+
 ## Using the device SDKs
 
 [Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
