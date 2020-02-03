@@ -26,6 +26,7 @@ Spring Boot version | Spring Cloud version
 ---|---
 2.0 | Finchley.RELEASE
 2.1 | Greenwich.RELEASE
+2.2 | Hoxton.RELEASE
 
 Verify that your pom.xml file has the correct Spring Boot and Spring Cloud dependencies based on your Spring Boot version.
 
@@ -87,6 +88,7 @@ Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 ---|---|---
 2.0 | Finchley.RELEASE | 2.0
 2.1 | Greenwich.RELEASE | 2.1
+2.2 | Hoxton.RELEASE | 2.2
 
 Include one of the following dependencies in your pom.xml file. Select the dependency whose Azure Spring Cloud version matches your own.
 
