@@ -15,7 +15,7 @@ This topic shows you how to effectively use [Azure Monitor](../../azure-monitor/
 
 In order to collect data, you’ll need to create Log Analytics workspaces. These Log Analytics workspaces are unique environments for Azure Monitor log data. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace.
 
-We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. This also allows for centralized monitoring of any resources or services supported by log analytics, giving you more flexibility on what types of data you monitor.
+We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. This also allows for centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
 
 You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
 
@@ -25,7 +25,7 @@ Once you’ve created your Log Analytics workspaces, you can deploy [Azure Polic
 
 To learn more about creating policies, see [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md). This [community tool](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) provides a script to help you create policies to monitor the specific resource types that you choose.
 
-Once you have determined which policies to deploy, you can deploy them to your delegated subscriptions at scale.
+After you have determined which policies to deploy, you can [deploy them to your delegated subscriptions at scale](policy-at-scale.md).
 
 ## Analyze the gathered data
 
