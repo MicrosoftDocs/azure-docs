@@ -62,9 +62,10 @@ This template includes sample connected waste bin device template, simulated dev
 5. Click **Create** button at the bottom of the page. 
 
     ![Azure IoT Central Create Connected Waste Application page](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    
+    ![Azure IoT Central Create Connected Billing info](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
-     ![Azure IoT Central Create Connected Billing info](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
-
+ 
 6. You now have created a connected waste management app using the Azure IoT Central **Connected waste management template**. 
 
 Congratulations! Your newly created application comes with pre-configured:

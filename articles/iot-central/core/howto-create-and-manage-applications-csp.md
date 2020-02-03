@@ -41,6 +41,8 @@ To create an Azure IoT Central application, select **Build** in the left menu. C
 
 You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
+You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+
 ## Application name
 
 The name of your application is displayed on the **Application Manager** page and within each Azure IoT Central application. You can choose any name for your Azure IoT Central application. Choose a name that makes sense to you and to others in your organization.

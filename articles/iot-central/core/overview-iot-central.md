@@ -97,6 +97,13 @@ As a solution builder, you can also customize the IoT Central application UI for
 - Configuring custom dashboards to help operators discover insights and resolve issues faster.
 - Configuring custom analytics to explore time series data from your connected devices.
 
+## Pricing
+
+You can create IoT Central application using a 7-day free trial, or use a standard pricing plan.
+
+- Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
+- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
+
 ## Connect your devices
 
 Azure IoT Central uses the [Azure IoT Hub Device Provisioning service (DPS)](../../iot-dps/about-iot-dps.md) to manage all device registration and connection.
