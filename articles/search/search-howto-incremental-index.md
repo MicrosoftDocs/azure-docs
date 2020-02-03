@@ -44,7 +44,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 Copy the indexer definition from the response.
 
-### Step 2: Modfiy the cache property in the indexer definition
+### Step 2: Modify the cache property in the indexer definition
 
 By default the `cache` property is null. Use an API client to set the cache configuration (the portal does not support this particulate update). 
 

@@ -16,8 +16,8 @@ This article lists features currently in preview. Features that transition from 
 
 While some preview features might be available in the portal and .NET SDK, the REST API always has preview features. 
 
-+ For search operations, the current preview API version is [`2019-05-06-Preview`](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
-+ For management operations, the current preview version is [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview).
++ For search operations, the current preview API version is [`2019-05-06-Preview`](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview)
++ For management operations, the current preview version is [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)
 
 > [!IMPORTANT]
 > Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -26,7 +26,7 @@ While some preview features might be available in the portal and .NET SDK, the R
 
 Explore the latest enhancements to AI enrichment through the [preview Search API](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
 
-+ [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md ) looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. 
++ [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md ) is a cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. 
 
 + [PII Detection skill (preview)](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
 
@@ -46,8 +46,7 @@ Indexer preview features are available in preview Search API.
 
 ## Management features
 
-+ [Create a search service using Private Endpoint (preview)](service-create-private-endpoint.md) in [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)
-to restrict access to the endpoint itself. 
++ [Create a search service using Private Endpoint (preview)](service-create-private-endpoint.md) in [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) of the Management REST API. You can create a service that has restrictions on how its endpoint is accessed.
 
 ## Earlier preview features
 
