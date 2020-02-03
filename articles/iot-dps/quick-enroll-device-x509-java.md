@@ -21,7 +21,7 @@ In this quickstart, you use Java to programmatically enroll a group of X.509 sim
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). The Java Service SDK works on both Windows and Linux. This quickstart uses Windows.
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). The [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) works on both Windows and Linux. This quickstart uses Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
