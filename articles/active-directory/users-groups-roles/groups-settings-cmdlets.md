@@ -172,9 +172,9 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update AllowAddGuests setting
+4. Then update AllowToAddGuests setting
    ```powershell
-   $Setting["AllowAddGuests"] = $False
+   $Setting["AllowToAddGuests"] = $False
    ```  
 5. Then apply the setting:
   
@@ -228,7 +228,7 @@ These steps read settings at directory level, which apply to all Office groups i
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowAddGuests              True
+   AllowToAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -265,7 +265,7 @@ This step removes settings at directory level, which apply to all Office groups 
 
 4. Set the setting to the required value:
    ```powershell
-   $SettingCopy["AllowAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Get the ID of the group you want to apply this setting to:
    ```powershell
@@ -291,7 +291,7 @@ This step removes settings at directory level, which apply to all Office groups 
    ```
 3. Update the setting of the group as you need, e.g.
    ```powershell
-   $Setting["AllowAddGuests"] = $True
+   $Setting["AllowToAddGuests"] = $True
    ```
 4. Then get the ID of the setting for this specific group:
    ```powershell
