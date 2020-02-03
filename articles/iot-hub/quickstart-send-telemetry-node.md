@@ -17,19 +17,17 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
-
-The quickstart uses two pre-written Node.js applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+ In this quickstart, you send telemetry from a simulated device application, through Azure IoT Hub, to a back-end application for processing. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Node.js applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written in Node.js. You need Node.js v10.x.x or later on your development machine. If you are using the Azure Cloud Shell, do not update the installed version of Node.js. The Azure Cloud Shell already has the latest Node.js version.
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
+* [Node.js v10+](https://nodejs.org). If you are using the Azure Cloud Shell, do not update the installed version of Node.js. The Azure Cloud Shell already has the latest Node.js version.
+
+* [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 You can verify the current version of Node.js on your development machine using the following command:
 
@@ -42,8 +40,6 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 

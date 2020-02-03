@@ -17,30 +17,31 @@ ms.author: robinsh
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. 
-
-This quickstart describes the execution of a Node.js proxy application that's running on the service side to enable Secure Shell (SSH) and Remote Desktop Protocol (RDP) traffic to be sent to the device over a device stream. For an overview of the setup, see [Local Proxy Sample](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp). 
-
-During public preview, the Node.js SDK supports device streams on the service side only. As a result, this quickstart covers instructions to run only the service-local proxy application. To run the device-local proxy application, see:  
-
-   * [Enable SSH and RDP over IoT Hub device streams by using a C proxy application](./quickstart-device-streams-proxy-c.md)
-   * [Enable SSH and RDP over IoT Hub device streams by using a C# proxy application](./quickstart-device-streams-proxy-csharp.md)
-
-This article describes the setup for SSH (by using port 22) and then describes how to modify the setup for RDP (which uses port 3389). Because device streams are application- and protocol-agnostic, you can modify the same sample to accommodate other types of client-server application traffic, usually by modifying the communication port.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (RDP) traffic to be sent to the device over a device stream. IoT Hub device streams allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart describes the execution of a Node.js proxy application that's running on the service side. During public preview, the Node.js SDK supports device streams on the service side only. As a result, this quickstart covers instructions to run only the service-local proxy application.
 
 ## Prerequisites
 
-* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
+* Completion of [Enable SSH and RDP over IoT Hub device streams by using a C proxy application](./quickstart-device-streams-proxy-c.md), or
 
-  * Central US
-  * Central US EUAP
-  * Southeast Asia
-  * North Europe
+* Completion of [Enable SSH and RDP over IoT Hub device streams by using a C# proxy application](./quickstart-device-streams-proxy-csharp.md).
+
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Node.js v10+](https://nodejs.org).
+
+* [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+
+> [!IMPORTANT]
+> The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+>
+> * Central US
+> * Central US EUAP
+> * North Europe
+> * Southeast Asia
   
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+For an overview of the setup, see [Local Proxy Sample](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 * To run the service-local application in this quickstart, you need Node.js v10.x.x or later on your development machine.
   * Download [Node.js](https://nodejs.org) for multiple platforms.
@@ -107,6 +108,8 @@ As mentioned earlier, the IoT Hub Node.js SDK supports device streams on the ser
 Before you proceed to the next step, ensure that the device-local proxy application is running.
 
 ### Run the service-local proxy application
+
+This article describes the setup for SSH (by using port 22) and then describes how to modify the setup for RDP (which uses port 3389). Because device streams are application- and protocol-agnostic, you can modify the same sample to accommodate other types of client-server application traffic, usually by modifying the communication port.
 
 With the device-local proxy application running, run the service-local proxy application that's written in Node.js by doing the following in a local terminal window:
 
