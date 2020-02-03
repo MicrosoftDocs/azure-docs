@@ -74,6 +74,14 @@ This device template includes:
 - Cloud properties that aren't stored on the device.
 - Customizations, dashboards, and forms that are part of your IoT Central application.
 
+### Pricing
+
+You can create IoT Central application using a 7-day free trial, or use a standard subscription.
+
+- Applications you create using the **free** plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
+- Applications you create using the **Standard** plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+
+
 ### Create device templates
 
 [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play, is a device capability model schema that describes device capabilities. In an IoT Central preview application, device templates use these IoT Plug and Play device capability models.
