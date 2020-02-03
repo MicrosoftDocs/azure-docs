@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ms.author: helohr
 ---
 # Scale session hosts using Azure Automation
@@ -162,6 +162,8 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 5. Run the following PowerShell script to create the Azure Logic app and execution schedule.
 
      ```powershell
+     $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
+     
      $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
 
      $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
@@ -198,7 +200,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
 
-     .\createazurelogicapp.ps1 -ResourceGroupName "Name of the resource group" `
+     .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
 
      -AADTenantID $aadTenantId `
 
