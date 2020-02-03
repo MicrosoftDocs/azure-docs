@@ -439,7 +439,7 @@
         href: app/configuration-with-applicationinsights-config.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
-      - name: Connection string
+      - name: Connection strings
         href: app/sdk-connection-string.md
       - name: Special topics
         items:
