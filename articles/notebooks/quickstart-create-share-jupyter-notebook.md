@@ -7,7 +7,7 @@ ms.date: 12/04/2018
 
 # Quickstart: Create and share a notebook in Azure Notebooks Preview
 
-In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others. Jupyter, formerly IPython, lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation.
+In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others. Jupyter lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation.
 
 ## Prerequisites
 None.
@@ -22,7 +22,7 @@ None.
 
     ![My Projects link on the top of the browser window](media/quickstarts/my-projects-link.png)
 
-1. On the **My Projects** page, select **New Project** (keyboard shortcut: n). The button may appear only as **+** if the browser window is narrow:
+1. On the **My Projects** page, select **+ New Project** (keyboard shortcut: n). The button may appear only as **+** if the browser window is narrow:
 
     ![New Project command on My Projects page](media/quickstarts/new-project-command.png)
 
@@ -35,7 +35,7 @@ None.
 
      ![New Project popup with populated details](media/quickstarts/new-project-popup.png)
 
-1. After a few moments, Azure Notebooks navigates you to the new project. Add a notebook to the project by selecting the **New** drop-down (which may appear as only **+**), then selecting **Notebook**:
+1. After a few moments, Azure Notebooks navigates you to the new project. Add a notebook to the project by selecting the **+ New** drop-down (which may appear as only **+**), then selecting **Notebook**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
