@@ -2,7 +2,7 @@
 title: "Tutorial: Language Understanding Bot C# v4"
 description: Using C#, build a chat bot integrated with language understanding (LUIS). The bot is built with the Bot Framework version 4 and the Azure Web app bot service.
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ---
 
 # Tutorial: Use a Web App Bot enabled with Language Understanding in C#
