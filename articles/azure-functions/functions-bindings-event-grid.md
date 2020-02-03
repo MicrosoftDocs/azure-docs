@@ -1,15 +1,15 @@
 ---
-title: Event Grid trigger for Azure Functions
+title: Azure Event Grid bindings for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 09/04/2018
+ms.date: 02/03/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ---
 
-# Event Grid trigger for Azure Functions
+# Azure Event Grid bindings for Azure Functions
 
 This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions. For details on how to handle Event Grid messages in an HTTP end point, read [Receive events to an HTTP endpoint](../event-grid/receive-events.md).
 
