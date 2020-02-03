@@ -47514,6 +47514,24 @@
       "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-python.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python",
       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/cognitive-services/Bing-News-Search/vs-bing-news-search-connected-service.md",
+       "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/vs-computer-vision-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/cognitive-services/Face/vs-face-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/face/",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/",
+      "redirect_document_id": false
     }
   ]
 }
