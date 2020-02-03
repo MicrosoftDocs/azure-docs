@@ -58,7 +58,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 1. If you're using the new developer portal (not the legacy developer portal), include the **Given Name**, **Surname**, and **User's Object Id** in the application claims.
 
-    ![Application claims](./media/api-management-howto-aad/api-management-application-claims.png)
+    ![Application claims](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 
 1. Click the **Create** button. When the application is created, it appears in the **Applications** blade. Click the application name to see its details.
 
