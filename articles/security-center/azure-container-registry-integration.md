@@ -29,7 +29,7 @@ When the scan completes (typically after approximately 10 minutes), findings are
 
 ## Benefits of integration
 
-Security Center identifies ACR registries in your subscription and seamlessly provides:
+Security Center identifies ARM-based ACR registries in your subscription and seamlessly provides:
 
 * **Azure-native vulnerability scanning** for all pushed Linux images. Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys. This native solution is seamlessly integrated by default.
 
