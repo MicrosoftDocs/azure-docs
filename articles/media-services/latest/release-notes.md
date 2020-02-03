@@ -33,6 +33,13 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## January 2020
+
+### Improvements in media processors
+
+- Improved support for interlaced sources in Video Analysis – such content is now de-interlaced correctly before being sent to inference engines.
+- When generating thumbnails with the “Best” mode, the encoder now searches beyond 30 seconds to select a frame that is not monochromatic.
+ 
 ## November 2019
 
 ### Live transcription Preview

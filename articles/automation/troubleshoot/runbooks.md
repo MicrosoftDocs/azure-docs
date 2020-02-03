@@ -24,7 +24,7 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
 
 2. **Investigate runbook** [error streams](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) for specific messages and compare them to the errors below.
 
-3. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available to your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot Modules](shared-resources.md#modules).
+3. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available to your Automation Account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot Modules](shared-resources.md#modules).
 
 If your Runbook is suspended or unexpectedly failed:
 
@@ -44,7 +44,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you are not using a RunAs account or the RunAs account has expired. See [Manage Azure Automation RunAs accounts](https://docs.microsoft.com/azure/automation/manage-runas-account).
+This error can occur when you are not using a Run As account or the Run As account has expired. See [Manage Azure Automation Run As accounts](https://docs.microsoft.com/azure/automation/manage-runas-account).
 
 This error has two primary causes:
 
@@ -57,7 +57,7 @@ If you receive this error after updating one AzureRM module, you should update a
 
 If you're trying to access resources in another subscription, you can follow the steps below to configure permissions.
 
-1. Go to the Automation RunAs account and copy the Application ID and thumbprint.
+1. Go to the Automation Run As account and copy the Application ID and thumbprint.
   ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
 1. Go to the subscription's Access Control where the Automation Account is NOT hosted, and add a new role assignment.
   ![Access control](../media/troubleshoot-runbooks/access-control.png)
@@ -203,7 +203,7 @@ When working with multiple subscriptions, the subscription context might be lost
 # Ensures that any credentials apply only to the execution of this runbook
 Disable-AzureRmContextAutosave –Scope Process
 
-# Connect to Azure with RunAs account
+# Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
 Add-AzureRmAccount `
@@ -238,24 +238,24 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 ### Cause
 
-This error can happen based on one the following reasons:
+This error can happen because of the following reasons:
 
-* The module containing the cmdlet isn't imported into the automation account
-* The module containing the cmdlet is imported but is out of date
+* The module containing the cmdlet isn't imported into the Automation Account.
+* The module containing the cmdlet is imported but is out of date.
 
 ### Resolution
 
 This error can be resolved by completing one of the following tasks:
 
-If the module is an Azure module, see [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md) to learn how to update your modules in your automation account.
+If the module is an Azure module, see [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md) to learn how to update your modules in your Automation Account.
 
 If it's a separate module, make sure the module in imported in your Automation Account.
 
-## <a name="job-attempted-3-times"></a>Scenario: The runbook job start was attempted three times, but it failed to start each time
+## <a name="job-attempted-3-times"></a>Scenario: The runbook job start was attempted three times, but failed to start each time
 
 ### Issue
 
-Your runbook fails with the error:
+Your runbook fails with the following error.
 
 ```error
 The job was tried three times but it failed
@@ -265,7 +265,7 @@ The job was tried three times but it failed
 
 This error occurs due to one of the following issues.
 
-* Memory Limit. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). A job may fail if it's using more than 400 MB of memory.
+* Memory Limit. A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
 
 * Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets. See [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
@@ -277,17 +277,17 @@ This error occurs due to one of the following issues.
 
 ### Resolution
 
-* Memory Limit, Network Sockets. Suggested ways work within the memory limit are to split the workload among multiple runbooks, process less data in memory, avoid writing unnecessary output from your runbooks, and consider how many checkpoints are written into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear`, to clear out variables and use `[GC]::Collect` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
+* Memory Limit, Network Sockets. Suggested ways to work within the memory limits are to split the workload among multiple runbooks, process less data in memory, avoid writing unnecessary output from your runbooks, and consider how many checkpoints are written into your PowerShell workflow runbooks. Use the clear method, such as `$myVar.clear`, to clear out variables and use `[GC]::Collect` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
 
 * Module Incompatible. Update your Azure modules by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
-* No Authentication with ADAL for Sandbox. When authenticating to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Automation RunAs account the necessary permissions to perform the tasks that the runbook automates.
+* No Authentication with ADAL for Sandbox. When authenticating to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation Account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
 
   If your runbook can't call an executable or subprocess running in an Azure sandbox, use the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid workers aren't limited by the memory and network limits that Azure sandboxes have.
 
-* Too Much Exception Data. There is a 1-MB limit on the job output stream. Ensure that your runbook encloses calls to an executable or subprocess in a try/catch block. If the operations throw an exception, have the code write the message from the exception into an Automation variable. This technique prevents the message from being written into the job output stream. 
+* Too Much Exception Data. There is a 1MB limit on the job output stream. Ensure that your runbook encloses calls to an executable or subprocess in a try/catch block. If the operations throw an exception, have the code write the message from the exception into an Automation variable. This technique prevents the message from being written into the job output stream.
 
-## <a name="sign-in-failed"></a>Scenario: Sign in to Azure Account failed
+## <a name="sign-in-failed"></a>Scenario: Sign-in to Azure Account failed
 
 ### Issue
 
@@ -346,7 +346,7 @@ To determine what's wrong, take the following steps:
    }
    ```
 
-## <a name="child-runbook-object"></a>Object reference not set to an instance of object
+## <a name="child-runbook-object"></a>Scenario: Object reference not set to an instance of an object
 
 ### Issue
 
@@ -358,7 +358,7 @@ Object reference not set to an instance of an object
 
 ### Cause
 
-There is a known issue where the Start-AzureRmAutomationRunbook does not handles the output stream correctly if it contains objects.
+There is a known issue where the Start-AzureRmAutomationRunbook does not handle the output stream correctly if it contains objects.
 
 ### Resolution
 
@@ -410,7 +410,7 @@ Any of the following three solutions fix this problem:
 * Pass the name or value that you need from the complex object instead of passing the entire object.
 * Use a PowerShell runbook instead of a PowerShell Workflow runbook.
 
-## <a name="quota-exceeded"></a>Scenario: Runbook job failed because the allocated quota exceeded
+## <a name="quota-exceeded"></a>Scenario: Runbook job fails because allocated quota exceeded
 
 ### Issue
 
@@ -428,9 +428,9 @@ This error occurs when the job execution exceeds the 500-minute free quota for y
 
 If you want to use more than 500 minutes of processing per month, you need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier by taking the following steps:
 
-1. Sign in to your Azure subscription
-2. Select the Automation account you wish to upgrade
-3. Click **Settings** > **Pricing**.
+1. Sign in to your Azure subscription.
+2. Select the Automation Account to upgrade.
+3. Click **Settings**, then **Pricing**.
 4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
 ## <a name="cmdlet-not-recognized"></a>Scenario: Cmdlet not recognized when executing a runbook
@@ -452,11 +452,11 @@ This error is caused when the PowerShell engine can't find the cmdlet you're usi
 Any of the following solutions fix the problem:
 
 * Check that you've entered the cmdlet name correctly.
-* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.
+* Make sure the cmdlet exists in your Automation Account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.
 * If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this issue by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.
 * If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module and cmdlet is installed on the machine that hosts the hybrid worker.
 
-## <a name="long-running-runbook"></a>Scenario: A long running runbook fails to complete
+## <a name="long-running-runbook"></a>Scenario: A long-running runbook fails to complete
 
 ### Issue
 
@@ -558,33 +558,33 @@ If you are running jobs using a hybrid worker instead of in Azure Automation, yo
 
 ## Runbook fails with "No permission" or some variation
 
-RunAs accounts may not have the same permissions against Azure resources as your current account. Ensure your RunAs account [has permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
+Run As accounts might not have the same permissions against Azure resources as your current account. Ensure that your Run As account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
 
 ## Runbooks were working, but suddenly stopped
 
-* If runbooks were previously executing but stopped, [ensure the RunAs account has not expired](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
-* If you are using webhooks to start runbooks, [ensure the webhook has not expired](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+* If runbooks were previously executing but stopped, ensure that the [Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) has not expired.
+* If you are using webhooks to start runbooks, ensure that a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) has not expired.
 
-## Issues Passing parameters into webhooks
+## Issues passing parameters into webhooks
 
 For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## Issues Using Az modules
+## Issues using Az modules
 
-Using Az modules and AzureRM modules in the same Automation Account is not supported. Please see [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
+Using Az modules and AzureRM modules in the same Automation Account is not supported. For more information, see [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
 
 ## Inconsistent behavior in runbooks
 
-Follow the guidance in [Runbook Execution](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) to avoid issues with concurrent jobs, resources getting created multiple times, or other timing-sensitive logic in runbooks.
+Follow the guidance in [Runbook execution](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) to avoid issues with concurrent jobs, resources getting created multiple times, or other timing-sensitive logic in runbooks.
 
-## Runbook fails with the errors: No permission, Forbidden, 403, or some variation
+## Runbook fails with the error No permission, Forbidden (403), or some variation
 
-RunAs accounts may not have the same permissions against Azure resources as your current account. Ensure your RunAs account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
+Run As accounts might not have the same permissions against Azure resources as your current account. Ensure that your Run As account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
 
 ## Runbooks were working, but suddenly stopped
 
-* If runbooks were previously executing but stopped, ensure that the RunAs account [has not expired](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
-* If you are using webhooks to start runbooks, ensure the webhook [has not expired](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+* If runbooks were previously executing but stopped, ensure that the Run As account has not expired. See [certification renewal](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* If you are using webhooks to start runbooks, ensure that the webhook [has not expired](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
 ## Passing parameters into webhooks
 
@@ -594,14 +594,14 @@ For help with passing parameters into webhooks, see [Start a runbook from a webh
 
 Using Az modules and AzureRM modules in the same Automation Account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
-## Using Self-Signed Certificates
+## Using self-signed certificates
 
-To use Self-Signed certificates, see [Creating a New Certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
+To use Self-Signed certificates, see [Creating a new certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
 ## Recommended Documents
 
-* [Starting a Runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
-* [Runbook Execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
+* [Starting a runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
 ## Next steps
 

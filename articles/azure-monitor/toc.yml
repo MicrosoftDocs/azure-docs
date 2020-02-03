@@ -14,11 +14,11 @@
     href: learn/quick-monitor-azure-resource.md
   - name: Monitor virtual machines
     items:
-    - name: Collect - Azure VMs
+    - name: Azure VMs
       href: learn/quick-collect-azurevm.md
-    - name: Collect - Linux computer
+    - name: Linux computer
       href: learn/quick-collect-linux-computer.md
-    - name: Collect - Windows computer
+    - name: Windows computer
       href: learn/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
@@ -535,23 +535,18 @@
         href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
-        - name: Overview
-          href: platform/diagnostics-extension-overview.md
-        - name: Collect logs
-          href: platform/azure-storage-iis-table.md
-        - name: Windows 
-          items:   
-          - name: Version history
-            href: platform/diagnostics-extension-schema.md
-          - name: Schema
-            href: platform/diagnostics-extension-schema-1dot3.md
-          - name: Send to Azure Storage
-            href: platform/diagnostics-extension-to-storage.md
-          - name: Send to Application Insights
-            href: platform/diagnostics-extension-to-application-insights.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Azure Monitor as custom metrics
+        - name: Windows
+          displayname: diagnostics extension
+          items:
+          - name: Overview
+            href: platform/diagnostics-extension-overview.md
+          - name: Install and configure
+            items:
+            - name: PowerShell
+              href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Resource Manager template
+              href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+          - name: Send to Azure Monitor Metrics
             items:   
             - name: Virtual Machine 
               href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
@@ -561,17 +556,28 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+          - name: Send to Event Hubs
+            href: platform/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
+            href: platform/azure-storage-iis-table.md
+          - name: Send to Azure Storage
+            href: platform/diagnostics-extension-to-storage.md
+          - name: Send to Application Insights
+            href: platform/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: platform/diagnostics-extension-schema.md
           - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
         - name: Linux
+          displayname: diagnostics extension
           items: 
-          - name: Use with VMs
-            href: ../virtual-machines/extensions/diagnostics-linux.md   
-          - name: Custom metrics with Telegraf
+          - name: Overview
+            href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+          - name: Collect metrics with Telegraf
             href: platform/collect-custom-metrics-linux-telegraf.md   
-      - name: Log Analytics agents
+      - name: Log Analytics agent
         items:
         - name: Overview
           href: platform/log-analytics-agent.md
@@ -589,6 +595,28 @@
           href: platform/agent-manage.md
         - name: Agent Health
           href: insights/solution-agenthealth.md
+        - name: Data sources
+          items:
+          - name: Overview
+            href: platform/agent-data-sources.md
+          - name: Windows events
+            href: platform/data-sources-windows-events.md
+          - name: Custom JSON data
+            href: platform/data-sources-json.md
+          - name: CollectD performance data
+            href: platform/data-sources-collectd.md
+          - name: Syslog
+            href: platform/data-sources-syslog.md
+          - name: Performance counters
+            href: platform/data-sources-performance-counters.md
+          - name: Linux application performance
+            href: platform/data-sources-linux-applications.md
+          - name: IIS logs
+            href: platform/data-sources-iis-logs.md
+          - name: Custom logs
+            href: platform/data-sources-custom-logs.md
+          - name: Custom fields
+            href: platform/custom-fields.md
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
@@ -600,28 +628,6 @@
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
           href: platform/agent-linux-troubleshoot.md
-    - name: Agent data sources
-      items:
-      - name: Overview
-        href: platform/agent-data-sources.md
-      - name: Windows events
-        href: platform/data-sources-windows-events.md
-      - name: Custom JSON data
-        href: platform/data-sources-json.md
-      - name: CollectD performance data
-        href: platform/data-sources-collectd.md
-      - name: Syslog
-        href: platform/data-sources-syslog.md
-      - name: Performance counters
-        href: platform/data-sources-performance-counters.md
-      - name: Linux application performance
-        href: platform/data-sources-linux-applications.md
-      - name: IIS logs
-        href: platform/data-sources-iis-logs.md
-      - name: Custom logs
-        href: platform/data-sources-custom-logs.md
-      - name: Custom fields
-        href: platform/custom-fields.md
     - name: Azure Monitor for VMs
       items:
       - name: Overview
@@ -660,14 +666,16 @@
         href: insights/vminsights-dependency-agent-maintenance.md
       - name: Disable monitoring
         href: insights/vminsights-optout.md
-    - name: Capacity and performance solution
-      href: insights/capacity-performance.md
-    - name: VMware Analytics solution
-      href: insights/vmware.md
-    - name: Wire Data solution
-      href: insights/wire-data.md
-    - name: Service Map solution
-      href: insights/service-map.md
+    - name: Solutions
+      items:
+      - name: Capacity and performance solution
+        href: insights/capacity-performance.md
+      - name: VMware Analytics solution
+        href: insights/vmware.md
+      - name: Wire Data solution
+        href: insights/wire-data.md
+      - name: Service Map solution
+        href: insights/service-map.md
     - name: Computer groups
       href: platform/computer-groups.md
   - name: Monitor containers
@@ -1125,6 +1133,10 @@
   items:
   - name: Service limits
     href: service-limits.md
+  - name: Diagnostics extension
+    items:
+    - name: Schema
+      href: platform/diagnostics-extension-schema-1dot3.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
