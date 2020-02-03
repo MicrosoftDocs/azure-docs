@@ -73,20 +73,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Azure AD SAML Toolkit** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings. You can retrieve settings by using the SAML Toolkit SAML Configuration page. 
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
     a. In the **Sign on URL** text box, type a URL:
-    `https://samltoolkit.azurewebsites.net/`
+    `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `https://samltoolkit.azurewebsites.net`
 
 	c. In the **Reply URL** text box, type a URL:
-    `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
