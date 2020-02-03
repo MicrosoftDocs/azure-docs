@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/17/2020
 ---
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
@@ -119,17 +119,17 @@ This table describes the timeline for what happens in the loop when the action's
 
 To handle throttling at this level, you have these options:
 
-* Create logic apps as "singleton" workers.
+* Create logic apps that handle single operations.
 
   Continuing with the example SQL Server scenario in this section, here are options for this solution:
 
-  * Put the array items into a queue and create a logic app that performs only the insert operation. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
+  * Have a logic app that puts the array items into a queue, such as a Service Bus queue, and have another a logic app that performs only the insert operation for each item in that queue. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
 
   * Create a parent logic app that calls a child or nested logic app for each action. That way, you have one parent logic app that controls the main workflow, a child logic app that iterates through the array items, and another child logic app that inserts the item.
 
 * Set up batch processing.
 
-  If the destination service supports batch operations, better to process items in groups or batches, rather than individually.
+  If the destination service supports batch operations, you can address throttling by processing items in groups or batches, rather than individually. To implement the batch processing solution, you create a "batch receiver" logic app and a "batch sender" logic app. The batch sender collects messages or items until your specified criteria is met, and then sends those messages or items in a single group. The batch receiver accepts that group and processes those messages or items. For more information, see [Batch process messages in groups](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
 * Use webhook triggers or actions, rather than the polling versions.
 
