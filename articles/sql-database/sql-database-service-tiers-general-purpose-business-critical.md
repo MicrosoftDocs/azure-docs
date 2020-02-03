@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/23/2020
+ms.date: 01/30/2020
 ---
 # Azure SQL Database service tiers
 
@@ -47,7 +47,7 @@ The following table describes the key differences between service tiers for the 
 |**In-memory OLTP** | | N/A | N/A | Available |
 |**Read-only replicas**| | 0 built-in <br> 0 - 4 using [geo-replication](sql-database-active-geo-replication.md) | 0 - 4 built-in | 1 built-in, included in price <br> 0 - 4 using [geo-replication](sql-database-active-geo-replication.md) |
 |**Pricing/billing** | Single database | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. | [vCore for each replica and used storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS not yet charged. | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. |
-|| Managed Instance | [vCore and reserved storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | N/A | [vCore and reserved storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | 
+|| Managed Instance | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged| N/A | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.| 
 |**Discount models**| | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| [Azure Hybrid Benefit](sql-database-azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
 
 For more information, see the detailed differences between the service tiers in [Single database (vCore)](sql-database-vcore-resource-limits-single-databases.md), [Single database pools (vCore)](sql-database-dtu-resource-limits-single-databases.md), [Single database (DTU)](sql-database-dtu-resource-limits-single-databases.md), [Single database pools (DTU)](sql-database-dtu-resource-limits-single-databases.md), and [Managed Instance](sql-database-managed-instance-resource-limits.md) pages.
