@@ -33,7 +33,7 @@ Here are the connectivity scenarios that are available with Private Link service
 
 ## Deployment Troubleshooting
 
-Review the information on [Disabling network policies on the private link service](https://docs.microsoft.com/en-us/azure/private-link/disable-private-link-service-network-policy) for troubleshooting cases where you are unable to select the source IP Address from the subnet of your choice for your Private Link Service.
+Review the information on [Disabling network policies on the private link service](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) for troubleshooting cases where you are unable to select the source IP Address from the subnet of your choice for your Private Link Service.
 
 Make sure that the setting **privateLinkServiceNetworkPolicies** is disabled for the subnet you are selecting the source IP Address from.
 
@@ -95,7 +95,7 @@ If you are experiencing connectivity problems with your private link setup, go o
         - If the connection makes to the backend pool as per load-balancing rules, your load balancer is operational
         - You can also review the Load Balancer Metric through Azure Monitor to see if data is flowing through load balancer
 
-2. Use [**Azure Monitor**](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to review data is flowing
+2. Use [**Azure Monitor**](https://docs.microsoft.com/azure/azure-monitor/overview) to review data is flowing
 
     a) On Private Link SErvice resource, select **Metrics**
     - Select **bytes-in** or **bytes-out**
@@ -107,6 +107,6 @@ If you are experiencing connectivity problems with your private link setup, go o
 
 ## Next steps
 
-* [Create a Private Link Service (CLI)](https://docs.microsoft.com/en-us/azure/private-link/create-private-link-service-cli)
+* [Create a Private Link Service (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
 
-* [Private Endpoint troubleshooting guide](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-connectivity-troubleshooting)
+* [Private Endpoint troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-endpoint-connectivity-troubleshooting)
