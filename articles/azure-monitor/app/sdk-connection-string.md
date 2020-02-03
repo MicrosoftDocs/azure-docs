@@ -30,7 +30,7 @@ Connection strings offer a better alternative by reducing this effort to a singl
 
 2) Sovereign or Hybrid cloud environments
 
-In disconnected private environments, users can now send data to a defined [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+Users can send data to a defined [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
 Connection strings allow you to define endpoint settings for your intranet servers or hybrid cloud settings. 
 
 ## Getting Started
