@@ -203,10 +203,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## Code samples
-
-The [sample code](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) demonstrates important aspect of uploading and indexing a video. Following the code wil give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
-
 ## See also
 
 - [Video Indexer overview](video-indexer-overview.md)
@@ -214,4 +210,6 @@ The [sample code](https://github.com/Azure-Samples/media-services-video-indexer/
 
 ## Next steps
 
-[Examine details of the output JSON](video-indexer-output-json-v2.md).
+- [Examine details of the output JSON](video-indexer-output-json-v2.md)
+- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) that demonstrates important aspect of uploading and indexing a video. Following the code wil give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
+
