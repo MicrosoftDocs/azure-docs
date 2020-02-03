@@ -205,7 +205,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ## Code samples
 
-See [Code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API).
+The [sample code](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) demonstrates important aspect of uploading and indexing a video. Following the code wil give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
 
 ## See also
 
