@@ -17,13 +17,13 @@ ms.date: 01/09/2020
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-In this quickstart, you use a direct method to control a simulated device connected to your IoT hub. IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud and ingest high volumes of device telemetry to the cloud for storage or processing. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. The quickstart uses two Python applications: a simulated device application that responds to direct methods called from a back-end application and a back-end application that calls the direct methods on the simulated device.
+In this quickstart, you use a direct method to control a simulated device connected to your IoT hub. IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud and ingest high volumes of device telemetry to the cloud for storage or processing. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. This quickstart uses two Python applications: a simulated device application that responds to direct methods called from a back-end application and a back-end application that calls the direct methods on the simulated device.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python version 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
+* [Python v3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
 * [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
 
