@@ -72,6 +72,8 @@ landingContent:
         links:  
         - text: Integrate with a CI/CD pipeline
           url: integrate-ci-cd-pipeline.md
+      - linkListType: tutorial
+        links:  
         - text: Use Key Vault references in an ASP.NET Core app
           url: use-key-vault-references-dotnet-core.md
         - text: Use Key Vault references in a Java Spring app
@@ -100,11 +102,18 @@ landingContent:
         links: 
         - text: Manage feature flags
           url: manage-feature-flags.md
+      - linkListType: reference
+        links:
+        - text: .NET Core library
+          url: https://go.microsoft.com/fwlink/?linkid=2091700
+        - text: .NET Core filter library
+          url: https://go.microsoft.com/fwlink/?linkid=2091601
+
   - title: Configuration SDKs and samples
     linkLists:
       - linkListType: sample
         links:
-        - text: Azure CLI samples
+        - text: Work with key-values in the Azure CLI
           url: cli-samples.md
       - linkListType: reference
         links:
@@ -126,11 +135,3 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2103664
         - text: REST
           url: https://go.microsoft.com/fwlink/?linkid=2078296
-  - title: Feature Management SDKs
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: .NET Core library
-          url: https://go.microsoft.com/fwlink/?linkid=2091700
-        - text: .NET Core filter library
-          url: https://go.microsoft.com/fwlink/?linkid=2091601
