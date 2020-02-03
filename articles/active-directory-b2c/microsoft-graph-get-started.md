@@ -1,7 +1,7 @@
 ---
 title: Manage Azure AD B2C resources with Microsoft Graph
 titleSuffix: Azure AD B2C
-description: An introduction to managing Azure AD B2C resources with the Microsoft Graph API.
+description: An introduction and steps for preparing to manage Azure AD B2C resources by using the Microsoft Graph API.
 services: B2C
 author: mmacy
 manager: celestedg
@@ -16,25 +16,27 @@ ms.subservice: B2C
 
 # Manage Azure AD B2C with Microsoft Graph
 
-Before your scripts and applications can interact with the [Microsoft Graph](https://docs.microsoft.com/graph/) API to manage Azure AD B2C resources, you need to create an application registration in your Azure AD B2C tenant that grants the required API permissions.
+[Microsoft Graph][ms-graph] allows you to manage many of the resources within your Azure AD B2C tenant, including customer user accounts and custom policies. By writing scripts or applications that call the [Microsoft Graph API][ms-graph-api], you can automate tenant management tasks like:
 
-You might need to migrate an existing user store to a B2C tenant. Or perhaps you want to host user registration on your own page, and create user accounts in your Azure AD B2C directory behind the scenes. If you use custom policies, you might want to include them in a CI/CD pipeline for testing and validation, or you might want to automate the provisioning of new Azure AD B2C tenants. These kinds of tasks require the ability to create, read, update, and delete Azure AD B2C resources by using a script or application instead of the Azure portal, often in an automated or otherwise unattended manner.
+* Migrate an existing user store to an Azure AD B2C tenant
+* Deploy custom policies with an Azure Pipeline in Azure DevOps, and manage custom policy keys
+* Host user registration on your own page, and create user accounts in your Azure AD B2C directory behind the scenes
+* Automate application registration
+* Obtain audit logs
 
-The following sections walk you through setting up the application registration that your management scripts and applications can use to interact with Azure AD B2C resources.
+The following sections help you prepare for using the Microsoft Graph API to automate the management of resources in your Azure AD B2C directory.
 
 ## Microsoft Graph API interaction modes
 
 There are two modes of communication you can use when working with the Microsoft Graph API to manage resources in your Azure AD B2C tenant:
 
-- **Interactive** - Appropriate for run-once tasks, you use an administrator account in the B2C tenant to perform the management tasks. This mode requires an administrator to sign in using their credentials before calling the Microsoft Graph API.
+* **Interactive** - Appropriate for run-once tasks, you use an administrator account in the B2C tenant to perform the management tasks. This mode requires an administrator to sign in using their credentials before calling the Microsoft Graph API.
 
-- **Automated**  - For scheduled or continuously run tasks, this method uses a service account that you configure with the permissions required to perform management tasks. You create the "service account" in Azure AD B2C by registering an application that your applications and scripts use for authenticating using its *Application (Client) ID* and the OAuth 2.0 client credentials grant. In this case, the application acts as itself to call the Microsoft Graph API, not the administrator user as in the previously described interactive method.
-
-Both modes are supported by an application registration that you create in Azure AD B2C.
+* **Automated** - For scheduled or continuously run tasks, this method uses a service account that you configure with the permissions required to perform management tasks. You create the "service account" in Azure AD B2C by registering an application that your applications and scripts use for authenticating using its *Application (Client) ID* and the OAuth 2.0 client credentials grant. In this case, the application acts as itself to call the Microsoft Graph API, not the administrator user as in the previously described interactive method.
 
 ## Register management application
 
-To prepare for using the Microsoft Graph API to manage resources in your B2C tenant, first create the application registration that your scripts and applications can use to access tenant resources.
+Before your scripts and applications can interact with the [Microsoft Graph API][ms-graph-api] to manage Azure AD B2C resources, you need to create an application registration in your Azure AD B2C tenant that grants the required API permissions.
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
@@ -43,8 +45,6 @@ To prepare for using the Microsoft Graph API to manage resources in your B2C ten
 Next, grant the registered application permissions to manipulate tenant resources through calls to the Microsoft Graph API.
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
-
-In addition to the **Directory.ReadWrite.All** permission, several others are commonly used by management applications:
 
 ### Create client secret
 
@@ -70,7 +70,11 @@ Your Azure AD B2C application now has the permissions required to update their p
 
 ## Next steps
 
-Now that you've registered your management application and have granted it the required permissions, learn how to:
+Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API.
 
-- [Manage users with Microsoft Graph](microsoft-graph-user-management.md)
-- [Manage tenant resources with Microsoft Graph](microsoft-graph-tenant-management.md)
+* [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
+* [Manage users with Microsoft Graph](microsoft-graph-user-management.md)
+
+<!-- LINKS -->
+[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph-api]: https://docs.microsoft.com/graph/api/overview

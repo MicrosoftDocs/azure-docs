@@ -384,9 +384,11 @@
     href: cookie-definitions.md
   - name: Error codes
     href: error-codes.md
+  - name: Microsoft Graph API operations
+    href: microsoft-graph-operations.md
   - name: Region availability & data residency
     href: data-residency.md
-  - name: Enable billing
+  - name: Billing model
     href: billing.md
   - name: Threat management
     href: threat-management.md
