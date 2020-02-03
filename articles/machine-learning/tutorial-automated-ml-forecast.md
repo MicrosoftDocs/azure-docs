@@ -135,10 +135,10 @@ Complete the setup for your automated ML experiment by specifying the machine le
         Automatic featurization| Enables preprocessing. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
         Explain best model (preview)| Automatically shows explainability on the best model created by automated ML.| Enable
         Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-        Additional forecasting settings| Settings |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
+        Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast horizon**_: length of time into the future you want to predict <br> _**Forecaste target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
         Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
         Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
-        Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
+        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
         
         Select **Save**.
 
