@@ -20,7 +20,7 @@ In Azure IoT Central, you create rules to run actions when a condition is met. R
 
 ## Prerequisites
 
-- A Pay-As-You-Go application
+- An application created using a standard pricing plan
 - An Azure account and subscription to create and manage Azure Monitor action groups
 
 ## Create action groups
