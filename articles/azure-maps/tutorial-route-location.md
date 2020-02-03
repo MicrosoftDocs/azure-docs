@@ -171,7 +171,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 
 This section shows how to use Azure Maps route service API. The route service API finds the route from a given start point to an end point. Within this service, there are APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. This service also allows users to plan routes in the future by using Azure's extensive historic traffic database. Users can see the prediction of the route durations at any chosen day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following functionalities should be added **within the map ready eventListener** to ensure that they load after the map resources are ready to be accessed.
 
-1. In the GetMap function, add the following to Javascript code.
+1. In the GetMap function, add the following to the JavaScript code.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
