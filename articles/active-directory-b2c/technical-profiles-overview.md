@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -36,6 +36,7 @@ A technical profile enables these types of scenarios:
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
 - **Application insights**
+- [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password. 
 
 ## Technical profile flow
 
