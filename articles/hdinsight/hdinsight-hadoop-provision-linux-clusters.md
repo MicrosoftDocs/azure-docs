@@ -6,9 +6,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18
+ms.date: 02/03/2020
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
