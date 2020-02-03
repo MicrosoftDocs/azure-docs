@@ -46,7 +46,7 @@
   items:
     - name: SDK concepts
       href: concepts/sdk-concepts.md
-    - name: Render mode
+    - name: Rendering modes
       href: sdk/concepts-render-mode.md
     - name: Entities
       href: sdk/concepts-entities.md
