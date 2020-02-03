@@ -37,7 +37,7 @@ Create an IoT Central application on the [Azure IoT Central application manager]
 
 | Setting | Value |
 | ------- | ----- |
-| Pricing plan | Standard |
+| Payment plan | Pay-As-You-Go |
 | Application template | In-store analytics – condition monitoring |
 | Application name | Accept the default or choose your own name |
 | URL | Accept the default or choose your own unique URL prefix |

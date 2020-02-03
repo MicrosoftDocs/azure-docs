@@ -36,7 +36,7 @@ If you don't have an existing Event Hubs/Service Bus to export to, follow these 
 2. Choose a subscription. 
 
     > [!Note] 
-    > You can now export data to other subscriptions that are not the same as the one for your standard IoT Central application. You will connect using a connection string in this case.
+    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 3. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
 
 ### Create Service Bus namespace
@@ -45,7 +45,7 @@ If you don't have an existing Event Hubs/Service Bus to export to, follow these 
 2. Choose a subscription. 
 
     > [!Note] 
-    > You can now export data to other subscriptions that are not the same as the one for your standard IoT Central application. You will connect using a connection string in this case.
+    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 
 3. Go to your Service Bus namespace, and select **+ Queue** or **+ Topic** at the top to create a queue or topic to export to.
 

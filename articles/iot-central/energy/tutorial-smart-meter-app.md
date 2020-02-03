@@ -46,9 +46,8 @@ You can create this application in three simple steps:
     * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don’t have an Azure subscription, start with free trial.
     * **Billing Info**: The application itself is free. The Directory, Azure subscription, and Region details are required to provision the resources for your app.
     * Click **Create** button at the bottom of the page and your app will be created in a minute or so.     
-         ![New application form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
-
-         ![New application form billing info](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
+        > [!div class="mx-imgBorder"]
+        > ![New application form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
 
 ### Verify the application and simulated data

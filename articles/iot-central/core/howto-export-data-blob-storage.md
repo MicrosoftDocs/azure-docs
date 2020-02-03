@@ -37,7 +37,7 @@ If you don't have an existing Storage to export to, follow these steps:
     > If you choose to export data to an ADLS v2 storage account, you must choose **Account Kind** as **BlobStorage**. 
 
     > [!Note] 
-    > You can export data to storage accounts in subscriptions different than the one for your IoT Central application. You will connect using a connection string in this case.
+    > You can export data to storage accounts in subscriptions different than the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 
 2. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 

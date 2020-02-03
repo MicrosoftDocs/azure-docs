@@ -35,11 +35,9 @@ To create an Azure IoT Central application, select **Build** in the left menu. C
 
 ![Create Application Page for CSPs](media/howto-create-application-csp/image4-1.png)
 
-![Create Application Page for CSPs Billing Info](media/howto-create-application-csp/image4-2.png)
+## Payment plan
 
-## Pricing plan
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+You can only create Pay-As-You-Go applications as a CSP. To showcase Azure IoT Central to your customer, you can create a trial application separately. Learn more about Trial and Pay-As-You-Go applications on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## Application Name
 

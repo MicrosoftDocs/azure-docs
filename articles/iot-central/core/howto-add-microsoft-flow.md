@@ -27,7 +27,7 @@ Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplate
 
 ## Prerequisites
 
-- An application created using a standard pricing plan
+- A Pay-As-You-Go application
 - A Microsoft personal or work or school account to use Microsoft Flow ([learn more about Microsoft Flow plans](https://aka.ms/microsoftflowplans))
 - A work or school account to use the Azure IoT Central connector
 
