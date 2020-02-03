@@ -35,7 +35,7 @@ To create an Azure IoT Central application, select **Build** in the left menu. C
 
 ![Create Application Page for CSPs](media/howto-create-and-manage-applications-csp/image4-1.png)
 
-![Create Application Page for CSPs Billing Info](media/howto-create-application-csp/image4-2.png)
+![Create Application Page for CSPs Billing Info](media/howto-create-and-manage-applications-csp/image4-2.png)
 
 ## Pricing plan
 
