@@ -152,7 +152,7 @@ Use the version identified to confirm which release has been applied to your Azu
 ## More information
 
 - [Blog - Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Customer Advisory Team blogs](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Customer Advisory Team blogs](https://docs.microsoft.com/en-us/archive/blogs/sqlcat/)
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)
