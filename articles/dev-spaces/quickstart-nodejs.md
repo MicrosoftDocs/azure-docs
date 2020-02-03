@@ -14,7 +14,7 @@ In this quickstart, you set up Azure Dev Spaces with a managed Kubernetes cluste
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- [Latest version of Node.js](https://nodejs.org/download/)
+- [Latest version of Node.js](https://nodejs.org/download/).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension for Visual Studio Code.
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
