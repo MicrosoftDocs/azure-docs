@@ -14,10 +14,11 @@ In this quickstart, you set up Azure Dev Spaces with a managed Kubernetes cluste
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Java Development Kit (JDK) 1.8.0+](https://aka.ms/azure-jdks). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- [Maven 3.5.0+](https://maven.apache.org/download.cgi).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extensions for Visual Studio Code.
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Maven](https://maven.apache.org/download.cgi).
 - [Git](https://www.git-scm.com/downloads).
 
 ## Create an Azure Kubernetes Service cluster
