@@ -76,7 +76,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
-   ![Add cluster to a virtual network](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Add cluster to a virtual network](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Select the **Configuration + pricing** tab.
 
