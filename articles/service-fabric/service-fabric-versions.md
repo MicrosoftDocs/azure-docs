@@ -3,7 +3,7 @@ title: Supported cluster versions in Azure Service Fabric
 description: Learn about cluster versions in Azure Service Fabric, including a link to the newest releases from the Service Fabric team blog.
 
 ms.topic: troubleshooting
-ms.date: 11/18/2019
+ms.date: 01/28/2020
 ---
 # Supported Service Fabric versions
 
@@ -95,3 +95,4 @@ The following table lists the version names of Service Fabric and their correspo
 | 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 | 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
 | 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |
+| 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |

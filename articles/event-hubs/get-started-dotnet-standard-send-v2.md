@@ -55,7 +55,7 @@ This section shows you how to create a .NET Core console application to send eve
 1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
     ```cmd
-    Install-Package Azure.Messaging.EventHubs -Version 5.0.0
+    Install-Package Azure.Messaging.EventHubs
     ```
 
 
@@ -73,8 +73,8 @@ This section shows you how to create a .NET Core console application to send eve
 2. Add constants to the `Program` class for the Event Hubs connection string and the event hub name. Replace placeholders in brackets with the proper values that you got when creating the event hub. Make sure that the `{Event Hubs namespace connection string}` is the namespace-level connection string, and not the event hub string. 
 
     ```csharp
-    private static readonly string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
-    private static readonly string eventHubName = "<EVENT HUB NAME>";
+    private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
+    private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
 3. Replace the `Main` method with the following `async Main` method. See the code comments for details. 
@@ -134,12 +134,12 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
 
     ```cmd
-    Install-Package Azure.Messaging.EventHubs -Version 5.0.0
+    Install-Package Azure.Messaging.EventHubs
     ```
 1. Run the following command to install the **Azure.Messaging.EventHubs.Processor** NuGet package:
 
     ```cmd
-    Install-Package Azure.Messaging.EventHubs.Processor -Version 5.0.0
+    Install-Package Azure.Messaging.EventHubs.Processor
     ```    
 
 ### Update the Main method 
@@ -157,10 +157,10 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 1. Add constants to the `Program` class for the Event Hubs connection string and the event hub name. Replace placeholders in brackets with the proper values that you got when creating the event hub. Replace placeholders in brackets with the proper values that you got when creating the event hub and the storage account (access keys - primary connection string). Make sure that the `{Event Hubs namespace connection string}` is the namespace-level connection string, and not the event hub string.
 
     ```csharp
-        private static readonly string ehubNamespaceConnectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
-        private static readonly string eventHubName = "<EVENT HUB NAME>";
-        private static readonly string blobStorageConnectionString = "<AZURE STORAGE CONNECTION STRING>";
-        private static readonly string blobContainerName = "<BLOB CONTAINER NAME>";
+        private const string ehubNamespaceConnectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
+        private const string eventHubName = "<EVENT HUB NAME>";
+        private const string blobStorageConnectionString = "<AZURE STORAGE CONNECTION STRING>";
+        private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
 3. Replace the `Main` method with the following `async Main` method. See the code comments for details. 
 

@@ -10,24 +10,20 @@ ms.author: alkarche
 
 # How to troubleshoot "functions runtime is unreachable"
 
-
-## Error text
-This article is intended to troubleshoot the following error when displayed in the Functions portal.
+This article is intended to troubleshoot the "functions runtime is unreachable" error message when it's displayed in the Azure portal. When this error occurs, you see the following error string displayed in the portal.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### Summary
-This issue occurs when the Azure Functions Runtime cannot start. The most common reason for this error to occur is the function app losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+This occurs when the Azure Functions Runtime can't start. The most common reason for this error to occur is the function app losing access to its storage account. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
-### Troubleshooting
-We'll walk through the four most common error cases, how to identify, and how to resolve each case.
+The rest of this article helps you troubleshoot the following causes of this error, including how to identify and resolve each case.
 
-1. Storage Account deleted
-1. Storage Account application settings deleted
-1. Storage Account credentials invalid
-1. Storage Account Inaccessible
-1. Daily Execution Quota Full
-1. App is behind a firewall
++ [Storage account deleted](#storage-account-deleted)
++ [Storage account application settings deleted](#storage-account-application-settings-deleted)
++ [Storage account credentials invalid](#storage-account-credentials-invalid)
++ [Storage account inaccessible](#storage-account-inaccessible)
++ [Daily execution quota exceeded](#daily-execution-quota-full)
++ [Your app is behind a firewall](#app-is-behind-a-firewall)
 
 
 ## Storage account deleted
@@ -56,9 +52,9 @@ In the previous step, if you did not have a storage account connection string it
 
 ### Guidance
 
-* Do not check "slot setting" for any of these settings. When you swap deployment slots the Function will break.
-* Do not modify these settings as part of automated deployments.
-* These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
+* Don't check "slot setting" for any of these settings. When you swap deployment slots the function app breaks.
+* Don't modify these settings as part of automated deployments.
+* These settings must be provided and valid at creation time. An automated deployment that doesn't contain these settings results in a function app that won't run, even if the settings are added later.
 
 ## Storage account credentials invalid
 
@@ -66,36 +62,31 @@ The above Storage Account connection strings must be updated if you regenerate s
 
 ## Storage account inaccessible
 
-Your Function App must be able to access the storage account. Common issues that block a Functions access to a storage account are:
+Your function app must be able to access the storage account. Common issues that block a Functions access to a storage account are:
 
-* Function Apps deployed to App Service Environments without the correct network rules to allow traffic to and from the storage account
-* The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
++ function apps deployed to App Service Environments (ASE) without the correct network rules to allow traffic to and from the storage account.
 
-## Daily Execution Quota Full
++ The storage account firewall is enabled and not configured to allow traffic to and from functions. To learn more, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
-If you have a Daily Execution Quota configured, your Function App will be temporarily disabled and many of the portal controls will become unavailable. 
+## Daily execution quota full
 
-* To verify, open Platform Features > Function App Settings in the portal. You will see the following message if you are over quota:
-    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* Remove the quota and restart your app to resolve the issue.
+If you have a daily execution quota configured, your function app is temporarily disabled, which causes many of the portal controls to become unavailable. 
+
++ To verify in the [Azure portal](https://portal.azure.com), open **Platform Features** > **Function App Settings** in your function app. When you're over the **Daily Usage Quota** you set, you'll see the following message:
+
+    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+
++ To resolve this issue, remove or increase the daily quota and restart your app. Otherwise, execution of your app is blocked until the next day.
 
 ## App is behind a firewall
 
 Your function runtime will be unreachable if your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and is configured to block inbound internet traffic, or has [inbound IP restrictions](functions-networking-options.md#inbound-ip-restrictions) configured to block internet access. The Azure portal makes calls directly to the running app to fetch the list of functions and also makes HTTP calls to KUDU endpoint. Platform level settings under the `Platform Features` tab will still be available.
 
-* To verify your ASE configuration, navigate to the NSG of the subnet where ASE resides and validate inbound rules to allow traffic coming from the public IP of the computer where you are accessing the application. You can also use the portal from a computer connected to the virtual network running your app or a virtual machine running in your virtual network. [Read more about inbound rule configuration here](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
+To verify your ASE configuration, navigate to the NSG of the subnet where ASE resides and validate inbound rules to allow traffic coming from the public IP of the computer where you are accessing the application. You can also use the portal from a computer connected to the virtual network running your app or a virtual machine running in your virtual network. [Read more about inbound rule configuration here](../app-service/environment/network-info.md#network-security-groups)
 
 ## Next Steps
 
-Now that your Function App is back and operational take a look at our quickstarts and developer references to get up and running again!
+Learn about monitoring your function apps:
 
-* [Create your first Azure Function](functions-create-first-azure-function.md)  
-  Jump right in and create your first function using the Azure Functions quickstart. 
-* [Azure Functions developer reference](functions-reference.md)  
-  Provides more technical information about the Azure Functions runtime and a reference for coding functions and defining triggers and bindings.
-* [Testing Azure Functions](functions-test-a-function.md)  
-  Describes various tools and techniques for testing your functions.
-* [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
-* [Learn more about Azure App Service](../app-service/overview.md)  
-  Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 
+> [!div class="nextstepaction"]
+> [Monitor Azure Functions](functions-monitoring.md)
