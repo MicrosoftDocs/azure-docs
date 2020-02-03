@@ -167,7 +167,7 @@ A connection string can be set by either in code, environment variable, or confi
 TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 .Net Explicitly Set:
-```
+```csharp
 var configuration = new TelemetryConfiguration
 {
     ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
@@ -176,7 +176,7 @@ var configuration = new TelemetryConfiguration
 
 .Net Config File:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
     <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
@@ -186,7 +186,7 @@ var configuration = new TelemetryConfiguration
 
 NetCore config.json: 
 
-```
+```json
 {
   "ApplicationInsights": {
     "ConnectionString" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
@@ -199,12 +199,12 @@ NetCore config.json:
 
 
 Java Explicitly Set:
-```
+```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
 
 ApplicationInsights.xml
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
     <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;</ConnectionString>
@@ -217,7 +217,7 @@ Important: Javascript doesn't support the use of Environment Variables.
 
 Using the snippet:
 
-```
+```javascript
 <script type="text/javascript">
 var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
 {
@@ -229,7 +229,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 
 Manual Setup:
-```
+```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
 const appInsights = new ApplicationInsights({ config: {
@@ -242,7 +242,7 @@ appInsights.trackPageView();
 
 ### Node SDK example
 
-```
+```javascript
 const appInsights = require("applicationinsights");
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
@@ -254,7 +254,7 @@ We recommend users set the environment variable.
 
 To explicitly set the connection string:
 
-```
+```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
 from opencensus.trace.samplers import ProbabilitySampler
 from opencensus.trace.tracer import Tracer
