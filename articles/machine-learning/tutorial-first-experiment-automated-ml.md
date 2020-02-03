@@ -137,7 +137,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
         Blocked algorithms | Algorithms you want to exclude from the training job| None
         Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 1 <br> Metric&nbsp;score&nbsp;threshold: None
         Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 2
-        Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 5<br> Max&nbsp;cores&nbsp;per&nbsp;iteration: None
+        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 5
         
         Select **Save**.
 
