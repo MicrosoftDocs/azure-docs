@@ -52,7 +52,7 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 |Latency|Data displayed within one second|Aggregated over minutes|
 |No retention|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
-|Free|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
+|Fee|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../../azure-monitor/app/api-filtering-sampling.md)|
 |Control channel|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
 
