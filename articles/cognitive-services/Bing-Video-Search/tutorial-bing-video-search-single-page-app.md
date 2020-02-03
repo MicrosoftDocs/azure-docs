@@ -133,7 +133,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-For example, the `SafeSearch` parameter in an actual API call can be `strict`, or `moderate`, with `moderate` being the default. Our form, however, uses a checkbox, which has only two states.
+For example, the `SafeSearch` parameter in an actual API call can be `strict`, or `moderate`, with `moderate` being the default.
 
 ## Performing the request
 Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Search endpoint. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
