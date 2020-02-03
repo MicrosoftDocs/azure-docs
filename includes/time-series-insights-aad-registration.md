@@ -52,7 +52,7 @@ ms.date: 02/03/2020
 
     Click **Configure**, then **Save**.
 
-1. Select **Certificates & secrets** then **New client secret** to create an application password that client can use to prove its identity.
+1. Select **Certificates & secrets** then **New client secret** to create an application password that your client app can use to prove its identity.
 
    [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 
