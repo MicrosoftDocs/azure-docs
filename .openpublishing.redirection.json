@@ -24491,6 +24491,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-azure-slave-plugin-for-hudson-classic.md",
+      "redirect_url": "/azure/virtual-machines/workloads/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-sap-planning-guide.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/planning-guide",
       "redirect_document_id": false
@@ -41563,6 +41568,11 @@
     {
       "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/virtual-machines-availability-set-supportability.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability",
       "redirect_document_id": false
     },
     {

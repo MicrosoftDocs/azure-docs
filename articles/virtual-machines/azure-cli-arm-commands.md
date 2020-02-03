@@ -1,33 +1,23 @@
 ---
-title: Azure CLI commands in Resource Manager mode | Microsoft Docs
-description: Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model
-services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: ''
+title: Azure classic CLI commands
+description: Azure command line interface (CLI) commands to manage resources.
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
-ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: command-line-interface
-ms.devlang: na
+ms.service: virtual-machines
+ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-
+#pmcontact: 
 ---
-# Azure CLI commands in Resource Manager mode
-This article provides syntax and options for Azure command-line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md).  
+# Azure classic CLI commands 
 
-> [!NOTE]
-> This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure classic CLI. 
->To work in the Resource Manager model, you can also try the [Azure CLI](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
-> Find out more about the [old and new Azure CLIs](/cli/azure/old-and-new-clis).
->
+> !IMPORTANT]
+> This topic describes how to install the Azure classic CLI. The classic CLI is deprecated and should only be used with the classic deployment model.> For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
-To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli).
+This article provides syntax and options for Azure classic command-line interface (CLI) commands you'd commonly use to create and manage Azure resources. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
+
+To get started, first [install the Azure classic CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
