@@ -36,7 +36,7 @@ Diagnostic settings allow Event Grid users to capture and view publish and deliv
 6. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
     - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription. 
 
-        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/archive-stroage.png)
+        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy. 
         ![Stream to an event hub](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - If you select **Send to Log Analytics**, select the Log Analytics workspace.
