@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 - [Video Indexer overview](video-indexer-overview.md)
 - [Regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-_ [Samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API)
+- [Code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API)
 
 ## Next steps
 
