@@ -123,7 +123,7 @@ To handle throttling at this level, you have these options:
 
   Continuing with the example SQL Server scenario in this section, here are options for this solution:
 
-  * Have a logic app that puts the array items into a queue, such as a Service Bus queue, and have another a logic app that performs only the insert operation for each item in that queue. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
+  * Have a logic app that puts the array items into a queue, such as an [Azure Service Bus queue](../connectors/connectors-create-api-servicebus.md), and have another a logic app that performs only the insert operation for each item in that queue. That way, only one logic app instance runs at any specific time, which either completes the insert operation and moves on to the next item in the queue, or the instance gets 429 errors but doesn't attempt unproductive retries.
 
   * Create a parent logic app that calls a child or nested logic app for each action. That way, you have one parent logic app that controls the main workflow, a child logic app that iterates through the array items, and another child logic app that inserts the item.
 
