@@ -42,9 +42,27 @@ In many cases, the model is displayed correctly but located in a place outside t
 The remote rendering hooks into the Unity render pipeline to do the frame composition with the video and to do the reprojection. To verify, open menu `Window > Analysis > Frame debugger`. Enable it and make sure there are two entries for `HolographicRemotingCallbackPass` in the pipeline:
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## Unstable Holograms
 
+Static models are expected to visually maintain their position when you start moving around them. That is, they should look as though they're rigidly fixed to their surrounding. If they instead seem to be leaving their position or are otherwise wobbling, this behavior may hint at issues with Late Stage Reprojection (LSR). Mind that additional dynamic transformations, like animations or explosion views, might mask this behavior.
 
+LSR is essential for maintaining a steady frame and avoiding the above artifacts. In general, you may choose between two different modes, namely Planar or Depth LSR. Which one is active is determined by whether your Unity application has  depth buffer sharing enabled in its Player Settings or not. To check, if it's active go to `File > Build Settings` from the Unity Editor, click on `Player Settings` in the lower left, and then check under `Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality` if `Enable Depth Buffer Sharing` is checked (see below image). If it is, your app will be using Depth LSR, while it will be using Planar LSR otherwise.
 
-## Instable holograms on Hololens 2
+Both LSR modes are striving to improve Hologram stability, although they come with their own limitations. Generally, you should start by trying Depth LSR as it is arguably giving better results in most use cases.
 
-When the model rendering appears to be wobbling when the head moves, it is likely that late stage reprojection (LSR) is not activated.
+![Depth Buffer Sharing Enabled flag](./media/unity-depth-buffer-sharing-enabled.png)
+
+# Depth LSR
+
+For Depth LSR to work, you must supply a valid depth buffer that contains all the relevant geometry to consider during LSR. Unity will automatically supply a depth buffer for you when depth buffer sharing is enabled (see above). So just make sure to render the scene as intended.
+
+Generally, Depth LSR attempts to stabilize the video frame based on the data available in the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as labels or transparent objects, is still subject to reprojection artifacts.
+
+# Planar LSR
+
+If using Planar LSR, you must supply the parameters of a plane that is then going to be used during LSR. This step is mandatory from the moment you uncheck the depth buffer sharing flag as mentioned above. It must be done every frame by using the [Unity Focus Point API](https://docs.microsoft.com/en-us/windows/mixed-reality/focus-point-in-unity). The plane is defined by a so-called *focus point*. You provide it by calling to `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` supplying a position, normal, and velocity. The latter two of which are optional and are filled in for you if not supplied.
+
+You can calculate the focus point all by yourself. However, it might make sense to base it on the one calculated by the Remote Rendering host, that is, the remote focus point. To obtain it, you call to `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint`. Usually both sides, that is, the client and the host, usually render content the other side isn't aware of. As a result, it might often make sense to consider combining a remote focus point with a locally calculated one.
+
+Planar LSR will reproject those objects best that lie within the supplied plane. The further away an object lies from the plane, however, the more unstable it will look. While Depth LSR better reprojects objects at different depth, Planar LSR might be beneficial based on the content you render.
+
