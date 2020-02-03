@@ -12,7 +12,7 @@
 - name: Concepts
   items:
   - name: Policy overview
-    href: poilicy-overview.md
+    href: policy-overview.md
   - name: What is a secured virtual hub?
     href: secured-virtual-hub.md
   - name: General deployment process
