@@ -52,13 +52,13 @@ Both LSR modes are striving to improve Hologram stability, although they come wi
 
 ![Depth Buffer Sharing Enabled flag](./media/unity-depth-buffer-sharing-enabled.png)
 
-# Depth LSR
+### Depth LSR
 
 For Depth LSR to work, you must supply a valid depth buffer that contains all the relevant geometry to consider during LSR. Unity will automatically supply a depth buffer for you when depth buffer sharing is enabled (see above). So just make sure to render the scene as intended.
 
 Generally, Depth LSR attempts to stabilize the video frame based on the data available in the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as labels or transparent objects, is still subject to reprojection artifacts.
 
-# Planar LSR
+### Planar LSR
 
 If using Planar LSR, you must supply the parameters of a plane that is then going to be used during LSR. This step is mandatory from the moment you uncheck the depth buffer sharing flag as mentioned above. It must be done every frame by using the [Unity Focus Point API](https://docs.microsoft.com/en-us/windows/mixed-reality/focus-point-in-unity). The plane is defined by a so-called *focus point*. You provide it by calling to `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` supplying a position, normal, and velocity. The last two parameters are optional and will be filled in for you if you don't supply them. If you do not set a focus point at all, a fallback will be chosen.
 
