@@ -106,7 +106,7 @@ To quickly create an Azure AD DS managed domain, you can select **Review + creat
 * Creates a subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
 * Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
 
-1. Select **Review + create** to accept these default configuration options.
+Select **Review + create** to accept these default configuration options.
 
 ## Deploy the managed domain
 

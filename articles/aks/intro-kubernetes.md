@@ -21,6 +21,8 @@ For more information on Kubernetes basics, see [Kubernetes core concepts for AKS
 
 To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or [with the Azure CLI][aks-cli].
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## Access, security, and monitoring
 
 For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also monitor the health of your cluster and resources.

@@ -76,8 +76,8 @@ To create a new in-store analytics checkout application:
 
     ![Azure IoT Central Create Application billing info](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
 
-
 ## Customize application settings
+
 As a builder, you can change several settings to customize the user experience in your application. In this section, you'll select a predefined application theme. Optionally, you'll learn how to create a custom theme, and update the application image. A custom theme enables you to set the application browser colors, browser icon, and the application logo that appears in the masthead.
 
 To select a predefined application theme:

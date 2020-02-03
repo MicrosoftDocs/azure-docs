@@ -146,6 +146,8 @@
       href: how-to-manage-workspace.md
     - name: Use Azure CLI
       href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md

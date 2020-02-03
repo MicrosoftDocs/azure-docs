@@ -35,7 +35,7 @@ To complete this self-service process, follow these steps:
 
     ![Convert trial](media/howto-view-bill/convert.png)
 
-1.  Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
 1. After you select **Convert**, your application now uses a paid plan and you start getting billed.
 
@@ -44,7 +44,7 @@ To complete this self-service process, follow these steps:
 
 ## How to change your application pricing plan
 
-- Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
+Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
 
 In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan at any time.
 
@@ -56,8 +56,12 @@ In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan
 
 ## View your bill
 
-To view your bill, go to the **Pricing** page in the **Administration** section. The Azure pricing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
+1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
+1. After you select **Convert**, your application now uses a paid plan and you start getting billed.
+
+> [!Note]
+> By default, you are converted to a *Standard 2* pricing plan.
 
 ## Next steps
 
