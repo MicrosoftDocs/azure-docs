@@ -36,7 +36,7 @@ There could be a number of clustered servers, file systems, and database servers
 
 ### Windows
 
-Most Windows-based clustering builds on WSFC, which handles all core infrastructure for cluster node communication. This allows your applications to take advantage of parralel access patterns. WSFC enables both CSV and non-CSV based options depending on your version of Windows Server. For details, refer to [Create a failover cluster](https://docs.microsoft.com/en-us/windows-server/failover-clustering/create-failover-cluster).
+Most Windows-based clustering builds on WSFC, which handles all core infrastructure for cluster node communication. This allows your applications to take advantage of parralel access patterns. WSFC enables both CSV and non-CSV based options depending on your version of Windows Server. For details, refer to [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
 Some popular applications running on WSFC include:
 
