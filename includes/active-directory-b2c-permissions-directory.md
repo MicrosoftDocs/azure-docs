@@ -3,7 +3,7 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 02/08/2020
 ms.author: marsma
 # Used by articles that interact with the Microsoft Graph API for user object manipulation.
 ---
