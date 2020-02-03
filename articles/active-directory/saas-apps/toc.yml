@@ -1492,6 +1492,8 @@
         href: wdesk-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: Wedo
+        href: wedo-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
       - name: Whatfix

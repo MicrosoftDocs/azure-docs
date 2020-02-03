@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -212,7 +212,8 @@ The following are the IDs for a [Verification display control](display-control-v
 |verification_control_but_send_new_code |Send New Code |
 |verification_control_but_verify_code |Verify Code |
 
-### Verification display control error messages
+## One time password error messages
+The following are the IDs for a [one time password technical profile](one-time-password-technical-profile.md) error messages
 
 | ID | Default value |
 | -- | ------------- |

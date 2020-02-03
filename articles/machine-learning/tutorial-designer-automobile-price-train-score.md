@@ -131,11 +131,13 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. Select the **Select Columns in Dataset** module.
 
-1. In the module details pane to the right of the canvas, select **All columns**.
+1. In the module details pane to the right of the canvas, select **Edit column**.
+
+1. Expand the **Column names** drop down next to **Include**, and select  **All columns**.
 
 1. Select the **+** to add a new rule.
 
-1. From the drop-down menu, select **Exclude** and **Column names**.
+1. From the drop-down menus, select **Exclude** and **Column names**.
     
 1. Enter *normalized-losses* in the text box.
 
