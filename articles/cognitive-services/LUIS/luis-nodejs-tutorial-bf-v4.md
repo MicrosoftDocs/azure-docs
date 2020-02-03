@@ -1,19 +1,11 @@
 ---
-title: "Tutorial: Language Understanding Bot Node.js v4" 
-titleSuffix: Azure Cognitive Services
+title: "Tutorial: Language Understanding Bot Node.js v4"
 description: Using Node.js, build a chat bot integrated with language understanding (LUIS) in this tutorial. This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
-ms.author: diberry
+ms.date: 02/03/2020
 ---
 
-# Tutorial: Use a Web App Bot enabled with Language Understanding in Node.js 
+# Tutorial: Use a Web App Bot enabled with Language Understanding in Node.js
 
 Use Node.js to build a chat bot integrated with language understanding (LUIS). The bot is built with the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) resource and [Bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
@@ -62,7 +54,7 @@ Use Node.js to build a chat bot integrated with language understanding (LUIS). T
     |SDK version|Bot framework version|**SDK v4**|
     |SDK language|Programming language of bot|**Node.js**|
     |Bot|Type of bot|**Basic bot**|
-    
+
 1. Select **Create**. This creates and deploys the bot service to Azure. Part of this process creates a LUIS app named `luis-nodejs-bot-XXXX`. This name is based on the /Azure Bot Service app name.
 
     [![Create web app bot](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
@@ -71,7 +63,7 @@ Use Node.js to build a chat bot integrated with language understanding (LUIS). T
 
 ## The bot has a Language Understanding model
 
-The bot service creation process also creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents: 
+The bot service creation process also creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents:
 
 |Basic bot LUIS intents|example utterance|
 |--|--|
@@ -82,31 +74,31 @@ The bot service creation process also creates a new LUIS app with intents and ex
 
 ## Test the bot in Web Chat
 
-1. While still in the Azure portal for the new bot, select **Test in Web Chat**. 
-1. In the **Type your message** textbox, enter the text `Book a flight from Seattle to Berlin tomorrow`. The bot responds with verification that you want to book a flight. 
+1. While still in the Azure portal for the new bot, select **Test in Web Chat**.
+1. In the **Type your message** textbox, enter the text `Book a flight from Seattle to Berlin tomorrow`. The bot responds with verification that you want to book a flight.
 
     ![Screenshot of Azure portal, enter the text `hello`.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    You can use the test functionality to quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio. 
+    You can use the test functionality to quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio.
 
 ## Download the web app bot source code
-In order to develop the web app bot code, download the code and use on your local computer. 
+In order to develop the web app bot code, download the code and use on your local computer.
 
-1. In the Azure portal, select **Build** from the **Bot management** section. 
+1. In the Azure portal, select **Build** from the **Bot management** section.
 
-1. Select **Download Bot source code**. 
+1. Select **Download Bot source code**.
 
     [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**. This provides the LUIS settings. 
+1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**. This provides the LUIS settings.
 
-1. When the source code is zipped, a message will provide a link to download the code. Select the link. 
+1. When the source code is zipped, a message will provide a link to download the code. Select the link.
 
-1. Save the zip file to your local computer and extract the files. Open the project with Visual Studio. 
+1. Save the zip file to your local computer and extract the files. Open the project with Visual Studio.
 
 ## Review code to send utterance to LUIS and get response
 
-1. To send the user utterance to the LUIS prediction endpoint, open the **dialogs -> flightBookingRecognizer.js** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the **executeLuisQuery** method.  
+1. To send the user utterance to the LUIS prediction endpoint, open the **dialogs -> flightBookingRecognizer.js** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the **executeLuisQuery** method.
 
     ````javascript
     class FlightBookingRecognizer {
@@ -156,31 +148,31 @@ In order to develop the web app bot code, download the code and use on your loca
                         // Extract the values for the composite entities from the LUIS result.
                         const fromEntities = this.luisRecognizer.getFromEntities(luisResult);
                         const toEntities = this.luisRecognizer.getToEntities(luisResult);
-            
+
                         // Show a warning for Origin and Destination if we can't resolve them.
                         await this.showWarningForUnsupportedCities(stepContext.context, fromEntities, toEntities);
-            
+
                         // Initialize BookingDetails with any entities we may have found in the response.
                         bookingDetails.destination = toEntities.airport;
                         bookingDetails.origin = fromEntities.airport;
                         bookingDetails.travelDate = this.luisRecognizer.getTravelDate(luisResult);
                         console.log('LUIS extracted these booking details:', JSON.stringify(bookingDetails));
-            
+
                         // Run the BookingDialog passing in whatever details we have from the LUIS call, it will fill out the remainder.
                         return await stepContext.beginDialog('bookingDialog', bookingDetails);
-            
+
                     case 'GetWeather':
                         // We haven't implemented the GetWeatherDialog so we just display a TODO message.
                         const getWeatherMessageText = 'TODO: get weather flow here';
                         await stepContext.context.sendActivity(getWeatherMessageText, getWeatherMessageText, InputHints.IgnoringInput);
                         break;
-            
+
                     default:
                         // Catch all for unhandled intents
                         const didntUnderstandMessageText = `Sorry, I didn't get that. Please try asking in a different way (intent was ${ LuisRecognizer.topIntent(luisResult) })`;
                         await stepContext.context.sendActivity(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
                     }
-            
+
                     return await stepContext.next();
 
         }
@@ -203,7 +195,7 @@ Ask bot a question for the Book Flight intent.
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. Select **Yes**. The bot responds with a summary of its actions. 
+1. Select **Yes**. The bot responds with a summary of its actions.
 1. From the log of the bot emulator, select the line that includes `Luis Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
@@ -213,7 +205,7 @@ Ask bot a question for the Book Flight intent.
 
 ## Next steps
 
-See more [samples](https://github.com/microsoft/botframework-solutions) with conversational bots. 
+See more [samples](https://github.com/microsoft/botframework-solutions) with conversational bots.
 
 > [!div class="nextstepaction"]
 > [Build a Language Understanding app with a custom subject domain](luis-quickstart-intents-only.md)

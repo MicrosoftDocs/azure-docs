@@ -1,16 +1,8 @@
 ---
-title: "Tutorial: Language Understanding Bot C# v4" 
-titleSuffix: Azure Cognitive Services
+title: "Tutorial: Language Understanding Bot C# v4"
 description: Using C#, build a chat bot integrated with language understanding (LUIS). The bot is built with the Bot Framework version 4 and the Azure Web app bot service.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
-ms.author: diberry
 ---
 
 # Tutorial: Use a Web App Bot enabled with Language Understanding in C#
@@ -63,7 +55,7 @@ Use C# to build a chat bot integrated with language understanding (LUIS). The bo
     |SDK version|Bot framework version|**SDK v4**|
     |SDK language|Programming language of bot|**C#**|
     |Bot|Type of bot|**Basic bot**|
-    
+
 1. Select **Create**. This creates and deploys the bot service to Azure. Part of this process creates a LUIS app named `luis-csharp-bot-XXXX`. This name is based on the /Azure Bot Service app name.
 
     [![Create web app bot](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
@@ -72,7 +64,7 @@ Use C# to build a chat bot integrated with language understanding (LUIS). The bo
 
 ## The bot has a Language Understanding model
 
-The bot service creation process also creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents: 
+The bot service creation process also creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents:
 
 |Basic bot LUIS intents|example utterance|
 |--|--|
@@ -83,31 +75,31 @@ The bot service creation process also creates a new LUIS app with intents and ex
 
 ## Test the bot in Web Chat
 
-1. While still in the Azure portal for the new bot, select **Test in Web Chat**. 
-1. In the **Type your message** textbox, enter the text `Book a flight from Seattle to Berlin tomorrow`. The bot responds with verification that you want to book a flight. 
+1. While still in the Azure portal for the new bot, select **Test in Web Chat**.
+1. In the **Type your message** textbox, enter the text `Book a flight from Seattle to Berlin tomorrow`. The bot responds with verification that you want to book a flight.
 
     ![Screenshot of Azure portal, enter the text `hello`.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    You can use the test functionality to quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio. 
+    You can use the test functionality to quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio.
 
 ## Download the web app bot source code
-In order to develop the web app bot code, download the code and use on your local computer. 
+In order to develop the web app bot code, download the code and use on your local computer.
 
-1. In the Azure portal, select **Build** from the **Bot management** section. 
+1. In the Azure portal, select **Build** from the **Bot management** section.
 
-1. Select **Download Bot source code**. 
+1. Select **Download Bot source code**.
 
     [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**.
 
-1. When the source code is zipped, a message will provide a link to download the code. Select the link. 
+1. When the source code is zipped, a message will provide a link to download the code. Select the link.
 
-1. Save the zip file to your local computer and extract the files. Open the project with Visual Studio. 
+1. Save the zip file to your local computer and extract the files. Open the project with Visual Studio.
 
 ## Review code to send utterance to LUIS and get response
 
-1. To send the user utterance to the LUIS prediction endpoint, open the **FlightBookingRecognizer.cs** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the **RecognizeAsync** method.  
+1. To send the user utterance to the LUIS prediction endpoint, open the **FlightBookingRecognizer.cs** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the **RecognizeAsync** method.
 
     ```csharp
     using System.Threading;
@@ -115,13 +107,13 @@ In order to develop the web app bot code, download the code and use on your loca
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.AI.Luis;
     using Microsoft.Extensions.Configuration;
-    
+
     namespace Microsoft.BotBuilderSamples
     {
         public class FlightBookingRecognizer : IRecognizer
         {
             private readonly LuisRecognizer _recognizer;
-    
+
             public FlightBookingRecognizer(IConfiguration configuration)
             {
                 var luisIsConfigured = !string.IsNullOrEmpty(configuration["LuisAppId"]) && !string.IsNullOrEmpty(configuration["LuisAPIKey"]) && !string.IsNullOrEmpty(configuration["LuisAPIHostName"]);
@@ -131,17 +123,17 @@ In order to develop the web app bot code, download the code and use on your loca
                         configuration["LuisAppId"],
                         configuration["LuisAPIKey"],
                         "https://" + configuration["LuisAPIHostName"]);
-    
+
                     _recognizer = new LuisRecognizer(luisApplication);
                 }
             }
-    
+
             // Returns true if luis is configured in the appsettings.json and initialized.
             public virtual bool IsConfigured => _recognizer != null;
-    
+
             public virtual async Task<RecognizerResult> RecognizeAsync(ITurnContext turnContext, CancellationToken cancellationToken)
                 => await _recognizer.RecognizeAsync(turnContext, cancellationToken);
-    
+
             public virtual async Task<T> RecognizeAsync<T>(ITurnContext turnContext, CancellationToken cancellationToken)
                 where T : IRecognizerConvert, new()
                 => await _recognizer.RecognizeAsync<T>(turnContext, cancellationToken);
@@ -149,7 +141,7 @@ In order to develop the web app bot code, download the code and use on your loca
     }
     ````
 
-1. Open **Dialogs -> MainDialog.cs** captures the utterance and sends it to the executeLuisQuery in the actStep method. 
+1. Open **Dialogs -> MainDialog.cs** captures the utterance and sends it to the executeLuisQuery in the actStep method.
 
     ```csharp
     public class MainDialog : ComponentDialog
@@ -209,7 +201,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
             return await stepContext.NextAsync(null, cancellationToken);
         }
-        
+
         ...
 
     }
@@ -232,7 +224,7 @@ In Visual Studio 2019, start the bot. A browser window opens with the web app bo
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. Select **Yes**. The bot responds with a summary of its actions. 
+1. Select **Yes**. The bot responds with a summary of its actions.
 1. From the log of the bot emulator, select the line that includes `Luis Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
 
     [![Basic bot response in emulator](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
@@ -243,7 +235,7 @@ In Visual Studio 2019, start the bot. A browser window opens with the web app bo
 
 ## Next steps
 
-See more [samples](https://github.com/microsoft/botframework-solutions) with conversational bots. 
+See more [samples](https://github.com/microsoft/botframework-solutions) with conversational bots.
 
 > [!div class="nextstepaction"]
 > [Build a Language Understanding app with a custom subject domain](luis-quickstart-intents-only.md)
