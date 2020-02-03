@@ -1,66 +1,75 @@
 ---
-title: Monitor Python applications with Azure Monitor (Preview) | Microsoft Docs
+title: Monitor Python applications with Azure Monitor (preview) | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
-services: application-insights
-keywords:
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
-ms.service: application-insights
-ms.topic: conceptual
+
 ms.reviewer: mbullwin
-manager: carmonm
 ---
 
-# Set up Azure Monitor for your Python application (Preview)
+# Set up Azure Monitor for your Python application (preview)
 
-Azure Monitor supports distributed tracing, metric collection and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your monitoring data to Azure Monitor.
+Azure Monitor supports distributed tracing, metric collection, and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you through the process of setting up OpenCensus for Python and sending your monitoring data to Azure Monitor.
 
 ## Prerequisites
 
-- You need an Azure Subscription.
-- Python should be installed, this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustments.
-
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor changes.
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create Application Insights resource in Azure Monitor
+## Create an Application Insights resource in Azure Monitor
 
-First you have to create an Application Insights resource in Azure Monitor, which will generate an instrumentation key(ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Azure Monitor.
+First you have to create an Application Insights resource in Azure Monitor, which will generate an instrumentation key (ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Azure Monitor.
 
-1. Select **Create a resource** > **Developer Tools** > **Application Insights**.
+1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/opencensus-python/0001-create-resource.png)
+   ![Adding an Application Insights resource](./media/opencensus-python/0001-create-resource.png)
 
-   A configuration box appears; use the following table to fill out the input fields.
+1. A configuration box appears. Use the following table to fill out the input fields.
 
-    | Settings        | Value           | Description  |
+   | Setting        | Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
-   | **Location** | East US | Choose a location near you, or near where your app is hosted |
+   | **Name**      | Globally unique value | Name that identifies the app you're monitoring |
+   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host Application Insights data |
+   | **Location** | East US | A location near you, or near where your app is hosted |
 
-2. Click **Create**.
+1. Select **Create**.
 
-## Instrumenting with OpenCensus Python SDK for Azure Monitor
+## Instrument with OpenCensus Python SDK for Azure Monitor
 
-1. Install the OpenCensus Azure Monitor Exporters:
+Install the OpenCensus Azure Monitor exporters:
 
-    ```console
-    python -m pip install opencensus-ext-azure
-    ```
+```console
+python -m pip install opencensus-ext-azure
+```
 
-    > [!NOTE]
-    > `python -m pip install opencensus-ext-azure` assumes that you have a PATH environment variable set for your Python installation. If you have not configured this, you would need to give the full directory path to where your Python executable is located which would result in a command like: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
+For a full list of packages and integrations, see [OpenCensus packages](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
-2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. Take a look at [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) for more details on these different types. Follow the instructions below to see how to send these different types via the three exporters.
+> [!NOTE]
+> The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
+
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
+
+## Telemetry type mappings
+
+Here are the exporters that OpenCensus provides mapped to the types of telemetry that you will see in Azure Monitor.
+
+![Screenshot of mapping of telemetry types from OpenCensus to Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
 
 ### Trace
 
-1. First let's generate some trace data locally. In Python IDLE, or your editor of choice, enter the following code.
+> [!NOTE]
+> `Trace` in OpenCensus refers to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). The 
+`AzureExporter` sends `requests` and `dependency` telemetry to Azure Monitor.
+
+1. First, let's generate some trace data locally. In Python IDLE, or your editor of choice, enter the following code.
 
     ```python
     from opencensus.trace.samplers import ProbabilitySampler
@@ -81,7 +90,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
         main()
     ```
 
-2. Running the code will repeatedly prompt you to enter a value. With each entry, the value will be printed to the shell, and a corresponding piece of **SpanData** will be generated by the OpenCensus Python Module. The OpenCensus project defines a [_trace as a tree of spans_](https://opencensus.io/core-concepts/tracing/).
+2. Running the code will repeatedly prompt you to enter a value. With each entry, the value will be printed to the shell, and the OpenCensus Python Module will generate a corresponding piece of `SpanData`. The OpenCensus project defines a [trace as a tree of spans](https://opencensus.io/core-concepts/tracing/).
     
     ```
     Enter a value: 4
@@ -95,7 +104,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. While helpful for demonstration purposes, ultimately we want to emit the `SpanData` to Azure Monitor. Modify your code from the previous step based on the following code sample:
+3. Although entering values is helpful for demonstration purposes, ultimately we want to emit the `SpanData` to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -106,7 +115,6 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -123,11 +131,15 @@ First you have to create an Application Insights resource in Azure Monitor, whic
         main()
     ```
 
-4. Now when you run the Python script, you should still be prompted to enter values, but now only the value is being printed in the shell. The `SpanData` created will be sent to Azure Monitor. You can find the emitted span data under `dependencies`.
+4. Now when you run the Python script, you should still be prompted to enter values, but only the value is being printed in the shell. The created `SpanData` will be sent to Azure Monitor. You can find the emitted span data under `dependencies`.
+
+5. For information on sampling in OpenCensus, take a look at [sampling in OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+
+6. For details on telemetry correlation in your trace data, take a look at OpenCensus [telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python).
 
 ### Metrics
 
-1. First, let's generate some local metric data. We will create a simple metric to track the number of times the user presses enter.
+1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user presses Enter.
 
     ```python
     from datetime import datetime
@@ -167,7 +179,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     if __name__ == "__main__":
         main()
     ```
-2. Running the code will repeatedly prompt you to press enter. A metric is created to track the number of enters pressed. With each entry, the value will be incremented and  the metric information will be displayed in the console, with the current value and the current timestamp when the metric was updated.
+2. Running the code will repeatedly prompt you to press Enter. A metric is created to track the number of times Enter is pressed. With each entry, the value will be incremented and the metric information will be displayed in the console. The information includes the current value and the current time stamp when the metric was updated.
 
     ```
     Press enter.
@@ -178,7 +190,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. While helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Modify your code from the previous step based on the following code sample:
+3. Although entering values is helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     from datetime import datetime
@@ -208,7 +220,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -226,7 +238,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
         main()
     ```
 
-4. The exporter will send metric data to Azure Monitor at a fixed interval, the default being every 15 seconds. We are tracking a single metric so this metric data, with whatever value and timestamp it contains, will be sent every interval. You can find the data under `customMetrics`.
+4. The exporter will send metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, will be sent every interval. You can find the data under `customMetrics`.
 
 ### Logs
 
@@ -249,7 +261,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
         main()
     ```
 
-2.  The code will ask continuously prompt for a value to be entered. A log entry is emitted for every value that is entered containing the said value.
+2.  The code will continuously ask for a value to be entered. A log entry is emitted for every entered value.
 
     ```
     Enter a value: 24
@@ -262,7 +274,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     90
     ```
 
-3. While helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Modify your code from the previous step based on the following code sample:
+3. Although entering values is helpful for demonstration purposes, ultimately we want to emit the log data to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     import logging
@@ -287,56 +299,84 @@ First you have to create an Application Insights resource in Azure Monitor, whic
         main()
     ```
 
-4. The exporter will send log data to Azure Monitor. You can find the data under `traces`.
+4. The exporter will send log data to Azure Monitor. You can find the data under `traces`. 
 
-## Start monitoring in the Azure portal
+> [!NOTE]
+> `traces` in this context is not the same as `Tracing`. `traces` refers to the type of telemetry that you will see in Azure Monitor when utilizing the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+5. To format your log messages, you can use `formatters` in the built-in Python [logging API](https://docs.python.org/3/library/logging.html#formatter-objects).
 
-   ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-python/0005-overview-live-metrics-stream.png)
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
 
-2. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+6. You can also add custom dimensions to your logs. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
+> [!NOTE]
+> For this feature to work, you need to pass a dictionary as an argument to your logs, any other data structure will be ignored. To maintain string formatting, store them in a dictionary and pass them as arguments.
 
-    ![Screenshot of basic application map](./media/opencensus-python/0007-application-map.png)
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
 
-    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
-
-   ![Application Map](media/opencensus-python/application-map.png)
-
-3. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
-
-    ![Screenshot of performance pane](./media/opencensus-python/0008-performance.png)
-
-4. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
-
-     ![Screenshot of end-to-end transaction interface](./media/opencensus-python/0009-end-to-end-transaction.png)
+7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## View your data with queries
 
-1. You can view the telemetry data that was sent from your application through the Logs(Analytics) tab.
+You can view the telemetry data that was sent from your application through the **Logs (Analytics)** tab.
 
-    ![Screenshot of overview pane with Logs(Analytics) selected in red box](./media/opencensus-python/0010-logs-query.png)
+![Screenshot of the overview pane with "Logs (Analytics)" selected in a red box](./media/opencensus-python/0010-logs-query.png)
 
-2. For telemetry sent with the Azure Monitor trace exporter, incoming requests will show up under `requests` and out-going/in process requests will show up under `dependencies`.
+In the list under **Active**:
 
-3. For telemetry sent with the Azure Monitor metrics exporter, metrics sent will show up under `customMetrics`.
+- For telemetry sent with the Azure Monitor trace exporter, incoming requests appear under `requests`. Outgoing or in-process requests appear under `dependencies`.
+- For telemetry sent with the Azure Monitor metrics exporter, sent metrics appear under `customMetrics`.
+- For telemetry sent with the Azure Monitor logs exporter, logs appear under `traces`. Exceptions appear under `exceptions`.
 
-4. For telemetry sent with the Azure Monitor logs exporter, logs will show up under `traces` and exceptions will show up under `exceptions`.
+For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
 
-5. Take a look at [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) for more detailed information about how to use queries and logs.
-
-## OpenCensus for Python
+## Learn more about OpenCensus for Python
 
 * [OpenCensus Python on GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Customization](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
-* [Flask Integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
-* [Django Integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
-* [MySQL Integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
+* [Flask integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
+* [Django integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
+* [MySQL integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
 * [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
 
 ## Next steps
 
-* [API Summary](./../../azure-monitor/app/api-custom-events-metrics.md)
 * [Application map](./../../azure-monitor/app/app-map.md)
 * [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
 

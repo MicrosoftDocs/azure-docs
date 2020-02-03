@@ -1,6 +1,6 @@
 ---
-title: Register a resource application in Azure Active Directory - Azure API for FHIR
-description: This article explains how to register a resource application in Azure Active Directory.
+title: Register a resource app in Azure AD - Azure API for FHIR
+description: Register a resource (or API) app in Azure Active Directory, so that client applications can request access to the resource when authenticating.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -14,11 +14,13 @@ ms.author: mihansen
 
 In this article, you'll learn how to register a resource (or API) application in Azure Active Directory. A resource application is an Azure Active Directory representation of the FHIR server API itself and client applications can request access to the resource when authenticating. The resource application is also known as the *audience* in OAuth parlance.
 
+If you are using the Azure API for FHIR, a resource application is automatically created when you deploy the service. As long as you are using the Azure API for FHIR in the same Azure Active Directory tenant as you are deploying your application, you can skip this how-to-guide and instead deploy your Azure API for FHIR to get started.
+
 ## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
-2. In the **Azure Active Directory** blade click **App registrations (Preview)**:
+2. In the **Azure Active Directory** blade click **App registrations**:
 
     ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -40,9 +42,9 @@ A resource application has an identifier URI (Application ID URI), which clients
 
 3. Enter the identifier URI and click **Save**. A good identifier URI would be the URI of your FHIR server.
 
-4. Click **Add a scope** and add any scopes that you would like to define for you API. Azure AD does not currently allow slashes (`/`) in scope names. We recommend using `$` instead. A scope like `patient/*.read` would be `patient$*.read`.
+4. Click **Add a scope** and add any scopes that you would like to define for your API. You are required to add at least one scope in order to grant permissions to your resource application in the future. If you don't have any specific scopes you want to add, you can add user_impersonation as a scope.
 
-    ![Audience and scope](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
+![Audience and scope](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 
 ## Define application roles
 
@@ -82,7 +84,7 @@ The Azure API for FHIR and the OSS FHIR Server for Azure use [Azure Active Direc
 
 ## Next steps
 
-In this article, you've learned how to register a resource application in Azure Active Directory. Next, deploy a FHIR API in Azure.
+In this article, you've learned how to register a resource application in Azure Active Directory. Next, deploy the Azure API for FHIR.
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
+>[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)

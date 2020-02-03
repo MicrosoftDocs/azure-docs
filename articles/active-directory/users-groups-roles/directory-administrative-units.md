@@ -1,22 +1,18 @@
 ---
-title: Administrative units management (preview) - Azure Active Directory | Microsoft Docs
+title: Administrative units management (preview) - Azure AD | Microsoft Docs
 description: Using administrative units for more granular delegation of permissions in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/13/2019
 ms.author: curtand
-
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-
 ms.collection: M365-identity-device-management
 ---
 # Administrative units management in Azure Active Directory (preview)

@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: Troubleshooting - Troubleshoot issues with your Azure Front Door configuration | Microsoft Docs
+=======
+title: Troubleshoot Azure Front Door Service configuration issues
+>>>>>>> 8831d2b70cd6b69f111f7bd9f8162e083fd4d787
 description: In this tutorial, you learn how to self-troubleshoot some of the common issues that you may face for your Front Door.
 services: frontdoor
 documentationcenter: ''

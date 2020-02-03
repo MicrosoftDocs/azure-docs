@@ -1,9 +1,9 @@
 ---
-title: Set up device for the Azure IoT Hub Device Provisioning Service
-description: Set up device to provision via the IoT Hub Device Provisioning Service during the device manufacturing process
+title: 'Tutorial - Set up device for the Azure IoT Hub Device Provisioning Service'
+description: 'This tutorial shows how you can set up device to provision via the IoT Hub Device Provisioning Service (DPS) during the device manufacturing process'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Set up a device to provision using the Azure IoT Hub Device Provisioning Service
+# Tutorial: Set up a device to provision using the Azure IoT Hub Device Provisioning Service
 
 In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial shows you how to set up your device during the manufacturing process, enabling it to be auto-provisioned with IoT Hub. Your device is provisioned based on its [Attestation mechanism](concepts-device.md#attestation-mechanism), upon first boot and connection to the provisioning service. This tutorial covers the following tasks:
 
@@ -31,10 +31,11 @@ If you're unfamiliar with the process of auto-provisioning, be sure to review [A
 
 ## Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+
 * Latest version of [Git](https://git-scm.com/download/) installed.
-
-
 
 ## Build a platform-specific version of the SDK
 
@@ -44,23 +45,26 @@ The Device Provisioning Service Client SDK helps you implement your device regis
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
-    
+2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
+
+3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     You should expect this operation to take several minutes to complete.
 
-
-1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
+4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. Build the SDK for your development platform based on the attestation mechanisms you will be using. Use one of the following commands (also note the two trailing period characters for each command). Upon completion, CMake builds out the `/cmake` subdirectory with content specific to your device:
+5. Build the SDK for your development platform based on the attestation mechanisms you will be using. Use one of the following commands (also note the two trailing period characters for each command). Upon completion, CMake builds out the `/cmake` subdirectory with content specific to your device:
  
     - For devices that use the TPM simulator for attestation:
 
@@ -91,8 +95,9 @@ Depending on whether you built the SDK to use attestation for a physical TPM/HSM
 
 - For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types of enrollment entries that control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
 
-    1. Individual enrollments: Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
-    1. Enrollment groups: This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Individual enrollments: Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
+    
+    - Enrollment groups: This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### Simulated devices
 
@@ -207,4 +212,3 @@ Advance to the next tutorial to learn how to provision the device to your IoT hu
 
 > [!div class="nextstepaction"]
 > [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md)
-

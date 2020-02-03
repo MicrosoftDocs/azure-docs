@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -65,7 +65,9 @@ You can name feature namespaces following your own conventions as long as they a
 
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces. 
-Public Preview Note: Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
+
+> [!Note]
+> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -93,6 +95,14 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     ]
 }
 ```
+
+### Restrictions in character sets for namespaces
+
+The string you use for naming the namespace must follow some restrictions: 
+* It can't be unicode.
+* You can use some of the printable symbols with codes < 256 for the namespace names. 
+* You can't use symbols with codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
+* It should not start with an underscore "_" or the feature will be ignored.
 
 ## How to make feature sets more effective for Personalizer
 

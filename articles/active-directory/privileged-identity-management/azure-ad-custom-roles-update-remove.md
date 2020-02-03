@@ -4,17 +4,18 @@ description: How to update or remove an Azure AD custom role assignment Privileg
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
-ms.service: role-based-access-control
+ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
-ms.custom: pim 
+ms.custom: pim
 ms.collection: M365-identity-device-management
 
 

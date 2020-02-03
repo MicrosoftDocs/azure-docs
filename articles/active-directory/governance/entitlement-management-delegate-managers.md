@@ -1,5 +1,5 @@
 ---
-title: Delegate access governance to access package managers in Azure AD entitlement management (Preview) - Azure Active Directory
+title: Delegate access governance to access package managers in Azure AD entitlement management - Azure Active Directory
 description: Learn how to delegate access governance from IT administrators to access package managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
@@ -22,12 +22,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Delegate access governance to access package managers in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Delegate access governance to access package managers in Azure AD entitlement management
 
 To delegate the creation and management of access packages in a catalog, you add users to the access package manager role. Access package managers must be familiar with the need for users to request access to resources in a catalog. For example, if a catalog is used for a project, then a project lead might be an access package manager for that catalog.  Access package managers cannot add resources to a catalog, but they can manage the access packages and policies in a catalog.  When delegating to an access package manager, that person can then be responsible for:
 

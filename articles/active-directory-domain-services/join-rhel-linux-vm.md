@@ -1,5 +1,5 @@
 ---
-title: Join a RHEL VM to Azure AD Domain Services | Microsoft Docs'
+title: Join a RHEL VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2019
+ms.date: 01/23/2020
 ms.author: iainfou
 
 ---
@@ -59,28 +59,28 @@ sudo vi /etc/hosts
 
 In the *hosts* file, update the *localhost* address. In the following example:
 
-* *contoso.com* is the DNS domain name of your Azure AD DS managed domain.
+* *aadds.contoso.com* is the DNS domain name of your Azure AD DS managed domain.
 * *rhel* is the hostname of your RHEL VM that you're joining to the managed domain.
 
 Update these names with your own values:
 
 ```console
-127.0.0.1 rhel rhel.contoso.com
+127.0.0.1 rhel rhel.aadds.contoso.com
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
 ## Install required packages
 
-The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
+The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `yum`. There are some differences between RHEL 7.x and RHEL 6.x, so use the appropriate commands for your distro version in the remaining sections of this article.
 
- **RHEL 7** 
+**RHEL 7**
 
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
- **RHEL 6** 
+**RHEL 6**
 
 ```console
 sudo yum install adcli sssd authconfig krb5-workstation
@@ -88,34 +88,34 @@ sudo yum install adcli sssd authconfig krb5-workstation
 
 ## Join VM to the managed domain
 
-Now that the required packages are installed on the VM, join the VM to the Azure AD DS managed domain.
- 
-  **RHEL 7**
-	 
-1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+Now that the required packages are installed on the VM, join the VM to the Azure AD DS managed domain. Again, use the appropriate steps for your RHEL distro version.
+
+### RHEL 7
+
+1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *AADDS.CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
-    sudo realm discover CONTOSO.COM
+    sudo realm discover AADDS.CONTOSO.COM
     ```
 
    If the `realm discover` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
-   
-    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+
+    * Make sure that the domain is reachable from the VM. Try `ping aadds.contoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
 1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
-    
-    ```console
-    kinit contosoadmin@CONTOSO.COM
-    ``` 
-
-1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@CONTOSO.COM`:
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aadds.contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
+    kinit contosoadmin@AADDS.CONTOSO.COM
+    ```
+
+1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@AADDS.CONTOSO.COM`:
+
+    ```console
+    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM'
     ```
 
 It takes a few moments to join the VM to the Azure AD DS managed domain. The following example output shows the VM has successfully joined to the Azure AD DS managed domain:
@@ -124,28 +124,28 @@ It takes a few moments to join the VM to the Azure AD DS managed domain. The fol
 Successfully enrolled machine in realm
 ```
 
-  **RHEL 6** 
+### RHEL 6
 
-1. Use the `adcli info` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+1. Use the `adcli info` command to discover the Azure AD DS managed domain. The following example discovers the realm *ADDDS.CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
-    sudo adcli info contoso.com
+    sudo adcli info aadds.contoso.com
     ```
-	
+
    If the `adcli info` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
-   
-    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+
+    * Make sure that the domain is reachable from the VM. Try `ping aadds.contoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
-1. First, join the domain using the `adcli join` command, this command will also creates the keytab to authenticate the machine. Use a user account that's a member of the *AAD DC Administrators* group. 
+1. First, join the domain using the `adcli join` command, this command will also creates the keytab to authenticate the machine. Use a user account that's a member of the *AAD DC Administrators* group.
 
     ```console
-    sudo adcli join contoso.com -U contosoadmin
+    sudo adcli join aadds.contoso.com -U contosoadmin
     ```
 
-1. Now configure the `/ect/krb5.conf` and create the `/etc/sssd/sssd.conf` files to use the `contoso.com` Active Directory domain. 
-   Make sure that `CONTOSO.COM` is replaced by your own domain name :
+1. Now configure the `/ect/krb5.conf` and create the `/etc/sssd/sssd.conf` files to use the `aadds.contoso.com` Active Directory domain.
+   Make sure that `AADDS.CONTOSO.COM` is replaced by your own domain name:
 
     Open the `/ect/krb5.conf` file with an editor:
 
@@ -153,7 +153,7 @@ Successfully enrolled machine in realm
     sudo vi /etc/krb5.conf
     ```
 
-    Update the `krb5.conf` file to match the following sample :
+    Update the `krb5.conf` file to match the following sample:
 
     ```console
     [logging]
@@ -162,7 +162,7 @@ Successfully enrolled machine in realm
      admin_server = FILE:/var/log/kadmind.log
     
     [libdefaults]
-     default_realm = CONTOSO.COM
+     default_realm = AADDS.CONTOSO.COM
      dns_lookup_realm = true
      dns_lookup_kdc = true
      ticket_lifetime = 24h
@@ -170,31 +170,31 @@ Successfully enrolled machine in realm
      forwardable = true
     
     [realms]
-     CONTOSO.COM = {
-     kdc = CONTOSO.COM
-     admin_server = CONTOSO.COM
+     AADDS.CONTOSO.COM = {
+     kdc = AADDS.CONTOSO.COM
+     admin_server = AADDS.CONTOSO.COM
      }
     
     [domain_realm]
-     .CONTOSO.COM = CONTOSO.COM
-     CONTOSO.COM = CONTOSO.COM
+     .CONTOSO.COM = AADDS.CONTOSO.COM
+     CONTOSO.COM = AADDS.CONTOSO.COM
     ```
     
-   Create the `/etc/sssd/sssd.conf` file :
+   Create the `/etc/sssd/sssd.conf` file:
     
     ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
-    Update the `sssd.conf` file to match the following sample :
+    Update the `sssd.conf` file to match the following sample:
 
     ```console
     [sssd]
      services = nss, pam, ssh, autofs
      config_file_version = 2
-     domains = CONTOSO.COM
+     domains = AADDS.CONTOSO.COM
     
-    [domain/CONTOSO.COM]
+    [domain/AADDS.CONTOSO.COM]
     
      id_provider = ad
     ```
@@ -206,13 +206,13 @@ Successfully enrolled machine in realm
     sudo chown root:root /etc/sssd/sssd.conf
     ```
 
-1. Use `authconfig` to instruct the VM about the AD Linux integration :
+1. Use `authconfig` to instruct the VM about the AD Linux integration:
 
     ```console
     sudo authconfig --enablesssd --enablesssdauth --update
     ```
-	
-1. Start and enable the sssd service :
+
+1. Start and enable the sssd service:
 
     ```console
     sudo service sssd start
@@ -245,16 +245,16 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
     When done, save and exit the *sshd_conf* file using the `:wq` command of the editor.
 
-1. To apply the changes and let users sign in using a password, restart the SSH service:
+1. To apply the changes and let users sign in using a password, restart the SSH service for your RHEL distro version:
 
-   **RHEL 7** 
-    
+   **RHEL 7**
+
     ```console
     sudo systemctl restart sshd
     ```
 
-   **RHEL 6** 
-    
+   **RHEL 6**
+
     ```console
     sudo service sshd restart
     ```
@@ -269,11 +269,11 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
     sudo visudo
     ```
 
-1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *contoso.com*:
+1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *aadds.contoso.com*:
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
-    %AAD\ DC\ Administrators@contoso.com ALL=(ALL) NOPASSWD:ALL
+    %AAD\ DC\ Administrators@aadds.contoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
     When done, save and exit the editor using the `:wq` command of the editor.
@@ -282,10 +282,10 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
 
 To verify that the VM has been successfully joined to the Azure AD DS managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
 
-1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@contoso.com` and then enter the address of your VM, such as *rhel.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aadds.contoso.com` and then enter the address of your VM, such as *rhel.aadds.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com rhel.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com rhel.contoso.com
     ```
 
 1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:

@@ -1,17 +1,10 @@
 ---
-title: SSH support for App Service on Linux - Azure | Microsoft Docs
-description: Learn about using SSH with Azure App Service on Linux.
+title: SSH access for Linux containers
+description: You can open an SSH session to a Linux container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.
 keywords: azure app service, web app, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
@@ -20,11 +13,9 @@ ms.custom: seodec18
 ---
 # SSH support for Azure App Service on Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
 
-![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-For custom Docker images, by configuring SSH server in your custom image.
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 You can also connect to the container directly from your local development machine using SSH and SFTP.
 

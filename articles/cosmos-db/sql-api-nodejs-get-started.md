@@ -657,7 +657,7 @@ Install the project's dependencies via npm. Use the following command:
 
 * ```npm install``` 
 
-Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
+Next, in the ```config.js``` file, update the config.endpoint and config.key values as described in [Step 3: Set your app's configurations](#Config).  
 
 Then in your terminal, locate your ```app.js``` file and run the command:  
 

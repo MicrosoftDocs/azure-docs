@@ -1,14 +1,14 @@
 ---
-title: Mount an Azure HPC Cache (preview)
+title: Mount an Azure HPC Cache
 description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Mount the Azure HPC Cache (preview)
+# Mount the Azure HPC Cache
 
 After the cache is created, NFS clients can access it with a simple mount command.
 

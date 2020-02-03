@@ -1,11 +1,8 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/17/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
 ---
 # Understand Azure Policy effects
 
@@ -21,6 +18,7 @@ These effects are currently supported in a policy definition:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) (preview)
 - [EnforceRegoPolicy](#enforceregopolicy) (preview)
 - [Modify](#modify)
 
@@ -42,7 +40,8 @@ Resource Provider when a resource doesn't meet the designed governance controls 
 After the Resource Provider returns a success code, **AuditIfNotExists** and **DeployIfNotExists**
 evaluate to determine if additional compliance logging or action is required.
 
-There currently isn't any order of evaluation for the **EnforceRegoPolicy** effect.
+There currently isn't any order of evaluation for the **EnforceOPAConstraint** or
+**EnforceRegoPolicy** effects.
 
 ## Disabled
 
@@ -196,7 +195,7 @@ following tag changes:
         {
             "operation": "addOrReplace",
             "field": "tags['Dept']",
-            "field": "[parameters('DeptName')]"
+            "value": "[parameters('DeptName')]"
         }
     ]
 }
@@ -403,8 +402,8 @@ Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a te
 when the condition is met.
 
 > [!NOTE]
-> [Nested templates](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
-> [linked templates](../../../azure-resource-manager/resource-group-linked-templates.md) are currently not supported.
+> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
+> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template) are currently not supported.
 
 ### DeployIfNotExists evaluation
 
@@ -458,7 +457,7 @@ related resources to match and the template deployment to execute.
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
-  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md),
+  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/templates/deploy-to-subscription.md),
     _ResourceGroup_ indicates a deployment to a resource group.
   - A _location_ property must be specified in the _Deployment_ when using subscription level
     deployments.
@@ -527,15 +526,85 @@ not, then a deployment to enable is executed.
 }
 ```
 
+## EnforceOPAConstraint
+
+This effect is used with a policy definition *mode* of `Microsoft.Kubernetes.Data`. It's used to
+pass Gatekeeper v3 admission control rules defined with
+[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
+to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to self-managed Kubernetes clusters
+on Azure.
+
+> [!NOTE]
+> [Azure Policy for AKS Engine](aks-engine.md) is in Public Preview and only supports built-in
+> policy definitions.
+
+### EnforceOPAConstraint evaluation
+
+The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
+Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+
+### EnforceOPAConstraint properties
+
+The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
+Gatekeeper v3 admission control rule.
+
+- **constraintTemplate** [required]
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters which are
+    passed via **values** from Azure Policy.
+- **constraint** [required]
+  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
+    `{{ .Values.<valuename> }}`. In the example below, this would be `{{ .Values.cpuLimit }}` and
+    `{{ .Values.memoryLimit }}`.
+- **values** [optional]
+  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
+    Constraint template CRD.
+
+### EnforceRegoPolicy example
+
+Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in AKS
+Engine.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "in": [
+                "Microsoft.ContainerService/managedClusters",
+                "AKS Engine"
+            ]
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "enforceOPAConstraint",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
+        "values": {
+            "cpuLimit": "[parameters('cpuLimit')]",
+            "memoryLimit": "[parameters('memoryLimit')]"
+        }
+    }
+}
+```
+
 ## EnforceRegoPolicy
 
 This effect is used with a policy definition *mode* of `Microsoft.ContainerService.Data`. It's used
-to pass admission control rules defined with [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+to pass Gatekeeper v2 admission control rules defined with
+[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to
+[Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
+[Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy for Kubernetes](rego-for-aks.md) is in Public Preview and only supports built-in
-> policy definitions.
+> [Azure Policy for AKS](rego-for-aks.md) is in Limited Preview and only supports built-in policy
+> definitions
 
 ### EnforceRegoPolicy evaluation
 
@@ -545,7 +614,7 @@ Every 5 minutes, a full scan of the cluster is completed and the results reporte
 ### EnforceRegoPolicy properties
 
 The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
-Rego admission control rule.
+Gatekeeper v2 admission control rule.
 
 - **policyId** [required]
   - A unique name passed as a parameter to the Rego admission control rule.
@@ -556,7 +625,7 @@ Rego admission control rule.
 
 ### EnforceRegoPolicy example
 
-Example: Rego admission control rule to allow only the specified container images in AKS.
+Example: Gatekeeper v2 admission control rule to allow only the specified container images in AKS.
 
 ```json
 "if": {
@@ -627,6 +696,6 @@ validate the right policies are affecting the right scopes.
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review the [Azure Policy definition structure](definition-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

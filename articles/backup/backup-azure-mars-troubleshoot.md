@@ -1,13 +1,9 @@
 ---
 title: Troubleshoot the Azure Backup agent
-description: Troubleshoot installation and registration of the Azure Backup agent
+description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
@@ -45,6 +41,7 @@ We recommend that you check the following before you start troubleshooting Micro
 | **Antivirus software is blocking registration** | If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### Additional recommendations
+
 - Go to C:/Windows/Temp and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files.
 - Ensure the machine’s date and time match the local time zone.
 - Ensure [these sites](backup-configure-vault.md#verify-internet-access) are added to your trusted sites in Internet Explorer.
@@ -73,7 +70,6 @@ We recommend that you check the following before you start troubleshooting Micro
 | ---     | ---     | ---    |
 | <br /><ul><li>The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to the internet.<li>(407) Proxy Authentication Required. |A proxy is blocking the connection. |  <ul><li>In Internet Explorer, go to **Tools** > **Internet options** > **Security** > **Internet**. Select **Custom Level** and scroll down to the **File download** section. Select **Enable**.<p>You might also have to add [URLs and IP addresses](backup-configure-vault.md#verify-internet-access) to your trusted sites in Internet Explorer.<li>Change the settings to use a proxy server. Then provide the proxy server details.<li> If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs and IP addresses](backup-configure-vault.md#verify-internet-access). <li>If you have antivirus software installed on the server, exclude these files from the antivirus scan: <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There's a CSC.exe for every .NET Framework version installed on the server. Exclude CSC.exe files for all versions of .NET Framework on the affected server. <li>The scratch folder or cache location. <br>The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
-
 ## Failed to set the encryption key for secure backups
 
 | Error | Possible causes | Recommended actions |
@@ -92,8 +88,8 @@ We recommend that you check the following before you start troubleshooting Micro
 |---------|---------|---------|
 | <br />Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
-
 ## Backups don't run according to schedule
+
 If scheduled backups don't get triggered automatically but manual backups work correctly, try the following actions:
 
 - Ensure the Windows Server backup schedule doesn't conflict with the Azure files and folders backup schedule.
@@ -114,11 +110,13 @@ If scheduled backups don't get triggered automatically but manual backups work c
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- If the PowerShell execution policy for `LocalMachine` is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run these commands in elevated mode to check and set the execution policy to either `Unrestricted` or `RemoteSigned`:
+- If the PowerShell execution policy for `LocalMachine` is set to `restricted`, the PowerShell cmdlet that triggers the backup task might fail. Run these commands in elevated mode to check and set the execution policy to either `Unrestricted` or `RemoteSigned`:
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - Ensure there are no missing or corrupt PowerShell module MSOnlineBackup files. If there are any missing or corrupt files, take these steps:
 
@@ -127,45 +125,42 @@ If scheduled backups don't get triggered automatically but manual backups work c
 
      If there's already an MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
 
-
 > [!TIP]
 > To ensure changes are applied consistently, restart the server after performing the preceding steps.
-
 
 ## Troubleshoot restore problems
 
 Azure Backup might not successfully mount the recovery volume, even after several minutes. And you might receive error messages during the process. To begin recovering normally, take these steps:
 
-1.  Cancel the mount process if it's been running for several minutes.
+1. Cancel the mount process if it's been running for several minutes.
 
-2.  Check if you have the latest version of the Backup agent. To check the version, on the **Actions** pane of the MARS console, select **About Microsoft Azure Recovery Services Agent**. Confirm that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). Select this link to [download the latest version](https://go.microsoft.com/fwLink/?LinkID=288905).
+2. Check if you have the latest version of the Backup agent. To check the version, on the **Actions** pane of the MARS console, select **About Microsoft Azure Recovery Services Agent**. Confirm that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). Select this link to [download the latest version](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3.  Go to **Device Manager** > **Storage controllers** and locate **Microsoft iSCSI Initiator**. If you locate it, go directly to step 7.
+3. Go to **Device Manager** > **Storage controllers** and locate **Microsoft iSCSI Initiator**. If you locate it, go directly to step 7.
 
-4.  If you can't locate the Microsoft iSCSI Initiator service, try to find an entry under **Device Manager** > **Storage controllers** named **Unknown Device** with Hardware ID **ROOT\ISCSIPRT**.
+4. If you can't locate the Microsoft iSCSI Initiator service, try to find an entry under **Device Manager** > **Storage controllers** named **Unknown Device** with Hardware ID **ROOT\ISCSIPRT**.
 
-5.  Right-click **Unknown Device** and select **Update Driver Software**.
+5. Right-click **Unknown Device** and select **Update Driver Software**.
 
-6.	Update the driver by selecting the option to  **Search automatically for updated driver software**. This update should change **Unknown Device** to **Microsoft iSCSI Initiator**:
+6. Update the driver by selecting the option to  **Search automatically for updated driver software**. This update should change **Unknown Device** to **Microsoft iSCSI Initiator**:
 
     ![Screenshot of Azure Backup Device Manager, with Storage controllers highlighted](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7.  Go to **Task Manager** > **Services (Local)** > **Microsoft iSCSI Initiator Service**:
+7. Go to **Task Manager** > **Services (Local)** > **Microsoft iSCSI Initiator Service**:
 
     ![Screenshot of Azure Backup Task Manager, with Services (Local) highlighted](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
-8.  Restart the Microsoft iSCSI Initiator service. To do this, right-click the service and select **Stop**. Then right-click it again and select **Start**.
+8. Restart the Microsoft iSCSI Initiator service. To do this, right-click the service and select **Stop**. Then right-click it again and select **Start**.
 
-9.  Retry recovery by using [Instant Restore](backup-instant-restore-capability.md).
+9. Retry recovery by using [Instant Restore](backup-instant-restore-capability.md).
 
 If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-
 ## Troubleshoot Cache problems
 
-Backup operation may fail if the cache folder (also referred as scratch folder) is incorrectly configured, missing pre-requisites or has restricted access.
+Backup operation may fail if the cache folder (also referred as scratch folder) is incorrectly configured, missing prerequisites or has restricted access.
 
-### Pre-requisites
+### Prerequisites
 
 For MARS agent operations to succeed the cache folder needs to adhere to the below requirements:
 
@@ -176,20 +171,25 @@ For MARS agent operations to succeed the cache folder needs to adhere to the bel
 - [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
 
 ### Increase shadow copy storage
+
 Backup operations could fail if there is insufficient shadow copy storage space required to protect the data source. To resolve this issue, increase the shadow copy storage space on the protected volume using vssadmin as shown below:
+
 - Check the current shadow storage space from the elevated command prompt:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
 - Increase the shadow storage space using the below command:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### Another process or antivirus software blocking access to cache folder
+
 If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
+
 - The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
 - The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 - CBengine.exe
 - CSC.exe
 
 ## Common issues
+
 This section covers the common errors that you encounter while using MARS agent.
 
 ### SalChecksumStoreInitializationFailed
@@ -208,15 +208,15 @@ Microsoft Azure Recovery Services Agent was unable to access the scratch locatio
 
 Error message | Recommended action |
 -- | --
-Backup failed due to insufficient storage in volume  where the scratch folder is located | To resolve this issue, verify the below steps and retry the operation:<br/>- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+Backup failed due to insufficient storage in volume  where the scratch folder is located | To resolve this issue, verify the below steps and retry the operation:<br/>- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
 
 ### SalBitmapError
 
 Error message | Recommended action |
 -- | --
-Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below steps and retry the operation:<br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
-
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below steps and retry the operation:<br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
 
 ## Next steps
-* Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
-* If you need to restore a backup, see [restore files to a Windows machine](backup-azure-restore-windows-server.md).
+
+- Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
+- If you need to restore a backup, see [restore files to a Windows machine](backup-azure-restore-windows-server.md).

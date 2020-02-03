@@ -1,7 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Filtering, ordering, paging of Media Services entities - Azure | Microsoft Docs
-description: This article discusses filtering, ordering, paging of Azure Media Services entities. 
+title: Filtering, ordering, and paging of Media Services v3 entities
+titleSuffix: Azure Media Services
+description: Learn about filtering, ordering, and paging of Azure Media Services entities. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,20 +12,20 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
-# Filtering, ordering, paging of Media Services entities
+# Filtering, ordering, and paging of Media Services entities
 
-This topic discusses the OData query options and pagination support available when listing of Azure Media Services v3 entities.
+This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
 
 ## Considerations
 
-* Properties of entities that are of the Datetime type are always in UTC format.
-* White space in the query string should be URL-encoded before sending a request.
+* Properties of entities that are of the `Datetime` type are always in UTC format.
+* White space in the query string should be URL-encoded before you send a request.
 
 ## Comparison operators
 
@@ -32,21 +33,21 @@ You can use the following operators to compare a field to a constant value:
 
 Equality operators:
 
-- `eq`: Test whether a field is **equal to** a constant value
-- `ne`: Test whether a field is **not equal to** a constant value
+- `eq`: Test whether a field is *equal to* a constant value.
+- `ne`: Test whether a field is *not equal to* a constant value.
 
 Range operators:
 
-- `gt`: Test whether a field is **greater than** a constant value
-- `lt`: Test whether a field is **less than** a constant value
-- `ge`: Test whether a field is **greater than or equal to** a constant value
-- `le`: Test whether a field is **less than or equal to** a constant value
+- `gt`: Test whether a field is *greater than* a constant value.
+- `lt`: Test whether a field is *less than* a constant value.
+- `ge`: Test whether a field is *greater than or equal to* a constant value.
+- `le`: Test whether a field is *less than or equal to* a constant value.
 
 ## Filter
 
-**$filter** - Use filter to supply an OData filter parameter to find only the objects you’re interested in.
+Use `$filter` to supply an OData filter parameter to find only the objects you’re interested in.
 
-The following REST example filters on the alternateId of an asset:
+The following REST example filters on the `alternateId` value of an asset:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -57,34 +58,34 @@ The following C# example filters on the asset's created date:
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## Order by
 
-**$orderby** - Use it to sort the returned objects by the specified parameter. For example:    
+Use `$orderby` to sort the returned objects by the specified parameter. For example:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-To sort the results in ascending or descending order, append either `asc` or `desc` to the field name, separated by a space. For example, `$orderby properties/created desc`.
+To sort the results in ascending or descending order, append either `asc` or `desc` to the field name, separated by a space. For example: `$orderby properties/created desc`.
 
 ## Skip token
 
-**$skiptoken** - If a query response contains many items, the service returns a skip token (`@odata.nextLink`) value that you use to get the next page of results. This can be used to page through the entire result set.
+If a query response contains many items, the service returns a `$skiptoken` (`@odata.nextLink`) value that you use to get the next page of results. Use it to page through the entire result set.
 
-In Media Services v3, you cannot configure the page size. The page size varies by the type of entity, please read the individual sections that follow for details.
+In Media Services v3, you can't configure the page size. The page size varies by the type of entity. Read the individual sections that follow for details.
 
-If entities are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded). 
+If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
 
 > [!TIP]
-> You should always use the `nextLink` to enumerate the collection and not depend on a particular page size.
+> You should always use `nextLink` to enumerate the collection and not depend on a particular page size.
 >
-> The `nextLink` will only be present if there are more than one page of entities.
+> The `nextLink` value will be present only if there's more than one page of entities.
 
-Consider the following example of where $skiptoken is used. Make sure you replace *amstestaccount* with your account name and set the *api-version* value to the latest version.
+Consider the following example of where `$skiptoken` is used. Make sure you replace *amstestaccount* with your account name and set the *api-version* value to the latest version.
 
-If you request a list of Assets like this:
+If you request a list of assets like this:
 
 ```
 GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
@@ -92,7 +93,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-You would get back a response similar to this:
+You'll get back a response similar to this one:
 
 ```
 HTTP/1.1 200 OK
@@ -134,7 +135,7 @@ while (currentPage.NextPageLink != null)
 
 ## Using logical operators to combine query options
 
-Media Services v3  supports ‘or’ and ‘and’ logical operators. 
+Media Services v3 supports **OR** and **AND** logical operators. 
 
 The following REST example checks the job's state:
 
@@ -151,7 +152,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 ## Filtering and ordering options of entities
 
-The following table shows how the filtering and ordering options may be applied to different entities:
+The following table shows how you can apply the filtering and ordering options to different entities:
 
 |Entity name|Property name|Filter|Order|
 |---|---|---|---|

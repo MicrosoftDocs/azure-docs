@@ -1,6 +1,6 @@
 ---
-title: Export a single or pooled an Azure SQL database to a BACPAC file | Microsoft Docs
-description: Export an Azure SQL database to a BACPAC file  using the Azure portal
+title: Export a single or pooled database to a BACPAC file
+description: Export an Azure SQL database to a BACPAC file using the Azure portal
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement

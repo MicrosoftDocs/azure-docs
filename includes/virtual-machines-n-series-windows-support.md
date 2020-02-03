@@ -29,9 +29,12 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optiona
 
 Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up a NVIDIA vGPU software license server.
 
-Please note that the Nvidia extension will always install the latst driver. We provide links to the previous version here for customers, who have dependency on an older version.
+Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
 
-| OS | Driver |
-| -------- |------------- |
-| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [GRID 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) <br/><br/> [GRID 8.0 (425.31)](https://download.microsoft.com/download/4/8/C/48C2D46E-EB64-460E-A8D9-0F55737D0D68/425.31_grid_win10_server2016_64bit_international.exe) (.exe)  |
-| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [GRID 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)<br/><br/> [GRID 8.0 (425.31)](https://download.microsoft.com/download/6/D/7/6D73C628-B5FB-4243-9520-DAEF363223CB/425.31_grid_win8_win7_server2012R2_server2008R2_64bit_international.exe) (.exe)  |
+For Windows Server 2019, Windows Server 2016, and Windows 10(up to build 1909):
+- [GRID 10.0 (441.66)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 9.0 (431.02)](https://download.microsoft.com/download/8/C/C/8CC88D54-EB07-44D3-8FA9-B797B173ED04/431.02_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
+
+For Windows Server 2012 R2, Windows Server 2008 R2, Windows 8, and Windows 7: 
+- [GRID 10.0 (441.66)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)
+- [GRID 9.1 (431.79)](https://download.microsoft.com/download/8/6/e/86ef2daa-b31e-43ad-90f2-bd795384b71e/431.79_grid_win7_win8_server2008R2_server2012R2_64bit_international.exe) (.exe)  

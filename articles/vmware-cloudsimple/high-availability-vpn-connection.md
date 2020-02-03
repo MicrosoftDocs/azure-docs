@@ -16,37 +16,14 @@ Network administrators can configure a high availability IPsec Site-to-Site VPN 
 
 This guide presents steps to configure an on-premises firewall for an IPsec Site-to-Site VPN high availability connection. The detailed steps are specific to the type of on-premises firewall. As examples, this guide presents steps for two types of firewalls: Cisco ASA and Palo Alto Networks.
 
-## Default configuration for CloudSimple VPN gateways
-
-By default, CloudSimple VPN gateways are configured in IKEv1 mode along with the following Phase 1 and Phase 2 attributes. If you want to use different VPN attributes or use IKEv2 instead of IKEV1, <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">open a support request</a>.
-
-### Phase 1
-
-| Parameter | Value |
-|-----------|-------|
-| IKE Version | IKEv1 |
-| Encryption | AES 256 |
-| Hash Algorithm| SHA 256 |
-| Diffie Hellman Group (DH Group) | 1 |
-| Life Time | 86,400 seconds |
-| Data Size | 4 GB |
-
-### Phase 2
-
-| Parameter | Value |
-|-----------|-------|
-| Encryption | AES 256 |
-| Hash Algorithm| SHA 256 |
-| Perfect Forward Secrecy Group (PFS Group) | None |
-| Life Time | 28,800 seconds |
-| Data Size | 4 GB |
-
 ## Before you begin
 
 Complete the following tasks before you configure the on-premises firewall.
 
 1. Verify that your organization has [provisioned](create-nodes.md) the required nodes and created at least one CloudSimple Private Cloud.
 2. [Configure a Site-to-Site VPN gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises network and your CloudSimple Private Cloud.
+
+See [VPN gateways overview](cloudsimple-vpn-gateways.md) for supported phase 1 and phase 2 proposals.
 
 ## Configure on-premises Cisco ASA firewall
 
@@ -115,7 +92,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### 5. Configure the transform set
 
-Configure the transform set (TS), which must involve the keyword ```ikev1```. The encryption and hash attributes specified in the TS must match with the parameters listed in [Default configuration for CloudSimple VPN gateways](#default-configuration-for-cloudsimple-vpn-gateways).
+Configure the transform set (TS), which must involve the keyword ```ikev1```. The encryption and hash attributes specified in the TS must match with the parameters listed in [Default configuration for CloudSimple VPN gateways](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -180,12 +157,12 @@ Because this configuration is for a high availability VPN, two tunnel interfaces
 
 ### 2. Set up static routes for Private Cloud subnets to be reached over the Site-to-Site VPN
 
-Routes are necessary for the on-premise subnets to reach CloudSimple private cloud subnets.
+Routes are necessary for the on-premises subnets to reach CloudSimple private cloud subnets.
 
 Select **Network** > **Virtual Routers** > *default* > **Static Routes** > **Add**, configure the following fields, and click **OK**.
 
 * Name. Enter any name for easy identification of the purpose of the route.
-* Destination. Specify the CloudSimple private cloud subnets to be reached over S2S tunnel interfaces from on-premise
+* Destination. Specify the CloudSimple private cloud subnets to be reached over S2S tunnel interfaces from on-premises
 * Interface. Select the primary tunnel interface created in step-1(Section-2) from the dropdown. In this example, it is tunnel.20.
 * Next Hop. Select **None**.
 * Admin Distance. Leave default.
@@ -309,13 +286,13 @@ Configuring IPsec Site-to-Site VPN on Cisco ASA with version 8.4 and later:
 
 Configuring Cisco Adaptive Security Appliance virtual (ASAv) on Azure:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Cisco Adaptive Security Virtual Appliance (ASAv) Quick Start Guide</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Cisco Adaptive Security Virtual Appliance (ASAv) quickstart Guide</a>
 
 Configuring Site-to-Site VPN with Proxy IDs on Palo Alto:
 
 [Set Up Site-to-Site VPN](https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#)
 
-Setting up up tunnel monitor:
+Setting up tunnel monitor:
 
 [Set Up Tunnel Monitoring](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html)
 

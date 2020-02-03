@@ -1,6 +1,7 @@
 ---
-title: String claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: String claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: String claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -374,7 +375,7 @@ The following example looks up the error message description based on the error 
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -398,7 +399,7 @@ The claims transformation looks up the text of the item and returns its value. I
 - Input claims:
     - **mapFromClaim**: B2C_V1_90001
 - Output claims:
-    - **restrictionValueClaim**: You cant sign in because you are a minor.
+    - **restrictionValueClaim**: You cannot sign in because you are a minor.
 
 ## LookupValue
 

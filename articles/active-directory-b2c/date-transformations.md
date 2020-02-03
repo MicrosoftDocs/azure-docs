@@ -1,6 +1,6 @@
 ---
-title: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Date claims transformation examples for custom policies
+description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

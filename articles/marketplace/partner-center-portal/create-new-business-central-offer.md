@@ -5,8 +5,9 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/13/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -26,7 +27,7 @@ Select the **+ New offer** button, then select the **Dynamics 365 Business Centr
 
 ### Offer ID and alias
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace), limited to 50 characters, and can’t be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace), limited to 50 characters, and can't be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace, and is different than the offer name and other values that will be shown to customers. This value can't be changed after you select **Create**.
 
@@ -53,7 +54,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 
 #### Contact me
 
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
 ### Test drive
 
@@ -96,7 +97,7 @@ Select a minimum of one and a maximum of three categories, which will be used to
 
 ### Industry
 
-You can optionally select up to two industries to help categorize your offer in the marketplace. If your offer is not specific to an industry, leave this section blank. Be sure to call out how your offer supports the selected industries in the offer description. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### App version
 
@@ -123,7 +124,7 @@ The Offer listing page displays the languages in which your offer will be listed
 You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language].” It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### Name
 
@@ -145,8 +146,26 @@ Some tips for writing your description:
   - Customer needs or pain that the product addresses
 - Keep in mind that the first few sentences might be displayed in search engine results.  
 - Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible. 
+- Use industry-specific vocabulary or benefit-based wording as much as possible.
 - Consider using HTML tags to format your description and make it more engaging.
+
+To make your offer description more engaging, use the rich text editor to format your description.
+
+![Using the rich text editor](./media/text-editor2.png)
+
+Use the following instructions to use the rich text editor:
+
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
+
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
+
+- To add a bulleted or numbered list to the text, use the options below:
+
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
+
+- To add or remove indentation to the text, use the options below:
+
+     ![Using the rich text editor to indent](./media/text-editor5.png)
 
 ### Search keywords
 
@@ -210,7 +229,7 @@ The **Availability** page gives you options on where and how to make your offer 
 
 This section lets you specify the markets in which your offer should be available. To do so, select **Edit markets**, which will display the **Market selection** popup window.
 
-By default, no markets are selected, but you must select at least one market in order to publish your offer. Click  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add. Once you’ve finished, select **Save**.
+By default, no markets are selected, but you must select at least one market in order to publish your offer. Click  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add. Once you've finished, select **Save**.
 
 Your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
@@ -283,7 +302,7 @@ A deployment template that contains all the Azure resources that comprise your s
 
 - **Test drive Azure Resource Manager template**: Upload the .zip containing your Azure Resource Manager template.  Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only bet set by a whole number of hours (for example, "2" hours, "1.5" is not valid).
+- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only be set by a whole number of hours (for example, "2" hours, "1.5" is not valid).
 
 ### Technical configuration for Dynamics 365 test drive
 
@@ -291,7 +310,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so you will need to ensure that you have enough licenses available to support the maximum limit set. Recommended value of 3-5.
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only bet set by a whole number of hours (for example, "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
+- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set by a whole number of hours (for example, "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
 
 - **Instance URL** (required): The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (for example, https://testdrive.crm.dynamics.com).
 
@@ -364,7 +383,7 @@ If your offer requires the Premium edition of Microsoft Dynamics 365 Business Ce
 
 ### Key usage scenario
 
-You must pload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+You must upload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ### App tests automation
 
@@ -383,9 +402,9 @@ Once you have completed all the required sections of the offer, select **publish
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - *Not started* – means the section has not been touched and needs to be completed.
-    - *Incomplete* – means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
-    - *Complete* – means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - *Not started* - means the section has not been touched and needs to be completed.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
+    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 

@@ -1,18 +1,13 @@
 ---
 title: Performance Monitor feature in Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
 description: The Performance Monitor capability in Network Performance Monitor helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: abshamsft
 ms.author: absha
+ms.date: 02/20/2018
+
 ---
 
 # Network Performance Monitor solution: Performance monitoring

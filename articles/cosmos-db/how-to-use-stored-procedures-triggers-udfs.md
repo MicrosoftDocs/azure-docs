@@ -1,5 +1,5 @@
 ---
-title: How to call stored procedures, triggers, and user-defined functions using Azure Cosmos DB SDKs
+title: Register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB SDKs
 description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs
 author: markjbrown
 ms.service: cosmos-db
@@ -125,6 +125,7 @@ asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArg
         successfulCompletionLatch.countDown();
         System.out.println(storedProcedureResponse.getActivityId());
     }, error -> {
+        successfulCompletionLatch.countDown();
         System.err.println("an error occurred while executing the stored procedure: actual cause: "
                 + error.getMessage());
     });
@@ -139,7 +140,7 @@ The following example shows how to register a stored procedure by using the Java
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-await container.storedProcedures.create({
+await container.scripts.storedProcedures.create({
     id: sprocId,
     body: require(`../js/${sprocId}`)
 });
@@ -156,7 +157,7 @@ const newItem = [{
 }];
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-const {body: result} = await container.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
+const {body: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
 ### Stored procedures - Python SDK

@@ -1,5 +1,5 @@
 ---
-title: Join a CoreOS VM to Azure AD Domain Services | Microsoft Docs'
+title: Join a CoreOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CoreOS virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/14/2019
+ms.date: 01/23/2020
 ms.author: iainfou
 
 ---
@@ -59,13 +59,13 @@ sudo vi /etc/hosts
 
 In the *hosts* file, update the *localhost* address. In the following example:
 
-* *contoso.com* is the DNS domain name of your Azure AD DS managed domain.
+* *aadds.contoso.com* is the DNS domain name of your Azure AD DS managed domain.
 * *coreos* is the hostname of your CoreOS VM that you're joining to the managed domain.
 
 Update these names with your own values:
 
 ```console
-127.0.0.1 coreos coreos.contoso.com
+127.0.0.1 coreos coreos.aadds.contoso.com
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
@@ -81,7 +81,7 @@ sudo vi /etc/sssd/sssd.conf
 Specify your own Azure AD DS managed domain name for the following parameters:
 
 * *domains* in ALL UPPER CASE
-* *[domain/CONTOSO]* where CONTOSO is in ALL UPPER CASE
+* *[domain/AADDS]* where AADDS is in ALL UPPER CASE
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -91,15 +91,15 @@ Specify your own Azure AD DS managed domain name for the following parameters:
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO.COM
+domains = AADDS.CONTOSO.COM
 
-[domain/CONTOSO.COM]
+[domain/AADDS.CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso.com
-ldap_search_base = dc=contoso,dc=com
+ldap_uri = ldap://aadds.contoso.com
+ldap_search_base = dc=aadds.contoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -110,32 +110,32 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso.com
-krb5_realm = CONTOSO.COM
+krb5_server = aadds.contoso.com
+krb5_realm = AADDS.CONTOSO.COM
 ```
 
 ## Join the VM to the managed domain
 
 With the SSSD configuration file updated, now join the virtual machine to the managed domain.
 
-1. First, use the `adcli info` command to verify you can see information about the Azure AD DS managed domain. The following example gets information for the domain *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+1. First, use the `adcli info` command to verify you can see information about the Azure AD DS managed domain. The following example gets information for the domain *AADDS.CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
-    sudo adcli info CONTOSO.COM
+    sudo adcli info AADDS.CONTOSO.COM
     ```
 
    If the `adcli info` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
 
-    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+    * Make sure that the domain is reachable from the VM. Try `ping aadds.contoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
 1. Now join the VM to the Azure AD DS managed domain using the `adcli join` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group.
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aadds.contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group.
 
     ```console
-    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    sudo adcli join -D AADDS.CONTOSO.COM -U contosoadmin@AADDS.CONTOSO.COM -K /etc/krb5.keytab -H coreos.aadds.contoso.com -N coreos
     ```
 
     The `adcli join` command doesn't return any information when the VM has successfully joined to the Azure AD DS managed domain.
@@ -150,10 +150,10 @@ With the SSSD configuration file updated, now join the virtual machine to the ma
 
 To verify that the VM has been successfully joined to the Azure AD DS managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
 
-1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@contoso.com` and then enter the address of your VM, such as *coreos.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aadds.contoso.com` and then enter the address of your VM, such as *coreos.aadds.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com coreos.aadds.contoso.com
     ```
 
 1. Now check that the group memberships are being resolved correctly:

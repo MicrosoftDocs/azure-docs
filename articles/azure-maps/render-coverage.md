@@ -1,6 +1,6 @@
 ---
-title: Render coverage in Azure Maps | Microsoft Docs
-description: Learn about Render coverage in Azure Maps
+title: Render coverage | Microsoft Azure Maps
+description: In this article, you will learn about regions with Microsoft Azure Maps render coverage along with their level of rendered details.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -162,7 +162,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | China                     |   | Ø |
 | Cocos (Keeling) Islands   |   | Ø |
 | Democratic People's Republic of Korea |   | Ø |
-| Dokdo and Takeshima       |   | Ø |
 | Hong Kong SAR             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |

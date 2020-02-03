@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Copy (move) managed disks to same or different subscription | Microsoft Docs
-description: Azure CLI Script Sample - Copy (move) managed disks to same or different subscription
+title: Copy managed disks to the a subscription - CLI Sample
+description: Azure CLI Script Sample - Copy (or move) managed disks to the same or a different subscription
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive

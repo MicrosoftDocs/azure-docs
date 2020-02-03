@@ -1,5 +1,5 @@
 ---
-title: Update your Groups info from the My Apps portal - Azure Active Directory| Microsoft Docs
+title: Update your Groups info on the My Apps portal - Azure AD
 description: Learn how to view and update your groups-related information, including viewing the groups you own, creating new groups, viewing the groups to which you're already a member, and joining any groups you aren't already part of.
 services: active-directory
 author: eross-msft
@@ -12,10 +12,9 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
-# Update your Groups info from the My Apps portal
+# Update your Groups info on the My Apps portal
 
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 

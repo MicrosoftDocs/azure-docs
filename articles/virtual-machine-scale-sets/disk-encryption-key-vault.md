@@ -2,11 +2,10 @@
 title: Creating and configuring a key vault for Azure Disk Encryption
 description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
-
 ms.custom: seodec18
 ---
 
@@ -27,8 +26,6 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 ## Install tools and connect to Azure
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
-
-While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation.
 
 ### Connect to your Azure account
 

@@ -1,11 +1,12 @@
 ---
-title: Using JSON in mapping data flow in Azure Data Factory
+title: JSON in mapping data flow
 description: Azure Data Factory mapping data flow has built-in capabilities for handling JSON documents with hierarchies
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
 ---
 

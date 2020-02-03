@@ -1,13 +1,8 @@
 ---
-title: About repositories and images in Azure Container Registry
+title: About repositories & images
 description: Introduction to key concepts of Azure container registries, repositories, and container images.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: danlep
 ---
 
 # About registries, repositories, and images

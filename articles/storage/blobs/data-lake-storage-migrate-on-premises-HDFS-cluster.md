@@ -1,16 +1,16 @@
 ---
-title: Use Azure Data Box to migrate data from on-premises HDFS store to Azure Storage
+title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
 description: Migrate data from an on-premises HDFS store to Azure Storage
 author: normesta
 ms.service: storage
-ms.date: 06/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
-# Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage
+# Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 
 You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
 

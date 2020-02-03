@@ -1,21 +1,17 @@
 ---
-title: Error handling best practices for Azure AD Authentication Library (ADAL) clients
+title: ADAL client app error handling best practices | Azure
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
@@ -538,7 +534,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-objc repository](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) is the best error reference.
 
-#### Operating System errors
+#### Operating system errors
 
 iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as SSL errors, timeouts, or network errors:
 
@@ -574,6 +570,7 @@ window.Logging = {
     }
 };
 ```
+
 ## Related content
 
 * [Azure AD Developer's Guide][AAD-Dev-Guide]

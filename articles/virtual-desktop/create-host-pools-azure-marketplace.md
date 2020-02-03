@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Virtual Desktop host pool by using the Azure Marketplace - Azure
+title: Windows Virtual Desktop host pool Azure Marketplace - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To run the Azure Marketplace offering to provision a new host pool:
 
-1. Select **+** or **+ Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Enter **Windows Virtual Desktop** in the Marketplace search window.
 3. Select **Windows Virtual Desktop - Provision a host pool**, and then select **Create**.
 
@@ -68,7 +68,9 @@ For the **Configure virtual machines** blade:
 For the **Virtual machine settings** blade:
 
 >[!NOTE]
-> If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+> If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> The account must also be part of the Azure AD DS managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process. 
 
 1. For **Image source**, select the source and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account that contains the .vhd file.
 2. Enter the user principal name and password for the domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.

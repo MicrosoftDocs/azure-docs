@@ -21,18 +21,27 @@
     items:
     - name: Use Draft
       href: kubernetes-draft.md
-    - name: Use Visual Studio Code and Azure Dev Spaces
-      href: ../dev-spaces/quickstart-netcore.md
-      maintainContext: true
-    - name: Use Visual Studio and Azure Dev Spaces
-      href: ../dev-spaces/quickstart-netcore-visualstudio.md
-      maintainContext: true
-    - name: Use the CLI and Azure Dev Spaces
-      href: ../dev-spaces/quickstart-cli.md
-      maintainContext: true
-    - name: Use Azure Dev Spaces for team development 
-      href: ../dev-spaces/quickstart-team-development.md 
-      maintainContext: true
+    - name: Azure Dev Spaces
+      expanded: true
+      items:
+      - name: Use Azure Dev Spaces for team development 
+        href: ../dev-spaces/quickstart-team-development.md 
+        maintainContext: true
+      - name: Use Visual Studio Code
+        href: ../dev-spaces/quickstart-netcore.md
+        maintainContext: true
+      - name: Use Visual Studio
+        href: ../dev-spaces/quickstart-netcore-visualstudio.md
+        maintainContext: true
+      - name: Use the CLI
+        href: ../dev-spaces/quickstart-cli.md
+        maintainContext: true
+      - name: Use Azure Dev Spaces with Java
+        href: ../dev-spaces/quickstart-java.md 
+        maintainContext: true
+      - name: Use Azure Dev Spaces Node.js
+        href: ../dev-spaces/quickstart-nodejs.md 
+        maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -102,6 +111,8 @@
     href: supported-kubernetes-versions.md
   - name: Security Hardening in host OS
     href: security-hardened-vm-host-image.md
+  - name: Azure Kubernetes Service Diagnostics overview
+    href: concepts-diagnostics.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -126,13 +137,11 @@
         href: virtual-nodes-cli.md
       - name: Use the Azure portal
         href: virtual-nodes-portal.md
-    - name: Use Virtual Kubelet
-      href: virtual-kubelet.md
-    - name: Use Cluster Autoscaler (preview)
+    - name: Use Cluster Autoscaler
       href: cluster-autoscaler.md
-    - name: Use Availability Zones (preview)
+    - name: Use Availability Zones
       href: availability-zones.md
-    - name: Use multiple node pools (preview)
+    - name: Use multiple node pools
       href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +208,7 @@
       href: use-network-policies.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
-    - name: Define API server authorized IP ranges (preview)
+    - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -216,6 +225,12 @@
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
+    - name: Rotate certificates
+      href: certificate-rotation.md
+    - name: Create a private cluster
+      href: private-clusters.md
+    - name: BYOK for disks
+      href: azure-disk-customer-managed-keys.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
@@ -225,8 +240,8 @@
       href: view-master-logs.md
     - name: View the kubelet logs
       href: kubelet-logs.md
-    - name: View real-time container logs (preview)
-      href: ../azure-monitor/insights/container-insights-live-logs.md
+    - name: View container data real-time
+      href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
   - name: Use Windows Server containers (preview)
     items:
@@ -307,6 +322,9 @@
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true
+    - name: Use Azure API Management
+      href: ../api-management/api-management-kubernetes.md
+      maintainContext: true
   - name: Select and deploy a service mesh
     items: 
     - name: About Service Meshes
@@ -343,6 +361,8 @@
       maintainContext: true
     - name: Deployment Center Launcher
       href: deployment-center-launcher.md 
+    - name: GitHub Actions for Kubernetes
+      href: ../aks/kubernetes-action.md
   - name: Troubleshoot
     items:
     - name: Common issues

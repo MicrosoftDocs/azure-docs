@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Azure Lab Services documentation # < 60 chars
-summary: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. # < 160 chars
+title: Azure DevTest Labs documentation # < 60 chars
+summary: Learn how to use Azure DevTest Labs to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. # < 160 chars
 
 metadata:
-  title: Azure Lab Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure DevTest Labs documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure DevTest Labs to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. # Required; article description that is displayed in search results. < 160 chars.
   services: lab-services
   ms.service: lab-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
@@ -20,70 +20,52 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: High-level overview
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
-          - text: About Lab Services
-            url: lab-services-overview.md
           - text: About DevTest Labs
             url: devtest-lab-overview.md
-          - text: About Classroom Labs
-            url: ./classroom-labs/classroom-labs-overview.md                        
-
-  # Card
-  - title: DevTest Labs
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About DevTest Labs
-            url: devtest-lab-overview.md    
-      - linkListType: tutorial
-        links:
-          - text: Set up a lab          
-            url: tutorial-create-custom-lab.md
-          - text: Access a lab
-            url: tutorial-use-custom-lab.md
+          - text: About DevTest Labs and Lab Services
+            url: lab-services-overview.md
       - linkListType: concept
         links:
           - text: DevTest Labs concepts
             url: devtest-lab-concepts.md
           - text: Popular scenarios
             url: devtest-lab-guidance-get-started.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure and use public environments
-            url: devtest-lab-configure-use-public-environments.md
-          - text: Create and use your own environment
-            url: devtest-lab-create-environment-from-arm.md          
-          - text: Create a custom image
-            url: devtest-lab-create-custom-image-from-vm-using-portal.md
-          - text: Manage formulas
-            url: devtest-lab-manage-formulas.md
-          - text: Add artifacts to a VM
-            url: add-artifact-vm.md                                    
-  - title: Classroom Labs
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About Classroom Labs
-            url: ./classroom-labs/classroom-labs-overview.md                        
       - linkListType: tutorial
         links:
-          - text: Set up a lab account        
-            url: ./classroom-labs/tutorial-setup-lab-account.md
-          - text: Set up a classroom lab
-            url: ./classroom-labs/tutorial-setup-classroom-lab.md
-          - text: Access a classroom lab
-            url: ./classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
-          - text: Track usage of a classroom lab
-            url: ./classroom-labs/tutorial-track-usage.md
-      - linkListType: concept
+          - text: Set up a lab
+            url: tutorial-create-custom-lab.md 
+          - text: Access a lab
+            url: tutorial-use-custom-lab.md 
+  - title: Artifacts
+    linkLists:
+      - linkListType: how-to-guide
         links:
-          - text: Classroom Labs concepts
-            url: ./classroom-labs/classroom-labs-concepts.md
-          - text: Use labs for conducting classes
-            url: ./classroom-labs/classroom-labs-scenarios.md            
+          - text: Add an artifact to a VM
+            url: add-artifact-vm.md
+          - text: Create custom artifacts
+            url: devtest-lab-artifact-author.md
+          - text: Specify mandatory Artifacts
+            url: devtest-lab-mandatory-artifacts.md 
+          - text: Troubleshoot artifact failures
+            url: devtest-lab-troubleshoot-artifact-failure.md
+  - title: Environments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure and use public environments 
+            url: devtest-lab-configure-use-public-environments.md
+          - text: Create an environment
+            url: devtest-lab-create-environment-from-arm.md
+          - text: Use platform-as-a-service services
+            url: use-paas-services.md 
+          - text: Connect to lab's virtual network
+            url: connect-environment-lab-virtual-network.md  
+          - text: Troubleshoot environment failures
+            url: troubleshoot-vm-environment-creation-failures.md
   - title: Explore our reference content
     linkLists:
       - linkListType: reference
@@ -94,3 +76,15 @@ landingContent:
             url: /powershell/module/az.devtestlabs/#devtest_labs
           - text: REST
             url: /rest/api/dtl
+  - title: Templates
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Custom image vs. Formula
+            url: devtest-lab-comparing-vm-base-image-types.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a custom image from a VM 
+            url: devtest-lab-create-custom-image-from-vm-using-portal.md
+          - text: Manage formulas
+            url: devtest-lab-manage-formulas.md

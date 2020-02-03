@@ -1,9 +1,10 @@
 ---
-title: Tutorial for integrating with a continuous integration and delivery pipeline by using Azure App Configuration | Microsoft Docs
+title: "Tutorial: Integrate with a continuous integration and delivery pipeline"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to generate a configuration file by using data in Azure App Configuration during continuous integration and delivery
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 
@@ -11,7 +12,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 
 #Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
@@ -26,7 +27,7 @@ If you have an Azure DevOps Pipeline, you can fetch key-values from App Configur
 
 ## Deploy App Configuration data with your application
 
-Your application may fail to run if it depends on Azure App Configuration and cannot reach it. You can enhance the resiliency of your application to deal with such an event, however unlikely it is to happen. To do so, package the current configuration data into a file that's deployed with the application and loaded locally during its startup. This approach guarantees that your application has default setting values at least. These values are overwritten by any newer changes in an app configuration store when it's available.
+Your application may fail to run if it depends on Azure App Configuration and cannot reach it. You can enhance the resiliency of your application to deal with such an event, however unlikely it is to happen. To do so, package the current configuration data into a file that's deployed with the application and loaded locally during its startup. This approach guarantees that your application has default setting values at least. These values are overwritten by any newer changes in an App Configuration store when it's available.
 
 Using the [Export](./howto-import-export-data.md#export-data) function of Azure App Configuration, you can automate the process of retrieving current configuration data as a single file. Then embed this file in a build or deployment step in your continuous integration and continuous deployment (CI/CD) pipeline.
 
@@ -40,7 +41,7 @@ If you build locally, download and install the [Azure CLI](https://docs.microsof
 
 To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
 
-### Export an app configuration store
+### Export an App Configuration store
 
 1. Open your *.csproj* file, and add the following script:
 
@@ -51,7 +52,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
     </Target>
     ```
 
-    Add the *ConnectionString* associated with your app configuration store as an environment variable.
+    Add the *ConnectionString* associated with your App Configuration store as an environment variable.
 
 2. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.
 
@@ -71,7 +72,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
 ### Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

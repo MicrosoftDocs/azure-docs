@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Connect a Node.js MongoDB app to Azure Cosmos DB' 
 description: This quickstart demonstrates how to connect an existing MongoDB app written in Node.js to Azure Cosmos DB.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.author: rimman
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 
 ---
@@ -51,7 +50,7 @@ Run the following commands to clone the sample repository. This sample repositor
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
@@ -93,7 +92,7 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI]( /cli/a
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
@@ -175,10 +174,10 @@ module.exports = {
 
 ## Retrieve the key
 
-In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) command to retrieve the primary key.
+In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command to retrieve the primary key.
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
 The Azure CLI outputs information similar to the following example. 

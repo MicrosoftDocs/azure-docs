@@ -1,5 +1,5 @@
 ---
-title: What is Privileged Identity Management? - Azure Active Directory | Microsoft Docs
+title: What is Privileged Identity Management? - Azure AD | Microsoft Docs
 description: Provides an overview of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
 ---
 # What is Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services like Office 365 or Microsoft Intune.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services like Office 365 or Microsoft Intune.
 
 ## Reasons to use
 
-Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users just-in-time (JIT) privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges. Privileged Identity Management helps to mitigate the risk of excessive, unnecessary, or misused access rights.
+Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users just-in-time (JIT) privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges.
 
 ## What does it do?
 
-Privileged Identity Management essentially helps you manage the who, what, when, where, and why for resources that you care about. Here are some of the key features of Privileged Identity Management:
+Privileged Identity Management provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about. Here are some of the key features of Privileged Identity Management:
 
 - Provide **just-in-time** privileged access to Azure AD and Azure resources
 - Assign **time-bound** access to resources using start and end dates
@@ -40,7 +40,7 @@ Privileged Identity Management essentially helps you manage the who, what, when,
 
 Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you'll choose between managing **Azure AD roles** and **Azure resource** roles. When you choose the type of roles to manage, you see a similar set of options for that role type.
 
-![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-overview.png)
+![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-quickstart.png)
 
 ## Who can do what?
 

@@ -1,6 +1,6 @@
 ---
 title: Use Azure Kinect Sensor SDK image transformations
-description: How to use Azure Kinect Sensor SDK image transformation functions.
+description: Learn how to use the Azure Kinect Sensor SDK image transformation functions.
 author: cdedmonds
 ms.author: cedmonds
 ms.prod: kinect-dk
@@ -35,7 +35,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 #### Implementation
 
- This transformation function is more complex than simply calling [k4a_calibration_2d_to_2d()](https://aka.ms/AzureKinectAPIDocs/api/k4a-calibration-2d-to-2d.md) for every pixel. It warps a triangle mesh from the geometry of the depth camera into the geometry of the color camera. The triangle mesh is used to avoid generating holes in the transformed depth image. A Z-buffer ensures that occlusions are handled correctly. GPU acceleration is enabled for this function by default.
+ This transformation function is more complex than simply calling [k4a_calibration_2d_to_2d()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3b6bf6dedbfe67468e2f895dcce68ed4.html#ga3b6bf6dedbfe67468e2f895dcce68ed4) for every pixel. It warps a triangle mesh from the geometry of the depth camera into the geometry of the color camera. The triangle mesh is used to avoid generating holes in the transformed depth image. A Z-buffer ensures that occlusions are handled correctly. GPU acceleration is enabled for this function by default.
 
 #### Parameters
 

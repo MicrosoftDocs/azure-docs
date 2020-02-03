@@ -1,19 +1,11 @@
 ---
-title: Verify a VPN Gateway connection | Microsoft Docs
+title: 'Azure VPN Gateway: Verify a gateway connection'
 description: This article shows you how to verify a virtual network VPN Gateway connection.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
 
-ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 

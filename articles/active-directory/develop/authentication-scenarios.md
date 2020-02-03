@@ -2,24 +2,19 @@
 title: Authentication in Microsoft identity platform | Azure
 description: Learn about the basics of authentication in the Microsoft identity platform (v2.0).
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication in the Microsoft identity platform
-ms.collection: M365-identity-device-management
 ---
 
 # Authentication basics
@@ -34,7 +29,7 @@ This article covers many of the authentication concepts you'll need to understan
 
 Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you need to add or remove users across multiple apps, apps can delegate that responsibility to a centralized identity provider.
 
-Azure Active Directory (Azure AD) is a centralized identify provider in the cloud. Delegating authentication and authorization to it enables scenarios such as conditional access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
+Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as Conditional Access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
 A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign in from the enterprise's network. Azure AD authenticates users and provides access tokens. An access token is a security token that is issued by an authorization server. It contains information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
 
@@ -50,7 +45,7 @@ Azure AD also provides Azure Active Directory B2C so that organizations can  sig
 
 ### Security tokens
 
-Security tokens contain information about users and apps. Azure AD uses JSon based tokens (JWTs) that contain claims. A claim provides assertions about one entity to another. Applications can use claims for various tasks such as:
+Security tokens contain information about users and apps. Azure AD uses JSON based tokens (JWTs) that contain claims. A claim provides assertions about one entity to another. Applications can use claims for various tasks such as:
 
 * Validating the token
 * Identifying the subject's directory tenant
@@ -71,7 +66,7 @@ It's up to the app for which the token was generated, the web app that signed-in
 
 Tokens are only valid for a limited amount of time. Usually the STS provides a pair of tokens: an access token to access the application or protected resource, and a refresh token used to refresh the access token when the access token is close to expiring. 
 
-Access tokens are passed to a Web API as the bearer token in the `Authenticate` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
+Access tokens are passed to a Web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
 ## Application model
 
@@ -80,7 +75,7 @@ Applications can sign in users themselves or delegate sign-in to an identity pro
 For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure AD, you are providing an identity configuration for your application that allows it to integrate with Azure AD. Registering the app also  allows you to:
 
 - customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
-- decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from Linked-In, Google, and so on.
+- decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from LinkedIn, Google, and so on.
 - request scope permissions. For example, you can request the "user.read" scope, which grants permission to read the profile of the signed-in user.
 - define scopes that define access to your Web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
 - share a secret with Azure AD that proves the app's identity to Azure AD.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
@@ -95,9 +90,9 @@ The Microsoft identity platform:
 * Holds all the data required to support authentication at runtime.
 * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
 * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
+* Handles user consent during token request time and facilitate the dynamic provisioning of apps across tenants
 
-Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants
-Consent is the process of a resource owner granting authorization to a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform:
+Consent is the process of a resource owner granting authorization for a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform:
 
 * Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
 * Enables administrators to ultimately decide what apps are allowed to do and which users can use specific apps, and how the directory resources are accessed.
@@ -145,7 +140,7 @@ This attribute causes ASP.NET to check for the presence of a session cookie cont
 ### How a web app delegates sign-in to Azure AD and obtains a token
 
 User authentication happens via the browser. The OpenID protocol uses standard HTTP protocol messages.
-- The web app sends an HTTP 202 (redirect) to the browser to use Azure AD.
+- The web app sends an HTTP 302 (redirect) to the browser to use Azure AD.
 - When the user is authenticated, Azure AD sends the token to the web app by using a redirect through the browser.
 - The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URi to use.
 - Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
@@ -156,7 +151,7 @@ The flow described above applies, with slight differences, to desktop and mobile
 
 Desktop and mobile applications can use an embedded Web control, or a system browser, for authentication. The following diagram shows how a Desktop or mobile app uses the Microsoft authentication library (MSAL) to acquire access tokens and call web APIs.
 
-![Desktop app how it appears to be](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Desktop app how it appears to be](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL uses a browser to get tokens, and as with web apps, delegates authentication to Azure AD.
 
@@ -166,6 +161,7 @@ By default, MSAL uses the system browser except for .NET Framework desktop appli
 
 ## Next steps
 
-See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
-See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
-See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
+- See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
+- See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
+- See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
+- See [Integrate App Service with Microsoft identity platform](/azure/app-service/configure-authentication-provider-aad) to learn how to configure authentication for your App Service app.

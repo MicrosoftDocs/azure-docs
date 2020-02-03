@@ -1,20 +1,16 @@
 ---
-title: What are Microsoft Flow, Logic Apps, Functions, and WebJobs? - Azure
+title: Integration and automation platform options in Azure 
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Microsoft Flow, Logic Apps, Functions, and WebJobs."
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
-
-# What are Microsoft Flow, Logic Apps, Functions, and WebJobs?
+> [!NOTE]
+> Microsoft Flow is now Power Automate. For more information, see this [blog](https://aka.ms/flow-now-pa).
+> 
+> This content will be updated to reflect the branding change in the coming days.
+# Choose the right integration and automation services in Azure
 
 This article compares the following Microsoft cloud services:
 
@@ -23,7 +19,9 @@ This article compares the following Microsoft cloud services:
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
-All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences.
+All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences. 
+
+If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
 
 ## Compare Microsoft Flow and Azure Logic Apps
 
@@ -50,8 +48,8 @@ Functions and Logic Apps are Azure services that enable serverless workloads. Az
 
 For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
-You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these services:
- 
+You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these:
+
 |  | Durable Functions | Logic Apps |
 | --- | --- | --- |
 | Development | Code-first (imperative) | Designer-first (declarative) |
@@ -84,7 +82,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 |[Pay-per-use pricing](functions-scale.md#consumption-plan)|✔||
 |[Integration with Logic Apps](functions-twitter-email.md)|✔||
 | Trigger events |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Supported languages  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| Supported languages  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Package managers|NPM and NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (without the WebJobs SDK) supports C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, and more. This is not a comprehensive list. A WebJob can run any program or script that can run in the App Service sandbox.
@@ -117,12 +115,12 @@ You can get more information on integration services by using the following link
 * [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live webcast](https://aka.ms/logicappslive)
-* [Microsoft Flow frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Microsoft Flow frequently asked questions](/power-automate/frequently-asked-questions)
 
 ## Next steps
 
 Get started by creating your first flow, logic app, or function app. Select any of the following links:
 
-* [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Get started with Microsoft Flow](/power-automate/getting-started)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure function](functions-create-first-azure-function.md)

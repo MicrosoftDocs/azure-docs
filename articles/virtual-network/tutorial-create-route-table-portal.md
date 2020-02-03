@@ -5,20 +5,14 @@ description: In this tutorial, learn how to route network traffic with a route t
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
 ---
 
 # Tutorial: Route network traffic with a route table using the Azure portal
@@ -44,19 +38,19 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a route table
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Route table**.
-
-1. In **Create route table**, enter or select this information:
+1. From the Azure portal menu, select **Create a resource**.
+2. In the search box, enter *Route table*. When **Route table** appears in the search results, select it.
+3. In the **Route table** page, select **Create**.
+4. In **Create route table**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter *myRouteTablePublic*. |
     | Subscription | Select your subscription. |
     | Resource group | Select **Create new**, enter *myResourceGroup*, and select *OK*. |
-    | Location | Leave the default **East US**.
-    | BGP route propagation | Leave the default **Enabled**. |
-
-1. Select **Create**.
+    | Location | Select **East US**.
+    | Virtual Network Gateway route propagation | Leave the default **Enabled**. |
+5. Select **Create**.
 
 ## Create a route
 
@@ -163,7 +157,7 @@ NVAs are VMs that help with network functions like routing and firewall optimiza
     | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
-    | Public inbound ports | Leave the default **None**.
+    | Public inbound ports | Select **None**.
     | **SAVE MONEY** |  |
     | Already have a Windows license? | Leave the default **No**. |
 
@@ -286,7 +280,7 @@ In a later step, you'll use the trace route tool to test routing. Trace route us
 1. Enter this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     You're using trace route to test routing in this tutorial. For production environments, we don't recommend allowing ICMP through the Windows Firewall.
@@ -321,7 +315,7 @@ You [turned on IP forwarding](#turn-on-ip-forwarding) for the VM's network inter
 1. Enable ICMP through the Windows firewall by entering this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## Test the routing of network traffic

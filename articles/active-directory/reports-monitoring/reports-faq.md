@@ -4,7 +4,7 @@ description: Frequently asked quesitons around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: cawrites
-manager: daveba
+manager: MarkusVi
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

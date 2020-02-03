@@ -1,30 +1,23 @@
 ---
-title: Connect to Windows Virtual Desktop from iOS  - Azure
+title: Connect to Windows Virtual Desktop from iOS - Azure
 description: How to connect to Windows Virtual Desktop using the iOS client.
 services: virtual-desktop
 author: heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/13/2019
 ms.author: helohr
 ---
 # Connect with the iOS client
 
-> Applies to: iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.
-
->[!NOTE]
-> The iOS client is currently still in preview.
+> Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
 You can access Windows Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 
-## Install the iOS Beta client
-To install the iOS Beta client:
+## Install the iOS client
 
-1. Install the [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) app on your iOS device.
-2. On your iOS device, open a browser and navigate to [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Under the label **Step 2: Join the Beta**, select **Start Testing**.
-4. When you're redirected to the TestFlight app, select **Accept**, then select **Install**.
+To get started, [download](https://aka.ms/rdios) and install the client on your iOS device.
 
 ## Subscribe to a feed
 

@@ -1,13 +1,13 @@
 ---
 title: Azure Event Grid event schema
-description: Describes the properties that are provided for events with Azure Event Grid
+description: Describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object.
 services: event-grid
 author: banisadr
 manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/20/2019
+ms.date: 01/21/2020
 ms.author: babanisa
 ---
 
@@ -101,6 +101,7 @@ To learn about the properties in the data object, see the event source:
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should have the same fields as standard resource-defined events.
 

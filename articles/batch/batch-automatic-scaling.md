@@ -3,7 +3,7 @@ title: Automatically scale compute nodes in an Azure Batch pool | Microsoft Docs
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: 
 
@@ -12,8 +12,8 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: multiple
-ms.date: 10/08/2019
-ms.author: lahugh
+ms.date: 10/24/2019
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017,fasttrack-edit
 
 ---
@@ -30,7 +30,7 @@ This article discusses the various entities that make up your autoscale formulas
 > [!IMPORTANT]
 > When you create a Batch account, you can specify the [account configuration](batch-api-basics.md#account), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 >
->If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+>If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
@@ -101,8 +101,8 @@ You can get and set the values of these service-defined variables to manage the 
 | Read-write service-defined variables | Description |
 | --- | --- |
 | $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. The number of dedicated nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. <br /><br /> A pool in an account created with the Batch Service configuration may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created with the User Subscription configuration may not achieve its target if the target exceeds the shared core quota for the subscription.|
-| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch (Preview)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**-- The default value. Terminates tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reach as quickly as possible, but may be less efficient, as any running tasks will be interrupted and have to be restarted, wasting any work they had already done. <li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks being interrupted and requeued, wasting any work the task has done. <li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
+| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**-- The default value. Terminates tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reach as quickly as possible, but may be less efficient, as any running tasks will be interrupted and have to be restarted, wasting any work they had already done. <li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks from being interrupted and requeued, wasting any work the task has done. <li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
 > [!NOTE]
 > The `$TargetDedicatedNodes` variable can also be specified using the alias `$TargetDedicated`. Similarly, the `$TargetLowPriorityNodes` variable can be specified using the alias `$TargetLowPriority`. If both the fully named variable and its alias are set by the formula, the value assigned to the fully named variable will take precedence.

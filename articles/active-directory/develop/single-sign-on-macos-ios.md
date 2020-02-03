@@ -1,5 +1,6 @@
 ---
-title: Configure SSO on macOS and iOS | Microsoft identity platform
+title: Configure SSO on macOS and iOS 
+titleSuffix: Microsoft identity platform
 description: Learn how to configure single sign on (SSO) on macOS and iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,7 +18,6 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: 
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure SSO on macOS and iOS
@@ -131,7 +131,7 @@ That's it! The Microsoft identity SDK will now share credentials across all your
 
 ## SSO through Authentication broker on iOS
 
-MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow conditional access policies.
+MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow Conditional Access policies.
 
 The following steps are how you enable SSO using an authentication broker for your app:
 

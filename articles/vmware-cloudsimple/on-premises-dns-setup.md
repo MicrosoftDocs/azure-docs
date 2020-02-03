@@ -43,11 +43,11 @@ For example, for the default BIND server configuration, edit
 /etc/named.conf file on your DNS server and add the following zone information.
 
 ```
-zone “cloudsimple.io”
+zone "az.cloudsimple.io"
 {
     type stub;
     masters { IP address of DNS servers; };
-    file “slaves/cloudsimple.io.db”;
+    file "slaves/cloudsimple.io.db";
 };
 ```
 
@@ -79,7 +79,7 @@ from the CloudSimple portal.
 A conditional forwarder forwards all DNS name resolution requests to the designated server. With this setup, any request to *.cloudsimple.io is forwarded to the DNS servers located on the Private Cloud. The following examples show how to set up
 forwarders on different types of DNS servers.
 
-### Create a conditional forwarded on a BIND DNS server
+### Create a conditional forwarder on a BIND DNS server
 
 The specific file and parameters to configure can vary based on your individual DNS setup.
 
@@ -88,7 +88,7 @@ For example, for the default BIND server configuration, edit
 information.
 
 ```
-zone “cloudsimple.io” {
+zone "az.cloudsimple.io" {
     type forward;
     forwarders { IP address of DNS servers; };
 };

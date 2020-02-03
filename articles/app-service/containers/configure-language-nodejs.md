@@ -1,19 +1,10 @@
 ---
-title: Configure Node.js apps - Azure App Service | Microsoft Docs 
-description: Learn how to configure Node.js apps to work in Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
+title: Configure Node.js apps
+description: Learn how to configure a pre-built Node.js container for your app. This article shows the most common configuration tasks. 
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
 ---
 
 # Configure a Linux Node.js app for Azure App Service

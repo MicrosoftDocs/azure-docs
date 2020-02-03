@@ -29,6 +29,13 @@ Copies source data to a destination location. The supported directions are:
 
 Please refer to the examples for more information.
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ## Advanced
 
 AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).
@@ -167,7 +174,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--check-length**                         Check the length of a file on the destination after the transfer. If there is a mismatch between source and destination, the transfer is marked as failed. (default true)
 
-**--check-md5** string                     Specifies how strictly MD5 hashes should be validated when downloading. Only available when downloading. Available options: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent') (default "FailIfDifferent")
+**--check-md5** string                     Specifies how strictly MD5 hashes should be validated when downloading. Only available when downloading. Available options: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default "FailIfDifferent")
 
 **--content-disposition** string           Set the content-disposition header. Returned on download.
 
@@ -199,15 +206,15 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--include-pattern** string               Include only these files when copying. This option supports wildcard characters (*). Separate files by using a ';'.
 
-**--log-level** string                     Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default 'INFO'). (default "INFO")
+**--log-level** string                     Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default "INFO")
 
 **--metadata** string                      Upload to Azure Storage with these key-value pairs as metadata.
 
 **--no-guess-mime-type**                   Prevents AzCopy from detecting the content-type based on the extension or content of the file.
 
-**--overwrite** string                     Overwrite the conflicting files and blobs at the destination if this flag is set to true. (default 'true') Possible values include 'true', 'false', and 'prompt'. (default "true")
+**--overwrite** string                     Overwrite the conflicting files and blobs at the destination if this flag is set to true. Possible values include 'true', 'false', 'ifSourceNewer', and 'prompt'. (default "true")
 
-**--page-blob-tier** string                Upload page blob to Azure Storage using this blob tier. (default 'None'). (default "None")
+**--page-blob-tier** string                Upload page blob to Azure Storage using this blob tier. (default "None")
 
 **--preserve-last-modified-time**          Only available when destination is file system.
 
@@ -217,9 +224,9 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--s2s-detect-source-changed**           Check if source has changed after enumerating.
 
-**--s2s-handle-invalid-metadata** string   Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default 'ExcludeIfInvalid'). (default "ExcludeIfInvalid")
+**--s2s-handle-invalid-metadata** string   Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default "ExcludeIfInvalid")
 
-**--s2s-preserve-access-tier**             Preserve access tier during service to service copy. Please refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
+**--s2s-preserve-access-tier**             Preserve access tier during service to service copy. Please refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default true)
 
 **--s2s-preserve-properties**              Preserve full properties during service to service copy. For AWS S3 and Azure File non-single file source, the list operation doesn't return full properties of objects and files. To preserve full properties, AzCopy needs to send one additional request per object or file. (default true)
 

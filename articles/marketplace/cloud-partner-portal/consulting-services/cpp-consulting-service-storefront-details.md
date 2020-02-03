@@ -4,6 +4,7 @@ description: Define storefront details in an Azure or Dynamics 365 consulting se
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
@@ -116,7 +117,7 @@ solutions in the Microsoft cloud.
 
 The following sample Markdown file is for the previous offer:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 

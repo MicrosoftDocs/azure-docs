@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create a Private Cloud 
+title: "Quickstart: Create a Private Cloud"
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn how to create and configure a Private Cloud with Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
@@ -36,7 +37,7 @@ Private Clouds are managed through the CloudSimple portal. They have their own v
 
 5. In the CloudSimple portal, provide a name for your Private Cloud.
 6. Select the **Location** of your Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure.
+7. Select **Node type**, consistent with what you provisioned on Azure.
 8. Specify **Node count**.  At least three nodes are required to create a Private Cloud.
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)

@@ -1,5 +1,5 @@
 ---
-title: Filter activity in Azure Data Factory | Microsoft Docs
+title: Filter activity in Azure Data Factory 
 description: The Filter activity filters the inputs. 
 services: data-factory
 documentationcenter: ''

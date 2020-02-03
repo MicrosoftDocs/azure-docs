@@ -1,11 +1,11 @@
 ---
 title: How to use Azure Cosmos DB change feed with Azure Functions
-description: Use Azure Cosmos DB change feed with Azure Functions 
-author: rimman
+description: Use Azure Functions to connect to Azure Cosmos DB change feed. Later you can create reactive Azure functions that are triggered on every new event. 
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: rimman
+ms.date: 12/03/2019
 ms.reviewer: sngun
 ---
 

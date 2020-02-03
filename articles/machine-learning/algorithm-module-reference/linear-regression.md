@@ -1,7 +1,7 @@
 ---
 title:  "Linear Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Linear Regression module in Azure Machine Learning service to create a linear regression model for use in an experiment.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Linear Regression module in Azure Machine Learning to create a linear regression model for use in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Linear Regression module
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to create a linear regression model for use in an experiment.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
+Use this module to create a linear regression model for use in a pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
 You use this module to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
 
@@ -58,9 +58,9 @@ This module supports two methods for fitting a regression model, with different 
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a> Create a regression model using ordinary least squares
 
-1. Add the **Linear Regression Model** module to your experiment in the interface.
+1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
-    You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and then drag the **Linear Regression Model** module to your experiment.
+    You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and then drag the **Linear Regression Model** module to your pipeline.
 
 2. In the **Properties** pane, in the **Solution method** dropdown list, select **Ordinary Least Squares**. This option specifies the computation method used to find the regression line.
 
@@ -74,27 +74,26 @@ This module supports two methods for fitting a regression model, with different 
 
 5. For **Random number seed**, you can optionally type a value to seed the random number generator used by the model.
 
-    Using a seed value is useful if you want to maintain the same results across different runs of the same experiment. Otherwise, the default is to use a value from the system clock.
+    Using a seed value is useful if you want to maintain the same results across different runs of the same pipeline. Otherwise, the default is to use a value from the system clock.
 
 
-7. Add the [Train Model](./train-model.md) module to your experiment, and connect a labeled dataset.
+7. Add the [Train Model](./train-model.md) module to your pipeline, and connect a labeled dataset.
 
-8. Run the experiment.
+8. Run the pipeline.
 
 ## Results for ordinary least squares model
 
 After training is complete:
 
-+ To view the model's parameters, right-click the trainer output and select **Visualize**.
 
 + To make predictions, connect the trained model to the [Score Model](./score-model.md) module, along with a dataset of new values. 
 
 
 ## <a name="bkmk_GradientDescent"></a> Create a regression model using online gradient descent
 
-1. Add the **Linear Regression Model** module to your experiment in the interface.
+1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
-    You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and drag the **Linear Regression Model** module to your experiment
+    You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and drag the **Linear Regression Model** module to your pipeline
 
 2. In the **Properties** pane, in the **Solution method** dropdown list, choose **Online Gradient Descent** as the computation method used to find the regression line.
 
@@ -120,14 +119,14 @@ After training is complete:
 
 9. Select the option, **Decrease learning rate**, if you want the learning rate to decrease as iterations progress.  
 
-10. For **Random number seed**, you can optionally type a value to seed the random number generator used by the model. Using a seed value is useful if you want to maintain the same results across different runs of the same experiment.
+10. For **Random number seed**, you can optionally type a value to seed the random number generator used by the model. Using a seed value is useful if you want to maintain the same results across different runs of the same pipeline.
 
 
 12. Add a labeled dataset and one of the training modules.
 
     If you are not using a parameter sweep, use the [Train Model](train-model.md) module.
 
-13. Run the experiment.
+13. Run the pipeline.
 
 ## Results for online gradient descent
 
@@ -138,4 +137,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

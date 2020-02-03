@@ -1,8 +1,7 @@
 ---
 title: Query on Azure IoT Hub message routing | Microsoft Docs
-description: Developer guide - Query syntax for message routing on Azure IoT Hub.
+description: Learn about the IoT Hub message routing query language that you can use to apply rich queries to messages to receive the data that matters to you. 
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -159,7 +158,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## Message routing query based on device twin 
 
-Message routing enables you to query on [Device Twin](iot-hub-devguide-device-twins.md) tags and properties, which are JSON objects. Querying on module twin is not supported. A sample of Device Twin tags and properties is shown below.
+Message routing enables you to query on [Device Twin](iot-hub-devguide-device-twins.md) tags and properties, which are JSON objects. Querying on module twin is also supported. A sample of Device Twin tags and properties is shown below.
 
 ```JSON
 {
@@ -192,7 +191,7 @@ Message routing enables you to query on [Device Twin](iot-hub-devguide-device-tw
 
 ### Query expressions
 
-A query on message body needs to be prefixed with the `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, message system properties, and message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
+A query on message body needs to be prefixed with the `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, message system properties, and message application properties reference. We recommend using unique names in tags and properties as the query is not case-sensitive. This applies to both device twins and module twins. Also refrain from using `twin`, `$twin`, `body`, or `$body`, as a property names. For example, the following are all valid query expressions: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

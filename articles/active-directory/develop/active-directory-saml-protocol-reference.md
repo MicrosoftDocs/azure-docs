@@ -2,23 +2,18 @@
 title: How Azure AD uses the SAML protocol | Microsoft Docs
 description: This article provides an overview of the Single Sign-On and Single Sign-Out SAML profiles in Azure Active Directory.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
 ---
 
 # How Azure AD uses the SAML protocol

@@ -1,15 +1,11 @@
 ---
-title: Launch a Java Spring application using the Azure CLI
+title: "Quickstart: Launch a Java Spring application using the Azure CLI"
 description: In this quickstart, you deploy a sample application to Azure Spring Cloud on the Azure CLI.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
+ms.date: 11/04/2019
+ms.author: brendm
 
 ---
 # Quickstart: Launch a Java Spring application using the Azure CLI
@@ -30,8 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -41,7 +36,7 @@ To complete this quickstart:
 1. [Install Git](https://git-scm.com/)
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-4. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ## Install the Azure CLI extension
@@ -49,7 +44,7 @@ To complete this quickstart:
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## Provision a service instance on the Azure CLI
@@ -69,7 +64,7 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).
+    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
 
@@ -86,6 +81,9 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
         az configure --defaults spring-cloud=<service instance name>
     ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+
 ## Setup your configuration server
 
 Update your config-server with the location of the git repository for our project:
@@ -93,6 +91,9 @@ Update your config-server with the location of the git repository for our projec
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
 ## Build the microservices applications locally
 
@@ -106,7 +107,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. Change directory and build the project.
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 
@@ -122,9 +123,6 @@ az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
 ```
 
->[!NOTE]
-> The application names must match the names of the JARS exactly for the provided configuration server to work properly.
-
 ## Deploy applications and set environment variables
 
 We need to actually deploy our applications to Azure. Use the following commands to deploy all three applications:
@@ -134,6 +132,9 @@ az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
 az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
 
 ## Assign public endpoint to gateway
 
@@ -149,7 +150,20 @@ Finally, query the **gateway** application for its public IP so you can verify t
 az spring-cloud app show --name gateway | grep url
 ```
 
-Navigate to the URL provided by the previous command to see the PiggyMetrics application running.
+Navigate to the URL provided by the previous command to run the PiggyMetrics application.
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+You can also navigate the Azure portal to find the URL. 
+1. Navigate to the service
+1. Select **Apps**
+1. Select **gateway**
+
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. Find the URL on the **gateway Overview** page
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## Next Steps
 
@@ -157,3 +171,5 @@ In this quickstart, you've deployed a Spring Cloud application from the Azure CL
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

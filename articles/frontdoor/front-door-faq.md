@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 title: Azure Front Door - Frequently Asked Questions for Front Door | Microsoft Docs
 description: This page provides answers to frequently asked questions about Azure Front Door
+=======
+title: Azure Front Door Service - Frequently Asked Questions
+description: This page provides answers to frequently asked questions about Azure Front Door Service
+>>>>>>> 8831d2b70cd6b69f111f7bd9f8162e083fd4d787
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -127,7 +132,11 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 
 ### What are the various timeouts and limits for Azure Front Door?
 
+<<<<<<< HEAD
 Learn about all the documented [timeouts and limits for Azure Front Door](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+=======
+Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+>>>>>>> 8831d2b70cd6b69f111f7bd9f8162e083fd4d787
 
 ## Performance
 
@@ -138,6 +147,8 @@ Azure Front Door is a globally distributed multi-tenant platform with huge volum
 ## SSL configuration
 
 ### What TLS versions are supported by Azure Front Door?
+
+All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
 
 Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported.
 
@@ -173,6 +184,8 @@ The following are the current cipher suites supported by Azure Front Door:
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### Does Azure Front Door also support re-encryption of traffic to the backend?
 
@@ -180,7 +193,7 @@ Yes, Azure Front Door supports SSL offload, and end to end SSL, which re-encrypt
 
 ### Can I configure SSL policy to control SSL Protocol versions?
 
-No, currently Front Door doesn't support to deny specific TLS versions nor can you set the minimum TLS version. 
+You can configure a minimum TLS version in Azure Front Door via the [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2.
 
 ### Can I configure Front Door to only support specific cipher suites?
 

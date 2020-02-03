@@ -59,16 +59,20 @@
     href: linux-recovery-cannot-start-file-system-errors.md
   - name: Troubleshoot kernel-related boot problems
     href: https://support.microsoft.com/help/4091524
+  - name: Recover LVM configured VMs and no boot 
+    href: chroot-logical-volume-manager.md
   - name: Troubleshoot fstab errors
     href: linux-virtual-machine-cannot-start-fstab-errors.md
   - name: Detailed SSH troubleshooting
     href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
   href: error-messages.md
-- name: Performance issues with VMs
-  href: performance-diagnostics.md
-- name: Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
-  href: troubleshoot-performance-virtual-machine-linux-windows.md
+- name: Troubleshoot Azure VM Performance issues
+  items:
+  - name: Performance issues on Linux or Windows
+    href: troubleshoot-performance-virtual-machine-linux-windows.md
+  - name: Performance diagnostics
+    href: performance-diagnostics.md
 - name: Support for 32-bit operating systems
   href: support-32-bit-operating-systems-virtual-machines.md
 - name: PerfInsights
@@ -112,6 +116,8 @@
       href: serial-console-grub-single-user-mode.md
     - name: Serial Console NMI/SysRq
       href: serial-console-nmi-sysrq.md
+    - name: Serial console grub proactive configuration
+      href: serial-console-grub-proactive-configuration.md
   - name: Serial Console for Windows
     href: serial-console-windows.md
     items:
@@ -127,12 +133,18 @@
   href: storage-resource-deletion-errors.md
 - name: Errors when deleting classic storage resources
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Unexpected reboots of VMs with attached VHDs
-  href: unexpected-reboots-attached-vhds.md
-- name: Windows activation problems
-  href: troubleshoot-activation-problems.md
-- name: Activation problem with forced tunneling
-  href: custom-routes-enable-kms-activation.md
+- name: Troubleshoot VM restart issues
+  items: 
+  - name: Unexpected reboots of VMs with attached VHDs
+    href: unexpected-reboots-attached-vhds.md
+  - name: Understand a system reboot
+    href: understand-vm-reboot.md
+- name: Windows activation
+  items: 
+  - name: Windows activation problems
+    href: troubleshoot-activation-problems.md
+  - name: Activation problem with forced tunneling
+    href: custom-routes-enable-kms-activation.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
 - name: New VM deployments
@@ -163,11 +175,14 @@
       href: troubleshoot-recovery-disks-linux.md
     - name: Azure portal
       href: troubleshoot-recovery-disks-portal-linux.md
-- name: Boot errors
+- name: Boot errors Linux
+  href: boot-error-troubleshoot-linux.md
+  items:
+  - name: Grub Rescue
+    href: troubleshoot-vm-boot-error.md
+- name: Boot errors Windows
   href: boot-error-troubleshoot.md
   items:
-  - name: Azure Virtual Machine boot error
-    href: troubleshoot-vm-boot-error.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
   - name: BitLocker errors
@@ -182,14 +197,14 @@
     href: troubleshoot-critical-service-failed-boot-error.md
   - name: Reboot loop
     href: troubleshoot-reboot-loop.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
   - name: Stuck at Windows update
     href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
 - name: Use nested virtualization
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Understand a system reboot
-  href: understand-vm-reboot.md
 - name: Remote troubleshooting tools
   href: remote-tools-troubleshoot-azure-vm-issues.md
 - name: Virtual Machine Repair

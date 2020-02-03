@@ -1,5 +1,5 @@
 ---
-title: Deploy OpenShift Container Platform 4.x in Azure | Microsoft Docs
+title: Deploy OpenShift Container Platform 4.x in Azure 
 description: Deploy OpenShift Container Platform 4.x in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

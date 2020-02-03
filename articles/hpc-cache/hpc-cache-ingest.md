@@ -1,10 +1,10 @@
 ---
-title: Move data to an Azure HPC Cache (Preview) cloud container 
+title: Move data to an Azure HPC Cache cloud container 
 description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
@@ -16,7 +16,7 @@ This article explains the best ways to move data to Blob storage for use with Az
 
 Keep these facts in mind:
 
-* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)
+* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
 
 * Copying data through the Azure HPC Cache to a back-end storage target is more efficient when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
 

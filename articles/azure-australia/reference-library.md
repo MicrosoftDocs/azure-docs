@@ -1,5 +1,6 @@
 ---
-title: Azure Australia additional documentation and resources by focus area
+title: Additional documentation and resources
+titleSuffix: Azure Australia
 description: Additional documentation, tutorials or references relevant to Australian Government agencies operating securely in Azure.
 author: galey801
 ms.service: azure-australia
@@ -55,7 +56,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 * [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
 * [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
-* [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials)
+* [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/)
 * [Azure Site Recovery Tutorials](/azure/site-recovery/)
 
 ## Role-based Access Controls and Privileged Identity Management (PIM)

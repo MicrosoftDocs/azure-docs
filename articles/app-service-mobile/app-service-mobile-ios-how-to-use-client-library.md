@@ -1,19 +1,12 @@
 ---
-title: How to Use iOS SDK for Azure Mobile Apps
+title: Use the iOS SDK
 description: How to Use iOS SDK for Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-editor: ''
 
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # How to Use iOS Client Library for Azure Mobile Apps
 

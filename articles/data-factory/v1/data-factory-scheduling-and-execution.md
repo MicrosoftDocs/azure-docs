@@ -1,5 +1,5 @@
 ---
-title: Scheduling and Execution with Data Factory | Microsoft Docs
+title: Scheduling and Execution with Data Factory 
 description: Learn scheduling and execution aspects of Azure Data Factory application model.
 services: data-factory
 documentationcenter: ''

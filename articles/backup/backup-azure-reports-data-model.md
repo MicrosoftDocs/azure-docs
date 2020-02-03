@@ -1,24 +1,23 @@
 ---
-title: Data model for Azure Backup
+title: Power BI data model
 description: This article talks about Power BI data model details for Azure Backup reports.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: dacurwin
 ---
 # Data model for Azure Backup reports
-This article describes the Power BI data model used for creating Azure Backup reports. Using this data model, you can filter existing reports based on relevant fields and more importantly, create your own reports by using tables and fields in the model. 
+
+This article describes the Power BI data model used for creating Azure Backup reports. Using this data model, you can filter existing reports based on relevant fields and more importantly, create your own reports by using tables and fields in the model.
 
 ## Creating new reports in Power BI
+
 Power BI provides customization features using which you can [create reports using the data model](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
 ## Using Azure Backup data model
+
 You can use the following fields provided as part of the data model to create reports and customize existing reports.
 
 ### Alert
+
 This table provides basic fields and aggregations over various alert-related fields.
 
 | Field | Data Type | Description |
@@ -30,12 +29,13 @@ This table provides basic fields and aggregations over various alert-related fie
 | AlertSeverity |Text |Severity of the alert. For example, Critical |
 | AlertStatus |Text |Status of the alert. For example, Active |
 | AlertType |Text |Type of the generated alert. For example, Backup |
-| AlertUniqueId |Text |Unique Id of the generated alert |
+| AlertUniqueId |Text |Unique ID of the generated alert |
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimal Number |Average time (in minutes) to resolve alert for selected time period |
 | EntityState |Text |Current state of the alert object. For example, Active, Deleted |
 
 ### Backup Item
+
 This table provides basic fields and aggregations over various backup item-related fields.
 
 | Field | Data Type | Description |
@@ -44,7 +44,7 @@ This table provides basic fields and aggregations over various backup item-relat
 | #UnprotectedBackupItems |Whole Number |Number of backup items stopped for protection or configured for backups but backups not started|
 | AsOnDateTime |Date/Time |Latest refresh time for the selected row |
 | BackupItemFriendlyName |Text |Friendly name of backup item |
-| BackupItemId |Text |Id of backup item |
+| BackupItemId |Text |ID of backup item |
 | BackupItemName |Text |Name of backup item |
 | BackupItemType |Text |Type of backup item. For example, VM, FileFolder |
 | EntityState |Text |Current state of the backup item object. For example, Active, Deleted |
@@ -54,6 +54,7 @@ This table provides basic fields and aggregations over various backup item-relat
 | ProtectionState |Text |Current protection state of the backup item. For example, Protected, ProtectionStopped |
 
 ### Calendar
+
 This table provides details about calendar-related fields.
 
 | Field | Data Type | Description |
@@ -71,6 +72,7 @@ This table provides details about calendar-related fields.
 | YearDate |Date |Date in the year when year ends, selected for filtering data |
 
 ### Job
+
 This table provides basic fields and aggregations over various job-related fields.
 
 | Field | Data Type | Description |
@@ -88,9 +90,10 @@ This table provides basic fields and aggregations over various job-related field
 | JobStartDate |Date |Date when job started running |
 | JobStartTime |Time |Time when job started running |
 | JobStatus |Text |Status of the finished job. For example, Completed, Failed |
-| JobUniqueId |Text |Unique Id to identify the job |
+| JobUniqueId |Text |Unique ID to identify the job |
 
 ### Policy
+
 This table provides basic fields and aggregations over various policy-related fields.
 
 | Field | Data Type | Description |
@@ -111,7 +114,7 @@ This table provides basic fields and aggregations over various policy-related fi
 | MonthlyRetentionTimes |Text |Date and time when monthly retention is configured |
 | MonthlyRetentionWeeksOfTheMonth |Text |Weeks of the month when monthly retention is configured. For example, First, Last etc. |
 | PolicyName |Text |Name of the policy defined |
-| PolicyUniqueId |Text |Unique Id to identify the policy |
+| PolicyUniqueId |Text |Unique ID to identify the policy |
 | RetentionType |Text |Type of retention policy. For example, Daily, Weekly, Monthly, Yearly |
 | WeeklyRetentionDaysOfTheWeek |Text |Days of the week selected for weekly retention |
 | WeeklyRetentionDuration |Decimal Number |Total weekly retention duration in weeks for configured backups |
@@ -125,6 +128,7 @@ This table provides basic fields and aggregations over various policy-related fi
 | YearlyRetentionWeeksOfTheMonth |Text |Weeks of the month when yearly retention is configured. For example, First, Last etc. |
 
 ### Protected Server
+
 This table provides basic fields and aggregations over various protected server-related fields.
 
 | Field | Data Type | Description |
@@ -141,9 +145,10 @@ This table provides basic fields and aggregations over various protected server-
 | ProtectedServerName |Text |Name of protected server |
 | ProtectedServerType |Text |Type of protected server backed up. For example, IaaSVMContainer |
 | ProtectedServerName |Text |Name of protected server to which backup item belongs |
-| RegisteredContainerId |Text |Id of container registered for backup |
+| RegisteredContainerId |Text |ID of container registered for backup |
 
 ### Storage
+
 This table provides basic fields and aggregations over various storage-related fields.
 
 | Field | Data Type | Description |
@@ -155,6 +160,7 @@ This table provides basic fields and aggregations over various storage-related f
 | LastUpdatedDate |Date |Date when selected row was last updated |
 
 ### Time
+
 This table provides details about time-related fields.
 
 | Field | Data Type | Description |
@@ -167,6 +173,7 @@ This table provides details about time-related fields.
 | TimeKey |Text |Key value to represent time |
 
 ### Vault
+
 This table provides basic fields and aggregations over various vault-related fields.
 
 | Field | Data Type | Description |
@@ -176,11 +183,12 @@ This table provides basic fields and aggregations over various vault-related fie
 | AzureDataCenter |Text |Data center where vault is located |
 | EntityState |Text |Current state of the vault object. For example, Active, Deleted |
 | StorageReplicationType |Text |Type of storage replication for the vault. For example, GeoRedundant |
-| SubscriptionId |Text |Subscription Id of the customer selected for generating reports |
+| SubscriptionId |Text |Subscription ID of the customer selected for generating reports |
 | VaultName |Text |Name of the vault |
 | VaultTags |Text |Tags associated to the vault |
 
 ## Next steps
+
 Once you review the data model for creating Azure Backup reports, refer the following articles for more details about creating and viewing reports in Power BI.
 
 * [Creating reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

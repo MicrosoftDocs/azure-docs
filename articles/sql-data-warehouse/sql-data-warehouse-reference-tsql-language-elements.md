@@ -1,5 +1,5 @@
 ---
-title: T-SQL language elements - Azure SQL Data Warehouse | Microsoft Docs
+title: T-SQL language elements
 description: Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # T-SQL language elements supported in Azure SQL Data Warehouse

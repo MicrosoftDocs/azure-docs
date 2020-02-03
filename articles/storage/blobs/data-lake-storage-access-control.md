@@ -85,7 +85,7 @@ The permissions on a container object are **Read**, **Write**, and **Execute**, 
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
 
 > [!NOTE]
-> If you are granting permissions by using only ACLs (no RBAC), then to grant a service principal read or write access to a file, you'll need to give the service principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
+> If you are granting permissions by using only ACLs (no RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
 
 #### Short forms for permissions
 

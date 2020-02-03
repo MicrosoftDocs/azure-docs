@@ -3,9 +3,7 @@ title: Azure traffic analytics | Microsoft Docs
 description: Learn how to analyze Azure network security group flow logs with traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
 ---
 
@@ -82,6 +80,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 * Japan East 
 * Japan West
 * US Gov Virginia
+* China East 2
 
 ## Supported regions: Log Analytics Workspaces
 
@@ -90,13 +89,17 @@ The Log Analytics workspace must exist in the following regions:
 * West Central US
 * East US
 * East US 2
+* North Central US
 * South Central US
+* Central US
 * West US
 * West US 2
 * Central US
 * France Central
-* North Europe
 * West Europe
+* North Europe
+* Brazil South
+* UK West
 * UK South
 * Australia East
 * Australia Southeast
@@ -106,6 +109,7 @@ The Log Analytics workspace must exist in the following regions:
 * Central India
 * Japan East
 * US Gov Virginia
+* China East 2
 
 ## Prerequisites
 

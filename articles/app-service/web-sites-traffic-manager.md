@@ -1,20 +1,10 @@
 ---
-title: Control traffic with Traffic Manager - Azure App Service
-description: This article provides summary information for  Azure Traffic Manager as it relates to Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: erikre
-editor: mollybos
+title: Control traffic with Traffic Manager
+description: Find best practices for configuring Azure Traffic Manager when you integrate it with Azure App Service.
 
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -30,7 +20,7 @@ You can use Azure Traffic Manager to control how requests from web clients are d
 ## Routing methods
 Azure Traffic Manager uses four different routing methods. These methods are described  in the following list as they pertain to Azure App Service.
 
-* **[Priority](../traffic-manager/traffic-manager-routing-methods.md#priority):** use a primary app for all traffic, and provide backups in case the primary or the backup apps are unavailable.
+* **[Priority](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** use a primary app for all traffic, and provide backups in case the primary or the backup apps are unavailable.
 * **[Weighted](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribute traffic across a set of apps, either evenly or according to weights, which you define.
 * **[Performance](../traffic-manager/traffic-manager-routing-methods.md#performance):** when you have apps in different geographic locations, use the "closest" app in terms of the lowest network latency.
 * **[Geographic](../traffic-manager/traffic-manager-routing-methods.md#geographic):** direct users to specific apps based on which geographic location their DNS query originates from. 
@@ -53,6 +43,4 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 ## Next Steps
 For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md).
 
-For more information about using Traffic Manager with App Service, see the blog posts
-[Using Azure Traffic Manager with Azure Web Sites](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
 

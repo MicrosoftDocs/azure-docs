@@ -2,9 +2,8 @@
 documentType: LandingData
 title: Azure Government Documentation
 metadata:
-  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Azure Government Documentation -Quickstarts, Tutorials
-  meta.description:  
+  meta.description: Azure Government is a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Azure. 
   services: Azure-government
   author: juliako
   manager: femila

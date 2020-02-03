@@ -46,7 +46,7 @@ This template contains settings that describe your storage account.
 
 To export a template by using Azure portal:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All resources** and then select your storage account.
 

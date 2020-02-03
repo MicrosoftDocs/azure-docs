@@ -5,49 +5,186 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 09/27/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+## Create LUIS runtime key for predictions
 
-## Get LUIS key
+1. Sign into the [Azure portal](https://portal.azure.com)
+1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Enter all required settings for Runtime key:
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+    |Setting|Value|
+    |--|--|
+    |Name|Desired name (2-64 characters)|
+    |Subscription|Select appropriate subscription|
+    |Location|Select any nearby and available location|
+    |Pricing Tier|`F0` - the minimal pricing tier|
+    |Resource Group|Select an available resource group|
+
+1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
+1. Collect configured `endpoint` and a `key`.
 
 ## Get intent programmatically
 
-You can use Java to access the same results you saw in the browser window in the previous step. Be sure to add the Apache libraries to your project.
+Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
-1. Copy the following code to create a class in a file named `LuisGetRequest.java`:
+1. Make a subdirectory named `lib` and copy in the following java libs:
 
-   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/java/call-endpoint.java)]
+    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
+    * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
-2. Replace the value of the `YOUR-KEY` variable with your LUIS key.
+1. Copy the following code to create a class in a file named `Predict.java`:
 
-3. Replace with your file path and compile the java program from a command line: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
+    ```java
+    import java.io.*;
+    import java.net.URI;
+    import org.apache.http.HttpEntity;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.HttpClient;
+    import org.apache.http.client.methods.HttpGet;
+    import org.apache.http.client.utils.URIBuilder;
+    import org.apache.http.impl.client.HttpClients;
+    import org.apache.http.util.EntityUtils;
 
-4. Replace with your file path and run the application from a command line: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. It displays the same JSON that you saw earlier in the browser window.
+    public class Predict {
 
-    ![Console window displays JSON result from LUIS](../media/luis-get-started-java-get-intent/console-turn-on.png)
-    
+        public static void main(String[] args)
+        {
+            HttpClient httpclient = HttpClients.createDefault();
+
+            try
+            {
+
+                // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
+                String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+
+                // Add your endpoint key
+                String Key = "YOUR-KEY";
+
+                // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
+                String Endpoint = "YOUR-ENDPOINT";
+
+                String Utterance = "turn on all lights";
+
+                // Begin endpoint URL string building
+                URIBuilder endpointURLbuilder = new URIBuilder("https://" + Endpoint + "/luis/prediction/v3.0/apps/" + AppId + "/slots/production/predict?");
+
+                // query string params
+                endpointURLbuilder.setParameter("query", Utterance);
+                endpointURLbuilder.setParameter("subscription-key", Key);
+                endpointURLbuilder.setParameter("show-all-intents", "true");
+                endpointURLbuilder.setParameter("verbose", "true");
+
+                // create URL from string
+                URI endpointURL = endpointURLbuilder.build();
+
+                // create HTTP object from URL
+                HttpGet request = new HttpGet(endpointURL);
+
+                // access LUIS endpoint - analyze text
+                HttpResponse response = httpclient.execute(request);
+
+                // get response
+                HttpEntity entity = response.getEntity();
 
 
-## LUIS keys
+                if (entity != null)
+                {
+                    System.out.println(EntityUtils.toString(entity));
+                }
+            }
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    ```
+
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
+
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-KEY`|Your 32 character prediction key.|
+    |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+
+
+1. Compile the java program from the command line:
+
+    ```console
+    javac -cp ":lib/*" Predict.java
+    ```
+
+1. Run the java program from the command line:
+
+    ```console
+    java -cp ":lib/*" Predict
+    ```
+
+1. Review the prediction response, which is returned as JSON:
+
+    ```console
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    The JSON response formatted for readability:
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## Clean up resources
 
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Java](../luis-get-started-java-add-utterance.md)
+> [Add utterances and train with Java](../get-started-get-model-rest-apis.md)

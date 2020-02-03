@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -73,7 +73,7 @@ You'll first have to publish your application. This action involves:
 To publish your own on-premises application:
 
 1. If you didn't in the last section, sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator.
-1. Select **Enterprise applications** > **New application** > **On-premises application**. The **Add your own on-premises application** page appears.
+1. Select **Enterprise applications** > **New application** > **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
    ![Add your own on-premises application](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 1. Fill out the required fields with information about your new application. Use the guidance below for the settings.
