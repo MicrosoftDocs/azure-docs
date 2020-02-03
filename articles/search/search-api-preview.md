@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/03/2020
 ---
 # Preview features in Azure Cognitive Search
 
@@ -46,7 +46,7 @@ Indexer preview features are available in preview Search API.
 
 ## Management features
 
-+ [Create a search service using Private Endpoint (preview)](service-create-private-endpoint.md) in [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) of the Management REST API. You can create a service that has restrictions on how its endpoint is accessed.
++ [Private Endpoint support](service-create-private-endpoint.md) through [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) of the Management REST API. You can create a service that has restrictions on how its endpoint is accessed.
 
 ## Earlier preview features
 

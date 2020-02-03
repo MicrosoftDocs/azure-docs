@@ -141,13 +141,13 @@ REST API version `2019-05-06-Preview` provides incremental enrichment through ad
 
 + [Update Indexer (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-+ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (New URI parameter on the request `disableCacheReprocessingChangeDetection`)
++ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (New URI parameter on the request)
 
 + [Reset Skills (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ Database indexers (Azure SQL, Cosmos DB). Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request `ignoreResetRequirement`, which should be set to `true` when your update action should not invalidate the cache. 
++ Database indexers (Azure SQL, Cosmos DB). Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request **ignoreResetRequirement**, which should be set to `true` when your update action should not invalidate the cache. 
 
-  Use the `ignoreResetRequirement` sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
+  Use **ignoreResetRequirement** sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
 
 ## Next steps
 
