@@ -10,3 +10,5 @@ ms.subservice: disks
 ---
 
 # Azure shared disks
+
+[!INCLUDE [virtual-machines-disks-shared-disks](../../../includes/virtual-machines-disks-shared-disks.md)]

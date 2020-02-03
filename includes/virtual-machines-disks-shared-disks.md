@@ -56,3 +56,141 @@ Linux can leverage cluster managers such as [Pacemaker](https://wiki.clusterlabs
 The following diagram illustrates a sample 2-node clustered database application that leverages SCSI PR to enable failover from one node to the other.
 
 ![shared-disk-two-node-cluster-diagram.png](media/virtual-machines-disks-shared-disks/shared-disk-two-node-cluster-diagram.png)
+
+The flow is as follows:
+
+- The clsutered application running on both Azure VM1 and VM2 registers the intent to read or write to the disk.
+- The application instance on VM1 then takes exclusive reservation to write to the disk.
+- This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 will not succeed.
+- If the application instance on VM1 goes down, the instance on VM2 can now initiate an database vailover and take-over of the disk (simple or hostile).
+- This reservation is now enforced on the Azure disk and the disk will no longer accept writes from the application on VM1. It will only accept writes from the application on VM2.
+- The clsutered application can complete the database failover and serve requests from VM2.
+
+The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from the disk for running parallel processes, such as training of ML models.
+
+![shared-disk-machine-learning-trainer-model.png](media/virtual-machines-disks-shared-disks/shared-disk-machine-learning-trainer-model.png)
+
+The flow is as follows:
+
+- The clsutered application running on all VMs registeres the intent to read or write to the disk.
+- The application instance on VM1 takes an exclusive reservation to write to the disk while opening up reads to teh disk from other VMs.
+- This reservation is enforced on your Azure disk.
+- All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
+
+## Get started with Azure shared disks
+
+### Deploy an Azure shared disk
+
+To deploy a managed disk with the shared disk feature enabled, use the new property `$maxShares` and define a value `>1`. This will make the disk shareable across multiple VMs.
+
+> [!IMPORTANT]
+> The value of `$maxShares` can only be set or changed when a disk is unmounted from all VMs. Please see the following table for the allowed values for `$maxShares`.
+
+```json
+{ 
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dataDiskName": {
+      "type": "string",
+      "defaultValue": "mySharedDisk"
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "name": "[parameters('dataDiskName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-07-01",
+      "sku": {
+        "name": "Premium_LRS"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+        "maxShares": "[parameters('maxShares')]"
+      }
+    }
+  ] 
+}
+```
+
+### Using Azure shared disks with your VMs
+
+Once you ahve deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
+
+```azurepowershell-interactive
+$vm = New-AzVm -ResourceGroupName "mySharedDiskRG" -Name "myVM" -Location "WestCentralUS" -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" 
+
+$vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
+```
+
+## Supported SCSI PR commands
+
+Once you've mounted the shared disk on your VMs in your cluster, you can now establish quorum and read/write to the disk using SCSI PR. The following PR commands are available when using Azure shared disks.
+
+To initiate interaction with the disk, start with the persistent-reservation-action list:
+
+```
+PR_REGISTER_KEY 
+
+PR_REGISTER_AND_IGNORE 
+
+PR_GET_CONFIGURATION 
+
+PR_RESERVE 
+
+PR_PREEMPT_RESERVATION 
+
+PR_CLEAR_RESERVATION 
+
+PR_RELEASE_RESERVATION 
+```
+
+When using PR_RESERVE, PR_PREEMPT_RESERVATION, or  PR_RELEASE_RESERVATION, provide one of the following persistent-reservation-type:
+
+```
+PR_NONE 
+
+PR_WRITE_EXCLUSIVE 
+
+PR_EXCLUSIVE_ACCESS 
+
+PR_WRITE_EXCLUSIVE_REGISTRANTS_ONLY 
+
+PR_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY 
+
+PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS 
+
+PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
+```
+
+You will also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
+
+If any commands you expect to be in the list are missing, contact us at SharedDiskFeedback@microsoft .com
+
+## Disk sizes
+
+For now, only premium SSDs can enable shared disks. The disk sizes which support this feature are P15 and greater. For each disk you can define a maxShares value which represents the maximum number of nodes you expect will share the disk. For example, if you plan to setup a 2-node failover cluster, you can set maxShares=2. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specificed `maxShares` value.
+
+> [!NOTE]
+> The maxShares value can only be set or edited when the disk is detached from all nodes.
+
+The following table illustrates the allowed maximum values for maxShares by disk size:
+
+
+|Disk sizes  |maxShares limit  |
+|---------|---------|
+|Row1     |         |
+|Row2     |         |
+|Row3     |         |
