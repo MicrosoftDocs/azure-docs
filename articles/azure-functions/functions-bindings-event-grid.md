@@ -783,7 +783,7 @@ Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-Attributes are not supported by Python.
+The Event Grid output binding is not available for Python.
 
 # [Java](#tab/java)
 
