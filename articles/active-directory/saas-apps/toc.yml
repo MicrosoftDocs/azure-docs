@@ -1492,6 +1492,8 @@
         href: wdesk-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: Wedo
+        href: wedo-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
       - name: Whatfix
@@ -1779,6 +1781,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Zapier
+        href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler
