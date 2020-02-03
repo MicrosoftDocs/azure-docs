@@ -2,8 +2,8 @@
 title: Azure App Configuration point-in-time snapshot
 description: An overview of how point-in-time snapshot works in Azure App Configuration
 services: azure-app-configuration
-author: yegu-ms
-ms.author: yegu
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/24/2019

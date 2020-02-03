@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-six
+zone_pivot_groups: programming-languages-set-ten
 ---
 
 # Quickstart: Use the Text Analytics client library v3

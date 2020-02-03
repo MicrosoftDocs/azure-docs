@@ -34,7 +34,7 @@ Every IoT Edge device in production needs a device certificate authority (CA) ce
 
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Install production certificates on an IoT Edge device](how-to-create-transparent-gateway.md).
+For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Install production certificates on an IoT Edge device](how-to-install-production-certificates.md).
 
 ### Have a device management plan
 

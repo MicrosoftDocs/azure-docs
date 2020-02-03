@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/24/2019
+ms.date: 01/29/2020
 
 ---
 
@@ -102,6 +102,7 @@ The information below list the proxy and firewall configuration information requ
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
+|OMS*.azure.com |Port 443 |Outbound |Yes |
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  

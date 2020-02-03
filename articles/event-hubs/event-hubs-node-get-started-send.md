@@ -1,31 +1,28 @@
 ---
-title: 'Quickstart: Send and receive events using Node.js - Azure Event Hubs'
-description: 'Quickstart: This article provides a walkthrough for creating a Node.js application that sends events from Azure Event Hubs.'
+title: Send or receive events from Azure Event Hubs using Node.js (legacy)
+description: This article provides a walkthrough for creating a Node.js application that sends/receives events to/from Azure Event Hubs using the old azure/event-hubs version 2 package. 
 services: event-hubs
 author: spelluru
-manager: kamalb
 
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: spelluru
 
 
 ---
 
-# Quickstart: Send events to or receive events from Azure Event Hubs using Node.js
+# Quickstart: Send events to or receive events from Azure Event Hubs using Node.js (@azure/event-hubs version 2)
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service that can receive and process millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This tutorial describes how to create Node.js applications to send events to or receive events from an event hub.
 
-> [!IMPORTANT]
-> This quickstart uses version 2 of the Azure Event Hubs Java Script SDK. If you are new to Azure Event Hubs, use version 5 of the Java Script SDK. For a quickstart that uses version 5 of the Java Script SDK, see [this article](get-started-node-send-v2.md). If you need to migrate existing code from version 2 to version 5, see the [migration guide](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
+> [!WARNING]
+> This quickstart is for version 2 of the Azure Event Hubs Java Script SDK. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md) your code to [version 5 of the Java Script SDK](get-started-node-send-v2.md). 
 
-> [!NOTE]
-> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
+
 
 ## Prerequisites
 
@@ -54,6 +51,9 @@ npm install @azure/event-processor-host
 ## Send events
 
 This section shows you how to create a Node.js application that sends events to an event hub. 
+
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `send.js` and paste the below code into it. Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 

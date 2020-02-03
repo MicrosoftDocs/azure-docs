@@ -13,7 +13,7 @@ services: event-grid
 
 # Tutorial: Publish, subscribe to events in cloud
 
-This article walks through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge.
+This article walks through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge. This tutorial uses and Azure Function as the Event Handler. For additional destination types, see [event handlers](event-handlers.md).
 
 See [Event Grid Concepts](concepts.md) to understand what an event grid topic and subscription are before proceeding.
 
@@ -102,6 +102,8 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 ## Create an event subscription
 
 Subscribers can register for events published to a topic. To receive any event, the subscribers will need to create an Event grid subscription on a topic of interest.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Create subscription2.json with the following content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -198,3 +200,4 @@ In this tutorial, you created an event grid topic, subscription, and published e
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication
 * Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-event-grid-cloud.md)
+* [Monitor topics and subscriptions on the edge](monitor-topics-subscriptions.md)

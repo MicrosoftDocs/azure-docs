@@ -146,6 +146,8 @@
       href: how-to-manage-workspace.md
     - name: Use Azure CLI
       href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
@@ -198,6 +200,9 @@
     - name: Create datasets with labels
       displayName: data, labels, torchvision
       href: how-to-use-labeled-dataset.md
+    - name: DevOps for data ingestion
+      displayName: data, ingestion, devops
+      href: how-to-cicd-data-ingestion.md
   - name: Train models
     items:
     - name: Use the designer
@@ -346,6 +351,9 @@
       href: how-to-schedule-pipelines.md
     - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
+    - name: Debug pipelines in Application Insights
+      displayname: pipelines, log, monitor
+      href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
