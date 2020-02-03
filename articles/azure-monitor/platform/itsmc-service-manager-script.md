@@ -4,7 +4,7 @@ description: Create a Service Manager Web app using an automated script to conne
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
 
