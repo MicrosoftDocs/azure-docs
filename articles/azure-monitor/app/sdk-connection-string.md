@@ -23,21 +23,21 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
 
 
-## Scenario Overview 
+## Scenario overview 
 
 Customer scenarios where we visualize this having the most impact:
 
-1) Firewall exceptions or proxy redirects 
+- Firewall exceptions or proxy redirects 
 
-In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
-Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
+    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
-2) Sovereign or Hybrid cloud environments
+- Sovereign or Hybrid cloud environments
 
-Users can send data to a defined [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-Connection strings allow you to define endpoint settings for your intranet servers or hybrid cloud settings. 
+    Users can send data to a defined [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+    Connection strings allow you to define endpoint settings for your intranet servers or hybrid cloud settings. 
 
-## Getting Started
+## Getting started
 
 ### Finding my connection string?
 
@@ -48,11 +48,11 @@ Your connection string is displayed on the Overview blade of your Application In
 
 ### Schema
 
-#### Max Length
+#### Max length
 
 The connection has a maximum supported length of 4096 characters.
 
-#### Key-Value pairs
+#### Key-value pairs
 
 Connection string consists of a list of settings represented as key-value pairs separated by semicolon:
 `key1=value1;key2=value2;key3=value3`
@@ -71,13 +71,13 @@ Connection string consists of a list of settings represented as key-value pairs 
    - `ProfilerEndpoint` (ex: https://profiler.applicationinsights.azure.com)
    - `SnapshotEndpoint` (ex: https://snapshot.applicationinsights.azure.com)
 
-#### Endpoint Schema
+#### Endpoint schema
 
 `<prefix>.<suffix>`
 - Prefix: Defines a service. 
 - Suffix: Defines the common domain name.
 
-##### Valid Suffixes
+##### Valid suffixes
 
 Here's a list of valid suffixes 
 - applicationinsights.azure.cn
@@ -87,9 +87,7 @@ Here's a list of valid suffixes
 See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
-##### VALID Prefixes
-
-
+##### Valid prefixes
 
 - [Telemetry Ingestion](./app-insights-overview.md): `dc`
 - [Live Metrics](./live-stream.md): `live`
@@ -165,7 +163,7 @@ A connection string can be set by either in code, environment variable, or confi
 
 - Connection String: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### .Net SDK Example
+### .Net SDK example
 
 TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
@@ -198,7 +196,7 @@ NetCore config.json:
 ```
 
 
-### Java SDK Example
+### Java SDK example
 
 
 Java Explicitly Set:
@@ -214,7 +212,7 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### Javascript SDK Example
+### Javascript SDK example
 
 Important: Javascript doesn't support the use of Environment Variables.
 
@@ -243,7 +241,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### Node SDK Example
+### Node SDK example
 
 ```
 const appInsights = require("applicationinsights");
@@ -251,7 +249,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### Python SDK Example
+### Python SDK example
 
 We recommend users set the environment variable.
 
