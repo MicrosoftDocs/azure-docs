@@ -2,7 +2,7 @@
 title: Deploy from GitHub
 description: Use deploy to Azure button to deploy templates in GitHub repository.
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ---
 # Use button to deploy from GitHub repository
 
@@ -10,49 +10,52 @@ This article describes how to use the **Deploy to Azure** button to deploy templ
 
 ## Use common image
 
-To add the button to your web page or repository, use the image at:
+To add the button to your web page or repository, use the following image:
 
-`https://aka.ms/deploytoazurebutton`
+```html
+<img src="https://aka.ms/deploytoazurebutton"/>
+```
 
 The image appears as:
 
 ![Deploy to Azure button](https://aka.ms/deploytoazurebutton)
 
-## Create URI for deploying template
+## Create URL for deploying template
 
-Each link starts with the same base URI:
+To create the URL for your template, start with the raw URL to the template in your repo:
+
+`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json`
+
+Then, URL encode it.
+
+`https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json`
+
+Each link starts with the same base URL:
 
 `https://portal.azure.com/#create/Microsoft.Template/uri/`
 
-After that base, add the URL-encoded link to the raw template in GitHub. For example, to link to a template at:
+Add your URL-encoded template link to the base URL.
 
-`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-aks/azuredeploy.json`
+`https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json`
 
-First, encode it.
+You have your full URL for the link.
 
-`https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json`
-
-Then, add it to the base URI.
-
-`https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json`
-
-## Add link
+## Create Deploy to Azure button
 
 The link you add to your web page or GitHub repository contains the URI and the image.
 
 ```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 ```
 
 You can deploy the example template with the following button:
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 
 ## Next steps
 
 - To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
-
