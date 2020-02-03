@@ -12,13 +12,13 @@ manager: philmea
 
 # Data structures in Azure Maps Mobility Service
 
-This article introduces the concept of Metro Area in [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService). We discuss some of common fields returned via this service is queried for public transit stops and lines. We recommend reading this article before developing with the Mobility Service APIs.
+This article introduces the concept of Metro Area in [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService). We discuss some of common fields that are returned when this service is queried for public transit stops and lines. We recommend reading this article before developing with the Mobility Service APIs.
 
 ## Metro area
 
 Mobility Service data is grouped by supported metro areas. Metro areas don't follow city boundaries. A metro area can contain multiple cities, densely populated city, and surrounding cities. In fact, a country/region can be one metro area. 
 
-The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info API](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Use Azure Maps' "Get Metro" API to request transit types, transit agencies, active alerts, and additional details for the chosen metro. You can also request the supported metro areas and metroIDs. Metro area IDs are subjected to change.
+The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info API](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Use Azure Maps' "Get Metro" API to request transit types, transit agencies, active alerts, and additional details for the chosen metro. You can also request the supported metro areas and metroIDs. Metro area IDs are subject to change.
 
 **metroID:** 522   **Name:** Seattle-Tacoma-Bellevue
 
