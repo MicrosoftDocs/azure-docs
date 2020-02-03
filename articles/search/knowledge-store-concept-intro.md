@@ -130,7 +130,7 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 ## APIs and examples
 
-A knowledge store is defined inline with a skillset. You can create or modify a knowledge store using the preview version of the REST APIs:
+A knowledge store is defined within a skillset definition. You can create or modify a knowledge store using the preview version of the REST APIs:
 
 + [Create Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
 + [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
@@ -144,11 +144,11 @@ The following example shows `knowledgeStore` at the bottom of a skillset definit
 
 ```http
 POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
-api-key: [admin key]
-Content-Type: application/json
+  Content-Type: application/json
+  api-key: [admin key]
 ```
 
-The body of request is a JSON document that defines a skillset, which includes `knowledgeStore`.
+The body of request defines a skillset, which includes `knowledgeStore`.
 
 ```json
 {
