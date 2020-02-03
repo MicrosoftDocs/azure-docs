@@ -821,6 +821,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-nodejs-appinsights.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-roles.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
       "redirect_document_id": false
