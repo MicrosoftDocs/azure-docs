@@ -53,6 +53,12 @@ If you are using endpoints with the classic deployment model, remove any endpoin
 
 Finally, consider enabling encrypted connections for the instance of the SQL Server Database Engine in your Azure virtual machine. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
+## Encryption
+
+Azure Disk Encryption is a new capability for encrypting your Windows and LInux virtual machine disks. Azure Disk Encryption uses the industry-standard BitLocker feature of Windows and the dm-crypt feature of LInux to provide volumne encryption for the OS and data disks. 
+
+For more information, see the content reference for [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), [Azure Data Encryption-at-rest](/azure/security/fundamentals/encryption-atrest) and [Server-side disk encryption](/azure/virtual-machines/windows/disk-encryption). 
+
 ## Use a non-default port
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade.
