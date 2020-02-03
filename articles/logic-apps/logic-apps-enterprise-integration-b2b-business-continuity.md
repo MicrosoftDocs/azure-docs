@@ -318,5 +318,5 @@ direct traffic to the secondary region for business continuity.
 
 ## Next steps
 
-[Monitor B2B messages](logic-apps-monitor-b2b-message.md)
+[Monitor B2B messages with Azure Monitor logs](../logic-apps/monitor-b2b-messages-log-analytics.md)
 

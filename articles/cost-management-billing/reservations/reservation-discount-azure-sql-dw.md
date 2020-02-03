@@ -6,7 +6,7 @@ author: yashesvi
 manager: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 01/21/2020
 ms.author: banders
 ---
 
@@ -26,9 +26,9 @@ For warehouses that don't run for a full hour, the reservation is automatically 
 
 The following examples show how the SQL Data Warehouse reserved capacity discount applies, depending on the deployments.
 
-- **Example 1**: You purchase 5 units of 100 cDWU reserved capacity. You run a DW1500c SQL Data Warehouse instance for an hour. In this case, usage is emitted for 15 units of 100 cDWU usage. The reservation discount applies to the 5 units that you used. You are charged using pay-as-you-go rates for the remaining 10 units of 100 cDWU usage that you used.
+- **Example 1**: You purchase 5 units of 100 cDWU reserved capacity. You run a DW1500c SQL Data Warehouse instance for an hour. In this case, usage is emitted for 15 units of 100 cDWU usage. The reservation discount applies to the 5 units that you used. You are charged using pay-as-you-go rates for the remaining 10 units of 100 cDWU usage that you used. In other words, partial coverage is possible for multiple reservations.
 
-- **Example 2**: You purchase 5 units of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances for an hour. In this case, two usage events are emitted for 1 unit of 100 cDWU usage. Both usage events get reserved capacity discounts. The remaining 3 units of 100 cDWU reserved capacity are wasted and don't carry over for future use.
+- **Example 2**: You purchase 5 units of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances for an hour. In this case, two usage events are emitted for 1 unit of 100 cDWU usage. Both usage events get reserved capacity discounts. The remaining 3 units of 100 cDWU reserved capacity are wasted and don't carry over for future use. In other words, a single reservation can get matched to multiple SQL Data Warehouse instances.
 
 - **Example 3**: You purchase 1 unit of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances. Each runs for 30 minutes. In this case, both usage events get reserved capacity discounts. No usage is charged using pay-as-you-go rates.
 

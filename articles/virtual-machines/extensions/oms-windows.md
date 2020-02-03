@@ -3,7 +3,7 @@ title: Azure Monitor virtual machine extension for Windows
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2019
+ms.date: 01/30/2020
 ms.author: akjosh
 
 ---
@@ -34,6 +34,7 @@ The following table provides a mapping of the version of the Windows Azure Monit
 
 | Log Analytics Windows agent bundle version | Azure Monitor Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18018 | 1.0.18018 | October 2019 | <ul><li> Minor bug fixes and stabilization improvements </li></ul> |
 | 10.20.18011 | 1.0.18011 | July 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Increased MaxExpressionDepth to 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | June 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Added ability to disable default credentials when making proxy connection (support for WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | March 2019 | <ul><li>Minor stabilization fixes </li></ul> |
@@ -90,6 +91,9 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* The workspaceId is called the consumerId in the Log Analytics API.
+
+> [NOTE!]
+> For additional properties see Azure [Connect Windows Computes to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 ## Template deployment
 

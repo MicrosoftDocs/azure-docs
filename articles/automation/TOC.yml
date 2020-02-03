@@ -244,7 +244,7 @@
   - name: Concepts
     items:
       - name: PowerShell DSC
-        href: /powershell/dsc/overview/overview
+        href: /powershell/scripting/dsc/overview/overview
   - name: Quickstarts
     items:
     - name: Getting Started

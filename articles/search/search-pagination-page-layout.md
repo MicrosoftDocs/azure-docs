@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/24/2020
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -16,7 +16,12 @@ This article provides guidance on how to implement standard elements of a search
 
 In the REST API, requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response. In the .NET SDK, the equivalent API is [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Several code samples include a web frontend interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/) and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+To quickly generate a search page for your client, explore these options:
+
++ Use the [application generator](search-create-app-portal.md) in the portal to create an HTML page with a search bar, faceted navigation, and results area.
++ Follow the [Create your first app in C#](tutorial-csharp-create-first-app.md) tutorial to create a functional client.
+
+Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more information about request syntax, see [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice).
@@ -83,6 +88,22 @@ You would create a method that accepts the selected sort option as input, and re
 > [!NOTE]
 > While the default scoring is sufficient for many scenarios, we recommend basing relevance on a custom scoring profile instead. A custom scoring profile gives you a way to boost items that are more beneficial to your business. See [Add scoring profiles](index-add-scoring-profiles.md) for more information.
 >
+
+## Hit highlighting
+
+You can apply formatting to matching terms in search results, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+
+Formatting is applied to whole term queries. Queries on partial terms, such as fuzzy search or wildcard search that result in query expansion in the engine, cannot use hit highlighting.
+
+```http
+POST /indexes/hotels/docs/search?api-version=2019-05-06 
+    {  
+      "search": "something",  
+      "highlight": "Description"  
+    }
+```
+
+
 
 ## Faceted navigation
 

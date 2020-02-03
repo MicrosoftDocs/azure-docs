@@ -45,7 +45,7 @@
     href: connect-to-azure.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
-  - name: Use API to upload and index videos
+  - name: Upload and index videos
     href: upload-index-videos.md
   - name: Examine Video Indexer output
     href: video-indexer-output-json-v2.md

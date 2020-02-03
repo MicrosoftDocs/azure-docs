@@ -155,7 +155,8 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 		    this.videobreakdown({
 			videoId: "c4c1ad4c9a",
 			syncTranscript: true,
-			syncLanguage: true
+			syncLanguage: true,
+			location: "trial" /* location option for paid accounts (default is trial) */
 		    });
 
 		    // Set the source dynamically.

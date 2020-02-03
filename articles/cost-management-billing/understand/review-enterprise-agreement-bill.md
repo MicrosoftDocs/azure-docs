@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
 
 ---
@@ -122,7 +122,7 @@ Sign in to the [Enterprise portal](https://ea.azure.com) and then select **Repor
 
 ![Screenshot that shows M + C option  on Usage summary.](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-The **Azure Marketplace** total should match the **Total Sale** on your marketplace invoice. To get more information about your usage-based charges, go to **Download Usage**. Under **Marketplace Charges**, select **Download**. This report doesn't include taxes or show one-time purchases.  
+The **Azure Marketplace** total should match the **Total Sale** on your marketplace invoice. To get more information about your usage-based charges, go to **Download Usage**. Under **Marketplace Charges**, select **Download**. The marketplace price includes a tax as determined by the publisher. Customers won't receive a separate invoice from the publisher to collect tax on the transaction.
 
 ![Screenshot that shows download option under Marketplace charges.](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 

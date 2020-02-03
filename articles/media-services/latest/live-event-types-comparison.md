@@ -24,7 +24,7 @@ In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/med
 
 The following table compares features of the Live Event types. The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. 
+* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. Also referred to as a pass-through Live Event.
 * **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrate pairs (details follow later in the article).
 * **LiveEventEncodingType.Premium1080p** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrate pairs (details follow later in the article). 
 
@@ -48,6 +48,7 @@ The following table compares features of the Live Event types. The types are set
 | Price|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|
 | Maximum run time| 24 hrs x 365 days, live linear | 24 hrs x 365 days, live linear (preview)|
 | Ability to pass through embedded CEA 608/708 captions data|Yes|Yes|
+| Ability to turn on Live Transcription|Yes|Yes|
 | Support for inserting slates|No|No|
 | Support for ad signaling via API| No|No|
 | Support for ad signaling via SCTE-35 in-band messages|Yes|Yes|

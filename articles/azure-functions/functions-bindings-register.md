@@ -59,9 +59,6 @@ If you use `Install-Package` to reference a binding, you don't need to use [exte
 
 ## <a name="vs-code"></a> C# class library with Visual Studio Code
 
-> [!NOTE]
-> We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages. 
-
 In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
 
 ```terminal

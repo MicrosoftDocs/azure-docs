@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to  applications both on-premises and in the cloud. There is need to have a single identity across these various applications (on-premises as well as cloud).
 
-Provisioning is the process of creating an object based on certain conditions, keeping the object upto date and deleting the object when conditions are no longer met. For example, when a new user joins your organization, that user is entered in to the HR system.  At that point, provisioning can create a corresponding user account in the cloud, in Active Directory, and different applications that the user needs access to.  This allows the user to start work and have access to the applications and systems they need on day one. 
+Provisioning is the process of creating an object based on certain conditions, keeping the object up to date and deleting the object when conditions are no longer met. For example, when a new user joins your organization, that user is entered in to the HR system.  At that point, provisioning can create a corresponding user account in the cloud, in Active Directory, and different applications that the user needs access to.  This allows the user to start work and have access to the applications and systems they need on day one. 
 
 ![cloud provisioning](media/what-is-provisioning/cloud1.png)
 
@@ -45,9 +45,7 @@ The most common scenario would be, when a new employee joins your company, they 
 
 ![cloud provisioning](media/what-is-provisioning/cloud3.png)
 
-App provisioning involves the provisioning of users and roles in the applications the user needs access to.  
-
-The most common scenario would be, when a user in Azure AD is provisioned into O365 or Salesforce.
+In Azure Active Directory (Azure AD), the term **[app provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refers to automatically creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), and more.
 
 ## Directory provisioning
 
