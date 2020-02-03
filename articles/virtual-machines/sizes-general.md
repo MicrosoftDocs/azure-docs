@@ -29,7 +29,7 @@ The [Av2-series](av2-series.md) VMs can be deployed on a variety of hardware typ
 
 [Dv3 and Dsv3-series](dv3-dsv3-series.md) VMs feature the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading. The Dv3 no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family. Example use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
-[Dav3 and Dasv3-series](dav3-dasv3-series.md) are new preview sizes utilizing AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256 GB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Dav3 and Dasv3-series have the same memory and disk configurations as the Dv3 & Dsv3-series.
+[Dav4 and Dasv4-series](dav4-dasv4-series.md) are new sizes utilizing AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256 MB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Dav4-series and Dasv4-series have the same memory and disk configurations as the D & Dsv3-series.
 
 ## Other sizes
 

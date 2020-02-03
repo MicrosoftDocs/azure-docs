@@ -27,6 +27,8 @@ Azure Compute offers virtual machine sizes that are Isolated to a specific hardw
 
 - [Dv2 and Dsv2-series](dv2-dsv2-series-memory.md), a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
+- The [Eav4 and Easv4-series](eav4-easv3-series.md) utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads. The Eav4-series and Easv4-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+
 - The [Ev3 and Esv3-series](ev3-esv3-series.md) features the E5-2673 v4 2.3 GHz (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyper-threading. The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
 - The [M-series](m-series.md) offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It’s also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.

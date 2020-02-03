@@ -9,26 +9,34 @@
  ms.author: lahugh
 ---
 
-# NDv2-series (Preview)
+# Updated NDv2-series (Preview)
 
-NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the HPC, AI, and machine learning workloads. It’s powered by 8 NVIDIA Tesla V100 NVLINK interconnected GPUs and 40 Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory. NDv2 instance provides excellent FP32 and FP64 performance for HPC and AI workloads utilizing CUDA, TensorFlow, Pytorch, Caffe, and other frameworks.
+The NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the most demanding GPU-accelerated AI, machine learning, simulation, and HPC workloads.
 
-[Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
+NDv2 is powered by 8 NVIDIA Tesla V100 NVLINK-connected GPUs, each with 32 GB of GPU memory. Each NDv2 VM also has 40 non-HyperThreaded Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory.
+
+NDv2 instances provide excellent performance for HPC and AI workloads utilizing CUDA GPU-optimized computation kernels, and the many AI, ML, and analytics tools that support GPU acceleration 'out-of-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks.
+
+Critically, the NDv2 is built for both computationally-intense scale-up (harnessing 8 GPUs per VM) and scale-out (harnessing multiple VMs working together) workloads. The NDv2 series now supports 100 Gigabit InfiniBand EDR backend networking, similar to that available on the HB series of HPC VM, to allow high-performance clustering for parallel scenarios including distributed training for AI and ML. This backend network supports all major InfiniBand protocols, including those employed by NVIDIA’s NCCL2 libraries, allowing for seamless clustering of GPUs.
+
+> When [enabling InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) on the ND40rs_v2 VM, please use the 4.7-1.0.0.1 Mellanox OFED driver.
+
+> Due to increased GPU memory, the new ND40rs_v2 VM requires the use of [Generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) and marketplace images. 
+
+> [Sign-up to request early access to the NDv2 virtual machine preview.](https://aka.ms/AzureNDrv2Preview)
+
+> Please note: The ND40s_v2 featuring 16 GB of per-GPU memory is no longer available for preview and has been superceded by the updated ND40rs_v2.
+<br>
 
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
-Infiniband: Not supported
+InfiniBand: Supported
 
-NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the HPC, AI, and machine learning workloads. It’s powered by 8 NVIDIA Tesla V100 NVLINK interconnected GPUs and 40 Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory. NDv2 instance provides excellent FP32 and FP64 performance for HPC and AI workloads utilizing Cuda, TensorFlow, Pytorch, Caffe, and other frameworks.
-
-[Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
-<br>
-
-| Size | vCPU | GPU | Memory | NICs (Max) | Temp Storage (SSD) GiB | Max. data disks | Max uncached disk throughput: IOPS/MBps | Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000/800 | 24000 Mbps |
+| Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000 / 800 | 24000 Mbps | 8 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
