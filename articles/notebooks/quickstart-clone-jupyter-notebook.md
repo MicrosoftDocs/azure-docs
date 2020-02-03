@@ -7,16 +7,16 @@ ms.date: 12/04/2018
 
 # Quickstart: Clone a notebook in Azure Notebooks Preview
 
-In this quickstart, you create a copy of a GitHub Jupyter notebook in an Azure Notebooks account. Because your Azure Notebooks clone is in the cloud, you can share it with collaborators, who need not make any local copies or even have Jupyter installed on their computers. You might also clone a notebook simply as a starting point for a project of your own, or to obtain data files. 
+In this quickstart, you create a copy of a GitHub Jupyter notebook in an Azure Notebooks account. 
+
+GitHub repositories provide storage and version control for Jupyter notebooks. Collaborators maintain local copies of the repository, and run the notebooks from those copies. Cloning a GitHub notebook into your Azure Notebooks account creates an independent copy. Changes are stored in your Azure Notebooks account only, and don't affect the original GitHub repository. 
+
+Because your Azure Notebooks clone is in the cloud, you can share it with collaborators, who need not make any local copies or have Jupyter installed on their computers. You might also clone a notebook simply as a starting point for a project of your own, or to obtain data files. 
 
 ## Prerequisites
 None.
 
 ## Clone Azure Cognitive Services notebooks
-
-Many data scientists and developers store their notebooks in [GitHub repositories](https://github.com), a free service that provides storage and version control for many different project types. GitHub is often used as a means of collaborating on Jupyter notebooks that are run locally. In such cases, every collaborator maintains a local copy of the repository and runs the notebooks from that copy.
-
-Cloning creates a copy of a GitHub notebook in your Azure Notebooks account instead. This clone is independent from its original repository. Changes are stored in your Azure Notebooks account only and don't affect the original. You can share your clone with collaborators, who need not make any local copies or even have Jupyter installed on their own computers. 
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 

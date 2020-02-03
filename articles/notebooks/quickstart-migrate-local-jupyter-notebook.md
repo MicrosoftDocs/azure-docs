@@ -7,14 +7,17 @@ ms.date: 12/04/2018
 
 # Quickstart: Migrate a local Jupyter notebook in Azure Notebooks Preview
 
-In this quickstart, you migrate a Jupyter notebook from your local computer or another accessible file URL to Azure Notebooks. You can instantly share your Azure Notebook project with your collaborators, who need only a browser to view and run your notebook. If they sign in to Azure Notebooks, they can also make changes.
+In this quickstart, you migrate a Jupyter notebook from your local computer or another accessible file URL to Azure Notebooks. 
+
+Jupyter notebooks on your own computer are accessible only to you. You can share your files, but recipients then have their own local copies of the notebook, and it's difficult to incorporate their changes. Even if you store notebooks in a shared online repository such as GitHub, each collaborator must have a local Jupyter installation configured like yours.
+
+By migrating your local or repository-based notebooks to Azure Notebooks, you can instantly share them with your collaborators, who need only a browser to view and run your notebooks. If they sign in to Azure Notebooks, they can also make changes.
 
 ## Prerequisites
+
 - A [Jupyter notebook](https://jupyter-notebook.readthedocs.io) on your local computer or at another accessible file URL. 
 
 ## Create a project on Azure Notebooks
-
-Jupyter notebooks that you create locally on your own computer are accessible only to you. You can share your files through a variety of means, but then recipients have their own local copy of the notebook and it's difficult for you to incorporate any changes they might make. You can also store notebooks in a shared online repository such as GitHub, but doing so still requires that each collaborator has their own local Jupyter installation with the same configuration as yours. By migrating your local or repository-based notebooks to Azure Notebooks, you store them in the cloud, from which you can instantly share them with your collaborators. 
 
 This quickstart demonstrates migrating a notebook from your local computer or another accessible file URL. To migrate notebooks from a GitHub repository, see [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md).
 
