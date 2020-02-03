@@ -12,27 +12,27 @@ manager: timlt
 
 # Manage your Azure Maps account
 
-You can manage your Azure Maps account through the Azure portal. After you have an account, you can implement the APIs in your website or mobile application.
+You can manage your Azure Maps account through the Azure Portal. After you have an account, you can implement the APIs in your website or mobile application.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new account
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. Select **Create a resource** in the upper-left corner of the Azure portal.
+2. Select **Create a resource** in the upper-left corner of the Azure Portal.
 
 3. Search for and select **Maps**. Then select **Create**.
 
 4. Enter the information for your new account.
 
-![Enter Azure Maps account information in the Azure portal](./media/how-to-manage-account-keys/new-account-portal.png)
+![Enter Azure Maps account information in the Azure Portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## Delete an account
 
-You can delete an account from the Azure portal. Navigate to the account overview page and select **Delete**.
+You can delete an account from the Azure Portal. Navigate to the account overview page and select **Delete**.
 
-![Delete your Azure Maps account in the Azure portal](./media/how-to-manage-account-keys/account-delete-portal.png)
+![Delete your Azure Maps account in the Azure Portal](./media/how-to-manage-account-keys/account-delete-portal.png)
 
 You then see a confirmation page. You can confirm the deletion of your account by typing its name.
 

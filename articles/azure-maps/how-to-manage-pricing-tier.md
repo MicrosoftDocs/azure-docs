@@ -20,13 +20,13 @@ Get more information about [choosing the right pricing tier in Azure Maps](https
 
 To view your chosen pricing tier, navigate to the **Pricing Tier** option in the settings menu.
 
-![View chosen pricing tier](./media/how-to-manage-pricing-tier/view-pricing-tier.png)
+[ ![View chosen pricing tier](./media/how-to-manage-pricing-tier/view-pricing-tier.png) ] (./media/how-to-manage-pricing-tier/view-pricing-tier.png#lightbox)
 
 ## Change a pricing tier
 
 After you create your Azure Maps account, you can upgrade or downgrade the pricing tier for your Azure Maps account. To upgrade or downgrade, navigate to the **Pricing Tier** option in the settings menu. Select the pricing tier that isn't highlighted. Select the **Save** button to save your chosen pricing tier option.
 
-![Change a pricing tier](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
+[ ![Change a pricing tier](./media/how-to-manage-pricing-tier/change-pricing-tier.png) ] (./media/how-to-manage-pricing-tier/change-pricing-tier.png#lightbox)
 
 > [!NOTE]
 > You don't have to generate new subscription keys or client ID (for Azure AD authentication) if you upgrade or downgrade the pricing tier for your Azure Maps account.
