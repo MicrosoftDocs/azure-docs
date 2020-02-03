@@ -49,10 +49,10 @@ This article shows you how to enable access to the developer portal for users fr
 12. Under **Manage**, select **App registrations**.
 13. Select **New registration**. On the **Register an application** page, set the values as follows:
     
-   * Set **Name** to a meaningful name. e.g., *developer-portal*
-   * Set **Supported account types** to **Accounts in this organizational directory only**. 
-   * Set **Redirect URI** to the value you got from step 9. 
-   * Choose **Register**. 
+    * Set **Name** to a meaningful name. e.g., *developer-portal*
+    * Set **Supported account types** to **Accounts in this organizational directory only**. 
+    * Set **Redirect URI** to the value you got from step 9. 
+    * Choose **Register**. 
 
 14.  After the application is registered, copy the **Application (client) ID** from the **Overview** page. 
 15. Go back to your API Management instance. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
@@ -67,11 +67,11 @@ This article shows you how to enable access to the developer portal for users fr
 
 19. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
-   > [!NOTE]
-   > You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
-   > a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
-   > b. Type in the domain name of the Azure AD tenant that they want to give access to.
-   > c. Select **Submit**. 
+    > [!NOTE]
+    > You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
+    > a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
+    > b. Type in the domain name of the Azure AD tenant that they want to give access to.
+    > c. Select **Submit**. 
 
 20.  After you specify the desired configuration, select **Add**.
 
@@ -92,7 +92,7 @@ Now you can add external Azure AD groups from the **Groups** tab of your API Man
 
 1. Select the **Groups** tab.
 2. Select the **Add AAD group** button.
-   !["Add AAD group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
+    !["Add AAD group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Select the group that you want to add.
 4. Press the **Select** button.
 
