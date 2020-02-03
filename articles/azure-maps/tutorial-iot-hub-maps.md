@@ -71,7 +71,7 @@ The following diagram gives you a high-level overview of the system.
   
   </center>
 
-The following figure represents the geofence area, highlighted in blue, and the rental vehicle's route as a green line.
+The following figure represents the geofence area, highlighted in blue, and the rental vehicle's route, indicated by a green line.
 
   ![Geofence route](./media/tutorial-iot-hub-maps/geofence-route.png)
 
@@ -82,24 +82,24 @@ The following figure represents the geofence area, highlighted in blue, and the 
 
 To complete the steps in this tutorial, you first need to create a resource group in the Azure portal. To create a resource group, do the following:
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. select **Resource groups**.
+2. Select **Resource groups**.
     
    ![Resource groups](./media/tutorial-iot-hub-maps/resource-group.png)
 
-3. Under Resource groups, select **Add**.
+3. Under **Resource groups**, select **Add**.
     
    ![Add resource group](./media/tutorial-iot-hub-maps/add-resource-group.png) 
 
 4. Enter the following property values:
-    * **Subscription:** Select you Azure subscription.
+    * **Subscription:** Select your Azure subscription.
     * **Resource group:** Enter "ContosoRental" as the resource group name.
     * **Region:** Select a region for the resource group.  
 
     ![Resource group details](./media/tutorial-iot-hub-maps/resource-details.png)
 
-    Click on **Review + create** and choose **Create** on the next page.
+    Select **Review + create**, and then select **Create** on the next page.
 
 ### Create an Azure Maps account 
 
@@ -171,7 +171,7 @@ Open the Postman app and follow the steps below to upload the geofence using the
    
     ![Key-Value params Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
-4. Click **Body** then select **raw** input format and choose **JSON (application/text)** as the input format from the dropdown list. Open the JSON data file [here](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), and copy the Json in the body section as the data to upload and click **Send**.
+4. Click **Body** then select **raw** input format and choose **JSON (application/text)** as the input format from the drop-down list. Open the JSON data file [here](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), and copy the Json in the body section as the data to upload and click **Send**.
     
     ![post data](./media/tutorial-iot-hub-maps/post-json-data.png)
     
@@ -207,7 +207,7 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 
     ![create-resource](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. On the function App creation page, name your function app, under **Resource Group** select **Use existing**, and select "ContosoRental" from the dropdown list. Select ".NET Core" as the Runtime Stack, under **Storage** select **Use existing** and select "contosorentaldata" from the dropdown and click **Review+Create**.
+2. On the function App creation page, name your function app, under **Resource Group** select **Use existing**, and select "ContosoRental" from the drop-down list. Select ".NET Core" as the Runtime Stack, under **Storage** select **Use existing** and select "contosorentaldata" from the drop-down and click **Review+Create**.
     
     ![create-app](./media/tutorial-iot-hub-maps/rental-app.png)
 
