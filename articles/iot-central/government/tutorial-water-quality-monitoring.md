@@ -60,6 +60,7 @@ In this section, you use the Azure IoT Central **Water quality monitoring** temp
 
     ![The Azure IoT Central new-application page](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
 
+    ![The Azure IoT Central new-application billing info](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
 You've now created a water quality monitoring application by using the Azure IoT Central **Water quality monitoring** template.
 
 Your new application comes with these preconfigured components:
