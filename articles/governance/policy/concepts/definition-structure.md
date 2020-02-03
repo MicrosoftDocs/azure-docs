@@ -74,6 +74,9 @@ are:
 - `all`: evaluate resource groups and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
+For example, resource `Microsoft.Network/routeTables` supports tags and location and would be evaluated in both modes.
+However, resource `Microsoft.Network/routeTables/routes` cannot be tagged, and would not be evaluated in `Indexed` mode.
+
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
