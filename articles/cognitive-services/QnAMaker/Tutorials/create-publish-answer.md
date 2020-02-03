@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create, publish, answer - QnA Maker"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services 
 description: This REST-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 10/12/2019
 ms.author: diberry
-#Customer intent: As an API or REST developer new to the QnA Maker service, I want to understand all the programming requirements to create a knowledge base and generate an answer from that knowledge base.
+#Customer intent: As an API or REST developer new to the QnA Maker service, I want to understand all the programming requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
 
 # Tutorial: Using C#, create knowledge base then answer question
 
-This tutorial walks you through programmatically creating and publishing a knowledge base (KB), then answering a customer question with the knowledge base.
+This tutorial walks you through programmatically creating and publishing a knowledge base (KB), then answering a customer question with the knowledge base. 
 
 > [!div class="checklist"]
-> * Create a knowledge base
+> * Create a knowledge base 
 > * Check creation status
 > * Train and publish the knowledge base
 > * Get endpoint information
@@ -30,21 +30,21 @@ This quickstart calls QnA Maker REST APIs:
 
 * [Create Knowledge base (kb)](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
-* [Get Knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails)
+* [Get Knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 
 * [Get Knowledge base endpoints](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
-* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)
+* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource.
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
 
-> [!NOTE]
+> [!NOTE] 
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## Create a knowledge base project
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)]
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
 ## Add the required dependencies
 
@@ -80,7 +80,7 @@ The following code makes an HTTPS request to the QnA Maker API to create a KB an
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=124-141 "Add a POST request to create KB")]
 
-This API call returns a JSON response that includes the operation ID. Later, the program uses the operation ID to determine if the KB is successfully created.
+This API call returns a JSON response that includes the operation ID. Later, the program uses the operation ID to determine if the KB is successfully created. 
 
 ```JSON
 {
@@ -98,7 +98,7 @@ Check the status of the creation operation.
 
 [!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=142-151 "Add GET request to determine creation status")]
 
-This API call returns a JSON response that includes the operation status:
+This API call returns a JSON response that includes the operation status: 
 
 ```JSON
 {
@@ -110,7 +110,7 @@ This API call returns a JSON response that includes the operation status:
 }
 ```
 
-Repeat the call until success or failure:
+Repeat the call until success or failure: 
 
 ```JSON
 {
@@ -125,13 +125,13 @@ Repeat the call until success or failure:
 
 ## Add CreateKB method
 
-The following method encapsulates the calls to create the KB and check on the status.  The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails. When the operation succeeds, the KB ID is returned in **resourceLocation**.
+The following method encapsulates the calls to create the KB and check on the status.  The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails. When the operation succeeds, the KB ID is returned in **resourceLocation**. 
 
 [!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=152-227 "Add GET request to determine creation status")]
 
 ## Add publish method
 
-After the knowledge base is successfully created, publish the KB. You may have expected a call to a training API. That is not required with this version.
+After the knowledge base is successfully created, publish the KB. You may have expected a call to a training API. That is not required with this version. 
 
 The following code makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
@@ -142,7 +142,7 @@ The API call returns a 204 status for a successful publish without any content i
 For any other response, that response is returned unaltered.
 
 ## Generating an answer
-In order to access the KB to send a question and receive the best answer, the program needs the _resource name_ from the KB details API and the _primary endpoint key_ from the Endpoints API. Those methods are in the following sections along with the method to generate an answer.
+In order to access the KB to send a question and receive the best answer, the program needs the _resource name_ from the KB details API and the _primary endpoint key_ from the Endpoints API. Those methods are in the following sections along with the method to generate an answer. 
 
 The following table illustrates how the data is used to construct the URI:
 
@@ -154,7 +154,7 @@ The _primary endpoint_ is passed as a header to authenticate the request to gene
 
 |Header name|Header value|
 |--|--|
-|Authorization|`Endpoint` + **primary endpoint**<br>Example: `Endpoint xxxxxxx`<br>Notice the space between the text of `Endpoint` and the value the of primary endpoint.
+|Authorization|`Endpoint` + **primary endpoint**<br>Example: `Endpoint xxxxxxx`<br>Notice the space between the text of `Endpoint` and the value the of primary endpoint. 
 
 The body of the request needs to pass the proper JSON:
 
@@ -165,11 +165,11 @@ The body of the request needs to pass the proper JSON:
 ```
 
 ## Get KB details
-Add the following method to get the KB details. These details contain the resource name of the KB, known as `hostName` in the following JSON. The resource name is the name of the QnA Maker resource you entered when creating the QnA Maker resource.
+Add the following method to get the KB details. These details contain the resource name of the KB, known as `hostName` in the following JSON. The resource name is the name of the QnA Maker resource you entered when creating the QnA Maker resource. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 
-This API call returns a JSON response:
+This API call returns a JSON response: 
 
 ```JSON
 {
@@ -191,11 +191,11 @@ This API call returns a JSON response:
 ```
 
 ## Get KB endpoints
-Add the following method to get the QnA Maker's primary endpoints. These endpoints are not tied to the KB, they are valid for all KBs associated with the QnA Maker resource keys from the Azure portal.
+Add the following method to get the QnA Maker's primary endpoints. These endpoints are not tied to the KB, they are valid for all KBs associated with the QnA Maker resource keys from the Azure portal.  
 
 [!code-csharp[Get KB Endpoints](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=274-289 "Get KB Endpoints")]
 
-This API call returns a JSON response:
+This API call returns a JSON response: 
 
 ```JSON
 {
@@ -207,18 +207,18 @@ This API call returns a JSON response:
 ```
 
 ## Get an answer
-Add the following method to get an answer to the user's question.
+Add the following method to get an answer to the user's question. 
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
 
 If you want to limit the response to just questions, add the `[rankerType](Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
-)` property to the body, for example:
+)` property to the body, for example: 
 
 ```csharp
-request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json");
+request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json"); 
 ```
 
-This API call returns a JSON response:
+This API call returns a JSON response: 
 
 ```JSON
 {
@@ -238,15 +238,15 @@ This API call returns a JSON response:
 ```
 
 ## Main method
-The main method shows the synchronous calls to create, publish, and generate the answer.
+The main method shows the synchronous calls to create, publish, and generate the answer. 
 
 [!code-csharp[Main method](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=316-337 "Main method")]
 
 ## Build and run the program
 
-Build and run the program.
+Build and run the program. 
 
-Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Once you know how to use the generate answer API, you can use the API with any language or HTTP request framework.
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Once you know how to use the generate answer API, you can use the API with any language or HTTP request framework. 
 
 ## Next steps
 

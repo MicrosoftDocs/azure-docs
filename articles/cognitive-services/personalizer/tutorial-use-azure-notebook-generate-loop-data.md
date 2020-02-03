@@ -21,13 +21,13 @@ The loop suggests which type of coffee a customer should order. The users and th
 
 ## Users and coffee
 
-The notebook selects a random user, time of day, and type of weather from the dataset. A summary of the user information is:
+The notebook, simulating user interaction with a website, selects a random user, time of day, and type of weather from the dataset. A summary of the user information is:
 
 |Customers - context features|Times of Day|Types of weather|
 |--|--|--|
 |Alice<br>Bob<br>Cathy<br>Dave|Morning<br>Afternoon<br>Evening|Sunny<br>Rainy<br>Snowy|
 
-To help Personalizer learn, over time, the correct coffee selection for each person, the _system_ also knows details about the coffee.
+To help Personalizer learn, over time, the _system_ also knows details about the coffee selection for each person.
 
 |Coffee - action features|Types of temperature|Places of origin|Types of roast|Organic|
 |--|--|--|--|--|
@@ -36,26 +36,25 @@ To help Personalizer learn, over time, the correct coffee selection for each per
 |Iced mocha|Cold|Ethiopia|Light|Not organic|
 |Latte|Hot|Brazil|Dark|Not organic|
 
-
 The **purpose** of the Personalizer loop is to find the best match between the users and the coffee as much of the time as possible.
 
 The code for this tutorial is available in the [Personalizer Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook).
 
 ## How the simulation works
 
-At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by the reward score of 1). After some requests, the system improves.
+At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30%. This success is indicated by the reward sent back to Personalizer's Reward API, with a score of 1. After some Rank and Reward calls, the system improves.
 
-After the initial 10,000 requests, run an offline evaluation. This allows Personalizer to review the data and suggest a better learning policy. Apply the new learning policy and run the notebook again with 2,000 requests. The loop will perform better.
+After the initial requests, run an offline evaluation. This allows Personalizer to review the data and suggest a better learning policy. Apply the new learning policy and run the notebook again with 20% of the previous request count. The loop will perform better with the new learning policy.
 
 ## Rank and reward calls
 
 For each of the few thousand calls to the Personalizer service, the Azure Notebook sends the **Rank** request to the REST API:
 
 * A unique ID for the Rank/Request event
-* Context - A random choice of the user, weather, and time of day - simulating a user on a website or mobile device
-* Features - _All_ the coffee data - from which Personalizer makes a suggestion
+* Context features - A random choice of the user, weather, and time of day - simulating a user on a website or mobile device
+* Actions with Features - _All_ the coffee data - from which Personalizer makes a suggestion
 
-The system receives the rank of the coffee choices, then compares that prediction with the user's known choice for the same time of day and weather. If the known choice is the same as the predicted choice, the **Reward** of 1 is sent back to Personalizer. Otherwise the reward is 0.
+The system receives the request, then compares that prediction with the user's known choice for the same time of day and weather. If the known choice is the same as the predicted choice, the **Reward** of 1 is sent back to Personalizer. Otherwise the reward sent back is 0.
 
 > [!Note]
 > This is a simulation so the algorithm for the reward is simple. In a real-world scenario, the algorithm should use business logic, possibly with weights for various aspects of the customer's experience, to determine the reward score.
