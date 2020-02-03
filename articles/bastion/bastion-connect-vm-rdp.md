@@ -31,7 +31,7 @@ In order to make a connection, the following roles are required:
 
 ### Ports
 
-In order to connect via RDP, you must have the following ports open on your Windows VM:
+In order to connect to the Windows VM via RDP, you must have the following ports open on your Windows VM:
 
 * Inbound ports: RDP (3389)
 
