@@ -6,7 +6,7 @@ manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 03/02/2020
 ms.topic: overview
 ms.service: azure-remote-rendering
 ---
@@ -61,3 +61,7 @@ A stable, low-latency network connection is critical for a good user experience.
 1. For best hologram stability, we recommended 100 Mbps downstream and 40 Mbps upstream.
 
 For troubleshooting network issues, check the performance statistics provided by the ARR API. In particular, *reused frames* indicate that a frame's data arrived too late to be picked up.
+
+## Next steps
+
+* [Getting started with Azure Remote Rendering](../quickstarts/getting-started.md)
