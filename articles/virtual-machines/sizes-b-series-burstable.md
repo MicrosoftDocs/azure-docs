@@ -47,7 +47,7 @@ Max CPU perf: 16vCPU * 100% = 1600%
 
 Baseline: 270%
 
-![Chart of hourly traffic data](./media/virtual-machines-common-b-series-burstable/office-workload.png)
+![Chart of hourly traffic data](./media/b-series-burstable/office-workload.png)
 
 | Scenario | Time | CPU usage (%) | Credits accumulated<sup>1</sup> | Credits available |
 | --- | --- | --- | --- | --- |

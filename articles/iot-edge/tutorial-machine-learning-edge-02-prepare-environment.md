@@ -20,7 +20,7 @@ This article helps you prepare your environment for development and deployment. 
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
-We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) machine size.
+We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
 
 The development VM will be set up with:
 

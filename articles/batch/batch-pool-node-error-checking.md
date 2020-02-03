@@ -99,7 +99,7 @@ Additional examples of causes for **unusable** nodes include:
 
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
 
-- A VM image has been deployed on hardware that doesn’t support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+- A VM image has been deployed on hardware that doesn’t support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
 
 - The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
 

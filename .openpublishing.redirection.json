@@ -47584,6 +47584,11 @@
       "source_path": "articles/virtual-machines/linux/acu.md",
       "redirect_url": "/azure/virtual-machines/acu",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/b-series-burstable.md",
+      "redirect_url": "/azure/virtual-machines/sizes-b-series-burstable",
+      "redirect_document_id": false
     }
   ]
 }
