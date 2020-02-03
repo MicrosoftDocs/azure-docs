@@ -54,7 +54,7 @@ Both LSR modes are striving to improve Hologram stability, although they come wi
 
 ### Depth LSR
 
-For Depth LSR to work, you must supply a valid depth buffer that contains all the relevant geometry to consider during LSR. Unity will automatically supply a depth buffer for you when depth buffer sharing is enabled (see above). So just make sure to render the scene as intended.
+For Depth LSR to work, the Client application must supply a valid depth buffer that contains all the relevant geometry to consider during LSR. Unity will automatically supply a depth buffer when depth buffer sharing is enabled (see above). So just make sure to render the scene as intended.
 
 Generally, Depth LSR attempts to stabilize the video frame based on the data available in the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as labels or transparent objects, is still subject to reprojection artifacts.
 
