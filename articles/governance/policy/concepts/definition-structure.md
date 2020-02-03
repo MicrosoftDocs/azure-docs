@@ -886,10 +886,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 
