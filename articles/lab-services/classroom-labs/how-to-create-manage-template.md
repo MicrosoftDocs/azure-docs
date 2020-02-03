@@ -35,17 +35,15 @@ Use the following steps to set title and description for the first time, and upd
 ## Update a template VM
 Use the following steps to update a template VM.  
 
-1. On the **Template** page, select **Customize template** on the toolbar. 
-2. On the **Customize template** dialog, select **Continue**. Once you start the template and make changes, it will no longer have the same setup as the virtual machines last published to your users. Template changes will not be reflected on your users' existing virtual machines until after you publish again.
-
-    ![Customize dialog box](../media/how-to-create-manage-template/customize-template-dialog.png)
 1. Wait until the template VM is started, and then select **Connect to template** on the toolbar to connect to the template VM, and follow instructions. If it's a Windows machine, you will see an option to download the RDP file. 
+2. Once you connect to the template and make changes, it will no longer have the same setup as the virtual machines last published to your users. Template changes will not be reflected on your users' existing virtual machines until after you publish again.
 
     ![Connect to the template VM](../media/how-to-create-manage-template/connect-template-vm.png)
+    
 1. Install any software that's required for students to do the lab (for example, Visual Studio, Azure Storage Explorer, etc.). 
 2. Disconnect (close your remote desktop session) from the template VM. 
 3. **Stop** the template VM by selecting **Stop template**. 
-4. Follow steps in the next section to **publish** the updated template VM. 
+4. Follow steps in the next section to **Publish** the updated template VM. 
 
 ## Publish the template VM  
 If you don't publish the template while creating the lab, you can publish it later. Before publishing, you may want to connect to the template VM, and update it with any software. When you publish a template, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process are the number of VMs you specified when you published it for the first time or what you specified on the Virtual machine pool page. All virtual machines have the same configuration as the template. 
