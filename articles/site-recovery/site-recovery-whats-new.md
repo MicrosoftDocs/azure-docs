@@ -2,7 +2,7 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/31/2020
 ---
 
 # What's new in Site Recovery
@@ -31,6 +31,18 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 ## Updates (January 2020)
 
+### Update rollup 44
+[Update rollup 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Issue fixes/improvements** | A number of updates to Site Recovery agents and providers (as detailed in the rollup).
+
+### Azure VMware disaster recovery
+
+Azure virtual machines now support VMs enable for encryption-at-rest with customer-managed keys. [Learn more](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+
+
 ### Update rollup 43
 
 [Update rollup 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) provides the following updates.
@@ -53,7 +65,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
 
 
-## Azure VM disaster recovery
+### Azure VM disaster recovery
 
 New features for Azure VM disaster recovery are summarized in the table.
 

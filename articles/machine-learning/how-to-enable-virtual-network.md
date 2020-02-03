@@ -133,7 +133,7 @@ To use an Azure Machine Learning compute instance or compute cluster in a virtua
 > * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. If you are creating a compute instance in the same virtual network, you would need to detach the storage account(s) from the virtual network, create the compute instance in the virtual network, and then attach the storage account(s) back to the virtual network.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
 
 The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
 

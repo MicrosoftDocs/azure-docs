@@ -67,6 +67,40 @@ Having prepared your Self-Hosted IR and Azure Blob Storage linked service for st
 
    ![Advanced settings with a self-hosted IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
+You can also configure your new/existing Azure-SSIS IR with Self-Hosted IR as a proxy using PowerShell.
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
+$DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
+$DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
+
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
+{
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -DataProxyIntegrationRuntimeName $DataProxyIntegrationRuntimeName `
+        -DataProxyStagingLinkedServiceName $DataProxyStagingLinkedServiceName
+
+    if(![string]::IsNullOrEmpty($DataProxyStagingPath))
+    {
+        Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+            -DataFactoryName $DataFactoryName `
+            -Name $AzureSSISName `
+            -DataProxyStagingPath $DataProxyStagingPath
+    }
+}
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
+```
+
 ## Enable SSIS packages to connect by proxy
 
 Using the latest SSDT with SSIS Projects extension for Visual Studio that can be downloaded from [here](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) or as a standalone installer that can be downloaded from [here](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer), you can find a new **ConnectByProxy** property that has been added in OLEDB/Flat File Connection Managers.  
