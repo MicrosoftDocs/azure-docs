@@ -100,7 +100,7 @@ Run the following steps in a Cloud Shell instance in your subscription. First-ti
 1. Download the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
 
     ```azurepowershell-interactive
-        wget https://aka.ms/FarmBeatsAADScript
+        wget -q https://aka.ms/FarmBeatsAADScript -O ./create_aad_script.ps1
     ```
 
 2. By default, the file is downloaded to your home directory. Navigate to the directory.
@@ -157,12 +157,13 @@ Once the installation is complete, you can verify the installation and start usi
 
 ## Upgrade
 
-To upgrade FarmBeats to the latest version, run the following steps in a Cloud Shell instance in your subscription. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
+To upgrade FarmBeats to the latest version, run the following steps in a Cloud Shell instance in your subscription. The user will need to be the owner of the Subscription in which FarmBeats is installed.
+First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
 1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
 
     ```azurepowershell-interactive
-        wget https://aka.ms/https://aka.ms/FarmBeatsUpgradeScript
+        wget –q https://aka.ms/https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
     ```
 
 2. By default, the file is downloaded to your home directory. Navigate to the directory.
@@ -174,10 +175,10 @@ To upgrade FarmBeats to the latest version, run the following steps in a Cloud S
 3. Run the upgrade script
 
     ```azurepowershell-interactive
-        ./upgrade-farmbeats.ps1 -SubscriptionId [FarmBeats Subscription ID] -ResourceGroup [FarmBeats DataHub ResourceGroup Name]
+        ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-If you are upgrading from FarmBeats version 1.2.1 or 1.2.5, the script will prompt you to specify the path to the input.json file you created at the time of installing FarmBeats. For newer versions, no more inputs will be needed. The upgrade should finish in around 30 minutes.
+The path to input.json file is optional. If not specified, the script will ask you for all required inputs. The upgrade should finish in around 30 minutes.
 
 ## Uninstall
 
