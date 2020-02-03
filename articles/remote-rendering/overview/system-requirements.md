@@ -6,7 +6,7 @@ manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 03/02/2020
+ms.date: 02/03/2020
 ms.topic: overview
 ms.service: azure-remote-rendering
 ---

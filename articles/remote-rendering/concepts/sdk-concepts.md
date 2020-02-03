@@ -2,20 +2,16 @@
 title: SDK concepts
 description: Overview of the SDK concepts and links to sub-chapters
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
 # SDK concepts
 
 This chapter explains some high-level concepts of the Remote Rendering API.
 
-## System Initialization
+## System initialization
 
 Before any action can be performed in Azure Remote Rendering, the system must be initialized. ```RemoteManagerStatic.StartupRemoteRendering``` will start the system. When `StartupRemoteRendering` initializes Azure Remote Rendering, the rendering mode, the coordinate system for the host engine, and a string identifying the host engine must be provided via the `ClientInit` structure. Call `RemoteManagerStatic.StartupRemoteRendering` before any holographic APIs are called.
 
@@ -32,49 +28,50 @@ A session is composed on an ```AzureFrontend``` class which contains the credent
 This VM will transition from the ```Starting``` state to the ```Ready``` state over a number of minutes. Once the VM is in the ```Ready``` state,  ```AzureSession.ConnectToRuntime``` can be called to connect to the ARR runtime:
 
 ``` cs
+ClientInit clientInit = new ClientInit();
+// fill out clientInit parameters...
 
-    // Initialize the runtime
-    ClientInit clientInit = new ClientInit();
+RemoteManagerStatic.StartupRemoteRendering(clientInit);
 
-    // fill out clientInit parameters...
-    RemoteManager.StartupRemoteRendering(clientInit);
+AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
+// fill out accountInfo details...
 
+AzureFrontend frontend = new AzureFrontend(accountInfo);
 
-    AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
-    // Fill out account details...
+CreateRenderingSessionParams sessionCreationParams = new CreateRenderingSessionParams();
+// fill out sessionCreationParams...
 
-    AzureFrontend frontend = new AzureFrontend(accountInfo);
-    AzureSession session = await frontend.CreateRenderingSessionAsync(sessionCreationParams).AsTask();
+AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
 
-    RenderingSessionProperties sessionProperties = null;
-    while (true)
+RenderingSessionProperties sessionProperties;
+while (true)
+{
+    sessionProperties = await session.GetPropertiesAsync().AsTask();
+    if (sessionProperties.Status != RenderingSessionStatus.Starting &&
+        sessionProperties.Status != RenderingSessionStatus.Unknown)
     {
-        sessionProperties = await session.GetPropertiesAsync().AsTask();
-        if( sessionProperties.Status != RenderingSessionStatus.Starting &
-            sessionProperties.Status != RenderingSessionStatus.Unknown)
-        {
-            break;
-        }
+        break;
     }
+}
 
-    if( sessionProperties.Status != RenderingSessionStatus.Ready)
-    {
-        // Do some error handling and either terminate or retry.
-    }
+if (sessionProperties.Status != RenderingSessionStatus.Ready)
+{
+    // Do some error handling and either terminate or retry.
+}
 
-    // Connect to server
-    Result connectResult = session.ConnectToRuntime(new ConnectToRuntimeParams()).AsTask();
+// Connect to server
+Result connectResult = await session.ConnectToRuntime(new ConnectToRuntimeParams()).AsTask();
 
-    // Connected!
+// Connected!
 
-    // Disconnect
-    session.DisconnectFromRuntime();
+// Disconnect
+session.DisconnectFromRuntime();
 
-    // Decommision VM
-    await session.StopAsync().AsTask();
+// Decommission the VM
+await session.StopAsync().AsTask();
 
-    // Close connection
-    RemoteManager.ShutdownRemoteRendering();
+// Close connection
+RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
 The above code snippets creates a new session on Azure and, once the session is ready, connects to the runtime on the VM to stream images.
@@ -94,9 +91,6 @@ After connecting, content can be loaded on the remote server via ```AzureSession
 
 The remote server will never alter the state of client-side data. All mutations of data (transform updates, load requests, and other options available in the client-side API) must be performed by the client application. An action will immediately update the client state.
 
-> [!NOTE]
-> The remote server will never alter the state of data.
-
 Messages to the server are buffered locally until  `AzureSession.Actions.Update` method is called. `Update` is responsible for pushing all pending messages to the server and for dispatching responses from the server back to the client.
 
 Data does not persist on an `AzureSession` between connections. On disconnect, all existing data will be flushed from the local `AzureSession.Actions` and the remote server. For example, if you call `LoadModel` on a remote rendering instance, the model will exist in the Remote Rendering runtime. If the application then disconnects and then reconnects to the same session, the model will no longer be available and must be loaded again.
@@ -111,38 +105,38 @@ The lifetime of a message from the host engine to the remote engine can be visua
 
 Unity uses a special initialization function to bind to Unity's coordinate system which can be found in the [Unity docs](./sdk-unity-concepts.md).
 
-## Asynchronous Operations and Loading Data
+## Asynchronous operations and loading data
 
 Data can be loaded through asynchronous APIs. Models that have been [converted](../conversion/conversion-rest-api.md) can be loaded through the following APIs:
 
 ```cs
-    LoadModelAsync _pendingLoadTask = null;
+LoadModelAsync _pendingLoadTask = null;
 
-    void SampleLoadModel(string modelId, Entity parent = null)
+void LoadModel(string modelId, Entity parent = null)
+{
+    AzureSession session = GetConnectedSession();
+
+    _pendingLoadTask = session.Actions.LoadModelAsync(new LoadModelParams(modelId, parent));
+    _pendingLoadTask.Completed += (LoadModelAsync res) =>
     {
-        AzureSession session = GetConnectedSession();
-
-        _pendingLoadTask = session.Actions.LoadModelAsync(new LoadModelParams(modelId, parent));
-        _pendingLoadTask.Completed += (LoadModelAsync res) =>
+        if (res.IsRanToCompletion)
         {
-            if(async.IsRanToCompletion)
-            {
-                //Do things with async.Result
-            }
+            //Do things with res.Result
+        }
 
-            _pendingLoadTask = null;
-        };
-    }
+        _pendingLoadTask = null;
+    };
+}
 ```
 
-A reference to an asynchronous operation must be held until the application is done with it. If the application uses the Completed event on the async, then the async must be held alive by the application until Completed has finished.
+A reference to an asynchronous operation must be held until the application is done with it. If the application uses the *Completed* event on the async, then the async operation must be held alive by the application until *Completed* has finished.
 
-Asynchronous return an asynchronous object where Completed and ProgressChanged callbacks can be registered. Furthermore all asynchronous objects have an ```AsTask``` member function to allow the ```await``` pattern.
+Asynchronous operations return an asynchronous object where *Completed* and *ProgressChanged* callbacks can be registered. Furthermore, all asynchronous objects have an ```AsTask``` member function to allow for the ```await``` pattern.
 
-C# sample code using ```await``` keyword:
+Sample code using ```await```:
 
 ```cs
-void async SampleLoadModel(string modelId)
+async void LoadModel(string modelId, Entity parent = null)
 {
     AzureSession session = GetConnectedSession();
 
@@ -150,49 +144,38 @@ void async SampleLoadModel(string modelId)
 
     Entity root = result.Root;
 }
-
 ```
 
 ### Threading
 
-All asynchronous calls from `Actions` and `Entity` are completed during the `AzureSession.Actions.Update`. [Azure Frontend APIs](../azure/authentication.md) are completed in a background thread.
+All asynchronous calls from `Actions` and `Entity` are completed during the call to `AzureSession.Actions.Update`. [Azure Frontend APIs](../azure/authentication.md) are completed in a background thread.
 
 ### Built-in and external resources
 
-Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. These resources are listed with feature related to them, for example see [Sky](../sdk/features-sky.md)
+Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. The available built-in resources are listed in the documentation for each respective feature. For example, the [sky chapter](../sdk/features-sky.md) lists the built-in sky textures.
 
 Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to a [converted model](../conversion/conversion-rest-api.md) in blob storage.
 
-A SAS URI of a sample model can be found in the [sample model chapter](../samples/sample-model.md).
+A SAS URI of a sample model can be found [here](../samples/sample-model.md).
 
-## Objects and Lifetime Management
+## Objects and lifetime management
 
 [Components](../sdk/concepts-components.md) and [Entities](../sdk/concepts-entities.md) are unique objects with explicit lifetime management. Both objects have a `Destroy()` member function that will destroy the object when it can be freed from the remote rendering runtime. `Entity.Destroy()` will destroy the entity, its children, and all of its components.
 
 The lifetime of these objects are not related to the lifetime of the user object representation such as the `Entity` class in C#. `Destroy` must be called to deallocate and remove the internal representation. The lifetimes are separate so that the user can work on smaller sections of large models in a less efficient user representation, while the compressed representation is stored inside the SDK.
 
-## <span id="resources">Resources and Lifetime Management
+## Resources and lifetime management
 
-[Meshes](../sdk/concepts-meshes.md), [Materials](../sdk/concepts-materials.md) and [Textures](../sdk/concepts-textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count, rather than explicit ```Destroy``` method used for Entities and Components. When the resource is not assigned anywhere in the scene tree (for example, Mesh to a MeshComponent) and the user does not hold a reference to the resource with an instance of the Mesh class, then the resource is destroyed in the API on both client and server. The server will then release the native resource and free the memory.
+[Meshes](../sdk/concepts-meshes.md), [materials](../sdk/concepts-materials.md) and [textures](../sdk/concepts-textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count. Consequently, there is no explicit ```Destroy``` method for them. When the resource is not assigned anywhere in the scene tree (for example, a *Mesh* to a *MeshComponent*) and the user code does not hold a reference to the resource, then the resource gets destroyed on both the client and the server. The server will then release the native resource data and free the memory.
 
-## General Lifetime Management
+## General lifetime management
 
-All API objects lifetime is bound to a connection. On disconnect all resources and objects are destroyed on both the client and the server. The log can be checked for information about unreleased resources that were destroyed.
+The lifetime of all API objects is bound to a connection. On disconnect all resources and objects are destroyed on both the client and the server. The log can be checked for information about unreleased resources that were destroyed.
 
-## Features
+## See also
 
-* [Render modes](../sdk/concepts-render-mode.md)
 * [Entities](../sdk/concepts-entities.md)
 * [Components](../sdk/concepts-components.md)
 * [Meshes](../sdk/concepts-meshes.md)
-* [Materials](../sdk/concepts-materials.md)
-* [Textures](../sdk/concepts-textures.md)
-* [Lights](../sdk/features-lights.md)
 * [Spatial bounds](../sdk/concepts-spatial-bounds.md)
-* [Ray cast queries](../sdk/concepts-spatial-queries.md)
-* [Sky](../sdk/features-sky.md)
-* [Cut planes](../sdk/features-cut-planes.md)
-* [Override hierarchical state](../sdk/features-override-hierarchical-state.md)
-* [Outline rendering](../sdk/features-outlines.md)
-* [Single sided rendering](../sdk/concepts-single-sided-rendering.md)
 * [Graphics binding](../sdk/concepts-graphics-binding.md)

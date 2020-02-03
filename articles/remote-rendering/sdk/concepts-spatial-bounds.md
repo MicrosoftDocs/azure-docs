@@ -1,37 +1,43 @@
 ---
-title: Query object bounds
+title: Object bounds
 description: Explains how spatial object bounds can be queried
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
-# Query object bounds
+# Object bounds
 
-Object bounds can be queried by two mechanisms.  
+Object bounds represent the volume that an object and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they are always axis-aligned, which means the extents and volume may differ between the local and world space representation.
 
-The axis aligned and local bounding box of a mesh can be queried directly from the Mesh resource on a MeshComponent. This bound can subsequently be transformed into object space or world space through the associated `Entity`'s transform.  All of the `Entity`'s children must be visited to gather the bounds encompassing children.
+## Querying object bounds
 
-Traversing large SceneGraphs can be computationally expensive so utility functions are provided to offload the computation to the server for the axis aligned local or world bounds of an entity inclusive of its children. These queries will be performed against the state of the SceneGraph on the frame that the query is issued.
+The local AABB of a [mesh](concepts-meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
 
-The asynchronous server query can be performed via the `QueryLocalBoundsAsync` and `QueryWorldBoundsAsync` calls in `Entity` interface.
+It's possible to compute the bounds of an entire object hierarchy this way, but that requires to traverse the hierarchy, query the bounds for each mesh, and combine them manually. This operation is both tedious and inefficient.
+
+A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
 ``` cs
-    private BoundsQueryAsync _boundsQuery = null;
+private BoundsQueryAsync _boundsQuery = null;
 
-    public void GetBounds(Entity entity)
+public void GetBounds(Entity entity)
+{
+    _boundsQuery = entity.QueryWorldBoundsAsync();
+    _boundsQuery.Completed += (BoundsQueryAsync bounds) =>
     {
-        _boundsQuery = entity.QueryLocalBoundsAsync() += (BoundsQueryAsync bounds)
+        if (bounds.IsRanToCompletion)
         {
-            if( bounds.IsRanToCompletion )
-            {
-                // Perform action with bounds
-            }
-        };
-    }
+            Double3 aabbMin = bounds.Result.min;
+            Double3 aabbMax = bounds.Result.max;
+            // ...
+        }
+    };
+}
 ```
+
+## See also
+
+* [Entities](concepts-entities.md)
+* [Spatial queries](concepts-spatial-queries.md)

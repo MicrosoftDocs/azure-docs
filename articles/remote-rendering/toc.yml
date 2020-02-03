@@ -46,7 +46,7 @@
   items:
     - name: SDK concepts
       href: concepts/sdk-concepts.md
-    - name: Render mode
+    - name: Rendering modes
       href: sdk/concepts-render-mode.md
     - name: Entities
       href: sdk/concepts-entities.md
@@ -58,7 +58,7 @@
       href: sdk/concepts-meshes.md
     - name: Textures
       href: sdk/concepts-textures.md
-    - name: Spatial bounds
+    - name: Object bounds
       href: sdk/concepts-spatial-bounds.md
     - name: Graphics bindings
       href: sdk/concepts-graphics-binding.md
