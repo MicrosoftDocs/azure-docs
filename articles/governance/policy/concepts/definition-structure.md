@@ -307,6 +307,10 @@ letter, `.` to match any character, and any other character to match that actual
 **match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
 **matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
+When working with **\[\*\] alias** array field values, note that that every element of the
+array is evaluated individually, with logical AND between them. For details see
+[Evaluating the \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+
 ### Fields
 
 Conditions are formed by using fields. A field matches properties in the resource request payload
