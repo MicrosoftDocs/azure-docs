@@ -159,6 +159,47 @@ Azure disks reservation are purchased for a specific region and SKU (like P30 in
 **What happens when my Azure disks reservation expires?**	
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+### Azure Shared disks
+
+**Is the shared disks feature supported for unmanaged disks or page blobs?**
+No, it is only supported for premium SSD managed disks.
+
+**What regions support shared disks?**
+For now, only West Central US.
+
+**Can shared disks be used as an OS disk?**
+No, shared disks are only supported for data disks.
+
+**What disk sizes support shared disks?**
+Only premium SSDs that are P15 or greater support shared disks.
+
+**Do I need to use a new version of Azure API/tools to create, attach, and resize shared disks?**
+You need to use the following API/tooling versions:
+
+
+|Column1  |Column2  |
+|---------|---------|
+|Row1     |         |
+|Row2     |         |
+|Row3     |         |
+|Row4     |         |
+|Row5     |         |
+
+**If I have an existing premium SSD, can I enable shared disks on it?**
+All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
+
+**If I no longer want to use a disk in shared mode, how do I disable it?**
+Unmount the disk from all VMs that it is attached to. Then edit the maxShare property on the disk to 1.
+
+**Can you resize a shared disk?**
+Yes.
+
+**Can I enable write accelerator on a disk that also has shared disks enabled?**
+No.
+
+**Can I enable host caching for a disk that has shared disk enabled?**
+The only supported host caching option is 'None'.
+
 ## Ultra disks
 
 **What should I set my ultra disk throughput to?**
