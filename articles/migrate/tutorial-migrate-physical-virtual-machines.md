@@ -1,22 +1,18 @@
 ---
-title: Migrate on-premises physical machines or virtualized machines to Azure with Azure Migrate Server Migration | Microsoft Docs
-description: This article describes how to migrate on-premises physical machines or virtualized machines to Azure with Azure Migrate Server Migration.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrate machines as physical server to Azure with Azure Migrate.
+description: This article describes how to migrate physical machines to Azure with Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
 ---
 
-# Migrate physical or virtualized servers to Azure 
+# Migrate machines as physical servers to Azure
 
-This article shows you how to migrate physical or virtualized servers to Azure. The Azure Migrate Server Migration tool offers migration of physical and virtualized servers, using agent-based replication. Using this tool, you can migrate a wide range of machines to Azure:
+This article shows you how to migrate machines as physical servers to Azure, using the Azure Migrate:Server Migration tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
 
 - Migrate on-premises physical servers.
 - Migrate VMs virtualized by platforms such as Xen, KVM.
-- Migrate Hyper-V or VMware VMs. This is useful if for some reason you're unable to use the standard migration flow that Azure Migrate Server Migration offers for [Hyper-V](tutorial-migrate-hyper-v.md), [VMware agentless](tutorial-migrate-vmware.md) migration, or [VMware agent-based](tutorial-migrate-vmware-agent.md) migration.
+- Migrate Hyper-V or VMware VMs, if for some reason you're unable to use the standard migration process for [Hyper-V](tutorial-migrate-hyper-v.md), or [VMware ](server-migrate-overview.md) migration.
 - Migrate VMs running in private clouds.
 - Migrate VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP).
 
@@ -170,7 +166,7 @@ The first step of migration is to set up the replication appliance. You  downloa
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project > **Servers**, in ***Azure Migrate: Server Migration**, click **Discover**.
+1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
 
     ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -261,8 +257,7 @@ Now, select machines for migration.
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
-4. In **vCenter server**, specify the name of the vCenter server managing the VMs, or the vSphere server on which the VMs are hosted.
-5. In **Process Server**, select the name of the replication appliance.
+4. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, you specify a VM admin account that will be used for push installation of the Mobility service. In this tutorial we're installing the Mobility service manually, so you can add any dummy account. Then click **Next: Virtual machines**.
 
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
