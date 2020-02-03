@@ -1049,7 +1049,7 @@
         href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
         maintainContext: true
       - name: Spring Data developer guide
-        href: /java/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb
+        href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md
