@@ -131,7 +131,7 @@ void LoadModel(string modelId, Entity parent = null)
 
 A reference to an asynchronous operation must be held until the application is done with it. If the application uses the *Completed* event on the async, then the async operation must be held alive by the application until *Completed* has finished.
 
-Asynchronous operations return an asynchronous object where *Completed* and *ProgressChanged* callbacks can be registered. Furthermore, all asynchronous objects have an ```AsTask``` member function to allow the ```await``` pattern.
+Asynchronous operations return an asynchronous object where *Completed* and *ProgressChanged* callbacks can be registered. Furthermore, all asynchronous objects have an ```AsTask``` member function to allow for the ```await``` pattern.
 
 Sample code using ```await```:
 
