@@ -1,6 +1,6 @@
 ---
 title: Maintenance control 
-description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control.
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article

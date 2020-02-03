@@ -176,12 +176,13 @@ Your Azure subscription information is used by the tool to connect to your accou
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## azure hdinsight: Commands to manage your HDInsight clusters
+## azure HDInsight: Commands to manage your HDInsight clusters
 **Commands to create or add to a cluster configuration file**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
+
 
 Example: Create a configuration file that contains a script action to run when creating a cluster.
 
@@ -1672,7 +1673,7 @@ Parameter options:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## azure tag: Commands to manage your resource manager tag
+## azure tag: Commands to manage your Resource Manager tag
 **Add a tag**
 
     tag create [options] <name> <value>
