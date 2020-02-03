@@ -33,7 +33,7 @@ Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-gri
 
 ## Event schema
 
-The following example show schema for GeofenceResult
+The following example shows the schema for GeofenceResult:
 
 ```JSON
 {   
