@@ -37,12 +37,12 @@ Mobility Service uses a parallel data model for Lines and Line Groups. This mod
 
 ### Line Groups
 
-A Line Group is an entity, which groups together all lines that are logically part of the same group. Usually, a line group will contain two lines. One line from point A to B, and the other line returning from point B to A. Both lines would belong to the same Public Transport agency and have the same line number. However, there may be cases in which a line group has more than two lines or only a single line within it.
+A Line Group is an entity, which groups together all lines that are logically part of the same group. Usually, a line group contains two lines, one from point A to B, and the other returning from point B to A. Both lines would belong to the same Public Transport agency and have the same line number. However, there may be cases in which a line group has more than two lines or only a single line within it.
 
 
 ### Lines
 
-As discussed above, each line group is composed of a set of lines. Each line group is composed of two lines, and each line describes a direction.  However there are cases in which more lines comprise a line group. For example, there's a line that sometimes detours through a certain neighborhood and sometimes doesn't. In both cases, it operates under the same line number. Also a line group can be composed of a single line. A circular line with a single direction is a ling group with one line.
+As discussed above, each line group is composed of a set of lines. Each line group is composed of two lines, and each line describes a direction.  However, there are cases in which more lines compose a line group. For example, there's a line that sometimes detours through a certain neighborhood and sometimes doesn't. In both cases, it operates under the same line number. Also a line group can be composed of a single line. A circular line with a single direction is a ling group with one line.
 
 To begin, you can request line groups by using the [Get Transit Line API](https://aka.ms/AzureMapsMobilityTransitLine).
 
