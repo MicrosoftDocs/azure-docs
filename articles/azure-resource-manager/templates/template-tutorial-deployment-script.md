@@ -168,6 +168,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
       "type": "string",
       "defaultValue": "[utcNow()]"
     }
+    ```
 
 1. Add a deploymentScripts resource:
 

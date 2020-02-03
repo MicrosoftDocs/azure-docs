@@ -19,6 +19,19 @@ You can export the platform metrics from the Azure monitor pipeline to other loc
 
 Because of intricacies in the Azure Monitor backend, not all metrics are exportable using diagnostic settings. The table below lists which can and cannot be exported using diagnostic settings.
 
+The table contains the following columns. 
+- Exportable via Diagnostic Settings? 
+- ResourceType 
+- Metric 
+- MetricDisplayName
+- Unit 
+- AggregationType
+
+
+> [!NOTE]
+> The table below may have a horizontal scroll bar at the bottom. If you believe you are missing information, check to see that the scroll bar is all the way to the left.  
+
+
 Exportable via Diagnostic Settings? | ResourceType | Metric | MetricDisplayName | Unit | AggregationType
 |----|-----|------|----|----|-----|
 Yes | Microsoft.AnalysisServices/servers | CleanerCurrentPrice | Memory: Cleaner Current Price | Count | Average

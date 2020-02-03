@@ -23,11 +23,17 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
     Hello PowerShell
     ```
 
-    You can also execute the GET request from a browser.
+    You can also execute the GET request from a browser from the following URL:
 
-    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a [HttpStatusCode]::BadRequest error. When you review the code in run.ps1, you see that this error occurs by design.
+    <http://localhost:7071/api/HttpExample?name=PowerShell>
 
-1. To stop debugging, press Shift + F5.
+    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a `BadRequest` error. When you review the code in run.ps1, you see that this error occurs by design.
+
+1. Information about the request is shown in **Terminal** panel.
+
+    ![Function execution in Terminal panel](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
+
+1. To stop debugging, press Ctrl + C to stop Core Tools.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
