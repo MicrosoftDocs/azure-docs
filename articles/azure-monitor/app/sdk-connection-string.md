@@ -43,8 +43,7 @@ Customer scenarios where we visualize this having the most impact:
 
 Your connection string is displayed on the Overview blade of your Application Insights resource.
 
-<img src="https://user-images.githubusercontent.com/28785781/67131682-7c1d0b00-f1ba-11e9-960d-616880cbb41c.png" width="1000">
-
+![connection string on overview blade](media/overview-dashboard/overview-connection-string.png)
 
 ### Schema
 
