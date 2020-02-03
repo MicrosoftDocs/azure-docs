@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Implement IoT spatial analytics using Azure Maps
 
-Tracking and capturing relevant events that occur in space and time is a common IoT scenario. For example, in fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern for using Azure Maps APIs. Relevant events are captured by IoT Hub, using the event subscription model provided by Event Grid.
+Tracking and capturing relevant events that occur in space and time is a common IoT scenario. Example scenarios include fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern for using Azure Maps APIs. Relevant events are captured by IoT Hub, using the event subscription model provided by Event Grid.
 
 In this tutorial you will:
 
@@ -33,7 +33,7 @@ In this tutorial you will:
 
 This solution demonstrates a scenario where a car rental company plans to monitor and log events for its rental cars. Often car rental companies rent out cars for a specific geographic region and need to keep track of their whereabouts while rented. Instances of a car leaving the chosen geographic region need to be logged. Logging data ensures policies, fees, and other business aspects would be handled properly.
 
-In our use case, the rental cars are equipped with IoT devices that send telemetry data to Azure IoT Hub on a regular basis. The telemetry includes the current location and indicates whether the car's engine is running or not. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). The rental car's device telemetry schema looks like:
+In our use case, the rental cars are equipped with IoT devices that send telemetry data to Azure IoT Hub on a regular basis. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). The rental car's device telemetry schema looks like:
 
 ```JSON
 {
@@ -71,7 +71,7 @@ The following diagram gives you a high-level overview of the system.
   
   </center>
 
-The figure below represents the geofence area highlighted in blue and rental vehicle's route as a green line.
+The following figure represents the geofence area, highlighted in blue, and the rental vehicle's route as a green line.
 
   ![Geofence route](./media/tutorial-iot-hub-maps/geofence-route.png)
 
@@ -80,7 +80,7 @@ The figure below represents the geofence area highlighted in blue and rental veh
 
 ### Create a resource group
 
-To complete the steps in this tutorial, you first need to create a resource group in the Azure portal. To create a resource group, follow the steps below:
+To complete the steps in this tutorial, you first need to create a resource group in the Azure portal. To create a resource group, do the following:
 
 1. Log in to the [Azure portal](https://portal.azure.com).
 
