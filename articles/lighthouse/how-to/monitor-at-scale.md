@@ -25,11 +25,11 @@ Once you’ve created your Log Analytics workspaces, you can deploy [Azure Polic
 
 To learn more about creating policies, see [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md). This [community tool](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) provides a script to help you create policies to monitor the specific resource types that you choose.
 
-After you have determined which policies to deploy, you can [deploy them to your delegated subscriptions at scale](policy-at-scale.md).
+When you've determined which policies to deploy, you can [deploy them to your delegated subscriptions at scale](policy-at-scale.md).
 
 ## Analyze the gathered data
 
-After you have deployed your policies, data will be logged in the Log Analytics workspaces you’ve created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) to gather and analyze information from multiple data sources.
+After you've deployed your policies, data will be logged in the Log Analytics workspaces you’ve created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) to gather and analyze information from multiple data sources.
 
 ## Next steps
 
