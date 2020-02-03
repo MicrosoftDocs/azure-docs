@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
 ---
