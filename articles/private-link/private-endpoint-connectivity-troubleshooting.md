@@ -46,14 +46,12 @@ If you are experiencing connectivity problems with your private endpoint setup, 
     c) Filter and select the private endpoint that you want to diagnose
 
     d) Review the virtual network and DNS information
+    
     - Make sure the VM has connectivity to the VNet hosting the Private Endpoints
-    
-    ![VM Connectivity](./media/private-endpoint-tsg/vm-connectivity.png)
-    
     - FQDN information (copy) and Private IP address assigned
     
-    ![DNS Configuration](./media/private-endpoint-tsg/dns-config.png)
-
+    ![VNet and DNS Configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
+    
 2. Use [**Azure Monitor**](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) to review data is flowing
 
     a) On Private Endpoint resource, select **Monitor**
