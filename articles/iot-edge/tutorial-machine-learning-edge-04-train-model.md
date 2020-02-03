@@ -9,7 +9,6 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ---
-
 # Tutorial: Train and deploy an Azure Machine Learning model
 
 > [!NOTE]
@@ -73,7 +72,7 @@ We will upload sample notebook files into a new Azure Notebooks project.
 
 ### Azure notebook files
 
-Let's review the files you uploaded into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files which use a few supporting files.
+Let's review the files you uploaded into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files, which use a few supporting files.
 
 * **01-turbofan\_regression.ipynb:** This notebook uses the Machine Learning service workspace to create and run a machine learning experiment. Broadly, the notebook does the following steps:
 
@@ -119,19 +118,15 @@ Now that the project is created, run the **01-turbofan\_regression.ipynb** noteb
 
     Follow the instructions in the notebook. You can also use run options from the **Cell** menu, `Ctrl` + `Enter` to run a cell, and `Shift` + `Enter` to run a cell and advance to the next cell.
 
-1. Scroll down to the cell that immediately follows the **Create a workspace** overview text and run that cell. In the cell's output, look for the link that instructs you to sign in to authenticate.
+1. Scroll down to the cell that immediately follows the **Create a workspace** overview text and run that cell. In the cell's output, look for the link that instructs you to sign in to authenticate. 
 
     ![Sign in prompt for device authentication](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
-    Open the link and enter the specified code to authenticate the application on the device by the Microsoft Azure Cross-Platform Command Line Interface.  
+    Open the link and enter the specified code. This sign-in procedure authenticates the Jupyter notebook to access Azure resources using the Microsoft Azure Cross-Platform Command Line Interface.  
 
     ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. Scroll down through the notebook, run the cells, and review how the cell operations are completed.
-
-    If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
-
-    For information about debugging, see [Debug notebooks using Visual Studio Code](../notebooks/tutorial-create-run-jupyter-notebook.md#debug-notebooks-using-visual-studio-code).
+1. From the **Cell** menu, select **Run All**. Scroll back up through the notebook and review how the cell operations are completed.
 
 1. In the **Explore the data** section, you can review cells in the **Sensor readings and RUL** subsection that render scatterplots of sensor measurements.
 
@@ -140,6 +135,12 @@ Now that the project is created, run the **01-turbofan\_regression.ipynb** noteb
 1. When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page.
 
 1. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this section to run the second notebook.
+
+### Debugging
+
+You can inset Python statements into the notebook for debugging, mainly the `print()` command. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
+
+For information about debugging notebooks in Visual Studio Code, see [Debug notebooks using Visual Studio Code](../notebooks/tutorial-create-run-jupyter-notebook.md#debug-notebooks-using-visual-studio-code) and [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
 ## Next steps
 
