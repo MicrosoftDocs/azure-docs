@@ -24,9 +24,9 @@ You have two options:
 
 ## Copy your application
 
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a standard application that you'll be billed for. You can't create a Trial application by copying an application.
+You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
 
-Select **Copy**. In the dialog box, enter the details for the new standard application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
 
 > [!NOTE]
 > You can **Copy your application** to **Europe** and **US** locations only.
@@ -80,7 +80,7 @@ To use an application template to create a new IoT Central application, you need
 
 ![Create an application from a template](media/howto-use-app-templates/create-app.png)
 
-Select your pricing plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
+Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
 
 > [!NOTE]
 > When an application is created using **Shareable Link** the available locations are **Europe** and **US**.

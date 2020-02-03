@@ -27,22 +27,19 @@ In this tutorial, you learn how to,
 You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
-    > [!div class="mx-imgBorder"]
-    > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
+> [!div class="mx-imgBorder"]
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
 
 2. Select **Create app** under **Connected Logistics Application**
 
 3. **Create app** will open New application form and fill up the requested details as show below.
    * **Application name**: you can use default suggested name or enter your friendly application name.
-   * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. You can start with 7-day free trial pricing plan and choose to convert to a standard pricing plan at any time before the free trail expires.
+   * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, default setting is recommended if you already have an Azure Subscription.Else you can start with seven day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
    * **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    * **Create** : Select create at the bottom of the page to deploy your application.
 
-    > [!div class="mx-imgBorder"]
-    > ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
-
-    > [!div class="mx-imgBorder"]
-    > ![Connected Logistics billing info](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
+> [!div class="mx-imgBorder"]
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
 
 ## Walk through the application 
 
