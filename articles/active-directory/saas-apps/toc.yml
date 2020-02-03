@@ -1683,6 +1683,8 @@
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
         href: meta-networks-connector-provisioning-tutorial.md
+      - name: Mixpanel
+        href: mixpanel-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle

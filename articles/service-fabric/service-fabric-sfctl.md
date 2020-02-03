@@ -4,12 +4,12 @@ description: Learn about sfctl, the Azure Service Fabric command line interface.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
 # sfctl
-Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.5 runtime.
+Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 7.0 runtime.
 
 Commands follow the noun-verb pattern. See subgroups for more information.
 

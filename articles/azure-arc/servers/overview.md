@@ -1,5 +1,5 @@
 ---
-title: Azure Arc for servers Overview
+title: Azure Arc for servers (preview) Overview
 description: Learn how to use Azure Arc for servers to manage machines that are hosted outside of Azure as if it is an Azure resource.
 services: azure-arc
 ms.service: azure-arc
@@ -82,7 +82,7 @@ The URLs in the previous table are required in addition to the Service Tag IP ad
 
 ### Register Azure resource providers
 
-Azure Arc for servers depends on the following Azure resource providers in your subscription in order to use this service:
+Azure Arc for servers (preview) depends on the following Azure resource providers in your subscription in order to use this service:
 
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
@@ -130,4 +130,4 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 
 ## Next steps
 
-- To begin evaluating Azure Arc for servers, follow the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md). 
+- To begin evaluating Azure Arc for servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md). 

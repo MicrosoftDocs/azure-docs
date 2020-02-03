@@ -1,6 +1,6 @@
 ---
-title: Azure Batch Analytics | Microsoft Docs
-description: Reference for Azure Batch Analytics.
+title: Azure Batch Analytics
+description: The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 services: batch
 author: ju-shim
 manager: gwallace
