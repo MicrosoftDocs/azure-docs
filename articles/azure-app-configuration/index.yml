@@ -80,7 +80,7 @@ landingContent:
           url: use-key-vault-references-spring-boot.md
       - linkListType: sample
         links:
-        - text: Work with key-values
+        - text: Work with key-values in the Azure CLI
           url: scripts/cli-work-with-keys.md
   - title: Add feature flags to an app
     linkLists:
@@ -113,7 +113,7 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-        - text: Work with key-values in the Azure CLI
+        - text: Azure CLI samples
           url: cli-samples.md
       - linkListType: reference
         links:
