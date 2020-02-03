@@ -116,7 +116,7 @@ You can request billing ownership of the subscription types listed below.
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* Enterprise DevTest subscription will be billed at pay-as-you-go rate upon transferred, any discount offered via the Enterprise DevTest offer through the customer's EA will not be available to the CSP partner.
+\* Dev/Test subscriptions have to be converted to EA Enterprise offer via a support ticket first. Enterprise Dev/Test subscription will be billed at pay-as-you-go rate upon transferred, any discount offered via the Enterprise Dev/Test offer through the customer's EA will not be available to the CSP partner.
 
 ## Additional information
 
