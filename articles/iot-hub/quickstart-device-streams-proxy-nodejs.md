@@ -15,9 +15,7 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (RDP) traffic to be sent to the device over a device stream. IoT Hub device streams allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart describes the execution of a Node.js proxy application that's running on the service side. During public preview, the Node.js SDK supports device streams on the service side only. As a result, this quickstart covers instructions to run only the service-local proxy application.
+In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (RDP) traffic to be sent to the device over a device stream. Azure IoT Hub device streams allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart describes the execution of a Node.js proxy application that's running on the service side. During public preview, the Node.js SDK supports device streams on the service side only. As a result, this quickstart covers instructions to run only the service-local proxy application.
 
 ## Prerequisites
 
@@ -30,6 +28,8 @@ In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (R
 * [Node.js v10+](https://nodejs.org).
 
 * [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+
+Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
 > The preview of device streams is currently only supported for IoT Hubs created in the following regions:
@@ -56,8 +56,6 @@ For an overview of the setup, see [Local Proxy Sample](./iot-hub-device-streams-
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
-
-* If you haven't already done so, [download the sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip) and extract the ZIP archive.
 
 ## Create an IoT hub
 
