@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -80,7 +80,7 @@ The **TechnicalProfile** contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | The domain name for the technical profile. For example, if your technical profile specifies the Facebook identity provider, the domain name is Facebook.com. |
-| DisplayName | 0:1 | The name of the technical profile that can be displayed to users. |
+| DisplayName | 1:1 | The name of the technical profile that can be displayed to users. |
 | Description | 0:1 | The description of the technical profile that can be displayed to users. |
 | Protocol | 0:1 | The protocol used for the communication with the other party. |
 | Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |

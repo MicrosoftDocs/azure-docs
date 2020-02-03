@@ -62,6 +62,7 @@ This template includes sample water consumption device template, simulated devic
 
     ![Azure IoT Central Create Application page](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
 
+    ![Azure IoT Central Create Application Billing Info](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 6. You now have created a water consumption monitoring app using the Azure IoT Central **Water consumption monitoring** template.
 
 Congratulations! You have finished creating your water quality monitoring application, which comes with pre-configured:
@@ -122,7 +123,7 @@ The **Water consumption monitoring** application comes with two reference device
 To view the device template:
 
 1. Click on **Device templates** from the left navigation pane of your application in IoT Central. 
-    In the Device templates list you will see two device templates **Flow meterr** and **Smart Valve**
+    In the Device templates list you will see two device templates **Flow meter** and **Smart Valve**
 
    ![Device Template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 
