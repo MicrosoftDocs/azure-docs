@@ -326,7 +326,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ### What happens to Application Insight's telemetry when a server or device loses connection with Azure?
 
-All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
+All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
 
 
 ### Could personal data be sent in the telemetry?
