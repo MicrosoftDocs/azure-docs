@@ -32,6 +32,91 @@ True compound indexes are supported for accounts using the 3.6 wire protocol. Th
 Compound indexes can be used to sort efficiently on multiple fields at once, such as:
 `db.coll.find().sort({a:1,b:1})`
 
+### Track the index progress
+
+The 3.6 version of Azure Cosmos DB's API for MongoDB accounts support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about all the in-progress operations on a database instance.
+
+This command is not supported for all in-progress operations.
+
+Here are some examples that show how to use the `currentOp` command to track the index progress:
+
+• Get the index progress for a collection:
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+• Get the index progress for all the collections in a database:
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+• Get the index progress for all the databases and collections in an Azure Cosmos account:
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+The index progress details contain percentage of progress for the current index operation. The following example shows the output document format for different stages of index progress:
+
+1. If the index operation on a ‘foo’ collection and ‘bar’ database that has 60 % indexing complete will have the following output document.  `Inprog[0].progress.total` shows 100 as the target completion.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. For an index operation that has just started on a ‘foo’ collection and ‘bar’ database, the output document may show 0% progress until it reaches to a measurable level.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. When the in-progress index operation completes, the output document shows empty inprog operations.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
+
 ## Indexing for version 3.2
 
 ### Dropping the default indexes (3.2)
