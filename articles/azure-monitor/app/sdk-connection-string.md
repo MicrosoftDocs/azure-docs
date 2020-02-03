@@ -19,6 +19,10 @@ Connection strings provide Application Insight users with a single configuration
 
 The key value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights (AI) service/ product.
 
+> [!IMPORTANT]
+> We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
+
+
 ## Scenario Overview 
 
 Customer scenarios where we visualize this having the most impact:
@@ -85,12 +89,12 @@ See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#re
 
 ##### VALID Prefixes
 
-**TODO: Include links to each individual product for reference**
 
-- Telemetry Ingestion: `dc`
-- Live Metrics: `live`
-- Profiler: `profiler`
-- Snapshot: `snapshot`
+
+- [Telemetry Ingestion](./app-insights-overview.md): `dc`
+- [Live Metrics](./live-stream.md): `live`
+- [Profiler](./profiler-overview.md): `profiler`
+- [Snapshot](./snapshot-debugger.md): `snapshot`
 
 
 
@@ -155,11 +159,6 @@ Connection Strings are supported in the following SDK versions:
 
 A connection string can be set by either in code, environment variable, or configuration file.
 
-
-### Best practices
-
-- We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
-- Most users will only need to set the Instrumentation Key in their connection string. 
 
 
 ### Environment variable
@@ -269,4 +268,16 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 ## Next steps
 
-- TODO
+Get started at runtime with:
+
+* [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+
+Get started at development time with:
+
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+* [Java](../../azure-monitor/app/java-get-started.md)
+* [Node.js](../../azure-monitor/app/nodejs.md)
+* [Python (preview)](../../azure-monitor/app/opencensus-python.md)
