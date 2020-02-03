@@ -61,7 +61,7 @@ The previously discussed storage account connection strings must be updated if y
 
 Your function app must be able to access the storage account. Common issues that block a function app's access to a storage account are:
 
-* The function app is deployed to App Service Environment for Power Apps without the correct network rules to allow traffic to and from the storage account.
+* The function app is deployed to your App Service Environment without the correct network rules to allow traffic to and from the storage account.
 
 * The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
