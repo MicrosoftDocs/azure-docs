@@ -5,7 +5,7 @@ description: Build a multiclass logistic regression classifier to predict the co
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu

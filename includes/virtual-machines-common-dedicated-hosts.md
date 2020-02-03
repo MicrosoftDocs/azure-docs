@@ -13,7 +13,7 @@
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The following VM series are supported: DSv3 and ESv3. 
+- The following VM series are supported: DSv3, ESv3 and Fsv2. 
 
 ## Benefits 
 

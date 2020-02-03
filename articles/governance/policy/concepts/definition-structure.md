@@ -480,8 +480,8 @@ evaluation.
 Conditions that count how many members of an array in the resource payload satisfy a condition
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
-evaluates each array member for a condition expression and sums the _true_ results, which is then
-compared to the expression operator.
+evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
+sums the _true_ results, which is then compared to the expression operator.
 
 The structure of the **count** expression is:
 
@@ -886,10 +886,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 
