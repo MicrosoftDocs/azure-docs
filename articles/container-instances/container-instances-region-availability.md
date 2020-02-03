@@ -8,7 +8,7 @@ ms.author: danlep
 ---
 # Resource availability for Azure Container Instances in Azure regions
 
-This article details the availability of Azure Container Instances compute and memory resources in Azure regions. 
+This article details the availability of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. 
 
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
