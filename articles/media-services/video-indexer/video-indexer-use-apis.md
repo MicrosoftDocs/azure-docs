@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ---
 
@@ -207,6 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 - [Video Indexer overview](video-indexer-overview.md)
 - [Regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+_ [Samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API)
 
 ## Next steps
 
