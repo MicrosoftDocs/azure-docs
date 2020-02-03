@@ -207,19 +207,19 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 
     ![create-resource](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. On the function App creation page, name your function app, under **Resource Group** select **Use existing**, and select "ContosoRental" from the drop-down list. Select ".NET Core" as the Runtime Stack, under **Storage** select **Use existing** and select "contosorentaldata" from the drop-down and click **Review+Create**.
+2. On the **Function App** creation page, name your function app. Under **Resource Group**, select **Use existing**, and select "ContosoRental" from the drop-down list. Select ".NET Core" as the Runtime Stack. Under **Storage**, select **Use existing**, select "contosorentaldata" from the drop-down list, and then select **Review+Create**.
     
     ![create-app](./media/tutorial-iot-hub-maps/rental-app.png)
 
-2. Review the function App details and Select "Create".
+2. Review the function app details, and select "Create".
 
-3. Once the app is created, we need to add a function to it. Go to the function app and click **New function** to add a function, choose **In-Portal** as the development environment, and select **Continue**.
+3. Once the app is created, we need to add a function to it. Go to the function app and click **New function** to add a function, choose **In-Portal** as the development environment, and then select **Continue**.
 
     ![create-function](./media/tutorial-iot-hub-maps/function.png)
 
 4. Choose **More templates** and click **Finish and view templates**. 
 
-5. Select the template with an **Azure Event Grid Trigger**. Install extensions if prompted, name the function and hit **Create**.
+5. Select the template with an **Azure Event Grid Trigger**. Install extensions if prompted, name the function, and select **Create**.
 
     ![function-template](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
 
