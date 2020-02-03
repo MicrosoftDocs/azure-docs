@@ -49,3 +49,8 @@ A full cycle for image generation involves the following steps:
     1. ARR code: On 'present', locally rendered content gets automatically merged with video stream
 
 Network latency is the main problem. The turn-around time between sending a request and receiving the result is typically longer than the desired framerate. Therefore more than one frame may be in flight at any time.
+
+## Next steps
+
+* [System requirements](system-requirements.md)
+* [Getting started with Azure Remote Rendering](../quickstarts/getting-started.md)
