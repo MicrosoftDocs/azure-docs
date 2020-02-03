@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to an Azure virtual machine running Linux that doesn't have a public IP address by using Azure Bastion.
 
@@ -25,13 +25,24 @@ The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVA
 
 ## Before you begin
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. When you use Bastion to connect, it assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs.
+Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. 
+
+When you use Bastion to connect, it assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs. For information about connecting to a Windows VM, see [Connect to a VM - Windows](bastion-connect-vm-rdp.md).
+
+### Required roles
 
 In order to make a connection, the following roles are required:
 
 * Reader role on the virtual machine
 * Reader role on the NIC with private IP of the virtual machine
 * Reader role on the Azure Bastion resource
+
+### Ports
+
+In order to connect to the Linux VM via SSH, you must have the following ports open:
+
+* Inbound port: SSH (22)
+
 
 ## <a name="username"></a>Connect: Using username and password
 
