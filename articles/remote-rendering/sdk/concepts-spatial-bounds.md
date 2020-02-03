@@ -9,13 +9,13 @@ ms.topic: conceptual
 
 # Object bounds
 
-Object bounds represent the volume that an object and its children occupy. In Azure Remote Rendering object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they are always axis-aligned, which means the extents and volume may differ between the local and world space representation.
+Object bounds represent the volume that an object and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they are always axis-aligned, which means the extents and volume may differ between the local and world space representation.
 
 ## Querying object bounds
 
-The local AABB of a [mesh](concepts-meshes.md) can be queried directly from the mesh resource. These bounds can subsequently be transformed into the local space or world space of an entity using the entity's transform.
+The local AABB of a [mesh](concepts-meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
 
-It is possible to compute the bounds of an entire object hierarchy this way, but it would require to traverse the hierarchy, query the bounds for each mesh and combine them manually. This is both tedious and inefficient.
+It's possible to compute the bounds of an entire object hierarchy this way, but that requires to traverse the hierarchy, query the bounds for each mesh, and combine them manually. This operation is both tedious and inefficient.
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
