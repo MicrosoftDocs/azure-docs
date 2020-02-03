@@ -31,7 +31,7 @@ To load a map, create a new instance of the [Map class](https://docs.microsoft.c
 
 ## Show a single copy of the world
 
-When the map is zoomed out on a wide screen, multiple copies of the world will appear horizontally. This option is great for some scenarios, but for other applications it's desirable to see a single copy of the world. This behavior is done by setting the maps `renderWorldCopies` option to `false`.
+When the map is zoomed out on a wide screen, multiple copies of the world will appear horizontally. This option is great for some scenarios, but for other applications it's desirable to see a single copy of the world. This behaviour is implemented by setting the maps `renderWorldCopies` option to `false`.
 
 <br/>
 
