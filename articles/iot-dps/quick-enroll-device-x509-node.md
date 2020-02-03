@@ -21,7 +21,7 @@ In this quickstart, you use Node.js to programmatically create an enrollment gro
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node.js v4.0+](https://nodejs.org).
+- [Node.js v4.0+](https://nodejs.org). This quickstart installs the [IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) below.
 - [Git](https://git-scm.com/download/).
 - [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
@@ -54,6 +54,11 @@ To use this test tooling to generate certificates, perform the following steps:
 
 
 ## Create the enrollment group sample 
+
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
 An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
  

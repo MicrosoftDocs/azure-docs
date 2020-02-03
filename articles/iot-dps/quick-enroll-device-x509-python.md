@@ -21,7 +21,7 @@ In this quickstart, you use Python to programmatically create an enrollment grou
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Python 2.x or 3.x](https://www.python.org/downloads/). Add Python to your platform-specific environment variables.
+- [Python 2.x or 3.x](https://www.python.org/downloads/). Add Python to your platform-specific environment variables. This quickstart installs the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) below.
 - [Pip](https://pip.pypa.io/en/stable/installing/), if not included with your distribution of Python.
 - [Git](https://git-scm.com/download/).
 
@@ -112,7 +112,12 @@ This section shows how to add the provisioning details of your X.509 device to t
 
 ## Run the sample group enrollment
 
-Devices are enrolled to a provisioning service instance by creating an [*enrollment group*](concepts-service.md#enrollment-group), or an [*individual enrollment*](concepts-service.md#individual-enrollment). Creating Individual enrollments using the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) is still a work in progress. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). 
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+Creating Individual enrollments using the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) is still a work in progress. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 1. Open a command prompt, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
 

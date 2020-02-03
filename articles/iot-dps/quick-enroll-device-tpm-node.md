@@ -21,7 +21,7 @@ In this quickstart, you programmatically create an individual enrollment for a T
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node.js v4.0+](https://nodejs.org).
+- [Node.js v4.0+](https://nodejs.org). This quickstart installs the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) below.
 - Endorsement key (optional). Follow the steps in [Create and provision a simulated device](quick-create-simulated-device.md) until you get the key. Do not create an individual enrollment using the Azure portal.
 
 ## Create the individual enrollment sample 

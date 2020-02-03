@@ -21,7 +21,7 @@ In this quickstart, you use Java to programmatically enroll a group of X.509 sim
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). The [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) works on both Windows and Linux. This quickstart uses Windows.
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -126,7 +126,12 @@ The following steps show how to add the provisioning details of your X.509 devic
 
 ## Build and run sample group enrollment
 
-Devices are enrolled to a provisioning service instance by creating an [*enrollment group*](concepts-service.md#enrollment-group) or an [*individual enrollment*](concepts-service.md#individual-enrollment). This procedure uses an enrollment group. The next section uses an individual enrollment.
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This procedure uses an enrollment group. The next section uses an individual enrollment.
 
 1. Open a command window, and navigate to the folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 

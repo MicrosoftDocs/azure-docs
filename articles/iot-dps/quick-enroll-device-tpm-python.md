@@ -21,7 +21,7 @@ In this quickstart, you programmatically create an individual enrollment for a T
 
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Python 2.x or 3.x](https://www.python.org/downloads/).
+- [Python 2.x or 3.x](https://www.python.org/downloads/). This quickstart installs the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) below.
 - [Pip](https://pip.pypa.io/en/stable/installing/), if not included with your distribution of Python.
 - Endorsement key. Use the steps in [Create and provision a simulated device](quick-create-simulated-device.md) or use the endorsement key supplied with the SDK, described below.
 
