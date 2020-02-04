@@ -83,6 +83,8 @@
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: Cross-network connectivity
     href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+  - name: Classic deployment
+    href: https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides
   items:
   - name: Plan
@@ -317,6 +319,8 @@
       href: what-is-ip-address-168-63-129-16.md
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
+  - name: Classic deployment
+    href: https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Reference
   items:
   - name: Azure CLI
