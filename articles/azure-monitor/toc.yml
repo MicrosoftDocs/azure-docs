@@ -539,17 +539,13 @@
         items:
         - name: Overview
           href: platform/diagnostics-extension-overview.md
-        - name: Windows 
-          items:   
-          - name: Install and configure
-            href: platform/diagnostics-extension-windows-install.md
         - name: Windows
           displayname: diagnostics extension
           items:
           - name: Install and configure
             items:
             - name: Installation options
-              href: platform/diagnostics-extension-overview.md
+              href: platform/diagnostics-extension-windows-install.md
             - name: PowerShell
               href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
             - name: Resource Manager template
