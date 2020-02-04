@@ -11,15 +11,17 @@
 
 # Memory optimized Dv2 and Dsv2-series
 
-Dv2 and Dsv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+Dv2 and Dsv2-series, a follow-on to the original D-series, features a more powerful CPU. DSv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors. The Dv2-series has the same memory and disk configurations as the D-series.
 
 ## Dv2-series 11-15
 
+Dv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
+
 ACU: 210 - 250
 
-Premium Storage:  Not Supported
+Premium Storage: Not Supported
 
-Premium Storage caching:  Not Supported
+Premium Storage caching: Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
@@ -33,6 +35,8 @@ Premium Storage caching:  Not Supported
 <sup>2</sup> 25000 Mbps with Accelerated Networking.
 
 ## DSv2-series 11-15
+
+DSv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
 ACU: 210 - 250 <sup>1</sup>
 

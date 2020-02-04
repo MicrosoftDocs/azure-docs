@@ -11,13 +11,17 @@
 
 # Dv3 and Dsv3-series
 
-Dv3 and Dsv3-series, a follow-on to the original D-series, features a more powerful CPU and optimal CPU-to-memory configuration making them suitable for most production workloads.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading. The Dv3 and Dsv3-series no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family. Example use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
+The Dv3-series runs on the Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads. Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading. The Dv3-series no longer has the high memory VM sizes of the D/Dv2-series, those have been moved to the memory optimized [Ev3 and Esv3-series](ev3-esv3-series.md).
+
+Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
 ## Dv3-series
 
-Dv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor that can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and also utilize Intel® Hyper-Threading Technology. The Dv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
+Dv3-series sizes run on the Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors with Intel Turbo Boost Technology 2.0. The Dv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
 
 Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv3 sizes. The pricing and billing meters for Dsv3 sizes are the same as Dv3-series.
+
+Dv3-series VMs feature Intel® Hyper-Threading Technology.
 
 ACU: 160-190
 
@@ -37,7 +41,9 @@ Premium Storage caching:  Not Supported
 
 ## Dsv3-series
 
-Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor that can achieve 3.5GHz with Intel Turbo Boost Technology 2.0, use premium storage, and also utilize Intel® Hyper-Threading Technology. The Dsv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
+Dsv3-series sizes run on the Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors with Intel Turbo Boost Technology 2.0 and use premium storage. The Dsv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
+
+Dsv3-series VMs feature Intel® Hyper-Threading Technology.
 
 ACU: 160-190
 
