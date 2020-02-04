@@ -57,6 +57,10 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 When you create an AKS cluster, by default, the *Standard* SKU load balancer is used when you run services in that cluster. For example, [the quickstart using the Azure CLI][aks-quickstart-cli] deploys a sample application that uses the *Standard* SKU load balancer. 
 
+## Skip public IP provisioning for *Standard* SKU load balancer in AKS
+
+Due to requirements for AKS to have outbound connectivity and Standard SKU Load Balancers to have configured IP addresses for egress from the load balancer resource, users may wish to setup an alternative path for outbound connections. This can be achieved by [setting `outboundType` to a value of 'UDR'](egress-outboundtype.md).
+
 ## Configure the load balancer to be internal
 
 You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
