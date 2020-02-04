@@ -3,7 +3,7 @@ title: Use multi-instance tasks to run MPI applications - Azure Batch | Microsof
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 services: batch
 documentationcenter: ''
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 editor: ''
 

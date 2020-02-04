@@ -3,7 +3,7 @@ title: Get started with PowerShell - Azure Batch | Microsoft Docs
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 services: batch
 documentationcenter: ''
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 editor: ''
 

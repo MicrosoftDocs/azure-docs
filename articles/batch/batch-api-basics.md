@@ -3,7 +3,7 @@ title: Overview for developers - Azure Batch | Microsoft Docs
 description: Learn the features of the Batch service and its APIs from a development standpoint.
 services: batch
 documentationcenter: .net
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 editor: ''
 

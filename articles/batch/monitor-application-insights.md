@@ -2,7 +2,7 @@
 title: Monitor Batch with Azure Application Insights | Microsoft Docs
 description: Learn how to instrument an Azure Batch .NET application using the Azure Application Insights library.
 services: batch
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 
 ms.assetid: 

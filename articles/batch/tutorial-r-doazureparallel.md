@@ -2,7 +2,7 @@
 title: Parallel R simulation with Azure Batch
 description: Tutorial - Step by step instructions to run a Monte Carlo financial simulation in Azure Batch using the R doAzureParallel package
 services: batch
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 
 ms.assetid: 

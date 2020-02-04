@@ -2,7 +2,7 @@
 title: Render a scene in the cloud - Azure Batch 
 description: Tutorial - How to render an Autodesk 3ds Max scene with Arnold using the Batch Rendering Service and Azure Command-Line Interface
 services: batch
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 
 ms.service: batch

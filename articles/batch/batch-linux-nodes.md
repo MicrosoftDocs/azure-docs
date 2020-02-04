@@ -3,7 +3,7 @@ title: Run Linux on virtual machine compute nodes - Azure Batch | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 editor: ''
 

@@ -3,7 +3,7 @@ title: Choose VM sizes for pools - Azure Batch | Microsoft Docs
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
 services: batch
 documentationcenter: ''
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 editor: ''
 

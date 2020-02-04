@@ -2,7 +2,7 @@
 title: APIs and tools for developers - Azure Batch | Microsoft Docs
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 services: batch
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 
 ms.service: batch

@@ -2,7 +2,7 @@
 title: Azure Batch pool create event
 description: Reference for the Batch pool create event, which is emitted once a pool has been created. The content of the log will expose general information about the pool.
 services: batch
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 
 ms.assetid: 

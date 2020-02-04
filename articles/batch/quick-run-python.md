@@ -2,7 +2,7 @@
 title: 'Quickstart: Run an Azure Batch job - Python API'
 description: Quickly run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
 services: batch
-author: ju-shim
+author: LauraBrenner
 manager: evansma 
 
 ms.service: batch

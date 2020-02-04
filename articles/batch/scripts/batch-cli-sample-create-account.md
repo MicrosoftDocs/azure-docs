@@ -3,7 +3,7 @@ title: Azure CLI Script Example - Create Batch account - Batch service
 description: This script creates an Azure Batch account in Batch service mode and shows how to query or update various properties of the account.
 services: batch
 documentationcenter: ''
-author: ju-shim
+author: LauraBrenner
 manager: evansma
 editor: 
 
