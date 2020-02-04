@@ -6,12 +6,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/26/2020
+ms.date: 02/03/2020
 
 ---
 
-# Send data from Windows Azure diagnostics extension to Event Hubs
-The Diagnostics extension in Azure Monitor allows you to collect logs and metrics from Azure compute resources into Azure Storage and also send them to other destinations. This article describes how to send data from the Windows Azure Diagnostic extension (WAD) to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) so you can send the data to locations outside of Azure.
+# Send data from Windows Azure diagnostics extension to Azure Event Hubs
+Azure diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article describes how to send data from the Windows Azure Diagnostic extension (WAD) to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) so you can forward to locations outside of Azure.
 
 ## Supported data
 
@@ -25,131 +25,116 @@ The data collected from the guest operating system that can be sent to Event Hub
 ## Prerequisites
 
 * Windows diagnostics extension 1.6 or higher. See [Azure Diagnostics extension configuration schema versions and history](diagnostics-extension-versions.md) for a version history and [Azure Diagnostics extension overview](diagnostics-extension-overview.md) for supported resources.
-* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* Event Hubs namespace must always be provisioned. See [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) for details.
+
+## Configuring diagnostics extension
+The rest of this article provides details on defining the diagnostics extension configuration for event hubs. See [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md) for different options for applying this configuration to a particular virtual machine. 
 
 ## Configuration schema
-See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. 
+Azure diagnostics extension is configured using both a public and private configuration. See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a reference of the configuration schema for the Windows diagnostics extension. The rest of this article will describe how to use this configuration to send data to an event hub. 
 
-
-## Define the event hub sink
-Azure Diagnostics always sends logs and metrics to an Azure Storage account. You can configure one or more *data sinks* that send data to an additional location. Each sink is defined in the *SinksConfig* section of the configuration. This configuration uses the values in the following table.
-
+Azure Diagnostics always sends logs and metrics to an Azure Storage account. You can configure one or more *data sinks* that send data to additional locations. Each sink is defined in the [SinksConfig element](diagnostics-extension-schema-windows.md#sinksconfig-element) of the public configuration with sensitive information in the private configuration. This configuration uses the values in the following table.
 
 | Property | Description |
 |:---|:---|
-| Name | Descriptive name for the sink. Used in the configuration to specify which data sources send to the sink. |
-| Url  | Url of the event hub in the form <event-hubs-namespace>.servicebus.windows.net/<event-hub-name>.          |
+| Name | Descriptive name for the sink. Used in the configuration to specify which data sources to send to the sink. |
+| Url  | Url of the event hub in the form \<event-hubs-namespace\>.servicebus.windows.net/\<event-hub-name\>.          |
 | SharedAccessKeyName | Name of a shared access policy for the event hub that has at least **Send** authority. |
 | SharedAccessKey     | Primary or secondary key from the shared access policy for the event hub. |
 
-Example public configurations are shown below in both JSON and XML.
+Example public and private configurations are shown below in both JSON and XML. This is a minimal configuration with a single performance counter and event log to illustrate how to configure and use the event hub data sink. See [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) for a more complex example.
+
+### Public configuration
+
+```JSON
+{
+    "PublicConfig": {
+        "WadCfg": {
+            "DiagnosticMonitorConfiguration": {
+                "overallQuotaInMB": 10000
+            },
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "EventHub",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "EventHub",
+                    "DataSource": [
+                    {
+                        "name": "Application!*"
+                    }
+                ]
+            },
+            "SinksConfig": {
+                "Sink": [
+                    {
+                        "name": "EventHub",
+                        "EventHub": {
+                            "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+                            "SharedAccessKeyName": "SendRule"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
 ```xml
 <PublicConfig>
     <WadCfg>
-        ...
+        <DiagnosticMonitorConfiguration overallQuotaInMB="10000"> 
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="EventHub">  
+            <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
+        </PerformanceCounters>
+        <WindowsEventLog scheduledTransferPeriod="PT5M", sinks="EventHub">  
+            <DataSource name="Application!*"/>  
+        </WindowsEventLog>  
         <SinksConfig>
             <Sink name="EventHub">
                 <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
             </Sink>
         </SinksConfig>
-        ...
     </WadCfg>
 </PublicConfig>
 ```
-```JSON
-"PublicConfig": {
-    "WadCfg": {
-        ...
-        "SinksConfig": {
-            "Sink": [
-                {
-                    "name": "EventHub",
-                    "EventHub": {
-                        "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
-                        "SharedAccessKeyName": "SendRule"
-                    }
-                }
-            ]
-        }
-        ...
-    }
-}
-```
 
-Example private configurations are shown below in both JSON and XML.
+### Private configuration
 
-```XML
-<PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    ...
-    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="TXzyJcEmLVRAYEE7HaBbbQ9UuXsFD+MKNk5C2KP4wa0=" />
-    ...
-</PrivateConfig>
-```
 ```JSON
 {
-    ...
-    "EventHub": {
-        "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
-        "SharedAccessKeyName": "SendRule",
-        "SharedAccessKey": "TXzyJcEmLVRAYEE7HaBbbQ9UuXsFD+MKNk5C2KP4wa0="
-    }
-    ...
-}
-```
-
-## Example configuration
-See [Example configuration](diagnostics-extension-schema-windows.md#example-configuration) for a complete sample private and public configuration that includes the configuration for events hubs.
-
-
-
-## Configure Azure Diagnostics to send logs and metrics to Event Hubs
-With the event hub data sink defined, you can configure metrics and logs from guest operating system to be sent to it. The data will also be collected to the storage account defined in the configuration.
-
-
-
-```xml
-<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="EventHub">
-  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT1M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT1M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT1M" />
-</PerformanceCounters>
-```
-```JSON
-"PerformanceCounters": {
-    "scheduledTransferPeriod": "PT1M",
-    "sinks": "HotPath",
-    "PerformanceCounterConfiguration": [
-        {
-            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-            "sampleRate": "PT3M"
-        },
-        {
-            "counterSpecifier": "\\Memory\\Available MBytes",
-            "sampleRate": "PT3M"
-        },
-        {
-            "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
-            "sampleRate": "PT3M"
+    "PrivateConfig" {
+        "storageAccountName": "mystorageaccount",
+        "storageAccountKey": "{base64 encoded key}",
+        "storageAccountEndPoint": "https://core.windows.net",
+        "EventHub": {
+            "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+            "SharedAccessKeyName": "SendRule",
+            "SharedAccessKey": "{base64 encoded key}"
         }
-    ]
+    }
 }
 ```
 
-As discussed previously, all default and custom diagnostics data, that is, metrics and logs, is automatically sent to Azure Storage in the configured intervals. With Event Hubs and any additional sink, you can specify any root or leaf node in the hierarchy to be sent to the event hub. This includes ETW events, performance counters, Windows event logs, and application logs.   
-
-
-
-## Apply data to data sink
-In the following example, the **sinks** attribute is defined to the **PerformanceCounters** node which will cause all child performance counters to be sent to the event hub.
-
-```xml
-<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="EventHub">
-  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-</PerformanceCounters>
+```XML
+<PrivateConfig>
+    <StorageAccount name="mystorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net"  /> 
+    <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+</PrivateConfig>
 ```
+
+
+## Configuration options
+To send data to a data sink, you specify the **sinks** attribute on the data source's node. Where you place the **sinks** attribute determines the scope of the assignment. In the following example, the **sinks** attribute is defined to the **PerformanceCounters** node which will cause all child performance counters to be sent to the event hub.
+
 ```JSON
 "PerformanceCounters": {
     "scheduledTransferPeriod": "PT1M",
@@ -171,17 +156,17 @@ In the following example, the **sinks** attribute is defined to the **Performanc
 }
 ```
 
-In the following example, the **sinks** attribute is applied directly to three counters which will cause only those performance counters to be sent to the event hub. 
-
 ```xml
-<PerformanceCounters scheduledTransferPeriod="PT1M">
+<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="EventHub">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="EventHub" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="EventHub"/>
-  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="EventHub"/>
+  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
 </PerformanceCounters>
 ```
+
+
+In the following example, the **sinks** attribute is applied directly to three counters which will cause only those performance counters to be sent to the event hub. 
+
 ```JSON
 "PerformanceCounters": {
     "scheduledTransferPeriod": "PT1M",
@@ -213,20 +198,33 @@ In the following example, the **sinks** attribute is applied directly to three c
 }
 ```
 
+```xml
+<PerformanceCounters scheduledTransferPeriod="PT1M">
+  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="EventHub" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="EventHub"/>
+  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="EventHub"/>
+</PerformanceCounters>
+```
+
+
 ## Filter data
 
 The following example shows how you can limit the amount of data sent to the critical metrics that are used for this service’s health. In this example, the sink is applied to logs and is filtered only to error level trace.
 
-```XML
-<Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
-```
 ```JSON
 "Logs": {
     "scheduledTransferPeriod": "PT1M",
     "scheduledTransferLogLevelFilter": "Error",
-    "sinks": "HotPath"
+    "sinks": "EventHub"
 }
 ```
+
+```XML
+<Logs scheduledTransferPeriod="PT1M" sinks="EventHub" scheduledTransferLogLevelFilter="Error" />
+```
+
 
 
 
