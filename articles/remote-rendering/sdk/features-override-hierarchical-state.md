@@ -33,7 +33,7 @@ The set of distinct states that can be overridden encompasses the following fixe
 ![Selection Outline](./media/selection-outline.png)
 * **DisableCollision**: The geometry is made invisible to [physics ray casts](../sdk/concepts-spatial-queries.md). Note that the **Hidden** flag by default does not turn off collision, so these two flags often come in pair.
 
-## Hierarchical Property Updates
+## Hierarchical property updates
 
 Each feature can be considered a binary on/off state. However, to work properly in a hierarchical scene graph context, the component needs to be able to set whether it wants to turn a feature on or off, or whether the respective value should be inherited from the parent. The API accounts for that through a three state enum value (```ForceOn```, ```ForceOff```, ```InheritFromParent```) that can be assigned to each feature in the following manner:
 
@@ -53,7 +53,7 @@ component.SetState(combinedFeatures, HierarchicalEnableState.ForceOn);
 
 While each feature's enabled state is binary, the tint color itself is an exception. A dedicated tint color can be set on the component and thus vary per object.
 
-## Assign Render States to the Scene Graph
+## Assign render states to the scene graph
 
 To assign a state to a subgraph, just create and assign a component of type ```HierarchicalStateOverrideComponent``` to the root object of the subgraph that should change appearance. Since there can only be one component of a type for an object, an instance of ```HierarchicalStateOverrideComponent``` manages the state likewise for hidden, see-through, selected, color tint and collision. The respective state can be set through the ```SetState``` function for each feature individually.
 The feature to use tint color can be enabled or disabled and on top of that a unique tint color can be specified per component. The alpha portion of the tint color defines the weight of the tinting effect: If set to 0.0, no tint color is visible and if set to 1.0 the object will be rendered with pure tint color. For in-between values the final color will be mixed with the tint color. The tint color can be changed on a per-frame basis to achieve a color animation or to fade in/out the tint effect.
@@ -62,12 +62,12 @@ Unlike the tint color, the selection outline color cannot be changed per object.
 
 To turn off states on a hierarchy level, the flags on the ```HierarchicalStateOverrideComponent``` can either be disabled or the component can be removed entirely.
 
-## Performance Considerations
+## Performance considerations
 
 An instance of ```HierarchicalStateOverrideComponent``` itself does not add much runtime overhead. However it is always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it is recommended to delete the component again when the selection is removed as opposed to keeping the components around with neutral features (that is, inherited from parent).
 Transparent ('see-through') rendering puts more workload to the server's GPUs than standard rendering. Accordingly, if large parts of the scene graph are switched to see-through mode with many layers of geometry being visible this may become a performance bottleneck and thus compromise stable frame rates. The same is valid for objects with selection outline, but not to the same extent as see-through.
 
-## See also
+## Next steps
 
-* [Global outlines properties](../sdk/features-outlines.md)
-* [Physics ray casts](../sdk/concepts-spatial-queries.md)
+* [Outlines](../sdk/features-outlines.md)
+* [Spatial Queries](../sdk/concepts-spatial-queries.md)

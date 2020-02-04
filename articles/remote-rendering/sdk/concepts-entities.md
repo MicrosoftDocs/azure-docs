@@ -77,8 +77,7 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 
 The query will succeed even if the object does not hold any metadata.
 
-## See also
+## Next steps
 
 * [Components](concepts-components.md)
 * [Object bounds](concepts-spatial-bounds.md)
-* [Spatial queries](concepts-spatial-queries.md)

@@ -172,10 +172,7 @@ The lifetime of these objects are not related to the lifetime of the user object
 
 The lifetime of all API objects is bound to a connection. On disconnect all resources and objects are destroyed on both the client and the server. The log can be checked for information about unreleased resources that were destroyed.
 
-## See also
+## Next steps
 
 * [Entities](../sdk/concepts-entities.md)
-* [Components](../sdk/concepts-components.md)
-* [Meshes](../sdk/concepts-meshes.md)
-* [Spatial bounds](../sdk/concepts-spatial-bounds.md)
 * [Graphics binding](../sdk/concepts-graphics-binding.md)
