@@ -56,12 +56,7 @@ Before adding logging and submitting an experiment, you must set up the workspac
 
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_ws)]
 
-   ```python
-   from azureml.core import Experiment, Run, Workspace
-   import azureml.core
-  
-   ws = Workspace.from_config()
-   ```
+
   
 ## Option 1: Use start_logging
 
@@ -97,35 +92,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
-   ```python
-    # Get an experiment object from Azure Machine Learning
-    experiment = Experiment(workspace=ws, name="train-within-notebook")
-    
-    # Create a run object in the experiment
-    run =  experiment.start_logging()
-    # Log the algorithm parameter alpha to the run
-    run.log('alpha', 0.03)
-    
-    # Create, fit, and test the scikit-learn Ridge regression model
-    regression_model = Ridge(alpha=0.03)
-    regression_model.fit(data['train']['X'], data['train']['y'])
-    preds = regression_model.predict(data['test']['X'])
-    
-    # Output the Mean Squared Error to the notebook and to the run
-    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-    run.log('mse', mean_squared_error(data['test']['y'], preds))
-    
-    # Save the model to the outputs directory for capture
-    model_file_name = 'outputs/model.pkl'
-    
-    joblib.dump(value = regression_model, filename = model_file_name)
-    
-    # upload the model file explicitly into artifacts 
-    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-    
-    # Complete the run
-    run.complete()
-   ```
+
 
     The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
 
