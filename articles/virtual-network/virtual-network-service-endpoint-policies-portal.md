@@ -20,7 +20,6 @@ Service endpoint policies enable you to filter virtual network traffic to specif
 
  In this tutorial, you learn how to:
 
-> [!div class="checklist"]
 > * Create a service endpoint policy
 > * Create a service endpoint policy definition
 > * Whitelist Azure Services via service endpoint policy Aliases
@@ -38,7 +37,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. In search pane, type "service endpoint policy" and select **Service endpoint policy** and then select **Create**.
 
-![Create service endpoint policy](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.PNG)
+![Create service endpoint policy](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
 
 3. Enter, or select, the following information in **Basics** 
 
@@ -47,7 +46,7 @@ Sign in to the Azure portal at https://portal.azure.com.
    - Name           : myEndpointPolicy
    - Location       : Central US
  
-   ![Create service endpoint policy basics](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.PNG)
+   ![Create service endpoint policy basics](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
 
 4. Select **+ Add** under **Resources** and enter or select the following information in **Add a resource** pane
 
@@ -58,13 +57,13 @@ Sign in to the Azure portal at https://portal.azure.com.
    - Resource       : Select your Azure Storage resource under the selected Subscription or Resource Group
    - Click on **Add** button at bottom to finish adding the resource
 
-   ![Service endpoint policy definition - resource](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.PNG)
+   ![Service endpoint policy definition - resource](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
 
    - Add more resources by repeating the above steps as needed
 
 5. Select **+ Add** under **Aliases** and select the required Azure Services to whitelist their dependent Azure Storage accounts to ensure uninterrupted function
 
-   ![Service endpoint policy definition - Aliases](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-alias.PNG)
+   ![Service endpoint policy definition - Aliases](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-alias.png)
 
    - Add more Alises by repeating the above step as needed
 
@@ -75,7 +74,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 6. Select **Review + Create**. Validate the information and Click **Create**. To make further edits, click **Previous**. 
 
-   ![Create service endpoint policy final validations](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.PNG)
+   ![Create service endpoint policy final validations](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
  
 ## View endpoint policies 
@@ -83,15 +82,15 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. In the *All services* box in the portal, begin typing *service endpoint policies*. Select **Service Endpoint Policies(Preview)**.
 2. Under **Subscriptions**, select your subscription and resource group, as shown in the following picture
 
-   ![Show policy](./media/virtual-network-service-endpoint-policies-portal/sep-view.PNG)
+   ![Show policy](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
 3. Select the policy and click on **Policy Definitions** to view or add more policy definitions.
 
-   ![Show policy definitions](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.PNG)
+   ![Show policy definitions](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
 
 4. Select **Associated subnets** to view the subnets the policy is associated. If no subnet is associated yet, follow the instructions in the next step.
 
-   ![Associated subnets](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.PNG)
+   ![Associated subnets](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
  
 5. Associate a policy to a subnet
 
