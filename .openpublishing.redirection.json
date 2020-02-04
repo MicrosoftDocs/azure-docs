@@ -18381,17 +18381,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk-v2.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
