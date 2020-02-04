@@ -1,6 +1,6 @@
 ---
-title: Azure shared disks
-description: Learn about Azure shared disks (preview) for managed disks, including how to create them using PowerShell and Azure Resource Manager.
+title: Sharing an Azure managed disk across VMs (preview)
+description: Learn about sharing Azure managed disks across multiple VMs.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
