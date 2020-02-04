@@ -84,94 +84,24 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
 1. Create a training script `train.py`.
 
-   ```python
-   # train.py
-
-   import os
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from azureml.core.run import Run
-   from sklearn.externals import joblib
-
-   import numpy as np
-
-   #os.makedirs('./outputs', exist_ok = True)
-
-   X, y = load_diabetes(return_X_y = True)
-
-   run = Run.get_context()
-
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {"train": {"X": X_train, "y": y_train},
-          "test": {"X": X_test, "y": y_test}}
-
-   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-   alphas = mylib.get_alphas()
-
-   for alpha in alphas:
-      # Use Ridge algorithm to create a regression model
-      reg = Ridge(alpha = alpha)
-      reg.fit(data["train"]["X"], data["train"]["y"])
-
-      preds = reg.predict(data["test"]["X"])
-      mse = mean_squared_error(preds, data["test"]["y"])
-      # log the alpha and mse values
-      run.log('alpha', alpha)
-      run.log('mse', mse)
-
-      model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
-      # save model in the outputs folder so it automatically get uploaded
-      with open(model_file_name, "wb") as file:
-          joblib.dump(value = reg, filename = model_file_name)
-
-      # upload the model file explicitly into artifacts 
-      run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-
-      # register the model
-      #run.register_model(file_name = model_file_name)
-
-      print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
-  
-   ```
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 2. The `train.py` script references `mylib.py` which allows you to get the list of alpha values to use in the ridge model.
 
-   ```python
-   # mylib.py
-  
-   import numpy as np
-
-   def get_alphas():
-      # list of numbers from 0.0 to 1.0 with a 0.05 interval
-      return np.arange(0.0, 1.0, 0.05)
-   ```
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
 3. Configure a user-managed local environment.
 
-   ```python
-   from azureml.core.environment import Environment
-    
-   # Editing a run configuration property on-fly.
-   user_managed_env = Environment("user-managed-env")
-    
-   user_managed_env.python.user_managed_dependencies = True
-    
-   # You can choose a specific Python environment by pointing to a Python path 
-   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
-   ```
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local/train-on-local.ipynb?name=user_managed_env)]
+
 
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
 
-   ```python
-   from azureml.core import ScriptRunConfig
-    
-   exp = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory='./', script='train.py')
-   src.run_config.environment = user_managed_env
-   run = exp.submit(src)
-   ```
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local/train-on-local.ipynb?name=src)]
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local/train-on-local.ipynb?name=run)]
+
+
+
 
 ## Manage a run
 
