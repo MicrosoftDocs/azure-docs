@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 11/07/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
