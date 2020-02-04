@@ -9,7 +9,7 @@ ms.subservice: workload-management
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
+ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
