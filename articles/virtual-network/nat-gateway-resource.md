@@ -19,7 +19,7 @@ ms.author: allensu
 
 # Designing virtual networks with NAT gateway resources
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network.  The subnet states which NAT gateway will be used. NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows.  These static IP addresses can come from individual public IP address resources or public IP prefix resources or both.  A NAT gateway resource can use up to 16 static IP addresses from either.
+NAT gateway resources are part of [Virtual Network NAT](nat-overview.md). NAT gateway resources provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual netrwork states which NAT gateway will be used. NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses can come from individual public IP address resources or public IP prefix resources, or both.  A NAT gateway resource can use up to 16 static IP addresses from either.
 
 ## How to deploy NAT
 
@@ -41,7 +41,7 @@ The resource is designed to be simple as you can see from the following Azure Re
 - A set of public IP address resources _myIP1_ and _myIP2_ and 
 - A set of public IP prefix resources _myPrefix1_ and _myPrefix2_. 
 
-The total number of IP addresses provided by all 4 IP address resources can't exceed 16 IP addresses total. Any number of IP addresses between 1 and 16 is allowed.
+The total number of IP addresses provided by all four IP address resources can't exceed 16 IP addresses total. Any number of IP addresses between 1 and 16 is allowed.
 
 ```json
 {

@@ -37,9 +37,9 @@
   items:
   - name: NAT
     items:
-      name: Overview
+    - name: Overview
       href: nat-overview.md
-      name: NAT gateway resource
+    - name: NAT gateway resource
       href: nat-gateway-resource.md
   - name: Security groups
     href: security-overview.md
