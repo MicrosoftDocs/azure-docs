@@ -14,10 +14,8 @@
   items:
     - name: Client library
       items:
-      - name: Analyze Text using v3.0-preview
+      - name: Analyze Text using the client library
         href: quickstarts/text-analytics-sdk.md
-      - name: Analyze Text using v2
-        href: quickstarts/text-analytics-sdk-v2.md
     - name: REST API
       items: 
       - name: Using Java
