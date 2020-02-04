@@ -776,7 +776,7 @@ If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the 
 
 ## Create availability group resources in the Pacemaker cluster
 
-We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group]#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
 
 ### Create the AG cluster resource
 
