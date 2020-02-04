@@ -111,7 +111,8 @@ Instead of a docker volume, you also have the option to mount a host folder.
     {
          "HostConfig": {
             "Binds": [
-                "<your-directory-name-here>:/app/metadataDb"
+                "<your-directory-name-here>:/app/metadataDb",
+                "<your-directory-name-here>:/app/eventsDb",
              ]
          }
     }
@@ -151,7 +152,7 @@ Instead of a docker volume, you also have the option to mount a host folder.
     ```
 
     >[!IMPORTANT]
-    >Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadata**.
+    >Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadataDb** and **/app/eventsDb**
 
 
 ## Persist events
