@@ -1,6 +1,6 @@
 ---
 title: Outbound connections in Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This article explains how Azure enables VMs to communicate with public internet services.
 services: load-balancer
 documentationcenter: na
@@ -232,7 +232,7 @@ If you scale out to the next larger backend pool size tier, there is potential f
 
 ### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 
-Outbound connections have a 4-minute idle timeout. This timeout is not adjustable. However, you can use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
+Outbound connections have a 4-minute idle timeout. This timeout is adjustable via [Outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). You can also use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
 
 When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiated TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application specific keepalives.
 

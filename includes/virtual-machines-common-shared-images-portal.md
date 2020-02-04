@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/27/2019
+ ms.date: 11/06/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -42,7 +42,9 @@ Create the gallery image definition inside of your gallery. In this example, the
 
 1. On the page for your new image gallery, select **Add a new image definition** from the top of the page. 
 1. For **Image definition name**, type *myImageDefinition*.
-1. For **Operating system**, select the correct option based on your source image.
+1. For **Operating system**, select the correct option based on your source VM.
+1. For **VM generation**, select the option based on your source VM. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. For **Publisher**, type *myPublisher*. 
 1. For **Offer**, type *myOffer*.
 1. For **SKU**, type *mySKU*.
@@ -57,6 +59,10 @@ Create an image version from a managed image. In this example, the image version
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
+The steps for creating an image version are slightly different, depending on whether the source is a generalized image or a snapshot of a specialized VM. 
+
+### Option: Generalized
+
 1. In the page for your image definition, select **Add version** from the top of the page.
 1. In **Region**, select the region where your managed image is stored. Image versions need to be created in the same region as the managed image they are created from.
 1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
@@ -69,6 +75,19 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 1. When the deployment is finished, select **Go to resource**.
 
 It can take a while to replicate the image to all of the target regions.
+
+### Option: Specialized
+
+1. In the page for your image definition, select **Add version** from the top of the page.
+1. In **Region**, select the region where your snapshot is stored. Image versions need to be created in the same region as the source they are created from.
+1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
+1. In **OS disk snapshot**, select the snapshot from your source VM from the drop-down. If your source VM had a data disk that you would like to include, select the correct **LUN** number from the drop-down, and then select the snapshot of the data disk for **Data disk snapshot**. 
+1. In **Exclude from latest**, leave the default value of *No*.
+1. For **End of life date**, select a date from the calendar that is a couple of months in the future.
+1. In **Replication**, leave the **Default replica count** as 1. You need to replicate to the source region, so leave the first replica as the default and then pick a second replica region to be *East US*.
+1. When you are done, select **Review + create**. Azure will validate the configuration.
+1. When image version passes validation, select **Create**.
+1. When the deployment is finished, select **Go to resource**.
 
 ## Share the gallery
 

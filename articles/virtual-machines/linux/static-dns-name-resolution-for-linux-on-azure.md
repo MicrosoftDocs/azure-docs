@@ -1,5 +1,5 @@
 ---
-title: Use internal DNS for VM name resolution with the Azure CLI | Microsoft Docs
+title: Use internal DNS for VM name resolution with the Azure CLI 
 description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''

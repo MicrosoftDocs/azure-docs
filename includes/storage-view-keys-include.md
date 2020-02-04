@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 06/20/2019
+ms.date: 11/06/2019
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -19,3 +19,5 @@ To view and copy your storage account access keys or connection string from the 
 5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 
     ![Screenshot showing how to view access keys in the Azure portal](media/storage-view-keys-include/portal-connection-string.png)
+
+You can use either key to access Azure Storage, but in general it's a good practice to use the first key, and reserve the use of the second key for when you are rotating keys.

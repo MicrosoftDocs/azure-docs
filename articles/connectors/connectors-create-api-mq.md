@@ -1,12 +1,11 @@
 ---
-title: Connect to IBM MQ server - Azure Logic Apps
+title: Connect to IBM MQ server
 description: Send and retrieve messages with an Azure or on-premises IBM MQ server and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: valrobb
 ms.author: valthom
-ms.reviewer: chrishou, LADocs
+ms.reviewer: chrishou, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors

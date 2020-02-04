@@ -1,14 +1,14 @@
 ---
-title: Create an Azure HPC Cache (preview)
+title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 11/11/2019
 ms.author: rohogue
 ---
 
-# Create an Azure HPC Cache (preview)
+# Create an Azure HPC Cache
 
 Use the Azure portal to create your cache.
 
@@ -18,7 +18,7 @@ Use the Azure portal to create your cache.
 
 ![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
-In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subscription) list.
+In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [access](hpc-cache-prereqs.md#azure-subscription) list.
 
 In **Service Details**, set the cache name and these other attributes:
 
@@ -31,7 +31,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
 
-After the public preview period, capacity also will affect the cache's cost.
+Capacity also affects the cache's cost.
 
 Choose the capacity by setting these two values:
 
@@ -59,6 +59,7 @@ Cache creation takes about 10 minutes. You can track the progress in the Azure p
 ![screenshot of cache creation "deployment underway" and "notifications" pages in portal](media/hpc-cache-deploy-status.png)
 
 When creation finishes, a notification appears with a link to the new Azure HPC Cache instance, and the cache appears in your subscription's **Resources** list.
+<!-- double check on notification -->
 
 ![screenshot of Azure HPC Cache instance in Azure portal](media/hpc-cache-new-overview.png)
 

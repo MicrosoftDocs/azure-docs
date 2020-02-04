@@ -1,5 +1,5 @@
 ---
-title: Transform data using Pig Activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Pig Activity in Azure Data Factory 
 description: Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -219,4 +219,4 @@ To use parameterized Pig script, do the following:
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 * [Invoke Spark programs](data-factory-spark.md)
-* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

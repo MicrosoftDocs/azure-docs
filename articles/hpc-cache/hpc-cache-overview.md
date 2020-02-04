@@ -1,14 +1,14 @@
 ---
-title: Azure HPC Cache Preview overview 
+title: Azure HPC Cache overview
 description: Describes Azure HPC Cache, a file access accelerator solution for high-performance computing 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# What is Azure HPC Cache? (Preview)
+# What is Azure HPC Cache?
 
 Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, Azure HPC Cache brings the scalability of cloud computing to your existing workflow. This service can be used even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
 
@@ -49,13 +49,17 @@ Azure HPC Cache is available in these Azure regions:
 * North Europe
 * West Europe
 * Southeast Asia
+* Sydney
 * West US 2
+* Korea Central
 
 Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
 
-## Preview availability
+## Service availability
 
-The Azure HPC Cache public preview is restricted to ensure service quality. Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create test caches.
+You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality in the initial months of general availability.
+
+Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches.
 
 ## Next steps
 

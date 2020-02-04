@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Monitor Linux virtual machines in Azure | Microsoft Docs
+title: Tutorial - Monitor Linux virtual machines in Azure 
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -131,7 +131,7 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 3. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 

@@ -1,7 +1,7 @@
 ---
 title:  "Multiclass Neural Network: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has multiple values. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning to create a neural network model that can be used to predict a target that has multiple values. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Multiclass Neural Network module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a neural network model that can be used to predict a target that has multiple values. 
 
@@ -35,7 +35,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 ## Configure Multiclass Neural Network
 
-1. Add the **MultiClass Neural Network** module to your pipeline in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
+1. Add the **MultiClass Neural Network** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
 
 2. **Create trainer mode**: Use this option to specify how you want the model to be trained:
 
@@ -81,11 +81,8 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-- To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md)  and select **Visualize**.  
-
-- To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
-
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

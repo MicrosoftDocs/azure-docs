@@ -2,20 +2,17 @@
 title: React to Blob Storage module events - Azure Event Grid IoT Edge | Microsoft Docs 
 description: React to Blob Storage module events
 author: arduppal
-manager: mchad
+manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 10/02/2019
+ms.date: 12/13/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
 ---
 
 # Tutorial: React to Blob Storage events on IoT Edge (Preview)
-
-This article shows you how to locally react to Blob creation and Blob deletion events on IoT Edge using Event Grid.
-
-Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid.  
 
 For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
 
@@ -61,8 +58,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         {
           "Env": [
            "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+           "inbound:clientAuth:clientCert:enabled=false",
+           "outbound:webhook:httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -75,11 +72,12 @@ A deployment manifest is a JSON document that describes which modules to deploy,
           }
         }
     ```    
+
  1. Click **Save**
  1. Continue to the next section to add the Azure Functions module
 
     >[!IMPORTANT]
-    > In this tutorial, you will deploy the Event Grid module to allow both HTTP/HTTPs requests,  client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPs requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
+    > In this tutorial, you will learn to deploy the Event Grid module to allow both HTTP/HTTPs requests, client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPs requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
     
 
 ## Deploy Azure Function IoT Edge module
@@ -116,9 +114,6 @@ This section shows you how to deploy the Azure Functions IoT module, which would
 1. Click **Save**
 1. Continue to the next section to add the Azure Blob Storage module
 
-> [!NOTE]
-> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled`.
-
 ## Deploy Azure Blob Storage module
 
 This section shows you how to deploy the Azure Blob Storage module, which would act as an Event Grid publisher publishing Blob created and deleted events.
@@ -130,7 +125,7 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 3. Provide the name, image, and container create options of the container:
 
    * **Name**: azureblobstorageoniotedge
-   * **Image URI**: mcr.microsoft.com/azure-blob-storage:1.2.2-preview
+   * **Image URI**: mcr.microsoft.com/azure-blob-storage:latest
    * **Container Create Options**:
 
 ```json
@@ -150,6 +145,12 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
          }
        }
 ```
+> [!IMPORTANT]
+> - Blob Storage module can publish events using both HTTPS and HTTP. 
+> - If you have enabled the client based authentication for EventGrid make sure you update the value of EVENTGRID_ENDPOINT to allow https like this: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 
+> - And add another environment variable `AllowUnknownCertificateAuthority=true` to the above Json. When talking to EventGrid over HTTPS, **AllowUnknownCertificateAuthority** allows the storage module to trust self-signed EventGrid server certificates.
+
+
 
 4. Update the JSON that you copied with the following information:
 
@@ -165,7 +166,10 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 5. Click **Save**
 6. Click **Next** to continue to the routes section
 
- ### Setup routes
+    > [!NOTE]
+    > If you are using an Azure VM as the edge device, add an inbound port rule to allow inbound traffic on the host ports used in this tutorial: 4438, 5888, 8080, and 11002. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
+
+### Setup routes
 
 Keep the default routes, and select **Next** to continue to the review section
 
@@ -182,7 +186,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
    It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
-## Publish created and deleted Events
+## Publish BlobCreated and BlobDeleted events
 
 1. This module automatically creates topic **MicrosoftStorage**. Verify that it exists
     ```sh
@@ -204,6 +208,10 @@ Keep the default routes, and select **Next** to continue to the review section
           }
         ]
     ```
+
+    > [!IMPORTANT]
+    > - For the HTTPS flow, if the client authentication is enabled via SAS key, then the SAS key specified earlier should be added as a header. Hence the curl request will be: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - For the HTTPS flow, if the client authentication is enabled via certificate, the curl request will be: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for **MicrosoftStorage** topic.
     1. Create blobsubscription.json with the following content. For details about the payload, see our [API documentation](api.md)
@@ -230,6 +238,11 @@ Keep the default routes, and select **Next** to continue to the review section
     curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
     ```
 
+    > [!IMPORTANT]
+    > - For the HTTPS flow, if the client authentication is enabled via SAS key, then the SAS key specified earlier should be added as a header. Hence the curl request will be: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+    > - For the HTTPS flow, if the client authentication is enabled via certificate, the curl request will be:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+
+
     3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
 
     ```sh
@@ -254,6 +267,10 @@ Keep the default routes, and select **Next** to continue to the review section
           }
         }
     ```
+
+    > [!IMPORTANT]
+    > - For the HTTPS flow, if the client authentication is enabled via SAS key, then the SAS key specified earlier should be added as a header. Hence the curl request will be: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+    > - For the HTTPS flow, if the client authentication is enabled via certificate, the curl request will be: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
 2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 

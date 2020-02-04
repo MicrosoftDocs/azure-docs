@@ -3,23 +3,18 @@ title: Migrating to MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Learn about the differences between Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and how to migrate to MSAL.NET.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.NET and MSAL.NET libraries so I can migrate my applications to MSAL.NET.
-ms.collection: M365-identity-device-management
 ---
 
 # Migrating applications to MSAL.NET
@@ -28,7 +23,7 @@ Both Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentic
 
 - you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) as it uses the Microsoft identity platform endpoint,
 - your users will get the best single-sign-on experience.
-- your application can enable incremental consent, and supporting conditional access is easier
+- your application can enable incremental consent, and supporting Conditional Access is easier
 - you benefit from the innovation.
 
 **MSAL.NET is now the recommended auth library to use with the Microsoft identity platform**. No new features will be implemented on ADAL.NET. The efforts are focused on improving MSAL.
@@ -81,7 +76,7 @@ MSAL.NET has more explicit exceptions. For example, when silent authentication f
 ```csharp
 catch(AdalException exception)
 {
- if (exception.ErrorCode == “user_interaction_required”)
+ if (exception.ErrorCode == "user_interaction_required")
  {
   try
   {“try to authenticate interactively”}}
@@ -180,7 +175,7 @@ If you want to read and write with MSAL.NET Azure Active Directory using the AAD
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
-var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
+var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### Warning: Should you have one or two slashes in the scope corresponding to a v1.0 Web API
@@ -226,7 +221,7 @@ MSAL.NET does not expose refresh tokens, for security reasons: MSAL handles refr
 
 Fortunately, MSAL.NET now has an API that allows you to migrate your previous refresh tokens (acquired with ADAL) into the `IConfidentialClientApplication`:
 
-```CSharp
+```csharp
 /// <summary>
 /// Acquires an access token from an existing refresh token and stores it and the refresh token into 
 /// the application user token cache, where it will be available for further AcquireTokenSilent calls.

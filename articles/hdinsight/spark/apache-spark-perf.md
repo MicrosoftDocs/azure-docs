@@ -69,7 +69,7 @@ Spark provides its own native caching mechanisms, which can be used through diff
     * Doesn't work with partitioning, which may change in future Spark releases.
 
 * Storage level caching (recommended)
-    * Can be implemented using [Alluxio](https://www.alluxio.org/).
+    * Can be implemented using [Alluxio](https://www.alluxio.io/).
     * Uses in-memory and SSD caching.
 
 * Local HDFS (recommended)

@@ -1,12 +1,13 @@
 ---
-title: 'Connect to an Azure virtual network from a computer using Point-to-Site VPN and native Azure certificate authentication: Azure portal| Microsoft Docs'
+title: 'Connect to a VNet using P2S VPN & certificate authentication: portal'
+titleSuffix: Azure VPN Gateway
 description: Connect Windows, Mac OS X, and Linux clients securely to an Azure virtual network using P2S and self-signed or CA issued certificates. This article uses the Azure portal.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---

@@ -1,7 +1,7 @@
 ---
 title:  "Evaluate Model: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Evaluate Model module in Azure Machine Learning service to measure the accuracy of a trained model.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
+ms.date: 11/19/2019
 ---
 # Evaluate Model module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
@@ -21,7 +21,6 @@ Use this module to measure the accuracy of a trained model. You provide a datase
   
 -   **Classification Models**    
 -   **Regression Models**    
-
 
 
 > [!TIP]
@@ -57,14 +56,11 @@ This feature is useful because you can easily compare results from two different
 
 1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
 2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
-3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
+3. Run the pipeline.
 
 ## Results
 
-After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. You can:
-
-+ Save the results as a dataset, for easier analysis with other tools
-+ Generate a visualization in the interface
+After you run **Evaluate Model**, right-click the module and select **Visualize Evaluation results** to see the results.
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
@@ -102,7 +98,7 @@ The following metrics are reported when evaluating classification models. If you
 
 ##  <a name="bkmk_regression"></a> Metrics for regression models
  
-The metrics returned for regression models are generally designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
+The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
  The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
   
@@ -121,4 +117,4 @@ The metrics returned for regression models are generally designed to estimate th
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

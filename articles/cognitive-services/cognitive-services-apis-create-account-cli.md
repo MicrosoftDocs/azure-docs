@@ -86,7 +86,7 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision - Prediction | `CustomVision.Prediction` |
 | Custom Vision - Training   | `CustomVision.Training`   |
-| Face API                   | `Face`                    |
+| Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
@@ -174,7 +174,7 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 
 ## Get current quota usage for your resource
 
-Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
+Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \

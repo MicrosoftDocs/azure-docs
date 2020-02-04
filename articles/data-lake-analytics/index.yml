@@ -8,7 +8,6 @@ metadata:
   description: Azure Data Lake Analytics allows you to run big data analysis jobs that scale to massive data sets. # Required; article description that is displayed in search results. < 160 chars.
   services: data-lake-analytics
   ms.service: data-lake-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
   author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
@@ -106,8 +105,18 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Understand Apache Spark for U-SQL Developers
-            url: data-lake-analytics-understand-spark-for-usql-developers.md
+            url: understand-spark-for-usql-developers.md
           - text: Understand Apache Spark data formats
-            url: data-lake-analytics-understand-spark-data-formats.md
+            url: understand-spark-data-formats.md
           - text: Understand Apache Spark code concepts
-            url: data-lake-analytics-understand-spark-code-concepts.md
+            url: understand-spark-code-concepts.md
+
+  # Card (optional)
+  - title: Troubleshoot U-SQL jobs 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+         - text: Troubleshoot U-SQL runtime failures
+           url: runtime-troubleshoot.md
+         - text: Troubleshoot a .NET upgrade
+           url: dotnet-upgrade-troubleshoot.md

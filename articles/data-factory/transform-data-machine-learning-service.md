@@ -1,19 +1,25 @@
 ---
-title: Execute Azure Machine Learning service pipelines in your Azure Data Factory pipelines | Microsoft Docs
-description: Learn how to run your Azure Machine Learning service pipelines in your Azure Data Factory pipelines. 
+title: Execute Azure Machine Learning pipelines 
+description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory pipelines. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 10/10/2019
-author: djpmsft
-ms.author: daperlov
----
-# Execute Azure Machine Learning service pipelines in Azure Data Factory
 
-Run your Azure Machine Learning service pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
+ms.topic: conceptual
+ms.author: daperlov
+author: djpmsft
+manager: anandsub
+ms.date: 10/10/2019
+---
+
+# Execute Azure Machine Learning pipelines in Azure Data Factory
+
+Run your Azure Machine Learning pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
+
+The below video features a six minute introduction and demonstration of this feature.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
 ## Syntax
 
@@ -42,11 +48,11 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the activity in the pipeline | String | Yes
 type | Type of activity is ‘AzureMLExecutePipeline’ | String | Yes
-linkedServiceName | Linked Service to Azure Machine Learning Service | Linked service reference | Yes
+linkedServiceName | Linked Service to Azure Machine Learning | Linked service reference | Yes
 mlPipelineId | ID of the published Azure Machine Learning pipeline | String (or expression with resultType of string) | Yes
 experimentName | Run history experiment name of the Machine Learning pipeline run | String (or expression with resultType of string) | No
 mlPipelineParameters | Key, Value pairs to be passed to the published Azure Machine Learning pipeline endpoint. Keys must match the names of pipeline parameters defined in the published Machine Learning pipeline | Object with key value pairs (or Expression with resultType object) | No
-mlParentRunId | The parent Azure Machine Learning Service pipeline run ID | String (or expression with resultType of string) | No
+mlParentRunId | The parent Azure Machine Learning pipeline run ID | String (or expression with resultType of string) | No
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
 ## Next steps

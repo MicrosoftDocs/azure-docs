@@ -147,6 +147,12 @@
       "branch": "master"
     },
     {
+      "path_to_root": "functions-python-tensorflow-tutorial",
+      "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master"
@@ -194,7 +200,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "docs-201809"
+      "branch": "release-ignite-cogserv-speech-service"
     },
     {
       "path_to_root": "media-services-v3-dotnet-quickstarts",
@@ -272,6 +278,16 @@
       "branch": "master"
     },
     {
+      "path_to_root": "cognitive-services-node-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-node-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-ruby-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cognitive-services-rest-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
       "branch": "master"
@@ -292,10 +308,25 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-sdk-for-go-samples",
+      "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-dotnet-v4-getting-started",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-v4-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmos-dotnet-bulk-import",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer",
+      "branch": "master"
     },
     {
       "path_to_root": "samples-cosmosdb-dotnet-web-app",
@@ -330,6 +361,11 @@
     {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmos-db-python-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started",
       "branch": "master"
     },
     {
@@ -377,6 +413,16 @@
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v2",
+      "url": "https://github.com/Azure/azure-cosmosdb-java",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-java-v4-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {

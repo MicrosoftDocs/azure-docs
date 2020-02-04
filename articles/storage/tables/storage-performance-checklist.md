@@ -15,7 +15,7 @@ ms.subservice: tables
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Table storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) and [Scalability and performance targets for Table storage](scalability-targets.md).
 
 ## Checklist
 
@@ -25,6 +25,7 @@ This article organizes proven practices for performance into a checklist you can
 | --- | --- | --- |
 | &nbsp; |Scalability targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Scalability targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
+| &nbsp; |Scalability targets |[Are you approaching the scalability targets for entities per second?](#targets-for-data-operations) |
 | &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
 | &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
 | &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
@@ -37,7 +38,6 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
 | &nbsp; |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; |Scalability targets |[Are you approaching the scalability targets for entities per second?](#table-specific-scalability-targets) |
 | &nbsp; |Configuration |[Are you using JSON for your table requests?](#use-json) |
 | &nbsp; |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
 | &nbsp; |Tables and partitions |[Have you properly partitioned your data?](#schema) |
@@ -57,7 +57,7 @@ This article organizes proven practices for performance into a checklist you can
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Table service, see [Azure Storage scalability and performance targets for storage accounts](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+For more information about scalability targets for the Table service, see [Scalability and performance targets for Table storage](scalability-targets.md).
 
 ### Maximum number of storage accounts
 
@@ -73,9 +73,17 @@ If your application is approaching the scalability targets for a single storage 
     While compressing data may save bandwidth and improve network performance, it can also have negative effects on performance. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Keep in mind that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
 - If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see the section titled [Timeout and Server Busy errors](#timeout-and-server-busy-errors).
 
-## Table-specific scalability targets
+### Targets for data operations
 
-In addition to the bandwidth limitations of an entire storage account, tables have the following specific scalability limit. The system will load balance as your traffic increases, but if your traffic has sudden bursts, you may not be able to get this volume of throughput immediately. If your pattern has bursts, you should expect to see throttling and/or timeouts during the burst as the storage service automatically load balances out your table. Ramping up slowly generally has better results as it gives the system time to load balance appropriately.
+Azure Storage load balances as the traffic to your storage account increases, but if the traffic exhibits sudden bursts, you may not be able to get this volume of throughput immediately. Expect to see throttling and/or timeouts during the burst as Azure Storage automatically load balances your table. Ramping up slowly generally provides better results, as the system has time to load balance appropriately.
+
+#### Entities per second (storage account)
+
+The scalability limit for accessing tables is up to 20,000 entities (1 KB each) per second for an account. In general, each entity that is inserted, updated, deleted, or scanned counts toward this target. So a batch insert that contains 100 entities would count as 100 entities. A query that scans 1000 entities and returns 5 would count as 1000 entities.
+
+#### Entities per second (partition)
+
+Within a single partition, the scalability target for accessing tables is 2,000 entities (1 KB each) per second, using the same counting as described in the previous section.
 
 ## Networking
 
@@ -277,5 +285,6 @@ If you are performing batch inserts and then retrieving ranges of entities toget
 
 ## Next steps
 
-- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Scalability and performance targets for Table storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

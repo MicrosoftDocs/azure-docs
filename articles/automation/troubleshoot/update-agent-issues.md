@@ -1,39 +1,39 @@
 ---
-title: Understand the Windows agent check results in Azure Update Management
-description: Learn how to troubleshoot issues with the Update Management agent.
+title: Diagnose Windows Hybrid Runbook Worker - Azure Update Management
+description: Learn how to troubleshoot and resolve issues with the Azure Automation Hybrid Runbook Worker on Windows that supports Update Management.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ---
 
-# Understand the Windows agent check results in Update Management
+# Understand and resolve Windows Hybrid Runbook Worker health in Update Management
 
-There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 The following list are the three readiness states a machine can be in:
 
-* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
-* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
-* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+* **Ready** - The Hybrid Runbook Worker is deployed and was last seen less than 1 hour ago.
+* **Disconnected** -  The Hybrid Runbook Worker is deployed and was last seen over 1 hour ago.
+* **Not configured** -  The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
 > There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the [offline instructions](#troubleshoot-offline) to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For non-Azure machines, the link brings you to this article. See the [offline instructions](#troubleshoot-offline) to troubleshoot a non-Azure machine.
 
 ![Update management list of virtual machines](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> To check the health of an agent, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
+> To check the health of the Hybrid Runbook Worker, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
-On the **Troubleshoot Update Agent** page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify agent dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the **Troubleshoot Update Agent** page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 ![Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -45,16 +45,15 @@ Results are shown on the page when they're ready. The checks sections show what'
 
 ### Operating system
 
-The operating system check verifies whether the Hybrid Runbook Worker is running one of these operating systems:
+The operating system check verifies whether the Hybrid Runbook Worker is running one of the following operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2008 R2 RTM, Windows Server 2008 | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later |.NET Framework 4.6.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2012 and later |.NET Framework 4.6 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### .NET 4.6.1+
+### .NET 4.6.2
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) installed.
+The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installed.
 
 ### WMF 5.1
 
@@ -102,7 +101,7 @@ The Crypto folder access check determines whether the Local System Account has a
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
-You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. You can get the script,  [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), in the PowerShell Gallery. You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. You can get the script,  [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), in the PowerShell Gallery. You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 The output of this script looks like the following example:
 
@@ -111,7 +110,7 @@ RuleId                      : OperatingSystemCheck
 RuleGroupId                 : prerequisites
 RuleName                    : Operating System
 RuleGroupName               : Prerequisite Checks
-RuleDescription             : The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or higher
+RuleDescription             : The Windows Operating system must be version 6.2.9200 (Windows Server 2012) or higher
 CheckResult                 : Passed
 CheckResultMessage          : Operating System version is supported
 CheckResultMessageId        : OperatingSystemCheck.Passed
@@ -201,4 +200,3 @@ CheckResultMessageArguments : {}
 ## Next steps
 
 To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
-

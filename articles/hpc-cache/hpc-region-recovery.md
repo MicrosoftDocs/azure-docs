@@ -1,10 +1,10 @@
 ---
-title: Regional redundancy and failover recovery with Azure HPC Cache (preview)
+title: Regional redundancy and failover recovery with Azure HPC Cache
 description: Techniques to provide failover capabilities for disaster recovery with Azure HPC Cache 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
@@ -32,7 +32,7 @@ To set up a cache that is prepared for possible failover, follow these steps:
    1. Mount command for use by cache clients
 
    > [!NOTE]
-   > Azure HPC Cache can be created programmatically, either through an [Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) or by directly accessing its API. Contact the Azure HPC Cache team for details.
+   > Azure HPC Cache can be created programmatically, either through an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or by directly accessing its API. Contact the Azure HPC Cache team for details.
 
 ## Failover example
 

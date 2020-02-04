@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 

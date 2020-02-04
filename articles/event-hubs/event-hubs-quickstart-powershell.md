@@ -1,5 +1,5 @@
 ---
-title: Create an event hub using PowerShell - Azure Event Hubs | Microsoft Docs
+title: 'Quickstart: Create an event hub using PowerShell - Azure Event Hubs'
 description: This quickstart describes how to create an event hub using Azure PowerShell and then send and receive events using .NET Standard SDK. 
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub?
 

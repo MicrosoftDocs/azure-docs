@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 11/18/2019
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
@@ -55,21 +55,25 @@ Let's create a Cosmos account. If you already have an account you want to use, y
 
 1. Import the dependencies in your index.js file.
     ```JavaScript
-    var mongoose = require('mongoose');
-    var env = require('dotenv').load();    //Use the .env file to load the variables
+   var mongoose = require('mongoose');
+   var env = require('dotenv').config();   //Use the .env file to load the variables
     ```
 
 1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file. Replace the placeholders {cosmos-account-name} and {dbname} with your own Cosmos account name and database name, without the brace symbols.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.com:10255/{dbname}
-    COSMODDB_USER=cosmos-account-name
-    COSMOSDB_PASSWORD=cosmos-secret
+   # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
+
+   COSMODDB_USER = "<Azure Cosmos account's user name>"
+   COSMOSDB_PASSWORD = "<Azure Cosmos account passowrd>"
+   COSMOSDB_DBNAME = "<Azure Cosmos database name>"
+   COSMOSDB_HOST= "<Azure Cosmos Host name>"
+   COSMOSDB_PORT=10255
     ```
 
 1. Connect to Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+   mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
         user: process.env.COSMODDB_USER,
         password: process.env.COSMOSDB_PASSWORD

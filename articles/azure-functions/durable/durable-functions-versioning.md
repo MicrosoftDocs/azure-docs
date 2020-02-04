@@ -1,13 +1,9 @@
 ---
 title: Versioning in Durable Functions - Azure
 description: Learn how to implement versioning in the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
 ---
 
@@ -27,7 +23,7 @@ As an example, suppose we have the following orchestrator function.
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -38,16 +34,19 @@ This simplistic function takes the results of **Foo** and passes it to **Bar**. 
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-This change works fine for all new instances of the orchestrator function but breaks any in-flight instances. For example, consider the case where an orchestration instance calls **Foo**, gets back a boolean value and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `context.CallActivityAsync<int>("Foo")`. This is because the result in the history table is `bool` but the new code tries to deserialize it into `int`.
+> [!NOTE]
+> The previous C# examples target Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-This is just one of many different ways that a signature change can break existing instances. In general, if an orchestrator needs to change the way it calls a function, then the change is likely to be problematic.
+This change works fine for all new instances of the orchestrator function but breaks any in-flight instances. For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `context.CallActivityAsync<int>("Foo")`. This failure happens because the result in the history table is `bool` but the new code tries to deserialize it into `int`.
+
+This example is just one of many different ways that a signature change can break existing instances. In general, if an orchestrator needs to change the way it calls a function, then the change is likely to be problematic.
 
 ### Changing orchestrator logic
 
@@ -57,7 +56,7 @@ Consider the following orchestrator function:
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -68,7 +67,7 @@ Now let's assume you want to make a seemingly innocent change to add another fun
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -80,7 +79,10 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-This change adds a new function call to **SendNotification** between **Foo** and **Bar**. There are no signature changes. The problem arises when an existing instance resumes from the call to **Bar**. During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification** which is not in its execution history. As a result, the Durable Task Framework fails with a `NonDeterministicOrchestrationException` because it encountered a call to **SendNotification** when it expected to see a call to **Bar**. The same type of problem can occur when adding any calls to "durable" APIs, including `CreateTimer`, `WaitForExternalEvent`, etc.
+> [!NOTE]
+> The previous C# examples target Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+This change adds a new function call to **SendNotification** between **Foo** and **Bar**. There are no signature changes. The problem arises when an existing instance resumes from the call to **Bar**. During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification**, which is not in its execution history. As a result, the Durable Task Framework fails with a `NonDeterministicOrchestrationException` because it encountered a call to **SendNotification** when it expected to see a call to **Bar**. The same type of problem can occur when adding any calls to "durable" APIs, including `CreateTimer`, `WaitForExternalEvent`, etc.
 
 ## Mitigation strategies
 
@@ -94,11 +96,11 @@ Here are some of the strategies for dealing with versioning challenges:
 
 The easiest way to handle a breaking change is to let in-flight orchestration instances fail. New instances successfully run the changed code.
 
-Whether this is a problem depends on the importance of your in-flight instances. If you are in active development and don't care about in-flight instances, this might be good enough. However, you will need to deal with exceptions and errors in your diagnostics pipeline. If you want to avoid those things, consider the other versioning options.
+Whether this kind of failure is a problem depends on the importance of your in-flight instances. If you are in active development and don't care about in-flight instances, this might be good enough. However, you'll need to deal with exceptions and errors in your diagnostics pipeline. If you want to avoid those things, consider the other versioning options.
 
 ### Stop all in-flight instances
 
-Another option is to stop all in-flight instances. This can be done by clearing the contents of the internal **control-queue** and **workitem-queue** queues. The instances will be forever stuck where they are, but they will not clutter your telemetry with failure messages. This is ideal in rapid prototype development.
+Another option is to stop all in-flight instances. Stopping all instances can be done by clearing the contents of the internal **control-queue** and **workitem-queue** queues. The instances will be forever stuck where they are, but they will not clutter your logs with failure messages. This approach is ideal in rapid prototype development.
 
 > [!WARNING]
 > The details of these queues may change over time, so don't rely on this technique for production workloads.
@@ -109,7 +111,7 @@ The most fail-proof way to ensure that breaking changes are deployed safely is b
 
 * Deploy all the updates as entirely new functions, leaving existing functions as-is. This can be tricky because the callers of the new function versions must be updated as well following the same guidelines.
 * Deploy all the updates as a new function app with a different storage account.
-* Deploy a new copy of the function app with the same storage account but with an updated `taskHub` name. This is the recommended technique.
+* Deploy a new copy of the function app with the same storage account but with an updated `taskHub` name. Side-by-side deployments is the recommended technique.
 
 ### How to change task hub name
 
@@ -125,7 +127,7 @@ The task hub can be configured in the *host.json* file as follows:
 }
 ```
 
-#### Functions 2.x
+#### Functions 2.0
 
 ```json
 {

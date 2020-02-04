@@ -1,18 +1,15 @@
 ---
-title: Connect to Box - Azure Logic Apps
-description: Create and manage files with Box REST APIs and Azure Logic Apps
+title: Connect to Box
+description: Automate tasks and workflows that create and manage files in Box by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ---
 
-# Create and manage files in Box with Azure Logic Apps
+# Create and manage files in Box by using Azure Logic Apps
 
 This article shows how you can create and manage your files 
 in Box from inside a logic app with the Box connector. 

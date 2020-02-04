@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 11/06/2019
 ms.author: mlearned
 
 #Customer intent: As a cluster operator or developer, I want to create and manage static IP address resources in Azure that I can use beyond the lifecycle of an individual Kubernetes service deployed in an AKS cluster.
@@ -24,40 +24,31 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-Currently only *Basic IP SKU*is supported. Work is in progress to support the *Standard IP* resource SKU. For more information, see [IP address types and allocation methods in Azure][ip-sku].
+This article covers using a *Standard* SKU IP with a *Standard* SKU load balancer. For more information, see [IP address types and allocation methods in Azure][ip-sku].
 
 ## Create a static IP address
 
-When you create a static public IP address for use with AKS, the IP address resource should be created in the **node** resource group. If you want to separate the resources, see the following section to [Use a static IP address outside of the node resource group](#use-a-static-ip-address-outside-of-the-node-resource-group).
-
-First, get the node resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
-
-```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Now create a static public IP address with the [az network public ip create][az-network-public-ip-create] command. Specify the node resource group name obtained in the previous command, and then a name for the IP address resource, such as *myAKSPublicIP*:
+Create a static public IP address with the [az network public ip create][az-network-public-ip-create] command. The following creates a static IP resource named *myAKSPublicIP* in the *myResourceGroup* resource group:
 
 ```azurecli-interactive
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group myResourceGroup \
     --name myAKSPublicIP \
+    --sku Standard \
     --allocation-method static
 ```
+
+> [!NOTE]
+> If you are using a *Basic* SKU load balancer in your AKS cluster, use *Basic* for the *sku* parameter when defining a public IP. Only *Basic* SKU IPs work with the *Basic* SKU load balancer and only *Standard* SKU IPs work with *Standard* SKU load balancers. 
 
 The IP address is displayed, as shown in the following condensed example output:
 
 ```json
 {
   "publicIp": {
-    "dnsSettings": null,
-    "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
-    "idleTimeoutInMinutes": 4,
+    ...
     "ipAddress": "40.121.183.52",
-    [...]
+    ...
   }
 }
 ```
@@ -65,47 +56,23 @@ The IP address is displayed, as shown in the following condensed example output:
 You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the *ipAddress* as shown in the following example:
 
 ```azurecli-interactive
-$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+$ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
 
 ## Create a service using the static IP address
 
-To create a service with the static public IP address, add the `loadBalancerIP` property and the value of the static public IP address to the YAML manifest. Create a file named `load-balancer-service.yaml` and copy in the following YAML. Provide your own public IP address created in the previous step.
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-load-balancer
-spec:
-  loadBalancerIP: 40.121.183.52
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-load-balancer
-```
-
-Create the service and deployment with the `kubectl apply` command.
-
-```console
-kubectl apply -f load-balancer-service.yaml
-```
-
-## Use a static IP address outside of the node resource group
-
-With Kubernetes 1.10 or later, you can use a static IP address that is created outside the node resource group. The service principal used by the AKS cluster must have delegated permissions to the other resource group, as shown in the following example:
+Before creating a service, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group. For example:
 
 ```azurecli-interactive
-az role assignment create\
+az role assignment create \
     --assignee <SP Client ID> \
-    --role "Network Contributor" \
+    --role "Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-To use an IP address outside the node resource group, add an annotation to the Service definition. The following example sets the annotation to the resource group named *myResourceGroup*. Provide your own resource group name:
+To create a *LoadBalancer* service with the static public IP address, add the `loadBalancerIP` property and the value of the static public IP address to the YAML manifest. Create a file named `load-balancer-service.yaml` and copy in the following YAML. Provide your own public IP address created in the previous step. The following example also sets the annotation to the resource group named *myResourceGroup*. Provide your own resource group name.
 
 ```yaml
 apiVersion: v1
@@ -121,6 +88,12 @@ spec:
   - port: 80
   selector:
     app: azure-load-balancer
+```
+
+Create the service and deployment with the `kubectl apply` command.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## Troubleshoot

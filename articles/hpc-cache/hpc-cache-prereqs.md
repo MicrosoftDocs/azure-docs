@@ -1,14 +1,14 @@
 ---
-title: Azure HPC Cache (preview) prerequisites
+title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Prerequisites for Azure HPC Cache (preview)
+# Prerequisites for Azure HPC Cache
 
 Before using the Azure portal to create a new Azure HPC Cache, make sure your environment meets these requirements.
 
@@ -17,7 +17,7 @@ Before using the Azure portal to create a new Azure HPC Cache, make sure your en
 A paid subscription is recommended.
 
 > [!NOTE]
-> During the preview release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their test caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+> During the first several months of the GA release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
 ## Network infrastructure
 
@@ -43,7 +43,9 @@ The cache needs DNS to access resources outside of its virtual network. Dependin
 * To access Azure Blob storage endpoints and other internal resources, you need the Azure-based DNS server.
 * To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames.
 
-If you only need access to Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to other resources, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server. (A simple DNS server also can be used to load balance client connections among all the available cache mount points.)
+If you only need access to Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to other resources, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server.
+
+A simple DNS server also can be used to load balance client connections among all the available cache mount points.
 
 Learn more about Azure virtual networks and DNS server configurations in [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
@@ -53,7 +55,9 @@ Check these permission-related prerequisites before starting to create your cach
 
 * The cache instance needs to be able to create virtual network interfaces (NICs). The user who creates the cache must have sufficient privileges in the subscription to create NICs.
 
-* If using Blob storage, Azure HPC Cache needs authorization to access your storage account. You can use role-based access control (RBAC) to give the cache access to your Blob storage. Two roles are required: Storage Account Contributor and Storage Blob Data Contributor. Follow the instructions in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to add the roles.
+* If using Blob storage, Azure HPC Cache needs authorization to access your storage account. Use role-based access control (RBAC) to give the cache access to your Blob storage. Two roles are required: Storage Account Contributor and Storage Blob Data Contributor.
+
+  Follow the instructions in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to add the roles.
 
 ## Storage infrastructure
 
@@ -71,7 +75,7 @@ NFS back-end storage must be a compatible hardware/software platform. Contact th
 
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
-Create the account and container before attempting to add it as a storage target.
+Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
 To create a compatible storage account, use these settings:
 
@@ -81,9 +85,9 @@ To create a compatible storage account, use these settings:
 * Access tier (default): **Hot**
 
 It's a good practice to use a storage account in the same location as your cache.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
-You also must give the cache application access to your Azure storage account. Follow the description in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the access roles Storage Account Contributor and Storage Blob Data Contributor. If you are not the storage account owner, have the owner do this step.
+You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ## Next steps
 

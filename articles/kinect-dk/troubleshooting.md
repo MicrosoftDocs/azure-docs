@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect known issues and troubleshooting
-description: Known issues and troubleshooting Azure Kinect device
+description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -133,6 +133,10 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 1) Take pause view on [Azure Kinect viewer](azure-kinect-viewer.md) and take a screenshot or
 2) Take recording using [Azure Kinect recorder](azure-kinect-recorder.md), for example, `k4arecorder.exe -l 5 -r 5 output.mkv`
 
+## Inconsistent or unexpected device timestamps
+
+Calling ```k4a_device_set_color_control``` can temporarily induce timing changes to the device that may take a few captures to stabilize. Avoid calling the API in the image capture loop to avoid resetting the internal timing calculation with each new image. Instead call the API before the starting the camera or just when needing to change the value within the image capture loop. In particular avoid calling ```k4a_device_set_color_control(K4A_COLOR_CONTROL_AUTO_EXPOSURE_PRIORITY)```.
+
 ## USB3 host controller compatibility
 
 If the device is not enumerating under device manager, it may be because it's plugged into an unsupported USB3 controller. 
@@ -157,6 +161,10 @@ To better understand which USB port is connected on your PC, repeat these steps 
 
 The laser used by the depth camera to calculate image depth data, has a limited lifespan. To maximize the life of the lasers, the depth camera will detect when depth data is not being consumed. The depth camera power downs when the device is streaming for several minutes but the host PC is not reading the data. 
 It also impacts Multi Device Synchronization where subordinate devices start up in a state where the depth camera is streaming and depth frames are actively help up waiting for the master device to start synchronizing captures. To avoid this problem in Multi Device capture scenarios, ensure the master device starts within a minute of the first subordinate being started. 
+
+## Using Body Tracking SDK with Unreal
+
+To use the Body Tracking SDK with Unreal, make sure you have added `<SDK Installation Path>\tools` to the environment variable `PATH` and copied `dnn_model_2_0.onnx` and `cudnn64_7.dll` to `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64`.
 
 ## Next steps
 

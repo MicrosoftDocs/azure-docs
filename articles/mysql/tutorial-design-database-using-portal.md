@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Design an Azure Database for MySQL using Azure portal'
+title: 'Tutorial: Design a server - Azure portal - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 12/02/2019
 ms.custom: mvc
 ---
 

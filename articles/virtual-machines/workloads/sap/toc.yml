@@ -104,6 +104,8 @@
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
       href: sap-hana-scale-out-standby-netapp-files-suse.md
+    - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
+      href: sap-hana-scale-out-standby-netapp-files-rhel.md
   - name: SAP HANA backup overview
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
@@ -166,6 +168,8 @@
         href: sap-high-availability-guide-wsfc-shared-disk.md
       - name: HA on Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-guide-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: HA on SUSE Linux for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files
@@ -188,12 +192,16 @@
         href: high-availability-guide-suse-pacemaker.md
       - name: Pacemaker on RHEL
         href: high-availability-guide-rhel-pacemaker.md
+      - name: Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios
+        href: high-availability-guide-standard-load-balancer-outbound-connections.md
     - name: SAP Installation
       items:
       - name: Windows with Shared Disk for (A)SCS Instance
         href: sap-high-availability-installation-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-installation-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: SUSE Linux with NFS for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: SUSE Linux with NFS for (A)SCS Instance with Azure NetApp Files
@@ -208,6 +216,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+      - name: SLES with Pacemaker multi-SID for A(SCS) Instance
+        href: high-availability-guide-suse-multi-sid.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications

@@ -21,29 +21,34 @@
       items: 
       - name: Overview 
         href: sql-database-purchase-models.md
-      - name: vCore-based model
-        href: sql-database-service-tiers-vcore.md
+      - name: vCore model
         items:
-        - name: Serverless compute tier
+        - name: vCore model overview
+          href: sql-database-service-tiers-vcore.md
+        - name: Serverless
           href: sql-database-serverless.md
-        - name: Prepay for reserved capacity
+        - name: Azure Hybrid Benefit
+          href: sql-database-azure-hybrid-benefit.md
+        - name: Reserved capacity
           href: sql-database-reserved-capacity.md
-      - name: DTU service tiers
+      - name: DTU model overview
         href: sql-database-service-tiers-dtu.md
+      - name: Migrate from DTU to vCore
+        href: sql-database-dtu-to-vcore.md
     - name: Compute & storage
       items:
       - name: Overview
         href: sql-database-service-tiers-general-purpose-business-critical.md
         displayName: provisioned compute tier  
-      - name: General purpose / Standard service tiers
+      - name: General purpose / Standard
         href: sql-database-service-tier-general-purpose.md
-      - name: Business critical / Premium service tiers
+      - name: Business critical / Premium
         href: sql-database-service-tier-business-critical.md
-      - name: Hyperscale service tier
+      - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
-      - name: Migrate from Premium RS service tier
+      - name: Migrate from Premium RS
         href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
@@ -71,6 +76,9 @@
       href: sql-database-security-overview.md
       displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
 
+    - name: Security best practices
+      href: sql-database-security-best-practice.md
+
     - name: Access management
       items:
       - name: Access control
@@ -87,12 +95,6 @@
         href: sql-database-ssms-mfa-authentication.md
       - name: Configure multi-factor auth
         href: sql-database-ssms-mfa-authentication-configure.md
-      - name: Configure TDE with BYOK
-        href: transparent-data-encryption-byok-azure-sql-configure.md
-      - name: Rotate TDE BYOK keys
-        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-      - name: Remove TDE protector
-        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
 
     - name: Data protection
       items:
@@ -102,6 +104,12 @@
           href: transparent-data-encryption-azure-sql.md
         - name: TDE with Bring Your Own Key
           href: transparent-data-encryption-byok-azure-sql.md
+        - name: Configure TDE with BYOK
+          href: transparent-data-encryption-byok-azure-sql-configure.md
+        - name: Rotate TDE BYOK keys
+          href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+        - name: Remove TDE protector
+          href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
       - name: Dynamic data masking
         href: sql-database-dynamic-data-masking-get-started.md
       - name: Always encrypted
@@ -118,15 +126,6 @@
         - name: Get started with SQL Database auditing
           href: sql-database-auditing.md
 
-    - name: Network security
-      items:
-      - name: Virtual network endpoints
-        href: sql-database-vnet-service-endpoint-rule-overview.md
-      - name: Virtual network endpoints - PowerShell
-        href: sql-database-vnet-service-endpoint-rule-powershell.md
-      - name: Private Link
-        href: sql-database-private-endpoint-overview.md
-  
     - name: Security management
       items:
       - name: Advanced data security
@@ -139,19 +138,25 @@
         href: sql-database-threat-detection-overview.md
       - name: Security attributes
         href: sql-database-security-attributes.md
-      - name: Feature restrictions
-        href: sql-database-feature-restrictions.md
-
     - name: Single database security
       items:
+      - name: Network access controls
+        href: sql-database-networkaccess-overview.md
+      - name: IP-based firewall
+        href: sql-database-firewall-configure.md
+      - name: vNet firewall rules
+        items: 
+        - name: vNet endpoints
+          href: sql-database-vnet-service-endpoint-rule-overview.md
+        - name: vNet endpoints - PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Private Link
+        href: sql-database-private-endpoint-overview.md
       - name: Audit Log Format
         href: sql-database-audit-log-format.md
       - name: Conditional Access
         href: sql-database-conditional-access.md
-      - name: Server-level IP firewall rules
-        items:
-        - name: Create and manage
-          href: sql-database-firewall-configure.md      
+
 
     - name: Managed instance security
       items:
@@ -291,6 +296,8 @@
           href: sql-database-xevent-code-ring-buffer.md
     - name: Hyperscale performance diagnostics
       href: sql-database-hyperscale-performance-diagnostics.md
+    - name: Resource management in dense elastic pools
+      href: sql-database-elastic-pool-resource-management.md
 
   - name: Scalability
     items:
@@ -306,7 +313,7 @@
         href: sql-database-elastic-scale-introduction.md
       - name: Glossary
         href: sql-database-elastic-scale-glossary.md
-      - name: Elastic client library - consolidate
+      - name: Elastic client library
         href: sql-database-elastic-database-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
@@ -352,6 +359,8 @@
         href: sql-database-design-first-database-csharp.md
     - name: Load and move data
       items:
+      - name: Import or export from an Azure VM
+        href: import-export-from-vm.md
       - name: Import a database from a BACPAC file
         href: sql-database-import.md
       - name: Export a database to a BACPAC file
@@ -378,14 +387,12 @@
         href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
       - name: Use Spark Connector
         href: sql-database-spark-connector.md
-      - name: Index with Azure Search
+      - name: Index with Azure Cognitive Search
         href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
       - name: Configure temporal retention policy
         href: sql-database-temporal-tables-retention-policy.md
       - name: Authenticate app 
         href: sql-database-client-id-keys.md
-      - name: Error messages
-        href: sql-database-develop-error-messages.md
       - name: Batching for perf
         href: sql-database-use-batching-to-improve-performance.md
       - name: Connectivity guidance
@@ -519,28 +526,32 @@
       href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
-    - name: Add elastic pool to a failover group
+    - name: Add an elastic pool to a failover group
       href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Configure security
       href: sql-database-security-tutorial.md
+    - name: Stream data with Stream Analytics
+      href: sql-database-stream-analytics.md
+    - name: Migrate a SQLite database to Azure SQL Database Serverless
+      href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
 
   - name: Concepts
     items:
 
       - name: Single database resources
         items:    
-        - name: vCore-based resource limits
+        - name: vCore resource limits
           href: sql-database-vcore-resource-limits-single-databases.md  
-        - name: DTU-based resource limits
+        - name: DTU resource limits
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Scale resources
           href: sql-database-single-database-scale.md
 
       - name: Elastic pool resources
         items:
-        - name: vCore-based resource limits
+        - name: vCore resource limits
           href: sql-database-vcore-resource-limits-elastic-pools.md  
-        - name: DTU-based resource limits
+        - name: DTU resource limits
           href: sql-database-dtu-resource-limits-elastic-pools.md  
         - name: Scale resources
           href: sql-database-elastic-pool-scale.md
@@ -549,7 +560,7 @@
 
       - name: Database server resources
         items:
-        - name: Database server resource limits 
+        - name: Database resource limits 
           href: sql-database-resource-limits-database-server.md
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 
@@ -656,8 +667,6 @@
       href: sql-database-advisor-portal.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
-    - name: Troubleshoot connectivity
-      href: sql-database-troubleshoot-common-connection-issues.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
@@ -717,15 +726,16 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL managed instance
+  href:  sql-database-managed-instance-index.yml
   items:
-  - name: Managed instance documentation
-    href: sql-database-managed-instance-index.yml
   - name: Overview
-    href: sql-database-managed-instance.md
-  - name: Instance pools
-    href: sql-database-instance-pools.md
-  - name: FAQ
-    href: sql-database-managed-instance-faq.md
+    items: 
+    - name: Managed instance
+      href: sql-database-managed-instance.md
+    - name: Instance pools
+      href: sql-database-instance-pools.md
+    - name: FAQ
+      href: sql-database-managed-instance-faq.md
   - name: Quickstarts
     items:
     - name: Create
@@ -753,14 +763,18 @@
     items:
       - name: Migrate using DMS
         href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-      - name: Configure transactional replication
-        href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
       - name: Add managed instance to a failover group
         href: sql-database-managed-instance-failover-group-tutorial.md
       - name: Migrate on-premises users and groups
         href: tutorial-managed-instance-azure-active-directory-migration.md
+      - name: Transactional replication
+        items:
+        - name: MI pub to MI sub
+          href: replication-with-sql-database-managed-instance.md
+        - name: MI pub, MI dist, SQL Sub
+          href: sql-database-managed-instance-configure-replication-tutorial.md 
 
   - name: Concepts
     items:
@@ -872,9 +886,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Public data sets
-    href: sql-database-public-data-sets.md  
-  - name: Troubleshoot connectivity
-    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
+    href: sql-database-public-data-sets.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-database/
   - name: MSDN forum

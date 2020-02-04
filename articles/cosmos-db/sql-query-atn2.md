@@ -1,6 +1,6 @@
 ---
 title: ATN2 in Azure Cosmos DB query language
-description: Learn about SQL system function ATN2 in Azure Cosmos DB.
+description: Learn about how the ATN2 SQL system function in Azure Cosmos DB returns the principal value of the arc tangent of y/x, expressed in radians
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

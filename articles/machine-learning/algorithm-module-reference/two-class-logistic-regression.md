@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Logistic Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Logistic Regression module in Azure Machine Learning service to create a logistic regression model that can be used to predict two (and only two) outcomes. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Logistic Regression module in Azure Machine Learning to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 
 services: machine-learning
 ms.service: machine-learning
@@ -10,11 +10,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Two-Class Logistic Regression module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 
@@ -41,7 +41,6 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 3.  For **Optimization tolerance**, specify a threshold value to use when optimizing the model. If the improvement between iterations falls below the specified threshold, the algorithm is considered to have converged on a solution, and training stops.  
   
 4.  For **L1 regularization weight** and **L2 regularization weight**, type a value to use for the regularization parameters L1 and L2. A non-zero value is recommended for both.  
-  
      *Regularization* is a method for preventing overfitting by penalizing models with extreme coefficient values. Regularization works by adding the penalty that is associated with coefficient values to the error of the hypothesis. Thus, an accurate model with extreme coefficient values would be penalized more, but a less accurate model with more conservative values would be penalized less.  
   
      L1 and L2 regularization have different effects and uses.  
@@ -75,12 +74,11 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 ## Results
 
 After training is complete:
-
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md) and select **Visualize**.   
+ 
   
 + To make predictions on new data, use the trained model and new data as input to the [Score Model](./score-model.md) module. 
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

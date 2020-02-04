@@ -1,25 +1,20 @@
 ---
-title: List your application in the Azure Active Directory application gallery | Microsoft Docs
+title: List your app in the Azure AD application gallery | Microsoft Docs
 description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
-ms.reviewer: elisol, bryanla
+ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 
-ms.collection: M365-identity-device-management
 ---
 
 # List your application in the Azure Active Directory application gallery
@@ -43,6 +38,10 @@ This article shows how to list an application in the Azure Active Directory (Azu
 - For password SSO, make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 - You need a permanent account for testing with at least two users registered.
 
+**How to get Azure AD for developers?**
+
+You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## Submit the request in the portal
 
 After you've tested that your application integration works with Azure AD, submit your request for access in the [Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account, such as Outlook or Hotmail, to sign in.
@@ -60,6 +59,26 @@ If the following page appears after you sign in, provide a business justificatio
 Our team reviews the details and gives you access accordingly. After your request is approved, you can sign in to the portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page.
 
 ![Submit Request (ISV) tile on home page](./media/howto-app-gallery-listing/homepage.png)
+
+## Issues on logging into portal
+
+If you are seeing this error while logging in then here are the detail on the issue and this is how you can fix it.
+
+* If your sign-in was blocked as shown below:
+
+  ![issues resolving application in the gallery](./media/howto-app-gallery-listing/blocked.png)
+
+**What’s happening:**
+
+The guest user is federated to a home tenant which is also an Azure AD. The guest user is at High risk. Microsoft doesn’t allow High risk users to access its resources. All High risk users (employees or guests / vendors) must remediate / close their risk to access Microsoft resources. For guest users, this user risk comes from the home tenant and the policy comes from the resource tenant (Microsoft in this case).
+ 
+**Secure solutions:**
+
+* MFA registered guest users remediate their own user risk. This can be done by the guest user performing a secured password change or reset (https://aka.ms/sspr) at their home tenant (this needs MFA and SSPR at the home tenant). The secured password change or reset must be initiated on Azure AD and not on-prem.
+
+* Guest users have their admins remediate their risk. In this case, the admin will perform a password reset (temporary password generation). This does not need Identity Protection. The guest user’s admin can go to https://aka.ms/RiskyUsers and click on ‘Reset password’.
+
+* Guest users have their admins close / dismiss their risk. Again, this does not need Identity Protection. The admin can go to https://aka.ms/RiskyUsers and click on ‘Dismiss user risk’. However, the admin must do the due diligence to ensure this was a false positive risk assessment before closing the user risk. Otherwise, they are putting their and Microsoft’s resources at risk by suppressing a risk assessment without investigation.
 
 > [!NOTE]
 > If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -80,6 +99,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
   ![Listing a SAML 2.0 or WS-Fed application in the gallery](./media/howto-app-gallery-listing/saml.png)
 
   * If you want to add your application to list in the gallery by using **SAML 2.0** or **WS-Fed**, select **SAML 2.0/WS-Fed** as shown.
+
   * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Implement SSO by using the password SSO

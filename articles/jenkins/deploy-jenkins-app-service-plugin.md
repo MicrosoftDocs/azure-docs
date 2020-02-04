@@ -1,11 +1,7 @@
 ---
 title: Deploy to Azure App Service by using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, app service
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---

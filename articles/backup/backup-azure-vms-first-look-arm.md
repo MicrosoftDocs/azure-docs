@@ -1,12 +1,8 @@
 ---
-title: Back up an Azure VM from the VM settings with Azure Backup
-description: Learn how to back up an Azure VM with the Azure Backup service
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: Back up an Azure VM from the VM settings
+description: In this article, learn how to back up either a singular Azure VM or multiple Azure VMs with the Azure Backup service.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: dacurwin
 ---
 # Back up an Azure VM from the VM settings
 
@@ -60,10 +56,6 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
     - Until the initial backup completes, the **Last backup status** shows as **Warning (Initial backup pending)**.
     - To see when the next scheduled backup will run, click the backup policy name.
 
-> [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in “Retain instant recovery snapshot” section of the Azure Virtual Machine Backup policy. Applying a lock to this resource group can cause backup failures.<br>
-This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
-
 ## Run a backup immediately
 
 1. To run a backup immediately, in the VM menu, click **Backup** > **Backup now**.
@@ -79,6 +71,13 @@ This resource group should also be excluded from any name/tag restrictions as a 
 ## Back up from the Recovery Services vault
 
 Follow the instructions in this article to enable backup for Azure VMs by setting up an Azure Backup Recovery Services vault, and enabling backup in the vault.
+
+>[!NOTE]
+> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
+>
+>Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+>
+>**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**
 
 ## Next steps
 

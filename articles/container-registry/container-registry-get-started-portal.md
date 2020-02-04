@@ -1,14 +1,8 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure - Azure portal
-description: Quickly learn to create a private Docker container registry with the Azure portal.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Quickstart - Create registry in portal
+description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure portal
@@ -43,7 +37,7 @@ Take note of the value of the **Login server**. You use this value in the follow
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.
+Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.(Specify only Container Name. Do not include 'azurecr.io')
 
 ```azurecli
 az acr login --name <acrName>

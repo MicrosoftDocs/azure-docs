@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
+  - name: 10 - Manage VMs
     href: tutorial-govern-resources.md
     displayName: scope policy RBAC lock tag
   - name: 11 - Track and update VMs
@@ -141,7 +141,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -151,10 +151,12 @@
     - name: Co-location
       href: co-location.md
     - name: Network performance
-      href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: VM types and sizes
-    href: sizes.md
+    href: 
     items:
+    - name: Size families
+      href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -182,11 +184,23 @@
       items:
       - name: GPU optimized
         href: sizes-gpu.md
-      - name: Setup GPU drivers
-        href: n-series-driver-setup.md      
+      - name: Setup NVIDIA GPU drivers
+        href: n-series-driver-setup.md
+      - name: Setup AMD GPU drivers
+        href: n-series-amd-driver-setup.md      
     - name: High performance compute
       displayName: H-series
       href: sizes-hpc.md   
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: prepay-reserved-vm-instances.md
+      - name: What are Azure reservations?
+        href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+    - name: Spot VMs
+      href: spot-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md  
       displayName: D-series Ds-series A-series Basic      
@@ -209,7 +223,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: maintenance-and-updates.md
+    href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Disk storage
     items:
     - name: Introduction to managed disks
@@ -218,8 +232,12 @@
       href: disks-types.md
     - name: Encryption
       href: disk-encryption.md
+    - name: Disk Storage reservations
+      href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Designing for high performance
       href: premium-storage-performance.md
+    - name: Disk bursting
+      href: disk-bursting.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -229,7 +247,7 @@
   - name: Networking
     href: network-overview.md
   - name: Scale sets
-    href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Security
@@ -258,6 +276,16 @@
         href: dedicated-hosts-powershell.md
       - name: Portal
         href: dedicated-hosts-portal.md
+    - name: Deploy spot VMs
+      items:
+      - name: Portal
+        href: spot-portal.md
+      - name: PowerShell
+        href: spot-powershell.md
+      - name: Template
+        href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Error codes
+        href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk
@@ -318,7 +346,7 @@
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
-      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../role-based-access-control/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -326,25 +354,25 @@
   - name: Protect VMs
     items:
     - name: Back up VMs
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
       - name: Back up a single VM
-        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Back up multiple VMs
-        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Restore a disk
-        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/tutorial-restore-disk.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Restore individual files
-        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/tutorial-restore-files.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Set up disaster recovery for VMs
-      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../site-recovery/site-recovery-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
       - name: Enable disaster recovery for a VM
-        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Run a disaster recovery drill for a VM
-        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Fail over a VM to another region
-        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Manage VMs
     items:
     - name: VM usage
@@ -374,18 +402,34 @@
       href: download-template.md
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
-    - name: Planned maintenance
-      href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Scheduled events
-      href: scheduled-events.md
-    - name: Monitor scheduled events
-      href: scheduled-event-service.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
+  - name: Platform maintenance
+    items: 
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: CLI
+        href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Maintenance control
+      items:
+      - name: PowerShell
+        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: CLI
+        href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Scheduled events
+      href: scheduled-events.md
+    - name: Windows scheduled event service
+      href: scheduled-event-service.md
   - name: Monitor VMs
     items:
     - name: Azure Monitor for VMs
@@ -405,15 +449,15 @@
       - name: Portal
         href: shared-images-portal.md
       - name: CLI
-        href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      - name: Share images across tenants
+        href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: App registration for sharing
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Image builder (preview)
       items:
       - name: Overview
-        href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Use Azure CLI 
         href: image-builder.md
       - name: Build for image galleries
@@ -421,9 +465,9 @@
       - name: Update an existing image
         href: image-builder-gallery-update-image-version.md
       - name: Store scripts
-        href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Template reference
-        href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Troubleshoot 
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
@@ -443,11 +487,15 @@
   - name: Availability and scale
     items:
     - name: Virtual Machine Scale Sets
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: High availability
       href: manage-availability.md
     - name: Create a proximity placement group
-      href: proximity-placement-groups.md    
+      items:
+      - name: Portal
+        href: proximity-placement-groups-portal.md   
+      - name: PowerShell
+        href: proximity-placement-groups.md   
     - name: Vertically scale
       items:
       - name: PowerShell
@@ -505,6 +553,8 @@
       href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
     - name: Create an incremental snapshot
       href: disks-incremental-snapshots.md
     - name: Back up unmanaged disks
@@ -537,7 +587,7 @@
     href: ps-common-network-ref.md
     items:
     - name: Create virtual network
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Open ports to a VM
       items:
       - name: Azure portal
@@ -545,15 +595,15 @@
       - name: Azure PowerShell
         href: nsg-quickstart-powershell.md
     - name: Assign public IP address
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Use multiple NICs
       href: multiple-nics.md
     - name: Use accelerated networking
-      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
     - name: DNS resolution
-      href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Configure managed identities
     items:
     - name: Portal
@@ -575,9 +625,9 @@
     - name: Change subscription or resource group
       href: move-vm.md
     - name: Move regions
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Move to an availability zone
-      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migrate AWS and on-premises VMs
       href: on-prem-to-azure.md
       items:
@@ -586,7 +636,7 @@
       - name: From Amazon Web Services (AWS)
         href: aws-to-azure.md
       - name: Use Azure Site Recovery
-        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migrate from Classic to Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
@@ -628,7 +678,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap

@@ -1,9 +1,9 @@
 ---
 title: Generate security token to access IoT Plug and Play Preview repository | Microsoft Docs
 description: Generate a shared access signature token to use when you access an IoT Plug and Play Preview model repository programmatically.
-author: YasinMSFT
-ms.author: yahajiza
-ms.date: 08/06/2019
+author: Philmea
+ms.author: philmea
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp

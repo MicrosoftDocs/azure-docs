@@ -1,7 +1,7 @@
 ---
 title:  "Score Model: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Score Model module in Azure Machine Learning service to generate predictions using a trained classification or regression model.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Score Model module in Azure Machine Learning to generate predictions using a trained classification or regression model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Score Model module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to generate predictions using a trained classification or regression model.
 
@@ -45,7 +45,6 @@ The score, or predicted value, can be in many different formats, depending on th
 
 A common use of scoring is to return the output as part of a predictive web service. For more information, see this tutorial on how to create a web service based on a pipeline in Azure Machine Learning:
 
-
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

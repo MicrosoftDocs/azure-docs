@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub glossary of terms | Microsoft Docs
-description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
+description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT Hub articles.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -45,7 +45,7 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 [Azure PowerShell](/powershell/azure/overview) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
 
 ## Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete the resources for your solution in a single, coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete the resources for your solution in a single, coordinated operation.
 
 ## Azure Service Bus
 [Service Bus](../service-bus/index.md) provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. Some IoT Hub tutorials make use Service Bus [queues](../service-bus-messaging/service-bus-messaging-overview.md).

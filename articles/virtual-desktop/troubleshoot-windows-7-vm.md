@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop - Azure
+title: Windows 7 virtual machines Windows Virtual Desktop - Azure
 description: How to resolve issues for Windows 7 virtual machines (VMs) in a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr

@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-> [!Note]
+> [!NOTE]
 > If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
 
 ## Create a resource group
@@ -61,8 +61,8 @@ The following example output shows the resource group created successfully:
 
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.  This will take several minutes to complete.
 
-> [NOTE]
-> When creating an AKS cluster a second resouce group is automatically created to store the AKS resources. For more information see [Why are two resource groups created with AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> [!NOTE]
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. For more information see [Why are two resource groups created with AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys

@@ -1,23 +1,12 @@
 ---
-title: 'Quickstart: Create Python app on Linux - Azure App Service'
-description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Quickstart: Create a Linux Python app'
+description: Get started with Linux apps on Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seo-python-october2019
 
-experimental: false
-experiment_id: 1e304dc9-5add-4b
+experimental: true
+experiment_id: 01a9132f-eaab-4c
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
@@ -58,7 +47,7 @@ In a terminal window, use the commands below (as appropriate for your operating 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py
+export FLASK_APP=application.py
 flask run
 ```
 
@@ -86,7 +75,7 @@ flask run
 
 Open a web browser, and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello World!**.
 
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 In your terminal window, press **Ctrl**+**C** to exit the web server.
 
@@ -104,7 +93,7 @@ az login
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
 
-In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
+In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
 
 ```terminal
@@ -203,17 +192,19 @@ To stop log streaming at any time, type `Ctrl`+`C`.
 
 ## Manage the Azure app
 
-You manage the app you created in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. 
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created. Search for and select **App Services**.
 
-From the left menu, select **App Services**, and then select the name of your Azure app.
+![Navigate to App Services in the Azure portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Select the name of your Azure app.
 
 ![Navigate to your Python app in App Services in the Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Your app's Overview page then appears. On this page you can perform basic management tasks like browse, stop, start, restart, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![Manage your Python app in the Overview page in the Azure portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-The left menu provides different pages for configuring your app. 
+The App Service menu provides different pages for configuring your app.
 
 ## Clean up resources
 

@@ -1,14 +1,8 @@
 ---
-title: Set environment variables in Azure Container Instances
+title: Set environment variables in container instance
 description: Learn how to set environment variables in the containers you run in Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
 ---
 # Set environment variables in container instances
 

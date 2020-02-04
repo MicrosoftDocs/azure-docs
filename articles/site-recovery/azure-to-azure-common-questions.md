@@ -1,17 +1,15 @@
 ---
-title: Common questions about Azure-to-Azure disaster recovery with Azure Site Recovery
-description: This article answers common questions about disaster recovery of Azure VMs to another Azure region using Azure Site Recovery
-author: asgang
+title: Common questions about Azure VM disaster recovery with Azure Site Recovery
+description: This article answers common questions about Azure VM disaster recovery using Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
 
-This article provides answers to common questions about disaster recovery of Azure VMs to another Azure region by using [Site Recovery](site-recovery-overview.md). 
+This article provides answers to common questions about disaster recovery of Azure VMs to another Azure region by using [Site Recovery](site-recovery-overview.md).
 
 
 ## General
@@ -23,7 +21,7 @@ Every instance that is protected with Azure Site Recovery is free for the first 
 ### During the first 31 days, will I incur any other Azure charges?
 Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions and data transfer. A recovered virtual machine might also incur Azure compute charges. Get complete details on pricing [here](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### Where can I find best practices for Azure VM disaster recovery? 
+### Where can I find best practices for Azure VM disaster recovery?
 1. [Understand Azure-to-Azure architecture](azure-to-azure-architecture.md)
 2. [Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)
 3. [Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)
@@ -40,7 +38,7 @@ The Site Recovery team works with the Azure capacity management team to plan suf
 Yes, Site Recovery supports disaster recovery of VMs with Azure disk encryption (ADE) enabled. When you enable replication, all the required disk encryption keys and secrets are copied from the source region to the target region in the user context. If you don't have appropriate permission, a ready-to-use script can be handed to the security administrator, to copy the keys and secrets.
 
 - Site Recovery supports ADE for Azure VMs running Windows.
-- Site recovery supports ADE version 0.1, with a schema using Azure Active Directory (AAD), and version 1.1, without AAD. [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site Recovery supports ADE version 0.1, with a schema using Azure Active Directory (AAD), and version 1.1, without AAD. [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
 - ADE version 1.1, the Windows VMs must be used managed disks.
 - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 

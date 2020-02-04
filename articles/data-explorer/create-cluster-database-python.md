@@ -1,8 +1,8 @@
 ---
 title: 'Create an Azure Data Explorer cluster and database by using Python'
 description: Learn how to create an Azure Data Explorer cluster and database by using Python.
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
@@ -105,13 +105,16 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 	databaseName="mykustodatabase"
 	
 	database_operations = kusto_management_client.databases	
-	_database = Database(location=location,
+	_database = ReadWriteDatabase(location=location,
 						soft_delete_period=softDeletePeriod,
 						hot_cache_period=hotCachePeriod)
 	
 	#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
     poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
+
+        [!NOTE]
+        If you are using Python version 0.4.0 or below, use Database instead of ReadWriteDatabase.
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|

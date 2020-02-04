@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -18,7 +18,7 @@ This article walks through all the steps needed to forward edge events to Event 
 * React to edge events in the cloud.
 * Forward events to Event Grid in the cloud and use Azure Event Hubs or Azure Storage queues to buffer events before processing them in the cloud.
 
-To complete this tutorial, you need have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md).
+ To complete this tutorial, you need have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md). For additional destination types, see [event handlers](event-handlers.md). 
 
 ## Prerequisites 
 In order to complete this tutorial, you will need:
@@ -78,6 +78,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
   
 ## Create Event Grid subscription at the edge
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Create subscription3.json with the following content. See our [API documentation](api.md) for details about the payload.
 
@@ -97,7 +98,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
    ```
 
    >[!NOTE]
-   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will be used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid domain topic. For more information about Event Grid domain topic, see [Event domains]](../event-domains.md)
+   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will be used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid domain topic. For more information about Event Grid domain topic, see [Event domains](../event-domains.md)
 
     For example,
   
@@ -193,5 +194,7 @@ For information on viewing events delivered by the cloud topic, see the [tutoria
 
 In this tutorial, you published an event on the edge and forwarded to Event Grid in the Azure cloud. Now that you know the basic steps to forward to Event Grid in cloud:
 
+* To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 * Forward events to IoTHub by following this [tutorial](forward-events-iothub.md)
 * Forward events to Webhook in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
+* [Monitor topics and subscriptions on the edge](monitor-topics-subscriptions.md)

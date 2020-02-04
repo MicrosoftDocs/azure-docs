@@ -25,44 +25,45 @@ You can create a basic group and add your members at the same time.
 ### To create a basic group and add members
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
-2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
+1. Search for and select **Azure Active Directory**.
+
+    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/search-active-directory.png)
+
+1. On the **Active Directory** page, select **Groups** and then select **New group**.
 
     ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-3. In the **Group** page, fill out the required information.
+1. In the **New Group** page, fill out the required information.
 
     ![New group page, filled out with example info](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
    - **Group type (required).** Select a pre-defined group type. This includes:
-        
-       - **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
-        
-       - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+               - **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
+               - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
    - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense. A check will be performed to determine if the name is already used for another group. If the name is already in use, to avoid duplicate naming, you'll be asked to modify the name of your group.
+
+   - **Group email address (required).** Add an email address for the group, or keep the email address that is filled in automatically.
 
    - **Group description.** Add an optional description to your group.
 
    - **Membership type (required).** Select a pre-defined membership type. This includes:
+          - **Assigned.** Lets you add specific users to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
+          - **Dynamic user.** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+          - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
-     - **Assigned.** Lets you add specific users to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
+        >[!Important]
+        >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md).
 
-     - **Dynamic user.** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
-
-     - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
-
-       >[!Important]
-       >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md).
-
-4. Select **Create**.
+1. Select **Create**.
 
     Your group is created and ready for you to add members.
 
-5. Select the **Members** area from the **Group** page, and then begin searching for the members to add to your group from the **Select members** page.
+1. Select the **Members** area from the **Group** page, and then begin searching for the members to add to your group from the **Select members** page.
 
     ![Selecting members for your group during the group creation process](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
 
-6. When you're done adding members, choose **Select**.
+1. When you're done adding members, choose **Select**.
 
     The **Group Overview** page updates to show the number of members who are now added to the group.
 

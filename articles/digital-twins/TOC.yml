@@ -67,14 +67,14 @@
       href: how-to-navigate-apis.md
     - name: Common query patterns
       href: how-to-query-common-apis.md
-  - name: Register your app with legacy AAD
-    href: how-to-use-legacy-aad.md
 - name: Reference
   items:
   - name: User-defined functions client library
     href: reference-user-defined-functions-client-library.md
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure Digital Twins samples for C# (.NET)
     href: https://github.com/Azure-Samples/digital-twins-samples-csharp 
   - name: Azure Digital Twins REST API
@@ -95,4 +95,31 @@
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT solution accelerators
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: /azure/iot-central/iot-support-help
+  - name: Platform services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Maps
+      href: /azure/azure-maps
+    - name: Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge solutions
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 

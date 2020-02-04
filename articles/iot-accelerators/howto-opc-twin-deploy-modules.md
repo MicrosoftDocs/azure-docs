@@ -1,6 +1,6 @@
 ---
 title: How to deploy OPC Twin module for Azure from scratch | Microsoft Docs
-description: How to deploy OPC Twin from scratch.
+description: This article describes how to deploy OPC Twin from scratch using the Azure portal's IoT Edge blade and also using AZ CLI.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018

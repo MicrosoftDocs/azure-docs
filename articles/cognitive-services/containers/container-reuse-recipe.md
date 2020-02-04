@@ -1,14 +1,14 @@
 ---
 title: Recipes for Docker containers
 titleSuffix: Azure Cognitive Services
-description: Use these container recipes to create Cognitive Services Containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started. Once you have this new layer of container (with settings), and you have tested it locally, you can store the container in a container registry. When the container starts, it will only need those settings that are not currently stored in the container.
+description: Learn how to build, test, and store containers with some or all of your configuration settings for deployment and reuse.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: conceptual 
-ms.date: 06/26/2019
+ms.topic: conceptual
+ms.date: 01/23/2020
 ms.author: dapine
 #As a potential customer, I want to know how to configure containers so I can reuse them.
 

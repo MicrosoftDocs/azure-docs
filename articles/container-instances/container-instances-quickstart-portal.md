@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Docker container to Azure Container Instances - Portal
+title: Quickstart - Deploy Docker container to container instance - Portal
 description: In this quickstart, you use the Azure portal to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
 author: dlepow

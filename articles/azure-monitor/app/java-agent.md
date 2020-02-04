@@ -1,5 +1,5 @@
 ---
-title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
+title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 ms.service:  azure-monitor
 ms.subservice: application-insights

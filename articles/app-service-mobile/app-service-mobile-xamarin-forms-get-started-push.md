@@ -1,20 +1,12 @@
 ---
-title: Add push notifications to your Xamarin.Forms app | Microsoft Docs
+title: Add push notifications to your Xamarin.Forms app
 description: Learn how to use Azure services to send multi-platform push notifications to your Xamarin.Forms apps.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Add push notifications to your Xamarin.Forms app
 
@@ -204,8 +196,9 @@ With the back end configured with FCM, you can add components and codes to the c
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
-            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
+            //Unique request code to avoid PendingIntent collision.
+            var requestCode = new Random().Next();
+            var pendingIntent = PendingIntent.GetActivity(this, requestCode, intent, PendingIntentFlags.OneShot);
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                 .SetContentTitle("New Todo Item")

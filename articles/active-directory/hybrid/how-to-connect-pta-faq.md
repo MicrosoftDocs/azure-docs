@@ -163,7 +163,7 @@ A: Under the following circumstances your on-premises UPN changes may not synchr
 
 This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
 

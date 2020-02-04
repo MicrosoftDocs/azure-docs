@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Build a web app using the Azure API for Mongo DB and Java SDK - Azure Cosmos DB'
-description: Presents a Java code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
+title: 'Quickstart: Build a web app using the Azure Cosmos DB API for Mongo DB and Java SDK'
+description: Learn to build a Java code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db

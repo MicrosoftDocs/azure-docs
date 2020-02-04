@@ -1,18 +1,9 @@
 ---
-title: Create C# ASP.NET Framework web app - Azure App Service | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-
+title: 'QuickStart: Create a C# ASP.NET app'
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app template from Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 10/21/2019
-ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.custom: seodec18
 
@@ -128,9 +119,11 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
+1. To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-2. From the left menu, select **App Services**, and then select the name of your Azure app.
+   ![Select App services](./media/app-service-web-get-started-dotnet-framework/app-services.png)
+
+2. On the **App Services** page, select the name of your web app.
 
    ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 

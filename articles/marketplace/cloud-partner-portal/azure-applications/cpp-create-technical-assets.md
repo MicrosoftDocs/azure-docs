@@ -4,6 +4,7 @@ description: Create the technical assets for an Azure application offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pabutler

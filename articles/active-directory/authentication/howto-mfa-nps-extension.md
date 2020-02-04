@@ -1,15 +1,15 @@
 ---
-title: Use existing NPS servers to provide Azure MFA capabilities - Azure Active Directory
+title: Provide Azure MFA capabilities using NPS - Azure Active Directory
 description: Add cloud-based two-step verification capabilities to your existing authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -65,9 +65,9 @@ The Microsoft Azure Active Directory Module for Windows PowerShell is installed,
 
 Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be registered for MFA.
 
-When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
+When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator. Search for and select the **Azure Active Directory**, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
 
-![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/find-directory-id.png)
+![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
 ### Network requirements
 
@@ -116,7 +116,7 @@ If you need to kick off a new round of synchronization, us the instructions in [
 There are two factors that affect which authentication methods are available with an NPS extension deployment:
 
 1. The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
-   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code.
+   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** and **EAP** support phone call and mobile app notification.
 
       > [!NOTE]
@@ -189,6 +189,23 @@ If your previous computer certificate has expired, and a new certificate has bee
 
 > [!NOTE]
 > If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+
+### Microsoft Azure Government additional steps
+
+For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server:
+
+1. Open **Registry Editor** on the NPS server.
+1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
+
+    | Registry key       | Value |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Repeat the previous two steps to set the registry key values for each NPS server.
+1. Restart the NPS service for each NPS server.
+
+    For minimal impact, take each NPS server out of the NLB rotation one at a time and wait for all connections to drain.
 
 ### Certificate rollover
 
@@ -270,7 +287,7 @@ Valid-From and Valid-Until timestamps, which are in human-readable form, can be 
 
 ---
 
-### Why cant I sign in?
+### Why cannot I sign in?
 
 Check that your password hasn't expired. The NPS Extension does not support changing passwords as part of the sign-in workflow. Contact your organization's IT Staff for further assistance.
 

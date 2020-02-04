@@ -49,11 +49,11 @@ landingContent:
           - text: Create your first function (Java)
             url: functions-create-first-java-maven.md
           - text: Create your first function (JavaScript)
-            url: functions-create-first-function-vs-code.md
+            url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
           - text: Create your first function (PowerShell)
-            url: functions-create-first-function-powershell.md
+            url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
           - text: Create your first function (Python)
-            url: functions-create-first-function-python.md
+            url: functions-create-first-function-vs-code.md?pivots=programming-language-python
       - linkListType: learn
         links:
           - text: Create serverless logic
@@ -82,8 +82,11 @@ landingContent:
             url: functions-bindings-error-pages.md
       - linkListType: learn
         links:
-          - text: Develop/test/deploy with Visual Studio
+          - text: Develop functions using Visual Studio
             url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
+          - text: Develop functions from the command line
+            url: /learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
+        
       - linkListType: video
         links:
           - text: Develop with Visual Studio Code

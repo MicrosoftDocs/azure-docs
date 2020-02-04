@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
+  - name: 10 - Manage VMs
     href: tutorial-govern-resources.md
   - name: 11 - Track and update VMs
     href: tutorial-config-management.md
@@ -41,10 +41,14 @@
     href: tutorial-monitor.md
   - name: 13 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 14 - Deploy Jenkins
+  - name: 14a - Build with Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 15 - CI/CD with Azure Pipelines
+  - name: 14b - Integrate Jenkins with Azure DevOps
     href: tutorial-build-deploy-jenkins.md
+  - name: 15a - DevOps for IaaS and PaaS on Azure
+    href: tutorial-devops-azure-pipelines-classic.md
+  - name: 15b - CI/CD with Azure Pipelines(YAML)
+    href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
   - name: 16b - Create LEMP stack
@@ -62,7 +66,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -72,10 +76,11 @@
     - name: Co-location
       href: co-location.md
     - name: Network performance
-      href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: VM types and sizes
-    href: sizes.md
     items:
+    - name: Size families
+      href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -103,6 +108,16 @@
         href: n-series-driver-setup.md
     - name: High performance compute
       href: sizes-hpc.md
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: prepay-reserved-vm-instances.md
+      - name: What are Azure reservations?
+        href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+    - name: Spot VMs
+      href: spot-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md
     - name: Isolated sizes
@@ -126,7 +141,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: maintenance-and-updates.md
+    href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Disk storage
     items:
     - name: Introduction to managed disks
@@ -135,8 +150,12 @@
       href: disks-types.md
     - name: Encryption
       href: disk-encryption.md
+    - name: Disk Storage reservations
+      href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Designing for high performance
       href: premium-storage-performance.md
+    - name: Disk bursting
+      href: disk-bursting.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -146,7 +165,7 @@
   - name: Networking
     href: network-overview.md
   - name: Scale sets
-    href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Security
@@ -184,6 +203,16 @@
         href: dedicated-hosts-cli.md
       - name: Portal
         href: dedicated-hosts-portal.md
+    - name: Deploy spot VMs
+      items:
+      - name: CLI
+        href: spot-cli.md
+      - name: Portal
+        href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+      - name: Template
+        href: spot-template.md
+      - name: Error codes
+        href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -217,7 +246,7 @@
           - name: Disk encryption scenarios for Linux
             href: disk-encryption-linux-aad.md
     - name: Use access controls
-      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../role-based-access-control/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -233,25 +262,25 @@
   - name: Protect VMs
     items:
     - name: Back up VMs
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
       - name: Back up a single VM
-        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Back up multiple VMs
-        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Restore a disk
-        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/tutorial-restore-disk.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Restore individual files
-        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../backup/tutorial-restore-files.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Set up disaster recovery for VMs
-      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../site-recovery/site-recovery-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
       - name: Enable disaster recovery for a VM
-        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Run a disaster recovery drill for a VM
-        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Fail over a VM to another region
-        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Manage VMs
     items:
     - name: VM usage
@@ -296,16 +325,32 @@
         href: ../extensions/agent-linux.md
       - name: Agent update
         href: update-agent.md
-    - name: Planned maintenance
-      href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Scheduled events
-      href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
+  - name: Platform maintenance
+    items: 
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: CLI
+        href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Maintenance control
+      items:
+      - name: CLI
+        href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Scheduled events
+      href: scheduled-events.md
   - name: Monitor VMs
     items:
     - name: Azure Monitor for VMs
@@ -324,7 +369,7 @@
         href: shared-images.md
       - name: Portal
         href: shared-images-portal.md
-      - name: Share images across tenants
+      - name: App registration for sharing
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
@@ -375,11 +420,17 @@
   - name: Availability and scale
     items:
     - name: Autoscale
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: High availability
       href: manage-availability.md
+    - name: Change availability set
+      href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Create a proximity placement group
-      href: proximity-placement-groups.md 
+      items: 
+      - name: CLI
+        href: proximity-placement-groups.md 
+      - name: Portal
+        href: ../windows/proximity-placement-groups-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json 
     - name: Create VM in availability zone
       href: create-cli-availability-zone.md
   - name: Use automation tools
@@ -442,7 +493,7 @@
       - name: Deploy your first app
         href: cloudfoundry-deploy-your-first-app.md
     - name: Cassandra
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: OpenShift
       items:
       - name: OpenShift overview
@@ -508,6 +559,8 @@
       href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
     - name: Create an incremental snapshot
       href: disks-incremental-snapshots.md
     - name: Back up unmanaged disks
@@ -545,15 +598,15 @@
   - name: Manage networking
     items:
     - name: Create virtual network
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Open ports to a VM
       href: nsg-quickstart.md
     - name: Assign public IP address
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Use multiple NICs
       href: multiple-nics.md
     - name: Use accelerated networking
-      href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
     - name: Find and delete unattached NICs
@@ -585,18 +638,18 @@
     - name: Change subscription or resource group
       href: move-vm.md
     - name: Move VMs to another region
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Move to an availability zone
-      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Migrate AWS and on-premises VMs
-      href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../windows/on-prem-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
-        href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../windows/aws-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Upload on-prem VM
         href: upload-vhd.md
       - name: Use Azure Site Recovery
-        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Migrate from Classic to Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
@@ -609,7 +662,7 @@
       - name: Common migration errors
         href: migration-classic-resource-manager-errors.md
       - name: Community tools for migration
-        href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
 - name: Reference

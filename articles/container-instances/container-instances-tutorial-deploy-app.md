@@ -1,14 +1,8 @@
 ---
-title: Tutorial - Deploy container app to Azure Container Instances
+title: Tutorial - Deploy container app to container instance
 description: Azure Container Instances tutorial part 3 of 3 - Deploy container application to Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
@@ -33,7 +27,9 @@ In this section, you use the Azure CLI to deploy the image built in the [first t
 
 ### Get registry credentials
 
-When you deploy an image that's hosted in a private container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply credentials to access the registry. As shown in [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md), a best practice for many scenarios is to create and configure an Azure Active Directory service principal with *pull* permissions to your registry. See that article for sample scripts to create a service principal with the necessary permissions. Take note of the service principal ID and service principal password. You use these credentials when you deploy the container.
+When you deploy an image that's hosted in a private Azure container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply credentials to access the registry. 
+
+A best practice for many scenarios is to create and configure an Azure Active Directory service principal with *pull* permissions to your registry. See [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md) for sample scripts to create a service principal with the necessary permissions. Take note of the *service principal ID* and *service principal password*. You use these credentials to access the registry when you deploy the container.
 
 You also need the full name of the container registry login server (replace `<acrName>` with the name of your registry):
 

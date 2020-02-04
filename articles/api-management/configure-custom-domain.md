@@ -1,6 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Configure a custom domain name for your Azure API Management instance | Microsoft Docs
+title: Configure custom domain name for Azure API Management instance
+titleSuffix: Azure API Management
 description: This topic describes how to configure a custom domain name for your Azure API Management instance.
 services: api-management
 documentationcenter: ''
@@ -11,16 +12,19 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
 ---
 
 # Configure a custom domain name
 
-When you create an Azure API Management service instance, Azure assigns it a subdomain of azure-api.net (for example, `apim-service-name.azure-api.net`). However, you can expose your API Management endpoints using your own custom domain name, such as **contoso.com**. This tutorial shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
+When you create an Azure API Management service instance, Azure assigns it a subdomain of `azure-api.net` (for example, `apim-service-name.azure-api.net`). However, you can expose your API Management endpoints using your own custom domain name, such as **contoso.com**. This tutorial shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
+
+> [!IMPORTANT]
+> API Management accepts only requests with [host header](https://tools.ietf.org/html/rfc2616#section-14.23) values matching the default domain name or any of the configured custom domain names.
 
 > [!WARNING]
-> Customers who wish to use certificate pinning to improve the security of their applications must use a custom domain name > and certificate which they manage, not the default certificate. Customers that pin the default certificate instead will be > taking a hard dependency on the properties of the certificate they don't control, which is not a recommended practice.
+> Customers who wish to use certificate pinning to improve the security of their applications must use a custom domain name > and certificate which they manage, not the default certificate. Customers that pin the default certificate instead will be taking a hard dependency on the properties of the certificate they don't control, which is not a recommended practice.
 
 ## Prerequisites
 
@@ -85,7 +89,7 @@ When configuring DNS for your custom domain name, you have two options:
 -   Configure an A-record that points to your API Management gateway IP address.
 
 > [!NOTE]
-> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Mananagement FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## Next steps
 

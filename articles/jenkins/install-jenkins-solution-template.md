@@ -1,11 +1,7 @@
 ---
 title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
-ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtual machine, solution template
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
 ---
@@ -28,7 +24,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 ## Connect to Jenkins
 
-Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
+Navigate to your virtual machine (for example, `http://jenkins2517454.eastus.cloudapp.azure.com/`) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

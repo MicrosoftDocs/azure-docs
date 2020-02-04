@@ -1,5 +1,5 @@
 ---
-title: "Best practices for Azure SQL Data Sync | Microsoft Docs"
+title: Best practices for Data Sync
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database
@@ -211,6 +211,14 @@ Don't attempt to remove a database from a sync group and then edit the sync grou
 Instead, first remove a database from a sync group. Then, deploy the change and wait for deprovisioning to finish. When deprovisioning is finished, you can edit the sync group and deploy the changes.
 
 If you attempt to remove a database and then edit a sync group without first deploying one of the changes, one or the other operation fails. The portal interface might become inconsistent. If this happens, refresh the page to restore the correct state.
+
+### Avoid schema refresh timeout
+
+If you have a complex schema to sync, you may encounter an "operation timeout" during a schema refresh if the sync metadata database has a lower SKU (example: basic). 
+
+#### Solution
+
+To mitigate this issue, please scale up your sync metadata database to have a higher SKU, such as S3. 
 
 ## Next steps
 For more information about SQL Data Sync, see:

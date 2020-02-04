@@ -1,56 +1,102 @@
 ---
-title: Azure Migrate appliance architecture | Microsoft Docs
-description: Provides an overview of the Azure Migrate appliance
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Azure Migrate appliance 
+description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 07/04/2019
-ms.author: raynew
+ms.date: 11/19/2019
 ---
 
 
 # Azure Migrate appliance
 
-This article describes the Azure Migrate appliance. You deploy the appliance when you use Azure Migrate Assessment and Migration tools to discover, assess and migrate apps, infrastructure, and workloads to Microsoft Azure. 
-
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
-
-
+This article describes the Azure Migrate appliance. You deploy the appliance when you use [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool to discover and assess apps, infrastructure, and workloads for migration to Microsoft Azure. The appliance is also used when you migrate VMware VMs to Azure using [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-migration-tool) with [agentless migration](server-migrate-overview.md).
 
 ## Appliance overview
 
-The Azure Migrate appliance types and usage are as follows.
+The Azure Migrate appliance is used in the following scenarios.
 
-**Deployed as** | **Used for** | **Details**
---- | --- |  ---
-VMware VM | VMware VM assessment with the Azure Migrate Assessment tool.<br/><br/> VMware VM agentless migration with the Azure Migrate Server Migration tool | Download OVA template and import to vCenter Server to create the appliance VM.
-Hyper-V VM | Hyper-V VM assessment with the Azure Migrate Assessment tool. | Download zipped VHD and import to Hyper-V to create the appliance VM.
+**Scenario** | **Tool** | **Used for** 
+--- | --- | ---
+VMware VM | Azure Migrate: Server Assessment<br/><br/> Azure Migrate: Server Migration | Discover VMware VMs<br/><br/> Discover machine apps and dependencies<br/><br/> Collect machine metadata and performance metadata for assessments.<br/><br/> Replicate VMware VMs with agentless migration.
+Hyper-V VM | Azure Migrate: Server Assessment | Discover Hyper-V VMs<br/><br/> Collect machine metadata and performance metadata for assessments.
+Physical machine |  Azure Migrate: Server Assessment |  Discover physical servers<br/><br/> Collect machine metadata and performance metadata for assessments.
 
-## Appliance access
+## Appliance - VMware 
 
-After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: `https://<appliance-ip-or-name>:44368`.
-
-## Appliance license
-The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
-
-## Appliance agents
-The appliance has these agents installed.
-
-**Agent** | **Details**
+**Requirement** | **VMware** 
 --- | ---
-Discovery agent | Gathers configuration data of on-premise virtual machines
-Assessment agent | Profiles the on-premises environment to collect VM performance data.
-Migration adapter | Orchestrates VM replication, and coordinates communication between VMs and Azure.
-Migration gateway | Sends replicated VM data to Azure.
+**Download format** | .OVA 
+**Download link** | https://aka.ms/migrate/appliance/vmware 
+**Download size** | 11.2 GB
+**License** | The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
+**Deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance can connect to a single vCenter Server.
+**Hardware** | Resources on vCenter to allocate a VM with 32-GB RAM 8 vCPUs, around 80 GB of disk storage, and an external virtual switch. 
+**Hash value** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256: 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**vCenter server/host** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.<br/><br/> vCenter Server running 5.5, 6.0, 6.5, or 6.7.
+**Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
+**Discovery** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
+**Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/> DRA: Orchestrates VM replication, and coordinates communication between machines/Azure.<br/> Gateway: Sends replicated data to Azure.<br/> Auto update service: Update components (runs every 24 hours).
+**VDDK (agentless migration)** | If you're running an agentless migration with Azure Migrate Server Migration, the VMware vSphere VDDK must be installed on the appliance VM.
 
 
-## Appliance deployment requirements
+## Appliance - Hyper-V
 
-- [Review](migrate-support-matrix-vmware.md#assessment-appliance-requirements) the deployment requirements for a VMware appliance, and the URLs that the appliance needs to access.
-- [Review](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) the deployment requirements for a Hyper-V appliance, and the URLs that the appliance  needs to access.
+**Requirement** | **Hyper-V** 
+--- | ---
+**Download format** | Zipped folder (With VHD)
+**Download link** | https://aka.ms/migrate/appliance/hyperv 
+**Download size** | 10 GB
+**License** | The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
+**Appliance deployment**   |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/> The Hyper-V host must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
+**Hardware** | Resources on Hyper-V host to allocate 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.
+**Hash value** | MD5: 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256: 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Hyper-V host** | Running Windows Server 2012 R2 or later.
+**Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
+**Discovery** | An appliance can discover up to 5000 VMware VMs on a vCenter Server.<br/> An appliance can connect to up to 300 Hyper-V hosts.
+**Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/>  Auto update service: Update components (runs every 24 hours).
 
 
-## Collected performance data-VMware
+## Appliance - Physical
+
+**Requirement** | **Physical** 
+--- | ---
+**Download format** | Zipped folder (with PowerShell installer script)
+**Download link** | [Download link](https://go.microsoft.com/fwlink/?linkid=2105112)
+**Download size** | 59.7 MB
+**Hardware** | Dedicated physical machine, or VM. The machine running appliance needs 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch.<br/> The appliance needs a static or dynamic IP address, and internet access.
+**Hash value** | MD5: 1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Software** | Appliance machine should run Windows Server 2016. 
+**Appliance deployment**   |  The appliance installer script is downloaded from the portal (in a zipped folder). <br/> You unzip the folder, and run the PowerShell script (AzureMigrateInstaller.ps1).
+**Discovery** | An appliance can discover up to 250 physical servers.
+**Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/>  Auto update service: Update components (runs every 24 hours).
+
+
+## URL access
+
+The Azure Migrate appliance needs connectivity to the internet.
+
+- When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
+- If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
+
+**URL** | **Details**  
+--- | --- |
+*.portal.azure.com  | Navigate to the Azure portal.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Sign in to your Azure subscription.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with Azure Migrate.
+management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.vault.azure.net | Manage secrets in the Azure Key Vault.
+aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
+download.microsoft.com/download | Allow downloads from Microsoft download.
+*.servicebus.windows.net | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage.
+
+
+
+
+## Collected data - VMware
+
+### Collected performance data-VMware
 
 Here's the VMware VM performance data that the appliance collects and sends to Azure.
 
@@ -59,14 +105,14 @@ Here's the VMware VM performance data that the appliance collects and sends to A
 CPU utilization | cpu.usage.average | Recommended VM size/cost
 Memory utilization | mem.usage.average | Recommended VM size/cost
 Disk read throughput (MB per second) | virtualDisk.read.average | Calculation for disk size, storage cost, VM size
-Disk write throughput (MB per second) | virtualDisk.write.average | Calculation for disk size, storage cost, VM size
+Disk writes throughput (MB per second) | virtualDisk.write.average | Calculation for disk size, storage cost, VM size
 Disk read operations per second | virtualDisk.numberReadAveraged.average | Calculation for disk size, storage cost, VM size
-Disk write operations per second | virtualDisk.numberWriteAveraged.average  | Calculation for disk size, storage cost, VM size
+Disk writes operations per second | virtualDisk.numberWriteAveraged.average  | Calculation for disk size, storage cost, VM size
 NIC read throughput (MB per second) | net.received.average | Calculation for VM size
-NIC write throughput (MB per second) | net.transmitted.average  |Calculation for VM size
+NIC writes throughput (MB per second) | net.transmitted.average  |Calculation for VM size
 
 
-## Collected metadata-VMware
+### Collected metadata-VMware
 
 > [!NOTE]
 > Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
@@ -118,14 +164,14 @@ Datacenter details per host folder | ((Datacenter)container).HostFolder
 Cluster details per host | ((ClusterComputeResource)container).Host
 Host details per VM | ((HostSystem)container).VM
 
+## Collected data - Hyper-V
 
-
-## Collected performance data-Hyper-V
+### Collected performance data-Hyper-V
 
 > [!NOTE]
 > Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
 
-Here's the VMware VM performance data that the appliance collects and sends to Azure.
+Here's the Hyper VM performance data that the appliance collects and sends to Azure.
 
 **Performance counter class** | **Counter** | **Assessment impact**
 --- | --- | ---
@@ -140,7 +186,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 - Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
 - Disk and network utilization values are collected from the listed Hyper-V performance counters.
 
-## Collected metadata-Hyper-V
+### Collected metadata-Hyper-V
 
 Here's the full list of Hyper-V VM metadata that the appliance collects and sends to Azure.
 
@@ -176,18 +222,17 @@ NIC MAC ID (legacy NICs) | MsvmEmulatedEthernetPortSetting Data | Address
 
 The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using the following process.
 
-
 1. **Start discovery**:
     - When you start the discovery on the Hyper-V appliance, it communicates with the Hyper-V hosts on WinRM ports 5985 (HTTP) and 5986 (HTTPS).
     - When you start discovery on the VMware appliance, it communicates with the vCenter server on TCP port 443 by default. IF the vCenter server listens on a different port, you can configure it in the appliance web app.
 2. **Gather metadata and performance data**:
     - The appliance uses a Common Information Model (CIM) session to gather Hyper-V VM data from the Hyper-V host on ports 5985 and 5986.
     - The appliance communicates with port 443 by default, to gather VMware VM data from the vCenter Server.
-3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443.
+3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet, or you can use ExpressRoute with public/Microsoft peering.
     - For performance data, the appliance collects real-time utilization data.
         - Performance data is collected every 20 seconds for VMware, and every 30 seconds for Hyper-V, for each performance metric.
-        - The collected data is rolled up to create a single data point for ten minutes.
-        - The peak utilization value is selected from all of the 20/30 second data points, and sent to Azure for assessment calculation.
+        - The collected data is rolled up to create a single data point for 10 minutes.
+        - The peak utilization value is selected from all of the 20/30-second data points, and sent to Azure for assessment calculation.
         - Based on the percentile value specified in the assessment properties (50th/90th/95th/99th), the ten-minute points are sorted in ascending order, and the appropriate percentile value is used to compute the assessment
     - For Server Migration, the appliance starts collecting VM data, and replicates it to Azure.
 4. **Assess and migrate**: You can now create assessments from the metadata collected by the appliance using Azure Migrate Server Assessment. In addition, you can also start migrating VMware VMs using Azure Migrate Server Migration to orchestrate agentless VM replication.

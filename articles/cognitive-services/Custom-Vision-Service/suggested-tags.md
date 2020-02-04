@@ -1,7 +1,7 @@
 ---
-title: "Label images faster with suggested tags"
+title: "Label images faster with Smart Labeler"
 titleSuffix: Azure Cognitive Services
-description: In this guide, you'll learn how to use suggested tags to label a large number of images more quickly when training Custom Vision models.
+description: In this guide, you'll learn how to use Smart Labeler to generate suggested tags for images. This lets you label a large number of images more quickly when training a Custom Vision model.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,28 +9,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/29/2019
 ms.author: pafarley
 ---
 
-# Label images faster with suggested tags
+# Label images faster with Smart Labeler
 
-In this guide, you'll learn how to use the suggested tags feature to label a large number of images more quickly when training a Custom Vision model. 
+In this guide, you'll learn how to use Smart Labeler to generate suggested tags for images. This lets you label a large number of images more quickly when training a Custom Vision model.
 
 When you tag images for a Custom Vision model, the service uses the latest trained iteration of the model to predict the labels of untagged images. It then shows these predictions as suggested tags, based on the selected confidence threshold and prediction uncertainty. You can then either confirm or change the suggestions, speeding up the process of manually tagging the images for training.
 
-## When to use suggested tags
+## When to use Smart Labeler
 
 Keep the following limitations in mind:
 
 * You should only request suggested tags for images whose content has already been trained once. Don't get suggestions for a new tag that you're just beginning to train.
 
 > [!IMPORTANT]
-> The suggested tags feature uses the same [pricing model](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) as regular predictions. The first time you trigger suggested tags for a set of images, you'll be charged the same as for prediction calls. After that, the service stores the results for the selected images in a database for 30 days, and you can access them anytime for free within that period. After 30 days, you'll be charged if you request their suggested tags again.
+> The Smart Labeler feature uses the same [pricing model](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) as regular predictions. The first time you trigger suggested tags for a set of images, you'll be charged the same as for prediction calls. After that, the service stores the results for the selected images in a database for 30 days, and you can access them anytime for free within that period. After 30 days, you'll be charged if you request their suggested tags again.
 
-## Suggested tags workflow
+## Smart Labeler workflow
 
-The following steps show you how to use the suggested tags feature:
+The following steps show you how to use Smart Labeler:
 
 1. Upload all of your training images to your Custom Vision project.
 1. Label part of your data set, choosing an equal number of images for each tag.
@@ -40,7 +40,7 @@ The following steps show you how to use the suggested tags feature:
 1. When training is complete, navigate to the **Untagged** view and select the **Get suggested tags** button on the left pane.
     > [!div class="mx-imgBorder"]
     > ![The suggested tags button is shown under the untagged images tab.](./media/suggested-tags/suggested-tags-button.png)
-1. Select the set of images for which you want suggestions. You should only get initial tag suggestions for a portion of the untagged images. You'll get better tag suggestions as you iterate through this process.
+1. In the popup window that appears, set the number of images for which you want suggestions. You should only get initial tag suggestions for a portion of the untagged images. You'll get better tag suggestions as you iterate through this process.
 1. Confirm the suggested tags, fixing any that aren't correct.
     > [!TIP]
     > Images with suggested tags are sorted by their prediction uncertainty (lower values indicate higher confidence). You can change the sorting order with the **Sort by uncertainty** option. If you set the order to **high to low**, you can correct the high-uncertainty predictions first and then quickly confirm the low-uncertainty ones.

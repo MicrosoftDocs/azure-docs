@@ -49,7 +49,7 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
-    - name: Write .NET custom deserializers
+    - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
   - name: Output types for a job
     items:
@@ -61,6 +61,17 @@
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: Optimize your Stream Analytics job
+    items:
+    - name: Understand and adjust Streaming Units
+      href: stream-analytics-streaming-unit-consumption.md
+      displayName: scale, performance
+    - name: Improve query performance
+      href: stream-analytics-parallelization.md
+    - name: Repartition your input
+      href: repartition.md
+    - name: Increase throughput of your job
+      href: stream-analytics-scale-jobs.md
   - name: States of a job
     href: job-states.md
   - name: Window functions
@@ -97,6 +108,8 @@
       href: stream-analytics-power-bi-dashboard.md
     - name: Stop or delete a job
       href: stream-analytics-clean-up-your-job.md
+    - name: Copy or back up a job
+      href: copy-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity - ADLS Gen 1 output
@@ -105,6 +118,8 @@
       href: sql-reference-data.md
     - name: Authenticate with managed identity - Blob output
       href: blob-output-managed-identity.md
+    - name: Authenticate with managed identity - Power BI
+      href: powerbi-output-managed-identity.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -126,8 +141,11 @@
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
-    - name: Process Event Hubs data 
+    - name: Process Event Hubs data
       href: ../event-hubs/process-data-azure-stream-analytics.md
+      maintainContext: true
+    - name: Process Azure SQL Database
+      href: ../sql-database/sql-database-stream-analytics.md
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
@@ -141,20 +159,6 @@
       href: stream-analytics-monitor-jobs.md
     - name: Monitor jobs- Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
-  - name: Scale
-    items:
-    - name: Scale with streaming units
-      href: stream-analytics-streaming-unit-consumption.md
-    - name: Scale with parallelization
-      items:
-      - name: Query parallelization
-        href: stream-analytics-parallelization.md
-      - name: Increase throughput
-        href: stream-analytics-scale-jobs.md
-    - name: Scale with ML functions
-      href: stream-analytics-scale-with-machine-learning-functions.md
-    - name: Scale with repartitioning
-      href: repartition.md
   - name: Automate
     items:
     - name: Using .NET SDK
@@ -167,12 +171,14 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Test with sample data
+    - name: Test locally with sample data
       href: stream-analytics-vs-tools-local-run.md
-    - name: Test with live data
+    - name: Test locally with live data
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
@@ -181,12 +187,14 @@
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Visual Studio Code
     items:
-    - name: Test with sample data
-      href: vscode-local-run.md
+    - name: Test locally with sample data
+      href: visual-studio-code-local-run.md
+    - name: Test locally with live data
+      href: visual-studio-code-local-run-live-input.md
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs
-      href: vscode-explore-jobs.md
+      href: visual-studio-code-explore-jobs.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -209,6 +217,8 @@
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
+  - name: Scale with ML functions
+    href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language
   items:
     - name: Built-in Functions
@@ -580,3 +590,4 @@
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing
     href: stream-analytics-real-time-event-processing-reference-architecture.md
+    

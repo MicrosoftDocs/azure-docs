@@ -3,7 +3,7 @@ title: 'Quickstart: Collect data from a hybrid Linux Computer with Azure Monitor
 description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Linux computers running outside of Azure and enable data collection with Azure Monitor Logs.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,8 +11,8 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ---
 
@@ -50,7 +50,7 @@ While the information is verified and the workspace is created, you can track it
 
 ## Obtain workspace ID and key
 
-Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace.  This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Azure Monitor.
+Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace. This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Azure Monitor.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -83,7 +83,7 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    The following command includes the `-p` proxy parameter and example syntax.
+    The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -95,12 +95,13 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    The following command includes the `-p` proxy parameter and example syntax.
+    The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. Restart the agent by running the following command: 
+
+3. Restart the agent by running the following command: 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]

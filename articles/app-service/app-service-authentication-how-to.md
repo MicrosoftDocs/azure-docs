@@ -1,18 +1,8 @@
 ---
-title: Advanced usage of authentication and authorization - Azure App Service | Microsoft Docs
-description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: Advanced usage of AuthN/AuthO
+description: Learn to customize the authentication and authorization feature in App Service for different scenarios, and get user claims and different tokens.
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: cephalin
 ms.custom: seodec18
 ---
 

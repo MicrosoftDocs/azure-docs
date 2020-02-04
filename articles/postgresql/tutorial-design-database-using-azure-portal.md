@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure portal'
+title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure portal'
 description: This tutorial shows how to Design your first Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Create an Azure Database for PostgreSQL
 
-An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 Follow these steps to create an Azure Database for PostgreSQL server:
 1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.

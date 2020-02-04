@@ -1,6 +1,6 @@
 ---
 title: Check for pool and node errors - Azure Batch
-description: Errors to check for and how to avoid them when creating pools and nodes
+description: This article covers the background operations that can occur, along with errors to check for and how to avoid them when creating pools and nodes.
 services: batch
 ms.service: batch
 author: mscurrell

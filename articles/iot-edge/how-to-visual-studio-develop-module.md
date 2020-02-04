@@ -1,15 +1,14 @@
 ---
-title: Develop and debug modules in Visual Studio - Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge
+title: Develop and debug modules in Visual Studio - Azure IoT Edge
+description: Use Visual Studio with Azure IoT Tools to develop a C or C# IoT Edge module and push it from your IoT Hub to an IoT device, as configured by a deployment manifest.
 services: iot-edge
 author: shizn
 manager: philmea
 
 ms.author: xshi
 ms.date: 07/22/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
 ---
 # Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge
 
@@ -26,7 +25,7 @@ This article shows you how to use the Azure IoT Edge Tools for Visual Studio 201
   
 ## Prerequisites
 
-This article assumes that you use a computer or virtual machine running Windows as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+This article assumes that you use a computer or virtual machine running Windows as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Because this article uses Visual Studio 2019 as the main development tool, install Visual Studio. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2019 installation. You can [Modify Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) to add the required workloads.
 
@@ -101,6 +100,8 @@ The Azure IoT Edge project template in Visual Studio creates a project that can 
 1. Select **OK** to create the Azure IoT Edge solution with a module that uses either C# or C.
 
 Now you have an **AzureIoTEdgeApp1.Linux.Amd64** project or an **AzureIoTEdgeApp1.Windows.Amd64** project, and also an **IotEdgeModule1** project in your solution. Each **AzureIoTEdgeApp1** project has a `deployment.template.json` file, which defines the modules you want to build and deploy for your IoT Edge solution, and also defines the routes between modules. The default solution has a **SimulatedTemperatureSensor** module and a **IotEdgeModule1** module. The **SimulatedTemperatureSensor** module generates simulated data to the **IotEdgeModule1** module, while the default code in the **IotEdgeModule1** module directly pipes received messages to Azure IoT Hub.
+
+To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 The **IotEdgeModule1** project is a .NET Core 2.1 console application if it's a C# module. It contains required Docker files you need for your IoT Edge device running with either a Windows container or Linux container. The `module.json` file describes the metadata of a module. The actual module code, which takes Azure IoT Device SDK as a dependency, is found in the `Program.cs` or `main.c` file.
 

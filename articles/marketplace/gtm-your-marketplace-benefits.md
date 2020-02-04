@@ -2,17 +2,18 @@
 title: Go-To-Market Services - your commercial marketplace benefits | Azure
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
+ms.author: evansma
 
 ---
 
 # Your commercial marketplace benefits
 
-You’ve published to marketplace, now you want to see your offer be successful. We provide you the benefits – sales, technical, and marketing - you need to accelerate your offer’s growth.
+You've published to marketplace, now you want to see your offer be successful. We provide you the benefits - sales, technical, and marketing - you need to accelerate your offer's growth.
 
 When you go live with your offer, the Marketplace Rewards team will reach out to begin working with you on your eligible benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
@@ -20,7 +21,7 @@ When you go live with your offer, the Marketplace Rewards team will reach out to
 
 Marketplace Rewards is designed to support you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the marketplace, you unlock new benefits designed to help you convert customers and close deals. 
 
-The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft’s field, and through Microsoft’s channel by leveraging the commercial marketplace as your platform. 
+The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform. 
 
 Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
@@ -37,7 +38,7 @@ Detailed descriptions of all program benefits can be found in the [Marketplace R
 Your steps to get started are easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-2. The team reaches out to the “owner” or “primary contact” per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
+2. The team reaches out to the "owner" or "primary contact" per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
 
 >[!Note]
 >If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
@@ -81,7 +82,7 @@ In addition to the rewards benefits, business applications partners with Dynamic
 
 ### Publisher Agreement
 
-All the activities described on this page are covered by the [marketplace publisher agreement](https://docs.microsoft.com/legal/marketplace/terms) and are pursuant to the Commercial Benefits Program Addendum.
+All the activities described on this page are covered by the [marketplace publisher agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and are pursuant to the Commercial Benefits Program Addendum.
 
 ### Cancellation policy
 
@@ -98,7 +99,7 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
-Transactions that are proven to be fraudulent will not count towards a publisher’s [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
+Transactions that are proven to be fraudulent will not count towards a publisher's [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
 
 ## Next steps
 

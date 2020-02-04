@@ -1,6 +1,6 @@
 ---
 
-title: Tutorial for bulk inviting B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Tutorial for bulk inviting B2B collaboration users - Azure AD
 description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users.
 
 services: active-directory
@@ -26,6 +26,9 @@ ms.collection: M365-identity-device-management
 | This article describes a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
+> [!NOTE]
+> As of 12/22/2019, the Bulk invite users (Preview) feature has been temporarily disabled.
+> There is currently no known date for when this feature will be re-enabled. 
 
 If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 

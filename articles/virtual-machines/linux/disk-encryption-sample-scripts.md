@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample PowerShell scripts for Azure Disk Encryption 
 
@@ -316,7 +316,8 @@ To configure encryption to work with Azure, do the following steps:
 
 6. Now you can deprovision the VM and upload your VHD into Azure.
 
-### CentOS 7
+### CentOS 7 and RHEL 8.1
+
 To configure encryption during the distribution installation, do the following steps:
 1. Select **Encrypt my data** when you partition disks.
 

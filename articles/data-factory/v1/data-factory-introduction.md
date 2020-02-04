@@ -1,5 +1,5 @@
 ---
-title: Introduction to Data Factory, a data integration service | Microsoft Docs
+title: Introduction to Data Factory, a data integration service 
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
 services: data-factory
 documentationcenter: ''

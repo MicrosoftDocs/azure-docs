@@ -1,5 +1,5 @@
 ---
-title: Create Azure Service Bus topic subscription and rule using Azure Resource Manager template | Microsoft Docs
+title: Create Service Bus topic subscription and rule using Azure template
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: spelluru
 
 ---
@@ -175,21 +175,18 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## Next steps
-See the following topic that shows how to create a subscription filter: 
-[Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md)
-
 Learn how to manage these resources by viewing these articles:
 
 * [Manage Azure Service Bus](service-bus-management-libraries.md)
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
+[Recommended naming conventions for Azure resources]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 

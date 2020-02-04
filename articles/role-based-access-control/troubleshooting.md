@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
@@ -36,13 +36,13 @@ This article answers common questions about role-based access control (RBAC) for
 
 ## Recover RBAC when subscriptions are moved across tenants
 
-- If you need steps for how to transfer a subscription to a different Azure AD tenant, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
+- If you need steps for how to transfer a subscription to a different Azure AD tenant, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
 - If you transfer a subscription to a different Azure AD tenant, all role assignments are permanently deleted from the source Azure AD tenant and are not migrated to the target Azure AD tenant. You must re-create your role assignments in the target tenant. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 - If you are an Azure AD Global Administrator and you don't have access to a subscription after it was moved between tenants, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
 ## Issues with service admins or co-admins
 
-- If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](rbac-and-directory-admin-roles.md).
+- If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](rbac-and-directory-admin-roles.md).
 
 ## Access denied or permission errors
 
@@ -51,7 +51,11 @@ This article answers common questions about role-based access control (RBAC) for
 
 ## Role assignments with Unknown security principal
 
-When you list your role assignments using Azure PowerShell, you might see assignments with an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
+If you assign a role to a security principal (user, group, service principal, or managed identity) and then you later delete that security principal without removing the role assignment, the security principal type for the role assignment will be listed as **Unknown**. The following screenshot shows an example in the Azure portal. The security principal name is listed as **Identity deleted** and **Identity no longer exists**. 
+
+![Web app resource group](./media/troubleshooting/unknown-security-principal.png)
+
+If you list this role assignment using Azure PowerShell, you will see an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -65,7 +69,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Similarly, when you list your role assignments using Azure CLI, you might see assignments with an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
+Similarly, if you list this role assignment using Azure CLI, you will see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
 
 ```azurecli
 {
@@ -81,9 +85,7 @@ Similarly, when you list your role assignments using Azure CLI, you might see as
 }
 ```
 
-These role assignments occur when you assign a role to a security principal (user, group, service principal, or managed identity) and you later delete that security principal. These role assignments aren't displayed in the Azure portal and it isn't a problem to leave them. However, if you like, you can remove these roles assignments.
-
-To remove these role assignments, use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) or [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) commands.
+It isn't a problem to leave these role assignments, but you can remove them using steps that are similar to other role assignments. For information about how to remove role assignments, see [Azure portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment), or [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: "The provided information does not map to a role assignment". The following shows an example of the error message:
 

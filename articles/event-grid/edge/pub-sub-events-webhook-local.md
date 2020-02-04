@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -54,11 +54,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Container Create Options**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -76,6 +78,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
     >[!IMPORTANT]
     > In this tutorial, you will deploy the Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable the client authentication and allow only HTTPs subscribers. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
+    > 
+    > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## Deploy Azure Function IoT Edge module
@@ -172,6 +176,8 @@ As a publisher of an event, you need to create an event grid topic. In Azure Eve
 
 Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest.
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
 1. Create subscription.json with the following content. For details about the payload, see our [API documentation](api.md)
 
     ```json
@@ -252,7 +258,7 @@ Subscribers can register for events published to a topic. To receive any event, 
     On Windows, run the following command:
 
     ```sh
-    iotedge logs subscriber -f
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
    On Linux, run the following command:
@@ -294,9 +300,11 @@ Subscribers can register for events published to a topic. To receive any event, 
 ## Next steps
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 
+- To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 - Create/update subscription with [filters](advanced-filtering.md).
 - Enable persistence of Event Grid module on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 - Follow [documentation](configure-client-auth.md) to configure client authentication
 - Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
 - [React to Blob Storage events on IoT Edge](react-blob-storage-events-locally.md)
+- [Monitor topics and subscriptions on the edge](monitor-topics-subscriptions.md)
 

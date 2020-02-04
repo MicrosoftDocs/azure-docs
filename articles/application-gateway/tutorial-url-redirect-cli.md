@@ -1,16 +1,17 @@
 ---
-title: Tutorial - Create an application gateway with URL path-based redirection - Azure CLI
+title: 'Tutorial: URL path-based redirection using CLI'
+titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 7/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
-
 ---
+
 # Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI
 
 You can use the Azure CLI to configure [URL path-based routing rules](tutorial-url-route-cli.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
