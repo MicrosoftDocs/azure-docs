@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-virtual-network-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
       "redirect_document_id": false
