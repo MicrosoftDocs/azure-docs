@@ -60,6 +60,8 @@
       href: sdk/concepts-spatial-bounds.md
     - name: Graphics bindings
       href: sdk/concepts-graphics-binding.md
+    - name: Late stage reprojection
+      href: sdk/concepts-lsr.md
 - name: Reference
   items:
   - name: Features
