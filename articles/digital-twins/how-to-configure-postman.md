@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ---
 
 # How to configure Postman for Azure Digital Twins
@@ -74,7 +74,6 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 Set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
-1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
 1. Verify that your **Authorization URL** is correct. It should take the format:
 
     ```plaintext
@@ -83,9 +82,13 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
     | Name  | Replace with | Example |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
+    | YOUR_AZURE_TENANT | The name of your tenant or organization. Use the human-friendly name instead of the alphanumeric **Tenant ID** of your Azure Active Directory app registration. | `microsoft` |
 
-1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
+1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
+
+1. Open the Postman app and click new | Create new, and select Request. Enter a Request name. Select a collection or folder to save it to, and click Save. 
+
+1. We want to make GET request. Select the **Authorization** tab, select OAuth 2.0, and then select **Get New Access Token**.
 
     | Field  | Value |
     |---------|---------|
@@ -126,6 +129,12 @@ After completing the previous steps, configure Postman to make an authenticated 
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
 1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. The appropriate response message will appear in the client interface.
+
+1. Validate your HTTP POST request data by calling the API endpoint: 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## Next steps
 

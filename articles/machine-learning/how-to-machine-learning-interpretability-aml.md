@@ -329,10 +329,10 @@ You can load the local, feature importance plot for any data point by selecting 
     jupyter labextension install microsoft-mli-widget
     ```
 
-To load the visualization dashboard, use the following code:
+To load the visualization dashboard, use the following code.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```

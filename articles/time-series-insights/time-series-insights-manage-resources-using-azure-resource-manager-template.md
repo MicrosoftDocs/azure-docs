@@ -28,8 +28,8 @@ Time Series Insights supports the following resources:
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
-- [Azure Resource Manager template deployment](../azure-resource-manager/template-deployment-overview.md)
-- [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Azure Resource Manager template deployment](../azure-resource-manager/templates/overview.md)
+- [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
@@ -113,7 +113,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
          }
      }
      ```
-  
+
     * For more information, read the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
@@ -169,12 +169,12 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Create the deployment
 
-    * To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, read [Incremental and complete deployments](../azure-resource-manager/deployment-modes.md).
+    * To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, read [Incremental and complete deployments](../azure-resource-manager/templates/deployment-modes.md).
 
     * The following command prompts you for the five required parameters in the PowerShell window:
 
       ```powershell
-      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
     * To specify a parameters file instead, use the following command:
@@ -189,7 +189,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * To run a [complete](../azure-resource-manager/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
+    * To run a [complete](../azure-resource-manager/templates/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

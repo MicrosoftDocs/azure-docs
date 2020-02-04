@@ -73,7 +73,7 @@ We strongly recommend that you restrict the access to the IP address of your sea
 
 You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service.
 
-You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) for the particular region in which your Azure Cognitive Search service is located by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
+You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
 
 #### Managing IP address fluctuations
 If your search service has only one search unit (that is, one replica and one partition), the IP address will change during routine service restarts, invalidating an existing ACL with your search service's IP address.

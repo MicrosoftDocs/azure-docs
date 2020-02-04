@@ -3,9 +3,9 @@ Description: To understand your tax considerations for price selection, payout i
 title: Tax details | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ---
 

@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the Objective-C ADAL and MSAL for iOS and macOS libraries so I can migrate my applications to MSAL for iOS and macOS.
-ms.collection: M365-identity-device-management
 ---
 
 # Migrate applications to MSAL for iOS and macOS

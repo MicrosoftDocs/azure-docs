@@ -3,7 +3,7 @@ title: Azure CLI Script Example - Windows Pool in Batch
 description: This script demonstrates some of the commands available in the Azure CLI to create and manage a pool of Windows compute nodes in Azure Batch.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ---
 
 # CLI example: Create and manage a Windows pool in Azure Batch

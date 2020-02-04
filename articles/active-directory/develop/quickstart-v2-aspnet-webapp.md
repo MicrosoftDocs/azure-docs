@@ -14,7 +14,6 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add Microsoft identity platform sign-in to an ASP.NET web app

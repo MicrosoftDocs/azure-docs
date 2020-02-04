@@ -235,7 +235,7 @@ This page shows the details regarding the time that the attack took place, the s
 
 From this page, you can also start an [investigation](https://docs.microsoft.com/azure/security-center/security-center-investigation) to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
 
-Once you identify the compromised system, you can run security [playbooks](https://docs.microsoft.com/azure/security-center/security-center-playbooks) that were previously created. Security playbook is a collection of procedures that can be executed from Security Center once a certain playbook is triggered from selected alert.
+Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
 In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 

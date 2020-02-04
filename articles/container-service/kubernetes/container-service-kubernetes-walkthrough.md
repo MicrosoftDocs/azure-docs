@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Quickstart - Azure Kubernetes cluster for Linux
 description: Quickly learn to create a Kubernetes cluster for Linux containers in Azure Container Service with the Azure CLI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart

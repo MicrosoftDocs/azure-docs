@@ -57,6 +57,12 @@
       href: tutorial-1st-r-experiment.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
+  - name: Visual Studio Code
+    items:
+    - name: Set up Azure Machine Learning extension
+      href: tutorial-setup-vscode-extension.md
+    - name: Train and deploy a TensorFlow image classification model
+      href: tutorial-train-deploy-image-classification-model-vscode.md
 
 - name: Samples
   items:
@@ -89,7 +95,9 @@
     displayName: studio
     href: concept-designer.md
   - name: Algorithm cheat sheet
-    href: /azure/machine-learning/algorithm-cheat-sheet   
+    href: /azure/machine-learning/algorithm-cheat-sheet
+  - name: How to select algorithms
+    href: /azure/machine-learning/how-to-select-algorithms       
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -138,6 +146,8 @@
       href: how-to-manage-workspace.md
     - name: Use Azure CLI
       href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
@@ -155,9 +165,6 @@
     - name: Set input & output directories
       displayName: large data, write, experiment files, size limit
       href: how-to-save-write-experiment-files.md
-    - name: Use VS Code extension
-      displayName: Visual Studio Code, VSCode, tools, ai, vs
-      href: how-to-vscode-tools.md
     - name: Interactive debugging
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: how-to-set-up-vs-code-remote.md
@@ -175,6 +182,9 @@
     - name: Train with datasets
       displayName: data, dataset, mount
       href: how-to-train-with-datasets.md
+    - name: Import data in the designer
+      displayName: designer, data, import, dataset, datastore
+      href: how-to-designer-import-data.md
     - name: Detect drift on datasets
       displayName: data, dataset
       href: how-to-monitor-datasets.md
@@ -187,6 +197,12 @@
     - name: Label images
       displayName: data, dataset, labeling
       href: how-to-label-images.md
+    - name: Create datasets with labels
+      displayName: data, labels, torchvision
+      href: how-to-use-labeled-dataset.md
+    - name: DevOps for data ingestion
+      displayName: data, ingestion, devops
+      href: how-to-cicd-data-ingestion.md
   - name: Train models
     items:
     - name: Use the designer
@@ -314,15 +330,9 @@
     - name: Consume in real-time
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
-    - name: Run batch predictions
-      displayName: score scoring batch consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions.md
     - name: Designer batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
       href: how-to-run-batch-predictions-designer.md
-    - name: Debug & troubleshoot batch predictions
-      displayName: debug_batch consume pipeline parallelrunstep inference
-      href: how-to-debug-batch-predictions.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
@@ -341,12 +351,21 @@
       href: how-to-schedule-pipelines.md
     - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
+    - name: Debug pipelines in Application Insights
+      displayname: pipelines, log, monitor
+      href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: 'Designer: Retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
+    - name: Use parallel run step
+      displayName: score scoring batch consume pipeline parallelrunstep inference
+      href: how-to-use-parallel-run-step.md
+    - name: Debug & troubleshoot parallel run step
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-parallel-run-step.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -401,3 +420,6 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
+  - name: Designer accessibility features
+    displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
+    href: designer-accessibility.md

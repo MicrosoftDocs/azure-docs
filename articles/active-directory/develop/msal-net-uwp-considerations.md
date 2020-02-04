@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about specific considerations when using Universal Windows Platform and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Universal Windows Platform-specific considerations with MSAL.NET

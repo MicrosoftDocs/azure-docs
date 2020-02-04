@@ -117,6 +117,8 @@
     items:
     - name: Deploy the app
       items:
+      - name: Run from package
+        href: deploy-run-package.md
       - name: Deploy ZIP or WAR
         href: deploy-zip.md
       - name: Deploy via FTP
@@ -202,7 +204,7 @@
     - name: Clone an app
       href: app-service-web-app-cloning.md
     - name: Move resources
-      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
     - name: Restore deleted App Service
       href: app-service-undelete.md
   - name: Run background tasks
@@ -220,7 +222,7 @@
   - name: Azure CLI
     href: /cli/azure/appservice
   - name: Azure PowerShell
-    href: /powershell
+    href: /powershell/module/az.websites/#app_service
   - name: REST API
     href: /rest/api/appservice/
   - name: Resource Manager template

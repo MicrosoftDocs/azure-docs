@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 
 ms.author: jingwang
 
@@ -45,11 +45,6 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 * IBM DB2 for LUW 10.5
 * IBM DB2 for LUW 10.1
 
-> [!TIP]
-> If you receive an error message that states "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", the reason is a needed package is not created for normal user on such OS. Follow these instructions according to your DB2 server type:
-> - DB2 for i (AS400): let power user create collection for the login user before using copy activity. Command: `create collection <username>`
-> - DB2 for z/OS or LUW: use a high privilege account - power user or admin with package authorities and BIND, BINDADD, GRANT EXECUTE TO PUBLIC permissions - to run the copy activity once, then the needed package is automatically created during copy. Afterwards, you can switch back to normal user for your subsequent copy runs.
-
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
@@ -74,9 +69,12 @@ The following properties are supported for DB2 linked service:
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
 | password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database | No |
+| packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database. | No |
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+> [!TIP]
+> If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, ADF will try to create a the package under collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want ADF to create the needed packages when querying the database.
 
 **Example:**
 

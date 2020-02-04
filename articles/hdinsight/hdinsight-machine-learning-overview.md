@@ -58,5 +58,4 @@ To help advance its own work in deep learning, Microsoft  developed the free, ea
 ### Deep learning resources
 
 * [Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
-* [Use Caffe on Azure HDInsight Spark for distributed deep learning](spark/apache-spark-deep-learning-caffe.md)
 * [Deep Learning and AI frameworks on the Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

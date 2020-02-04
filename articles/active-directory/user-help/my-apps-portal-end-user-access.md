@@ -12,7 +12,6 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
 # Locate and use your organization's cloud-based apps on the My Apps portal

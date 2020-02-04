@@ -142,28 +142,21 @@ Generation 1 images can only use GPT partitioning on data disks, not OS disks. O
 
 Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
-### Disk reservation
+**What are Azure disk reservations?**
+Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**What is Azure disk reservation?**
-Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost.
+**What options does Azure disk reservation offer?**	
+Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.	
 
-**What options does Azure disk reservation offer?**
-Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.
+Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
-Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divvy that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
+**How is Azure disk reservation applied?**	
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances. 	
 
-**How will I be billed for Azure disk reservation?**
-- For Enterprise Agreement (EA) customers, the Azure monetary commitment will first be used to purchase Azure disks reservations. In scenarios where EA customers have used all their monetary commitment, disk reservations may still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
+**Can I use my data storage purchased through Azure disks reservation across multiple regions?**	
+Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.	
 
-- For customers purchasing via Azure.com, at the time of purchase, the credit card on file will be charged for the full upfront payment (or monthly fixed payments) of Azure Disks Reservation.
-
-**How is Azure disk reservation applied?**
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances. 
-
-**Can I use my data storage purchased through Azure disks reservation across multiple regions?**
-Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.
-
-**What happens when my Azure disks reservation expires?**
+**What happens when my Azure disks reservation expires?**	
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Ultra disks
@@ -434,7 +427,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB is not yet available.
+The largest disk size supported by Azure Backup is 32 TiB (4 TiB for encrypted disks). The largest disk size supported by Azure Site Recovery is 8 TiB. Support for the larger disks up to 32 TiB is not yet available in Azure Site Recovery.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 

@@ -3,12 +3,12 @@ title: Guide to predictive maintenance for aerospace - Team Data Science Process
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ---
@@ -47,9 +47,8 @@ The following sections describe the solution parts.
 
 ## Data source and ingestion
 ### Synthetic data source
-For this template, the data source used is generated from a desktop
-application that you download and run locally after successful
-deployment.
+For this template, the data source used is generated from a downloaded desktop
+application that you run locally after successful deployment.
 
 To find the instructions to download and install this application,   select the first node, Predictive Maintenance Data Generator, on the solution template diagram. The instructions are found in the Properties bar. This application feeds the [Azure Event Hub](#azure-event-hub) service with data points, or events, used in the rest of the solution flow. This data source is derived from publicly available data from the
 [NASA data repository](https://c3.nasa.gov/dashlink/resources/139/)
@@ -80,7 +79,7 @@ service.
 Run [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts (orchestrated by Azure Data Factory) using HDInsight to provide aggregations on
 the raw events archived using the Azure Stream Analytics
-service.
+resource.
 
 ### Azure Machine Learning
 Make predictions on the remaining useful life (RUL) of a particular aircraft engine using the inputs received with [Azure Machine
@@ -129,7 +128,7 @@ easily send events or data to an Azure Event Hub using the Event Hub
 APIs.
 
 ### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
-Use the Azure Stream Analytics service to provide near real-time
+Use the Azure Stream Analytics resource to provide near real-time
 analytics by reading from data streams and outputting data to any number
 of sources.
 
@@ -277,8 +276,8 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 ## Monitor Progress
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
-1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
-2. The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
+* One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
+* The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
@@ -296,13 +295,12 @@ finishes a flight (cycle). The prediction result is updated every 3
 hours for predicting the aircraft engines that have finished a flight
 during the past 3 hours.
 
-Power BI connects to an Azure SQL database as its data source, where the
-prediction results are stored. Note: 1) On deploying your
-solution, a prediction will appear in the database within 3 hours.
-The pbix file that came with the Generator download contains some seed
-data so that you may create the Power BI dashboard right away. 2) In
-this step, the prerequisite is to download and install the free software
-[Power BI
+Power BI connects to an Azure SQL Database as its data source, where the
+prediction results are stored. 
+
+Note: 
+1.    On deploying your solution, a prediction will appear in the database within 3 hours. The pbix file that came with the Generator download contains some seed data so that you may create the Power BI dashboard right away. 
+2.    In this step, the prerequisite is to download and install the free software [Power BI
 desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 The following steps guide you on how to connect the pbix file to
@@ -316,7 +314,7 @@ containing data (for example, prediction results) for visualization.
    you how to find them.
    
    * Once **'Azure SQL Database'** on your solution template diagram turns green, click it and then click **'Open'**.
-   * You'll see a new browser tab/window which displays the Azure
+   * You'll see a new browser tab/window that displays the Azure
      portal page. Click **'Resource groups'** on the left panel.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
@@ -342,9 +340,9 @@ containing data (for example, prediction results) for visualization.
      messages that appear on the screen.
    * In the next pop out window, you'll see two options on the left pane
      (**Windows** and **Database**). Click **'Database'**, fill in your
-     **'Username'** and **'Password'** (this is the username and password
+     **'Username'** and **'Password'** (the username and password
      you entered when you first deployed the solution and created an
-     Azure SQL database). In ***Select which level to apply these
+     Azure SQL Database). In ***Select which level to apply these
      settings to***, check database level option. Then click
      **'Connect'**.
    * Click on the second table **PMResult** then click ![Navigation icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)
@@ -354,7 +352,7 @@ containing data (for example, prediction results) for visualization.
    * Once you're guided back to the previous page, close the window. A message displays - click **Apply**. Lastly, click the **Save** button to save
      the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
-   online](https://www.powerbi.com/). Note that this step needs a Power
+   online](https://www.powerbi.com/). This step needs a Power
    BI account (or Office 365 account).
    
    * Click **'Publish'** and few seconds later a window appears
@@ -395,7 +393,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
    * You must follow the instructions in
      [Azure Stream Analytics & Power BI: An analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
+   * The ASA query has three outputs that are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](https://www.powerbi.com)
    
    * On the left panel Datasets section in My Workspace, the
@@ -420,12 +418,12 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
    * Click **SAVE** on the top and name the report "aircraftmonitor." The
      report named "aircraftmonitor" is shown in the **Reports**
      section in the **Navigator** pane on the left.
-   * Click the **Pin Visual** icon on the top right corner of this
+   * Click the **Pin Visual** icon on the top-right corner of this
      line chart. A "Pin to Dashboard" window may show up for you to
      choose a dashboard. Select "Predictive Maintenance Demo," then
      click "Pin."
    * Hover the mouse over this tile on the dashboard, click the "edit"
-     icon on the top right corner to change its title to "Fleet View of
+     icon on the top-right corner to change its title to "Fleet View of
      Sensor 11 vs. Threshold 48.26" and subtitle to "Average across fleet
      over time."
 

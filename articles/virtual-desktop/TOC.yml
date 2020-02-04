@@ -43,7 +43,7 @@
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
   - name: Create a profile container
-    items: 
+    items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
@@ -128,6 +128,8 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Linux support
+    href: linux-overview.md
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
   - name: REST API

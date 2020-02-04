@@ -3,17 +3,17 @@ title: Explore data in a SQL Server virtual machine - Team Data Science Process
 description: Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
-This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
+This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This goal may be completed by data wrangling using SQL or by using a programming language like Python.
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
@@ -60,7 +60,7 @@ In this section, we describe ways of generating features using SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Count based Feature Generation
-The following examples demonstrate two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
+The following examples demonstrate two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These results may then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -76,7 +76,7 @@ The following example shows how to generate binned features by binning (using fi
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
-Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This is useful to understand before featurizing the location field:
+Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This guidance is useful to understand before including location as one or more features:
 
 * The sign tells us whether we are north or south, east or west on the globe.
 * A nonzero hundreds digit tells us that we're using longitude, not latitude!
@@ -89,7 +89,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 * The fifth decimal place is worth up to 1.1 m: it distinguishes trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 * The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can be featurized as follows, separating out region, location, and city information. Note that you can also call a REST end point such as Bing Maps API available at [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) to get the region/district information.
+The location information can be featurized as follows, separating out region, location, and city information. You can also call a REST end point such as Bing Maps API available at [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) to get the region/district information.
 
     select 
         <location_columnname>
@@ -116,7 +116,7 @@ The newly generated feature can be added as a column to an existing table or sto
 ![azureml readers][1] 
 
 ## <a name="python"></a>Using a programming language like Python
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in your data science environment](data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in your data science environment](data-blob.md). Load the data from the database into a pandas data frame for more processing. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):
 

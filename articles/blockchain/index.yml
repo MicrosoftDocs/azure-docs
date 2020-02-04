@@ -96,9 +96,9 @@ conceptualContent:
         - url: ./templates/ethereum-poa-deployment.md
           itemType: how-to-guide
           text: Deploy a multi-member consortium Proof-of-authority Ethereum network on Azure
-        - url: ./templates/hyperledger-fabric-consortium-blockchain.md
+        - url: ./templates/hyperledger-fabric-consortium-azure-kubernetes-service.md
           itemType: how-to-guide
-          text: Deploy a Hyperledger Fabric consortium network on Azure
+          text: Deploy a Hyperledger Fabric consortium network on Azure Kubernetes Service
 additionalContent:
   sections:
     - title: Development tools and samples
