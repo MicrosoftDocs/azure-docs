@@ -1,32 +1,48 @@
 ---
 title: Components
-description: Definition of components in the scope of the Azure Remote Rendering API
+description: Definition of components in the scope of Azure Remote Rendering
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
+
 # Components
 
-Components add some functionality to an entity. For example, a [cut plane component](features-cut-planes.md) adds functionality to cut the rendered meshes open at the location of the component's owner entity, whereas a mesh component adds the functionality to render a specific mesh at the location of the entity.
+Azure Remote Rendering uses the [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) pattern. While [entities](concepts-entities.md) represent the position and the hierarchical composition of objects, components are responsible for implementing behavior.
 
-Components can be added programmatically in code with the Client SDK:
+The most frequently used types of components are [mesh components](concepts-meshes.md), which add meshes into the rendering pipeline. Similarly, [light components](features-lights.md) are used to add lighting and [cut plane components](features-cut-planes.md) are used to cut open meshes.
+
+All these components use the transform (position, rotation, scale) of the entity they are attached to, as their reference point.
+
+## Working with components
+
+You can easily add, remove, and manipulate components programmatically:
 
 ```cs
-    AzureSession session = GetCurrentlyConnectedSession();
-    var component = session.Actions.CreateComponent(ObjectType.ComponentType, OwnerEntity);
+// create a point light component
+AzureSession session = GetCurrentlyConnectedSession();
+PointLightComponent lightComponent = session.Actions.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
+
+lightComponent.Color = new ColorUb(255, 150, 20, 255);
+lightComponent.Intensity = 11;
+
+// ...
+
+// destroy the component
+lightComponent.Destroy();
+lightComponent = null;
 ```
 
-Components are explicitly deleted by the user with `Component.Destroy()` or automatically deleted when the component's entity is destroyed with `Entity.Destroy()`. Components can also be destroyed when its owner's parent is destroyed.
+A component is attached to an entity at creation time. It cannot be moved to another entity afterwards. Components are explicitly deleted with `Component.Destroy()` or automatically when the component's owner entity is destroyed.
 
-Only one type of a particular component can exist on an `Entity` at a time.
+Only one instance of each component type may be added to an entity at a time.
 
-For `CreateComponent` call to succeed, the `AzureSession` must be connected with `ConnectToRuntime` to a remote rendering machine.
+## Unity specific
 
-The Unity Client has additional extension functions for interacting with components, see: [Unity Sdk Concepts](../concepts/sdk-unity-concepts.md).
+The Unity integration has additional extension functions for interacting with components. See: [Unity SDK concepts](../concepts/sdk-unity-concepts.md).
 
-See the reference documentation for a full list of components and their functionality.
+## Next steps
+
+* [Object bounds](concepts-spatial-bounds.md)
+* [Meshes](concepts-meshes.md)
