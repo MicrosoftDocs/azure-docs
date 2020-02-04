@@ -43,11 +43,11 @@ You can view your authentication details in the Azure portal. There, in your acc
 
 1. Complete one of the following steps, depending on your authentication method. 
 
-    1. If your application uses user-token authentication with the Azure Maps Web SDK, then enable `oauth2AllowImplicitFlow`. To enable it, in the **Manifest** section of your app registration, set `oauth2AllowImplicitFlow` to true. 
+    * If your application uses user-token authentication with the Azure Maps Web SDK, then enable `oauth2AllowImplicitFlow`. To enable it, in the **Manifest** section of your app registration, set `oauth2AllowImplicitFlow` to true. 
     
        ![App manifest](./media/how-to-manage-authentication/app-manifest.png)
 
-    1. If your application uses server or application authentication, then on your app registration page, go to **Certificates & secrets**. Then either upload a public key certificate or create a password by selecting **New client secret**. 
+    * If your application uses server or application authentication, then on your app registration page, go to **Certificates & secrets**. Then either upload a public key certificate or create a password by selecting **New client secret**. 
     
        ![Create a client secret](./media/how-to-manage-authentication/app-keys.png)
 
@@ -79,7 +79,7 @@ To view RBAC roles that are available for Azure Maps, go to **Access control (IA
 
 RBAC provides granular access control.
 
-To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by *Azure Maps*.
+To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 
 ![View users and apps that have been granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
