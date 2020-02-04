@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 02/14/2020
 ---
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
@@ -127,12 +127,18 @@ To handle throttling at this level, you have these options:
 
   * Create a parent logic app that calls a child or nested logic app for each action. That way, you have one parent logic app that controls the main workflow, a child logic app that iterates through the array items, and another child logic app that inserts the item.
 
+    If the parent app has to call different child apps based on the parent's outcome, you can use a condition action or switch action to determine which child app to call.
+
 * Set up batch processing.
 
   If the destination service supports batch operations, you can address throttling by processing items in groups or batches, rather than individually. To implement the batch processing solution, you create a "batch receiver" logic app and a "batch sender" logic app. The batch sender collects messages or items until your specified criteria is met, and then sends those messages or items in a single group. The batch receiver accepts that group and processes those messages or items. For more information, see [Batch process messages in groups](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-* Use webhook triggers or actions, rather than the polling versions.
+* Use the webhook versions for triggers and actions, rather than the polling versions.
 
-  When your logic app uses a webhook trigger or action, such as the [HTTP Webhook trigger](../connectors/connectors-native-webhook.md) or a specific connector webhook, your logic app *subscribes* to the destination service or system and waits until the specified event happens without having to periodically check for the event. If the destination service or system supports webhooks and provides a connector that provides webhook triggers or actions, this option is better than  
+  When your logic app uses a webhook trigger or action, such as the [HTTP Webhook trigger](../connectors/connectors-native-webhook.md) or a connector's webhook version if available, your logic app *subscribes* to the destination service or system and waits until the specified event happens without having to periodically check for the event. If the destination service or system supports webhooks and provides a connector that has a webhook version, this option is better than using the polling version, which always runs on a specified frequency and interval, or recurrence.
+
+  To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## Next steps
+
+* Learn more about [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md)
