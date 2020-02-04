@@ -51,7 +51,9 @@ When an orchestration function is given more work to do (for example, a response
 
 ## Orchestration history
 
-The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have an activity-chaining orchestrator function, like the following C# orchestrator function:
+The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have an activity-chaining orchestrator function, like the following orchestrator function:
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -69,7 +71,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-If you're coding in JavaScript, your activity-chaining orchestrator function might look like the following example code:
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -84,6 +86,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 At each `await` (C#) or `yield` (JavaScript) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (typically Azure Table storage). This state is what is referred to as the *orchestration history*.
 
@@ -178,7 +182,7 @@ Orchestrator functions can also add retry policies to the activity or sub-orches
 
 For more information and for examples, see the [Error handling](durable-functions-error-handling.md) article.
 
-### Critical sections (Durable Functions 2.x)
+### Critical sections (Durable Functions 2.x, currently .NET only)
 
 Orchestration instances are single-threaded so it isn't necessary to worry about race conditions *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* using a `LockAsync` method in .NET.
 
@@ -208,7 +212,9 @@ The critical section feature is also useful for coordinating changes to durable 
 
 Orchestrator functions aren't permitted to do I/O, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code that needs to do I/O in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the result to the orchestration.
 
-To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method in .NET to invoke HTTP APIs directly. In addition to supporting basic request/response patterns, `CallHttpAsync` supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
+# [C#](#tab/csharp)
+
+To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method to invoke HTTP APIs directly.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -228,6 +234,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -240,6 +248,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+In addition to supporting basic request/response patterns, the method supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
+
 For more information and for detailed examples, see the [HTTP features](durable-functions-http-features.md) article.
 
 > [!NOTE]
@@ -247,9 +259,11 @@ For more information and for detailed examples, see the [HTTP features](durable-
 
 ### Passing multiple parameters
 
-It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects in .NET.
+It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects or composite objects.
 
-The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+# [C#](#tab/csharp)
+
+In .NET you can also use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -285,6 +299,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+#### Orchestrator
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### Activity
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## Next steps
 

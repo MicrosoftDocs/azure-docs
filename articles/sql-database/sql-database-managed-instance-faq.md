@@ -99,7 +99,7 @@ If both hardware generations are not supported in the same region, changing the 
 
 ## Tune performance
 
-**How do I tune performance of my managed instance? **
+**How do I tune performance of my managed instance?**
 
 General Purpose managed instance uses remote storage due to which size of data and log files matters to performance. For more information, see [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
@@ -175,8 +175,8 @@ To get a better understanding of the benefits, costs, and risks associated with 
 
 ## DNS Refresh 
 
-**Can I do DNS refresh? **
-  
+**Can I do DNS refresh?**
+
 Currently, we don't provide a feature to refresh DNS server configuration for managed instance.
 
 DNS configuration is eventually refreshed:

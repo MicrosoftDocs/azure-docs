@@ -68,47 +68,22 @@ Only Packet Capture, Connection Troubleshoot and Connection Monitor need the Net
 ### What does NSG Flow Logs do?
 Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
 
-### Are there any caveats to using NSG Flow Logs?
-There are no pre-requisites for using NSG Flow Logs. However, there are two limitations
-- **Service Endpoints must not be present on your VNET**: NSG Flow Logs are emitted from agents on your VMs to Storage accounts. However, today you can only emit logs directly to storage accounts and cannot use a service endpoint added to your VNET.
+### How do I use NSG Flow Logs with a Storage account behind a firewall?
 
-- **Storage Account must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will still be routed through Azure internally and you will not face extra egress charges.
+To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
-See the next two questions for instructions on how to work around these issues. Both of these limitations are expected to be addressed by Jan 2020.
-
-### How do I use NSG Flow Logs with Service Endpoints?
-
-*Option 1: Reconfigure NSG flow logs to emit to Azure Storage account without VNET endpoints*
-
-* Find subnets with endpoints:
-
-	- On the Azure portal, search for **Resource Groups** in the global search at the top
-	- Navigate to the Resource Group containing the NSG you are working with
-	- Use the second dropdown to filter by type and select **Virtual Networks**
-	- Click on the Virtual Network containing the Service Endpoints
-	- Select **Service endpoints** under **Settings** from the left pane
-	- Make a note of the subnets where **Microsoft.Storage** is enabled
-
-* Disable service endpoints:
-
-	- Continuing from above, select **Subnets** under **Settings** from the left pane
-	* Click on the subnet containing the Service Endpoints
-	- In the **Service endpoints** section, under **Services**, uncheck **Microsoft.Storage**
+* Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+* Under the **SETTINGS** section, select **Firewalls and virtual networks**
+* In "Allow access from", select **Selected networks**. Then under **Exceptions**, tick the box next to **"Allow trusted Microsoft services to access this storage account"** 
+* If it is already selected, no change is needed.  
+* Locate your target NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
 
-*Option 2: Disable NSG flow logs*
+### How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?
 
-If the Microsoft.Storage service endpoints are a must, you will have to disable NSG Flow Logs.
+NSG Flow Logs are compantible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
 
-### How do I disable the  firewall on my storage account?
-
-This issue is resolved by enabling "All networks" to access the storage account:
-
-* Find the name of the storage account by locating the NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
-* Navigate to the storage account by typing the storage account's name in the global search on the portal
-* Under the **SETTINGS** section, select **Firewalls and virtual networks**
-* Select **All networks** and save it. If it is already selected, no change is needed.  
 
 ### What is the difference between flow logs versions 1 & 2?
 Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

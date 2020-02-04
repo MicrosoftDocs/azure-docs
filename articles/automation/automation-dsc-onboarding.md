@@ -32,8 +32,7 @@ Azure Automation State Configuration can be used to manage a variety of machines
 
 - Azure virtual machines
 - Azure virtual machines (classic)
-- Amazon Web Services (AWS) EC2 instances
-- Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
+- Physical/virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
 - Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
 In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation
@@ -99,13 +98,7 @@ Examples are provided in
 To find the registration key and registration URL to use as parameters in the template,
 see the following [**Secure registration**](#secure-registration) section.
 
-## Amazon Web Services (AWS) virtual machines
-
-You can easily onboard Amazon Web Services virtual machines for configuration management by Azure
-Automation State Configuration using the AWS DSC Toolkit. You can learn more about the toolkit
-[here](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
-
-## Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
+## Physical/virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
 
 Windows servers running on-premises or in other cloud environments
 can also be onboarded to Azure Automation State Configuration, as long as they have

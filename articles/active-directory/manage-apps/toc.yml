@@ -141,6 +141,8 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
         - name: Grant tenant-wide admin consent
           href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)
@@ -149,8 +151,8 @@
           href: methods-for-assigning-users-and-groups.md
         - name: Assign a user to an app
           href: assign-user-or-group-access-portal.md
-        - name: Create workspaces on My Apps (preview)
-          href: access-panel-workspaces.md
+        - name: Create collections on My Apps
+          href: access-panel-collections.md
         - name: Use self-service app access
           href: access-panel-manage-self-service-access.md
         - name: Methods for removing a user's access to an app

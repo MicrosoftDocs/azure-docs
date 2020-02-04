@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -34,8 +34,9 @@ A technical profile enables these types of scenarios:
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
-- [Session management](active-directory-b2c-reference-sso-custom.md) - Handle different types of sessions.
+- [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
 - **Application insights**
+- [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password. 
 
 ## Technical profile flow
 
@@ -53,7 +54,7 @@ All types of technical profiles share the same concept. You send input claims, r
 4. **ValidationTechnicalProfiles** - For a [self asserted technical profile](self-asserted-technical-profile.md), you can call an input [validation technical profile](validation-technical-profile.md). The validation technical profile validates the data profiled by the user and returns an error message or Ok, with or without output claims. For example, before Azure AD B2C creates a new account, it checks whether the user already exists in the directory services. You can call a REST API technical profile to add your own business logic.<p>The scope of the output claims of a validation technical profile is limited to the technical profile that invokes the validation technical profile and other validation technical profiles under same technical profile. If you want to use the output claims in the next orchestration step, you need to add the output claims to the technical profile that invokes the validation technical profile.
 5. **OutputClaims** - Claims are returned back to the claims bag. You can use those claims in the next orchestrations step, or output claims transformations.
 6. **OutputClaimsTransformations** - Input claims of every output [claims transformation](claimstransformations.md) are picked up from the claims bag. The output claims of the technical profile from the previous steps can be input claims of an output claims transformation. After execution, the output claims are put back in the claims bag. The output claims of an output claims transformation can also be input claims of a subsequent output claims transformation.
-7. **Single sign-on (SSO) session management** - [SSO session management](active-directory-b2c-reference-sso-custom.md) controls interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again.
+7. **Single sign-on (SSO) session management** - [SSO session management](custom-policy-reference-sso.md) controls interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again.
 
 A technical profile can inherit from another technical profile to change settings or add new functionality.  The **IncludeTechnicalProfile** element is a reference to the base technical profile from which a technical profile is derived.
 

@@ -2,7 +2,7 @@
 title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
 author: ushan
-manager: jpconnock
+
 tags: azure-devops-pipelines
 
 ms.assetid: 
@@ -86,7 +86,7 @@ Follow the additional steps described below based on the runtime stack used for 
 
 - For deploying Java Spring Boot and Spring Cloud based apps, create a Linux VM in Azure using [this](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) template, which provides a fully supported OpenJDK-based runtime.
 - For deploying Java servlets on Tomcat server, create a Linux VM with Java 8 using [this](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure template and [configure Tomcat 9.x as a service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- For deploying Java EE based app, use an Azure template to create a [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) or a [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleWebLogicServer12cEnterprise) or a [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- For deploying Java EE based app, use an Azure template to create a [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) or a [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) or a [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
 
 #### [JavaScript](#tab/java-script)
 
@@ -150,20 +150,20 @@ Select the **starter** template and copy the below YAML snippet that builds your
 
 ```YAML
 - job: Build
-    displayName: Build Maven Project
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
+  displayName: Build Maven Project
+  steps:
+  - task: Maven@3
+    displayName: 'Maven Package'
+    inputs:
+      mavenPomFile: 'pom.xml'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '**/target/*.?(war|jar)'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+  - upload: $(Build.ArtifactStagingDirectory)
+    artifact: drop
 ```
 
 For more guidance, follow the steps mentioned in [Build your Java app with Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
@@ -215,13 +215,13 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](https:
 
    ```YAML
    jobs:  
-     - deployment: VMDeploy
-       displayName: web
-       environment:
-         name:  <environment name>
-         resourceType: VirtualMachine
-         tags: web1
-       strategy:
+   - deployment: VMDeploy
+     displayName: web
+     environment:
+       name:  <environment name>
+       resourceType: VirtualMachine
+       tags: web1
+     strategy:
    ```
 2. You can select specific sets of virtual machines from the environment to receive the deployment by specifying the **tags** that you have defined for each virtual machine in the environment.
 [Here](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
@@ -258,7 +258,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](https:
        resourceType: VirtualMachine
      strategy:
          rolling:
-           maxParallel: 2  #for percentages, mention as x%
+           maxParallel: 5  #for percentages, mention as x%
            preDeploy:
              steps:
              - download: current
@@ -300,3 +300,7 @@ Deployments view of the environment provides complete traceability of commits an
 ## Next steps
 - You can proceed to [customize the pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) you just created.
 - To learn what else you can do in YAML pipelines, see [YAML schema reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Deploy LAMP stack](tutorial-lamp-stack.md)

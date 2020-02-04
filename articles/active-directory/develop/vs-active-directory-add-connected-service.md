@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 
-ms.collection: M365-identity-device-management
 ---
 # Add an Azure Active Directory by using Connected Services in Visual Studio
 

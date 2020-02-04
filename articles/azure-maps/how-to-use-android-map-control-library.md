@@ -1,6 +1,6 @@
 ---
-title: Getting started with Android map control in Azure Maps | Microsoft Docs
-description: The Android map control in Azure Maps.
+title: Getting started with Android map control | Microsoft Azure Maps
+description: In this article you will learn, how to get started with the Android map control using the Microsoft Azure Maps Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -38,7 +38,7 @@ First, create a new project with an empty activity. Complete these steps to crea
 
 See the [Android Studio documentation](https://developer.android.com/studio/intro/) for more help with installing Android Studio and creating a new project.
 
-![Create a project](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Create a project in Android studio ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## Set up a virtual device
 
@@ -212,7 +212,7 @@ Android Studio will take a few seconds to build the application. After the build
 
 <center>
 
-![Android map](./media/how-to-use-android-map-control-library/android-map.png)</center>
+![Azure Maps in Android application](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## Localizing the map
 
@@ -258,7 +258,7 @@ Here is an example of Azure Maps with the language set to "fr-FR" and regional v
 
 <center>
 
-![Map image showing labels in French](./media/how-to-use-android-map-control-library/android-localization.png)
+![Azure Maps, map image showing labels in French](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).

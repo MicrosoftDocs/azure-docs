@@ -129,7 +129,7 @@ Once you've trained the model, you can save and register it to your workspace. M
 Running the following code will register the model to your workspace, and will make it available to reference by name in remote compute contexts or deployment scripts. See [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) in the reference docs for more information and additional parameters.
 
 ```python
-model = run.register_model(model_name='sklearn-sample')
+model = run.register_model(model_name='sklearn-sample', model_path=None)
 ```
 
 ## GitHub tracking and integration
@@ -156,3 +156,4 @@ For notebooks on training models by using deep-learning-framework specific estim
 * [Train TensorFlow models](how-to-train-tensorflow.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
+* [Create and manage environments for training and deployment](how-to-use-environments.md)

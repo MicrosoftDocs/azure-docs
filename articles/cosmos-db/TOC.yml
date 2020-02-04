@@ -12,6 +12,9 @@
       items:
       - name: Azure portal
         href: create-cosmosdb-resources-portal.md
+      - name: Azure Resource Manager template
+        displayName: ARM
+        href: quick-create-template.md
       - name: .NET app - V4 SDK
         href: create-sql-api-dotnet-v4.md
       - name: .NET app - V3 SDK
@@ -82,6 +85,8 @@
       href: resource-manager-samples.md
   - name: Concepts
     items:
+    - name: NoSQL Vs relational databases
+      href: relational-nosql.md
     - name: Global distribution
       items:
       - name: Overview
@@ -849,8 +854,6 @@
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: how-to-manage-consistency.md
-      - name: Implement custom synchronization
-        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
@@ -867,6 +870,9 @@
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
+      - name: Scale using Azure Functions timer
+        displayName: request units, RUs, RU, timer
+        href: scale-on-schedule.md
     - name: Work with containers and items
       items:
       - name: Work with Cosmos DB data
@@ -976,6 +982,8 @@
         href: certificate-based-authentication.md
       - name: Restrict user access to data operations only
         href: how-to-restrict-user-data.md
+      - name: Configure customer-managed keys
+        href: how-to-setup-cmk.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
@@ -1035,8 +1043,6 @@
       - name: Azure Stream Analytics
         href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
         maintainContext: true 
-      - name: Logic Apps and Service bus
-        href: change-feed-hl7-fhir-logic-apps.md
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
@@ -1058,6 +1064,8 @@
         href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
+      - name: Migrate one-to-few relational data
+        href: migrate-relational-to-cosmos-db-sql-api.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library

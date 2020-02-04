@@ -79,6 +79,8 @@
     href: samples-powershell.md
 - name: Concepts
   items: 
+  - name: Transport Layer Security (TLS)
+    href: notification-hubs-tls12.md
   - name: Enterprise push architecture guidance
     href: notification-hubs-enterprise-push-notification-architecture.md
   - name: Device registrations

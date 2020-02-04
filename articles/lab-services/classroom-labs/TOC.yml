@@ -44,6 +44,8 @@
       href: class-type-database-management.md
     - name: Python and Jupyter Notebooks
       href: class-type-jupyter-notebook.md
+    - name: Mobile app development with Android Studio
+      href: class-type-mobile-dev-android-studio.md
   - name: Create and configure lab accounts (lab account owner)
     items:
     - name: Create and manage lab accounts

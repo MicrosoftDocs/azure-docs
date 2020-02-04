@@ -20,7 +20,7 @@ Just-in-time (JIT) virtual machine (VM) access can be used to lock down inbound 
 
 
 > [!NOTE]
-> Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. To learn more about the classic and Resource Manager deployment models see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+> Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. To learn more about the classic and Resource Manager deployment models see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 ## Attack scenario
 
@@ -44,9 +44,8 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 | To enable a user to: | Permissions to set|
 | --- | --- |
-| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> On the scope of a subscription or Resource Group or VM: <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
-| ||
-|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  On the scope of a Subscription or Resource Group or VM:<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
+| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> On the scope of a subscription or resource group of VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>On the scope of a subscription or resource group that is associated with the VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  On the scope of a subscription or resource group or VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  On the scope of a subscription or resource group or VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 
 
 ## Configure JIT on a VM

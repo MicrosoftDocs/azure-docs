@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
 # Sign in to your accounts using the Microsoft Authenticator app

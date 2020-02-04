@@ -17,7 +17,8 @@ With Azure Cosmos DB, you are billed hourly based on the provisioned throughput 
 
 This article uses some examples to help you understand the details you see on the monthly bill. The numbers shown in the examples may be different if your Azure Cosmos containers have a different amount of throughput provisioned, if they span across multiple regions or run for a different for a period over a month.
 
->!Note: Billing is for any portion of a wall-clock hour, not a 60 minute duration.
+> [!NOTE]
+> Billing is for any portion of a wall-clock hour, not a 60 minute duration.
 
 ## Billing examples
 

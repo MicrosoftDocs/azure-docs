@@ -34,7 +34,7 @@ In this tutorial, you perform the following steps:
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* **Azure storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 * **Azure SQL Database**: Use a SQL database as the _sink_ data store. If you don't have a SQL database, see the instructions in [Create a SQL database](../sql-database/sql-database-get-started-portal.md).
 
 ### Create a blob and a SQL table
@@ -73,18 +73,18 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 ## Create a data factory
 
 1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
-    
+
     ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
     The name for your data factory must be _globally unique_. You might receive the following error message:
-    
+
     ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
 
     If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 1. Select the Azure **subscription** in which to create the new data factory.
 1. For **Resource Group**, take one of the following steps:
-    
+
     a. Select **Use existing**, and select an existing resource group from the drop-down list.
 
     b. Select **Create new**, and enter the name of a resource group.
@@ -96,7 +96,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 1. Select **Create**.
 
 1. After creation is finished, the **Data Factory** home page is displayed.
-    
+
     ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 1. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
 
@@ -120,7 +120,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     ![Select source linked service](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. On the **Choose the input file or folder** page, complete the following steps:
-    
+
     a. Click **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then click **Choose**.
 
     b. Click **Next** to move to next step.

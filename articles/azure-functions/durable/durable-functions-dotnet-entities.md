@@ -359,7 +359,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     {
         ctx.SetState(...);
     }
-    ctx.DispatchAsync<Counter>();
+    return ctx.DispatchAsync<Counter>();
 }
 ```
 

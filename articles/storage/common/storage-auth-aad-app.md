@@ -120,7 +120,7 @@ A completed sample web application that acquires a token and uses it to create a
 
 #### Add references and using statements  
 
-From Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **Nuget Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages from the Azure Storage client library for .NET:
+From Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages from the Azure Storage client library for .NET:
 
 ```console
 Install-Package Microsoft.Azure.Storage.Blob

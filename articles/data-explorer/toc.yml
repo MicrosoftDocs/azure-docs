@@ -27,9 +27,11 @@
     href: visualize-power-bi.md  
 - name: Concepts
   items:
-  - name: Data ingestion overview
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
+  - name: Data ingestion
+    items:  
+    - name: Data ingestion overview
+      displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
+      href: ingest-data-overview.md
   - name: Data visualization overview
     href: viz-overview.md
   - name: Security overview
@@ -54,48 +56,50 @@
       items:
       - name: Azure portal
         href: ingest-data-event-hub.md
-      - name: Python
-        href: data-connection-event-hub-python.md
       - name: C#
         href: data-connection-event-hub-csharp.md
+      - name: Python
+        href: data-connection-event-hub-python.md
       - name: Azure Resource Manager template
         href: data-connection-event-hub-resource-manager.md
     - name: Event Grid
       items:
       - name: Azure portal
         href: ingest-data-event-grid.md
-      - name: Python
-        href: data-connection-event-grid-python.md
       - name: C#
         href: data-connection-event-grid-csharp.md
+      - name: Python
+        href: data-connection-event-grid-python.md
       - name: Azure Resource Manager template
         href: data-connection-event-grid-resource-manager.md
     - name: IoT Hub
       items:
       - name: Azure portal
         href: ingest-data-iot-hub.md
-      - name: Python
-        href: data-connection-iot-hub-python.md
       - name: C#
         href: data-connection-iot-hub-csharp.md
+      - name: Python
+        href: data-connection-iot-hub-python.md
       - name: Azure Resource Manager template
         href: data-connection-iot-hub-resource-manager.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
+    - name: Using SDKs
+      items: 
+      - name: Python
+        href: python-ingest-data.md
+      - name: Node SDK
+        href: node-ingest-data.md
+      - name: .NET Standard SDK
+        href: net-standard-ingest-data.md
     - name: Kafka
       href: ingest-data-kafka.md
-    - name: Python
-      href: python-ingest-data.md
-    - name: Node SDK
-      href: node-ingest-data.md
-    - name: .NET Standard SDK
-      href: net-standard-ingest-data.md
     - name: Logstash
       href: ingest-data-logstash.md
-    - name: Copy data using Azure Data Factory
-      href: data-factory-load-data.md   
+    - name: json formatted data
+      href: ingest-json-formats.md  
   - name: Query data
     items:
     - name: Write queries
@@ -170,12 +174,28 @@
         href: manage-cluster-vertical-scaling.md
       - name: Check cluster health
         href: check-cluster-health.md
+      - name: Add cluster principal
+        items:
+          - name: C#
+            href: cluster-principal-csharp.md
+          - name: Python
+            href: cluster-principal-python.md
+          - name: Azure Resource Manager template
+            href: cluster-principal-resource-manager.md
     - name: Database
       items:
       - name: Follower databases
         href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
+      - name: Add database principal
+        items:
+          - name: C#
+            href: database-principal-csharp.md
+          - name: Python
+            href: database-principal-python.md
+          - name: Azure Resource Manager template
+            href: database-principal-resource-manager.md
       - name: Policies
         items:
         - name: C#
@@ -204,6 +224,8 @@
       items:
       - name: Integration with Data Factory 
         href: data-factory-integration.md 
+      - name: Copy data using Azure Data Factory
+        href: data-factory-load-data.md  
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory

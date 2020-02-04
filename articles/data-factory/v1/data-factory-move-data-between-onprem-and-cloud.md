@@ -1,5 +1,5 @@
 ---
-title: Move data - Data Management Gateway 
+title: Move data - Data Management Gateway
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
@@ -28,15 +28,15 @@ This article provides an overview of data integration between on-premises data s
 You must install Data Management Gateway on your on-premises machine to enable moving data to/from an on-premises data store. The gateway can be installed on the same machine as the data store or on a different machine as long as the gateway can connect to the data store.
 
 > [!IMPORTANT]
-> See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. 
+> See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway.
 
 The following walkthrough shows you how to create a data factory with a pipeline that moves data from an on-premises **SQL Server** database to an Azure blob storage. As part of the walkthrough, you install and configure the Data Management Gateway on your machine.
 
 ## Walkthrough: copy on-premises data to cloud
-In this walkthrough you do the following steps: 
+In this walkthrough you do the following steps:
 
 1. Create a data factory.
-2. Create a data management gateway. 
+2. Create a data management gateway.
 3. Create linked services for source and sink data stores.
 4. Create datasets to represent input and output data.
 5. Create a pipeline with a copy activity to move the data.
@@ -45,8 +45,8 @@ In this walkthrough you do the following steps:
 Before you begin this walkthrough, you must have the following prerequisites:
 
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
-* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
-* **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
+* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
+* **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial.
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**.

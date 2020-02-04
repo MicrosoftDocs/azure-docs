@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/06/2020
+ms.date: 01/14/2020
 ---
 
 # Mapping data flow video tutorials
@@ -55,6 +55,12 @@ As updates are constantly made to the product, some features have added or diffe
 [Unpivot transformation](http://youtu.be/KFYkxcpB8b0?hd=1)
 
 [Window Transformation](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
+
+[Filter Transformation](https://youtu.be/OhbKDOXSfeE)
+
+[Conditional Split Transformation](http://youtu.be/W1lQHojhKZw?hd=1)
+
+[Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
 
 ## Source and sink
 
@@ -115,3 +121,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Intelligent data routing](https://youtu.be/PIGw-Z-0upw)
 
 [Data masking for sensitive data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
+
+[Logical Models vs. Physical Models](http://youtu.be/K5tgzLjEE9Q)
+
+[Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)

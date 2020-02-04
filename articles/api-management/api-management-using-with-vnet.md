@@ -41,44 +41,47 @@ To perform the steps described in this article, you must have:
 
 ### Enable VNET connectivity using the Azure portal
 
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Virtual Network**.
-3. Configure the API Management instance to be deployed inside a Virtual network.
+1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
+
+2. Choose your API Management instance.
+
+3. Select **Virtual network**.
+4. Configure the API Management instance to be deployed inside a Virtual network.
 
     ![Virtual network menu of API Management][api-management-using-vnet-menu]
-4. Select the desired access type:
+5. Select the desired access type:
 
-   * **Off**: this is the default. API Management is not deployed into a virtual network.
+    * **Off**: This is the default. API Management is not deployed into a virtual network.
 
-   * **External**: the API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
+    * **External**: The API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
 
-     ![Public peering][api-management-vnet-public]
+        ![Public peering][api-management-vnet-public]
 
-   * **Internal**: the API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network.
+    * **Internal**: The API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network.
 
-     ![Private peering][api-management-vnet-private]
+        ![Private peering][api-management-vnet-private]
 
-     You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
+6. If you selected **External** or **Internal**, you will see a list of all regions where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network** and **Subnet**. The virtual network list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
 
-     > [!IMPORTANT]
-     > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
-     >
+    > [!IMPORTANT]
+    > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
 
-     ![Select VPN][api-management-setup-vpn-select]
+    Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
-5. Click **Save** in the top navigation bar.
-6. Click **Apply network configuration** in the top navigation bar.
+    ![Select VPN][api-management-setup-vpn-select]
+
+7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
 > [!NOTE]
 > The VIP address of the API Management instance will change each time VNET is enabled or disabled.
-> The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
+> The VIP address will also change when API Management is moved from **External** to **Internal**, or vice-versa.
 >
 
 > [!IMPORTANT]
 > If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to six hours. During this period it will not be possible to delete the VNET or deploy a new resource to it. This behavior is true for clients using api-version 2018-01-01 and earlier. Clients using api-version 2019-01-01 and later, the VNET is freed up as soon as the associated API Management service is deleted.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
-You can also enable VNET connectivity using the PowerShell cmdlets
+You can also enable VNET connectivity using the PowerShell cmdlets.
 
 * **Create an API Management service inside a VNET**: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a VNET.
 

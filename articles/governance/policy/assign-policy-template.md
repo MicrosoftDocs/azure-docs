@@ -61,7 +61,7 @@ Some additional resources:
 - To learn how to develop Resource Manager templates, see
   [Azure Resource Manager documentation](../../azure-resource-manager/management/overview.md).
 - To learn subscription-level deployment, see
-  [Create resource groups and resources at the subscription level](../../azure-resource-manager/deploy-to-subscription.md).
+  [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## Identify non-compliant resources
 
