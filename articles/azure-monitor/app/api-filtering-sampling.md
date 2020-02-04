@@ -378,7 +378,7 @@ You can add as many initializers as you like, and they are called in the order t
 
 ### OpenCensus Python telemetry processors
 
-Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. Your callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. Your callback function can return `False` if you do not want a envelopes to be exported. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported,make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
 ```python
 # Example for log exporter
