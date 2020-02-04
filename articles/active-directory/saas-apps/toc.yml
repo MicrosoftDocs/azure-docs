@@ -419,6 +419,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate
+        href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
@@ -1328,8 +1330,6 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
-      - name: Spintr SSO
-        href: spintr-sso-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
       - name: StatusPage
