@@ -20,6 +20,11 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application.
 
+> [!IMPORTANT]
+> This quickstart shows an administrator how to enable self-service password reset. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
+>
+> If your IT team hasn't enabled the ability to reset your own password, reach out to your helpdesk for additional assistance.
+
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
