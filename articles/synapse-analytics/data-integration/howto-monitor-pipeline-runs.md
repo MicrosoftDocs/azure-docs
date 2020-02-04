@@ -21,15 +21,15 @@ This article explains how to monitor your pipeline runs, which allows you to kee
 
 To see the list of pipeline runs in your workspace, first [open the Azure Synapse Studio](https://web.azuresynapse.net/) and select your workspace.
 
-  ![Log in to workspace](./media/howto-monitor-pipeline-runs/login-workspace.png)
+  ![Log in to workspace](../media/howto-monitor-pipeline-runs/login-workspace.png)
 
 Once you’ve opened your workspace, select the **Monitor** section on the left.
 
-  ![Select Monitor hub](./media/howto-monitor-pipeline-runs/leftnav.png)
+  ![Select Monitor hub](../media/howto-monitor-pipeline-runs/leftnav.png)
 
 Select **Pipeline runs** to view the list of pipeline runs.
 
-  ![Select pipeline runs](./media/howto-monitor-pipeline-runs/monitorhub-nav-pipelineruns.png)
+  ![Select pipeline runs](../media/howto-monitor-pipeline-runs/monitorhub-nav-pipelineruns.png)
 
 ## Filtering your pipeline runs
 
@@ -37,15 +37,15 @@ You can filter the list of pipeline runs to just those you’re interested in. T
 
 For example, you can filter the view to see only the pipeline runs for the pipeline named “holiday”:
 
-  ![Filter button](./media/howto-monitor-pipeline-runs/filter-button.png)
+  ![Filter button](../media/howto-monitor-pipeline-runs/filter-button.png)
 
-  ![Sample filter](./media/howto-monitor-pipeline-runs/filter-example.png)
+  ![Sample filter](../media/howto-monitor-pipeline-runs/filter-example.png)
 
 ## Viewing details about a specific pipeline run
 
 To view the details about one of your pipeline runs, select the pipeline run and view the activity runs associated with the pipeline run. You can also monitor the progress of the pipeline run, if it is still running.
 
-  ![Log in to workspace](./media/howto-monitor-pipeline-runs/login-workspace.png)
+  ![Log in to workspace](../media/howto-monitor-pipeline-runs/login-workspace.png)
   
 ## Next steps
 
