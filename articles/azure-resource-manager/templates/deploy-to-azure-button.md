@@ -24,25 +24,33 @@ The image appears as:
 
 To create the URL for your template, start with the raw URL to the template in your repo:
 
-`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json`
+```html
+https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+```
 
 Then, URL encode it.
 
-`https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json`
+```html
+https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
+```
 
 Each link starts with the same base URL:
 
-`https://portal.azure.com/#create/Microsoft.Template/uri/`
+```html
+https://portal.azure.com/#create/Microsoft.Template/uri/
+```
 
-Add your URL-encoded template link to the base URL.
+Add your URL-encoded template link to the end of the base URL.
 
-`https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json`
+```html
+https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
+```
 
 You have your full URL for the link.
 
 ## Create Deploy to Azure button
 
-The link you add to your web page or GitHub repository contains the URI and the image.
+Finally, put the link and image together.
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
@@ -50,11 +58,17 @@ The link you add to your web page or GitHub repository contains the URI and the 
 </a>
 ```
 
-You can deploy the example template with the following button:
+## Deploy the template
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
+To test the full solution, select the following button:
+<br><br>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+
+The portal displays a pane that allows you to easily provide parameter values. The parameters are pre-filled with the default values from the template.
+
+![Use portal to deploy](./media/deploy-to-azure-button/portal.png)
 
 ## Next steps
 
