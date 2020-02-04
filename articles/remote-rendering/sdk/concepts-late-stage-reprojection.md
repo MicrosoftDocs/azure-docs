@@ -1,5 +1,5 @@
 ---
-title: Lsr
+title: Late stage reprojection
 description: Information on Late Stage Reprojection and how to use it.
 author: sebastianpick
 manager: jlyons

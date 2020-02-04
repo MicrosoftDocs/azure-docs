@@ -61,7 +61,7 @@
     - name: Graphics bindings
       href: sdk/concepts-graphics-binding.md
     - name: Late stage reprojection
-      href: sdk/concepts-lsr.md
+      href: sdk/concepts-late-stage-reprojection.md
 - name: Reference
   items:
   - name: Features

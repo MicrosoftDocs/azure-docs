@@ -44,4 +44,4 @@ The remote rendering hooks into the Unity render pipeline to do the frame compos
 
 ## Unstable Holograms
 
-In case rendered objects seem to be moving along with head movements, that is, they seem to wobble, you might be encountering issues with Late Stage Reprojection. Refer to the section on [Late Stage Reprojection](../sdk/concepts-lsr.md) for guidance on how to approach such a situation.
+In case rendered objects seem to be moving along with head movements, that is, they seem to wobble, you might be encountering issues with Late Stage Reprojection. Refer to the section on [Late Stage Reprojection](../sdk/concepts-late-stage-reprojection.md) for guidance on how to approach such a situation.
