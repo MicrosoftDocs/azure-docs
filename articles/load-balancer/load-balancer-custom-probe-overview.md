@@ -195,7 +195,7 @@ Load Balancer is a pass through service (does not terminate TCP connections) and
 
 UDP datagrams will be delivered to healthy backend endpoints.
 
-UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows may move to another healthy instance in the backend pool.
+UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows will move to another healthy instance in the backend pool.
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
@@ -252,6 +252,6 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md)
+- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-create-standard-load-balancer-powershell.md)
 - [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)

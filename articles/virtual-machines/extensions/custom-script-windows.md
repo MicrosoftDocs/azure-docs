@@ -265,6 +265,9 @@ If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.uti
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
+## Virtual Machine Scale Sets
+
+To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## Classic VMs
 

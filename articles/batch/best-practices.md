@@ -1,12 +1,12 @@
 ---
 title: Best practices - Azure Batch
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-author: ju-shim
-ms.author: jushiman
+author: LauraBrenner
+ms.author: labrenne
 ms.date: 11/22/2019
 ms.service: batch 
 ms.topic: article
-manager: gwallace
+manager: evansma
 ---
 
 # Azure Batch best practices
@@ -147,3 +147,15 @@ Although rare, a task can be retried internally due to failures on the compute n
 ### Security isolation
 
 For the purposes of isolation, if your scenario requires isolating jobs from each other, then you should isolate these jobs by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools are not visible or able to communicate with each other. Avoid using separate Batch accounts as a means of isolation.
+
+## Moving
+
+### Move Batch account across regions 
+
+There are various scenarios in which you'd want to move your existing Batch account from one region to another. For example, you may want to move to another region as part of disaster recovery planning.
+
+Azure Batch accounts cannot be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration of your Batch account.  You can then stage the resource in another region by exporting the Batch account to a template, modifying the parameters to match the destination region, and then deploy the template to the new region. After you upload the template to the new region, you will have to recreate certificates, job schedules, and application packages. To commit the changes and complete the move of the Batch account, remember to delete the original Batch account or resource group.  
+
+For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

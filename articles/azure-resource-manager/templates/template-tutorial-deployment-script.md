@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/09/2020
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -168,6 +168,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
       "type": "string",
       "defaultValue": "[utcNow()]"
     }
+    ```
 
 1. Add a deploymentScripts resource:
 
@@ -193,7 +194,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "2.8",
+        "azPowerShellVersion": "3.0",
         "timeout": "PT30M",
         "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an argument string, double quotes must be escaped
         "scriptContent": "
