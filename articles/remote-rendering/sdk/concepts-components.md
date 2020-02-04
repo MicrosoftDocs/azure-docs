@@ -34,7 +34,7 @@ lightComponent.Destroy();
 lightComponent = null;
 ```
 
-Components are explicitly deleted with `Component.Destroy()` or automatically when the component's owner entity is destroyed.
+A component is attached to an entity at creation time. It cannot be moved to another entity afterwards. Components are explicitly deleted with `Component.Destroy()` or automatically when the component's owner entity is destroyed.
 
 Only one instance of each component type may be added to an entity at a time.
 
