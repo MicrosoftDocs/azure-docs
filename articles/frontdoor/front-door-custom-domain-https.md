@@ -66,6 +66,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 5. Proceed to [Validate the domain](#validate-the-domain).
 
+![NOTE] Enabling HTTPS via Front Door managed certificate is not supported for apex/root domains (example: contoso.com). You can use your own certificate for this scenario.  Please continue with Option 2 for further details.
 
 ### Option 2: Use your own certificate
 
