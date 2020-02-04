@@ -303,9 +303,11 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match any character, and any other character to match that actual character.
-**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
-**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match any character, and any other character to match that actual character. While,
+**match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
+are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
+**notMatchInsensitively**. For examples, see
+[Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
@@ -480,8 +482,8 @@ evaluation.
 Conditions that count how many members of an array in the resource payload satisfy a condition
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
-evaluates each array member for a condition expression and sums the _true_ results, which is then
-compared to the expression operator.
+evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
+sums the _true_ results, which is then compared to the expression operator.
 
 The structure of the **count** expression is:
 
@@ -886,10 +888,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 
