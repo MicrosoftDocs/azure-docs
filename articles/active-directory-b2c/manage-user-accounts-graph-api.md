@@ -41,24 +41,24 @@ The following user management operations are available in the [Microsoft Graph A
 
 ### Display name property
 
-The `displayName` is the name to display in Azure Portal user management for the user, and in the access token Azure AD B2C returns to the application. This property is required.
+The `displayName` is the name to display in Azure portal user management for the user, and in the access token Azure AD B2C returns to the application. This property is required.
 
 ### Identities property
 
 A customer account, which could be a consumer, partner, or citizen, can be associated with these identity types:
 
-- **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as as "local accounts."
+- **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 - **Federated** identity - Also known as a *social* or *enterprise* accounts, the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
 A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
 
-In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity][graph-objectIdentity]. The `identities` collection represents a set of identities used to sign in to a user account. This enables the user to sign in to the user account with any of its associated identities.
+In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity][graph-objectIdentity]. The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities.
 
 | Property   | Type |Description|
 |:---------------|:--------|:----------|
 |signInType|string| Specifies the user sign-in types in your directory. For local account:  `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`,  `userName`, or any other type you like. Social account must be set to  `federated`.|
 |issuer|string|Specifies the issuer of the identity. For local accounts (where **signInType** is not `federated`), this property is the local B2C tenant default domain name, for example `contoso.onmicrosoft.com`. For social identity (where **signInType** is  `federated`) the value is the name of the issuer, for example `facebook.com`|
-|issuerAssignedId|string|Specifies the unique identifier assigned to the user by the issuer. The combination of **issuer** and **issuerAssignedId** must be unique within your tenant. For local account, when **signInType** is set to `emailAddress` or `userName`, it represents the sign-in name for the user, .<br>When **signInType** is set to: <ul><li>`emailAddress`, (or starts with `emailAddress` like `emailAddress1`) **issuerAssignedId** must be a valid email address</li><li>`userName` (or any other value), **issuerAssignedId** must be a valid [local part of an email address](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** represents the federated account unique identifier</li></ul>|
+|issuerAssignedId|string|Specifies the unique identifier assigned to the user by the issuer. The combination of **issuer** and **issuerAssignedId** must be unique within your tenant. For local account, when **signInType** is set to `emailAddress` or `userName`, it represents the sign-in name for the user.<br>When **signInType** is set to: <ul><li>`emailAddress` (or starts with `emailAddress` like `emailAddress1`) **issuerAssignedId** must be a valid email address</li><li>`userName` (or any other value), **issuerAssignedId** must be a valid [local part of an email address](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** represents the federated account unique identifier</li></ul>|
 
 For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
 
@@ -87,7 +87,7 @@ In user migration scenarios, if the accounts you want to migrate have weaker pas
 
 ### Extension properties
 
-Every customer-facing application has unique requirements for the information to be collected. Your Azure Azure AD B2C tenant comes with a built-in set of information stored in properties, such as Given Name, Surname, City, and Postal Code. With Azure AD B2C, you can extend the set of properties stored in each customer account. For more information on defining custom attributes, see [custom attributes (user flows)](user-flow-custom-attributes.md) and [custom attributes (custom policies)](custom-policy-custom-attributes.md).
+Every customer-facing application has unique requirements for the information to be collected. Your Azure AD B2C tenant comes with a built-in set of information stored in properties, such as Given Name, Surname, City, and Postal Code. With Azure AD B2C, you can extend the set of properties stored in each customer account. For more information on defining custom attributes, see [custom attributes (user flows)](user-flow-custom-attributes.md) and [custom attributes (custom policies)](custom-policy-custom-attributes.md).
 
 Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationObjectID_attributename`. For example:
 
@@ -108,7 +108,7 @@ After you've obtained the code sample, configure it for your environment and the
 
 1. Open the solution in [Visual Studio](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com).
 1. Open `appsettings.json`.
-1. Under the `appSettings` section, replace `{your-b2c-tenant}` with the name of your tenant, and `{Application ID}` and `{Client secret}` with the values for your management application registration (see )
+1. Under the `appSettings` section, replace `{your-b2c-tenant}` with the name of your tenant, and `{Application ID}` and `{Client secret}` with the values for your management application registration (see the [Register a management application](#register-a-management-application) section of this article).
 1. The console application can be found in `bin\Debug\netcoreapp3.0` folder. To run the application, run following command:
 
 ```cmd
@@ -119,9 +119,9 @@ The application will show you list of commands you can use. For example: List us
 
 ### Code discussion
 
-The sample code utilize the [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph. So, you don't need to make a direct all the the Microsoft Graph API.
+The sample code uses the [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph. So, you don't need to make a direct all the Microsoft Graph API.
 
-Any request to the Microsoft Graph API requires an access token for authentication. The solution makes use of the [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet package which provides an authentication scenario-based wrapper of the Microsoft Authentication Library (MSAL) for use with the Microsoft Graph SDK.
+Any request to the Microsoft Graph API requires an access token for authentication. The solution makes use of the [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet package that provides an authentication scenario-based wrapper of the Microsoft Authentication Library (MSAL) for use with the Microsoft Graph SDK.
 
 The `RunAsync` method in the _Program.cs_ file:
 
@@ -150,7 +150,7 @@ The Microsoft Graph SDK service libraries provide a client class that you can us
 
 The _main_ method (in the _Program_ class) invokes the _GetUserBySignInName_ method in the _Services\\UserService.cs_ file. This method:
 
-1. Accepted `AppSettings` and  `GraphServiceClient` objects that has been initiated in the _Program_ class.
+1. Accepted `AppSettings` and  `GraphServiceClient` objects that have been initiated in the _Program_ class.
 1. Asks the user to provide the sign-in name
 1. Uses the `graphClient.Users` to find the account in the directory.
 1. Write the result to the console.
