@@ -4,7 +4,7 @@ description: Monitor and manage an IoT Edge deployment using built-in direct met
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/04/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -29,7 +29,7 @@ az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device na
 
 In the Azure portal, invoke the method with the method name **ping** and an empty JSON payload **{}**.
 
-![Invoke direct method 'ping' in Azure portal](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
+![Invoke direct method 'ping' in Azure portal](./media/how-to-monitor-edgeagent/ping-direct-method.png)
 
 ## Restart module
 
@@ -58,7 +58,7 @@ In the Azure portal, invoke the method with the method name **RestartModule** an
 }
 ```
 
-![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
+![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-monitor-edgeagent/restartmodule-direct-method.png)
 
 ## Experimental methods
 
