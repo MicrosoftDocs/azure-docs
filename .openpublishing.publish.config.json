@@ -240,7 +240,7 @@
     {
       "path_to_root": "MachineLearningNotebooks",
       "url": "https://github.com/Azure/MachineLearningNotebooks",
-      "branch": "sdg-add-metadata"
+      "branch": "sdgilley-add-metadata"
     },
     {
       "path_to_root": "aml-sdk-samples",
