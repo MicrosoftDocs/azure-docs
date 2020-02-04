@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure shared disks (preview) is a new feature for Azure managed disks, allowing you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Shared disks enable you to either deploy new or migrate existing clustered applications to Azure. The virtual machines in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using SCSI Persistent Reservations (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk enables these applications to migrate as-si to Azure.
+Azure shared disks (preview) is a new feature for Azure managed disks. Enabling shared disks allows you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. The VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using SCSI Persistent Reservations (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
 
 Managed disks that have shared disks enabled offer a SAN-like block-level storage protocol, data is stored and accessed in blocks. These blocks of data are stored in Logical Unit Numbers (LUNs). LUNs are then presented to an initiator (host) from a target (storage system). To an end device like a server, these LUNs appear to be direct-attached-storage (DAS) or a local drive. When you enable shared disks, you will need to format the drive with an operating system-specific file system. On Windows, you will need to use a clustered file system like Windows Server failover cluster (WSFC), that handles locking for writes from multiple hosts to prevent data corruption.
 
@@ -81,10 +81,10 @@ The flow is as follows:
 
 ### Deploy an Azure shared disk
 
-To deploy a managed disk with the shared disk feature enabled, use the new property `$maxShares` and define a value `>1`. This will make the disk shareable across multiple VMs.
+To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value `>1`. This will make the disk shareable across multiple VMs.
 
 > [!IMPORTANT]
-> The value of `$maxShares` can only be set or changed when a disk is unmounted from all VMs. Please see the following table for the allowed values for `$maxShares`.
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. Please see the following table for the allowed values for `maxShares`.
 
 ```json
 { 
@@ -191,6 +191,6 @@ The following table illustrates the allowed maximum values for maxShares by disk
 
 |Disk sizes  |maxShares limit  |
 |---------|---------|
-|Row1     |         |
-|Row2     |         |
-|Row3     |         |
+|P15, P20     |2         |
+|P30, P40, P50     |5         |
+|P60, P70, P80     |10         |
