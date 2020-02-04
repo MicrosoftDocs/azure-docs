@@ -46,18 +46,18 @@ Go over the steps listed below to make sure all the usual configurations are as 
 
     d) Review the virtual network and DNS information
     
-       - Validate connection state is **Approved**
-       - Make sure the VM has connectivity to the VNet hosting the Private Endpoints
-       - FQDN information (copy) and Private IP address assigned
+     - Validate connection state is **Approved**
+     - Make sure the VM has connectivity to the VNet hosting the Private Endpoints
+     - FQDN information (copy) and Private IP address assigned
     
-       ![VNet and DNS Configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
+     ![VNet and DNS Configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
     
 2. Use [**Azure Monitor**](https://docs.microsoft.com/azure/azure-monitor/overview) to review data is flowing
 
     a) On Private Endpoint resource, select **Monitor**
-       - Select data-in or data-out and review if the data is flowing when attempting to connect to the Private Endpoint. Expect a delay of approx. 10 mins.
+     - Select data-in or data-out and review if the data is flowing when attempting to connect to the Private Endpoint. Expect a delay of approx. 10 mins.
     
-       ![Verify Private Endpoint Telemetry](./media/private-endpoint-tsg/private-endpoint-monitor.png)
+     ![Verify Private Endpoint Telemetry](./media/private-endpoint-tsg/private-endpoint-monitor.png)
 
 3. Use VM Connection Troubleshoot from **Network Watcher**
 
@@ -72,8 +72,8 @@ Go over the steps listed below to make sure all the usual configurations are as 
     ![Network Watcher - Connection troubleshoot](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
 
     d) Select **Test by FQDN**
-       - Paste the FQDN from the Private Endpoint resource
-       - Provide a port (*typically 443 for Azure Storage or COSMOS, 1336 for Sql ...* )
+     - Paste the FQDN from the Private Endpoint resource
+     - Provide a port (*typically 443 for Azure Storage or COSMOS, 1336 for Sql ...* )
 
     e) Click **Test** and validate the test results
     
@@ -83,16 +83,16 @@ Go over the steps listed below to make sure all the usual configurations are as 
 4. DNS resolution from the test results must have the same private IP address assigned to the Private Endpoint
 
     a) If DNS settings are incorrect, do the following
-       - Using Private Zone: 
-           - Make sure client VM VNet is associated with the Private Zone
-           - Review Private DNS zone record exists, create if not existing
+     - Using Private Zone: 
+       - Make sure client VM VNet is associated with the Private Zone
+       - Review Private DNS zone record exists, create if not existing
     
-       - Using custom DNS:
-           - Review your customer DNS settings and validate DNS configuration is correct.
-           Refer to [Private Endpoint overview - DNS Configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration) for guidance.
+     - Using custom DNS:
+       - Review your customer DNS settings and validate DNS configuration is correct.
+       Refer to [Private Endpoint overview - DNS Configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration) for guidance.
 
     b) If connectivity is failing because of NSG/UDRs
-       - Review NSG outbound rules and create appropriate outbound rules to allow traffic
+     - Review NSG outbound rules and create appropriate outbound rules to allow traffic
     
     ![NSG outbound rules](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
