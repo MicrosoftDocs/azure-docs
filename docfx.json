@@ -72,7 +72,7 @@
       "searchScope": [
         "Azure"
       ],
-      "recommendations": true
+      "recommendations": true,
       "contributors_to_exclude": [
         "PRmerger",
         "PRMerger9",
