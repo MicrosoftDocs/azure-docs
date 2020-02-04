@@ -100,7 +100,7 @@ Add a new keychain group to your project **Capabilities**. The keychain group sh
 * `com.microsoft.adalcache` on iOS 
 * `com.microsoft.identity.universalstorage` on macOS.
 
-![keychain example](media/single-sign-on-macos-ios/keychain_example.png)
+![keychain example](media/single-sign-on-macos-ios/keychain-example.png)
 
 For more information, see [keychain groups](howto-v2-keychain-objc.md).
 
