@@ -780,7 +780,7 @@ The following example takes a string collection of user roles, and convert it to
   - **outputClaim**: "Admin,Author,Reader"
 
 
- ## StringSplit
+## StringSplit
 
 Returns a string array that contains the substrings in this instance that are delimited by elements of a specified string.
 
