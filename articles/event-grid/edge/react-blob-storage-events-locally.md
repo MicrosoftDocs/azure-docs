@@ -57,9 +57,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```json
         {
           "Env": [
-           "inbound:serverAuth:tlsPolicy=enabled",
-           "inbound:clientAuth:clientCert:enabled=false",
-           "outbound:webhook:httpsOnly=false"
+           "inbound__serverAuth__tlsPolicy=enabled",
+           "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -74,18 +73,15 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```    
 
  1. Click **Save**
- 1. Continue to the next section to add the Azure Functions module
+ 1. Continue to the next section to add the Azure Event Grid Subscriber module before deploying them together.
 
     >[!IMPORTANT]
-    > In this tutorial, you will learn to deploy the Event Grid module to allow both HTTP/HTTPs requests, client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPs requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
+    > In this tutorial, you will learn to deploy the Event Grid module to allow both HTTP/HTTPs requests, client authentication disabled. For production workloads, we recommend that you enable only HTTPs requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
     
 
-## Deploy Azure Function IoT Edge module
+## Deploy Event Grid Subscriber IoT Edge module
 
-This section shows you how to deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
-
->[!IMPORTANT]
->In this section, you will deploy a sample Azure Function-based subscribing module. It can of course be any custom IoT Module that can listen for HTTP POST requests.
+This section shows you how to deploy another IoT module which would act as an event handler to which events can be delivered.
 
 ### Add modules
 
@@ -94,23 +90,8 @@ This section shows you how to deploy the Azure Functions IoT module, which would
 1. Provide the name, image, and container create options of the container:
 
    * **Name**: subscriber
-   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Container Create Options**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Container Create Options**: None
 1. Click **Save**
 1. Continue to the next section to add the Azure Blob Storage module
 
@@ -222,7 +203,7 @@ Keep the default routes, and select **Next** to continue to the review section
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -261,7 +242,7 @@ Keep the default routes, and select **Next** to continue to the review section
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -284,7 +265,7 @@ Keep the default routes, and select **Next** to continue to the review section
     Sample Output:
 
     ```json
-            Received event data [
+            Received Event:
             {
               "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
               "topic": "MicrosoftStorage",
@@ -304,7 +285,6 @@ Keep the default routes, and select **Next** to continue to the review section
                 "blobType": "BlockBlob"
               }
             }
-          ]
     ```
 
 ### Verify BlobDeleted event delivery
@@ -315,7 +295,7 @@ Keep the default routes, and select **Next** to continue to the review section
     Sample Output:
     
     ```json
-            Received event data [
+            Received Event:
             {
               "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
               "topic": "MicrosoftStorage",
@@ -335,7 +315,6 @@ Keep the default routes, and select **Next** to continue to the review section
                 "blobType": "BlockBlob"
               }
             }
-          ]
     ```
 
 Congratulations! You have completed the tutorial. The following sections provide details on the event properties.

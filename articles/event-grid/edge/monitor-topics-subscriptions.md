@@ -57,10 +57,10 @@ Both topics and event subscriptions emit metrics to give you insights into event
 
 | Metric | Description |
 | ------ | ----------- |
-| deliverySuccessCounts | Number of events successfully delivered to the configured endpoint
-| deliveryFailureCounts | Number of event delivery attempts failed to the configured endpoint
-| deliverySuccessLatencyMs | Latency of events successfully delivered in milliseconds
-| deliveryFailureLatencyMs | Latency of events delivery failures in milliseconds
-| systemDelayForFirstAttemptMs | System delay of events before first delivery attempt in milliseconds
-| deliveryAttemptsCount | Number of event delivery attempts - success and failure
-| expiredCounts | Number of events unable to be delivered 
+| DeliverySuccessCounts | Number of events successfully delivered to the configured endpoint
+| DeliveryFailureCounts | Number of events that failed to be delivered to the configured endpoint
+| DeliverySuccessLatencyMs | Latency of events successfully delivered in milliseconds
+| DeliveryFailureLatencyMs | Latency of events delivery failures in milliseconds
+| SystemDelayForFirstAttemptMs | System delay of events before first delivery attempt in milliseconds
+| DeliveryAttemptsCount | Number of event delivery attempts - success and failure
+| ExpiredCounts | Number of events that expired and were not delivered to the configured endpoint
