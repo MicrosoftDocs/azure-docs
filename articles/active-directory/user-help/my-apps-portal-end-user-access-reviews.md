@@ -77,7 +77,7 @@ If your administrator has given you permission to perform your own access review
 >[!Note]
 >If you don't see the **Access reviews** tile, it could mean that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
 
-### To perform access reviews
+## To perform access reviews
 
 1. Sign in to your work or school account.
 

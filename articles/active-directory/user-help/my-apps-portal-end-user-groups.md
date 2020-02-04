@@ -23,9 +23,7 @@ You can use your work or school account with the web-based **My Apps** portal, t
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## Using myapp.microsoft.com
-
-### View your Groups information
+## View your Groups information
 
 If your administrator has given you permission to view the **Groups** tile, you can:
 
@@ -33,7 +31,7 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
 - **As a group owner.** View details, create a new group, add or remove members, or delete your group.
 
-#### To view your groups information
+### To view your groups information
 
 1. Sign in to your work or school account.
 
@@ -65,7 +63,7 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
     - **Join a group.** Join an existing group, for which you're not already a member, from the **Groups I'm in** area. For specific steps, see the [Join an existing group](#join-an-existing-group).
 
-### Create a new group
+## Create a new group
 
 1. On the **Groups** page, select **Create a group** from the **Groups I own** area.
 
@@ -91,11 +89,9 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
     The new group is created with you as the owner and it appears in your **Groups I own** list. Because you're the owner, this group also appears in the **Groups I'm in** list.
 
-### Edit an existing group
+## Edit an existing group
 
 After you create a group, you can edit its details, including updating any of the existing information.
-
-#### To edit your details
 
 1. Select the group you want to edit from the **Groups** page, and then select **Edit details** on the *&lt;group_name&gt;* page.
 
@@ -103,11 +99,9 @@ After you create a group, you can edit its details, including updating any of th
 
 2. Make all of your changes, and then select **Update**.
 
-### Add or remove a member
+## Add or remove a member
 
-You can add or remove members for any of your own groups.
-
-#### To add or remove a member
+You can add or remove members for any groups that you own.
 
 1. Select the group you want to add members to, and then select **+** on the *&lt;group_name&gt;* page.
 
@@ -123,11 +117,9 @@ You can add or remove members for any of your own groups.
 
     ![Remove a member, with the removal link highlighted](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
-### Renew an Office 365 group
+## Renew an Office 365 group
 
 If your organization allows it, you can renew an Office 365 group, extending your expiration date.
-
-#### To renew a group
 
 1. Select the Office 365 group you want to renew, and then select **Renew group**.
 
@@ -137,11 +129,9 @@ If your organization allows it, you can renew an Office 365 group, extending you
 
     After you refresh the page, you'll see your updated **Last Renewed** and **Group expiration** dates.
 
-### Delete a group
+## Delete a group
 
 You can delete any of your own groups at any time. However, if you delete a group by mistake you'll have to create it and add members again.
-
-#### To delete the group
 
 1. Select the group you want to permanently delete, and then select **Delete group** on the *&lt;group_name&gt;* page.
 
@@ -151,7 +141,7 @@ You can delete any of your own groups at any time. However, if you delete a grou
 
     The group is permanently deleted.
 
-### Join an existing group
+## Join an existing group
 
 You can join or leave an already existing group from the **Groups** page.
 
