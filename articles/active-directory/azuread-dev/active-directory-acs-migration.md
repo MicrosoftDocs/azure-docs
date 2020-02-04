@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.custom: aaddev 
 ms.topic: conceptual
 ms.workload: identity
@@ -17,6 +17,8 @@ ms.reviewer: jlu, annaba, hirsin
 ---
 
 # How to: Migrate from the Azure Access Control Service
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 

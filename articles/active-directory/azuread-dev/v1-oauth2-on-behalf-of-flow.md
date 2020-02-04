@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Service-to-service calls that use delegated user identity in the On-Behalf-Of flow
 
-[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a service or web API to pass user authentication to another service or web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Azure Active Directory (Azure AD) on behalf of the user.
 
@@ -145,7 +145,7 @@ A service-to-service access token request with a certificate contains the follow
 | assertion |required | The value of the token used in the request. |
 | client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |required | A JSON Web Token that you create and sign with the certificate you registered as credentials for your application. See  [certificate credentials](active-directory-certificate-credentials.md) to learn about assertion format and about how to register your certificate.|
+| client_assertion |required | A JSON Web Token that you create and sign with the certificate you registered as credentials for your application. See  [certificate credentials](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to learn about assertion format and about how to register your certificate.|
 | resource |required | The app ID URI of the receiving service (secured resource). To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For OpenID Connect, the scope **openid** must be specified.|

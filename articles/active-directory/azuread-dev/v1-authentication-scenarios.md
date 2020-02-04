@@ -8,7 +8,7 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -21,6 +21,8 @@ ms.custom: aaddev
 ---
 
 # What is authentication?
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 *Authentication* is the act of challenging a party for legitimate credentials, providing the basis for creation of a security principal to be used for identity and access control. In simpler terms, it's the process of proving you are who you say you are. Authentication is sometimes shortened to AuthN.
 
@@ -43,7 +45,7 @@ Here’s what you need to know about the various components shown in the diagram
 
 * Azure AD is the identity provider. The identity provider is responsible for verifying the identity of users and applications that exist in an organization’s directory, and issues security tokens upon successful authentication of those users and applications.
 * An application that wants to outsource authentication to Azure AD must be registered in Azure Active Directory (Azure AD). Azure AD registers and uniquely identifies the app in the directory.
-* Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. For more info, see Microsoft identity platform [v2.0 authentication libraries](reference-v2-libraries.md) and [v1.0 authentication libraries](active-directory-authentication-libraries.md).
+* Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. For more info, see Microsoft identity platform [v2.0 authentication libraries](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) and [v1.0 authentication libraries](active-directory-authentication-libraries.md).
 * Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful. You can find quickstarts, tutorials, and code samples in a variety of languages and frameworks which show what the application must do.
   * To quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more, see the **Quickstarts** section of the documentation.
   * To get in-depth, scenario-based procedures for top auth developer tasks like obtaining access tokens and using them in calls to the Microsoft Graph API and other APIs, implementing sign-in with Microsoft with a traditional web browser-based app using OpenID Connect, and more, see the **Tutorials** section of the documentation.
@@ -101,7 +103,7 @@ In this provisioning flow:
 1. Azure AD uses the application object in tenant A as a blueprint for creating a service principal in tenant B
 1. The user receives the requested token
 
-You can repeat this process as many times as you want for other tenants (C, D, and so on). Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent retain control over what the application is allowed to do through the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](app-objects-and-service-principals.md).
+You can repeat this process as many times as you want for other tenants (C, D, and so on). Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent retain control over what the application is allowed to do through the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## Claims in Azure AD security tokens
 
@@ -114,7 +116,7 @@ Security tokens (access and ID tokens) issued by Azure AD contain claims, or ass
 
 The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.
 
-A brief description of each type of claim emitted by Azure AD is provided in the table below. For more detailed information, see the [access tokens](access-tokens.md) and [ID tokens](id-tokens.md) issued by the Azure AD.
+A brief description of each type of claim emitted by Azure AD is provided in the table below. For more detailed information, see the [access tokens](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) and [ID tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) issued by the Azure AD.
 
 | Claim | Description |
 | --- | --- |

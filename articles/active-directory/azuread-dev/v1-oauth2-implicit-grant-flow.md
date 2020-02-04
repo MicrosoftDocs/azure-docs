@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)
 
-[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 The OAuth2 implicit grant is notorious for being the grant with the longest list of security concerns in the OAuth2 specification. And yet, that is the approach implemented by ADAL JS and the one we recommend when writing SPA applications. What gives? It’s all a matter of tradeoffs: and as it turns out, the implicit grant is the best approach you can pursue for applications that consume a Web API via JavaScript from a browser.
 
@@ -65,14 +65,12 @@ If you are developing a Web application that includes a backend, and consuming a
 
 ## Next steps
 
-* For a complete list of developer resources, including reference information for the protocols and OAuth2 authorization grant flows support by Azure AD, refer to the [Azure AD Developer's Guide][AAD-Developers-Guide]
 * See [How to integrate an application with Azure AD][ACOM-How-To-Integrate] for additional depth on the application integration process.
 
 <!--Image references-->
 
 <!--Reference style links in use-->
-[AAD-Developers-Guide]:azure-ad-developers-guide.md
 [ACOM-How-And-Why-Apps-Added-To-AAD]: active-directory-how-applications-are-added.md
-[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
+[ACOM-How-To-Integrate]: ../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

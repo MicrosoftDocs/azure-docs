@@ -8,7 +8,7 @@ manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,6 +20,8 @@ ms.custom: aaddev
 ---
 
 # Service-to-service apps
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 Service-to-service applications can be a daemon or server application that needs to get resources from a web API. There are two sub-scenarios that apply to this section:
 

@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2019
@@ -16,6 +16,8 @@ ms.custom: aaddev
 ---
 
 # How to: Reactivate disabled Access Control Service namespaces
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 On November 2017, we announced that Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), is being retired on November 7, 2018.
 

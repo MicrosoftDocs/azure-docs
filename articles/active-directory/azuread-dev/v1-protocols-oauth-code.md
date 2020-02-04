@@ -8,7 +8,7 @@ manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -21,6 +21,8 @@ ms.custom: aaddev
 
 # Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
 
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
 > [!NOTE]
 >  If you don't tell the server what resource you plan to call, then the server will not trigger the Conditional Access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
 >
@@ -29,7 +31,28 @@ Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize acce
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
+## Register your application with your AD tenant
+First, register your application with your Azure Active Directory (Azure AD) tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+   
+1. Choose your Azure AD tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
+   - Skip this step if you only have one Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
+   
+1. In the Azure portal, search for and select **Azure Active Directory**.
+   
+1. In the **Azure Active Directory** left menu, select **App Registrations**, and then select **New registration**.
+   
+1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](v1-overview.md).
+   
+   - **Name** is the application name and describes your application to end users.
+   - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+   - Provide the **Redirect URI**. For web applications, this is the base URL of your app where users can sign in.  For example, `http://localhost:12345`. For public client (mobile & desktop), Azure AD uses it to return token responses. Enter a value specific to your application.  For example, `http://MyFirstAADApp`.
+   <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
+   
+1. Once you've completed registration, Azure AD will assign your application a unique client identifier (the **Application ID**). You need this value in the next sections, so copy it from the application page.
+   
+1. To find your application in the Azure portal, select **App registrations**, and then select **View all applications**.
 
 ## OAuth 2.0 authorization flow
 
@@ -152,7 +175,7 @@ grant_type=authorization_code
 To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
 
 ### Successful response
-Azure AD returns an [access token](access-tokens.md) upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
+Azure AD returns an [access token](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
 
 If a web API resource returns an `invalid_token` error code, this might indicate that the resource has determined that the token is expired. If the client and resource clock times are different (known as a "time skew"), the resource might consider the token to be expired before the token is cleared from the client cache. If this occurs, clear the token from the cache, even if it is still within its calculated lifetime.
 
@@ -181,7 +204,7 @@ A successful response could look like this:
 | resource |The App ID URI of the web API (secured resource). |
 | scope |Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD. |
 | refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
-| id_token |An unsigned JSON Web Token (JWT) representing an [ID token](id-tokens.md). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
+| id_token |An unsigned JSON Web Token (JWT) representing an [ID token](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
 
 For more information about JSON web tokens, see the [JWT IETF draft specification](https://go.microsoft.com/fwlink/?LinkId=392344).   To learn more about `id_tokens`, see the [v1.0 OpenID Connect flow](v1-protocols-openid-connect-code.md).
 

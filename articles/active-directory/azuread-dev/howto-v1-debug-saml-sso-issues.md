@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/18/2019
@@ -16,6 +16,8 @@ ms.reviewer: luleon, hirsin, paulgarn
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 Learn how to find and fix [single sign-on](../manage-apps/what-is-single-sign-on.md) issues for applications in Azure Active Directory (Azure AD) that support [Security Assertion Markup Language (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
@@ -90,7 +92,7 @@ To resolve the error, follow these steps:
    - Claims issued in the token
    - Certificate used to sign the token.
 
-     For more information on the SAML response, see [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md).
+     For more information on the SAML response, see [Single Sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 1. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../manage-apps/application-sign-in-problem-application-error.md) for guidance on how to resolve the problem. 
 1. If you're still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.

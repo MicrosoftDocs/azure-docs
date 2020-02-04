@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/21/2018
@@ -17,6 +17,8 @@ ms.custom: aaddev
 ---
 
 # How to get AppSource Certified for Azure Active Directory
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 [Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try, and manage line-of-business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
@@ -35,7 +37,7 @@ To enable multi-tenancy on your application, follow these steps:
 1. Update your code to send requests to the `common` endpoint. To do this, update the endpoint from `https://login.microsoftonline.com/{yourtenant}` to `https://login.microsoftonline.com/common*`.
 1. For some platforms, like ASP .NET, you need also to update your code to accept multiple issuers.
 
-For more information about multi-tenancy, see [How to sign in any Azure Active Directory (Azure AD) user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md).
+For more information about multi-tenancy, see [How to sign in any Azure Active Directory (Azure AD) user using the multi-tenant application pattern](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ### Single-tenant applications
 

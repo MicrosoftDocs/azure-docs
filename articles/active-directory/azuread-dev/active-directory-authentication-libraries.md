@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/01/2018
@@ -17,6 +17,8 @@ ms.custom: aaddev
 ---
 
 # Azure Active Directory Authentication Libraries
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 The Azure Active Directory Authentication Library (ADAL) v1.0 enables application developers to authenticate users to cloud or on-premises Active Directory (AD), and obtain tokens for securing API calls. ADAL makes authentication easier for developers through features such as:
 

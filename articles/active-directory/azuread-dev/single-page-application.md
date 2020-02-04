@@ -8,7 +8,7 @@ manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,6 +20,8 @@ ms.custom: aaddev
 ---
 
 # Single-page applications
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 Single-page applications (SPAs) are typically structured as a JavaScript presentation layer (front end) that runs in the browser, and a web API back end that runs on a server and implements the application’s business logic.To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
@@ -49,7 +51,7 @@ See the [code samples for single-page application scenarios](sample-v1-code.md#s
 * Single tenant - If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure portal.
 * Multi-tenant - If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application. To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application. When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent. Depending on the required permissions, an administrator in the other organization may be required to give consent. When the user or administrator consents, the application is registered in their directory.
 
-After registering the application, it must be configured to use OAuth 2.0 implicit grant protocol. By default, this protocol is disabled for applications. To enable the OAuth2 implicit grant protocol for your application, edit its application manifest from the Azure portal and set the “oauth2AllowImplicitFlow” value to true. For more info, see [Application manifest](reference-app-manifest.md).
+After registering the application, it must be configured to use OAuth 2.0 implicit grant protocol. By default, this protocol is disabled for applications. To enable the OAuth2 implicit grant protocol for your application, edit its application manifest from the Azure portal and set the “oauth2AllowImplicitFlow” value to true. For more info, see [Application manifest](../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## Token expiration
 

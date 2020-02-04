@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,11 +22,34 @@ ms.custom: aaddev
 
 # Authorize access to web applications using OpenID Connect and Azure Active Directory
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use [**access tokens**](access-tokens.md) to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. It provides information about the end user in the form of an [`id_token`](id-tokens.md) that verifies the identity of the user and provides basic profile information about the user.
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use [**access tokens**](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. It provides information about the end user in the form of an [`id_token`](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) that verifies the identity of the user and provides basic profile information about the user.
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
+## Register your application with your AD tenant
+First, register your application with your Azure Active Directory (Azure AD) tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+   
+1. Choose your Azure AD tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
+   - Skip this step if you only have one Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
+   
+1. In the Azure portal, search for and select **Azure Active Directory**.
+   
+1. In the **Azure Active Directory** left menu, select **App Registrations**, and then select **New registration**.
+   
+1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](v1-overview.md).
+   
+   - **Name** is the application name and describes your application to end users.
+   - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+   - Provide the **Redirect URI**. For web applications, this is the base URL of your app where users can sign in.  For example, `http://localhost:12345`. For public client (mobile & desktop), Azure AD uses it to return token responses. Enter a value specific to your application.  For example, `http://MyFirstAADApp`.
+   <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
+   
+1. Once you've completed registration, Azure AD will assign your application a unique client identifier (the **Application ID**). You need this value in the next sections, so copy it from the application page.
+   
+1. To find your application in the Azure portal, select **App registrations**, and then select **View all applications**.
 
 ## Authentication flow using OpenID Connect
 
@@ -59,7 +82,7 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
 }
 ```
 
-If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID in order to get a `jwks_uri` pointing to your app's signing key information. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+If your app has custom signing keys as a result of using the [claims-mapping](../develop/active-directory-claims-mapping.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) feature, you must append an `appid` query parameter containing the app ID in order to get a `jwks_uri` pointing to your app's signing key information. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## Send the sign-in request
 
@@ -159,7 +182,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 * Ensuring the user has proper authorization/privileges using the `wids` or `roles` claims. 
 * Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, personalization, etc. For more information about `id_tokens` and claims, read [AAD id_tokens](id-tokens.md).
+Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, personalization, etc. For more information about `id_tokens` and claims, read [AAD id_tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## Send a sign-out request
 
@@ -245,9 +268,9 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of the possible error codes and their recommended client action, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get [access tokens](access-tokens.md) on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth code flow documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get [access tokens](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth code flow documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## Next steps
 
-* Learn more about the [access tokens](access-tokens.md).
-* Learn more about the [`id_token` and claims](id-tokens.md).
+* Learn more about the [access tokens](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+* Learn more about the [`id_token` and claims](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

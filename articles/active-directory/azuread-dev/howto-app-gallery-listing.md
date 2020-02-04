@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/06/2019
@@ -18,6 +18,8 @@ ms.custom: aaddev, seoapril2019
 ---
 
 # List your application in the Azure Active Directory application gallery
+
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 This article shows how to list an application in the Azure Active Directory (Azure AD) application gallery, implement single sign-on (SSO), and manage the listing.
 
@@ -33,7 +35,7 @@ This article shows how to list an application in the Azure Active Directory (Azu
 ## Prerequisites
 
 - For federated applications (Open ID and SAML/WS-Fed), the application must support the software-as-a-service (SaaS) model for getting listed in the Azure AD app gallery. The enterprise gallery applications must support multiple customer configurations and not any specific customer.
-- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
+- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
 - For SAML 2.0/WS-Fed, your application must have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request.
 - For password SSO, make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 - You need a permanent account for testing with at least two users registered.

@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # How to: Enable cross-app SSO on iOS using ADAL
 
-[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications and across platforms that other applications may use (such as Microsoft Accounts or a work account from Microsoft 365) no matter the publisher.
 
@@ -38,7 +38,7 @@ This how-to applies to:
 
 This how-to assumes that you know how to:
 
-* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app](quickstart-register-app.md)
+* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Integrate your application with the [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Single sign-on concepts
@@ -292,7 +292,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-This redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
+This redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate-based authentication
 
@@ -320,4 +320,4 @@ Now the identity SDK will automatically both share credentials across your appli
 
 ## Next steps
 
-* Learn about [Single sign-on SAML protocol](single-sign-on-saml-protocol.md)
+* Learn about [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
