@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Splashtop supports **SP** initiated SSO
 
-* Once you configure the Splashtop you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Splashtop you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Splashtop from the gallery
 
@@ -137,7 +137,7 @@ In this section, you will need to apply for a new SSO method from [Splashtop web
 
 	![image](media/splashtop-tutorial/azure-sso-1.png)
 
-1. For certificate info,right-click on the cert file downloaded from Splashtop application on Azure portal, edit it with Notepad, then copy the contents, paste it in **Download Certificate (Base64)** field.
+1. For certificate info, right-click on the cert file downloaded from Splashtop application on Azure portal, edit it with Notepad, then copy the contents, paste it in **Download Certificate (Base64)** field.
 
 	![image](media/splashtop-tutorial/cert-1.png)
 	![image](media/splashtop-tutorial/cert-2.png)
@@ -163,7 +163,7 @@ In this section, you will need to apply for a new SSO method from [Splashtop web
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Splashtop tile in the Access Panel, you should be automatically signed in to the Splashtop for which you set-up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Splashtop tile in the Access Panel, you should be automatically signed in to the Splashtop for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
