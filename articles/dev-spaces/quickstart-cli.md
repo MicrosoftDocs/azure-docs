@@ -75,6 +75,9 @@ azds prep --public
 
 You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
 
+> [!TIP]
+> The `prep` command attempts to generate [a Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+
 ## Build and run code in Kubernetes
 
 Build and run your code in AKS using the `azds up` command:
@@ -151,4 +154,4 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [nodejs-quickstart]: quickstart-nodejs.md
 [netcore-quickstart]: quickstart-netcore.md
 [team-quickstart]: quickstart-team-development.md
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

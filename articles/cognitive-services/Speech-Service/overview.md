@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is the Speech service?
 
-The Speech service are the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), or [REST APIs](rest-apis.md).
+The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), or [REST APIs](rest-apis.md).
 
 > [!IMPORTANT]
 > The Speech service has replaced Bing Speech API, Translator Speech, and Custom Speech. See _How-to guides > Migration_ for migration instructions.
@@ -24,11 +24,12 @@ These features make up the Speech service. Use the links in this table to learn 
 | Service | Feature | Description | SDK | REST |
 | ------- | ------- | ----------- | --- | ---- |
 | [Speech-to-Text](speech-to-text.md) | Speech-to-text | Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-|         | [Batch Transcription](batch-transcription.md) | Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service, which uses same endpoint as customization and model management. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
-|         | [Conversation Transcription](conversation-transcription-service.md) | Enables real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers. | Yes | No |
-|         | [Create Custom Speech Models](#customize-your-speech-experience) | If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
-| [Text-to-Speech](text-to-speech.md) | Text-to-speech | Text-to-speech converts input text into human-like synthesized speech using [Speech Synthesis Markup Language (SSML)](text-to-speech.md#core-features). Choose from standard voices and neural voices (see [Language support](language-support.md)). | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-|         | [Create Custom Voices](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Batch Transcription](batch-transcription.md) | Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service, which uses same endpoint as customization and model management. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
+| | [Multi-device Conversation](multi-device-conversation.md) | Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation| Yes | No |
+| | [Conversation Transcription](conversation-transcription-service.md) | Enables real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers. | Yes | No |
+| | [Create Custom Speech Models](#customize-your-speech-experience) | If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
+| [Text-to-Speech](text-to-speech.md) | Text-to-speech | Text-to-speech converts input text into human-like synthesized speech using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Choose from standard voices and neural voices (see [Language support](language-support.md)). | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Create Custom Voices](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 | [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using the Speech service empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. | [Yes](voice-assistants.md) | No |
 
@@ -36,6 +37,8 @@ These features make up the Speech service. Use the links in this table to learn 
 
 Learn what's new with the Speech service.
 
+- November 2019
+  - Added two new speaking styles, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) and [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) for the `en-US-JessaNeural` voice.
 - September 2019
   - Released Speech SDK 1.7.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 - August 2019

@@ -91,11 +91,10 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
 > [!IMPORTANT]
 > Source ports are ephemeral, so make sure that you set them to `*` for all rules.
-> For internal communication inside your subnets, your ISE requires that you open all ports within those subnets.
 
 | Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Intrasubnet communication | Inbound & Outbound | All | Any | Any | For communication between components within the subnet |
+| Intrasubnet communication | Inbound & Outbound | * | - | - | **Important**: For communication between components inside subnets, make sure that you open all the ports within those subnets. |
 | Intersubnet communication | Inbound & Outbound | 80, 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
 | Communication from Azure Logic Apps | Outbound | 80, 443 | VirtualNetwork | Internet | The port depends on the external service with which the Logic Apps service communicates |
 | Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
@@ -145,7 +144,7 @@ In the search box, enter "integration service environment" as your filter.
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
    | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
-   | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE. These endpoints determine determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. <p><p>Your selection also affects the way that you can view and access inputs and outputs in your logic app runs history. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
+   | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. <p><p>Your selection also affects the way that you can view and access inputs and outputs in your logic app runs history. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet). |
    |||||
@@ -235,6 +234,12 @@ In the search box, enter "integration service environment" as your filter.
 1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
 1. To start creating logic apps and other artifacts in your ISE, see [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md).
+
+   > [!IMPORTANT]
+   > Managed ISE connectors that become available after you create your ISE don't automatically appear in the 
+   > connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
+   > [add those connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
+   > so that they appear in the Logic App Designer.
 
 <a name="add-capacity"></a>
 

@@ -30,9 +30,9 @@ The following versions are supported for the Azure File Sync agent:
 | June 2019 update rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | June 13, 2019 | Supported |
 | May 2019 update rollup - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | May 7, 2019 | Supported |
 | V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | April 21, 2019 | Supported |
-| April 2019 update rollup - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | April 4, 2019 | Supported |
-| March 2019 update rollup - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | March 7, 2019 | Supported |
-| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 12, 2019 | Supported |
+| April 2019 update rollup - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | April 4, 2019 | Supported - Agent version will expire on February 12, 2020 |
+| March 2019 update rollup - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | March 7, 2019 | Supported - Agent version will expire on February 12, 2020 |
+| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 12, 2019 | Supported - Agent version will expire on February 12, 2020 |
 | V4 Release | 4.0.1.0 - 4.3.0.0 | N/A | Not Supported - Agent versions expired on November 6, 2019 |
 | V3 Release | 3.1.0.0 - 3.4.0.0 | N/A | Not Supported - Agent versions expired on August 19, 2019 |
 | Pre-GA agents | 1.1.0.0 - 3.0.13.0 | N/A | Not Supported - Agent versions expired on October 1, 2018 |
@@ -137,6 +137,7 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+- Files may fail to tier if the pagefile.sys is located on a volume that has cloud tiering enabled. The pagefile.sys should be located on a volume that has cloud tiering disabled.
 
 ## Agent version 8.0.0.0
 The following release notes are for version 8.0.0.0 of the Azure File Sync agent (released October 8, 2019).

@@ -60,6 +60,12 @@ Create a virtual environment with `venv` for Python 3.x:
 python -m venv mytestenv
 ```
 
+Activate your environment:
+
+```console
+mytestenv\Scripts\activate.bat
+```
+
 Install Bing Web Search SDK dependencies:
 
 ```console

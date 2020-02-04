@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Media Services Documentation
 metadata:
-  document_id: 
   title: Azure Media Services Documentation | Microsoft Docs
   description:  Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
   services: media-services

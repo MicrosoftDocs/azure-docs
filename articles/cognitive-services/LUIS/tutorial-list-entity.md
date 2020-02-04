@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/17/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity.
 ---
@@ -17,8 +17,6 @@ ms.author: diberry
 # Tutorial: Get exact text-matched data from an utterance with list entity
 
 In this tutorial, understand how to get data that exactly matches a predefined list of items.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 

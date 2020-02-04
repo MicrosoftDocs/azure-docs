@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/19/2019
 ms.author: diberry
 ---
 
@@ -75,7 +75,8 @@ Use the following steps:
 
 3. Select **Import dataset**.
 
-    [![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)
 
 4. Choose the file location of the `HumanResources-jobs-batch.json` file.
 

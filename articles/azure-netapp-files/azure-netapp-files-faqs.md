@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -126,7 +126,7 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ### How many Active Directory connections are supported?
 
-Azure NetApp Files currently supports one Active Directory connection per subscription. Also, the Active Directory connection is specific to a single NetApp account; it is not shared across accounts. 
+Azure NetApp Files currently supports only one Active Directory connection per NetApp account, per subscription, and in each region; the connection is not shared across NetApp accounts.
 
 ### Does Azure NetApp Files support Azure Active Directory? 
 
@@ -194,5 +194,6 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
-- [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
+- [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)

@@ -1,19 +1,11 @@
 ---
-title: 'Configure forced tunneling for Azure Site-to-Site connections: classic | Microsoft Docs'
+title: 'Azure VPN Gateway: Configure forced tunneling - Site-to-Site connections: classic'
 description: How to redirect or 'force' all Internet-bound traffic back to your on-premises location.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
 
-ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
 

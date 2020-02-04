@@ -25,11 +25,10 @@ Application templates consist of:
 
 Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
 
-Currently, the application templates that use _generally available_ features are:
+Currently, the application template that use _generally available_ features is:
 
-- Custom app > Custom application
-- Custom app > Sample Contoso
-- Custom app > Sample Devkits
+- Custom app > Legacy application
+
 
 Currently, the application templates that use _public preview_ features are:
 
@@ -38,6 +37,7 @@ Currently, the application templates that use _public preview_ features are:
 - Retail > Digital distribution center
 - Retail > In-store analytics – condition monitoring
 - Retail > In-store analytics – checkout
+- Retail > Micro-fulfillment center
 - Retail > Smart inventory management
 - Energy > Smart meter monitoring
 - Energy > Solar panel monitoring
@@ -47,7 +47,7 @@ Currently, the application templates that use _public preview_ features are:
 - Healthcare > Continuous patient monitoring
 
 > [!NOTE]
-> The **Custom application, Sample Contoso, Sample Devkits** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
+> The **legacy application** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
 
 ## Industry focused templates
 

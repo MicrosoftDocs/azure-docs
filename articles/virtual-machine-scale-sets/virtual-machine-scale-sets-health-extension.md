@@ -1,19 +1,10 @@
 ---
-title: Use Application Health extension with Azure virtual machine scale sets | Microsoft Docs
+title: Use Application Health extension with Azure virtual machine scale sets
 description: Learn how to use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
 

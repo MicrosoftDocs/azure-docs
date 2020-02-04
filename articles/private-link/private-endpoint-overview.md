@@ -7,7 +7,7 @@ author: malopMSFT
 
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 01/09/2020
 ms.author: allensu
 ---
 # What is Azure Private Endpoint?
@@ -39,7 +39,7 @@ Here are some key details about private endpoints:
  
 - Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource to avoid duplicate entries or conflicts in DNS resolution. 
  
-- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
  
@@ -52,8 +52,11 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
+|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts	| Sql, MongoDB, Cassandra, Gremlin, Table|
+|**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers	| postgresqlServer |
+|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers	| mysqlServer |
+|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers	| mariadbServer |
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
@@ -108,6 +111,9 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin	|privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
+|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
+|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
+|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  
@@ -120,9 +126,7 @@ The following table includes a list of known limitations when using private endp
 
 |Limitation |Description |Mitigation  |
 |---------|---------|---------|
-|Network Security Group (NSG) rules and User Defined Routes do not apply to Private Endpoint    |NSG is not supported on private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR  | Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes        |
-|  Peered Virtual Network with Private endpoints only are not supported   |   When connecting to private endpoints on a peered Virtual Network without any other workload is not supported       | Deploy a single VM on the peered Virtual Network to enable the connectivity |
-|Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
+|Network Security Group (NSG) rules and User Defined Routes do not apply to Private Endpoint    |NSG is not supported on private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR  | Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used        |
 
 
 ## Next steps
@@ -132,3 +136,9 @@ The following table includes a list of known limitations when using private endp
 - [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
+- [Create your own Private Link for Azure Database for PostgreSQL - Single server using Portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for PostgreSQL - Single server using CLI](../postgresql/howto-configure-privatelink-cli.md)
+- [Create your own Private Link for Azure Database for MySQL using Portal](../mysql/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for MySQL using CLI](../mysql/howto-configure-privatelink-cli.md)
+- [Create your own Private Link for Azure Database for MariaDB using Portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for MariaDB using CLI](../mariadb/howto-configure-privatelink-cli.md)

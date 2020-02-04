@@ -54,7 +54,7 @@ The Batch Transcription API supports the following formats:
 | MP3 | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
 | OGG | OPUS | 16-bit | 8 kHz or 16 kHz, mono or stereo |
 
-For stereo audio streams, the left and right channel are split during the transcription. For each channel, a JSON result file is being created. The timestamps generated per utterance enable the developer to create an ordered final transcript.
+For stereo audio streams, the left and right channels are split during the transcription. For each channel, a JSON result file is being created. The timestamps generated per utterance enable the developer to create an ordered final transcript.
 
 ### Configuration
 
@@ -73,13 +73,10 @@ Configuration parameters are provided as JSON:
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
-
-> [!NOTE]
-> The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
 
 ### Configuration properties
 
@@ -87,12 +84,12 @@ Use these optional properties to configure transcription:
 
 | Parameter | Description |
 |-----------|-------------|
-| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None`, which disables profanity filtering; `Masked`, which replaces profanity with asterisks; `Removed`, which removes all profanity from the result; `Tags`, which adds "profanity" tags. The default setting is `Masked`. |
-| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None`, which disables punctuation; `Dictated`, which implies explicit punctuation; `Automatic`, which lets the decoder deal with punctuation; `Dictatedandautomatic`, which implies dictated punctuation marks or automatic (the default value). |
-| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `True`, which enables word level timestamps; `False`, to disable it (the default value). |
-| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `True`, which enables sentiment per utterance; `False`, to disable it (the default value).|
-| `AddDiarization` | Specifies that diarization analysis should be carried out on the input that is expected to be mono channel containing two voices. Accepted values are `True`, which enables diarization; `False`, to disable it (the default value). It also requires `AddWordLevelTimestamps` to be set to true.|
-| `TranscriptionResultsContainerUrl` | An optional SAS token to a writeable container in Azure. The result will be stored in this container. |
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `Masked` which replaces profanity with asterisks, `Removed` which removes all profanity from the result, or `Tags` which adds "profanity" tags. The default setting is `Masked`. |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `Dictated` which implies explicit punctuation, `Automatic` which lets the decoder deal with punctuation, or `DictatedAndAutomatic` which implies dictated punctuation marks or automatic. |
+| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
+| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
+| `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
+|`TranscriptionResultsContainerUrl`|Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result will be stored in this container.
 
 ### Storage
 
@@ -118,29 +115,29 @@ For mono input audio, one transcription result file is being created. For stereo
           "Display": string
         }
       ]
-      SegmentResults:[                                     'for each individual segment'
+      SegmentResults:[                                      'for each individual segment'
         {
-          "RecognitionStatus": Success | Failure
+          "RecognitionStatus": "Success | Failure"
           "ChannelNumber": null
-          "SpeakerId": null | "1 | 2"                     'null if no diarization
-                                                            or stereo input file, the
-                                                            speakerId as a string if
-                                                            diarization requested for
-                                                            mono audio file'
-          "Offset": number                                'time in milliseconds'
-          "Duration": number                              'time in milliseconds'
-          "OffsetInSeconds" : number                      'Real number. Two decimal places'
-          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "SpeakerId": null | "1 | 2"                       'null if no diarization
+                                                             or stereo input file, the
+                                                             speakerId as a string if
+                                                             diarization requested for
+                                                             mono audio file'
+          "Offset": number                                  'time in milliseconds'
+          "Duration": number                                'time in milliseconds'
+          "OffsetInSeconds" : number                        'Real number. Two decimal places'
+          "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
             {
-              "Confidence": number                        'between 0 and 1'
+              "Confidence": number                          'between 0 and 1'
               "Lexical": string
               "ITN": string
               "MaskedITN": string
               "Display": string
               "Sentiment":
-                {                                          'this is ommitted if sentiment is
-                                                            not requested'
+                {                                           'this is omitted if sentiment is
+                                                             not requested'
                   "Negative": number                        'between 0 and 1'
                   "Neutral": number                         'between 0 and 1'
                   "Positive": number                        'between 0 and 1'
@@ -148,10 +145,11 @@ For mono input audio, one transcription result file is being created. For stereo
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                         'time in milliseconds'
-                  "Duration": number                       'time in milliseconds'
-                  "OffsetInSeconds": number                'Real number. Two decimal places'
-                  "DurationInSeconds": number              'Real number. Two decimal places'
+                  "Offset": number                          'time in milliseconds'
+                  "Duration": number                        'time in milliseconds'
+                  "OffsetInSeconds": number                 'Real number. Two decimal places'
+                  "DurationInSeconds": number               'Real number. Two decimal places'
+                  "Confidence": number                      'between 0 and 1'
                 }
               ]
             }
@@ -163,13 +161,22 @@ For mono input audio, one transcription result file is being created. For stereo
 }
 ```
 
+The result contains these forms:
+
+|Form|Content|
+|-|-|
+|`Lexical`|The actual words recognized.
+|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
+|`MaskedITN`|The ITN form with profanity masking applied.
+|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
+
 ## Speaker separation (Diarization)
 
 Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
 
 All transcription output contains a `SpeakerId`. If diarization is not used, it will show `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers will be identified as `"1"` or `"2"`.
 
-To request that your audio transcription request is processed for diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
+To request diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
 
  ```json
 {
@@ -191,7 +198,7 @@ Word-level timestamps would also have to be 'turned on' as the parameters in the
 
 The sentiment feature estimates the sentiment expressed in the audio. The sentiment is expressed by a value between 0 and 1 for `Negative`, `Neutral`, and `Positive` sentiment. For example, sentiment analysis can be used in call center scenarios:
 
-- Get insights on customer satisfaction
+- Get insight on customer satisfaction
 - Get insight on the performance of the agents (team taking the calls)
 - Find the exact point in time when a call took a turn in a negative direction
 - What went well when turning a negative call into a positive direction
@@ -237,7 +244,7 @@ A JSON output sample looks like below:
 
 ## Best practices
 
-The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred at most). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service, to keep the number of transcription tasks on the service to several hundred of transcriptions. This will guarantee quick replies from the transcription management calls.
+The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service once you retrieved the results. This will guarantee quick replies from the transcription management calls.
 
 ## Sample code
 

@@ -1,6 +1,6 @@
 ---
-title: Add controls to Azure Maps| Microsoft Docs
-description: How to add zoom control, pitch control, rotate control and a style picker to a map in Azure Maps.
+title: Add controls to a map | Microsoft Azure Maps
+description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -12,11 +12,11 @@ manager: timlt
 
 # Add controls to a map
 
-This article shows you how to add controls to a map. You will also learn how to create a map with all controls and a [style picker](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## Add zoom control
 
-A zoom control adds buttons for zooming the map in and out. The following code sample creates an instance of the [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) class and adds it the bottom-right corner of the map.
+A zoom control adds buttons for zooming the map in and out. The following code sample creates an instance of the [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) class, and adds it the bottom-right corner of the map.
 
 ```javascript
 //Construct a zoom control and add it to the map.
@@ -34,7 +34,7 @@ Below is the complete running code sample of the above functionality.
 
 ## Add pitch control
 
-A pitch control adds buttons for tilting the pitch to map relative to the horizon. The following code sample creates an instance of the [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) class and adds it the top-right corner of the map.
+A pitch control adds buttons for tilting the pitch to map relative to the horizon. The following code sample creates an instance of the [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) class. It adds the PitchControl to top-right corner of the map.
 
 ```javascript
 //Construct a pitch control and add it to the map.
@@ -90,7 +90,7 @@ Here is a tool to test out the various options for customizing the controls.
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. HAve this UI control call the maps `setCamera` function to move the map. 
+If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. Have this UI control call the maps `setCamera` function to move the map. 
 
 ## Next steps
 

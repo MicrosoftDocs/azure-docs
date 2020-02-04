@@ -1,21 +1,9 @@
 ---
-title: Partitioning Service Fabric services | Microsoft Docs
+title: Partitioning Service Fabric services 
 description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-
 ---
 # Partition Service Fabric reliable services
 This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

@@ -20,19 +20,26 @@ This article describes how, as a device developer, to connect a Windows IoT Core
 
 To complete the steps in this article, you need the following:
 
-- An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+- An Azure IoT Central application created from the **Legacy application** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
 - A device running the Windows 10 IoT Core operating system. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - A development machine with [Node.js](https://nodejs.org/) version 8.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
-## The Sample Devkits application
+## Add a device template
 
-An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics:
+In your Azure IoT Central application, add a new **Windows IoT Core** device template with the following characteristics:
 
 - Telemetry measurements for the device: **Humidity**, **Temperature**, and **Pressure**.
 - Setting to control **Fan Speed**.
 - A device property **Die number** and a cloud property **Location**.
+
+1. Select **+New** from device templates
+   ![Device Template](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. Select **Windows IoT Core** and create the Windows IoT Core device template
+   ![Add Device template](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 For full details on the configuration of the device template, see [Windows IoT Core Device template details](#device-template-details).
 

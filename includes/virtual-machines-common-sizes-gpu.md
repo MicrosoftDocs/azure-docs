@@ -51,7 +51,7 @@ NCv2-series VMs are powered by [NVIDIA Tesla P100](https://www.nvidia.com/en-us/
 The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!IMPORTANT]
-> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
@@ -74,7 +74,7 @@ Premium Storage caching:  Supported
 NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/) GPUs. These GPUs can provide 1.5x the computational performance of the NCv2-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v3 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads. In addition to the GPUs, the NCv3-series VMs are also powered by Intel Xeon E5-2690 v4 (Broadwell) CPUs.
 
 > [!IMPORTANT]
-> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
@@ -88,22 +88,34 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/
 
 *RDMA capable
 
-## NDv2-series (Preview)
+## Updated NDv2-series (Preview)
 
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
-Infiniband: Not supported
+InfiniBand: Supported
 
-NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the HPC, AI, and machine learning workloads. It’s powered by 8 NVIDIA Tesla V100 NVLINK interconnected GPUs and 40 Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory. NDv2 instance provides excellent FP32 and FP64 performance for HPC and AI workloads utilizing Cuda, TensorFlow, Pytorch, Caffe, and other frameworks.
+The NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the most demanding GPU-accelerated AI, machine learning, simulation, and HPC workloads. 
 
-[Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
+NDv2 is powered by 8 NVIDIA Tesla V100 NVLINK-connected GPUs, each with 32 GB of GPU memory. Each NDv2 VM also has 40 non-HyperThreaded Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory. 
+
+NDv2 instances provide excellent performance for HPC and AI workloads utilizing CUDA GPU-optimized computation kernels, and the many AI, ML, and analytics tools that support GPU acceleration 'out-of-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. 
+
+Critically, the NDv2 is built for both computationally-intense scale-up (harnessing 8 GPUs per VM) and scale-out (harnessing multiple VMs working together) workloads. The NDv2 series now supports 100 Gigabit InfiniBand EDR backend networking, similar to that available on the HB series of HPC VM, to allow high-performance clustering for parallel scenarios including distributed training for AI and ML. This backend network supports all major InfiniBand protocols, including those employed by NVIDIA’s NCCL2 libraries, allowing for seamless clustering of GPUs.
+
+> When [enabling InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) on the ND40rs_v2 VM, please use the 4.7-1.0.0.1 Mellanox OFED driver.
+
+> Due to increased GPU memory, the new ND40rs_v2 VM requires the use of [Generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) and marketplace images. 
+
+> [Sign-up to request early access to the NDv2 virtual machine preview.](https://aka.ms/AzureNDrv2Preview)
+
+> Please note: The ND40s_v2 featuring 16 GB of per-GPU memory is no longer available for preview and has been superceded by the updated ND40rs_v2.
 <br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000 / 800 | 24000 Mbps | 8 |
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000 / 800 | 24000 Mbps | 8 |
 
 ## ND-series
 
@@ -114,7 +126,7 @@ Premium Storage caching:  Supported
 The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
 > [!IMPORTANT]
-> For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+> For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
@@ -140,7 +152,7 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |380 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
@@ -158,9 +170,9 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs | Virtual Workstations | Virtual Applications | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV12s_v3 |12 |112 |320 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
-| Standard_NV24s_v3 |24 |224 |640 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
-| Standard_NV48s_v3 |48 |448 |1280 | 4 | 32 | 32 | 80000 / 800 | 8 | 4 | 100 |
+| Standard_NV12s_v3 |12 |112 |336 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
+| Standard_NV24s_v3 |24 |224 |672 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
+| Standard_NV48s_v3 |48 |448 |1344 | 4 | 32 | 32 | 80000 / 800 | 8 | 4 | 100 |
 
 1 GPU = one-half M60 card.
 

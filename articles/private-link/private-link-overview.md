@@ -7,8 +7,9 @@ author: malopMSFT
 
 ms.service: private-link
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 01/09/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 
 ---
 # What is Azure Private Link? (Preview)
@@ -43,6 +44,9 @@ Azure Private Link provides the following benefits:
 |  |  Azure SQL Database         | All public regions      |   Preview      |
 ||Azure SQL Data Warehouse| All public regions |Preview|
 ||Azure Cosmos DB| West Central US, WestUS, North Central US |Preview|
+|  |  Azure Database for PostgreSQL - Single server         | All public regions      |   Preview      |
+|  |  Azure Database for MySQL         | All public regions      |   Preview      |
+|  |  Azure Database for MariaDB         | All public regions      |   Preview      |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -62,7 +66,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 For FAQs, see [Azure Private Link FAQs](private-link-faq.md).
  
 ## Limits  
-For limits, see [Azure Private Link limits](../azure-subscription-service-limits.md#private-link-limits).
+For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## Next steps
 - [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)

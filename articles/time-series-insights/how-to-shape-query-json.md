@@ -47,7 +47,7 @@ The following guidance helps to ensure the best possible query performance:
 
 ## Example overview
 
-The following two examples demonstrate how to send events to highlight the previous recommendations. Following each example, you can see how the recommendations were applied.
+The following two examples demonstrate how to send events to highlight the previous recommendations. Following each example, you can review how the recommendations were applied.
 
 The examples are based on a scenario where multiple devices send measurements or signals. Measurements or signals can be Flow Rate, Engine Oil Pressure, Temperature, and Humidity. In the first example, there are a few measurements across all devices. The second example has many devices, and each device sends many unique measurements.
 

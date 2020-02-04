@@ -17,9 +17,9 @@ ms.date: 12/09/2019
 In this article, you'll learn how to set up Visual Studio Code Remote on an Azure Machine Learning Compute Instance so you can **interactively debug your code** from VS Code. 
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances are available only for workspaces with a **North Central US**, **East US 2**, **North Europe** or **UK South**.
 
-+ An [Azure Machine Learning Compute Instance](/service/concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators. 
++ An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators. 
 
 
 + [Visual Studio Code Remote](https://code.visualstudio.com/docs/remote/remote-overview) Development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. 
@@ -35,7 +35,7 @@ On Windows platforms, you must [install an OpenSSH compatible SSH client](https:
 
 1. Go to the Azure Machine Learning studio at https://ml.azure.com/.
 
-2. Select your [workspace](/service/concept-workspace.md).
+2. Select your [workspace](concept-workspace.md).
 1. Click the **Compute Instances** tab.
 1. In the **Application URI** column, click the **SSH** link of the compute instance you want to use as a remote compute. 
 1. In the dialog, take note of the IP Address and SSH port. 
@@ -113,4 +113,4 @@ From here on, you are entirely working on the compute instance and you can now e
 
 Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to interactively debug your code. 
 
-[Tutorial: Train your first ML model](/service/tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+[Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

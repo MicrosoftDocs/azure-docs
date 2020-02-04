@@ -14,11 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and the OAuth 2.0 client credentials flow
@@ -61,7 +60,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 ### Application permissions
 
-Instead of using ACLs, you can use APIs to expose a set of application permissions. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
+Instead of using ACLs, you can use APIs to expose a set of **application permissions**. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
 
 * Read mail in all mailboxes
 * Read and write mail in all mailboxes
@@ -71,6 +70,11 @@ Instead of using ACLs, you can use APIs to expose a set of application permissio
 For more information about application permissions, go to [Microsoft Graph](https://developer.microsoft.com/graph).
 
 To use application permissions in your app, follow the steps discussed in the next sections.
+
+
+> [!NOTE]
+> When authenticating as an application, as opposed to with a user, you cannot use "delegated permissions" (scopes that are granted by a user).  You must use "application permissions", also known as "roles", that are granted by an admin for the application (or via pre-authorization by the web API).    
+
 
 #### Request the permissions in the app registration portal
 

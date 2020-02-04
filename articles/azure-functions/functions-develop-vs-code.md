@@ -61,17 +61,21 @@ The Functions extension lets you create a function app project, along with your 
 
 1. Select the folder for your function app project, and then **Select a language for your function project**.
 
+1. If you haven't already installed the Core Tools, you are asked to **Select a version** of the Core Tools to install. Choose version 2.x or a later version. 
+
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
     ![Choose the HTTP trigger template](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Type **HTTPTrigger** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook.md#authorization-keys) when you call the function endpoint.
+1. Type **HttpExample** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook.md#authorization-keys) when you call the function endpoint.
 
     ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
 
     A function is created in your chosen language and in the template for an HTTP-triggered function.
 
     ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+
+### Generated project files
 
 The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
 
@@ -82,6 +86,30 @@ The project template creates a project in your chosen language and installs requ
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
 
+Depending on your language, these other files are created:
+
+# [C\#](#tab/csharp)
+
+* [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
+
+# [JavaScript](#tab/nodejs)
+
+* A package.json file in the root folder.
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
+
 At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
@@ -89,10 +117,6 @@ You can also [add a new function to your project](#add-a-function-to-your-projec
 ## Install binding extensions
 
 Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that need them. The process for installing binding extensions depends on your project's language.
-
-# [JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 # [C\#](#tab/csharp)
 
@@ -102,6 +126,10 @@ Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in t
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+# [JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 ---
 
 ## Add a function to your project
@@ -110,13 +138,13 @@ You can add a new function to an existing project by using one of the predefined
 
 The results of this action depend on your project's language:
 
-# [JavaScript](#tab/nodejs)
-
-A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
-
 # [C\#](#tab/csharp)
 
 A new C# class library (.cs) file is added to your project.
+
+# [JavaScript](#tab/nodejs)
+
+A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
 
 ---
 
@@ -125,6 +153,24 @@ A new C# class library (.cs) file is added to your project.
 You can expand your function by adding input and output bindings. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
+
+# [C\#](#tab/csharp)
+
+Update the function method to add the following parameter to the `Run` method definition:
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+This code requires you to add the following `using` statement:
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
+
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) documentation.
 
 # [JavaScript](#tab/nodejs)
 
@@ -140,7 +186,7 @@ Following are example prompts to define a new storage output binding:
 | **Select binding with direction** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
 | **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
 | **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **Select setting from "local.setting.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
+| **Select setting from "local.settings.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
 
 In this example, the following binding is added to the `bindings` array in your function.json file:
 
@@ -162,29 +208,13 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---javascript-example) reference.
-
-# [C\#](#tab/csharp)
-
-Update the function method to add the following parameter to the `Run` method definition:
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-This code requires you to add the following `using` statement:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) reference.
 
 ---
 
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) documentation.
-
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## Publish to Azure
 

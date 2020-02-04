@@ -1,6 +1,6 @@
 ---
-title: Making an accessible application with Azure Maps | Microsoft Docs
-description: How to build an accessible application using Azure Maps
+title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
+description: In this article, you will learn how to build an application with accessibility features using Microsoft Azure Maps.
 services: azure-maps 
 author: rbrundritt
 ms.author: richbrun
@@ -12,7 +12,7 @@ manager: cpendleton
 
 # Building an accessible application
 
-Upwards of 20% of internet users have a need for accessible web applications. As such, it is important to make sure your application is designed such that any user can easily use it. Rather than thinking of accessibility as a set of tasks to complete, think of it as part of your overall user experience. The more accessible your application, the more people who can use it. 
+Upwards of 20% of internet users have a need for accessible web applications. As such, it's important to make sure your application is designed such that any user can easily use it. Rather than thinking of accessibility as a set of tasks to complete, think of it as part of your overall user experience. The more accessible your application, the more people who can use it. 
 
 When it comes to rich interactive content like a map, some common accessibility considerations are:
 - Support the screen reader for users who have difficulty seeing the web application.
@@ -80,7 +80,7 @@ The map has a number of keyboard shortcuts built in that make it easier to use t
 | Minus sign, Hyphen (`-`), or <sup>*</sup>Underscore (`_`) | Zoom out | 
 | `Shift` + mouse drag on map to draw area | Zoom into area |
 
-<sup>*</sup> These key shortcuts usually share the same key on a keyboard. These were added to improve the user experience, such that it doesn’t matter if the user uses the shift key or not for these shortcuts.
+<sup>*</sup> These key shortcuts usually share the same key on a keyboard. These shortcuts were added to improve the user experience. It also doesn’t matter if the user uses the shift key or not for these shortcuts.
 
 ## Screen Reader support
 
@@ -90,9 +90,9 @@ Any additional information that is placed on the base map should have correspond
 
 ## Make popups keyboard accessible
 
-A marker or symbol is often used to represent a location on the map. Additional information about the location is typically displayed in a popup when the user interacts with the marker. In most applications popups are displayed when a user clicks or taps a marker, however this requires the user to use a mouse or a touch screen. A good practice is to make popups accessible when using a keyboard. This can be achieved by creating a popup for each data point and adding it to the map. 
+A marker or symbol is often used to represent a location on the map. Additional information about the location is typically displayed in a popup when the user interacts with the marker. In most applications popups appear when a user clicks or taps a marker, however this event requires the user to use a mouse or a touch screen. A good practice is to make popups accessible when using a keyboard. This functionality can be achieved by creating a popup for each data point and adding it to the map. 
 
-The following example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point so that it can also be retrieved for a marker, such as when a marker is clicked. When focused on the map, pressing the tab key will allow the user to step through each popup on the map.
+The following example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point. It can also be retrieved for a marker, such as when a marker is clicked. When focused on the map, pressing the tab key will allow the user to step through each popup on the map.
 
 <br/>
 
@@ -102,12 +102,12 @@ The following example loads points of interests on the map using a symbol layer 
 
 ## Additional accessibility tips
 
-Here are some additional tips to make your web mapping application more accessible.
+Here are some additional tips to make your web-mapping application more accessible.
 
-- If displaying a lot of interactive point data on the map, consider reducing the clutter and use clustering. 
+- If displaying many interactive point data on the map, consider reducing the clutter and use clustering. 
 - Ensure color contrast ratio between text/symbols and background colors is 4.5:1 or more.
 - Keep your screen reader (ARIA, alt, and title attributes) messages short, descriptive, and meaningful. Avoid unnecessary jargon and acronyms.
-- Try to optimize messages sent to the screen reader to provide short meaningful information that is easy for the user to digest. For example, if you want to update the screen reader at a high frequency, such as when the map is moving, consider doing the following:
+- Try to optimize messages sent to the screen reader to provide short meaningful information that is easy for the user to digest. For example, if you want to update the screen reader at a high frequency, such as when the map is moving, consider doing the following points:
     - Wait until the map has finished moving to update the screen reader.
     - Throttle the updates to once every few seconds. 
     - Combine messages together in a logical way. 
@@ -116,9 +116,9 @@ Here are some additional tips to make your web mapping application more accessib
     - Consider using a symbol layer with different icons for different metric categories, such as triangles, stars, and squares. The symbol layer also supports scaling the size of the icon. A text label can also be displayed.
     - If displaying line data, the width can be used to represent weight or size. A dash-array pattern can be used to represent different categories of lines. A symbol layer can be used in combination with a line to overlay icons along the line. Using an arrow icon is useful for showing the flow or direction of the line.
     - If displaying polygon data, a pattern, such as stripes, can be used as an alternative to color. 
-- Some visualizations such as heatmaps, tile layers, and image layers are not accessible for users with vision impairments. Some considerations:
+- Some visualizations such as heatmaps, tile layers, and image layers aren't accessible for users with vision impairments. Some considerations:
     - Have the screen reader describe what the layer is displaying when added to the map. For example, if a weather radar tile layer is displayed, have the screen reader say something like "Weather radar data overlaid on map."
-- Limit the amount of functionality that requires a mouse hover. These will be inaccessible to users who are using a keyboard or touch device to interact with your application. Note, it is still a good practice to have a hover style for interactive content such as clickable icons, links, and buttons.
+- Limit the amount of functionality that requires a mouse hover. These functionalities will be inaccessible to users who are using a keyboard or touch device to interact with your application. Note, it's still a good practice to have a hover style for interactive content such as clickable icons, links, and buttons.
 - Try navigating your application using the keyboard. Make sure tab ordering is logical.
 - If creating keyboard shortcuts, try to limit it to two keys or less. 
 
@@ -142,7 +142,7 @@ Take a look at these useful accessibility tools:
 > [WAI-ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/)
 
 > [!div class="nextstepaction"]
-> [Web Accessibility Evaluation Tool (WAVE)](http://wave.webaim.org/)
+> [Web Accessibility Evaluation Tool (WAVE)](https://wave.webaim.org/)
 
 > [!div class="nextstepaction"]
 > [WebAim color contrast checker](https://webaim.org/resources/contrastchecker/)

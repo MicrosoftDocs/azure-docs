@@ -104,6 +104,8 @@
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
       href: sap-hana-scale-out-standby-netapp-files-suse.md
+    - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
+      href: sap-hana-scale-out-standby-netapp-files-rhel.md
   - name: SAP HANA backup overview
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
@@ -214,6 +216,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+      - name: SLES with Pacemaker multi-SID for A(SCS) Instance
+        href: high-availability-guide-suse-multi-sid.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications

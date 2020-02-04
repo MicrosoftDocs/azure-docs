@@ -3,7 +3,7 @@ title: Glossary of terms - IoT Plug and Play Preview | Microsoft Docs
 description: Concepts - a glossary of common terms relating to IoT Plug and Play Preview.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp

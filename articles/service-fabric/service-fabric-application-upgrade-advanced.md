@@ -1,29 +1,83 @@
 ---
-title: Advanced Application Upgrade Topics | Microsoft Docs
+title: Advanced Application Upgrade Topics
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 2/23/2018
-ms.author: atsenthi
-
+ms.date: 1/28/2020
 ---
-# Service Fabric application upgrade: advanced topics
-## Adding or removing service types during an application upgrade
+# Service Fabric application upgrade: Advanced topics
+
+## Add or remove service types during an application upgrade
+
 If a new service type is added to a published application as part of an upgrade, then the new service type is added to the deployed application. Such an upgrade does not affect any of the service instances that were already part of the application, but an instance of the service type that was added must be created for the new service type to be active (see [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
 Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
+## Avoid connection drops during stateless service planned downtime (preview)
+
+For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint being removed after it goes down.
+
+To avoid this, configure the *RequestDrain* (preview) feature by adding a replica *instance close delay duration* in the service configuration. This ensures the endpoint advertised by the stateless instance is removed *before* the delay timer starts for closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by callback function, so they can re-resolve the endpoint and avoid sending new requests to the instance going down.
+
+### Service configuration
+
+There are several ways to configure the delay on the service side.
+
+ * **When creating a new service**, specify a `-InstanceCloseDelayDuration`:
+
+    ```powershell
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    ```
+
+ * **While defining the service in the defaults section in the application manifest**, assign the `InstanceCloseDelayDurationSeconds` property:
+
+    ```xml
+          <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
+              <SingletonPartition />
+          </StatelessService>
+    ```
+
+ * **When updating an existing service**, specify a `-InstanceCloseDelayDuration`:
+
+    ```powershell
+    Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+### Client configuration
+
+To receive notification when an endpoint has changed, clients can register a callback (`ServiceManager_ServiceNotificationFilterMatched`) like this: 
+
+```csharp
+    var filterDescription = new ServiceNotificationFilterDescription
+    {
+        Name = new Uri(serviceName),
+        MatchNamePrefix = true
+    };
+    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
+    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
+
+private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
+{
+      // Resolve service to get a new endpoint list
+}
+```
+
+The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore as they will go down soon.
+
+### Optional upgrade overrides
+
+In addition to setting default delay durations per service, you can also override the delay during application/cluster upgrade using the same (`InstanceCloseDelayDurationSec`) option:
+
+```powershell
+Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+
+Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+```
+
+The delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a delay of `0` in order to skip any preconfigured upgrade delays.
+
 ## Manual upgrade mode
+
 > [!NOTE]
 > The *Monitored* upgrade mode is recommended for all Service Fabric upgrades.
 > The *UnmonitoredManual* upgrade mode should only be considered for failed or suspended upgrades. 
@@ -37,6 +91,7 @@ In *UnmonitoredManual* mode, the application administrator has total control ove
 Finally, the *UnmonitoredAuto* mode is useful for performing fast upgrade iterations during service development or testing since no user input is required and no application health policies are evaluated.
 
 ## Upgrade with a diff package
+
 Instead of provisioning a complete application package, upgrades can also be performed by provisioning diff packages that contain only the updated code/config/data packages along with the complete application manifest and complete service manifests. Complete application packages are only required for the initial installation of an application to the cluster. Subsequent upgrades can either be from complete application packages or diff packages.  
 
 Any reference in the application manifest or service manifests of a diff package that can't be found in the application package is automatically replaced with the currently provisioned version.
@@ -120,7 +175,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
 ```
 
-## Rolling back application upgrades
+## Roll back application upgrades
 
 While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
 

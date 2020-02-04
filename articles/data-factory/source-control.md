@@ -152,6 +152,8 @@ The configuration pane shows the following GitHub repository settings:
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
 
+- A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories.
+
 ## Switch to a different Git repo
 
 To switch to a different Git repo, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -375,7 +375,7 @@ The following example looks up the error message description based on the error 
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -399,7 +399,7 @@ The claims transformation looks up the text of the item and returns its value. I
 - Input claims:
     - **mapFromClaim**: B2C_V1_90001
 - Output claims:
-    - **restrictionValueClaim**: You cant sign in because you are a minor.
+    - **restrictionValueClaim**: You cannot sign in because you are a minor.
 
 ## LookupValue
 
@@ -587,4 +587,119 @@ For example, the following claims transformation checks if the value of **ageGro
 - Output claims:
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true
+
+
+## StringContains
+
+Determine whether a specified substring occurs within the input claim. The result is a new boolean ClaimType with a value of `true` or `false`. `true` if the value parameter occurs within this string,  otherwise, `false`.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which is to be searched. |
+|InputParameter|contains|string|The value to search.|
+|InputParameter|ignoreCase|string|Specifies whether this comparison should ignore the case of the string being compared.|
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. A boolean indicator if the substring occurs within the input claim. |
+
+Use this claims transformation to check if a string claim type contains a substring. Following example, checks whether the `roles` string claim type contains the value of **admin**.
+
+```XML
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="contains" DataType="string" Value="admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **inputClaim**: "Admin, Approver, Editor"
+- Input parameters:
+    - **contains**: "admin,"
+    - **ignoreCase**: true
+- Output claims:
+    - **outputClaim**: true 
+
+## StringSubstring
+
+Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which contains the string. |
+| InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
+| InputParameter | length | int | The number of characters in the substring. |
+| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+
+For example, get the phone number country prefix.  
+
+
+```XML
+<ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="startIndex" DataType="int" Value="0" />
+  <InputParameter Id="length" DataType="int" Value="2" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phonePrefix" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### Example
+
+- Input claims:
+    - **inputClaim**: "+1644114520"
+- Input parameters:
+    - **startIndex**: 0
+    - **length**:  2
+- Output claims:
+    - **outputClaim**: "+1"
+
+## StringReplace
+
+Searches a claim type string for a specified value, and returns a new claim type string in which all occurrences of a specified string in the current string are replaced with another specified string.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which contains the string. |
+| InputParameter | oldValue | string | The string to be searched. |
+| InputParameter | newValue | string | The string to replace all occurrences of `oldValue` |
+| OutputClaim | outputClaim | boolean | A string that is equivalent to the current string except that all instances of oldValue are replaced with newValue. If oldValue is not found in the current instance, the method returns the current instance unchanged. |
+
+For example, normalize a phone number, by removing the `-` characters  
+
+
+```XML
+<ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="oldValue" DataType="string" Value="-" />
+  <InputParameter Id="newValue" DataType="string" Value="" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### Example
+
+- Input claims:
+    - **inputClaim**: "+164-411-452-054"
+- Input parameters:
+    - **oldValue**: "-"
+    - **length**:  ""
+- Output claims:
+    - **outputClaim**: "+164411452054"
 

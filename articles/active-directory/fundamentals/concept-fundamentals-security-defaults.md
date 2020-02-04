@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,7 +25,10 @@ Microsoft is making security defaults available to everyone. The goal is to ensu
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-The following security configurations will be turned on in your tenant. 
+> [!TIP]
+> If your tenant was created on or after October 22nd, 2019, it’s possible you are experiencing the new secure-by-default behavior and already have security defaults enabled in your tenant. In an effort to protect all of our users, security defaults is being rolled out to all new tenants created.
+
+More details on why security defaults are being made available can be found in Alex Weinert's blog post, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 ## Unified Multi-Factor Authentication registration
 
@@ -70,6 +73,9 @@ Today, the majority of compromising sign-in attempts come from legacy authentica
 
 After security defaults are enabled in your tenant, all authentication requests made by an older protocol will be blocked. Security defaults don't block Exchange ActiveSync.
 
+> [!WARNING]
+> Before you enable security defaults, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-fundamentals-block-legacy-authentication.md).
+
 ### Protecting privileged actions
 
 Organizations use a variety of Azure services managed through the Azure Resource Manager API, including:
@@ -85,6 +91,9 @@ It's important to verify the identity of users who want to access Azure Resource
 After you enable security defaults in your tenant, any user who's accessing the Azure portal, Azure PowerShell, or the Azure CLI will need to complete additional authentication. This policy applies to all users who are accessing Azure Resource Manager, whether they're an administrator or a user. 
 
 If the user isn't registered for Multi-Factor Authentication, the user will be required to register by using the Microsoft Authenticator app in order to proceed. No 14-day Multi-Factor Authentication registration period will be provided.
+
+> [!NOTE]
+> The Azure AD Connect synchronization account is excluded from security defaults and will not be prompted to register for or perform multi-factor authentication. Organizations should not be using this account for other purposes.
 
 ## Deployment considerations
 
@@ -104,18 +113,9 @@ Security defaults allow registration and use of Azure Multi-Factor Authenticatio
 
 ** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
-### Older protocols
-
-Mail clients use older authentication protocols (like IMAP, SMTP, and POP3) to make authentication requests. These protocols don't support Multi-Factor Authentication. Most of the account compromises that Microsoft sees are from attacks against older protocols that are trying to bypass Multi-Factor Authentication. 
-
-To ensure that Multi-Factor Authentication is required for signing in to an administrative account and attackers can't bypass it, security defaults block all authentication requests made to administrator accounts from older protocols.
-
-> [!WARNING]
-> Before you enable this setting, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-fundamentals-block-legacy-authentication.md).
-
 ### Conditional Access
 
-You can use Conditional Access to configure policies similar to security defaults, but with more granularity. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which are not available in security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

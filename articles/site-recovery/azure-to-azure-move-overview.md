@@ -76,7 +76,7 @@ Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment)
 
      ![Single-instance VM deployment across tiers](media/move-vm-overview/single-zone.png)
 
-* **VMs in each tier deployed across availability sets**: You can configure your VMs in an availability set into separate Availability Zones when you enable replication for your VM by using Azure Site Recovery. The SLA for availability will be 99.9% after you complete the move operation.
+* **VMs in each tier deployed across availability sets**: You can configure your VMs in an availability set into separate Availability Zones when you enable replication for your VM by using Azure Site Recovery. The SLA for availability will be 99.99% after you complete the move operation.
 
      ![VM deployment across availability sets and Availability Zones](media/move-vm-overview/aset-azone.png)
 

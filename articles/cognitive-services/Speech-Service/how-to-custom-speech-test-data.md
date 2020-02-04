@@ -20,7 +20,7 @@ When testing the accuracy of Microsoft speech recognition or training your custo
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used of testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |
@@ -79,7 +79,7 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | File format | RIFF (WAV) |
 | Sample rate | 8,000 Hz or 16,000 Hz |
 | Channels | 1 (mono) |
-| Maximum length per audio | 60 s |
+| Maximum length per audio | 2 hours (testing) / 60 s (training) |
 | Sample format | PCM, 16-bit |
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
@@ -112,14 +112,14 @@ Product names or features that are unique, should include related text data for 
 
 | Data type | How this data improves recognition |
 |-----------|------------------------------------|
-| Utterances (sentences) | Improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
+| Sentences (utterances) | Improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
 | Pronunciations | Improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
-Utterances can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
-### Guidelines to create an utterances file
+### Guidelines to create a sentences file
 
-To create a custom model using related text, you'll need to provide a list of sample utterances. Utterances _do not_ need to be complete sentences or grammatically correct, but they must accurately reflect the spoken input you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
+To create a custom model using sentences, you'll need to provide a list of sample utterances. Utterances _do not_ need to be complete or grammatically correct, but they must accurately reflect the spoken input you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
 
 As general guidance, model adaptation is most effective when the training text is as close as possible to the real text expected in production. Domain-specific jargon and phrases that you're targeting to enhance, should be included in training text. When possible, try to have one sentence or keyword controlled on a separate line. For keywords and phrases that are important to you (for example, product names), you can copy them a few times. But keep in mind, don't copy too much - it could affect the overall recognition rate.
 

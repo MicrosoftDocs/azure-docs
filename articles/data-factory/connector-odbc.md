@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 01/09/2020
 ms.author: jingwang
 
 ---
@@ -32,14 +32,14 @@ This ODBC connector is supported for the following activities:
 
 You can copy data from ODBC source to any supported sink data store, or copy from any supported source data store to ODBC sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication.
+Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication. A **64-bit ODBC driver** is required.
 
 ## Prerequisites
 
 To use this ODBC connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the ODBC driver for the data store on the Integration Runtime machine.
+- Install the 64-bit ODBC driver for the data store on the Integration Runtime machine.
 
 ## Getting started
 
@@ -287,4 +287,4 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 5. Click **Test connection** to test the connection to the data store.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

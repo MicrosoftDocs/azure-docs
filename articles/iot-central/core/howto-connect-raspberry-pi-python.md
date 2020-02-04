@@ -22,15 +22,15 @@ This article describes how, as a device developer, to connect a Raspberry Pi to 
 
 To complete the steps in this article, you need the following components:
 
-* An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* An Azure IoT Central application created from the **Legacy application** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A Raspberry Pi device running the Raspbian operating system. The Raspberry Pi must be able to connect to the internet. For more information, see [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 > [!TIP]
 > To learn about setting up and connecting to a Raspberry Pi device, visit [Get started with Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
 
-## **Sample Devkits** application
+## Add a device template
 
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
+In your Azure IoT Central application, add a new **Raspberry Pi** device template with the following characteristics:
 
 - Telemetry, which includes the following measurements the device will collect:
   - Humidity
@@ -47,6 +47,13 @@ An application created from the **Sample Devkits** application template includes
 - Properties
   - Die number device property
   - Location cloud property
+
+1. Select **+New** from device templates
+   ![Device Template](media/howto-connect-raspberry-pi-python/adddevicetemplate.png)
+   
+
+2. Select **Raspberry Pi** and create the Raspberry Pi device template
+   ![Add Device template](media/howto-connect-raspberry-pi-python/newdevicetemplate.png)
 
 For the full details of the configuration of the device template, see the [Raspberry Pi Device template details](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details).
 

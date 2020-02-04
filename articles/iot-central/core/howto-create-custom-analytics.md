@@ -34,15 +34,15 @@ Create an IoT Central application on the [Azure IoT Central application manager]
 
 | Setting | Value |
 | ------- | ----- |
-| Payment plan | Pay-As-You-Go |
-| Application template | Sample Contoso |
+| Pricing plan | Standard |
+| Application template | Legacy Application |
 | Application name | Accept the default or choose your own name |
 | URL | Accept the default or choose your own unique URL prefix |
 | Directory | Your Azure Active Directory tenant |
 | Azure subscription | Your Azure subscription |
-| Region | East US |
+| Region | United States |
 
-The examples and screenshots in this article use the **East US** region. Choose a location close to you and make sure you create all your resources in the same region.
+The examples and screenshots in this article use the **United States** region. Choose a location close to you and make sure you create all your resources in the same region.
 
 ### Resource group
 

@@ -122,8 +122,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
-
-See [Files skipped](storage-sync-files-planning.md#files-skipped).
+  See [Files skipped](storage-sync-files-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  

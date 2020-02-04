@@ -22,7 +22,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
-- If you intend to upload a vhd from on-pem: A vhd that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
+- If you intend to upload a VHD from on-premises: A VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
 - Or, a managed disk in Azure, if you intend to perform a copy action.
 
 ## Create an empty managed disk

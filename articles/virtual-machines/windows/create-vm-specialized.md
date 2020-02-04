@@ -66,7 +66,7 @@ You can now upload a VHD straight into a managed disk. For instructions, see [Up
 
 You can create a copy of a VM that uses managed disks by taking a snapshot of the VM, and then by using that snapshot to create a new managed disk and a new VM.
 
-If you want to copy an existing VM to another region, you might want to use azcopy to [creat a copy of a disk in another region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+If you want to copy an existing VM to another region, you might want to use azcopy to [create a copy of a disk in another region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### Take a snapshot of the OS disk
 

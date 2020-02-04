@@ -12,7 +12,7 @@ manager: philmea
 
 # Configure the application dashboard
 
-The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from the **Custom Application** application template, your dashboard will be blank to start.
+The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from the **Legacy application** application template, your dashboard will be blank to start.
 
 > [!NOTE]
 > Users can [create multiple dashboards](howto-create-personal-dashboards.md) in addition to the default application dashboard. These dashboards can be personal to the user only, or shared across all users of the application. 

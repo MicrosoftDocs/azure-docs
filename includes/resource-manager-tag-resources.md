@@ -5,7 +5,7 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 05/17/2018
+ ms.date: 01/03/2020
  ms.author: tomfitz
  ms.custom: include file
 ---
@@ -58,11 +58,3 @@ To view all resources with a tag:
 1. All resources with that tag are displayed.
 
      ![View resources by tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. For quick access, pin the view to the dashboard.
-
-     ![Pin to dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. The view is available from the dashboard.
-
-     ![Dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)

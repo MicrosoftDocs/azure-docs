@@ -2,44 +2,36 @@
   href: index.yml
 - name: Two-step verification help
   items:
-  - name: Overview
-    href: user-help-two-step-verification-overview.md
-  - name: Set up your two-factor verification methods
-    items:
-    - name: Overview
-      href: multi-factor-authentication-end-user-first-time.md
-    - name: Set up an authenticator app 
-      href: multi-factor-authentication-setup-auth-app.md
-    - name: Set up a mobile device
-      href: multi-factor-authentication-setup-phone-number.md
-    - name: Set up an office phone        
-      href: multi-factor-authentication-setup-office-phone.md      
+  - name: What is the Additional verification page?
+    href: multi-factor-authentication-end-user-first-time.md
+  - name: Set up an authenticator app 
+    href: multi-factor-authentication-setup-auth-app.md
+  - name: Set up a mobile device
+    href: multi-factor-authentication-setup-phone-number.md
+  - name: Set up an office phone
+    href: multi-factor-authentication-setup-office-phone.md
   - name: Manage your settings
     href: multi-factor-authentication-end-user-manage-settings.md
-  - name: Get help
-    href: multi-factor-authentication-end-user-troubleshoot.md
   - name: Manage app passwords
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
     href: user-help-sign-in.md?toc=./toc.json
+  - name: Get help
+    href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Password reset help
   items:
-  - name: Overview
-    href: user-help-password-reset-overview.md    
   - name: Sign up for password reset
     href: active-directory-passwords-reset-register.md
   - name: Reset your password
     href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator app help
   items:
-  - name: Overview
+  - name: What is the Microsoft Authenticator app?
     href: user-help-auth-app-overview.md
   - name: Download and install the app
     href: user-help-auth-app-download-install.md
   - name: Add accounts
     items:
-      - name: Overview
-        href: user-help-auth-app-add-account-overview.md
       - name: Add a work or school account
         href: user-help-auth-app-add-work-school-account.md
       - name: Add a personal Microsoft account
@@ -56,10 +48,10 @@
     href: user-help-auth-app-faq.md
 - name: My Account portal help
   items:
-  - name: Overview
+  - name: What is the My Account portal?
     href: my-account-portal-overview.md
   - name: Manage your security info
-    href: user-help-security-info-overview.md
+    href: security-info-setup-signin.md
   - name: Manage your connected devices
     href: my-account-portal-devices-page.md
   - name: Change your password
@@ -72,14 +64,10 @@
     href: my-account-portal-sign-ins-page.md
 - name: Security info (preview) help
   items:
-  - name: Overview
-    href: user-help-security-info-overview.md
   - name: Add security info during sign-in
     href: security-info-setup-signin.md
   - name: Add or update security info methods
     items:
-    - name: Overview
-      href: security-info-add-update-methods-overview.md
     - name: Set up an authenticator app 
       href: security-info-setup-auth-app.md
     - name: Set up text messaging        
@@ -98,8 +86,6 @@
     href: user-help-sign-in.md?toc=./toc.json
 - name: Manage devices help
   items:
-  - name: Overview
-    href: user-help-device-mgmt-overview.md
   - name: Join your work device
     href: user-help-join-device-on-network.md
   - name: Register your personal device for work
@@ -108,8 +94,6 @@
     href: user-help-device-remediation.md
 - name: My Apps portal help
   items:
-  - name: Overview
-    href: my-apps-portal-end-user-overview.md
   - name: Access and use the My Apps portal
     href: my-apps-portal-end-user-access.md
   - name: Update your profile and account info
@@ -122,8 +106,6 @@
     href: my-apps-portal-end-user-troubleshoot.md
 - name: My Apps (preview) portal help
   items:
-  - name: Overview
-    href: my-applications-portal-overview.md
   - name: Access and use the My Apps portal
     href: my-applications-portal-access.md
   - name: Access and use workspaces

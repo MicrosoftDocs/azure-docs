@@ -76,7 +76,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
     ```
 
-    if you don't know the virtual environment name, you can SSH to the header node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
+    if you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
 
 3. Change Spark and Livy configs and point to the created virtual environment.
 

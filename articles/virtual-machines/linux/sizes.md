@@ -35,7 +35,7 @@ This article describes the available sizes and options for the Azure virtual mac
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
-- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 
@@ -64,7 +64,7 @@ Learn more about the different VM sizes that are available:
 - [Storage optimized](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
-- Check the [Previous generation](sizes-previous-gen.md) page for A Standard, Dv1 (D1-4 and D11-14 v1), and A8-A11 series
+- Check the [Previous generation](sizes-previous-gen.md) page for A Basic and Standard, High Performance A8-A11, D/DSv1 (D1-4 and D11-14 v1), F/Fsv1, G/GS, Lsv1, and NVv2 series.
 
 
 

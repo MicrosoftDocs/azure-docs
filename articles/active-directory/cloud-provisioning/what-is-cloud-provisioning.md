@@ -57,6 +57,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for writeback (passwords, devices, groups) |● | |
 | Azure AD Domain Services support|● | |
 | Exchange hybrid configuration |● | |
+| Support for more than 50,000 objects per AD domain |● | |
 
 ## Next steps 
 

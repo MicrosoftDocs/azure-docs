@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ---
 
 # How to index large data sets in Azure Cognitive Search
@@ -70,7 +70,7 @@ Parallel processing has these elements:
 + Schedule all indexers to run at the same time.
 
 > [!NOTE]
-> Azure Cognitive Search does not support dedicating replicas or partitions to specific workloads. The risk of heavy concurrent indexing is overburdening your system to the detriment of query performance. If you have a test environment, implement parallel indexing there first to understand the tradeoffs.
+> In Azure Cognitive Search, you cannot assign individual replicas or partitions to indexing or query processing. The system determines how resources are used. To understand the impact on query performance, you might try parallel indexing in a test environment before rolling it into production.  
 
 ### How to configure parallel indexing
 

@@ -13,11 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Authentication and authorization error codes
@@ -129,6 +128,8 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - Session control is not supported for passthrough users. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - Integrated Windows authentication is needed. Enable the tenant for Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided - The service failed to perform device authentication. |
+| AADSTS50196 | LoopDetected - A client loop has been detected. Check the app’s logic to ensure that token caching is implemented, and that error conditions are handled correctly.  The app has made too many of the same request in too short a period, indicating that it is in a faulty state or is abusively requesting tokens. |
+| AADSTS50199 | CmsiInterrupt - user interaction is required for this authentication.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into.|
 | AADSTS51000 | RequiredFeatureNotEnabled - The feature is disabled. |
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
@@ -216,6 +217,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS90092 | GraphNonRetryableError |
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
+| AADSTS900382 | Confidential Client is not supported in Cross Cloud request. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
 | AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |

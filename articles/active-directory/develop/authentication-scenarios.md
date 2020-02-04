@@ -10,12 +10,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication in the Microsoft identity platform
-ms.collection: M365-identity-device-management
 ---
 
 # Authentication basics
@@ -162,6 +161,7 @@ By default, MSAL uses the system browser except for .NET Framework desktop appli
 
 ## Next steps
 
-See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
-See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
-See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
+- See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
+- See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
+- See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
+- See [Integrate App Service with Microsoft identity platform](/azure/app-service/configure-authentication-provider-aad) to learn how to configure authentication for your App Service app.

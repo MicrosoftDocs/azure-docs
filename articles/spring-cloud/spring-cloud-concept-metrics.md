@@ -1,11 +1,11 @@
 ---
 title: Understanding metrics for Azure Spring Cloud
 description: Learn how to review metrics in Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 
@@ -79,31 +79,31 @@ YOu can also use the **Apply splitting** option, which will draw multiple lines 
 ## User portal metrics options
 
 The following table shows the available metrics and details.
-
-| Name | Display Name | Spring Actuator Metric Name | Unit | Details |
-|:-----|:-----|:-----|:-----|:-----|
-| SystemCpuUsagePercentage | System CPU Usage Percentage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values between 0.0 and 1.0 are possible depending on the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value. |
-| AppCpuUsagePercentage | App CPU Usage Percentage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values between 0.0 and 1.0 are possible depending on the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value. |
-| AppMemoryCommitted | App Memory Assigned | jvm.memory.committed | Bytes | Represents the amount of memory (in bytes) that is guaranteed to be available for use by the Java virtual machine. The amount of committed memory may change over time (increase or decrease). The Java virtual machine may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
-| AppMemoryUsed | App Memory Used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
-| AppMemoryMax | App Memory Max | jvm.memory.max | Bytes | Represents the maximum amount of memory (in bytes) that can be used for memory management. Its value may be undefined. The maximum amount of memory may change over time if defined. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
-| MaxOldGenMemoryPoolBytes | Max Available Old Generation Data Size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
-| OldGenMemoryPoolBytes | Old Generation Data Size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
-| OldGenPromotedBytes | Promote to Old Generation Data Size | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
-| YoungGenPromotedBytes | Promote to Young Generation Data Size | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
-| GCPauseTotalCount | GC Pause Count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
-| GCPauseTotalTime | GC Pause Total Time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
-| TomcatSentBytes | Tomcat Total Sent Bytes | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent, in bytes |
-| TomcatReceivedBytes | Tomcat Total Received Bytes | tomcat.global.received | Bytes | Amount of data Tomcat web server received, in bytes |
-| TomcatRequestTotalTime | Tomcat Request Total Time | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests. |
-| TomcatRequestTotalCount | Tomcat Request Total Count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
-| TomcatRequestMaxTime | Tomcat Request Max Time | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
-| TomcatErrorCount | Tomcat Global Error | tomcat.global.error | Count | Number of errors occurs of processed requests |
-| TomcatSessionActiveMaxCount | Tomcat Session Max Active Count | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
-| TomcatSessionAliveMaxTime | Tomcat Session Max Alive Time | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session had been alive |
-| TomcatSessionCreatedCount | Tomcat Session Created Count | tomcat.sessions.created | Count | Number of sessions that have been created |
-| TomcatSessionExpiredCount | Tomcat Session Expired Count | tomcat.sessions.expired | Count | Number of sessions that have expired |
-| TomcatSessionRejectedCount | Tomcat Session Rejected Count | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
+>[!div class="mx-tdBreakAll"]
+>| Name | Display Name | Spring Actuator Metric Name | Unit | Details |
+>|----|----|----|----|------------|
+>| SystemCpuUsagePercentage | System CPU Usage Percentage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values between 0.0 and 1.0 are possible depending on the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value. |
+>| AppCpuUsagePercentage | App CPU Usage Percentage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values between 0.0 and 1.0 are possible depending on the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value. |
+>| AppMemoryCommitted | App Memory Assigned | jvm.memory.committed | Bytes | Represents the amount of memory (in bytes) that is guaranteed to be available for use by the Java virtual machine. The amount of committed memory may change over time (increase or decrease). The Java virtual machine may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
+>| AppMemoryUsed | App Memory Used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
+>| AppMemoryMax | App Memory Max | jvm.memory.max | Bytes | Represents the maximum amount of memory (in bytes) that can be used for memory management. Its value may be undefined. The maximum amount of memory may change over time if defined. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
+>| MaxOldGenMemoryPoolBytes | Max Available Old Generation Data Size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
+>| OldGenMemoryPoolBytes | Old Generation Data Size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
+>| OldGenPromotedBytes | Promote to Old Generation Data Size | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
+>| YoungGenPromotedBytes | Promote to Young Generation Data Size | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
+>| GCPauseTotalCount | GC Pause Count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
+>| GCPauseTotalTime | GC Pause Total Time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
+>| TomcatSentBytes | Tomcat Total Sent Bytes | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent, in bytes |
+>| TomcatReceivedBytes | Tomcat Total Received Bytes | tomcat.global.received | Bytes | Amount of data Tomcat web server received, in bytes |
+>| TomcatRequestTotalTime | Tomcat Request Total Time | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests. |
+>| TomcatRequestTotalCount | Tomcat Request Total Count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
+>| TomcatRequestMaxTime | Tomcat Request Max Time | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
+>| TomcatErrorCount | Tomcat Global Error | tomcat.global.error | Count | Number of errors occurs of processed requests |
+>| TomcatSessionActiveMaxCount | Tomcat Session Max Active Count | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
+>| TomcatSessionAliveMaxTime | Tomcat Session Max Alive Time | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session had been alive |
+>| TomcatSessionCreatedCount | Tomcat Session Created Count | tomcat.sessions.created | Count | Number of sessions that have been created |
+>| TomcatSessionExpiredCount | Tomcat Session Expired Count | tomcat.sessions.expired | Count | Number of sessions that have expired |
+>| TomcatSessionRejectedCount | Tomcat Session Rejected Count | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 
 ## See also
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)

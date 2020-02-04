@@ -23,7 +23,7 @@ The steps in this article are typically performed by a cloud developer.
 
 For a device to function as a gateway it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
 
-In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step as it significantly reduced the number of steps needed to create the certificates on the Windows development machine. See [Generate certificates with Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) for the details on how to produce the certificates without using a container. [Generate certificates with Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) has the set of instructions that we automated with the Docker image.
+In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step as it significantly reduced the number of steps needed to create the certificates on the Windows development machine. See [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to understand what we automated with the Docker image.
 
 1. Sign in to your development virtual machine.
 
@@ -199,7 +199,7 @@ Earlier in this article, we uploaded certificates to Key Vault to make them avai
 
 1. When you successfully authenticate, the Linux VM will sign in and list your Azure subscriptions.
 
-1. ASet the Azure subscription that you want to use for Azure CLI commands.
+1. Set the Azure subscription that you want to use for Azure CLI commands.
 
     ```bash
     az account set --subscription <subscriptionId>
@@ -257,7 +257,7 @@ Next we will update the certificates and hostname by directly editing the config
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Make sure the “certificates:” has no preceding whitespace and that each of the certificates is preceded by two spaces.
+    Make sure the **certificates:** line has no preceding whitespace and that each of the nested certificates is indented by two spaces.
 
     Right-clicking in nano will paste the contents of your clipboard to the current cursor position. To replace the string, use your keyboard arrows to navigate to the string you want to replace, delete the string, then right-click to paste from the buffer.
 

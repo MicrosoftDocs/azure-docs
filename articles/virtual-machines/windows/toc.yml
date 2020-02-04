@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
+  - name: 10 - Manage VMs
     href: tutorial-govern-resources.md
     displayName: scope policy RBAC lock tag
   - name: 11 - Track and update VMs
@@ -141,7 +141,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -184,7 +184,7 @@
       items:
       - name: GPU optimized
         href: sizes-gpu.md
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: n-series-amd-driver-setup.md      
@@ -232,6 +232,8 @@
       href: disks-types.md
     - name: Encryption
       href: disk-encryption.md
+    - name: Disk Storage reservations
+      href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Designing for high performance
       href: premium-storage-performance.md
     - name: Disk bursting
@@ -551,6 +553,8 @@
       href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
     - name: Create an incremental snapshot
       href: disks-incremental-snapshots.md
     - name: Back up unmanaged disks
@@ -674,7 +678,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap

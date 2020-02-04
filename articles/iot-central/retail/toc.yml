@@ -37,6 +37,8 @@
       href: architecture-smart-inventory-management-pnp.md 
     - name: Store analytics architecture
       href: store-analytics-architecture.md 
+    - name: Micro-fulfillment center app template architecture
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: Connectivity
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: What are application templates?
@@ -123,7 +125,7 @@
           href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge solutions
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -131,6 +133,8 @@
           href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
+    - name: Support and help options
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Supported browsers

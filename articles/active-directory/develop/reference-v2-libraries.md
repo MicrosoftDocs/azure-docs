@@ -18,7 +18,6 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform authentication libraries
@@ -52,7 +51,7 @@ Use client authentication libraries to acquire a token for calling a protected w
 
 | Platform | Library | Download | Source code | Sample | Reference | Conceptual doc | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Single-page app](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Conceptual docs](msal-overview.md)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Single-page app](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Reference](https://azuread.github.io/microsoft-authentication-library-for-js/docs/msal/) | [Conceptual docs](msal-overview.md)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular (Preview) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Desktop app](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Conceptual docs](msal-overview.md) | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
@@ -104,7 +103,7 @@ For any standards-compliant library, you can use the Microsoft identity platform
 * For issues and new feature requests in library code, contact the library owner.
 * For issues and new feature requests in the service-side protocol implementation, contact Microsoft.
 * [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you want to see in the protocol.
-* [Create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) if you find an issue where the Microsoft identity platform endpoint isn't compliant with OAuth 2.0 or OpenID Connect 1.0.
+* [Create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) if you find an issue where the Microsoft identity platform endpoint isn't compliant with OAuth 2.0 or OpenID Connect 1.0.
 
 ## Related content
 

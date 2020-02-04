@@ -32,7 +32,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Hive            | 3.1.0         | 2.1.0, 1.2.1                |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
-| Apache HBase           | 2.0.1         | 1.1.2                       |
+| Apache HBase           | 2.0.2         | 1.1.2                       |
 | Apache Sqoop           | 1.4.7         | 1.4.6                       |
 | Apache Oozie           | 4.3.1         | 4.2.0                       |
 | Apache Zookeeper       | 3.4.6         | 3.4.6                       |
@@ -43,7 +43,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
 | Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (See Note below) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
-| Apache Zeppelin        | 0.8.0         | 0.7.0                       |
+| Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
+ms.date: 01/29/2020
 
 ---
 
 # Collect log data with the Log Analytics agent
 
-The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to an Azure Monitor and store collected log data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. 
+The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to Azure Monitor and store collected log data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. 
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
@@ -94,7 +94,7 @@ The following table highlights the packages required for supported Linux distros
 
 ## TLS 1.2 protocol
 
-To insure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+To insure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 ## Network firewall requirements
 
@@ -102,6 +102,7 @@ The information below list the proxy and firewall configuration information requ
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
+|OMS*.azure.com |Port 443 |Outbound |Yes |
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  
@@ -140,14 +141,14 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 |Source | Method | Description|
 |-------|-------------|-------------|
 |Azure VM| - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) using Azure CLI or with an Azure Resource Manager template<br>- [Manually from the Azure portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [Azure Security Center Automatic provisioning](../../security-center/security-center-enable-data-collection.md)| - The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace.<br>- Azure Security Center can provision the Log Analytics agent on all supported Azure VMs and any new ones that are created if you enable it to monitor for security vulnerabilities and threats. If enabled, any new or existing VM without an installed agent will be provisioned.|
-| Hybrid Windows computer|- [Manual install](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Install the Microsoft Monitoring agent from the command line or using an automated method such as Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter.| 
+| Hybrid Windows computer|- [Manual install](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Install the Microsoft Monitoring agent from the command line or using an automated method such as Azure Automation DSC, [Configuration Manager](https://docs.microsoft.com/configmgr/apps/deploy-use/deploy-applications), or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter.| 
 | Hybrid Linux computer| [Manual install](../../azure-monitor/learn/quick-collect-linux-computer.md)|Install the agent for Linux calling a wrapper-script hosted on GitHub. | 
-| System Center Operations Manager|[Integrate Operations Manager with Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure integration between Operations Manager and Azure Monitor logs to forward collected data from Windows computers reporting to a management group.|  
+| System Center Operations Manager|[Integrate Operations Manager with Log Analytics](om-agents.md) | Configure integration between Operations Manager and Azure Monitor logs to forward collected data from Windows computers reporting to a management group.|  
 
 ## Next steps
 
-* Review [data sources](../../azure-monitor/platform/agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
+* Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 
-* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 
-* Learn about [monitoring solutions](../../azure-monitor/insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
+* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.

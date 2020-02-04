@@ -65,7 +65,7 @@ To create a storage account with large file shares enabled, use the following co
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
-az storage account create –name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS --kind StorageV2 –enable-large-file-share
+az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
 ### PowerShell
@@ -101,7 +101,7 @@ If you receive the error message "Large file shares are not available for the ac
 To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
 
 ```azurecli-interactive
-az storage account update –name <yourStorageAccountName> -g <yourResourceGroup> –enable-large-file-share
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
 ### PowerShell

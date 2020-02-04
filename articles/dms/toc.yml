@@ -72,11 +72,13 @@
       href: known-issues-troubleshooting-dms.md
     - name: Known Issues - Online migration to Azure SQL DB single database
       href: known-issues-azure-sql-online.md
+    - name: Known Issues - Online migration to Azure SQL DB managed instance
+      href: known-issues-azure-sql-db-managed-instance-online.md
     - name: Known Issues - Online migration to Azure DB for MySQL
       href: known-issues-azure-mysql-online.md
-    - name: Known Issues - Online migration from PostgreSQL to Azure DB for PostgreSQL–Single server
+    - name: Known Issues - Online migration from PostgreSQL to Azure DB for PostgreSQL – Single server
       href: known-issues-azure-postgresql-online.md
-    - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL–Single server
+    - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL – Single server
       href: known-issues-oracle-azure-postgresql-online.md
     - name: Known Issues - Using hybrid mode
       href: known-issues-dms-hybrid-mode.md

@@ -49,7 +49,7 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
-    - name: Write .NET custom deserializers
+    - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
   - name: Output types for a job
     items:
@@ -61,6 +61,17 @@
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: Optimize your Stream Analytics job
+    items:
+    - name: Understand and adjust Streaming Units
+      href: stream-analytics-streaming-unit-consumption.md
+      displayName: scale, performance
+    - name: Improve query performance
+      href: stream-analytics-parallelization.md
+    - name: Repartition your input
+      href: repartition.md
+    - name: Increase throughput of your job
+      href: stream-analytics-scale-jobs.md
   - name: States of a job
     href: job-states.md
   - name: Window functions
@@ -148,20 +159,6 @@
       href: stream-analytics-monitor-jobs.md
     - name: Monitor jobs- Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
-  - name: Scale
-    items:
-    - name: Scale with streaming units
-      href: stream-analytics-streaming-unit-consumption.md
-    - name: Scale with parallelization
-      items:
-      - name: Query parallelization
-        href: stream-analytics-parallelization.md
-      - name: Increase throughput
-        href: stream-analytics-scale-jobs.md
-    - name: Scale with ML functions
-      href: stream-analytics-scale-with-machine-learning-functions.md
-    - name: Scale with repartitioning
-      href: repartition.md
   - name: Automate
     items:
     - name: Using .NET SDK
@@ -180,6 +177,8 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
@@ -218,6 +217,8 @@
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
+  - name: Scale with ML functions
+    href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language
   items:
     - name: Built-in Functions

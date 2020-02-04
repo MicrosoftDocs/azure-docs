@@ -89,7 +89,7 @@ Create a Basic internal load balancer by using the portal. The name and IP addre
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **East US 2**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic**.                          |
     | Virtual network           | Select *MyVNet*.                          |    

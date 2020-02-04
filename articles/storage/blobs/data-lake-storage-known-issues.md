@@ -44,12 +44,13 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Filesystem Support in SDKs
 
-- .NET, Java and Python are in public preview. Other SDKs are not currently supported.
-- Get and Set ACLs operations are not currently recursive.
+- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
+- Get and set ACL operations are not currently recursive.
 
 ## Filesystem Support in PowerShell and Azure CLI
 
-Get and Set ACLs operations are not currently recursive.
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
+- Get and set ACL operations are not currently recursive.
 
 ## Support for other Blob Storage features
 
@@ -59,7 +60,7 @@ The following table lists all other features and tools that are not yet supporte
 |--------|-----------|
 | **Account failover** |Not yet supported|
 | **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
-| **Azure Blob Storage lifecycle management policies** | Lifecycle management policies are supported (Preview).  All access tiers are supported. The archive access tier is currently in preview. The deletion of blob snapshots is not yet supported. <br><br> There are currently some bugs affecting lifecycle management policies and the archive access tier.  Sign up for the preview of lifecycle management policies and archive access tier [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
+| **Azure Blob Storage lifecycle management policies** | Lifecycle management policies are supported (Preview).  Sign up for the preview of lifecycle management policies and archive access tier [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>All access tiers are supported. The archive access tier is currently in preview. The deletion of blob snapshots is not yet supported.  There are currently some bugs affecting lifecycle management policies and the archive access tier.  |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|
 | **Azure search** |Supported (Preview)|
 | **Azure Storage Explorer** | Version-specific support. <br><br>Use only versions `1.6.0` or higher. <br> There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.|
@@ -67,7 +68,7 @@ The following table lists all other features and tools that are not yet supporte
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
 | **Storage Explorer in the Azure portal** | Limited support. ACLs are not yet supported. |
-| **Diagnostic logging** |Diagnostic logs are supported (Preview).<br><br>Enabling logs in the Azure portal is not currently supported. Here's an example of how to enable the logs by using PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Make sure to specify `Blob` as the value of the `-ServiceType` parameter as shown in this example. <br><br>Currently, Azure Storage Explorer can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
+| **Diagnostic logging** |Diagnostic logs are supported (Preview). <br><br>Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
 | **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Cool and archive tiers are supported. The archive tier is in preview. All other access tiers are not yet supported. <br><br> There are currently some bugs affecting the archive access tier.  Sign up for the preview of the archive access tier [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
 | **Static websites** |Not yet supported <br><br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
