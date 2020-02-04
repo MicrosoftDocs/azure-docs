@@ -428,8 +428,6 @@
         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure classic CLI
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Monitor storage
-      href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
@@ -531,8 +529,6 @@
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
-    - name: Monitoring data
-      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure updates
@@ -651,12 +647,8 @@
       href: data-lake-storage-access-control.md
   - name: How to
     items:
-    - name: Create a storage account
-      items:
-      - name: General purpose storage account
-        href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Block blob storage account
-        href: storage-blob-create-account-block-blob.md
+    - name: Create a storage account for your Data Lake
+      href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage directories, files, and ACLs
       items:
       - name: .NET
