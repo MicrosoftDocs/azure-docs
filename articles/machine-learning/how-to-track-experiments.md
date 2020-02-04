@@ -54,6 +54,8 @@ Before adding logging and submitting an experiment, you must set up the workspac
 
 1. Load the workspace. To learn more about setting the workspace configuration, see [workspace configuration file](how-to-configure-environment.md#workspace).
 
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_ws)]
+
    ```python
    from azureml.core import Experiment, Run, Workspace
    import azureml.core
@@ -92,6 +94,8 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
    ```
 
 2. Add experiment tracking using the Azure Machine Learning SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
+
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
    ```python
     # Get an experiment object from Azure Machine Learning

@@ -238,6 +238,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "MachineLearningNotebooks",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "sdg-add-metadata"
+    },
+    {
       "path_to_root": "aml-sdk-samples",
       "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "sdk-codetest"
