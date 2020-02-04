@@ -17,7 +17,7 @@ ms.author: rdhillon
 
 Virtual Network (VNet) service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint, and allow data exfiltration to only specific Azure Storage accounts. Endpoint policies provide granular access control for virtual network traffic to Azure Storage when connecting over service endpoint.
 
-![Securing Virtual network outbound traffic to Azure Storage accounts](./Media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
+![Securing Virtual network outbound traffic to Azure Storage accounts](./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
 
 This feature is generally available for __Azure Storage__ in __all public Azure regions__.
 
