@@ -4,7 +4,7 @@ description: It's possible to use any rendering applications with Azure Batch. H
 services: batch
 ms.service: batch
 author: ju-shim
-ms.author: jushiman
+ms.author: labrenne
 ms.date: 09/19/2019
 ms.topic: conceptual
 ---

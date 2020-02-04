@@ -10,7 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Cost analysis and budgets for Azure Batch

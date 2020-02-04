@@ -11,7 +11,7 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights

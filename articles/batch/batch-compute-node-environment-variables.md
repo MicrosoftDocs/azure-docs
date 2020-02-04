@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Azure Batch runtime environment variables

@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Use a managed image to create a pool of virtual machines

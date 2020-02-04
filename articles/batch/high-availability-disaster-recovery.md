@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Design your application for high availability

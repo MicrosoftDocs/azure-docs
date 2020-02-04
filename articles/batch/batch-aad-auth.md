@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 01/28/2020
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Authenticate Batch service solutions with Active Directory

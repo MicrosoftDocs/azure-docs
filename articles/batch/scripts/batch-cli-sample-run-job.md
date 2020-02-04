@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2019
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # CLI example: Run a job and tasks with Azure Batch

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Authenticate Batch Management solutions with Active Directory

@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: 
 ms.date: 01/29/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
 
 ---

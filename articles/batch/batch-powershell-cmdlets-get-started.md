@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
 ---
 

@@ -9,7 +9,7 @@ ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
 
 ---

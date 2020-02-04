@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: jushiman
+ms.author: labrenne
 ---
 
 # Task fail event
