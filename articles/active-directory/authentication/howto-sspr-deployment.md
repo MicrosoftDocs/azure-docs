@@ -279,7 +279,7 @@ Before deploying, ensure that you have done the following:
 
 **You're now ready to deploy SSPR!**
 
-See [Enable self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) for complete step-by-step directions on configuring the following areas.
+See [Enable self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) for complete step-by-step directions on configuring the following areas.
 
 1. [Authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
 
