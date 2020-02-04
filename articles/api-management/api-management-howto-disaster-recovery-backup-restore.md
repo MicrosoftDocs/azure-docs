@@ -169,7 +169,7 @@ Backup is a long running operation that may take more than a minute to complete.
 Note the following constraints when making a backup request:
 
 -   **Container** specified in the request body **must exist**.
--   While backup is in progress, **avoid changes in service management** such as SKU upgrade or downgrade, change in domain name, and more.
+-   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
 -   In addition, the following items are not part of the backup data: custom domain SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.

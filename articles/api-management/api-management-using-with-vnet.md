@@ -174,7 +174,7 @@ Azure reserves some IP addresses within each subnet, and these addresses can't b
 
 In addition to the IP addresses used by the Azure VNET infrastructure, each Api Management instance in the subnet uses two IP addresses per unit of Premium SKU or one IP address for the Developer SKU. Each instance reserves an additional IP address for the external load balancer. When deploying into Internal vnet, it requires an additional IP address for the internal load balancer.
 
-Given the calculation above the minimum size of the subnet, in which API Management can be deployed is /29 which gives three IP addresses.
+Given the calculation above the minimum size of the subnet, in which API Management can be deployed is /29 that gives three usable IP addresses.
 
 ## <a name="routing"> </a> Routing
 + A load balanced public IP address (VIP) will be reserved to provide access to all service endpoints.
@@ -238,12 +238,12 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Public| Germany North| 51.116.0.0|
 | Azure Public| Norway East| 51.120.2.185|
 | Azure Public| Norway West| 51.120.130.134|
-| Azure China Cloud| China North (Global)| 139.217.51.16|
-| Azure China Cloud| China East (Global)| 139.217.171.176|
-| Azure China Cloud| China North| 40.125.137.220|
-| Azure China Cloud| China East| 40.126.120.30|
-| Azure China Cloud| China North 2| 40.73.41.178|
-| Azure China Cloud| China East 2| 40.73.104.4|
+| Azure China 21 Vianet| China North (Global)| 139.217.51.16|
+| Azure China 21 Vianet| China East (Global)| 139.217.171.176|
+| Azure China 21 Vianet| China North| 40.125.137.220|
+| Azure China 21 Vianet| China East| 40.126.120.30|
+| Azure China 21 Vianet| China North 2| 40.73.41.178|
+| Azure China 21 Vianet| China East 2| 40.73.104.4|
 | Azure Government| USGov Virginia (Global)| 52.127.42.160|
 | Azure Government| USGov Texas (Global)| 52.127.34.192|
 | Azure Government| USGov Virginia| 52.227.222.92|
@@ -257,7 +257,7 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 * [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
-* [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
+* [Virtual Network Frequently asked Questions](../virtual-network/virtual-networks-faq.md)
 * [Service tags](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
