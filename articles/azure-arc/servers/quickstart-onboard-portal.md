@@ -76,7 +76,7 @@ Files for the Connected Machine agent are installed in *C:\Program Files\AzureCo
 
 1. Open an elevated PowerShell command prompt.
 
-1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` command.
+1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 
 ### Configure the agent proxy setting
 
@@ -111,7 +111,7 @@ Optionally, you can configure the agent with your proxy information by including
 
 The script also contains logic to identify the supported and unsupported distributions, and it verifies the permissions that are required to perform the installation. 
 
-The following example downloads the agent and installs it, without performing any of the conditional checks.
+The following example downloads the agent and installs it:
 
 ```bash
 # Download the installation package.
