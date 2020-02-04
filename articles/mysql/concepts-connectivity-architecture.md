@@ -45,14 +45,14 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | India South | 104.211.224.146	 |
 | India West | 104.211.160.80	 |
 | Japan East | 13.78.61.196, 191.237.240.43	 |
-| Japan West | 104.214.148.156, 191.238.68.11	 |
+| Japan West | 104.214.148.156, 191.238.68.11, 40.74.96.7, 40.74.96.6 |
 | Korea Central | 52.231.32.42	 |
 | Korea South | 52.231.200.86	 |
 | North Central US | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36	 |
 | North Europe | 40.113.93.91, 191.235.193.75	 |
 | South Africa North  | 102.133.152.0	 |
 | South Africa West	| 102.133.24.0	 |
-| South Central US |13.66.62.124, 23.98.162.75	 |
+| South Central US |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0	 |
 | South East Asia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12	 |
 | UAE Central | 20.37.72.64	 |
 | UAE North | 65.52.248.0	 |

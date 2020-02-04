@@ -178,6 +178,10 @@
       items:
       - name: Backup
         href: backup-azure-afs-automation.md
+      - name: Restore
+        href: restore-afs-powershell.md
+      - name: Manage
+        href: manage-afs-powershell.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Overview
@@ -254,6 +258,8 @@
        href: backup-azure-backup-server-import-export-.md
   - name: Monitor and Alerts
     items:
+    - name: Using Backup Explorer
+      href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor

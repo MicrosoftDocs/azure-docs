@@ -92,7 +92,7 @@ Max length: 1024
 
 ## Account id
 
-In multi-tenant applications this is the account ID or name, which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform.
+In multi-tenant applications this is the account ID or name, which the user is acting with. Examples may be subscription ID for Azure portal or blog name for a blogging platform.
 
 Max length: 1024
 

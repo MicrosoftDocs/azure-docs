@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 1/27/2020
 ms.author: mlottner
 
 ---
@@ -26,7 +26,7 @@ An alert acts as an indicator of potential compromise, and should be investigate
 
 In this article, you will find a list of built-in alerts which can be triggered on your IoT Hub and/or IoT devices.
 In addition to built-in alerts, Azure Security Center for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
-For more details, see [Create custom alerts](quickstart-create-custom-alerts.md).
+For more details, see [customizable alerts](concept-customizable-security-alerts.md).
 
 ## Built-in alerts for IoT devices
 

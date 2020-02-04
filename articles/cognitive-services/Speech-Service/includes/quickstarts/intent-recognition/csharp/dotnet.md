@@ -1,14 +1,10 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, C# - Speech service"
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -16,8 +12,8 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* If this is your first C# project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">create an empty sample project</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Install the Speech SDK for your development environment</a>.
+* If this is your first C# project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">create an empty sample project <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Install the Speech SDK for your development environment <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -88,7 +84,7 @@ Inside the using statement, below `RecognizeOnceAsync()`, add this code:
 
 ## Check your code
 
-At this point, your code should look like this:  
+At this point, your code should look like this:
 
 > [!NOTE]
 > We've added some comments to this version.
@@ -100,7 +96,7 @@ At this point, your code should look like this:
 Now you're ready to build your app and test our speech recognition using the Speech service.
 
 1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
-2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
+2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
 3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
 ## Next steps
