@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/24/2019
+ms.date: 01/29/2020
 
 ---
 

@@ -199,6 +199,20 @@ The key advantages of using pipelines for your machine learning workflows are:
 | **Modularity** | Separating areas of concerns and isolating changes allows software to evolve at a faster rate with higher quality. | 
 |**Collaboration**|Pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.|
 
+## Modules
+
+While pipeline steps allow the reuse of the results of a previous run, in many cases the construction of the step assumes that the scripts and dependent files required must be locally available. If a data scientist wants to build on top of existing code, the scripts and dependencies often must be cloned from a separate repository.
+
+Modules are similar in usage to pipeline steps, but provide versioning facilitated through the workspace, which enables collaboration and reusability at scale. Modules are designed to be reused in multiple pipelines and can evolve to adapt a specific computation to different use-cases. Users can do the following tasks through the workspace, without using external repositories:
+
+* Create new modules, and publish new versions of existing modules
+* Deprecate existing versions
+* Mark versions disabled to prevent consumers from using that version
+* Designate default versions
+* Retrieve modules by version from the workspace, to ensure teams are using the same code
+
+See the [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) for code examples on how to create, connect, and use modules in Azure Machine Learning pipelines.
+
 ## Next steps
 
 Azure ML pipelines are a powerful facility that begins delivering value in the early development stages. The value increases as the team and project grows. This article has explained how pipelines are specified with the Azure Machine Learning Python SDK and orchestrated on Azure. You've seen some basic source code and been introduced to a few of the `PipelineStep` classes that are available. You should have a sense of when to use Azure ML pipelines and how Azure runs them. 

@@ -180,7 +180,7 @@ After you create and configure the virtual machines, you can configure the premi
   > - Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
   > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
 
-## Step 3: Configure the failover cluster with the file share
+## Step 3: Configure the failover cluster
 
 The next step is to configure the failover cluster. In this step, you'll complete the following substeps:
 
