@@ -13,7 +13,7 @@ ms.date: 09/01/2019
 ---
 # Feature Hashing module reference
 
-This article describes a module included in Azure Machine Learning designer.
+This article describes a module included in Azure Machine Learning designer (preview).
 
 Use the Feature Hashing module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 

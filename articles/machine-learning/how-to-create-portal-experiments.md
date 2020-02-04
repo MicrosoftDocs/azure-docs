@@ -149,9 +149,15 @@ Kurtosis| Measure of how heavily tailed this column's data is compared to a norm
 
 <a name="preprocess"></a>
 
-## Advanced preprocessing options
+## Advanced featurization options
 
-When configuring your experiments, you can enable the advanced setting `Preprocess`. Doing so means that as part of preprocessing the following data guardrails and featurization steps are performed automatically.
+When configuring your experiments, you can enable the advanced setting `feauturization`. 
+
+|Featurization Configuration | Description |
+| ------------- | ------------- |
+|"feauturization" = 'FeaturizationConfig'| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" = 'off'| Indicates featurization step should not be done automatically.|
+|"feauturization" = 'auto'| Indicates that as part of preprocessing the following data guardrails and featurization steps are performed automatically.|
 
 |Preprocessing&nbsp;steps| Description |
 | ------------- | ------------- |

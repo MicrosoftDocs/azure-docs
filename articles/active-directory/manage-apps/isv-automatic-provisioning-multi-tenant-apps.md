@@ -51,7 +51,7 @@ Applications that require that a user record is present in the application befor
 
 Azure AD provides several integration paths to enable automatic user provisioning for your application.
 
-* The [Azure AD Provisioning Service](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) manages the provisioning and deprovisioning of users from Azure AD to your application (outbound provisioning) and from your application to Azure AD (inbound provisioning). The service connects to the System for Cross-Domain Identity Management (SCIM) user management API endpoints provided by your application.
+* The [Azure AD Provisioning Service](user-provisioning.md) manages the provisioning and deprovisioning of users from Azure AD to your application (outbound provisioning) and from your application to Azure AD (inbound provisioning). The service connects to the System for Cross-Domain Identity Management (SCIM) user management API endpoints provided by your application.
 
 * When using the [Microsoft Graph](https://docs.microsoft.com/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
 
@@ -82,9 +82,9 @@ For more information on how the Azure AD Provisioning Service users SCIM, see:
 
 * [Learn more about the SCIM standard](https://aka.ms/SCIMOverview)
 
-* [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
 
-* [Understand the Azure AD SCIM implementation](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Understand the Azure AD SCIM implementation](use-scim-to-provision-users-and-groups.md)
 
 ## Microsoft Graph for Provisioning
 
@@ -110,7 +110,7 @@ SAML JIT uses the claims information in the SAML token to create and update user
 
 ## Next Steps
 
-* [Enable Single Sign-on for your application](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Enable Single Sign-on for your application](isv-sso-content.md)
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 

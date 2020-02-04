@@ -22,6 +22,7 @@ Since a columnstore index scans a table by scanning column segments of individua
 For more information about rowgroups, see [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ## Target size for rowgroups
+
 For best query performance, the goal is to maximize the number of rows per rowgroup in a columnstore index. A rowgroup can have a maximum of 1,048,576 rows. It's okay to not have the maximum number of rows per rowgroup. Columnstore indexes achieve good performance when rowgroups have at least 100,000 rows.
 
 ## Rowgroups can get trimmed during compression
@@ -91,10 +92,12 @@ video [Azure SQL Data Warehouse scaling: configuration and guidance](https://cha
 Use the following techniques to reduce the memory requirements for compressing rowgroups into columnstore indexes.
 
 ### Use fewer columns
+
 If possible, design the table with fewer columns. When a rowgroup is compressed into the columnstore, the columnstore index compresses each column segment separately. Therefore the memory requirements to compress a rowgroup increase as the number of columns increases.
 
 
 ### Use fewer string columns
+
 Columns of string data types require more memory than numeric and date data types. To reduce memory requirements, consider removing string columns from fact tables and putting them in smaller dimension tables.
 
 Additional memory requirements for string compression:

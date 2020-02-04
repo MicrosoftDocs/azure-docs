@@ -15,7 +15,6 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a tenant

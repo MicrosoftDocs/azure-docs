@@ -1,12 +1,12 @@
 ---
 title: Azure Event Grid event handlers
-description: Describes supported event handlers for Azure Event Grid 
+description: Describes supported event handlers for Azure Event Grid. The handler takes some further action to process the event.
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.author: spelluru
 ---
 

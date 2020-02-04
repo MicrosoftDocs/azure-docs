@@ -8,8 +8,6 @@
     href: overview-who-can-benefit-azure-synapse-analytics.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
-  - name: Features 
-    href: overview-features.md
   - name: FAQ
     href: overview-faq.md
 - name: Release notes
@@ -38,12 +36,16 @@
     #   href: article-template.md
     # - name: SQL Analytics pool
     #   href: article-template.md
+    - name: Synapse studio
+      href: quickstart-synapse-studio.md
     - name: SQL on-demand
       href: ./sql-analytics/quickstart-sql-on-demand.md
+    - name: Query SQL on-demand using Azure Data Studio
+      href: ./sql-analytics/get-started-azure-data-studio.md
 - name: Tutorials
   items:
-  - name: Power BI Professional
-    href: ./sql-analytics/tutorial-power-bi-professional.md
+  - name: Connect to Power BI
+    href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
     - name: Predict NYC Taxi cab tips
@@ -80,34 +82,34 @@
     #     href: ./spark/apache-spark-overview.md
     - name: Metadata management
       items:
-      # - name: Overview
-      #   href: article-template.md
+      - name: Overview
+        href: metadata-overview.md
       - name: Storage objects
         items:
         # - name: Objects
-        #   href: article-template.md
-        # - name: Database
-        #   href: article-template.md
-        # - name: Tables
-        #   href: article-template.md
+        #   href: azure-synapse-metadata-objects.md
+        - name: Databases
+          href: metadata-database.md
+        - name: Tables
+          href: metadata-table.md
         # - name: Views
-        #   href: article-template.md
-      - name: Metadata sync
-        items:
-        # - name: Azure Synapse metadata
-        #   href: article-template.md
-        # - name: Sync with SQL on-demand
-        #   href: article-template.md
-        # - name: Sync with SQL pool metadata
-        #   href: article-template.md
+        #   href: azure-synapse-metadata-views.md
+      # - name: Metadata sync
+      #   items:
+      #   - name: Overview
+      #     href: azure-synapse-metadata-sync-overview.md
+      #   - name: Sync with SQL Analytics on-demand
+      #     href: azure-synapse-metadata-sync-sql-analytics-on-demand.md
+      #   - name: Sync with SQL Analytics pool metadata
+      #     href: azure-synapse-metadata-sync-sql-analytics-pool.md
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
         # - name: SQL script
         #   href: article-template.md
-        # - name: Mapping Data Flow
-        #   href: article-template.md
+        - name: Mapping Data Flow
+          href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Backup and restore  
@@ -153,13 +155,11 @@
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
-        href: ../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: AAD pass-through
-        href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Multi-Factor Auth
-        href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-mfa-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: SQL authorization
-        href: ../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: ./sql-analytics/sql-analytics-sql-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Access control
       items:
       - name: Overview
@@ -276,6 +276,8 @@
         href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Architecture
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Features overview
+        href: sql-analytics/overview-features.md
       - name: Resource consumption models
         href: sql-analytics/resource-consumption-models.md
       - name: Best practices SQL on-demand

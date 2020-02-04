@@ -1,5 +1,5 @@
 ---
-title: Quickstart create a workspace #Required; update as needed page title displayed in search results. Include the brand.
+title: Quickstart - create a workspace #Required; update as needed page title displayed in search results. Include the brand.
 description: #Required; Add article description that is displayed in search results.
 services: synapse-analytics 
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
@@ -68,16 +68,22 @@ Azure Resource Deployment template is the simplest way to create Synapse workspa
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-2. Enter the subscription, resource group, and data center region where you want to deploy your workspace. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
+2. Enter the subscription, create new resource group and data center region where you want to deploy your workspace. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
 
 ![Azure deployment template form](media/quickstart-create-a-workspace/create-synapse-workspace-template.png)
+
+> [!NOTE]
+> This quick-start template will create a workspace in the default region of the selected resource group. If you choose an existing resource group you cannot change the region. 
 
 3. Check "I agree with terms and conditions" checkbox and press `Purchase` button. **Note:** you will **not be charged** for the resources if you don't use them because SQL Analytic On-demand is serverless pay-per-usage service.
 <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
    <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
    If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
 
-If you have entered valid information (supported region, valid names) your Synapse workspace and Data Lake storage will be deployed in few minutes.
+If you have entered valid information (supported region, valid names) your Synapse workspace and Data Lake storage will be deployed in few minutes. 
+
+> [!NOTE]
+> If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role). 
 
 ## Using Azure portal
 
@@ -89,6 +95,8 @@ The Azure portal provides user-friendly experience that you can use to create an
 4. Enter the subscription, resource group, workspace name, data center region where you want to deploy your workspace. Choose name of Data Lake and file system that you created in previous step. Enter the name of the workspace and underlying Data Lake storage, username/password for the login that can use [SQL Analytic On-demand capability](/sql-analytics/on-demand.md), and optional tags that will be added to your workspace.
 5. Review the changes and create resource.
 
+If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-portal.md#assign-rbac-roles-using-the-azure-portal). Assign this role on storage account scope (don't use inherited roles from subscription or groups).
+
 ## Using Azure PowerShell
 
 Azure PowerShell is still not available.
@@ -98,6 +106,7 @@ For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 ```azurepowershell-interactive
     
 ```
+If you are using AAD authentication to query the files on Azure Storage, you need to [assign **Data Reader** or **Storage Blob Data Contributor** RBAC permissions to these users](../storage/common/storage-auth-aad-rbac-powershell.md#storage-account-scope).
 
 ## Using Azure Command Line Interface
 
@@ -144,7 +153,7 @@ Advance to the next article to learn how to create...
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
 Do not use a "More info section" or a "Resources section" or a "See also section". --->
 
-- [Setup permissions on Azure storage](sql-analytics/tutorial-power-bi-professional.md)
+- Enable AAD users to query files [by assigning **Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure storage](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role) 
 - [Query files on Azure Storage using SQL On-Demand](sql-analytics/quickstart-sql-on-demand.md)
 - [Create Spark Pool](spark/apache-spark-notebook-create-spark-use-sql.md)
-- [Create PowerBI report on files stored on Azure storage](sql-analytics/tutorial-power-bi-professional.md)
+- [Create Power BI report on files stored on Azure storage](sql-analytics/tutorial-connect-power-bi-desktop.md)

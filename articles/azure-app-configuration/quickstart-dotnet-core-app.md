@@ -48,7 +48,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-010550001-251
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-011100001-1152
     ```
 
 2. Run the following command to restore packages for your project:

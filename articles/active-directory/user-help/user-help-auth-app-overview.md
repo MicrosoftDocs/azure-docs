@@ -12,7 +12,6 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # What is the Microsoft Authenticator app?

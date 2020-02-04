@@ -125,9 +125,8 @@ The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. 
 If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
 <a id="noaaccessfailureportal"></a>
-## Error “No access” when browsing to an Azure file share in the portal
-
-When you browse to an Azure file share in the portal, you may receive the following error:
+## Error "No access" when you try to access or delete an Azure File Share  
+When you try to access or delete an Azure file share in the portal, you may receive the following error:
 
 No access  
 Error code: 403 

@@ -1,5 +1,6 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: erhopf
 - id: programming-languages-set-one
   title: Programming languages
   prompt: Choose a programming language
@@ -35,6 +36,7 @@ groups:
   - id: client-operating-system-windows
     title: Windows
 - id: programming-languages-set-two
+# Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -49,6 +51,7 @@ groups:
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-three
+# Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -87,6 +90,7 @@ groups:
   - id: programming-language-ruby
     title: Ruby
 - id: programming-languages-set-six
+# Owner: diberry
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -96,8 +100,6 @@ groups:
     title: Python
   - id: programming-language-nodejs
     title: Node.js
-  - id: programming-language-java
-    title: Java
 - id: programming-languages-set-seven
   title: Programming languages
   prompt: Choose a programming language
@@ -106,6 +108,20 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-set-functions
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell 
+  - id: programming-language-python
+    title: Python 
+  - id: programming-language-typescript
+    title: TypeScript
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following
@@ -130,3 +146,40 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+- id: programming-languages-set-ten
+# Owner: aahill
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-functions01
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+- id: programming-languages-set-diberry-3core
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js

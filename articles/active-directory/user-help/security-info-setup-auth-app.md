@@ -12,7 +12,6 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Set up the Microsoft Authenticator app as your verification method

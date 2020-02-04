@@ -7,19 +7,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
+ms.date: 01/22/2020
 ---
 
 # Create Apache Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
 The [Secure transfer required](../storage/common/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer.
 
+**Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster with the property enabled.**
+
 ## Prerequisites
 
 Before you begin this article, you must have:
 
 * Azure subscription: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* An Azure Storage account with secure transfer enabled. For the instructions, see [Create a storage account](../storage/common/storage-account-create.md) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md). Enabling secure storage transfer after creating a cluster requires additional steps not covered in this article.
+* An Azure Storage account with secure transfer enabled. For the instructions, see [Create a storage account](../storage/common/storage-account-create.md) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md). 
 * A Blob container on the storage account.
 
 ## Create cluster

@@ -1,23 +1,27 @@
 ---
 title: Using labels to instrument queries
-description: Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
+description: Tips for using labels to instrument queries in SQL Analytics for developing solutions.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 01/06/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.custom: 
 ---
 
-# Using labels to instrument queries in Azure SQL Data Warehouse
-Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
+# Using labels to instrument queries in SQL Analytics
+Tips for using labels to instrument queries in SQL Analytics for developing solutions.
+
+> [!NOTE]
+> SQL Analytics on-demand currently does not support labelling queries.
 
 
 ## What are labels?
-SQL Data Warehouse supports a concept called query labels. Before going into any depth, let's look at an example:
+SQL pool supports a concept called query labels. Before going into any depth, let's look at an example:
 
 ```sql
 SELECT *

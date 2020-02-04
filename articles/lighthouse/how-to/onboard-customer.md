@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 01/09/2020
+ms.date: 01/20/2020
 ms.topic: conceptual
 ---
 
@@ -231,7 +231,7 @@ az deployment create --name <deploymentName> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
@@ -297,6 +297,12 @@ The example below shows an assignment granting the **Managed Services Registrati
 ```
 
 A user with this permission can remove a delegation in one of the following ways.
+
+### Azure portal
+
+1. Navigate to the [My customers page](view-manage-customers.md).
+2. Select **Delegations**.
+3. Find the delegation you want to remove, then select the trash can icon that appears in its row.
 
 ### PowerShell
 

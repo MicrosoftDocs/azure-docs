@@ -34,15 +34,27 @@ Choose **Microsoft SQL Server** as the **Connection type**.
 
 The connection requires the following parameters:
 
-* **Server:** Server in the form `<`Azure Synapse workspace name`>`-ondemand.sql.azuresynapse.net
+* **Server:** Server in the form `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net
 * **Database:** Database name
+
+> [!NOTE]
+> If you would like to use **SQL on-demand** URL should look like: 
+> - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
+
+> [!NOTE]
+> If you would like to use **SQL pool** URL should look like: 
+> - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
 Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**. 
 
 To use **SQL Login** as the authentication type, add the username/password parameters:
 
-* **User:** Server user in the form `<`User`>`
+* **User:** Server user in the form `<User>`
 * **Password:** Password associated with the user
+
+To use Azure Active Directory, you need to choose the needed authentication type.
+
+![AAD Authentication](media/sql-analytics-query-ads/3-aad-auth.png)
 
 This screenshot shows the **Connection Details** for **Windows Authentication**:
 
@@ -52,14 +64,16 @@ This screenshot shows the **Connection Details** using **SQL Login**:
 
 ![SQL Login](media/sql-analytics-query-ads/2-database-details.png)
 
+After successful login, you should see a dashboard like this:
+![Dashboard](media/sql-analytics-query-ads/4-dashboard.png)
 
 ## Query
 
-Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
+Once connected, you can query SQL Analytics using supported [Transact-SQL (T-SQL)](https://docs.microsoft.com/sql/t-sql/language-reference) statements against the instance. Select **New query** from the dashboard view to get started.
 
 ![New Query](media/sql-analytics-query-ads/5-new-query.png)
 
-For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md): 
+For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md) using SQL on-demand: 
 
 ```sql
 SELECT COUNT(*) 
