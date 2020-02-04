@@ -22,7 +22,13 @@
 
     [![Select the New registration button](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
-1. Give a friendly name for this app registration in the **Name** box. Under the **Redirect URI (optional)** section, choose **Public client/native (mobile & desktop)** in the drop-down menu on the left, and enter `https://microsoft.com` in the textbox on the right. Select **Register**.
+1. Give a friendly name for this app registration in the **Name** box. 
+
+    1. Under **Redirect URI (optional)** section, enter `https://microsoft.com` in the textbox.     
+
+    1. Verify which accounts and tenants are supported.
+
+    1. Select **Register**.
 
     [![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
@@ -30,7 +36,7 @@
 
     1. Add **Redirect URIs** and configure **Access Tokens** by selecting **+ Add a platform**.
 
-    1. Determine whether the app is a **public client** or not by selecting **Yes** or **No**.
+    1. Select **Yes** to specify that the app is a **public client**.
 
     1. Verify which accounts and tenants are supported.
 

@@ -88,7 +88,7 @@ The examples also include error codes to help debug or improve failing tests.
 ## Swagger OAuth 2.0 authorization
 
 > [!NOTE]
-> * The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users. Such users and their roles can be authorized to call the APIs.
+> * The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users. Those users and their roles can be authorized to call the APIs.
 
 1. Follow the steps in [the Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) to create and configure an Azure Active Directory application. Alternatively, you can reuse an existing app registration.
 
