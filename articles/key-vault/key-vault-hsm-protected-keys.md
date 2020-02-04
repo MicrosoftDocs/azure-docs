@@ -101,6 +101,7 @@ Transfer the byok file to your connected workstation.
 > [!NOTE] Target key must be an RSA key of size 2048-bit or 3072-bit or 4096-bit. Importing Elliptic Curve keys is not supported at this time.
 
 ## Step 4: Transfer your key to Azure Key Vault
+
 For this final step, on the Internet-connected workstation, use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the byok file that you copied from the disconnected workstation to the Azure Key Vault HSM, to complete the key import.
 
 ```azurecli
