@@ -27,4 +27,4 @@ For best loading performance, pick the SAS URI from the region that is used to i
 ## Next steps
 
 * [Khronos Group glTF sample models](https://github.com/KhronosGroup/glTF-Sample-Models)
-* [Quickstart: Render a model with Unity](../quickstarts/quickstart-render-model.md)
+* [Quickstart: Render a model with Unity](../quickstarts/render-model.md)

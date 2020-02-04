@@ -13,15 +13,15 @@ ms.service: azure-remote-rendering
 
 # Getting started with Azure Remote Rendering
 
-To get access to the Azure Remote Rendering service, you first need to [create an account](../azure/create-an-account.md).
+To get access to the Azure Remote Rendering service, you first need to [create an account](../how-tos/create-an-account.md).
 
-Afterwards, follow [Quickstart: Render a model with Unity](quickstart-render-model.md).
+Afterwards, follow [Quickstart: Render a model with Unity](render-model.md).
 
 ## Learning resources
 
-- To learn how to display remotely rendered content in a client application, see the [Unity sample project documentation](../how-tos/run-unity-sample-project.md).
-- To get your own data into the service, have a look at [Quickstart: Convert a model for rendering](quickstart-convert-model.md). However, if you want to skip this step for now, we also provide a built-in model that can be used for testing.
-- For building a deeper understanding of ARR we suggest following our Unity tutorial series, starting with [Tutorial: Setting up a Unity project from scratch](../tutorials/tutorial-1-unity-project-setup.md).
+- To learn how to display remotely rendered content in a client application, see the [Unity sample project documentation](../how-tos/unity/run-unity-sample-project.md).
+- To get your own data into the service, have a look at [Quickstart: Convert a model for rendering](convert-model.md). However, if you want to skip this step for now, we also provide a built-in model that can be used for testing.
+- For building a deeper understanding of ARR we suggest following our Unity tutorial series, starting with [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md).
 
 We provide the following Azure DevOps repository and NuGet feed.
 
@@ -31,4 +31,4 @@ We provide the following Azure DevOps repository and NuGet feed.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Render a model with Unity](quickstart-render-model.md)
+> [Quickstart: Render a model with Unity](render-model.md)
