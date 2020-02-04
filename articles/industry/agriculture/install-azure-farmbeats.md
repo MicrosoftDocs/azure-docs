@@ -95,7 +95,7 @@ Azure FarmBeats requires Azure Active Directory application creation and registr
 - Tenant - AAD app creator
 - Subscription - Owner
 
-Run the following steps in a Cloud Shell instance in your subscription. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
+Run the following steps in a Cloud Shell instance using the PowerShell environment. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
 1. Download the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
 
@@ -157,7 +157,7 @@ Once the installation is complete, you can verify the installation and start usi
 
 ## Upgrade
 
-To upgrade FarmBeats to the latest version, run the following steps in a Cloud Shell instance in your subscription. The user will need to be the owner of the Subscription in which FarmBeats is installed.
+To upgrade FarmBeats to the latest version, run the following steps in a Cloud Shell instance using the PowerShell environment. The user will need to be the owner of the Subscription in which FarmBeats is installed.
 First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
 1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
