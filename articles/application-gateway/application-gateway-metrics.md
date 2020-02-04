@@ -90,7 +90,7 @@ For Application Gateway, the following metrics are available:
 
 - **Current connections**
 
-   Count of current connections established with Application Gateway
+   The total number of concurrent connections active from clients to the Application Gateway
 
 - **Failed Requests**
 

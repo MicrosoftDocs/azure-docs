@@ -82,11 +82,7 @@
       - name: 4 - Verify throughput and latency metrics
         href: storage-blob-scalable-app-verify-metrics.md
     - name: Host a static website
-      items:
-      - name: 1 - Create a static website
-        href: storage-blob-static-website-host.md
-      - name: 2 - Enable a custom domain with SSL
-        href: storage-blob-static-website-custom-domain.md
+      href: storage-blob-static-website-host.md
     - name: Design applications for high availability
       items:
       - name: 1 - Make your application highly available
@@ -383,10 +379,12 @@
       - name: Use the Azure Storage emulator
         href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Host a static website
-      href: storage-blob-static-website-how-to.md
-    - name: Map Azure CDN to a custom domain for access over HTTPS
-      href: storage-https-custom-domain-cdn.md
-    - name: Configure a custom domain
+      items:
+      - name: Host a static website
+        href: storage-blob-static-website-how-to.md
+      - name: Integrate with Azure CDN
+        href: static-website-content-delivery-network.md
+    - name: Use a custom domain
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
@@ -685,8 +683,6 @@
         href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use with Hadoop File System CLI
       href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Use with Power BI
-      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: .NET

@@ -47,7 +47,7 @@ In addition to discovering machines, Azure Migrate: Server Assessment can discov
 --- | ---
 **vCenter Server** | Machines you want to discovery and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
 **Permissions (assessment)** | vCenter Server read-only account.
-**Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for Virtual machines > Guest Operations.
+**Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines > Guest Operations**.
 **Permissions (dependency visualization)** | Center Server account with read-only access, and privileges enabled for **Virtual machines** > **Guest Operations**.
 
 
@@ -62,8 +62,9 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), 5671 and 5672 (AMQP) to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
+ESXi Hosts | **Required only for [application discovery](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) and [agentless dependency visualization](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization)** <br/><br/> The appliance connects to ESXi hosts on TCP port 443 to discover applications and run agentless dependency visualization on the VMs running on the hosts.
 
 ## Agent-based dependency visualization
 

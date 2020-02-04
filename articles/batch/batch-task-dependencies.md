@@ -1,5 +1,5 @@
 ---
-title: Use task dependencies to run tasks based on the completion of other tasks - Azure Batch | Microsoft Docs
+title: Create task dependencies to run tasks - Azure Batch
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net

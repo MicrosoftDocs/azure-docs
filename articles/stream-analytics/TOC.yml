@@ -65,6 +65,7 @@
     items:
     - name: Understand and adjust Streaming Units
       href: stream-analytics-streaming-unit-consumption.md
+      displayName: scale, performance
     - name: Improve query performance
       href: stream-analytics-parallelization.md
     - name: Repartition your input
