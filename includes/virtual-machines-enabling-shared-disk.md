@@ -14,8 +14,6 @@ Azure shared disks (preview) is a new feature for Azure managed disks that enabl
 
 The VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
 
-If you're interested, [sign up for our preview](https://aka.ms/shareddisksignup).
-
 ## Limitations
 
 [!INCLUDE [virtual-machines-disks-shared-disk-limitations](virtual-machines-disks-shared-disk-limitations.md)]
