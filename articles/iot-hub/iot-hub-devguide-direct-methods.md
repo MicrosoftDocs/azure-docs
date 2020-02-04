@@ -68,7 +68,7 @@ Direct method invocations on a device are HTTPS calls that are made up of the fo
     }
     ```
 
-The value provided as `responseTimeoutInSeconds` in the request is the amount of time that IoT Hub service must await for completion of a direct method execution on a device. Set this timeout to be at least as long as the expected execution time of a direct method by a device. If timeout is not provided, it the default value of 30 seconds is used. The minimum and maximum values for `responseTimeoutInSeconds` is 5 and 300 seconds, respectively.
+The value provided as `responseTimeoutInSeconds` in the request is the amount of time that IoT Hub service must await for completion of a direct method execution on a device. Set this timeout to be at least as long as the expected execution time of a direct method by a device. If timeout is not provided, it the default value of 30 seconds is used. The minimum and maximum values for `responseTimeoutInSeconds` are 5 and 300 seconds, respectively.
 
 The value provided as `connectTimeoutInSeconds` in the request is the amount of time upon invocation of a direct method that IoT Hub service must await for a disconnected device to come online. The default value is 0, meaning that devices must already be online upon invocation of a direct method. The maximum value for `connectTimeoutInSeconds` is 300 seconds.
 
