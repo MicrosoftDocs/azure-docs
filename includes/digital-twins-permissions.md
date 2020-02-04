@@ -26,7 +26,7 @@
 
     1. Under **Redirect URI (optional)** section, enter `https://microsoft.com` in the textbox.     
 
-    1. Verify which accounts and tenants are supported.
+    1. Verify which accounts and tenants are supported by your Azure Active Directory app.
 
     1. Select **Register**.
 
@@ -38,7 +38,7 @@
 
     1. Select **Yes** to specify that the app is a **public client**.
 
-    1. Verify which accounts and tenants are supported.
+    1. Verify which accounts and tenants are supported by your Azure Active Directory app.
 
     [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 

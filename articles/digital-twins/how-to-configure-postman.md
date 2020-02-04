@@ -30,13 +30,11 @@ Through the Postman client, solutions developers can specify the kind of HTTP re
 
 1. Follow the steps in [the Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) to create and configure an Azure Active Directory application. Alternatively, you can reuse an existing app registration.
 
-1. Add a **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
-
     [![Configure a new Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. Select the **Implicit grant** > **Access tokens** check box to allow the OAuth 2.0 implicit grant flow to be used. 
+1. Now, add a **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
 
-1. Select **Configure**, then **Save**.
+1. Select the **Implicit grant** > **Access tokens** check box to allow the OAuth 2.0 implicit grant flow to be used. Select **Configure**, then **Save**.
 
 1. Copy the **Client ID** of your Azure Active Directory app.
 
