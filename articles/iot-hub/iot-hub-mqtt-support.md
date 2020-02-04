@@ -35,7 +35,7 @@ private static TransportType s_transportType = TransportType.Mqtt_WebSocket_Only
 DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(s_deviceConnectionString, s_transportType);
 ```
 
-```node.js
+```javascript
 var Client = require('azure-iot-device').Client;
 var Protocol = require('azure-iot-device-mqtt').MqttWs;
 var client = Client.fromConnectionString(deviceConnectionString, Protocol);
