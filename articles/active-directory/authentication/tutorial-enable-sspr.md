@@ -33,23 +33,26 @@ To complete this tutorial, you need the following resources and privileges:
 * A working Azure AD tenant with at least a trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* privileges.
-* A non-administrator test user with a password you know, such as *testuser*.
+* A non-administrator user with a password you know, such as *testuser*.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
-* A pilot group to test with that the non-administrator test user is a member of, such as *SSPR-Test-Group*.
+* A group that the non-administrator user is a member of, such as *SSPR-Test-Group*.
     * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## Enable self-service password reset
 
-You enable SSPR for *None*, *Selected*, or *All* users. These granular controls let you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate with a broader set of users, you can select additional groups of use that can SSPR. Or, you can then enable SSPR for everyone in the Azure AD tenant.
+You enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate with a broader set of users, you can select additional groups of users to enable for SSPR. Or, you can then enable SSPR for everyone in the Azure AD tenant.
 
-In this tutorial, configure SSPR for a set of users in a test group. In the following example, the test group *SSPR-Test-Group* is used. Provide your own Azure AD group as needed:
+In this tutorial, configure SSPR for a set of users in a test group. In the following example, the group *SSPR-Test-Group* is used. Provide your own Azure AD group as needed:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
 1. Search for and select **Azure Active Directory**, then choose **Password reset** from the menu on the left-hand side.
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Select group**
 1. Browse for and select your Azure AD group, such as *SSPR-Test-Group*, then choose *Select*.
 
-    As part of a wider deployment of SSPR, nesting of groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
+    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+
+    As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
+
 1. To enable SSPR for the select users, select **Save**.
 
 ## Select authentication methods and registration options
@@ -57,6 +60,9 @@ In this tutorial, configure SSPR for a set of users in a test group. In the foll
 When users need to unlock their account or reset their password, they're prompted for an additional confirmation method. This additional authentication factor makes sure that only approved SSPR events are completed. You can choose which authentication methods to allow, based on the registration information the user provides.
 
 1. On the **Authentication methods** page from the menu in the left-hand side, set the **Number of methods required to reset** to *1*.
+
+    To improve security, you can increase the number of authentication methods required for SSPR.
+
 1. Choose the  **Methods available to users** your organization wants to allow. For this tutorial, check the boxes to enable the following methods:
 
     * *Mobile app notification*
@@ -67,19 +73,19 @@ When users need to unlock their account or reset their password, they're prompte
 
 1. To apply the authentication methods, select **Save**.
 
-Before users can unlock their account or reset a password, they must register their contact information. This contact information is for the different authentication methods configured in the previous steps. A user account enabled for SSPR can't use the feature without this authentication method contact information provided.
+Before users can unlock their account or reset a password, they must register their contact information. This contact information is used for the different authentication methods configured in the previous steps.
 
-An administrator can manually provided contact information, or users can go to a registration portal to provide the information themselves. In this tutorial, configure the users to be prompted for registration when they next sign-in.
+An administrator can manually provide this contact information, or users can go to a registration portal to provide the information themselves. In this tutorial, configure the users to be prompted for registration when they next sign in.
 
 1. On the **Registration** page from the menu in the left-hand side, select *Yes* for **Require users to register when signing in**.
-1. It's important that contact information is kept up to date. If the contact information is outdated when an SSPR event is started, the user won't be able to unlock their account or reset their password.
+1. It's important that contact information is kept up to date. If the contact information is outdated when an SSPR event is started, the user may not be able to unlock their account or reset their password.
 
     Set **Number of days before users are asked to reconfirm their authentication information** to *180*.
 1. To apply the registration settings, select **Save**.
 
 ## Configure notifications and customizations
 
-To keeps users informed, you can configure notifications to be sent when an SSPR event happens. These notifications can cover both regular user accounts and admin accounts. For admin accounts, this notification provides an additional layer of awareness when a privileged administrator account password is reset using SSPR.
+To keep users informed about account activity, you can configure notifications to be sent when an SSPR event happens. These notifications can cover both regular user accounts and admin accounts. For admin accounts, this notification provides an additional layer of awareness when a privileged administrator account password is reset using SSPR.
 
 1. On the **Notifications** page from the menu in the left-hand side, configure the following options:
 
@@ -88,7 +94,7 @@ To keeps users informed, you can configure notifications to be sent when an SSPR
 
 1. To apply the notification preferences, select **Save**.
 
-If users need additional help with the SSPR process, you can customize the link for "Contact your administrator". This link is used in the SSPR registration process and when a user unlocks their account of resets their password. To make sure your users get the support needed, it's highly recommended to provide a custom helpdesk email or URL.
+If users need additional help with the SSPR process, you can customize the link for "Contact your administrator". This link is used in the SSPR registration process and when a user unlocks their account or resets their password. To make sure your users get the support needed, it's highly recommended to provide a custom helpdesk email or URL.
 
 1. On the **Customization** page from the menu in the left-hand side, set *Customize helpdesk link* to **Yes**.
 1. In the **Custom helpdesk email or URL** field, provide an email address or web page URL where your users can get additional help from your organization, such as *https://support.contoso.com/*.
@@ -96,7 +102,7 @@ If users need additional help with the SSPR process, you can customize the link 
 
 ## Test self-service password reset
 
-Now test your SSPR configuration with a test user that's part of the group you selected in the previous section, such as *Test-SSPR-Group*. In the following example, the *testuser* account is used. Provide your own user account that's part of the group you enabled for SSPR in the first section of this tutorial.
+With SSPR enabled and configured, test the SSPR process with a user that's part of the group you selected in the previous section, such as *Test-SSPR-Group*. In the following example, the *testuser* account is used. Provide your own user account that's part of the group you enabled for SSPR in the first section of this tutorial.
 
 > [!NOTE]
 > When you test the self-service password reset, use a non-administrator account. Admins are always enabled for self-service password reset and are required to use two authentication methods to reset their password.
@@ -105,12 +111,12 @@ Now test your SSPR configuration with a test user that's part of the group you s
 1. Sign in with a non-administrator test user, such as *testuser*, and register your authentication methods contact information.
 1. Once complete, select the button marked **Looks good** and close the browser window.
 1. Open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/sspr](https://aka.ms/sspr).
-1. Enter your non-administrator test users' User ID, such as *testuser*, the characters from the CAPTCHA, and then select **Next**.
+1. Enter your non-administrator test users' account information, such as *testuser*, the characters from the CAPTCHA, and then select **Next**.
 1. Follow the verification steps to reset your password. When complete, you should receive an e-mail notification that your password was reset.
 
 ## Clean up resources
 
-In an additional tutorial in this series, you configure password writeback. This feature lets the Azure platform write password changes from Azure AD back to an on-premises AD environment.
+In a following tutorial in this series, you configure password writeback. This feature writes password changes from Azure AD SSPR back to an on-premises AD environment.
 
 If you no longer want to use the SSPR functionality you have configured as part of this tutorial, set the SSPR status to **None**.
 
