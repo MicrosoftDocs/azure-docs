@@ -1,10 +1,30 @@
 ---
+title: "Quickstart: Text Analytics client library for Ruby | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, detect language by using the Ruby Text Analytics client library from Azure Cognitive Services.
+services: cognitive-services
 author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: include
-ms.date: 10/02/2019
+ms.subservice: text-analytics
+ms.topic: quickstart
+ms.date: 01/29/2020
 ms.author: aahi
 ---
+
+# Quickstart: Use the Text Analytics client library for Ruby
+
+Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+
+Use the Text Analytics client library to perform:
+
+* Sentiment analysis
+* Language detection
+* Entity recognition
+* Key phrase extraction
+
+> [!NOTE]
+> This quickstart only applies to Text Analytics version 2.1. Currently, a v3 client library for Ruby is unavailable.
 
 [Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
@@ -19,7 +39,7 @@ ms.author: aahi
 
 ### Create a Text Analytics Azure resource 
 
-[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### Create a new Ruby application
 
@@ -42,7 +62,7 @@ In your Ruby file, import the following packages.
 
 Create variables for your resource's Azure endpoint and key. 
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info-v2.md)]
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```ruby
 const subscription_key = '<paste-your-text-analytics-key-here>'

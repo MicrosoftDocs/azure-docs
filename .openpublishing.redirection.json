@@ -2301,6 +2301,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/preview-api-resetskills.md",
+      "redirect_url": "/rest/api/searchservice/2019-05-06-preview/reset-skills",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/knowledge-store-howto.md",
       "redirect_url": "/azure/search/knowledge-store-create-rest",
       "redirect_document_id": false
@@ -18376,17 +18381,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
-      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk-v2.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
