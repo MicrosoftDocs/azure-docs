@@ -190,9 +190,9 @@ When configuring your experiments, you can enable the advanced setting `feauturi
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|"feauturization = 'FeaturizationConfig'"| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"feauturization" = 'off'| Indicates featurization step should not be done automatically.|
-|"feauturization" = 'auto'| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-create-portal-experiments.md#advanced-featurization-options) are performed automatically.|
+|`"feauturization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"feauturization": 'off'`| Indicates featurization step should not be done automatically.|
+|`"feauturization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-create-portal-experiments.md#advanced-featurization-options) are performed automatically.|
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
