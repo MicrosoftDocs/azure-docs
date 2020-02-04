@@ -567,13 +567,11 @@
           - name: Send to Event Hubs
             href: platform/diagnostics-extension-stream-event-hubs.md
           - name: Send to Logs
-            href: platform/azure-storage-iis-table.md
-          - name: Send to Azure Storage
-            href: platform/diagnostics-extension-to-storage.md
+            href: platform/diagnostics-extension-logs.md
           - name: Send to Application Insights
             href: platform/diagnostics-extension-to-application-insights.md
           - name: Version history
-            href: platform/diagnostics-extension-schema.md
+            href: platform/diagnostics-extension-versions.md
           - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
