@@ -12,7 +12,7 @@ ms.topic: quickstart
 ---
 # Connect hybrid machines to Azure at scale
 
-You can enable Azure Arc for servers (preview) for multiple Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of the Connected Machine agent for both operating systems. To connect the machines to Azure Arc for servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure. This is safer than using a higher privileged account like a Tenant Administrator. The service principal is used only during onboarding, it is not used for any other purpose.  
+You can enable Azure Arc for servers (preview) for multiple Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of the Connected Machine agent for both operating systems. To connect the machines to Azure Arc for servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](quickstart-onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
 
 The installation methods to install and configure the Connected Machine agent requires that you have administrator permissions on the machines. On Linux, by using the root account and on Windows, you are a member of the Local Administrators group.
 
@@ -22,15 +22,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Service Principal for onboarding at scale
 
-In the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md), to connect the machine to Azure Arc your identity needs to have privileged permissions in Azure to successfully connect the machine to Azure Arc using the `azcmagent` command. Following our access control security best practices, we recommend creating a service principal to automate the machine connnetion to Azure Arc for servers. 
+In the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md), to connect the machine to Azure Arc, your identity needs to have privileged permissions in Azure to successfully connect the machine to Azure Arc using the `azcmagent` command. 
 
 You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet. Or you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) to complete this task.
 
 > [!NOTE]
-> When you create a service principal, your account must be an Owner or User Access Administrator on the subscription that you want to use for onboarding. If you don't have sufficient permissions to create role assignments, the service principal might be created, but it won't be able to onboard machines.
+> When you create a service principal, your account must be an Owner or User Access Administrator in the subscription that you want to use for onboarding. If you don't have sufficient permissions to create role assignments, the service principal might be created, but it won't be able to onboard machines.
 >
 
-The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription.
+The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. 
+
+Perform the following steps to create the service principal for Azure Arc.
+
+1. 
 
 You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a step below.
 
