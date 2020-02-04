@@ -168,8 +168,8 @@ $wafPolicyGlobal = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicyGlobal `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
-  -PolicySetting $PolicySettingGlobal
-  -CustomRules $rule, $rule1
+  -PolicySetting $PolicySettingGlobal `
+  -CustomRule $rule, $rule1
 
 $policySettingSite = New-AzApplicationGatewayFirewallPolicySetting `
   -Mode Prevention `
@@ -181,8 +181,8 @@ $wafPolicySite = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicySite `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
-  -PolicySetting $PolicySettingSite
-  -CustomRules $rule2, $rule3
+  -PolicySetting $PolicySettingSite `
+  -CustomRule $rule2, $rule3
 ```
 
 ### Create the default listener and rule
@@ -196,17 +196,16 @@ $globalListener = New-AzApplicationGatewayHttpListener `
   -Name mydefaultListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
-  -FrontendPort $frontendport80 `
+  -FrontendPort $frontendport80
 
 $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
-  -HttpListener $defaultlistener `
+  -HttpListener $globallistener `
   -BackendAddressPool $defaultPool `
   -BackendHttpSettings $poolSettings
   
-$siteListener
- = New-AzApplicationGatewayHttpListener `
+$siteListener = New-AzApplicationGatewayHttpListener `
   -Name mydefaultListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
@@ -239,8 +238,8 @@ $appgw = New-AzApplicationGateway `
   -BackendHttpSettingsCollection $poolSettings `
   -FrontendIpConfigurations $fipconfig `
   -GatewayIpConfigurations $gipconfig `
-  -FrontendPorts $frontendport `
-  -HttpListeners $defaultlistener `
+  -FrontendPorts $frontendport80 `
+  -HttpListeners $globallistener `
   -RequestRoutingRules $frontendRule `
   -Sku $sku `
   -FirewallPolicy $wafPolicyGlobal
