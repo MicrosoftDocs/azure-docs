@@ -74,6 +74,8 @@ In the install agent onboarding script:
 
 ## Manually install the agent and connect to Azure
 
+
+
 The following guide allows you to connect a machine to Azure by logging into the machine and performing the steps. You can also connect machines to Azure [From the Portal](quickstart-onboard-portal.md).
 
 ### Connecting to Azure
