@@ -399,10 +399,10 @@ You can also change the value of "Group by" field to start the tree from any oth
   1. Click on "Azure VMs" tab to select Azure VMs as destinations. By default, you'll see Azure VMs grouped into subscription hierarchy in the same region that was selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose Azure VMs from the newly selected region. You can drill down from Subscriptions level to other levels in the hierarchy, like Azure Agents.
 
 
-![Add Destinations](./media/connection-monitor-2-preview/add-azure-dests-1.png)
+![Add Destinations](./media/connection-monitor-2-preview/add-azure-dests1.png)
 
 
- ![Add Destinations 2](./media/connection-monitor-2-preview/add-azure-dests-2.png)
+ ![Add Destinations 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
 
   2. Click on "Endpoints" tab to select Azure VMs as destinations. Endpoint list will be populated with O365 and D365 test URLs, grouped by name.  You can also choose an endpoint created in other test groups in the same Connection Monitor. To add a new endpoint, click "+ Endpoint" from top-right corner of the screen and provide endpoint URL/IP/FQDN and name
