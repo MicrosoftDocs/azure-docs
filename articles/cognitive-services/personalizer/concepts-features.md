@@ -102,6 +102,7 @@ The string you use for naming the namespace must follow some restrictions:
 * It can't be unicode.
 * You can use some of the printable symbols with codes < 256 for the namespace names. 
 * You can't use symbols with codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
+* It should not start with an underscore "_" or the feature will be ignored.
 
 ## How to make feature sets more effective for Personalizer
 

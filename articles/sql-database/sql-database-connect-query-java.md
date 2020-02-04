@@ -19,9 +19,7 @@ In this quickstart, you use Java to connect to an Azure SQL database and use T-S
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
 - An [Azure SQL database](sql-database-single-database-get-started.md)
-  
 - [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)-related software
 
   # [macOS](#tab/macos)

@@ -16,7 +16,7 @@ This article explains the common tasks that an administrator accomplishes in the
 
 ## Add a new enterprise administrator
 
-Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-get-started.md#create-another-enterprise-admin). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-get-started.md#create-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Update user state from pending to active
 
@@ -26,7 +26,7 @@ When new Account Owners (AO) are added to an Azure EA enrollment for the first t
 
 After an Azure EA admin creates a department, the Azure Enterprise administrator can add department administrators and associate each one to a department. A department administrator can create new accounts. New accounts are needed for Azure EA subscriptions to get created.
 
-For more information about adding a department admin, see [Create an Azure EA department admin](ea-portal-get-started.md#add-a-department-admin).
+For more information about adding a department admin, see [Create an Azure EA department admin](ea-portal-get-started.md#add-a-department-administrator).
 
 ## Associate an account to a department
 

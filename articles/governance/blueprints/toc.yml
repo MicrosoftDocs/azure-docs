@@ -63,6 +63,17 @@
     - name: Steps to deploy
       displayName: standards, fedramp, moderate
       href: ./samples/fedramp-m/deploy.md
+  - name: FedRAMP High
+    items:
+    - name: Overview
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/deploy.md
   - name: HIPAA HITRUST
     items:
     - name: Overview

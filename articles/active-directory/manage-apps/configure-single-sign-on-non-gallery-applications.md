@@ -21,7 +21,7 @@ When you [add a gallery app](add-gallery-app.md) or a [non-gallery web app](add-
 > [!NOTE]
 > Adding a gallery app? Find step-by-step setup instructions in the [list of SaaS app tutorials](../saas-apps/tutorial-list.md)
 
-To configure SAML single sign-on for a non-gallery application without writing code, you need to have a subscription or Azure AD Premium and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+To configure SAML single sign-on for a non-gallery application without writing code, you need to have a subscription along with an Azure AD Premium license and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Before you begin
 

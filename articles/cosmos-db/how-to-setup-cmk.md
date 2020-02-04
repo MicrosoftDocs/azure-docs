@@ -12,7 +12,7 @@ ROBOTS: noindex, nofollow
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
 
 > [!NOTE]
-> At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+> At this time, you must request access to use this capability. To do so, please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options to manage the keys used to encrypt the data at rest:
 

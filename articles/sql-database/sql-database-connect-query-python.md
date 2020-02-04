@@ -19,9 +19,7 @@ In this quickstart, you use Python to connect to an Azure SQL database and use T
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
 - An [Azure SQL database](sql-database-single-database-get-started.md)
-  
 - [Python](https://python.org/downloads) 3 and related software
 
   # [macOS](#tab/macos)
