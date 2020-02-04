@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 02/04/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,8 +41,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic (Limited Release) supports **IDP** initiated SSO
-
-* New Relic (Limited Release) supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)
 
 * Once you configure the New Relic you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -139,7 +137,7 @@ To configure single sign-on on **New Relic (Limited Release)** side, you need to
 
 ### Create New Relic (Limited Release) test user
 
-In this section, a user called B.Simon is created in New Relic (Limited Release).This application supports automatic user provisioning, which enables automatic provisioning and deprovisioning based on your business rules.  Microsoft recommends using automatic provisioning whenever possible.
+In this section, you create a user called B.Simon in New Relic (Limited Release). Work with [New Relic (Limited Release) support team](https://support.newrelic.com/) to add the users in the New Relic (Limited Release) platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -158,5 +156,3 @@ When you click the New Relic (Limited Release) tile in the Access Panel, you sho
 - [Try New Relic (Limited Release) with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect New Relic with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

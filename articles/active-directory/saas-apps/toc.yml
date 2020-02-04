@@ -950,6 +950,8 @@
         href: netsuite-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
+      - name: New Relic (Limited Release)
+        href: new-relic-(limited-release)-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
       - name: Nimblex
@@ -1318,6 +1320,8 @@
         href: spaceiq-tutorial.md
       - name: Spacio
         href: spacio-tutorial.md
+      - name: Splashtop
+        href: splashtop-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst
