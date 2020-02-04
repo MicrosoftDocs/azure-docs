@@ -1,21 +1,21 @@
 ---
 title: Workload importance 
-description: Guidance for setting importance for queries in Azure SQL Data Warehouse.
+description: Guidance for setting importance for queries in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Azure SQL Data Warehouse workload importance
+# Azure Synapse Analytics workload importance
 
-This article explains how workload importance can influence the order of execution for SQL Data Warehouse requests.
+This article explains how workload importance can influence the order of execution for SQL pool requests in Azure Synapse.
 
 ## Importance
 
