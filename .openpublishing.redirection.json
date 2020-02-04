@@ -2301,6 +2301,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/preview-api-resetskills.md",
+      "redirect_url": "/rest/api/searchservice/2019-05-06-preview/reset-skills",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/knowledge-store-howto.md",
       "redirect_url": "/azure/search/knowledge-store-create-rest",
       "redirect_document_id": false
