@@ -58,13 +58,13 @@ Applications can use claims for various tasks such as:
 * Displaying user information
 * Determining the subject's authorization
 
-A claim consists of key-value pairs that provide information such as:
+A claim consists of key-value pairs that provide information such as the:
 
-* the Security Token Server that generated the token
-* the date when the token was generated
-* the subject, such as the user (except for daemons)
-* the audience, which is the app for which the token was generated
-* the app (the client) that asked for the token. In the case of web apps, this may be the same as the audience
+* Security Token Server that generated the token
+* Date when the token was generated
+* Subject (such as the user--except for daemons)
+* Audience, which is the app for which the token was generated
+* App (the client) that asked for the token. In the case of web apps, this may be the same as the audience
 
 For more detailed claim information, see [access tokens](access-tokens.md) and [ID tokens](id-tokens.md).
 
@@ -80,11 +80,11 @@ Applications can sign in users themselves or delegate sign-in to an identity pro
 
 For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure AD, you are providing an identity configuration for your application that allows it to integrate with Azure AD. Registering the app also allows you to:
 
-* customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
-* decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from LinkedIn, Google, and so on.
-* request scope permissions. For example, you can request the "user.read" scope, which grants permission to read the profile of the signed-in user.
-* define scopes that define access to your Web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
-* share a secret with Azure AD that proves the app's identity to Azure AD.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
+* Customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
+* Decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from LinkedIn, Google, and so on.
+* Request scope permissions. For example, you can request the "user.read" scope, which grants permission to read the profile of the signed-in user.
+* Define scopes that define access to your Web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
+* Share a secret with Azure AD that proves the app's identity to Azure AD.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
 
 Once registered, the application will be given a unique identifier that the app shares with Azure AD when it requests tokens. If the app is a [confidential client application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application), it will also share the secret or the public key*-depending on whether certificates or secrets were used.
 
