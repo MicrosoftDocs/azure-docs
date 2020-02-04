@@ -8,13 +8,13 @@ ms.date: 07/08/2019
 
 # Azure Backup Monitoring Alert - FAQ
 
-This article answers common questions about the Azure Backup monitoring and reporting.
+This article answers common questions about Azure Backup monitoring and reporting.
 
 ## Configure Azure Backup reports
 
 ### How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
 
-Navigate to the LA Workspace you have configured, navigate to the **Logs** menu item, and run the query 'CoreAzureBackup | take 1'. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
+Navigate to the LA Workspace you have configured, navigate to the **Logs** menu item, and run the query CoreAzureBackup | take 1. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
 
 ### What is the frequency of data push to an LA Workspace?
 
@@ -37,7 +37,7 @@ After you create an LA Workspace, you can choose to retain data for a maximum of
 
 ### Can I view reports across vaults and subscriptions?
 
-Yes, you can view reports across vaults, subscriptions as well as regions. Your data may reside in a single LA Workspace or a group of LA Workspaces.
+Yes, you can view reports across vaults and subscriptions as well as regions. Your data may reside in a single LA Workspace or a group of LA Workspaces.
 
 ### Can I view reports across tenants?
 

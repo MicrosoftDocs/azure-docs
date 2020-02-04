@@ -8,7 +8,7 @@ ms.date: 02/03/2020
 
 # Monitor your backups with Backup Explorer
 
-As organizations backup more and more machines to the cloud, it becomes important to have a central location to view operational information about backups across a large estate, to efficiently monitor backups.
+As organizations back up more and more machines to the cloud, it becomes important to have a central location to view operational information about backups across a large estate, to efficiently monitor backups.
 
 The Backup Explorer Workbook is a built-in Azure Monitor Workbook enabling Backup customers to have a single pane of glass for performing operational monitoring activities related to Backup across the entire backup estate on Azure (spanning tenants, locations, subscriptions, resource groups, and vaults), all from a central place. Broadly, it provides the following capabilities:
 
@@ -47,7 +47,7 @@ Each of the other tabs represents a distinct entity – for example: Backup Item
 
 ### Backup Items
 
-You can view each of your backup items filtered by subscription, vault, and other parameters. Clicking on the name of a backup item lets you open the Azure blade for that backup item. For example, from the table, you might observe that the last backup failed for item ‘X’. Clicking on ‘X’ opens up the Backup blade for this item, where you can trigger an ad-hoc backup operation.
+You can view each of your backup items filtered by subscription, vault, and other parameters. Clicking on the name of a backup item lets you open the Azure blade for that backup item. For example, from the table, you might observe that the last backup failed for item ‘X’. Clicking on ‘X’ opens up the Backup blade for this item, where you can trigger an on-demand backup operation.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
 
@@ -71,15 +71,15 @@ Clicking on the Policies tab enables you to view key information on all the back
 
 ### Backup Not Enabled
 
-It is important for the backup admin of an organization to quickly identify which machines in the organization do not have backup enabled yet, so that backup can be enabled for all the machines that need protection. Clicking on the tab ‘Backup Not Enabled’ helps you in this task.
+It is important for the backup admin of an organization to quickly identify which machines in the organization do not have backup enabled yet, so that backup can be enabled for all the machines that need protection. Clicking on the tab **Backup Not Enabled** helps you in this task.
 
-In this tab, you will see a table containing the list of items that are not protected. If your organization follows the practice of assigning different tags to production machines and test machines, or machines serving different functions, each of which might need a separate backup policy, filtering by tags helps you view information specific to a certain class of machines. Clicking on the name of any item redirects you to the ‘Configure Backup’ blade for that item, where you can choose to back up that item with an appropriate backup policy.
+In this tab, you will see a table containing the list of items that are not protected. If your organization follows the practice of assigning different tags to production machines and test machines, or machines serving different functions, each of which might need a separate backup policy, filtering by tags helps you view information specific to a certain class of machines. Clicking on the name of any item redirects you to the **Configure Backup** blade for that item, where you can choose to back up that item with an appropriate backup policy.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 
 ## Exporting to Excel
 
-Clicking on the down arrow button at the top right of any widget (table/chart) exports the contents of that widget as an Excel sheet, as-is with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by using the Rows Per Page dropdown at the top of each tab.
+Clicking on the down arrow button at the top right of any widget (table/chart) exports the contents of that widget as an Excel sheet, as-is with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by using the **Rows Per Page** dropdown at the top of each tab.
 
 ## Pinning to Dashboard
 
