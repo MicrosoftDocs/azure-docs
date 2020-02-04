@@ -20,7 +20,7 @@ With the extensions and customization, you don't need to fork the open-source so
 
 ## Processing model
 
-The data in SCP is modeled as continuous streams of tuples. Typically the tuples:
+The data in SCP is modeled as continuous streams of tuples. Typically, the tuples:
 
 1. Flow into a queue.
 1. Are picked up and transformed by business logic hosted inside a Storm topology.
@@ -54,7 +54,7 @@ This article uses some simple examples to walk through how to build data process
 
 ## SCP plug-in interface
 
-SCP plug-ins are standalone applications. They can run inside Visual Studio during development and be plugged in to the Storm pipeline after production deployment.
+SCP plug-ins are standalone applications. They can run inside Visual Studio during development and be plugged into the Storm pipeline after production deployment.
 
 Writing an SCP plug-in is the same as writing any other Windows console application. The SCP.NET platform declares some interfaces for spout/bolt. Your plug-in code implements these interfaces. The main purpose of this design is to let you focus on your business logic while letting the SCP.NET platform handle other things.
 
@@ -265,7 +265,7 @@ public abstract void Fail(SCPTuple tuple);
 
 The **StateStore** object provides metadata services, monotonic sequence generation, and wait-free coordination. You can build higher-level distributed concurrency abstractions on **StateStore**. These abstractions include distributed locks, distributed queues, barriers, and transaction services.
 
-SCP applications can use the **State** object to serialize  information in [Apache ZooKeeper](https://zookeeper.apache.org/). This ability is especially valuable for a transactional topology. If a transactional spout stops responding and restarts, **State** can retrieve the necessary information from ZooKeeper and restart the pipeline.
+SCP applications can use the **State** object to serialize information in [Apache ZooKeeper](https://zookeeper.apache.org/). This ability is especially valuable for a transactional topology. If a transactional spout stops responding and restarts, **State** can retrieve the necessary information from ZooKeeper and restart the pipeline.
 
 The **StateStore** object has these principal methods:
 
@@ -380,7 +380,7 @@ SCP plug-ins can usually run in two modes: local test mode and regular mode.
 
 #### Local test mode
 
-In this mode, the SCP plug-ins in your C# code run inside Visual Studio during the development phase. You can use the **ILocalContext** interface in this mode. The interface provides methods to serialize the emitted tuples to local files and read them back in to RAM.
+In this mode, the SCP plug-ins in your C# code run inside Visual Studio during the development phase. You can use the **ILocalContext** interface in this mode. The interface provides methods to serialize the emitted tuples to local files and read them back into RAM.
 
 ```
 public interface ILocalContext
@@ -476,7 +476,7 @@ The *classpath* parameter is also optional. It specifies the Java classpath if t
 
 Your C# processes can emit tuples. To do so, the platform serializes tuples into **byte[]** objects and transfers the objects to the Java side. Storm then transfers these tuples to the targets.
 
-In downstream components, C# processes receive tuples back from the Java side and convert them to the platform's original types. All of these operations are hidden by the platform.
+In downstream components, C# processes receive tuples back from the Java side and convert them to the platform's original types. All these operations are hidden by the platform.
 
 To support serialization and deserialization, your code needs to declare the schema of the input and output. The schema is defined as a dictionary. The stream ID is the dictionary key. The key value is the types of the columns. A component can declare multiple streams.
 
