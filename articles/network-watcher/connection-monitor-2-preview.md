@@ -77,7 +77,7 @@ _Connection Monitor_ monitors communication at regular intervals and informs you
 2. Click "Connection Monitor (Preview)" tab in the Monitoring section in Network Watcher's left pane. This tab will only be visible if Network Watcher is accessed using the link specified in step 1.
 3. You can see all Connection Monitors that are created using Connection Monitor (Preview) experience. All Connection Monitors created using the classic experience of Connection Monitor tab will be visible in Connection Monitor tab.
 
-![Create a Connection Monitor](./media/connection-monitor-2-preview/cm-resource-view.png)
+    ![Create a Connection Monitor](./media/connection-monitor-2-preview/cm-resource-view.png)
 
 
 ### Creating a Connection Monitor
@@ -100,30 +100,28 @@ To create a Connection Monitor, follow the below mentioned steps:
 
 1. In Connection Monitor (Preview) dashboard, click "Create" from top-left corner.
 2. In the Basic tab, enter information for your connection monitor
-  1. Connection Monitor Name – Name of your Connection Monitor. Standard naming rules for Azure resources apply here.
-  2. Subscription – Choose a subscription for your Connection Monitor.
-  3. Region – Choose a region for your Connection Monitor resource. You can only select the source VMs that are created in this region.
-  4. Workspace Configuration - You can use either the default workspace created by Connection Monitor to store your monitoring data by clicking the default checkbox. To choose a custom workspace, uncheck this box. Choose the subscription and region to select the workspace, which will hold your monitoring data.
-  5. Click "Next: Test Groups" to add test groups
+   1. Connection Monitor Name – Name of your Connection Monitor. Standard naming rules for Azure resources apply here.
+   2. Subscription – Choose a subscription for your Connection Monitor.
+   3. Region – Choose a region for your Connection Monitor resource. You can only select the source VMs that are created in this region.
+   4. Workspace Configuration - You can use either the default workspace created by Connection Monitor to store your monitoring data by clicking the default checkbox. To choose a custom workspace, uncheck this box. Choose the subscription and region to select the workspace, which will hold your monitoring data.
+   5. Click "Next: Test Groups" to add test groups
 
-
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/create-cm-basics.png)
+      ![Create a Connection Monitor](./media/connection-monitor-2-preview/create-cm-basics.png)
 
 3. In the test groups tab, click "+ Test Group" to add a Test Group. Use _Creating Test Groups in Connection Monitor_ to add test groups. Click "Review + create" to review your Connection Monitor.
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/create-tg.png)
+   ![Create a Connection Monitor](./media/connection-monitor-2-preview/create-tg.png)
 
 4. In the "Review + create" tab, review basic information and test groups before you create the Connection Monitor. To edit Connection Monitor from the "Review + create" view:
-  1. To edit the basic details, use the pencil icon as specified by box 1 in the image 2
-  2. To edit the individual test groups, click the test group that you want to edit to open the test group in edit mode.
-  3. Current Cost/month indicated the cost during preview. There's currently no charge to using Connection Monitor,so this column will show zero. Actual cost/month indicated the price that will be charged after General Availability. Do note, log analytics ingestion charges will apply even during the preview.
+   1. To edit the basic details, use the pencil icon as specified by box 1 in the image 2
+   2. To edit the individual test groups, click the test group that you want to edit to open the test group in edit mode.
+   3. Current Cost/month indicated the cost during preview. There's currently no charge to using Connection Monitor,so this column will show zero. Actual cost/month indicated the price that will be charged after General Availability. Do note, log analytics ingestion charges will apply even during the preview.
+
 5. In the "Review + create" tab, click the "create" button to create the Connection Monitor.
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/review-create-cm.png)
+   ![Create a Connection Monitor](./media/connection-monitor-2-preview/review-create-cm.png)
 
 6.  Connection Monitor (Preview) will create the Connection Monitor resource in the background.
-
-
 
 #### From Armclient
 
@@ -373,57 +371,52 @@ To create a Test Group in a Connection Monitor, you specify the value for the be
 1. Disable Test Group – Checking this field will disable monitoring for all sources and destinations specified in the test group. You'll see this option unchecked by default.
 2. Name – Name of your test group
 3. Sources – You can specify both Azure VMs and On-Premise machines as sources if agents are installed in them. Refer to Step 1 to install agent specific to your source.
-  1. Click on "Azure Agents" tab to select Azure agents. You'll only see those VMs listed which are bound to the region you specified at the time of creating the Connection Monitor. VMs are by default grouped into the subscription they belong to and the groups are collapsed. You can drill down from Subscriptions level to other levels in the hierarchy:
+   1. Click on "Azure Agents" tab to select Azure agents. You'll only see those VMs listed which are bound to the region you specified at the time of creating the Connection Monitor. VMs are by default grouped into the subscription they belong to and the groups are collapsed. You can drill down from Subscriptions level to other levels in the hierarchy:
 
-Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with agents Y
+   ```Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with agents Y```
 
-You can also change the value of "Group by" field to start the tree from any other level. For example:  Group by – VNET will show the VMs with agents in the hierarchy VNETs -\&gt; Subnets -\&gt; VMs with agents.
+   You can also change the value of "Group by" field to start the tree from any other level. For example:  Group by – VNET will show the VMs with agents in the hierarchy VNETs -\&gt; Subnets -\&gt; VMs with agents.
 
-![Add Sources](./media/connection-monitor-2-preview/add-azure-sources.png)
+   ![Add Sources](./media/connection-monitor-2-preview/add-azure-sources.png)
 
-  2. Click on "Non – Azure Agents" tab to select on-premise agents. By default, you'll see agents grouped into workspaces in a region.Only those workspaces that have Network Performance Monitor solution configured will be listed. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) .By default, you'll see the region selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose agents from workspaces from the newly selected region. You can also change the value of "Group by" field to group on subnets.
+   2. Click on "Non – Azure Agents" tab to select on-premise agents. By default, you'll see agents grouped into workspaces in a region.Only those workspaces that have Network Performance Monitor solution configured will be listed. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) .By default, you'll see the region selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose agents from workspaces from the newly selected region. You can also change the value of "Group by" field to group on subnets.
 
-![Non-Azure Sources](./media/connection-monitor-2-preview/add-non-azure-sources.png)
-
-
-  3. Click "Review "to review the Azure and Non-Azure agents selected.
-
-![Review Sources](./media/connection-monitor-2-preview/review-sources.png)
+      ![Non-Azure Sources](./media/connection-monitor-2-preview/add-non-azure-sources.png)
 
 
-  4. Click "Done" once you're done selecting the sources.
+   3. Click "Review "to review the Azure and Non-Azure agents selected.
 
+      ![Review Sources](./media/connection-monitor-2-preview/review-sources.png)
 
+   4. Click "Done" once you're done selecting the sources.
 
 4. Destinations – You can monitor connectivity to Azure VMs or any endpoint (Public IP, URL, FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, O365 URLs, D365 URLs, or custom endpoints.
-  1. Click on "Azure VMs" tab to select Azure VMs as destinations. By default, you'll see Azure VMs grouped into subscription hierarchy in the same region that was selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose Azure VMs from the newly selected region. You can drill down from Subscriptions level to other levels in the hierarchy, like Azure Agents.
 
+   1. Click on "Azure VMs" tab to select Azure VMs as destinations. By default, you'll see Azure VMs grouped into subscription hierarchy in the same region that was selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose Azure VMs from the newly selected region. You can drill down from Subscriptions level to other levels in the hierarchy, like Azure Agents.
 
-![Add Destinations](./media/connection-monitor-2-preview/add-azure-dests1.png)
+      ![Add Destinations](./media/connection-monitor-2-preview/add-azure-dests1.png)<br>
 
+      ![Add Destinations 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
- ![Add Destinations 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
+   2. Click on "Endpoints" tab to select Azure VMs as destinations. Endpoint list will be populated with O365 and D365 test URLs, grouped by name.  You can also choose an endpoint created in other test groups in the same Connection Monitor. To add a new endpoint, click "+ Endpoint" from top-right corner of the screen and provide endpoint URL/IP/FQDN and name
 
+      ![Add Endpoints](./media/connection-monitor-2-preview/add-endpoints.png)
 
-  2. Click on "Endpoints" tab to select Azure VMs as destinations. Endpoint list will be populated with O365 and D365 test URLs, grouped by name.  You can also choose an endpoint created in other test groups in the same Connection Monitor. To add a new endpoint, click "+ Endpoint" from top-right corner of the screen and provide endpoint URL/IP/FQDN and name
+   3. Click "Review" to review the Azure and Non-Azure agents selected.
+   4. Click "Done" once you're done selecting the sources.
 
- ![Add Endpoints](./media/connection-monitor-2-preview/add-endpoints.png)
-
-
-  3. Click "Review" to review the Azure and Non-Azure agents selected.
-  4. Click "Done" once you're done selecting the sources.
 5. Test Configuration – You can associate any number of test configurations in a given test group. Portal restricts it to one test configuration per test group, but use Armclient to add more.
-  1. Name – Name for the test configuration
-  2. Protocol – You can choose between TCP, ICMP, or HTTP. To change HTTP to HTTPS, select HTTP as protocol and 443 as port
-  3. Create Network Test Configuration– You'll see this checkbox only if you select HTTP in the Protocol field. Enable this field to create another test configuration using the same sources and destinations specified in step 3 and 4 over TCP/ICMP protocol. The newly created test configuration is named "\&lt;name specified in 5.a\&gt;\_networkTestConfig"
-  4. Disable Traceroute – This field will be applicable for test groups with TCP or ICMP as protocol.  Check this field to stop sources from discovering topology and hop-by-hop round-trip time.
-  5. Destination Port –You can customize this field to put in a destination port of your choice.
-  6. Test Frequency – This field decides how frequently sources will ping destinations on the protocol and port specified above. You can choose between 30 seconds, 1 minute, 5 minutes, 15 minutes, and 30 minutes. Sources will test connectivity to destinations based on the value you choose.  For example, if you select 30 seconds, sources will check connectivity to destination at least once in 30 seconds-period.
-  7. Health Thresholds – You can set thresholds on the network parameters mentioned below
-    1. Checks Failed in % - Percentage of checks failed when sources check connectivity to destination over the criteria specified above. For TCP/ICMP protocol, checks failed in % can be equated to packet loss %. For HTTP protocol, this field represents the number of http requests that didn't get a response.
-    2. RTT in milliseconds – Round-trip time in milliseconds when sources connect to destination over the test configuration specified above.
+   1. Name – Name for the test configuration
+   2. Protocol – You can choose between TCP, ICMP, or HTTP. To change HTTP to HTTPS, select HTTP as protocol and 443 as port
+   3. Create Network Test Configuration– You'll see this checkbox only if you select HTTP in the Protocol field. Enable this field to create another test configuration using the same sources and destinations specified in step 3 and 4 over TCP/ICMP protocol. The newly created test configuration is named "\&lt;name specified in 5.a\&gt;\_networkTestConfig"
+   4. Disable Traceroute – This field will be applicable for test groups with TCP or ICMP as protocol.  Check this field to stop sources from discovering topology and hop-by-hop round-trip time.
+   5. Destination Port –You can customize this field to put in a destination port of your choice.
+   6. Test Frequency – This field decides how frequently sources will ping destinations on the protocol and port specified above. You can choose between 30 seconds, 1 minute, 5 minutes, 15 minutes, and 30 minutes. Sources will test connectivity to destinations based on the value you choose.  For example, if you select 30 seconds, sources will check connectivity to destination at least once in 30 seconds-period.
+   7. Health Thresholds – You can set thresholds on the network parameters mentioned below
+      1. Checks Failed in % - Percentage of checks failed when sources check connectivity to destination over the criteria specified above. For TCP/ICMP protocol, checks failed in % can be equated to packet loss %. For HTTP protocol, this field represents the number of http requests that didn't get a response.
+      2. RTT in milliseconds – Round-trip time in milliseconds when sources connect to destination over the test configuration specified above.
 
- ![Add TG](./media/connection-monitor-2-preview/add-test-config.png)
+      ![Add TG](./media/connection-monitor-2-preview/add-test-config.png)
 
 All sources and destinations added to a test group with the test configuration specified get broken down to individual tests. For example:
 
@@ -469,7 +462,7 @@ If TCP or ICMP is selected, the service calculates packet % to determine checks 
 
 ### States of a test
 
- Based on the data returned by checks in a test, each test can then have the following states:
+Based on the data returned by checks in a test, each test can then have the following states:
 
 * Pass = When actual values for Checks Failed % and RTT are within specified thresholds
 * Fail = When actual values for Checks Failed % or RTT cross specified thresholds. If no threshold is specified, then a test is marked fail when checks failed % = 100%
@@ -502,76 +495,69 @@ You can filter this list based on:
 For example:
 
 1. To look at all tests across all Connection Monitor (Preview) where source IP = 10.192.64.56:
-  1. Change view by to "Tests"
-  2. Search Filed = 10.192.64.56
-  3. Use dropdown next to value to select "Sources"
+   1. Change view by to "Tests"
+   2. Search Filed = 10.192.64.56
+   3. Use dropdown next to value to select "Sources"
 2. To filter out only failed tests across all Connection Monitor (Preview) where source IP = 10.192.64.56
-  1. Change view by to "Tests"
-  2. Select "Fail" from State-Based Filters.
-  3. Search Field = 10.192.64.56
-  4. Use dropdown next to value to select "Sources"
+   1. Change view by to "Tests"
+   2. Select "Fail" from State-Based Filters.
+   3. Search Field = 10.192.64.56
+   4. Use dropdown next to value to select "Sources"
 3. To filter out only failed tests across all Connection Monitor (Preview) where destination is outlook.office365.com
-  1. Change view by to "Tests"
-  2. Select "Fail" from State-Based Filters.
-  3. Search Field = outlook.office365.com
-  4. Use dropdown next to value to select "Destinations"
+   1. Change view by to "Tests"
+   2. Select "Fail" from State-Based Filters.
+   3. Search Field = outlook.office365.com
+   4. Use dropdown next to value to select "Destinations"
 
-
-![Failed Tests](./media/connection-monitor-2-preview/tests-view.png)
-
+   ![Failed Tests](./media/connection-monitor-2-preview/tests-view.png)
 
 To view the trends of checks failed % and RTT for:
 
 1. Connection Monitor
-  1. Click the Connection Monitor you want to investigate in detail
-  2. By default, you'll view monitoring data by "Test Groups"
+   1. Click the Connection Monitor you want to investigate in detail
+   2. By default, you'll view monitoring data by "Test Groups"
 
-![View Metrics by](./media/connection-monitor-2-preview/cm-drill-landing.png)
+      ![View Metrics by](./media/connection-monitor-2-preview/cm-drill-landing.png)
 
+   3. Choose the Test Group you want to investigate in detail
 
+      ![Metrics by TG](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
 
-  3. Choose the Test Group you want to investigate in detail
+   4. You'll see top 5 failed tests on checks failed % or RTT msecs for the test group you chose in the previous step. For each test, you'll see trendlines for checks failed %, and RTT msec
+   5. Select a test from the list above, or choose another test to investigate in detail.
+   6. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values.
 
-![Metrics by TG](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
-
-
-  4. You'll see top 5 failed tests on checks failed % or RTT msecs for the test group you chose in the previous step. For each test, you'll see trendlines for checks failed %, and RTT msec
-  5. Select a test from the list above, or choose another test to investigate in detail.
-  6. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values.
-
-
- ![RTT](./media/connection-monitor-2-preview/cm-drill-charts.png)
+      ![RTT](./media/connection-monitor-2-preview/cm-drill-charts.png)
 
   7. Change the time interval to view more data
   8. You can change the view in Step b and choose to view by sources, destinations, or test configurations. Then choose a source based on failed tests and investigate the top 5 failed tests.  For example: Choose View by: Sources and Destinations to investigate all the tests that run between that combination in the selected Connection Monitor.
 
-
-![RTT2](./media/connection-monitor-2-preview/cm-drill-select-source.png)
+      ![RTT2](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
 2. Test Group
-  1. Click the Test Group you want to investigate in detail
-  2. By default, you'll view monitoring data by "Source + Destination + Test Configuration (Test) "
+   1. Click the Test Group you want to investigate in detail
+   2. By default, you'll view monitoring data by "Source + Destination + Test Configuration (Test) "
 
- ![RTT3](./media/connection-monitor-2-preview/tg-drill.png)
+      ![RTT3](./media/connection-monitor-2-preview/tg-drill.png)
 
-  3. Choose the Test you want to investigate in detail
-  4. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
-  5. Change the time interval to view more data
-  6. You can change the view in Step b and choose to view by sources, destinations, or test configurations. Then choose an entity to investigate the top 5 failed tests.  For example: Choose View by: Sources and Destinations to investigate all the tests that run between that combination in the selected Connection Monitor.
+   3. Choose the Test you want to investigate in detail
+   4. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
+   5. Change the time interval to view more data
+   6. You can change the view in Step b and choose to view by sources, destinations, or test configurations. Then choose an entity to investigate the top 5 failed tests.  For example: Choose View by: Sources and Destinations to investigate all the tests that run between that combination in the selected Connection Monitor.
+
 3. Test
-  1. Click the Source + Destination + Test Configuration you want to investigate in detail
-  2. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
+   1. Click the Source + Destination + Test Configuration you want to investigate in detail
+   2. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
 
+      ![Test1](./media/connection-monitor-2-preview/test-drill.png)
 
- ![Test1](./media/connection-monitor-2-preview/test-drill.png)
+   3. You can also click on "Topology" to see the network topology at any point in time.
 
-  3. You can also click on "Topology" to see the network topology at any point in time.
+      ![Test2](./media/connection-monitor-2-preview/test-topo.png)
 
- ![Test2](./media/connection-monitor-2-preview/test-topo.png)
+   4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premise networks at the moment.
 
-  4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premise networks at the moment.
-
- ![Test3](./media/connection-monitor-2-preview/test-topo-hop.png)
+       ![Test3](./media/connection-monitor-2-preview/test-topo-hop.png)
 
 #### Log queries in Azure Monitor Log Analytics
 
@@ -601,15 +587,14 @@ To create an alert:
 3. In Add Condition, choose Signal Name as ChecksFailedPercent(Preview) or RoundTripTimeMs(Preview) and Signal Type as Metrics. Eg: Choose ChecksFailedPercent(Preview)
 4. All the dimensions applicable as per metrics will be listed.  Choose the dimension name and dimension value. Eg: Choose Source Address and provide IP address of any source involved in Connection Monitor resource chosen in Step 1
 5. In Alert Logic, choose:
-  1. Condition Type – Static
-  2. Condition and Threshold
-  3. Aggregation Granularity and Frequency of Evaluation – Connection Monitor (Preview) updates data every 1 minute.
+   1. Condition Type – Static
+   2. Condition and Threshold
+   3. Aggregation Granularity and Frequency of Evaluation – Connection Monitor (Preview) updates data every 1 minute.
 6.  In actions, choose your action group
 7. Provide alert details
 8. Create alert rule
 
-
- ![Alerts](./media/connection-monitor-2-preview/mdm-alerts.jpg)
+   ![Alerts](./media/connection-monitor-2-preview/mdm-alerts.jpg)
 
 ## Step 5: Diagnose issues in your network
 
