@@ -16,14 +16,14 @@ ms.author: rambala
 
 # Active validation of S2S VPN to backup ExpressRoute private peering
 
-In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider leveraging site-to-site (S2S) VPN to backup ExpressRoute private peering. 
+In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider leveraging site-to-site (S2S) VPN to back up ExpressRoute private peering. 
 
-Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN combination only in active-passive mode. One of the major drawbacks of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection because of lack of active validation and maintance of the passive connection. Therefore, in this article let's focus on how to validate and actively maintain S2S VPN connectivity that is backing an ExpressRoute private peering.
+Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN combination only in active-passive mode. One of the major drawbacks of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection because of lack of active validation and maintenance of the passive connection. Therefore, in this article let's focus on how to validate and actively maintain S2S VPN connectivity that is backing an ExpressRoute private peering.
 
 >[!NOTE] When a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute.  
 >
 
-In this article, let's see how to validate the connectivity both from the Azure perspective and from the perspective of the network equipments that peer with the Microsoft edge devices. This would enable you to do the validation irrespective of if you have a Layer 2 or Layer 3 network service provider. 
+In this article, let's see how to validate the connectivity both from the Azure perspective and from the perspective of the network equipment that peer with the Microsoft Enterprise Edge devices. Ability to validate from either end will help irrespective of the type of--Layer 2 or Layer 3--network service provider you have. 
 
 ## Example Topology
 
@@ -37,7 +37,7 @@ In the setup, the ExpressRoute circuit is terminated on a pair of "Customer Edge
 
 ### Configuring for high availability
 
-[Configure ExpressRoute and Site-to-Site coexisting connections][Conf-CoExist] discusses how to configure the coexisting ExpressRoute circuit and S2S VPN connections. To improve high availability, as we discussed in [Designing for high availability with ExpressRoute][HA], our setup maintains the network redundancy (avoids single point of failure) all the way up to the endpoints. Also both the primary and secondary connections of the ExpressRoute circuits are configured to operate in active-active mode by advertsing the on-premises route prefixes the same way through both the connections. 
+[Configure ExpressRoute and Site-to-Site coexisting connections][Conf-CoExist] discusses how to configure the coexisting ExpressRoute circuit and S2S VPN connections. To improve high availability, as we discussed in [Designing for high availability with ExpressRoute][HA], our setup maintains the network redundancy (avoids single point of failure) all the way up to the endpoints. Also both the primary and secondary connections of the ExpressRoute circuits are configured to operate in active-active mode by advertising the on-premises route prefixes the same way through both the connections. 
 
 The on-premises route advertisement of the primary CE router through the primary connection of the ExpressRoute circuit is show below (Junos commands):
 
@@ -79,7 +79,7 @@ The on-premises route advertisement of the firewalls to the primary and secondar
 
 ### Configuring for symmetric traffic flow
 
-We noted that when a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute. To force Azure route over VPN instead of the coexisting ExpressRoute, you need to advertise more specic routes over the VPN connection. Our objective here is to use the VPN connections as back only. So, the default route selection behavior of Azure works for us. 
+We noted that when a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute. To force Azure route over VPN instead of the coexisting ExpressRoute, you need to advertise more specific routes over the VPN connection. Our objective here is to use the VPN connections as back only. So, the default route selection behavior of Azure works for us. 
 
 It is our responsibility to ensure that the traffic destined to Azure also prefers ExpressRoute circuit over VPN. The default local preference of the CE routers and firewalls in our on-premises setup is 100. So, by configuring the local preference of the routes received through the ExpressRoute private peerings greater than 100 (say 150), we can make the traffic destined to Azure prefer ExpressRoute circuit.
 
@@ -147,9 +147,9 @@ Let's ensure that per our configuration for Azure destined traffic ExpressRoute 
                           AS path: 65515 I, validation-state: unverified
                         > via st0.119
 
-In the above route table, for the hub and spoke Vnet routes--10.17.11.0/25 and 10.17.11.128/26--we see ExpressRoute circuit is prefered over VPN connections. The 192.168.11.0 and 192.168.11.2 are IPs on firewall interface towards CE routers.
+In the above route table, for the hub and spoke Vnet routes--10.17.11.0/25 and 10.17.11.128/26--we see ExpressRoute circuit is preferred over VPN connections. The 192.168.11.0 and 192.168.11.2 are IPs on firewall interface towards CE routers.
 
-## Validation and maintanence of backup VPN
+## Validation and maintenance of backup VPN
 
 Earlier in this article, we verified on-premises route advertisement of the firewalls to the primary and secondary BGP peers of the VPN gateway. Additionally, let's confirm Azure route received by the firewalls from the primary and secondary BGP peers of the VPN gateway.
 
@@ -183,7 +183,7 @@ Similarly let's verify for on-premises route received by the Azure VPN gateway.
     10.1.11.0/25 10.17.11.69   12076-65020  32769
     10.1.11.0/25 10.17.11.69   12076-65020  32769
 
-As seen above, the VPN gateway has routes received both by the primary and secondary BGP peers of the VPN gateway. It also has visibility over the routes received via primary and secondary ExpressRoute conections (the ones with AS-path prepended with 12076). To confirm the routes received via VPN connections, we need to know the on-premises BGP peer IP of the connections. In our setup under consideration it is 192.168.11.88 and we do see the routes received from it.
+As seen above, the VPN gateway has routes received both by the primary and secondary BGP peers of the VPN gateway. It also has visibility over the routes received via primary and secondary ExpressRoute connections (the ones with AS-path prepended with 12076). To confirm the routes received via VPN connections, we need to know the on-premises BGP peer IP of the connections. In our setup under consideration it is 192.168.11.88 and we do see the routes received from it.
 
 Next, let's verify the routes advertised to on-premises by the Azure VPN gateway.
 
@@ -199,7 +199,7 @@ Next, let's verify the routes advertised to on-premises by the Azure VPN gateway
 
 Failure to see route exchanges indicate connection failure. See [Troubleshooting: An Azure site-to-site VPN connection cannot connect and stops working][VPN Troubleshoot] for help with troubleshooting the VPN connection.
 
-Now that we have confirmed successful route exchanges over the VPN connection, we are set to do a failover from the ExpressRoute connectivity and test the dataplane of the VPN connectivity. 
+Now that we have confirmed successful route exchanges over the VPN connection, we are set to do a failover from the ExpressRoute connectivity and test the data plane of the VPN connectivity. 
 
 >[!NOTE] In production environments failover testing has to be done during well notified network maintenance work-windows as they can be service disruptive.
 >
@@ -218,7 +218,7 @@ Prior to do the failover, let's trace route the current path in our setup from a
 
     Trace complete.
 
-The primary and secondary ExpressRoute connection subnets of our setup are, respectively, 192.168.11.16/30 and 192.168.11.20/30. In the above trace route, in step 3 we see that we are hitting 192.168.11.18, which is the interface IP of the primary MSEE. This confirm that as expected our current path is over the ExpressRoute.
+The primary and secondary ExpressRoute connection subnets of our setup are, respectively, 192.168.11.16/30 and 192.168.11.20/30. In the above trace route, in step 3 we see that we are hitting 192.168.11.18, which is the interface IP of the primary MSEE. This confirms that as expected our current path is over the ExpressRoute.
 
 Let's use the following set of commands to disable both the primary and secondary ExpressRoute connections.
 
@@ -226,7 +226,7 @@ Let's use the following set of commands to disable both the primary and secondar
     $ckt.Peerings[0].State = "Disabled"
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-The failover time depends on the BGP convergence time. In our setup, the failover takes a few seconds (less than 10). Following, the failover, repeat of the traceroute shows the following:
+The failover time depends on the BGP convergence time. In our setup, the failover takes a few seconds (less than 10). After the failover, repeat of the traceroute shows the following path:
 
     C:\Users\PathLabUser>tracert 10.17.11.132
 
@@ -238,7 +238,7 @@ The failover time depends on the BGP convergence time. In our setup, the failove
 
     Trace complete.
 
-This confirms that the backup connection is active and can provide service continuity in the event of both the primary and secondary ExpressRoute connections failure. Let's enable the ExpressRoute connections and switch the traffic over using the following set of commands.
+The traceroute result confirms that the backup connection is active and can provide service continuity if both the primary and secondary ExpressRoute connections failure. Let's enable the ExpressRoute connections and switch the traffic over using the following set of commands.
 
     $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
     $ckt.Peerings[0].State = "Enabled"
