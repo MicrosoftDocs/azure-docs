@@ -73,7 +73,7 @@ Your Azure AD B2C application now has the permissions required to update their p
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API.
 
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
-* [Manage users with Microsoft Graph](microsoft-graph-user-management.md)
+* [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md)
 
 <!-- LINKS -->
 [ms-graph]: https://docs.microsoft.com/graph/
