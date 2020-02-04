@@ -5,7 +5,8 @@ description: In this tutorial, you learn how to enable Azure Active Directory se
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: 02/03/2020
+ms.topic: tutorial
+ms.date: 02/04/2020
 
 ms.author: iainfou
 author: iainfoulds
