@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/01/2020
+ms.date: 02/03/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -20,9 +20,9 @@ Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) usage activ
 
 You can route log events to:
 
-- An Azure storage account.
-- An Azure event hub (and integrate with your Splunk and Sumo Logic instances).
-- An Azure Log Analytics workspace (to analyze data, create dashboards, and alert on specific events).
+* An Azure storage account.
+* An Azure event hub (and integrate with your Splunk and Sumo Logic instances).
+* An Azure Log Analytics workspace (to analyze data, create dashboards, and alert on specific events).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -44,9 +44,9 @@ You authorize a user in your Azure AD B2C directory (the **Service Provider**) t
 
 In the Azure Active Directory (Azure AD) tenant that contains your Azure subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
 
-- **Subscription**: Select your Azure subscription.
-- **Resource group**: Enter name for the resource group. For example, *azure-ad-b2c-monitor*.
-- **Region**: Select an Azure location. For example, *Central US*.
+* **Subscription**: Select your Azure subscription.
+* **Resource group**: Enter name for the resource group. For example, *azure-ad-b2c-monitor*.
+* **Region**: Select an Azure location. For example, *Central US*.
 
 ## Delegate resource management
 
@@ -59,7 +59,9 @@ Next, gather the following information:
 1. Select **Azure Active Directory**, select **Properties**.
 1. Record the **Directory ID**.
 
-**Object ID** of the Azure AD B2C user you want to give contributor permission to the resource group you created earlier in the directory containing your subscription.
+**Object ID** of the Azure AD B2C group or user you want to give *Contributor* permission to the resource group you created earlier in the directory containing your subscription.
+
+To make management easier, we recommend using Azure AD user *groups* for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. In this walkthrough, you add a user.
 
 1. With **Azure Active Directory** still selected in the Azure portal, select **Users**, and then select a user.
 1. Record the user's **Object ID**.
@@ -74,7 +76,7 @@ To onboard your Azure AD tenant (the **Customer**), create an [Azure Resource Ma
 | `mspOfferDescription`              | A brief description of your offer. For example, *Enables Azure Monitor in Azure AD B2C*.|
 | `rgName`                           | The name of the resource group you create earlier in your Azure AD tenant. For example, *azure-ad-b2c-monitor*. |
 | `managedByTenantId`                | The **Directory ID** of your Azure AD B2C tenant (also known as the tenant ID). |
-| `authorizations.value.principalId` | The **Object ID** of the B2C user you recorded earlier that will have access to resources in this Azure subscription. |
+| `authorizations.value.principalId` | The **Object ID** of the B2C group or user that will have access to resources in this Azure subscription. For this walkthrough, specify the user's Object ID that you recorded earlier. |
 
 Download the Azure Resource Manager template and parameter files:
 
@@ -185,11 +187,14 @@ Parameters              :
 ...
 ```
 
+After you deploy the template, it can take a few minutes for the resource projection to complete. You may need to wait a few minutes (typically no more than five) before moving on to the next section to select the subscription.
+
 ## Select your subscription
 
-Once you've deployed the template, associate your  subscription to your Azure AD B2C directory by following these steps:
+Once you've deployed the template and have waited a few minutes for the resource projection to complete, associate your subscription to your Azure AD B2C directory with the following steps.
 
-1. Sign in to the Azure portal with your Azure AD B2C administrative account.
+1. **Sign out** of the Azure portal if you're currently signed in. This and the following step are done to refresh your credentials in the portal session.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure AD B2C administrative account.
 1. Select the **Directory + Subscription** icon in the portal toolbar.
 1. Select the directory that contains your subscription.
 
@@ -197,7 +202,6 @@ Once you've deployed the template, associate your  subscription to your Azure AD
 1. Verify that you've selected the correct directory and subscription. In this example, all directories and subscriptions are selected.
 
     ![All directories selected in Directory & Subscription filter](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
-1. Close the **Directory + Subscription** filter, **Sign out** of the Azure portal, and then **sign in** again to refresh your credentials.
 
 ## Configure diagnostic settings
 
