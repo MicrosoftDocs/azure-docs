@@ -462,7 +462,7 @@ npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <que
 
 ```
 
-Pass query function name and comma separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking `fabcar` chaincode as reference, to query all the cars in the world state set `<queryFunction>` to `"queryAllCars"` and `<queryArgs>' to `""`.
+Pass query function name and comma separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking `fabcar` chaincode as reference, to query all the cars in the world state set `<queryFunction>` to `"queryAllCars"` and `<queryArgs>` to `""`.
 
 Refer command help for more details on the arguments passed in the command
 

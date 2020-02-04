@@ -1,6 +1,6 @@
 ---
-title: SQLRuleAction syntax reference in Azure | Microsoft Docs
-description: Details about SQLRuleAction grammar.
+title: SQLRuleAction syntax reference in Azure Service Bus
+description: This article provides a reference for SQLRuleAction syntax. The actions are written in SQL-language based syntax that is performed against a brokered message.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2018
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
 
-# SQLRuleAction syntax
+# SQLRuleAction syntax reference for Azure Service Bus
 
 A *SqlRuleAction* is an instance of the [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   

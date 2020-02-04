@@ -6,7 +6,10 @@ ms.date: 04/09/2018
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
-
+> [!NOTE]
+> Microsoft Flow is now Power Automate. For more information, see this [blog](https://aka.ms/flow-now-pa).
+> 
+> This content will be updated to reflect the branding change in the coming days.
 # Choose the right integration and automation services in Azure
 
 This article compares the following Microsoft cloud services:
@@ -32,12 +35,12 @@ The following table helps you determine whether Microsoft Flow or Logic Apps is 
 
 |  | Microsoft Flow | Logic Apps |
 | --- | --- | --- |
-| Users |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
-| Scenarios |Self-service |Advanced integrations |
-| Design tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
-| Application lifecycle management (ALM) |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Admin experience |Manage Microsoft Flow environments and data loss prevention (DLP) policies, track licensing: [Microsoft Flow Admin Center](https://admin.flow.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
-| Security |Office 365 Security and Compliance audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Users** |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
+| **Scenarios** |Self-service |Advanced integrations |
+| **Design tool** |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
+| **Application lifecycle management (ALM)** |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| **Admin experience** |Manage Microsoft Flow environments and data loss prevention (DLP) policies, track licensing: [Microsoft Flow Admin Center](https://admin.flow.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
+| **Security** |Office 365 Security and Compliance audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## Compare Azure Functions and Azure Logic Apps
 
@@ -49,12 +52,12 @@ You can mix and match services when you build an orchestration, calling function
 
 |  | Durable Functions | Logic Apps |
 | --- | --- | --- |
-| Development | Code-first (imperative) | Designer-first (declarative) |
-| Connectivity | [About a dozen built-in binding types](functions-triggers-bindings.md#supported-bindings), write code for custom bindings | [Large collection of connectors](../connectors/apis-list.md), [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), [build custom connectors](../logic-apps/custom-connector-overview.md) |
-| Actions | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Monitoring | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor logs](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| Management | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
-| Execution context | Can run [locally](functions-runtime-overview.md) or in the cloud | Runs only in the cloud|
+| **Development** | Code-first (imperative) | Designer-first (declarative) |
+| **Connectivity** | [About a dozen built-in binding types](functions-triggers-bindings.md#supported-bindings), write code for custom bindings | [Large collection of connectors](../connectors/apis-list.md), [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), [build custom connectors](../logic-apps/custom-connector-overview.md) |
+| **Actions** | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](../logic-apps/logic-apps-workflow-actions-triggers.md)|
+| **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor logs](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| **Management** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| **Execution context** | Can run [locally](functions-runtime-overview.md) or in the cloud | Runs only in the cloud|
 
 <a name="function"></a>
 

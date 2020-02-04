@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 01/30/2020
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
@@ -17,15 +17,20 @@ When you create an Azure Cognitive Search service, a [resource is created](searc
 
 Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments.
 
-Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate a need for higher tiers. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
+## Feature availability by tier
 
-> [!NOTE] 
-> The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3 HD.
->
+Almost every feature is available on every tier, including Free, but a feature or workflow that is resource intensive might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
 
-## Available tiers
+The following table describes tier-related feature constraints.
 
-Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
+| Feature | Limitations |
+|---------|-------------|
+| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. |
+| [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
+
+## Tiers (SKUs)
+
+Tiers are differentiated by:
 
 + Quantity of indexes and indexers you can create
 + Size and speed of partitions (physical storage)
@@ -93,9 +98,9 @@ The billing rate is hourly per SU. Each tier has a progressively higher rate. Hi
 
 Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines what you pay on an hourly basis.
 
-## How to manage and reduce costs
+## How to manage costs
 
-In addition to the following suggestions, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
+The following suggestions can help you keep costs at a minimum:
 
 - Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
@@ -105,7 +110,11 @@ In addition to the following suggestions, visit [Billing and cost management](ht
 
 - Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-You can't shut down a search service to reduce your bill. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
+Additionally, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) for built-in tools and features related to spending.
+
+Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
+
+In terms of the service itself, the only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/), or create a service at a lower tier (S1 hourly rates are lower than S2 or S3 rates). Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
 
 ## How to evaluate capacity requirements
 
