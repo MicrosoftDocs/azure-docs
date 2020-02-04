@@ -1,11 +1,11 @@
-﻿---
+---
 
-title: 'Quickstart - Create a Private Link service using the Azure Portal'
+title: 'Quickstart - Create a Private Link service by using the Azure portal'
 titlesuffix: Azure Private Link
 description: Learn how to create a Private Link service using the Azure portal in this Quickstart
 services: private-link
 author: malopMSFT
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using the Azure Portal
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using the Azure portal
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
@@ -13,9 +13,9 @@ ms.author: allensu
 
 ---
 
-# Quickstart: Create a Private Link service using the Azure Portal
+# Quickstart: Create a Private Link service using the Azure portal
 
-Azure Private Link service is the reference to your own service that is powered by Azure Private Link. The service or resource that is operating behind Azure Load Balancer can be enabled for Private Link access. Consumers of your service can access the service privately from their own VNets. In this Quickstart, you'll learn how to create a private link service using the Azure Portal.
+Azure Private Link service is the reference to your own service that is powered by Azure Private Link. The service or resource that is operating behind Azure Load Balancer can be enabled for Private Link access. Consumers of your service can access the service privately from their own VNets. In this Quickstart, you'll learn how to create a private link service using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -180,4 +180,4 @@ When you're done using the private link service, delete the resource group to cl
 
 ## Next steps
 
-In this QuickStart, you created an internal Azure load balancer and a private link service. To learn more about how to create private endpoints, see [Create Private Endpoints using Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+In this quickstart, you created an internal Azure load balancer and a private link service. To learn more about how to create private endpoints, see [Create Private Endpoints using Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
