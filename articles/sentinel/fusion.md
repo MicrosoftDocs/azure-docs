@@ -3,8 +3,7 @@ title: Advanced multistage attack detection in Azure Sentinel
 description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
 services: sentinel
 documentationcenter: na
-author: cabailey
-manager: rkarlin
+author: rkarlin
 
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -12,8 +11,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/24/2019
-ms.author: cabailey
+ms.date: 02/04/2020
+ms.author: rkarlin
 
 ---
 # Advanced multistage attack detection in Azure Sentinel
@@ -40,7 +39,17 @@ This detection is enabled by default in Azure Sentinel. To check the status, or 
 
 Rule templates are not applicable for the advanced multistage attack detection.
 
-## Scenarios supported for advanced multistage attack detection
+## Fusion using Palo Alto Networks and Microsoft Defender ATP
+
+- Network request to TOR anonymization service followed by anomalous traffic flagged by Palo Alto Networks firewall​
+
+- Powershell made a suspicious network connection followed by anomalous traffic flagged by Palo Alto Networks firewall​
+
+- Outbound connection to IP with a history of unauthorized access attempts followed by anomalous traffic flagged by Palo Alto Networks firewall​
+
+
+
+## Fusion using Identity Protection and Microsoft Cloud App Security
 
 Using advanced multistage attack detection, Azure Sentinel supports the following scenarios that combine anomaly events from Azure Active Directory Identity Protection and Microsoft Cloud App Security:
 
