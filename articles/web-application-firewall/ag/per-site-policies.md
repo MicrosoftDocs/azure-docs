@@ -260,8 +260,8 @@ $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicySite `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
-  -PolicySetting $PolicySettingURI
-  -CustomRules $rule4, $rule5
+  -PolicySetting $PolicySettingURI `
+  -CustomRule $rule4, $rule5
 
 $Gateway = Get-AzApplicationGateway -Name "myAppGateway"
 
