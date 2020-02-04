@@ -3,7 +3,7 @@ title: Offline backup for DPM and Azure Backup Server
 description: Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server (MABS).
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
+ms.date: 1/28/2020
 ---
 # Offline-backup workflow for DPM and Azure Backup Server
 
@@ -50,13 +50,74 @@ Ensure that the following prerequisites are met before initiating the Offline Ba
     | United States | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* An Azure Storage account with *classic* deployment model has been created in the subscription from which you downloaded the publish settings file as shown below:
+* An Azure Storage account with *Resource Manager* deployment model has been created in the subscription from which you downloaded the publish settings file as shown below:
 
-  ![Creating a classic storage account](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creating a storage account with Resource Manager development](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * With regards to disks that will be sent to Azure, ensure that only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
 * The SATA drives have to be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that BitLocker is enabled on the *copy computer*
+
+## Prepare the Server for the Offline Backup process
+
+>[!NOTE]
+> If you cannot find the listed utilities such as *AzureOfflineBackupCertGen.exe* in your installation of the MARS agent, write to AskAzureBackupTeam@microsoft.com to get access to them.
+
+* Open an elevated command prompt on the server and run the following command:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    The tool will create an Azure Offline Backup AD Application if one does not exist.
+
+    If an Application already exists, this executable will ask you to manually upload the certificate to the application in the tenant. Follow the steps below in [this section](#manually-upload-offline-backup-certificate) to upload the certificate manually to the application.
+
+* The AzureOfflineBackup.exe tool will generate an OfflineApplicationParams.xml file.  Copy this file to the server with MABS or DPM.
+* Install the [latest MARS agent](https://aka.ms/azurebackup_agent) on the DPM/Azure Backup (MABS) server.
+* Register the server to Azure.
+* Run the following command:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+* The command above will create the file `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`
+
+## Manually upload Offline Backup Certificate
+
+Follow the steps below to manually upload the Offline Backup certificate to a previously created Azure Active Directory application meant for Offline Backup.
+
+1. Sign in to the Azure portal.
+2. Go to **Azure Active Directory** > **App registrations**
+3. Navigate to the **Owned Applications** tab and locate an application with the display name format `AzureOfflineBackup _<Azure User Id` as shown below:
+
+    ![Locate application on Owned Applications tab](./media/backup-azure-backup-import-export/owned-applications.png)
+
+4. Click on the application. Under the **Manage** tab on the left pane, go to **Certificates & secrets**.
+5. Check for pre-existing certificates or public keys. If there are none, you can safely delete the application by clicking on the **Delete** button on the application's **Overview** page. Following this, you can retry the steps to [Prepare the Server for the Offline Backup](#prepare-the-server-for-the-offline-backup-process) process and skip the steps below. Otherwise, execute the following steps from the DPM / Azure Backup Server (MABS) server where you wish to configure Offline Backup.
+6. Open the **Manage computer certificate application** > **Personal** tab and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`
+7. Select the certificate above, right-click on **All Tasks** and then **Export**, without private key, in the .cer format.
+8. Go to the Azure Offline Backup application in the Azure portal.
+9. Click on **Manage** > **Certificates & secrets** > **Upload certificate**, and upload the certificate exported in the previous step.
+
+    ![Upload the certificate](./media/backup-azure-backup-import-export/upload-certificate.png)
+10. On the server, open the registry by typing **regedit** in the run window.
+11. Go to the registry entry *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
+12. Right-click on **CloudBackupProvider** and add a new string value with the name `AzureADAppCertThumbprint_<Azure User Id>`
+
+    >[!NOTE]
+    > Note: To find the Azure User Id, perform one of the following steps:
+    >
+    >1. From the Azure connected PowerShell run the `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”` command.
+    >2. Navigate to the registry path: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`
+
+13. Right-click on the string added in the previous step and select **Modify**. In the value, provide the thumbprint of the certificate you exported in step 7 and click **OK**.
+14. To get the value of the thumbprint, double-click on the certificate, then select the **Details** tab and scroll down until you see the thumbprint field. Click on **Thumbprint** and copy the value.
+
+    ![Copy value from the thumbprint field](./media/backup-azure-backup-import-export/thumbprint-field.png)
+
+15. Continue to the [Workflow](#workflow) section to proceed with the Offline Backup process.
 
 ## Workflow
 
@@ -98,7 +159,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that are sent to the nearest Azure Datacenter. This utility is available in installation directory of the Recovery Services agent in the following path:
 
-    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
+`*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
 1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to a copy computer on which the SATA drives to be prepared are connected. Ensure the following with regards to the copy computer:
 
@@ -212,4 +273,3 @@ At the time of the next scheduled backup, Azure Backup performs incremental back
 ## Next steps
 
 * For any questions on the Azure Import/Export workflow, refer to [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
-
