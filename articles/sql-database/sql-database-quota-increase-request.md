@@ -4,15 +4,15 @@ description: This page describes how to create a support request to increase the
 services: sql-database
 ms.service: sql-database
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
-ms.date: 02/03/2020
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: sstein
+ms.date: 02/04/2020
 ---
 
 # Request quota increases for Azure SQL Database
 
-This article explains how to request a quota increase for Azure SQL Database for single databases, servers, and managed instances. It also explains to request whitelisting for new server deployments in a region.
+This article explains how to request a quota increase for Azure SQL Database for single databases, servers, and managed instances. It also explains how to enable subscription access to a region.
 
 ## <a id="newquota"></a> Create a new support request
 
@@ -55,7 +55,7 @@ The following sections describe three quota increase options for the **SQL Datab
 
 - Database transaction units (DTUs) per server
 - Servers per subscription
-- Server whitelisting requests for a region
+- Enable subscription access to a region
 
 ### Database transaction units (DTUs) per server
 
@@ -85,9 +85,13 @@ Use the following steps to request an increase in the number of servers per subs
 
 For more information, see [SQL Database resource limits and resource governance](sql-database-resource-limits-database-server.md).
 
-### Server whitelisting requests for a region
+### Enable subscription access to a region
 
-Some regions restrict the creation of new SQL Database servers. To request the ability to create SQL Database servers in those regions, you can use the **Other quota request** option. Provide the details of the region you want access to in the **Description** field:
+Some offer types are not available in every region. You may see an error such as the following:
+
+`This location is not available for subscription`
+
+If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ![Other quota details](./media/sql-database-quota-increase-request/quota-details-whitelisting.png)
 
