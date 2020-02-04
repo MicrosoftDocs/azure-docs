@@ -56,7 +56,7 @@ To create the service principal using PowerShell, perform the following.
     $credential.GetNetworkCredential().password
     ```
 
-3. From the output, copy the values from **password** and **ApplicationId** and save them for later in a safe place, such as the secret store for your server configuration tool. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
 
 In the install agent onboarding script:
 
@@ -64,17 +64,12 @@ In the install agent onboarding script:
 * The **password** property is used for the  `--service-principal-secret` parameter used to connect the agent.
 
 > [!NOTE]
-> Make sure to use the Service Principal **ApplicationId** property, not the **Id** property. The **Id** will not work.
+> Make sure to use the service principal **ApplicationId** property, not the **Id** property.
+>
 
-## Manually install the agent and connect to Azure
+## Install the agent and connect to Azure
 
-
-
-The following guide allows you to connect a machine to Azure by logging into the machine and performing the steps. You can also connect machines to Azure [From the Portal](quickstart-onboard-portal.md).
-
-### Connecting to Azure
-
-Once installed, you can manage and configure the agent using a command-line tool called `azcmagent.exe`. The agent is located under `/opt/azcmagent/bin` on Linux and `$env:programfiles\AzureConnectedMachineAgent` on Windows.
+Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. You can install the Windows or Linux agent manually or automate using a script template we provide. After the agent is installed on the machine, perform the steps below to connect the agent to Azure Arc using the service principal with the `azcmagent` tool. 
 
 On Windows, open PowerShell as administrator on a target node and run:
 
