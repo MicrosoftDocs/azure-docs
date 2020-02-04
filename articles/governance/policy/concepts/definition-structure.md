@@ -6,8 +6,8 @@ ms.topic: conceptual
 ---
 # Azure Policy definition structure
 
-Resource policy definitions are used by Azure Policy to establish conventions for resources. Each
-definition describes resource compliance and what effect to take when a resource is non-compliant.
+Azure Policies establish conventions for resources. Policy definitions describe resource compliance condition and the effect to take if the condition is met. This [condition](#conditions) compares a resource property [field](#fields) to a required value. Resource property fields are accessed using [aliases](#aliases) and are either single valued field or an [array](#understanding-the--alias) of multiple values. The condition evaluation is different on arrays - see [condition](#conditions) for details.
+
 By defining conventions, you can control costs and more easily manage your resources. For example,
 you can specify that only certain types of virtual machines are allowed. Or, you can require that
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
