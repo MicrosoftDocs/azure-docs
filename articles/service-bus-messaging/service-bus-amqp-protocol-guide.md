@@ -81,7 +81,7 @@ Connections, channels, and sessions are ephemeral. If the underlying connection 
 ### AMQP Outbound Port Requirements
 Clients using AMQP Connections over tcp requires port 5671 and 5672 to be opened in the local firewall. Along with these ports, it might be necessary to open additional ports if the [EnableLinkRedirect](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) feature is enabled. EnableLinkRedirect is a new messaging feature which helps to skip one-hop while receiving messages thus helping to boost throughput. The client would start communicating directly with backend service over port range 104XX as seen below. 
 
-![][6]
+![][4]
 
 A dotnet client would fail with socketexception (An attempt was made to access a socket in a way forbidden by its access permissions) if these ports are blocked by the firewall. This feature can be disabled by setting EnableAmqpLinkRedirect=false in the connectiong string, which would force the clients to communicate with remote service over port 5671.
 
