@@ -25,9 +25,9 @@ The following table describes the parameters in a firewall rule.
 | **Protocol** | Options include Any, TCP, or UDP. If you require ICMP, use Any. |
 | **Direction** | Whether the rule applies to inbound, or outbound traffic. |
 | **Action** | Allow or deny for the type of traffic defined in the rule. |
-| **Source** | An IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), or Any.  Specifying a range, a service tag, or application security group enables you to create fewer security rules. | ! **Divya, in line 28, please explain "Any." It seems to be missing one or more words.**
+| **Source** | An IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), or any IP address.  Specifying a range, a service tag, or application security group enables you to create fewer security rules. |
 | **Source Port** | Port from which network traffic originates.  You can specify an individual port or range of ports, such as 443 or 8000-8080. Specifying ranges enables you to create fewer security rules. |
-| **Destination** | An IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), or Any.  Specifying a range, a service tag, or application security group enables you to create fewer security rules.  | ! **Divya, in line 30, please explain "Any." It seems to be missing something.**
+| **Destination** | An IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), or any IP address.  Specifying a range, a service tag, or application security group enables you to create fewer security rules.  |
 | **Destination Port** | Port to which the network traffic flows.  You can specify an individual port or range of ports, such as 443 or 8000-8080. Specifying ranges enables you to create fewer security rules.|
 
 ### Stateless
