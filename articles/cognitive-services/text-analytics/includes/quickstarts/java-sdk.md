@@ -15,20 +15,15 @@ ms.reviewer: tasharm, assafi
 
 [Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~com.azure) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-> [!NOTE]
-> * This quickstart uses version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
-> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling `SentimentBatchAsync()` instead of `Sentiment()`.
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
 
+
+[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+
 ## Setting up
-
-### Create a Text Analytics Azure resource
-
-[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### Create a new Maven project
 
@@ -67,7 +62,7 @@ import java.util.List;
 
 In the java file, add a new class and add your azure resource's key and endpoint as shown below.
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```java
 public class TextAnalyticsSample {
@@ -99,10 +94,9 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
-* [Sentiment Analysis](#sentiment-analysis) (public preview)
+* [Sentiment Analysis](#sentiment-analysis) 
 * [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-public-preview) (public preview)
-* [Named Entity recognition - personal information](#named-entity-recognition---personal-information-public-preview) (public preview)
+* [Named Entity recognition](#named-entity-recognition-ner) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -122,9 +116,6 @@ static TextAnalyticsClient authenticateClient(String subscriptionKey, String end
 In your program's `main()` method, call the authentication method to instantiate the client.
 
 ## Sentiment analysis
-
-> [!NOTE]
-> The below code is for sentiment analysis v3, which is in public preview.
 
 Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its `analyzeSentiment()` function. The returned `AnalyzeSentimentResult` object will contain `documentSentiment` and `sentenceSentiments` if successful, or an `errorMessage` if not. 
 
@@ -189,10 +180,12 @@ static void detectLanguageExample(TextAnalyticsClient client)
 ```console
 Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
-## Named Entity recognition (public preview)
+## Named Entity recognition (NER)
 
 > [!NOTE]
-> The below code is for Named Entity Recognition v3, which is in public preview.
+> In version `3.0-preview`:
+> * NER includes separate methods for detecting personal information. 
+> * Entity linking is a separate request than NER.
 
 Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its `recognizeEntities()` function. The returned `RecognizeEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not.
 
@@ -224,10 +217,7 @@ Recognized NamedEntity Text: Seattle, Type: Location, Subtype: N/A, Offset: 26, 
 Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offset: 34, Length: 9, Score: 0.800.
 ```
 
-## Named Entity Recognition - personal information (public preview)
-
-> [!NOTE]
-> The below code is for detecting personal information using Named Entity Recognition v3, which is in public preview.
+## Using NER to detect personal information
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
 
