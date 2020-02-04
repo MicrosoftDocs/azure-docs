@@ -20,4 +20,5 @@ ms.collection: M365-identity-device-management
 
 ## Next steps
 
-
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
+- [Report-only mode](concept-conditional-access-report-only.md)

@@ -29,8 +29,24 @@ Block is a powerful control that should be wielded with appropriate knowledge. I
 
 ## Grant access
 
+Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
+- [Require multi-factor authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require device to be marked as compliant (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
+- [Require approved client app](app-based-conditional-access.md)
+- [Require app protection policy](app-protection-based-conditional-access)
+
+When administrators choose to combine these options they can choose the following methods:
+
+- Require all the selected controls (control **AND** control)
+- Require one of the selected controls (control **OR** control)
+
+By default Conditional Access requires all selected controls.
 
 ## Next steps
 
+- [Conditional Access: Session controls](concept-conditional-access-session.md)
 
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
+- [Report-only mode](concept-conditional-access-report-only.md)
