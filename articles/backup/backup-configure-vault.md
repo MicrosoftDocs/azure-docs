@@ -211,7 +211,7 @@ Create a policy as follows:
         -   Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
         -   Backups taken on a Saturday in the last week of March are kept for 10 years.
 
-    ![Retention example](./media/backup-configure-vault/retention-example.png)
+        ![Retention example](./media/backup-configure-vault/retention-example.png)
 
 
 11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer, see this [article](offline-backup-azure-data-box.md)). To take the initial backup over the network, select **Automatically over the network** and click **Next**.
