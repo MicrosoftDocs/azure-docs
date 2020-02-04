@@ -63,7 +63,6 @@ accountSettings contains values needed for Ingestion.ps1 and RenderingSession.ps
 renderingSessionSettings will be used by the RenderingSession.ps1 script
 - renderingSessionSettings.vmSize: Selects the size of the VM. Select "small" or "big". Be mindful of our resources and shut down rendering sessions when you do not need them anymore
 - renderingSessionSettings.maxLeaseTime: the time for which you lease the rendering VM. The VM will be shut down after this time runs out. See the Description of RenderingSession.ps1 how to extend an already running session. 
-- 
 
 azureStorageSettings contain values used by the Ingestion.ps1 script. Fill it out if you want to upload a model to azure blob storage and convert it by using our model ingestion service.
 
