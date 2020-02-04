@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -110,6 +110,44 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
     - **valueToCompareTo**: true
 - Result: Error thrown
 
+## CompareBooleanClaimToValue
+
+Checks that boolean value of a claims is equal to `true` or `false`, and return the result of the compression. 
+
+| Item | TransformationClaimType  | Data Type  | Notes |
+| ---- | ------------------------ | ---------- | ----- |
+| inputClaim | inputClaim | boolean | The ClaimType to be asserted. |
+| InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
+| OutputClaim | inputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+
+
+The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `IsAgeOver21Years` ClaimType is equal to `true`, the claims transformation returns `true`, otherwise `false`.
+
+```XML
+<ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+      <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **inputClaim**: false
+- Input parameters:
+    - **valueToCompareTo**: true
+- Output claims:
+    - **compareResult**: false 
+
+
+
 ## NotClaims
 
 Performs a Not operation of the boolean inputClaim and sets the outputClaim with result of the operation.
@@ -170,4 +208,3 @@ The following claims transformation demonstrates how to `Or` two boolean ClaimTy
     - **inputClaim2**: false
 - Output claims:
     - **outputClaim**: true
-

@@ -140,7 +140,7 @@ You can now explore the scene graph by selecting the new node and clicking **Sho
 
 ![Unity Hierarchy](./media/unity-hierarchy.png)
 
-Try moving objects or the [cut plane](../sdk/features-cut-planes.md) around:
+There is a [cut plane](../sdk/features-cut-planes.md) object in the scene. Try enabling it in its properties and moving it around:
 
 ![Changing the cut plane](media/arr-sample-unity-cutplane.png)
 

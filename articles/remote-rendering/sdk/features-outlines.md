@@ -48,6 +48,6 @@ public void ExampleOutlineParameters(AzureSession session)
 }
 ```
 
-## See also
+## Next steps
 
-* [`HierarchicalStateOverrideComponent`](../sdk/features-override-hierarchical-state.md)
+* [Overriding hierarchical states](../sdk/features-override-hierarchical-state.md)

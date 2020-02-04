@@ -160,7 +160,7 @@ Unfortunately the ID cannot be copied to clipboard from here, but the ID can als
 Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 > [!NOTE]
-> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, the REST API supports handling external files as well.
+> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../conversion/conversion-rest-api.md) supports handling external files as well.
 
 ## Running the conversion script
 
@@ -199,6 +199,8 @@ Set the expiry date to a date you would like and press **Create**. Copy the URI 
 ## Next steps
 
 Now that you know the basics, have a look at our tutorials to gain more in-depth knowledge.
+
+If you want to learn the details of model conversion, check out [the model conversion REST API](../conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
 > [Setting up a Unity project](../tutorials/tutorial-1-unity-project-setup.md)

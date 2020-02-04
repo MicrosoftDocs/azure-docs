@@ -42,9 +42,6 @@ In many cases, the model is displayed correctly but located in a place outside t
 The remote rendering hooks into the Unity render pipeline to do the frame composition with the video and to do the reprojection. To verify, open menu `Window > Analysis > Frame debugger`. Enable it and make sure there are two entries for `HolographicRemotingCallbackPass` in the pipeline:
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## Unstable Holograms
 
-
-
-## Instable holograms on Hololens 2
-
-When the model rendering appears to be wobbling when the head moves, it is likely that late stage reprojection (LSR) is not activated.
+In case rendered objects seem to be moving along with head movements, that is, they seem to wobble, you might be encountering issues with Late Stage Reprojection. Refer to the section on [Late Stage Reprojection](../sdk/concepts-late-stage-reprojection.md) for guidance on how to approach such a situation.

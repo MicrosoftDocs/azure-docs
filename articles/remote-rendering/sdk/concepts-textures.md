@@ -22,7 +22,7 @@ Textures are immutable shared resources that can be used in various places in th
 ## Loading textures
 
 When loading a texture, the user has to know the type of the texture. If the texture type mismatches, the texture load fails and an error code is returned.
-Loading texture with the same URI twice will return the same texture as it is a [shared resource](../concepts/sdk-concepts.md#resources).
+Loading texture with the same URI twice will return the same texture as it is a [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management).
 
 ``` cs
 LoadTextureAsync _async = null;
@@ -51,7 +51,7 @@ Texture [URI](../concepts/sdk-concepts.md#built-in-and-external-resources) has t
 
 API calls that expect Textures as input will always specify what type of texture is expected.
 
-## See also
+## Next steps
 
 * [Materials](../concepts/materials-overview.md)
 * [Sky](../sdk/features-sky.md)
