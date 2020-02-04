@@ -1,6 +1,6 @@
 ---
 title: Design guidance for replicated tables
-description: Recommendations for designing replicated tables in your Azure SQL Data Warehouse schema. 
+description: Recommendations for designing replicated tables in SQL Analytics  
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,27 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Design guidance for using replicated tables in Azure SQL Data Warehouse
-This article gives recommendations for designing replicated tables in your SQL Data Warehouse schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
+# Design guidance for using replicated tables in SQL Analytics
+This article gives recommendations for designing replicated tables in your SQL Analytics schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
 - How large is the table?   
 - How often is the table refreshed?   
-- Do I have fact and dimension tables in a data warehouse?   
+- Do I have fact and dimension tables in a SQL Analytics database?   
 
 ## What is a replicated table?
 A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.  2 GB is not a hard limit.  If the data is static and does not change, you can replicate larger tables.
 
-The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
+The following diagram shows a replicated table that is accessible on each Compute node. In SQL Analytics, the replicated table is fully copied to a distribution database on each Compute node. 
 
 ![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
@@ -44,8 +45,8 @@ Consider using a replicated table when:
 Replicated tables may not yield the best query performance when:
 
 - The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
-- The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs rebuilding the replicated table.
-- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse only moves data for the requested columns. 
+- The SQL Analytics database is scaled frequently. Scaling a SQL Analytics database changes the number of Compute nodes, which incurs rebuilding the replicated table.
+- The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Analytics only moves data for the requested columns. 
 
 ## Use replicated tables with simple query predicates
 Before you choose to distribute or replicate a table, think about the types of queries you plan to run against the table. Whenever possible,
@@ -113,11 +114,11 @@ We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran th
 
 
 ## Performance considerations for modifying replicated tables
-SQL Data Warehouse implements a replicated table by maintaining a master version of the table. It copies the master version to one distribution database on each Compute node. When there is a change, SQL Data Warehouse first updates the master table. Then it rebuilds the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW400 has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL Data Warehouse uses this model to support faster data modification statements and flexible scaling operations. 
+SQL Analytics implements a replicated table by maintaining a master version of the table. It copies the master version to one distribution database on each Compute node. When there is a change, SQL Analytics first updates the master table. Then it rebuilds the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW400 has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL Analytics uses this model to support faster data modification statements and flexible scaling operations. 
 
 Rebuilds are required after:
 - Data is loaded or modified
-- The data warehouse is scaled to a different level
+- The SQL Analytics instance is scaled to a different level
 - Table definition is updated
 
 Rebuilds are not required after:
@@ -127,7 +128,7 @@ Rebuilds are not required after:
 The rebuild does not happen immediately after data is modified. Instead, the rebuild is triggered the first time a query selects from the table.  The query that triggered the rebuild reads immediately from the master version of the table while the data is asynchronously copied to each Compute node. Until the data copy is complete, subsequent queries will continue to use the master version of the table.  If any activity happens against the replicated table that forces another rebuild, the data copy is invalidated and the next select statement will trigger data to be copied again. 
 
 ### Use indexes conservatively
-Standard indexing practices apply to replicated tables. SQL Data Warehouse rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.  
+Standard indexing practices apply to replicated tables. SQL Analytics rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.  
  
 ### Batch data loads
 When loading data into replicated tables, try to minimize rebuilds by batching loads together. Perform all the batched loads before running select statements.
@@ -177,8 +178,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## Next steps 
 To create a replicated table, use one of these statements:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 
