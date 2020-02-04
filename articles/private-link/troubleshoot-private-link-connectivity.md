@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Private Link Connectivity Problems
+title: Troubleshoot Azure Private Link connectivity problems
 description: Step-by-step guidance to diagnose private link connectivity
 services: private-link
 documentationcenter: na
@@ -45,11 +45,11 @@ If you are experiencing connectivity problems with your private link setup, go o
 
     a) Go to **Private Link Center**
 
-    ![Private Link Center](./media/private-link-tsg/private-link-center.png)
+      ![Private Link Center](./media/private-link-tsg/private-link-center.png)
 
     b) Select **Private Link Services** from the left navigation pane
 
-    ![Private Link Services](./media/private-link-tsg/private-link-service.png)
+      ![Private Link Services](./media/private-link-tsg/private-link-service.png)
 
     c) Filter and select the private link service that you want to diagnose
 
@@ -57,37 +57,37 @@ If you are experiencing connectivity problems with your private link setup, go o
      - Make sure that the private endpoint that you are seeking connectivity from is listed with **Approved** connection state. 
      - If **Pending**, select it and approve. 
 
-     ![Private Endpoint Connections](./media/private-link-tsg/pls-private-endpoint-connections.png)
+       ![Private Endpoint Connections](./media/private-link-tsg/pls-private-endpoint-connections.png)
 
      - Navigate to Private endpoint that you are connecting from, by clicking on the name. Make sure the connection status shows **Approved**.
 
-     ![Private Endpoint Connection overview](./media/private-link-tsg/pls-private-endpoint-overview.png)
+       ![Private Endpoint Connection overview](./media/private-link-tsg/pls-private-endpoint-overview.png)
 
      - Once both sides are approved, try the connectivity again.
 
     e) Review **Alias** from the Overview tab and **Resource ID** from the Properties tab 
      - Make sure the **Alias / Resource ID** matches the **Alias / Resource ID** you are using to create a private endpoint to this service. 
 
-     ![Verify Alias](./media/private-link-tsg/pls-overview-pane-alias.png)
+       ![Verify Alias](./media/private-link-tsg/pls-overview-pane-alias.png)
 
-     ![Verify Resource ID](./media/private-link-tsg/pls-properties-pane-resourceid.png)
+       ![Verify Resource ID](./media/private-link-tsg/pls-properties-pane-resourceid.png)
 
     f) Review Visibility (Overview Section) information
      - Make sure that your subscription falls under the **Visibility** scope
 
-     ![Verify Visibility](./media/private-link-tsg/pls-overview-pane-visibility.png)
+       ![Verify Visibility](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
     g) Review Load Balancer (Overview) Information
      - You can navigate to load balancer by clicking on load balancer link
 
-     ![Verify Load Balancer](./media/private-link-tsg/pls-overview-pane-ilb.png)
+       ![Verify Load Balancer](./media/private-link-tsg/pls-overview-pane-ilb.png)
 
      - Make sure that Load Balancer Settings are configured as per your expectations
        - Review Frontend IP configuration
        - Review Backend Pools
        - Review Load-Balancing rules
 
-     ![Verify Load Balancer Properties](./media/private-link-tsg/pls-ilb-properties.png)
+       ![Verify Load Balancer Properties](./media/private-link-tsg/pls-ilb-properties.png)
 
      - Make sure Load Balancer is working as per settings above
        - Select a VM in any subnet other than the subnet where Load Balancer backend pool is available
@@ -101,7 +101,7 @@ If you are experiencing connectivity problems with your private link setup, go o
      - Select **bytes-in** or **bytes-out**
      - Review data is flowing when attempting to connect to the Private Link Service. Expect a delay of approx. 10 mins.
 
-     ![Verify Private Link Service Metrics](./media/private-link-tsg/pls-metrics.png)
+       ![Verify Private Link Service Metrics](./media/private-link-tsg/pls-metrics.png)
 
 3. Contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and connectivity problem still exists. 
 
