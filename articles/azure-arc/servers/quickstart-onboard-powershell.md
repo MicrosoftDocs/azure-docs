@@ -32,7 +32,7 @@ You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a serv
 
 The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription.
 
-You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a later step.
+You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a step below.
 
 ```azurepowershell-interactive
 $sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
@@ -113,12 +113,11 @@ Parameters:
 * `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2**, **SouthEast Asia**, and **West Europe**.
 * `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
 
-You can find more information on the 'azcmagent' tool in [Azcmagent Reference](azcmagent-reference.md).
-<!-- Isn't this still needed to view machines? -->
+You can learn more about the `azcmagent' command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
 
-Upon successful completion, your machine is connected to Azure. You can view your machine in the Azure portal by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
+![A successful server connection](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
 ## Next steps
 
