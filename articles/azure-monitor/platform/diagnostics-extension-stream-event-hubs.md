@@ -19,7 +19,7 @@ The data collected from the guest operating system that can be sent to Event Hub
 
 * Event Tracing for Windows (ETW) events
 * Performance counters
-* Windows event logs
+* Windows event logs, including application logs in the Windows event log
 * Azure Diagnostics infrastructure logs
 
 ## Prerequisites
