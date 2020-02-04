@@ -90,7 +90,11 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
 ## Create HDInsight cluster
 
-You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
+You're now ready to create a new HDInsight cluster. From the **Basics** tab, select **Kafka** for **cluster type**.
+
+![Azure portal select Kafka type](./media/apache-kafka-byok/azure-portal-cluster-basics-type-kafka.png)
+
+BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
 
 ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
 
