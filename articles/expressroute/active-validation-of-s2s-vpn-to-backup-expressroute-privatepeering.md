@@ -17,7 +17,8 @@ In the article titled [Designing for disaster recovery with ExpressRoute private
 
 Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN combination only in active-passive mode. One of the major drawbacks of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection because of lack of active validation and maintenance of the passive connection. Therefore, in this article let's focus on how to validate and actively maintain S2S VPN connectivity that is backing an ExpressRoute private peering.
 
->[!NOTE] When a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute.  
+>[!NOTE] 
+>When a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute.  
 >
 
 In this article, let's see how to validate the connectivity both from the Azure perspective and from the perspective of the network equipment that peer with the Microsoft Enterprise Edge devices. Ability to validate from either end will help irrespective of the type of--Layer 2 or Layer 3--network service provider you have. 
@@ -71,7 +72,8 @@ The on-premises route advertisement of the firewalls to the primary and secondar
       Prefix                  Nexthop              MED     Lclpref    AS path
     * 10.1.11.0/25            Self                                    I
 
->[!NOTE] Configuring the S2S VPN in active-active mode not only provides high-availability to your disaster recovery backup network connectivity, but also provides higher throughput to the backup connectivity. In other words, configuring S2S VPN in active-active mode force create multiple underlying tunnels.
+>[!NOTE] 
+>Configuring the S2S VPN in active-active mode not only provides high-availability to your disaster recovery backup network connectivity, but also provides higher throughput to the backup connectivity. In other words, configuring S2S VPN in active-active mode force create multiple underlying tunnels.
 >
 
 ### Configuring for symmetric traffic flow
@@ -198,7 +200,8 @@ Failure to see route exchanges indicate connection failure. See [Troubleshooting
 
 Now that we have confirmed successful route exchanges over the VPN connection, we are set to do a failover from the ExpressRoute connectivity and test the data plane of the VPN connectivity. 
 
->[!NOTE] In production environments failover testing has to be done during well notified network maintenance work-windows as they can be service disruptive.
+>[!NOTE] 
+>In production environments failover testing has to be done during well notified network maintenance work-windows as they can be service disruptive.
 >
 
 Prior to do the failover, let's trace route the current path in our setup from an on-premises server and a VM in the spoke Vnet.
