@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-virtual-network-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
       "redirect_document_id": false
@@ -36726,6 +36731,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/quickstart-sspr.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/tutorial-sspr-pilot.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
       "redirect_url": "/azure/application-gateway/create-ssl-portal",
       "redirect_document_id": true
@@ -44955,6 +44970,11 @@
       "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
       "redirect_document_id": true
     },
+    { 
+      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md", 
+      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage", 
+      "redirect_document_id": false 
+    },
     {
       "source_path": "articles/iot-central/preview/howto-use-app-templates.md",
       "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
@@ -47869,6 +47889,24 @@
     {
       "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-python.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/cognitive-services/Bing-News-Search/vs-bing-news-search-connected-service.md",
+       "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/vs-computer-vision-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/cognitive-services/Face/vs-face-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/face/",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
     }
   ]
