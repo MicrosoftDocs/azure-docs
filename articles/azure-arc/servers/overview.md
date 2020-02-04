@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 01/29/2020
+ms.date: 02/03/2020
 ms.custom: mvc
 ms.topic: overview
 ---
@@ -49,6 +49,10 @@ The following versions of the Windows and Linux operating system are officially 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
 >
+
+### Required permissions
+
+You are a member of the **Azure Connected Machine Onboarding** role.
 
 ### Azure subscription and service limits
 
