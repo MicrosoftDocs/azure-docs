@@ -54,7 +54,7 @@ You can create Azure Machine Learning compute instances (preview) or compute clu
 When created these compute resources are automatically part of your workspace unlike other kinds of compute targets.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a **North Central US**, ** East US 2**, **North Europe** or **UK South**.
+> Compute instances are available only for workspaces with a **North Central US**, **East US 2**, **North Europe** or **UK South**.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 ### Compute clusters
