@@ -25,7 +25,7 @@ Find you Azure Synapse workspace and use "Launch Synapse Studio" link to open th
 
 ![Launch Synapse Studio](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
 
-## Browse files on Data storage
+## Browse storage accounts
 
 Once you open Synapse Studio, go to Data section where you can see all associated storage accounts.
 There should be at least one storage account that is created with workspace.
@@ -34,7 +34,7 @@ There should be at least one storage account that is created with workspace.
 
 Create new folders and upload files using the links in toolbar to organize your files.
 
-## Query files on storage
+## Query files on storage account
 
 > [!IMPORTANT]
 > Make sure that you have `Storage Blob Reader` role on underlying storage in order to be able to query the files. Learn here how to [assign **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure storage](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role).
