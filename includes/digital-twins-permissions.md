@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 01/23/2020
+ ms.date: 02/03/2020
  ms.custom: include file
 ---
 
@@ -26,20 +26,30 @@
 
     [![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
+1. The **Authentication** blade specifies important authentication configuration settings. 
+
+    1. Add **Redirect URIs** and configure **Access Tokens** by selecting **+ Add a platform**.
+
+    1. Determine whether the app is a **public client** or not by selecting **Yes** or **No**.
+
+    1. Verify which accounts and tenants are supported.
+
+    [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+
+1. After selecting the appropriate platform, configure your **Redirect URIs** and **Access Tokens** in the side panel to the right of the user interface.
 
     1. **Redirect URIs** must match the address supplied by the authentication request:
 
-        * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set the **Default client type** to yes.
-        * For Single-Page apps hosted on Azure App Service, select **Web**.
+        * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set **public client** to **Yes**.
+        * For Single-Page Apps hosted on Azure App Service, select **Web**.
 
-        Select **Public client (mobile & desktop)** and enter `http://localhost:8080/`.
+    1. Determine whether a **Logout URL** is appropriate.
 
-        [![Configure Redirect URIs](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+    1. Enable the implicit grant flow by checking **Access tokens** or **ID tokens**.
+                
+    [![Configure Redirect URIs](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
 
-    1. Check **Access tokens** to configure the **oauth2AllowImplicitFlow** setting to `true` in your resource's **Manifest** JSON.
-
-        [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+    Click **Configure**, then **Save**.
 
 1.  Open the **Overview** pane of your registered app, and copy the values of the following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
 
