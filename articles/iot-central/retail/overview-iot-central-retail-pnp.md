@@ -25,7 +25,7 @@ The following sections describe the capabilities of these application templates:
 
 ## Connected logistics
 
-Global logistics spending is expected to reach $10.6tn in 2020. Transportation of goods accounts for the majority of this spending and shipping providers are under intense competitive pressure and constraints.
+Global logistics spending is expected to reach $10.6 trillion in 2020. Transportation of goods accounts for the majority of this spending and shipping providers are under intense competitive pressure and constraints.
 
 You can use IoT sensors to collect and monitor ambient conditions such as temperature, humidity, tilt, shock, light, and the location of a shipment. You can combine telemetry gathered from IoT sensors and devices with other data sources such as weather and traffic information in cloud-based business intelligence systems.
 

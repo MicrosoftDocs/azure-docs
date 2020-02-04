@@ -1,6 +1,6 @@
 ---
-title: 'Azure Notification Hubs: Frequently Asked Questions (FAQs) | Microsoft Docs'
-description: FAQs on designing/implementing solutions on Notification Hubs
+title: Azure Notification Hubs Frequently Asked Questions (FAQs) | Microsoft Docs
+description: FAQs about designing and implementing solutions on Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim

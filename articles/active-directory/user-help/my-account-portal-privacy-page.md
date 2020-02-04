@@ -12,7 +12,6 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # View how your organization uses your privacy-related data

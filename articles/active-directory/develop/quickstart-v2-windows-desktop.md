@@ -13,7 +13,6 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app

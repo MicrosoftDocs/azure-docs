@@ -7,7 +7,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 01/10/2020
 ms.author: yushwang
 
 ---

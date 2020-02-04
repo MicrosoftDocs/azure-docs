@@ -90,7 +90,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 | Standard_A10 |8 |56 |382 |32 |32x500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-<sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
+<sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by QDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
 
 <br>
 

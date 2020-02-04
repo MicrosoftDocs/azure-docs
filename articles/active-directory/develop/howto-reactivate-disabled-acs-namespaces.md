@@ -13,7 +13,6 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Reactivate disabled Access Control Service namespaces

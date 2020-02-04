@@ -132,9 +132,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-| **type**|| Must be set to "mobileTable"|
-| **direction**||Must be set to "in"|
-| **name**|| Name of input parameter in function signature.|
+| **type**| n/a | Must be set to "mobileTable"|
+| **direction**| n/a |Must be set to "in"|
+| **name**| n/a | Name of input parameter in function signature.|
 |**tableName** |**TableName**|Name of the mobile app's data table|
 | **id**| **Id** | The identifier of the record to retrieve. Can be static or based on the trigger that invokes the function. For example, if you use a queue trigger for your function, then `"id": "{queueTrigger}"` uses the string value of the queue message as the record ID to retrieve.|
 |**connection**|**Connection**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
@@ -291,9 +291,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-| **type**|| Must be set to "mobileTable"|
-| **direction**||Must be set to "out"|
-| **name**|| Name of output parameter in function signature.|
+| **type**| n/a | Must be set to "mobileTable"|
+| **direction**| n/a |Must be set to "out"|
+| **name**| n/a | Name of output parameter in function signature.|
 |**tableName** |**TableName**|Name of the mobile app's data table|
 |**connection**|**MobileAppUriSetting**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|The name of an app setting that has your mobile app's API key. Provide the API key if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |

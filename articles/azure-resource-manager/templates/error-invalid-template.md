@@ -80,18 +80,18 @@ For child resources, the type and name have the same number of segments. This nu
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -99,9 +99,9 @@ Getting the segments right can be tricky with Resource Manager types that are ap
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
@@ -134,13 +134,13 @@ You receive this error when resources depend on each other in a way that prevent
 
 To solve a circular dependency:
 
-1. In your template, find the resource identified in the circular dependency. 
-2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on. 
+1. In your template, find the resource identified in the circular dependency.
+2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on.
 3. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
-5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that are not needed. Remove those dependencies. If you are unsure that a dependency is needed, try removing it. 
+5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that are not needed. Remove those dependencies. If you are unsure that a dependency is needed, try removing it.
 6. Redeploy the template.
 
-Removing values from the **dependsOn** property can cause errors when you deploy the template. If you get an error, add the dependency back into the template. 
+Removing values from the **dependsOn** property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.
 
 If that approach doesn't solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you're deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 

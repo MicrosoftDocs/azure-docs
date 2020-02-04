@@ -62,7 +62,7 @@ Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for 
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-## 10.4: Provide security incident contact details and configure alert notifications &nbsp;for security incidents
+## 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

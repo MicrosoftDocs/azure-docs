@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Configure provisioning using Microsoft Graph APIs
 
-The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
+The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Overview of steps for using Microsoft Graph APIs to automate provisioning configuration**
 
@@ -45,7 +45,7 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 1. Start [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Select the "Sign-In with Microsoft" button and sign in using Azure AD global administrator or App Admin credentials.
 
-    ![Graph Sign-in](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Graph Sign-in](media/application-provisioning-configure-api/wd_export_02.png)
 
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 

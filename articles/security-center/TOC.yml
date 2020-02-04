@@ -1,4 +1,4 @@
-- name: Security Center Documentation
+- name: Security Center documentation
   href: index.yml
 - name: Overview
   items:
@@ -32,6 +32,10 @@
 
 - name: Concepts
   items:
+  - name: Secure Score in Security Center
+    href: security-center-secure-score.md
+  - name: The enhanced Secure Score
+    href: secure-score-security-controls.md
   - name: Permissions
     href: security-center-permissions.md
   - name: Data security
@@ -66,7 +70,7 @@
       href: security-center-alerts-data-services.md
     - name: Threat detection for Azure service layers
       href: security-center-alerts-service-layer.md   
-    - name: Threat detection for Azure WAF and Azure DDoS Protection
+    - name: Threat detection alerts from Azure WAF & Azure DDoS Protection
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
@@ -77,8 +81,6 @@
 
 - name: How-to guides
   items:
-  - name: Improve your secure score
-    href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Scan your VMs for vulnerabilities
@@ -176,8 +178,6 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
-    - name: Logic Apps playbooks
-      href: security-center-playbooks.md
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
 
