@@ -183,7 +183,7 @@ After the above command succeeds refer to [DNS Configuration required to access 
 ## Set-up a custom domain name in API Management
 
 > [!IMPORTANT]
-> The [new developer portal](api-management-howto-developer-portal) also requires enabling connectivity to the API Management's management endpoint in addition to the steps below.
+> The [new developer portal](api-management-howto-developer-portal.md) also requires enabling connectivity to the API Management's management endpoint in addition to the steps below.
 
 ### Step 1
 
