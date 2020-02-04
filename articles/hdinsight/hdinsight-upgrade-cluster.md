@@ -39,9 +39,9 @@ Once you have verified that everything works as expected, schedule downtime for 
 
 The following documents provide guidance on how to migrate specific workloads:
 
-* [Migrate HBase](/hbase/apache-hbase-migrate-new-version.md)
-* [Migrate Kafka](/kafka/migrate-versions.md)
-* [Migrate Hive/Interactive Query](/interactive-query/apache-hive-migrate-workloads.md)
+* [Migrate HBase](./hbase/apache-hbase-migrate-new-version.md)
+* [Migrate Kafka](./kafka/migrate-versions.md)
+* [Migrate Hive/Interactive Query](./interactive-query/apache-hive-migrate-workloads.md)
 
 ## Backup and restore
 
