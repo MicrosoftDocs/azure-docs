@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Using Synapse Studio
 
-In this quickstart, you will see and learn how easy it is to query various types of files using Synapse Studio.
+In this quickstart, you will see and learn how easy it is to query files using Synapse Studio.
 
 ## Prerequisites
 
@@ -24,6 +24,8 @@ In this quickstart, you will see and learn how easy it is to query various types
 Find you Azure Synapse workspace and use "Launch Synapse Studio" link to open the studio.
 
 ![Launch Synapse Studio](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
+
+As an alternative, go to https://web.azuresynapse.net and select tenant, subscription, and workspace.
 
 ## Browse storage accounts
 
@@ -47,7 +49,7 @@ Run the generated query or notebook to see the content of the file:
 
 ![See the content of file](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
-You can change the query to filter and sort results.
+You can change the query to filter and sort results. Find language features that are available in SQL on-demand in [SQL features overview](sql-analytics/overview-features.md).
 
 > [!WARNING]
 > If you want to create a Notebook, you would need to create [Spark Pool in the workspace](spark/apache-spark-notebook-create-spark-use-sql.md).
