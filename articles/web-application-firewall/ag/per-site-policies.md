@@ -260,15 +260,10 @@ $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicySite `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
-  -PolicySetting $PolicySettingURI `
-  -CustomRule $rule4, $rule5
+  -PolicySetting $PolicySettingURI
+  -CustomRules $rule4, $rule5
 
 $Gateway = Get-AzApplicationGateway -Name "myAppGateway"
-
-Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
-
-$AddressPool = New-AzApplicationGatewayBackendAddressPool -Name "appGatewayBackendPool" `
-defaultPool
 
 $PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" -Paths "/base" `
 -BackendAddressPool $defaultPool -BackendHttpSettings $HttpSettings -FirewallPolicy $wafPolicyURI
