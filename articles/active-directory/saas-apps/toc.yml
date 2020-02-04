@@ -1460,6 +1460,8 @@
         href: veracode-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
+      - name: Verkada Command
+        href: verkada-command-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)
