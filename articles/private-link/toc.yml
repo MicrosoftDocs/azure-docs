@@ -40,6 +40,13 @@
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
     href: manage-private-endpoint.md  
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot Private Endpoint connectivity problems
+      href: private-endpoint-connectivity-troubleshooting.md
+    - name: Troubleshoot Private Link Service connectivity problems
+      href: private-link-connectivity-troubleshooting.md 
+     
 
 - name: Reference
   items:
