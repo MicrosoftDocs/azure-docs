@@ -55,9 +55,10 @@ Finally, consider enabling encrypted connections for the instance of the SQL Ser
 
 ## Encryption
 
-Azure Disk Encryption provides industry-standard volume encryption for the OS and data disks, for both Windows and Linux virtual machines. 
+Managed disks offer Server Side Encryption, and Azure Disk Encryption. [Server Side Encryption](/azure/virtual-machines/windows/disk-encryption) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
 
-For more information, see [Server-side disk encryption](/azure/virtual-machines/windows/disk-encryption) and [Azure Data Encryption-at-rest](/azure/security/fundamentals/encryption-atrest).
+For more information about virtual machine encryption, see the [virtual machines security overview](/azure/security/fundamentals/virtual-machines-overview).
+
 
 ## Use a non-default port
 
