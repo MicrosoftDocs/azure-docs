@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 02/19/2020
 ms.author: victorh
 ---
 
@@ -55,7 +55,7 @@ Azure Firewall supports both traditional rules and policies. The following table
 
 ## Pricing
 
-Policies are billed based on firewall associations. A policy with no or a single firewall association is free of charge. A policy with multiple firewall associations is billed at a fixed rate. For more information, see [Azure Firewall Manager Pricing](https://azure.microsoft.com/pricing/details/firewall-manager/).
+Policies are billed based on firewall associations. A policy with zero or one firewall association is free of charge. A policy with multiple firewall associations is billed at a fixed rate. For more information, see [Azure Firewall Manager Pricing](https://azure.microsoft.com/pricing/details/firewall-manager/).
 
 ## Next steps
 
