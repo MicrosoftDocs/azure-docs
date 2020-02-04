@@ -598,7 +598,7 @@ To create an alert:
 
 1. Choose your Connection Monitor resource created using Connection Monitor (Preview)
 2. Ensure that "Metric" shows up as signal type for the resource selected in the previous step
-3. In Add Condition, choose Signal Name as ChecksFailedPercent (Preview) or RoundTripTimeMs (Preview) and Signal Type as Metrics. Eg: Choose ChecksFailedPercent(Preview)
+3. In Add Condition, choose Signal Name as ChecksFailedPercent(Preview) or RoundTripTimeMs(Preview) and Signal Type as Metrics. Eg: Choose ChecksFailedPercent(Preview)
 4. All the dimensions applicable as per metrics will be listed.  Choose the dimension name and dimension value. Eg: Choose Source Address and provide IP address of any source involved in Connection Monitor resource chosen in Step 1
 5. In Alert Logic, choose:
   1. Condition Type – Static
