@@ -1,15 +1,12 @@
 ---
 title: 'Leveraging S2S VPN to backup Azure ExpressRoute Private Peering | Microsoft Docs'
 description: This page provides architectural recommendations for backing up Azure ExpressRoute private peering with S2S VPN.
-documentationcenter: na
 services: networking
 author: rambk
-manager: tracsman
 
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 02/05/2020
+ms.date: 02/04/2020
 ms.author: rambala
 
 ---
