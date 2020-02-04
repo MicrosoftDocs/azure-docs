@@ -23,11 +23,7 @@ Azure Security Center covers the following three aspects of container security:
 - **Hardening of the container's environment (Kubernetes clusters and Docker machines)** - Security Center finds unmanaged containers hosted on IaaS Linux VMs or other Linux machines running Docker, and continuously compares the containers' configurations with the Center for Internet Security (CIS) Docker Benchmark. Security Center alerts you if your containers don't satisfy any of the controls. Continuous monitoring for security risks due to misconfigurations is a crucial component of any security program. 
     For detailed instructions, see [Hardening your containers' hosts](#hardening-your-containers-hosts) below.
 
-- **Runtime protection** - If you're on Security Center's standard pricing tier, you'll get real-time threat detection for your containerized environments. Security Center generates alerts for suspicious activities at the host and AKS cluster level.
-
-See below for explanations of how to use each of these features.  
-
-
+- **Runtime protection** - If you're on Security Center's standard pricing tier, you'll get real-time threat detection for your containerized environments. Security Center generates alerts for suspicious activities at the host and AKS cluster level. For details of the relevant security alerts that might appear, see the [Alerts for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster) and [Alerts for containers - host level](alerts-reference.md#alerts-containerhost) sections of the alerts reference table.
 
 ## Scanning your ARM-based container registries for vulnerabilities 
 
@@ -132,13 +128,6 @@ To view Azure Security Center's security recommendations for your containers' ho
 
 1. Tweak the query parameters and select **Run** when you're sure it's ready for your host. 
 
-
-## Responding to real-time threat detection
-
-Placeholder text.
-Placeholder text.
-Placeholder text.
-Placeholder text.
 
 
 ## Next steps
