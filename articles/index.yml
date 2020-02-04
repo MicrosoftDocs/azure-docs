@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 02/02/2020
+  ms.date: 02/04/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -350,7 +350,7 @@ productDirectory:
     # Card
     - title: Azure Synapse Analytics
       summary: Limitless analytics service with unmatched time to insight (formerly SQL Data Warehouse)
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
       azureCategories:
         - analytics
       url: sql-data-warehouse/index.yml
@@ -400,7 +400,7 @@ productDirectory:
     # Card
     - title: Power BI Embedded
       summary: Embed fully interactive, stunning data visualizations in your applications
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/power-bi.svg
       azureCategories:
         - analytics
       url: power-bi-embedded/index.md
@@ -456,7 +456,7 @@ productDirectory:
     # Card
     - title: API Apps
       summary: Easily build and consume Cloud APIs
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/api-apps.svg
       azureCategories:
         - compute
         - containers
@@ -506,7 +506,7 @@ productDirectory:
     # Card
     - title: Azure Spring Cloud
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/spring-cloud.svg
       azureCategories:
         - compute
         - web
@@ -637,7 +637,7 @@ productDirectory:
     # Card
     - title: Web App for Containers
       summary: Easily deploy and run containerized web apps that scale with your business
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/web-apps-containers.svg
       azureCategories:
         - containers
         - mobile
@@ -770,21 +770,21 @@ productDirectory:
     # Card
     - title: Visual Studio
       summary: The powerful and flexible environment for developing applications in the cloud
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/vs.svg
       azureCategories:
         - developerTools
       url: https://docs.microsoft.com/visualstudio/
     # Card
     - title: Visual Studio Code
       summary: A powerful, lightweight code editor for cloud development
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/vs-code.svg
       azureCategories:
         - developerTools
       url: https://code.visualstudio.com/docs
     # Card
     - title: Visual Studio Online (Preview)
       summary: Cloud-powered development environments accessible from anywhere
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/vs.svg
       azureCategories:
         - featured
         - developerTools
@@ -1004,7 +1004,7 @@ productDirectory:
     # Card
     - title: Windows 10 IoT Core Services
       summary: Long-term OS support and services to manage device updates and assess device health
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/iot-windows10-core-services.svg
       azureCategories:
         - iot
       url: https://docs.microsoft.com/windows/iot-core/
@@ -1049,7 +1049,7 @@ productDirectory:
     # Card
     - title: Azure Lighthouse
       summary: Empowering service providers to manage customers at scale and with precision
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/lighthouse.svg
       azureCategories:
         - managementAndGovernance
       url: lighthouse/index.yml
@@ -1100,7 +1100,7 @@ productDirectory:
     # Card
     - title: Cloud Shell
       summary: Streamline Azure administration with a browser-based shell
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/cloud-shell.svg
       azureCategories:
         - managementAndGovernance
       url: cloud-shell/overview.md
@@ -1115,7 +1115,7 @@ productDirectory:
     # Card
     - title: Azure portal
       summary: Build, manage, and monitor all Azure products in a single, unified console
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
         - managementAndGovernance
       url: azure-portal/index.yml
@@ -1212,7 +1212,7 @@ productDirectory:
     # Card
     - title: Xamarin
       summary: Create cloud-powered mobile apps faster
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/xamarin.svg
       azureCategories:
         - mobile
       url: https://docs.microsoft.com/xamarin/
@@ -1279,7 +1279,7 @@ productDirectory:
     # Card
     - title: Azure Private Link (Preview)
       summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/private-link.svg
       azureCategories:
         - featured
         - networking
