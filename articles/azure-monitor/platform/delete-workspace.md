@@ -20,7 +20,7 @@ When you delete a Log Analytics workspace, a soft-delete operation is performed 
 After the soft-delete period, the workspace resource and its data are non-recoverable – its data is queued for permanent deletion and completely purged within 30 days. The workspace name is 'released' and you can use it to create a new workspace.
 
 > [!NOTE]
-> The soft-delete behavior cannot be turned off. We will shortly add an option to override the soft-delete when using a ‘force’ tag in the delete operation.
+> If you want to override the soft-delete behavior and delete your workspace permanently, follow the steps in [Permanent workspace delete](#permanent-workspace-delete).
 
 You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operation. Review what agents, solutions, and other Azure services and sources that store their data in Log Analytics, such as:
 
@@ -60,7 +60,7 @@ The soft-delete method may not fit in some scenarios such as development and tes
 
 
 > [!IMPORTANT]
-> Use caution when permanently deleting your workspace since the operation is irreversible, and your workspace and its data won’t be recoverable.
+> Use permanent workspace delete operation with caution since its irreversible and you won’t be able to recover your workspace and its data.
 
 The permanent workspace delete can currently be performed via REST API.
 
@@ -77,6 +77,7 @@ To permanently delete your workspace, use the [Workspaces - Delete REST]( https:
 > DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
 > Authorization: Bearer eyJ0eXAiOiJKV1Qi….
 > ```
+Where ‘eyJ0eXAiOiJKV1Qi…’ represents the full authorization token.
 
 ## Recover workspace
 

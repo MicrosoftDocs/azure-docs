@@ -171,7 +171,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset register -f mydataset.json
     ```
 
-    For information on the format of the JSON file used to define the dataset, use `az ml dataset --show-template`.
+    For information on the format of the JSON file used to define the dataset, use `az ml dataset register --show-template`.
 
     For more information, see [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 

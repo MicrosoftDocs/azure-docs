@@ -15,10 +15,10 @@ manager: peterpr
 
 *This topic applies to administrators.*
 
-The IoT Central device bridge is an open-source solution that connects your Sigfox, Particle, The Things Network, and other clouds to your IoT Central app. Whether you are using asset tracking devices connected to Sigfox’s Low-Power-Wide Area Network, or using air quality monitoring devices on the Particle Device Cloud, or using soil moisture monitoring devices on TTN, you can directly leverage the power of IoT Central using the IoT Central device bridge. The device bridge connects other IoT clouds with IoT Central by forwarding the data your devices send to the other clouds through to your IoT Central app. In your IoT Central app, you can build rules and run analytics on that data, create workflows in Microsoft Flow and Azure Logic apps, export that data, and much more. Get the [IoT Central device bridge](https://aka.ms/iotcentralgithubdevicebridge) from GitHub
+The IoT Central device bridge is an open-source solution that connects your Sigfox, Particle, The Things Network, and other clouds to your IoT Central app. Whether you are using asset tracking devices connected to Sigfox's Low-Power-Wide Area Network, or using air quality monitoring devices on the Particle Device Cloud, or using soil moisture monitoring devices on TTN, you can directly leverage the power of IoT Central using the IoT Central device bridge. The device bridge connects other IoT clouds with IoT Central by forwarding the data your devices send to the other clouds through to your IoT Central app. In your IoT Central app, you can build rules and run analytics on that data, create workflows in Microsoft Flow and Azure Logic apps, export that data, and much more. Get the [IoT Central device bridge](https://aka.ms/iotcentralgithubdevicebridge) from GitHub
 
 ## What is it and how does it work?
-The IoT Central device bridge is an open-source solution in GitHub. It is ready to go with a “Deploy to Azure” button that deploys a custom Azure Resource Manager template with several Azure resources into your Azure subscription. The resources include:
+The IoT Central device bridge is an open-source solution in GitHub. It is ready to go with a "Deploy to Azure" button that deploys a custom Azure Resource Manager template with several Azure resources into your Azure subscription. The resources include:
 -	Azure Function app
 -	Azure Storage Account
 -	Consumption Plan
@@ -29,7 +29,7 @@ The Function app transforms the data into a format accepted by IoT Central and f
 
 ![Azure functions screenshot](media/howto-build-iotc-device-bridge/azfunctions.png)
 
-If your IoT Central app recognizes the device by device ID in the forwarded message, a new measurement will appear for that device. If the device ID has never been seen by your IoT Central app, your function app will attempt to register a new device with that device ID, and it will appear as an “Unassociated device” in your IoT Central app. 
+If your IoT Central app recognizes the device by device ID in the forwarded message, a new measurement will appear for that device. If the device ID has never been seen by your IoT Central app, your function app will attempt to register a new device with that device ID, and it will appear as an "Unassociated device" in your IoT Central app. 
 
 ## How do I set it up?
 The instructions are listed in detail in the README file in the GitHub repo. 

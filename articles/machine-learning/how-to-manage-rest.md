@@ -1,5 +1,6 @@
 ---
-title: Use REST to manage ML resources  
+title: Use REST to manage ML resources
+titleSuffix: Azure Machine Learning
 description: How to use REST APIs to create, run, and delete Azure ML resources 
 author: lobrien
 ms.author: laobri
@@ -10,18 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ---
 
-TODO:s/119ec674-a66c-4b3b-8514-57cb582c4c8c/your-subscription-id/
-TODO: s/laobri-rest/example-rest/
-TODO: Reference is https://docs.microsoft.com/rest/api/azureml/
-TODO: According to ^ its OAuth2 implicit
-
 # Create, run, and delete Azure ML resources using REST
 
-tk applies to boilerplate. tk
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-There are several ways to manage your Azure ML resources. You can use the [portal](tk), [command-line interface](tk), or [Python SDK](tk). 
-Or, you can use the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST
-API can be used from any language or tool capable of making HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), or [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
@@ -30,43 +24,36 @@ In this article, you learn how to:
 > * Create a properly-formatted REST request using service principal authentication
 > * Use GET requests to retrieve information about Azure ML's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
-> * Use tk authorization and score against deployed models
 > * Use DELETE requests to clean up resources 
-
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2, if one exists. You can find listed examples in
-[Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
+> * Use key-based authorization to score deployed models
 
 ## Prerequisites
 
-- workspace. You'll need your 
-- Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication#set-up-service-principal-authentication) to create a service principal in your workspace. 
-- The **curl** utility. This is available in the [Windows Subsystem for Linux](https://aka.ms/wslinstall/) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. tk TODO: Confirm that all my curl requests work in PS tk. This article uses curl since it is very widely available, but the [source code](tk) uses [Postman](tk), a tool that allows developers to organize requests, swap in variables, and view request and response details in an easy-to-use manner. 
-
+- An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree)
+- An [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+- Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) to create a service principal in your workspace
+- The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](https://aka.ms/wslinstall/) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
 ## Retrieve a service principal authentication token
 
-Administrative REST requests are authenticated by a token provided by your workspace's service principal. In order to retrieve this, you will need:
+Administrative REST requests are authenticated with an OAuth2 implicit flow. This authentication flow uses a token provided by your subscription's service principal. To retrieve this token, you'll need:
 
-- Your tenantid (identifying the organization to which your subscription belongs)
-- Your client id (which will be associated with the created token)
+- Your tenant ID (identifying the organization to which your subscription belongs)
+- Your client ID (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
-You should have these values from the response to the creation of your service principal (as discussed in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication#set-up-service-principal-authentication). If you are using your company subscription, it is possible that you do not have sufficient permissions to create a service principal. In that case, you should use a personal subscription, such as that provided with your Visual Studio subscription or (tk free? tk)
+You should have these values from the response to the creation of your service principal as discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
 
-To retrieve a token, open a terminal window and, substituting your own values as appropriate, run:
+To retrieve a token:
+
+1. Open a terminal window
+1. Enter the following code at the command line
+1. Substitute your own values for `{your-tenant-id}`, `{your-client-id}`, and `{your-client-secret}`. Throughout this article, strings surrounded by curly brackets are variables you'll have to replace with your own appropriate values.
+1. Run the command
 
 ```bash
-curl -d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=your-client-id&client_secret=your-client-secret" \
--X POST https://login.microsoftonline.com/your-tenant-id/oauth2/token
+curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
+-d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id={your-client-id}&client_secret={your-client-secret}" \
 ```
 
 The response should provide an access token good for one hour:
@@ -83,26 +70,23 @@ The response should provide an access token good for one hour:
 }
 ```
 
-Make note of the token, as you will use it to authenticate all subsequent administrative requests. You will do so by setting an Authorization header in all requests:
+Make note of the token, as you'll use it to authenticate all subsequent administrative requests. You'll do so by setting an Authorization header in all requests:
 
 ```bash
-curl -h "Authentication: Bearer your-access-token" ...more args...
+curl -h "Authentication: Bearer {your-access-token}" ...more args...
 ```
 
 Note that the value starts with the string "Bearer " including a single space before you add the token.
 
 ## Get a list of resource groups associated with your subscription
 
-| Resource | Verb | Description | 
-| ResourceGroups | GET | tk | 
-
-To retrieve the list of resource groups associate with your subscription, run:
+To retrieve the list of resource groups associated with your subscription, run:
 
 ```bash
-curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups?api-version=2019-11-01 -H "Authorization: Bearer your-access-token"
+curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but must do so without breaking existing programs. The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2019-11-01`. For storage accounts, it's 2019-06-01. For key vaults, it's 2019-09-01. All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
+Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but does so without breaking existing programs. The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2019-11-01`. For storage accounts, it's `2019-06-01`. For key vaults, it's `2019-09-01`. All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
 
 The above call will result in a compacted JSON response of the form: 
 
@@ -110,7 +94,7 @@ The above call will result in a compacted JSON response of the form:
 {
     "value": [
         {
-            "id": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourceGroups/RG1",
+            "id": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourceGroups/RG1",
             "name": "RG1",
             "type": "Microsoft.Resources/resourceGroups",
             "location": "westus2",
@@ -119,7 +103,7 @@ The above call will result in a compacted JSON response of the form:
             }
         },
         {
-            "id": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourceGroups/RG2",
+            "id": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourceGroups/RG2",
             "name": "RG2",
             "type": "Microsoft.Resources/resourceGroups",
             "location": "eastus",
@@ -131,21 +115,22 @@ The above call will result in a compacted JSON response of the form:
 }
 ```
 
+
 ## Drill down into workspaces and their resources
 
-To retrieve the set of workspaces in a resource group, run the following, substituting `your-subscription-id`, `your-resource-group`, and `your-access-token`: 
+To retrieve the set of workspaces in a resource group, run the following, substituting `{your-subscription-id}`, `{your-resource-group}`, and `{your-access-token}`: 
 
 ```
-curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 Again you'll receive a JSON list, this time containing a list, each item of which details a workspace:
 
 ```json
 {
-    "id": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourceGroups/DeepLearning5RG/providers/Microsoft.MachineLearningServices/workspaces/laobri-rest",
-    "name": "laobri-rest",
+    "id": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourceGroups/DeepLearningResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/my-workspace",
+    "name": "my-workspace",
     "type": "Microsoft.MachineLearningServices/workspaces",
     "location": "centralus",
     "tags": {},
@@ -154,20 +139,20 @@ Again you'll receive a JSON list, this time containing a list, each item of whic
         "friendlyName": "",
         "description": "",
         "creationTime": "2020-01-03T19:56:09.7588299+00:00",
-        "storageAccount": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourcegroups/deeplearning5rg/providers/microsoft.storage/storageaccounts/laobrirest0275623111",
+        "storageAccount": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourcegroups/DeepLearningResourceGroup/providers/microsoft.storage/storageaccounts/myworkspace0275623111",
         "containerRegistry": null,
-        "keyVault": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourcegroups/deeplearning5rg/providers/microsoft.keyvault/vaults/laobrirest2525649324",
-        "applicationInsights": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourcegroups/deeplearning5rg/providers/microsoft.insights/components/laobrirest2053523719",
+        "keyVault": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourcegroups/DeepLearningResourceGroup/providers/microsoft.keyvault/vaults/myworkspace2525649324",
+        "applicationInsights": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourcegroups/DeepLearningResourceGroup/providers/microsoft.insights/components/myworkspace2053523719",
         "hbiWorkspace": false,
-        "workspaceId": "12284440-cb1d-494f-92f2-be4dcd7d5297",
+        "workspaceId": "cba12345-abab-abab-abab-ababab123456",
         "subscriptionState": null,
         "subscriptionStatusChangeTimeStampUtc": null,
         "discoveryUrl": "https://centralus.experiments.azureml.net/discovery"
     },
     "identity": {
         "type": "SystemAssigned",
-        "principalId": "353497de-bc6d-493c-820a-36d10083ecfe",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+        "principalId": "abcdef1-abab-1234-1234-abababab123456",
+        "tenantId": "1fedcba-abab-1234-1234-abababab123456"
     },
     "sku": {
         "name": "Basic",
@@ -176,7 +161,7 @@ Again you'll receive a JSON list, this time containing a list, each item of whic
 }
 ```
 
-To work with resources within a workspace, you will need to switch from the general **management.azure.com** server to a REST API server specific to the location of the workspace. Note the value of the `discoveryUrl` key in the above JSON response. If you GET that URL, you'll receive a response along the lines of:
+To work with resources within a workspace, you'll switch from the general **management.azure.com** server to a REST API server specific to the location of the workspace. Note the value of the `discoveryUrl` key in the above JSON response. If you GET that URL, you'll receive a response something like:
 
 ```json
 {
@@ -193,20 +178,20 @@ To work with resources within a workspace, you will need to switch from the gene
 }
 ```
 
-The value of the `api` response is the URL of the server that you will use for additional requests. To list experiments, for instance, send the following. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
+The value of the `api` response is the URL of the server that you'll use for additional requests. To list experiments, for instance, send the following command. Replace `regional-api-server` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token` as usual:
 
 ```bash
-curl https://regional-api-server/history/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
-providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/experiments?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 Similarly, to retrieve registered models in your workspace, send:
 
 ```bash
-curl https://regional-api-server/modelmanagement/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
-providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/models?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
 Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. The API Reference docs at the links below list the operations, parameters, and response codes for the various operations.
@@ -216,45 +201,44 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 |Artifacts|artifact/v2.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Data stores|datastore/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |Hyperparameter tuning|hyperdrive/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodel)|
+|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
 |Run history|execution/v1.0/ and history/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/runs)|
 
 You can explore the REST API using the general pattern of:
 
-|_|Example|
+|URL component|Example|
+|-|-|
 | https://| |
-| regional-api-server/ | centralus.experiments.azureml.net/ |
+| regional-api-server/ | centralus.api.azureml.ms/ |
 | operations-path/ | history/v1.0/ |
-| subscriptions/your-subscription-id/ | subscriptions/d2128fd5-c6c5-402a-8ffb-052d91a0a6aa/ |
-| resourceGroups/your-resource-group/ | resourceGroups/MLProjectRG/ |
+| subscriptions/{your-subscription-id}/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
+| resourceGroups/{your-resource-group}/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
-| provider-resource-path | workspaces/MLWorkspace/experiments/FirstExperiment/runs/1/ |
+| provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
 
-The details of 
 
 ## Create and modify resources using PUT and POST requests
 
-In addition to resource retrieval with the GET verb, the REST API supports the creation of many resources. Commonly, you'll want to create training runs, tune hyperparameters, register a trained model, and deploy it. All of these steps can be achieved with the REST API. 
+In addition to resource retrieval with the GET verb, the REST API supports the creation of all the resources necessary to train, deploy, and monitor ML solutions. 
 
 Training and running ML models require compute resources. You can list the compute resources of a workspace with: 
 
-
 ```bash
-curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/\
-providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/computes?api-version=2019-11-01 \
--H "Authorization: Bearer your-access-token"
+curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/computes?api-version=2019-11-01 \
+-H "Authorization:Bearer {your-access-token}"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. The following creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `your-subscription-id`, `your-resource-group`, `your-workspace-name`, and `your-access-token`, substitute `your-compute-name`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace-name/computes/your-compute-name?api-version=2019-11-01' \
-  -H 'Authorization: Bearer your-access-token' \
+  'https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/computes/{your-compute-name}?api-version=2019-11-01' \
+  -H 'Authorization:Bearer {your-access-token}' \
   -H 'Content-Type: application/json' \
   -d '{
-    "location": "your-azure-location",
+    "location": "{your-azure-location}",
     "properties": {
         "computeType": "AmlCompute",
         "properties": {
@@ -268,8 +252,8 @@ curl -X PUT \
         }
     },
     "userAccountCredentials": {
-        "adminUserName": "admin",
-        "adminUserPassword": "stairway_seam_retiring_caveman"
+        "adminUserName": "{adminUserName}",
+        "adminUserPassword": "{adminUserPassword}"
     }
 }'
 ```
@@ -277,9 +261,11 @@ curl -X PUT \
 > [!Note]
 > In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
 
-A successful request will get a `201 Created` response, but note that this simply means that the provisioning process has begun. You will need to poll (or use the portal) to confirm the completion. 
+A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You'll need to poll (or use the portal) to confirm its successful completion.
 
-To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python such as the following into a folder called **train.zip**. 
+### Create an experimental run
+
+To start a run within an experiment, you need a zip folder containing your training script and related files, and a run definition JSON file. The zip folder must have the Python entry file in its root directory. As an example, zip a trivial Python program such as the following into a folder called **train.zip**.
 
 ```python
 # hello.py
@@ -287,7 +273,7 @@ To start a run within an experiment, you need a zip folder containing your train
 print("Hello, REST!")
 ```
 
-Save the following as **definition.json**. Confirm the "Script" value matches the name of the Python file you just zipped up. Confirm the "Target" value matches the name of an available compute resource. 
+Save this next snippet as **definition.json**. Confirm the "Script" value matches the name of the Python file you just zipped up. Confirm the "Target" value matches the name of an available compute resource. 
 
 ```json
 {
@@ -332,10 +318,10 @@ Save the following as **definition.json**. Confirm the "Script" value matches th
 Post these files to the server using `multipart/form-data` content:
 
 ```bash
-curl https://regional-api-server/execution/v1.0/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace/experiments/your-experiment-name/startrun?api-version=2019-11-01 \
+curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-name}/startrun?api-version=2019-11-01 \
   -X POST \
   -H "Content-Type: multipart/form-data" \
-  -H "Authorization: Bearer your-access-token" \
+  -H "Authorization:Bearer {your-access-token}" \
   -F projectZipFile=@train.zip \
   -F runDefinitionFile=@runDefinition.json
 ```
@@ -351,144 +337,68 @@ A successful POST request will generate a `200 OK` status, with a response body 
 You can monitor a run using the REST-ful pattern that should now be familiar:
 
 ```bash
-curl 'https://regional-api-server/history/v1.0/subscriptions/your-subscription/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/your-workspace/experiments/your-experiment/runs/your-run-id?api-version=2019-11-01' \
-  -H 'Authorization: Bearer your-access-token' 
+curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
+  -H 'Authorization:Bearer {your-access-token}'
 ```
 
-After training, but before deployment, you will want to register your model. A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
+### Delete resources you no longer need
 
-~~You may have a model that you have trained entirely outside of Azure. You can register such a model by ~~
-
-To register the outputs of a run as a model, 
-
-tk Well, all the business of registering a model seems problematic. So skip to: 
-
-Some, but not all, resources support the DELETE verb. Check the [API Reference](https://docs.microsoft.com/rest/api/azureml/) prior to committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
+Some, but not all, resources support the DELETE verb. Check the [API Reference](https://docs.microsoft.com/rest/api/azureml/) before committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
 
 ```bash
 curl
   -X DELETE \
-'https://regional-api-server/modelmanagement/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models/{id}' \
-  -H 'Authorization: Bearer your-access-token' 
+'https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models/{your-model-id}?api-version=2019-11-01' \
+  -H 'Authorization:Bearer {your-access-token}' 
 ```
 
-## Using REST on a deployed model
+## Use REST to score a deployed model
 
-While it's possible to deploy a model so that it authenticates with a service principal, most client-facing deployments use key-based authentication. To authent
+While it's possible to deploy a model so that it authenticates with a service principal, most client-facing deployments use key-based authentication. You can find the appropriate key in your deployment's page within the **Endpoints** tab of Studio. The same location will show your endpoint's scoring URI. Your model's inputs must be modeled as a JSON array named `data`:
 
-## Deploy a model 
-The REST API also supports updating many resources. For instance, 
-
-
-## tk 
-
-Deployed ML Web services use token-based authentication. 
-
-
-Sign in to the [<service> portal](url).
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
-
-## Procedure 1
-
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
-
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step 4 of the procedure
-
-## Procedure 2
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-
-## Procedure 3
-
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
-
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
-
-Here is an example of a code block for Java:
-
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
+```bash
+curl 'https://{scoring-uri}' \
+ -H 'Authorization:Bearer {your-key}' \
+ -H 'Content-Type: application/json' \
+  -d '{ "data" : [ {model-specific-data-structure} ] }
 ```
 
-or a code block for Azure CLI:
+## Create a workspace using REST 
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+Every Azure ML workspace has a dependency on four other Azure resources: a container registry with administration enabled, a key vault, an Application Insights resource, and a storage account. You cannot create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+
+To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}\
+/providers/Microsoft.MachineLearningServices/workspaces/{your-new-workspace-name}?api-version=2019-11-01' \
+  -H 'Authorization: Bearer {your-access-token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "{desired-region}",
+    "properties": {
+        "friendlyName" : "{your-workspace-friendly-name}",
+        "description" : "{your-workspace-description}",
+        "containerRegistry" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.ContainerRegistry/registries/{your-registry-name}",
+        keyVault" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}\
+/providers/Microsoft.Keyvault/vaults/{your-keyvault-name}",
+        "applicationInsights" : "subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.insights/components/{your-application-insights-name}",
+        "storageAccount" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
+providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
+    },
+    "identity" : {
+        "type" : "systemAssigned"
+    }
+}'
 ```
 
-or a code block for Azure PowerShell:
-
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
-
-
-## Clean up resources
-
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+You should receive a `202 Accepted` response and, in the returned headers, a `Location` URI. You can GET this URI for information on the deployment, including helpful debugging information if there is a problem with one of your dependent resources (for instance, if you forgot to enable admin access on your container registry). 
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+- Explore the complete [AzureML REST API reference](https://docs.microsoft.com/rest/api/azureml/).
+- Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Explore [Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

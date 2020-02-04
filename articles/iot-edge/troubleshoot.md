@@ -297,7 +297,7 @@ The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for perfor
 
 **Resolution**
 
-For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do set environment variables:
+For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to set environment variables:
 
 In the Azure portal:
 

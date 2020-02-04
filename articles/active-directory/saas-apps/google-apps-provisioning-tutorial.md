@@ -205,6 +205,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Common issues
 * Authorization failures can occur when the account used to establish a connection is not for an administrator in GSuite. Ensure that the account used to authorize access has admin permissions over **all domains** that users need to be provisioned with. 
+* Azure AD supports disabling users in GSuite so that they cannot access the application, but it does not delete users in GSuite.
 
 ## Next steps
 

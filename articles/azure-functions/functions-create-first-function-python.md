@@ -10,7 +10,7 @@ ms.custom: mvc
 
 In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-code-serverless-python-01) of this article.
+There is also a [Visual Studio Code-based version](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) of this article.
 
 ## Prerequisites
 
@@ -202,7 +202,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 
-1. If you haven't done so already, sign in to Azure with the [az login](/cli/azure/group#az-login) command:
+1. If you haven't done so already, sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
 
     ```azurecli
     az login
