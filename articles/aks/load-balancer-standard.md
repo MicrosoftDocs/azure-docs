@@ -160,7 +160,7 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
-## Configure outbound allocated ports and idle timeout
+## Configure outbound ports and idle timeout
 
 > [!WARNING]
 > The following section is intended for advanced scenarios of larger scale networking or for addressing SNAT exhaustion issues with the default configurations. You must have an accurate inventory of available quota for VMs and IP addresses before changing *AllocatedOutboundPorts* or *IdleTimeoutInMinutes* from their default value in order to maintain healthy clusters.
