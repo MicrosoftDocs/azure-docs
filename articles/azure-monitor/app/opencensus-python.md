@@ -333,9 +333,9 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
         main()
     ```
 
-6. You can also add custom dimensions to your logs. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
+6. You can also add custom properties to your log messages in the *extra* keyword argument using the custom_dimensions field. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
 > [!NOTE]
-> For this feature to work, you need to pass a dictionary as an argument to your logs, any other data structure will be ignored. To maintain string formatting, store them in a dictionary and pass them as arguments.
+> For this feature to work, you need to pass a dictionary to the custom_dimensions field. If you pass arguments of any other type, the logger will ignore them.
 
     ```python
     import logging
@@ -347,7 +347,17 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+    # Use properties in logging statements
+    logger.warning('action', extra=properties)
+
+    # Use properties in exception logs
+    try:
+        result = 1 / 0  # generate a ZeroDivisionError
+    except Exception:
+    logger.exception('Captured an exception.', extra=properties)
     ```
 
 7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
