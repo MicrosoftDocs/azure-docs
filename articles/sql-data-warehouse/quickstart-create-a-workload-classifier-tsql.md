@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a workload classifier - T-SQL '
+title: 'Quickstart: Create a workload classifier - T-SQL'
 description: Use T-SQL to create a workload classifier with high importance.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,9 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
+ms.custom: azure-synapse
 ---
 
 # Quickstart: Create a workload classifier using T-SQL
@@ -19,7 +20,7 @@ In this quickstart, you'll quickly create a workload classifier with high import
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a SQL Analytics instance in Azure Synapse Analytics may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
@@ -103,5 +104,5 @@ Follow these steps to clean up resources.
 ## Next steps
 
 - You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
-- For more information about Azure SQL Data Warehouse workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
+- For more information about SQL Analytics workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
 - See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

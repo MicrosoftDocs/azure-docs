@@ -7,10 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 11/21/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
 # Quickstart: Configure workload isolation using T-SQL
@@ -20,13 +20,13 @@ In this quickstart, you'll quickly create a workload group and classifier for re
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a SQL Analytics instance in Azure Synapse Analytics may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## Prerequisites
  
-This quickstart assumes you already have a SQL Data Warehouse and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL Analytics instance in Azure Synapse and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Sign in to the Azure portal
 
@@ -104,7 +104,7 @@ DROP USER [ELTLogin]
 
 You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
 
-- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
+- If you want to keep the data in storage, you can pause compute when you aren't using the SQL pool. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
 - If you want to remove future charges, you can delete the data warehouse.
 
 Follow these steps to clean up resources.
@@ -124,4 +124,4 @@ Follow these steps to clean up resources.
 ## Next steps
 
 - You've now created a workload group. Run a few queries as ELTLogin to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the workload group assigned.
-- For more information about Azure SQL Data Warehouse workload management, see [Workload Management](sql-data-warehouse-workload-management.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).
+- For more information about SQL Analytics workload management, see [Workload Management](sql-data-warehouse-workload-management.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).
