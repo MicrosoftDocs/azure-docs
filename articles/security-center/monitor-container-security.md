@@ -17,7 +17,7 @@ This page explains how to use the container security features described in the [
 
 Azure Security Center covers the following three aspects of container security:
 
-- **Vulnerability management** - If you're on Security Center's standard pricing tier (see [pricing](/azure/security-center/security-center-pricing)), you can scan your Azure Container Registry every time a new image is pushed. The scanner (powered by Qualys) presents findings as Security Center recommendations.
+- **Vulnerability management** - If you're on Security Center's standard pricing tier (see [pricing](/azure/security-center/security-center-pricing)), you can scan your ARM-based Azure Container Registry every time a new image is pushed. The scanner (powered by Qualys) presents findings as Security Center recommendations.
     For detailed instructions, see [Scanning your container registries for vulnerabilities](#scanning-your-container-registries-for-vulnerabilities) below.
 
 - **Hardening of the container's environment** - Security Center finds unmanaged containers hosted on IaaS Linux VMs or other Linux machines running Docker, and continuously compares the containers' configurations with the Center for Internet Security (CIS) Docker Benchmark. Security Center alerts you if your containers don't satisfy any of the controls. Continuous monitoring for security risks due to misconfigurations is a crucial component of any security program. 
@@ -29,11 +29,12 @@ See below for explanations of how to use each of these features.
 
 
 
-## Scanning your container registries for vulnerabilities 
+## Scanning your ARM-based container registries for vulnerabilities 
 
 1. To enable vulnerability scans of your Azure Container Registry images:
 
     1. Ensure you're on Azure Security Center's standard pricing tier.
+
     1. From the **Pricing & settings** page, enable the optional Container Registries bundle for your subscription:
     ![Enabling the Container Registries bundle](media/monitor-container-security/enabling-container-registries-bundle.png)
 
@@ -99,7 +100,7 @@ See below for explanations of how to use each of these features.
 
 ## Hardening your containers' hosts
 
-Security Center constantly monitors the configuration of your Kubernetes clusters, and generates security recommendations that reflect industry standards.
+Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations, and generates security recommendations that reflect industry standards.
 
 To view Azure Security Center's security recommendations for your containers' hosts:
 
@@ -125,7 +126,7 @@ To view Azure Security Center's security recommendations for your containers' ho
 
     [![Take action button](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
 
-    Log Analytics opens with a custom operation ready to run.
+    Log Analytics opens with a custom operation ready to run. The default custom query includes a list of all failed rules that were assessed, along with guidelines to help you resolve the issues.
 
     [![Log Analytics action](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 

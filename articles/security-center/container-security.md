@@ -19,13 +19,15 @@ ms.author: memildin
 
 Azure Security Center is the Azure-native solution for container security. Security Center is also the optimal single pane of glass experience for the security of your cloud workloads, VMs, servers, and containers.
 
-This article describes how you can improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
+This article describes how Security Center helps you improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
 
 * Vulnerability management
 * Hardening of the container's environment
 * Runtime protection
 
 [![Azure Security Center's container security tab](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
+
+For instructions on how to use these features, see [Monitoring the security of your containers](monitor-container-security.md).
 
 ## Vulnerability management - scanning container images (Preview)
 To monitor your ARM-based Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](/azure/security-center/security-center-pricing)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
@@ -37,7 +39,11 @@ When issues are found – by Qualys or Security Center – you’ll get notified
 ### Continuous monitoring of your Docker configuration
 Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/)).
 
-Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. When you're exploring the security issues on a virtual machine, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. For details of the recommendations, see [here](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-protection).
+Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. 
+
+For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+
+When you're exploring the security issues of a VM, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. 
 
 >[!NOTE]
 > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
@@ -49,7 +55,7 @@ AKS provides security controls and visibility into the security posture of your 
 * Constantly monitor the configuration of your AKS clusters
 * Generate security recommendations aligned with industry standards
 
-For details of Security Center's recommendations, see [Virtual Machine protection](security-center-virtual-machine-protection.md).
+For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
 ## Run-time protection - Real-time threat detection
 

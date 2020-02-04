@@ -162,6 +162,8 @@ When you open the **Containers** tab, depending on your environment, you might s
 
 ![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries - Shown only when you're on the standard pricing tier and when you have the Azure Container Registry bundle enabled.
 
+For instructions on how to use the container security features, see [Monitoring the security of your containers](monitor-container-security.md).
+
 Benefits of the Azure Container Registry bundle are explained [here](azure-container-registry-integration.md)
 
 Benefits of the Kubernetes Services bundle are explained [here](azure-kubernetes-service-integration.md)
@@ -189,8 +191,6 @@ When you click one of the VMs running docker, you'll see the details page with i
 Security Center scans your Docker configurations and gives you visibility into misconfigurations by providing a list of all failed rules that were assessed. Security Center provides guidelines to help you resolve these issues quickly and save time. Security Center continuously assesses the Docker configurations and provides you with their latest state.
 
 ![container tab](./media/security-center-container-recommendations/container-cis-benchmark.png)
-
-
 
 
 ## Next steps

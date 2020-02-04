@@ -35,7 +35,7 @@ Using the two services together provides:
     > [!NOTE]
     > If the name of a Security Center recommendation ends with a "(Preview)" tag, it's referring to the preview nature of the recommendation; not the feature.
 
-* **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters, and generates security recommendations that reflect industry standards.
+* **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations, and generates security recommendations that reflect industry standards.
 
 * **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level (for more information, see [threat detection for Azure containers](security-center-alerts-compute.md#azure-containers-)):
     * Raw security events, such as network data and process creation
