@@ -1,10 +1,10 @@
 ---
-title: Deploy from GitHub
-description: Use deploy to Azure button to deploy templates in GitHub repository.
+title: Deploy to Azure button
+description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
 ms.date: 02/03/2020
 ---
-# Use button to deploy from GitHub repository
+# Use button to deploy templates from GitHub repository
 
 This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to your GitHub repository or to a web page that references the repository.
 
