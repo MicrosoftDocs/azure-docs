@@ -1,0 +1,6 @@
+- name: Sample model
+  href: sample-model.md
+- name: Scripts for frontend authentication
+  href: powershell-example-scripts-for-frontend.md
+- name: Khronos Group glTF sample models
+  href: https://github.com/KhronosGroup/glTF-Sample-Models
