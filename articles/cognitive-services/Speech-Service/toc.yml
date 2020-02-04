@@ -7,8 +7,6 @@
     href: overview.md
   - name: Try Speech service for free
     href: get-started.md
-  - name: Create Speech service resource
-    href: get-started.md#create-a-speech-resource-in-azure
   - name: Language and region support
     href: language-support.md
     displayName: "languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice"

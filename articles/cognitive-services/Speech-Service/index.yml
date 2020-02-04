@@ -45,8 +45,6 @@ landingContent:
           url: speech-devices-sdk.md
         - text: Supported regions
           url: regions.md
-        - text: Support and help
-          url: support.md
 
 - title: Speech-to-text
   linkLists:
@@ -251,6 +249,8 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
+        - text: Support and help
+          url: support.md
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
         - text: Stack Overflow
