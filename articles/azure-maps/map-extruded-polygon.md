@@ -29,7 +29,7 @@ When a [polygon extrusion layer](https://docs.microsoft.com/javascript/api/azure
   See the Pen <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Extruded polygon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
 
 
-## Add data driven multipolygons
+## Add data driven polygons
 
 A choropleth map can be rendered using the polygon extrusion layer, by setting its `height` and `fillColor` properties in proportion to the measurement of the statistical variable in the `Polygon` and `MultiPolygon` feature geometries. The following code sample shows an extruded choropleth Map of the U.S based on the measurement of the population density by state.
 

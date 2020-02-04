@@ -44,7 +44,7 @@ map.sources.add(datasource);
 //Load a dataset of points, in this case earthquake data from the USGS.
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
 
-//Create a heatmap and add it to the map.
+//Create a heat map and add it to the map.
 map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
   radius: 10,
   opacity: 0.8
@@ -74,7 +74,7 @@ The previous example customized the heat map by setting the radius and opacity o
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |	
 
 - `opacity`: Specifies how opaque or transparent the heat map layer is.
-- `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heatmap. This helps to make the small differences in the weight of data points easier to visualize.
+- `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heat map. This helps to make the small differences in the weight of data points easier to visualize.
 - `weight`: By default, all data points have a weight of 1, and are weighted equally. The weight option acts as a multiplier, and you can set it as a number or an expression. If a number (for example, 2) is set as the weight, it's the equivalent of placing each data point on the map twice, thus doubling the density. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. 
 
   However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose that each data point represents an earthquake. An important metric each earthquake data point has is a magnitude value. Earthquakes happen all the time, but most have a low magnitude, and aren't even felt. By using the magnitude value in an expression to assign the weight to each data point, you get a better representation of the significance of earthquakes within the heat map.
@@ -109,7 +109,7 @@ Scaling the radius so that it doubles with each zoom level creates a heat map th
 >    weight: ['get', 'point_count']
 > });
 > ```
-> If the clustering radius is only a few pixels, there's little visual difference in the rendering. A larger radius groups more points into each cluster, and improves the performance of the heatmap.
+> If the clustering radius is only a few pixels, there's little visual difference in the rendering. A larger radius groups more points into each cluster, and improves the performance of the heat map.
 
 ## Next steps
 
