@@ -192,66 +192,66 @@ Given the calculation above the minimum size of the subnet, in which API Managem
 
 The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be whitelisted along with the **Region** specific IP Address.
 
-| **Azure Environment** |         **Region**        |  **IP Address** |
-|:-----------------:|:-------------------------:|:---------------:|
-| Azure Public      | South Central US (Global) | 104.214.19.224  |
-| Azure Public      | North Central US (Global) | 52.162.110.80   |
-| Azure Public      | West Central US           | 52.253.135.58   |
-| Azure Public      | Korea Central             | 40.82.157.167   |
-| Azure Public      | UK West                   | 51.137.136.0    |
-| Azure Public      | Japan West                | 40.81.185.8     |
-| Azure Public      | North Central US          | 40.81.47.216    |
-| Azure Public      | UK South                  | 51.145.56.125   |
-| Azure Public      | West India                | 40.81.89.24     |
-| Azure Public      | East US                   | 52.224.186.99   |
-| Azure Public      | West Europe               | 51.145.179.78   |
-| Azure Public      | Japan East                | 52.140.238.179  |
-| Azure Public      | France Central            | 40.66.60.111    |
-| Azure Public      | Canada East               | 52.139.80.117   |
-| Azure Public      | UAE North                 | 20.46.144.85    |
-| Azure Public      | Brazil South              | 191.233.24.179  |
-| Azure Public      | Southeast Asia            | 40.90.185.46    |
-| Azure Public      | South Africa North        | 102.133.130.197 |
-| Azure Public      | Canada Central            | 52.139.20.34    |
-| Azure Public      | Korea South               | 40.80.232.185   |
-| Azure Public      | Central India             | 13.71.49.1      |
-| Azure Public      | West US                   | 13.64.39.16     |
-| Azure Public      | Australia Southeast       | 20.40.160.107   |
-| Azure Public      | Australia Central         | 20.37.52.67     |
-| Azure Public      | South India               | 20.44.33.246    |
-| Azure Public      | Central US                | 13.86.102.66    |
-| Azure Public      | Australia East            | 20.40.125.155   |
-| Azure Public      | West US 2                 | 51.143.127.203  |
-| Azure Public      | East US 2 EUAP            | 52.253.229.253  |
-| Azure Public      | Central US EUAP           | 52.253.159.160  |
-| Azure Public      | South Central US          | 20.188.77.119   |
-| Azure Public      | East US 2                 | 20.44.72.3      |
-| Azure Public      | North Europe              | 52.142.95.35    |
-| Azure Public      | East Asia                 | 52.139.152.27   |
-| Azure Public      | France South              | 20.39.80.2      |
-| Azure Public      | Switzerland West          | 51.107.96.8     |
-| Azure Public      | Australia Central 2       | 20.39.99.81     |
-| Azure Public      | UAE Central               | 20.37.81.41     |
-| Azure Public      | Switzerland North         | 51.107.0.91     |
-| Azure Public      | South Africa West         | 102.133.0.79    |
-| Azure Public      | Germany West Central      | 51.116.96.0     |
-| Azure Public      | Germany North             | 51.116.0.0      |
-| Azure Public      | Norway East               | 51.120.2.185    |
-| Azure Public      | Norway West               | 51.120.130.134  |
-| Azure China Cloud | China North (Global)      | 139.217.51.16   |
-| Azure China Cloud | China East (Global)       | 139.217.171.176 |
-| Azure China Cloud | China North               | 40.125.137.220  |
-| Azure China Cloud | China East                | 40.126.120.30   |
-| Azure China Cloud | China North 2             | 40.73.41.178    |
-| Azure China Cloud | China East 2              | 40.73.104.4     |
-| Azure Government  | USGov Virginia (Global)   | 52.127.42.160   |
-| Azure Government  | USGov Texas (Global)      | 52.127.34.192   |
-| Azure Government  | USGov Virginia            | 52.227.222.92   |
-| Azure Government  | USGov Iowa                | 13.73.72.21     |
-| Azure Government  | USGov Arizona             | 52.244.32.39    |
-| Azure Government  | USGov Texas               | 52.243.154.118  |
-| Azure Government  | USDoD Central             | 52.182.32.132   |
-| Azure Government  | USDoD East                | 52.181.32.192   |
+| **Azure Environment**|   **Region**|  **IP Address**|
+|-----------------|-------------------------|---------------|
+| Azure Public| South Central US (Global)| 104.214.19.224|
+| Azure Public| North Central US (Global)| 52.162.110.80|
+| Azure Public| West Central US| 52.253.135.58|
+| Azure Public| Korea Central| 40.82.157.167|
+| Azure Public| UK West| 51.137.136.0|
+| Azure Public| Japan West| 40.81.185.8|
+| Azure Public| North Central US| 40.81.47.216|
+| Azure Public| UK South| 51.145.56.125|
+| Azure Public| West India| 40.81.89.24|
+| Azure Public| East US| 52.224.186.99|
+| Azure Public| West Europe| 51.145.179.78|
+| Azure Public| Japan East| 52.140.238.179|
+| Azure Public| France Central| 40.66.60.111|
+| Azure Public| Canada East| 52.139.80.117|
+| Azure Public| UAE North| 20.46.144.85|
+| Azure Public| Brazil South| 191.233.24.179|
+| Azure Public| Southeast Asia| 40.90.185.46|
+| Azure Public| South Africa North| 102.133.130.197|
+| Azure Public| Canada Central| 52.139.20.34|
+| Azure Public| Korea South| 40.80.232.185|
+| Azure Public| Central India| 13.71.49.1|
+| Azure Public| West US| 13.64.39.16|
+| Azure Public| Australia Southeast| 20.40.160.107|
+| Azure Public| Australia Central| 20.37.52.67|
+| Azure Public| South India| 20.44.33.246|
+| Azure Public| Central US| 13.86.102.66|
+| Azure Public| Australia East| 20.40.125.155|
+| Azure Public| West US 2| 51.143.127.203|
+| Azure Public| East US 2 EUAP| 52.253.229.253|
+| Azure Public| Central US EUAP| 52.253.159.160|
+| Azure Public| South Central US| 20.188.77.119|
+| Azure Public| East US 2| 20.44.72.3|
+| Azure Public| North Europe| 52.142.95.35|
+| Azure Public| East Asia| 52.139.152.27|
+| Azure Public| France South| 20.39.80.2|
+| Azure Public| Switzerland West| 51.107.96.8|
+| Azure Public| Australia Central 2| 20.39.99.81|
+| Azure Public| UAE Central| 20.37.81.41|
+| Azure Public| Switzerland North| 51.107.0.91|
+| Azure Public| South Africa West| 102.133.0.79|
+| Azure Public| Germany West Central| 51.116.96.0|
+| Azure Public| Germany North| 51.116.0.0|
+| Azure Public| Norway East| 51.120.2.185|
+| Azure Public| Norway West| 51.120.130.134|
+| Azure China Cloud| China North (Global)| 139.217.51.16|
+| Azure China Cloud| China East (Global)| 139.217.171.176|
+| Azure China Cloud| China North| 40.125.137.220|
+| Azure China Cloud| China East| 40.126.120.30|
+| Azure China Cloud| China North 2| 40.73.41.178|
+| Azure China Cloud| China East 2| 40.73.104.4|
+| Azure Government| USGov Virginia (Global)| 52.127.42.160|
+| Azure Government| USGov Texas (Global)| 52.127.34.192|
+| Azure Government| USGov Virginia| 52.227.222.92|
+| Azure Government| USGov Iowa| 13.73.72.21|
+| Azure Government| USGov Arizona| 52.244.32.39|
+| Azure Government| USGov Texas| 52.243.154.118|
+| Azure Government| USDoD Central| 52.182.32.132|
+| Azure Government| USDoD East| 52.181.32.192|
 
 ## <a name="related-content"> </a>Related content
 * [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
