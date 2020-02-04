@@ -107,9 +107,9 @@ Select all of the Dynamics 365 products that this offer applies to.
 
 Enter the version number of your offer. Customers will see this version listed on the offer's detail page. If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.
 
-### Standard Contract for the Microsoft commercial marketplace
+### Terms and conditions
 
-[!INCLUDE [Standard Contract](./includes/marketplace-contract-text.md)]
+Provide your own legal terms and conditions in the **Terms and conditions** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 ## Offer listing
 

@@ -103,9 +103,9 @@ Select a minimum of one and a maximum of three categories, which will be used to
 
 Enter the version number of your offer. Customers will see this version listed on the offer's detail page.
 
-### Standard Contract for the Microsoft commercial marketplace
+### Terms and conditions
 
-[!INCLUDE [Standard Contract](./includes/marketplace-contract-text.md)]
+Provide your own legal terms and conditions in the **Terms and conditions** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 ## Offer listing
 
