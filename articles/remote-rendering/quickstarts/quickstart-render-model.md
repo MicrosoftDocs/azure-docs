@@ -102,8 +102,8 @@ Select *RemoteRendering > AccountInfo*  from the main menu. Enter your [account 
 You only need to set the **AccountDomain**, **AccountId**, and **AccountKey**. Leave the other fields empty.
 
 > [!IMPORTANT]
-> Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is not sufficient for successfully connecting to ARR.
-> Always set **AccountDomain** to _**westus2**.mixedreality.azure.com_.
+> Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is not sufficient for successfully connecting to ARR
+> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is **westus2** or **westeurope**.
 
 These credentials will be saved to Unity's editor preferences.
 
