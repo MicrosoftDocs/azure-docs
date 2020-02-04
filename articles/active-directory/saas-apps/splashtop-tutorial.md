@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/30/2020
+ms.date: 02/04/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Splashtop supports **SP** initiated SSO
 
-* Once you configure the Splashtop you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Splashtop you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Splashtop from the gallery
 
@@ -131,17 +131,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you will need to apply for a new SSO method from [Splashtop web portal](https://my.splashtop.com/login).
 1. In the Splashtop web portal, go to **Account info** / **Team** tab, scroll down to find **Single Sign On** section. Then click **Apply for new SSO method**.
 
-	![image](media/splashtop-tutorial/apply_for_new_SSO_method.png)
+	![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
 1. On the applying window, give an **SSO name**. For example, New Azure, then select **Azure** as the IDP type, and insert **Login URL** and **Azure AD Identifier** copied from Splashtop application on Azure portal.
 
-	![image](media/splashtop-tutorial/azure_sso_1.png)
+	![image](media/splashtop-tutorial/azure-sso-1.png)
 
-1. For certificate info, right-click on the cert file downloaded from Splashtop application on Azure portal, edit it with Notepad, then copy the contents, paste it in **Download Certificate (Base64)** field.
+1. For certificate info,right-click on the cert file downloaded from Splashtop application on Azure portal, edit it with Notepad, then copy the contents, paste it in **Download Certificate (Base64)** field.
 
-	![image](media/splashtop-tutorial/cert_1.png)
-	![image](media/splashtop-tutorial/cert_2.png)
-	![image](media/splashtop-tutorial/azure_sso_2.png)
+	![image](media/splashtop-tutorial/cert-1.png)
+	![image](media/splashtop-tutorial/cert-2.png)
+	![image](media/splashtop-tutorial/azure-sso-2.png)
 
 1. That's it! Click **Save** and Splashtop SSO validation team will contact you for the verification info, then activate the SSO method.
 
@@ -163,7 +163,7 @@ In this section, you will need to apply for a new SSO method from [Splashtop web
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Splashtop tile in the Access Panel, you should be automatically signed in to the Splashtop for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Splashtop tile in the Access Panel, you should be automatically signed in to the Splashtop for which you set-up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
