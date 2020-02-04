@@ -1231,7 +1231,7 @@ The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 ### Azure Machine Learning Data Prep SDK v1.1.2
 
-Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://aka.ms/aml-data-prep-installation).
+Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://github.com/Microsoft/AMLDataPrepDocs).
 
 + **New features**
   + You can now use the Pivot transform.
