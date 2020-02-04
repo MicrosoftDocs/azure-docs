@@ -26,7 +26,7 @@ Azure managed disks with shared disks enabled offer shared block storage that ca
 
 ## Sample workloads
 
-There could be a number of clustered servers, file systems, and database servers running in your on-premises production environment. The following are a few common workloads that run on your clustered systems:
+There could be a number of clustered servers, file systems, and database servers running in your on-premises production environment. The following common workloads may run on your clustered systems:
 
 ### Windows
 
