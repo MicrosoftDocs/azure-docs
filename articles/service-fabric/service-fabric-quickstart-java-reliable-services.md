@@ -43,7 +43,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Open Eclipse.
 3. Select **File** > **Import** > **Gradle** > **Existing Gradle Project** and follow the wizard.
-4. Select **Directory** and choose the *Voting* directory from the *service-fabric-java-quickstart* folder you cloned from GitHub. Select **Finish**.
+4. Select **Directory** and choose the **Voting** directory from the **service-fabric-java-quickstart** folder you cloned from GitHub. Select **Finish**.
 
     ![Import Gradle project into Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
