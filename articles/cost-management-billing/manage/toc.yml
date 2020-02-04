@@ -101,8 +101,6 @@
       href: ea-portal-vm-reservations.md
     - name: Troubleshoot Azure EA portal access
       href: ea-portal-troubleshoot.md
-    - name: EA tasks in Microsoft Customer Agreement
-      href: mca-enterprise-operations.md
 - name: Troubleshoot
   items:
   - name: No subscriptions found
