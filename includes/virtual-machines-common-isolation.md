@@ -24,16 +24,18 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 
 You can learn more about each available isolated size [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
-## Retiring D15_v2/DS15_v2 isolation on February 15, 2020
-Azure Dedicated Host is now GA, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **February 15, 2020** the D15_v2/DS15_v2 Azure VMs will no longer be hardware isolated.
+## Retiring D15_v2/DS15_v2 isolation on May 15, 2020
+**Update on 02/04/2020: The "isolation" retirement timeline has been extended to May 15, 2020"**
+
+Azure Dedicated Host is now GA, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **May 15, 2020** the D15_v2/DS15_v2 Azure VMs will no longer be hardware isolated.
 
 ## How does this affect me?
-After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
+After May 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
 
 ## What actions should I take?
 If hardware isolation is not required for you, there is no action you need to take. 
 
-If isolation is required to you, before February 15, 2020, you would need to either:
+If isolation is required to you, before May 15, 2020, you would need to either:
 
 •	[Migrate](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) your workload to Azure Dedicated Host.
 
@@ -46,13 +48,19 @@ For details see below:
 ## Timeline
 | Date | Action | 
 | --- | --- |
-| Nov 18, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
-| Feb 14, 2020	| Last day to buy D/DS15i_v2 1-year RI | 
-| Feb 15, 2020	 | D/DS15_v2 isolation guarantee removed | 
+| November 18, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
+| May 14, 2020	| Last day to buy D/DS15i_v2 1-year RI | 
+| May 15, 2020	 | D/DS15_v2 isolation guarantee removed | 
 | May 15, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 18, 2019)| 
-| Nov 17, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 18, 2019) | 
+| November 17, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 18, 2019) | 
 
 ## FAQ
+### Q: Is the size D/DS15_v2 going to get retired?
+**A**: No, only "isolation" feature is going to get retired. If you do not need isolation you do not need to take any action.
+
+### Q: Is the size D/DS15i_v2 going to get retired?
+**A**: Yes, the size is only available till May 15,2021. For customers who have bought 3-year RIs on D/DS15_v2 before November 18, 2019 will have access to D/DS15i_v2 till November 17, 2022.
+
 ### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
 **A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
