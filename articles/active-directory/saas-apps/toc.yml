@@ -159,6 +159,8 @@
         href: bambubysproutsocial-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beekeeper Azure AD Data Connector
+        href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
         href: beeline-tutorial.md
       - name: Benchling
