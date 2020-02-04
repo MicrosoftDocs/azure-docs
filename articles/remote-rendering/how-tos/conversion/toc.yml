@@ -1,6 +1,10 @@
+- name: Model conversion
+  href: model-conversion.md
+- name: How to use Azure Blob Storage for model conversion
+  href: blob-storage.md
 - name: The model conversion REST API
   href: conversion-rest-api.md
-- name: Configuring the model conversion
+- name: How to configure model conversion
   href: configure-model-conversion.md
-- name: Overriding materials during model conversion
+- name: How to override materials during model conversion
   href: override-materials.md
