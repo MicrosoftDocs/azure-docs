@@ -33,6 +33,13 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## January 2020
+
+### Improvements in media processors
+
+- Improved support for interlaced sources in Video Analysis – such content is now de-interlaced correctly before being sent to inference engines.
+- When generating thumbnails with the “Best” mode, the encoder now searches beyond 30 seconds to select a frame that is not monochromatic.
+ 
 ## November 2019
 
 ### Live transcription Preview
@@ -127,7 +134,7 @@ See examples:
 
 ### Azure Monitor support for Media Services diagnostic logs and metrics
 
-You can now use Azure Monitor to view telemetry data emmited by Media Services.
+You can now use Azure Monitor to view telemetry data emitted by Media Services.
 
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
 * Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   

@@ -31,6 +31,22 @@ For information about the support policy for Azure VMs, see [Microsoft server so
 >1. The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required to be done and followed on the Guest OS to prepare the image prior the migration.
 
+## System File Checker (SFC) command
+
+### Run Windows System File Checker utility (run sfc /scannow) on OS prior to generalization step of creating customer OS image
+
+The System File Checker (SFC) command is used to verify and replace Windows system files.
+
+To run the SFC command:
+
+1. Open an elevated CMD prompt as Administrator.
+1. Type `sfc /scannow` and select **Enter**.
+
+    ![System File Checker](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+After the SFC scan is completed, try to install Windows Updates and restart the computer.
+
 ## Convert the virtual disk to a fixed size and to VHD
 
 If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section:

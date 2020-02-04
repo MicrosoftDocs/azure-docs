@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/15/2020
+ms.date: 01/24/2020
 ms.author: raiye
 ---
 # Azure Guest OS
@@ -18,30 +18,27 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## January 2020 Guest OS
 
->[!NOTE]
->The January Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the January Guest OS. This list is subject to change.
-
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-01  |  [4532960]  |  Windows Security  | 2.94 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2.94 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534314]  |  Windows Security  | 2.94 | Jan 14, 2020 |
-|  Rel 20-01  |  [4532958]  |  Windows Security  | 3.81 | Jan 14, 2020 |
-|  Rel 20-01  |  [4532963]  |  Windows Security  | 3.81 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3.81 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534288]  |  Windows Security  | 3.81 | Jan 14, 2020 |
-|  Rel 20-01  |  [4532961]  |  Windows Security  | 4.74 | Jan 14, 2020 |
-|  Rel 20-01  |  [4532962]  |  Windows Security  | 4.74 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534309]  |  Windows Security  | 4.74 | Jan 14, 2020 |
-|  Rel 20-01  |  [4494175]  |  Microcode v3  | 5.39 | Aug 29, 2019 |
-|  Rel 20-01  |  [4534271]  |  LCU  | 5.39 | Jan 14, 2020 |
-|  Rel 20-01  |  [4494174]  |  Microcode v4  | 6.15 | Aug 29, 2019 |
-|  Rel 20-01  |  [4532947]  |  Windows Security  | 6.15 | Jan 14, 2020 |
-|  Rel 20-01  |  [4534273]  |  LCU  | 6.15 | Jan 14, 2020 |
-|  Rel 20-01  |  [4530734]  |  Non-Security  | 2.94 | Dec 10, 2019 |
-|  Rel 20-01  |  [4530691]  |  Non-Security   | 3.81 | Dec 10, 2019 |
-|  Rel 20-01  |  [4530702]  |  Non-Security  | 4.74 | Dec 10, 2019 |
+|  Rel 20-01  |  [4532960]  |  Windows Security  | [2.94] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534314]  |  Windows Security  | [2.94] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532958]  |  Windows Security  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532963]  |  Windows Security  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534288]  |  Windows Security  | [3.81] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532961]  |  Windows Security  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4532962]  |  Windows Security  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534309]  |  Windows Security  | [4.74] | Jan 14, 2020 |
+|  Rel 20-01  |  [4494175]  |  Microcode v3  | [5.39] | Aug 29, 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | Jan 14, 2020 |
+|  Rel 20-01  |  [4494174]  |  Microcode v4  | [6.15] | Aug 29, 2019 |
+|  Rel 20-01  |  [4532947]  |  Windows Security  | [6.15] | Jan 14, 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | Jan 14, 2020 |
+|  Rel 20-01  |  [4530734]  |  Non-Security  | [2.94] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530691]  |  Non-Security   | [3.81] | Dec 10, 2019 |
+|  Rel 20-01  |  [4530702]  |  Non-Security  | [4.74] | Dec 10, 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -62,6 +59,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4530734]: https://support.microsoft.com/kb/4530734
 [4530691]: https://support.microsoft.com/kb/4530691
 [4530702]: https://support.microsoft.com/kb/4530702
+[6.15]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.39]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.74]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.94]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## December 2019 Guest OS
