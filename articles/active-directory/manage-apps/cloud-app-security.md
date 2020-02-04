@@ -9,7 +9,7 @@ ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 02/03/2020
-
+ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
 
@@ -32,7 +32,7 @@ Use Microsoft Cloud App Discovery (an Azure Active Directory Premium P1 feature)
 ### Learn more
 
 - [Discover and manage shadow IT in your network ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Discovered apps with Cloud App Security ](https://docs.microsoft.com/en-us/cloud-app-security/discovered-apps)
+- [Discovered apps with Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
  
 ## User session visibility and control 
 
@@ -62,6 +62,6 @@ Cloud App Security leverages the APIs provided by the cloud provider. Each servi
 ## Next steps
 
 - [Discover and manage shadow IT in your network ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Discovered apps with Cloud App Security ](https://docs.microsoft.com/en-us/cloud-app-security/discovered-apps)
+- [Discovered apps with Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
 - [Protect apps with Session Control in Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Connect apps in Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
