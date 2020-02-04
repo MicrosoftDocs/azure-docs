@@ -14,8 +14,9 @@ ms.reviewer: mbullwin
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
 ## Active issues
-* Profiling for ASP.NET Core 3.x applications hasn't been supported yet. We are working on it. ETA: early March, 2020.
-  * If you have to have Profiler on, a workaround is to use [Application Insights Profiler for Asp.Net Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore), it is titled for Linux but it works with .NET Core 3.0+ applications on Windows as well. Check out [supported-versions](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions) for details.
+
+* Profiling for ASP.NET Core 3.x applications isn't supported yet.
+  * If you must have Profiler on, a workaround is to use [Application Insights Profiler for ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). The profiler is labeled for Linux, but it also works with .NET Core 3.0+ applications on Windows. For details, see [Supported versions](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
