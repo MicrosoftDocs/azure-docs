@@ -8,7 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
+<<<<<<< HEAD
 ms.date: 02/10/2020
+=======
+ms.date: 02/04/2020
+>>>>>>> Updated TOC and added entries to that were missing.
 ms.author: dapine
 ---
 
