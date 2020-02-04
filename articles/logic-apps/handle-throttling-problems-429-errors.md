@@ -10,7 +10,7 @@ ms.date: 02/14/2020
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific amount of time. Throttling can create problems such as delayed data processing and reduced performance speed.
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed the rate at which the destination can handle over a specific amount of time. Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
 
 ![Throttling in SQL Server connector](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
 
@@ -26,7 +26,7 @@ Here are some common types of throttling that your logic app might experience:
 
 The Azure Logic Apps service has its own [throughput limits](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). If your logic app exceeds these limits, throttling happens at the logic app's level, not the logic app's run level, Azure subscription level, or Azure resource group level.
 
-To find throttling errors at this level, check your logic app's **Metrics** pane in the Azure portal.
+To find throttling events at this level, check your logic app's **Metrics** pane in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -104,7 +104,7 @@ To handle throttling at this level, you have these options:
 
 While a connector has its own throttling limits, the destination service or system that's called by the connector might also have throttling limits. For example, some APIs in Microsoft Exchange Server have stricter throttling limits than the Office 365 Outlook connector.
 
-By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, the destination service or system requires that those calls happen in a specific order.
+By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, those calls must arrive at the destination service or system before throttling starts to happen.
 
 For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20, which is the [default limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries build up and never get to run.
 
