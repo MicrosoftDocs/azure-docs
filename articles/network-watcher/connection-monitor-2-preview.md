@@ -41,7 +41,7 @@ Highlights:
 * Support for HTTP, TCP, and ICMP based connectivity checks
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-![Connection Monitor](./media/connection-monitor-2-preview/HeroGraphic.png)
+![Connection Monitor](./media/connection-monitor-2-preview/heroGraphic.png)
 
 Follow the steps mentioned below to start monitoring using Connection Monitor (Preview)
 
@@ -77,7 +77,7 @@ _Connection Monitor_ monitors communication at regular intervals and informs you
 2. Click "Connection Monitor (Preview)" tab in the Monitoring section in Network Watcher's left pane. This tab will only be visible if Network Watcher is accessed using the link specified in step 1.
 3. You can see all Connection Monitors that are created using Connection Monitor (Preview) experience. All Connection Monitors created using the classic experience of Connection Monitor tab will be visible in Connection Monitor tab.
 
-![Create a Connection Monitor](./media/connection-monitor-2-preview/CMResourceView.png)
+![Create a Connection Monitor](./media/connection-monitor-2-preview/cmResourceView.png)
 
 
 ### Creating a Connection Monitor
@@ -92,7 +92,7 @@ Following are the entities in a Connection Monitor:
 * Test Group – Each test group contains source endpoints, destination endpoints, and test configurations. Each Connection Monitor can contain more than one test groups
 * Test – Combination of a source endpoint, destination endpoint, and test configuration make one test. Test is lowest level at which monitoring data (checks failed % and RTT) is available
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/CMTG2.png)
+ ![Create a Connection Monitor](./media/connection-monitor-2-preview/cmTG2.png)
 
 #### From portal
 
@@ -107,11 +107,11 @@ To create a Connection Monitor, follow the below mentioned steps:
   5. Click "Next: Test Groups" to add test groups
 
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/CreateCM_Basics.png)
+ ![Create a Connection Monitor](./media/connection-monitor-2-preview/createCM_Basics.png)
 
 3. In the test groups tab, click "+ Test Group" to add a Test Group. Use _Creating Test Groups in Connection Monitor_ to add test groups. Click "Review + create" to review your Connection Monitor.
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/CreateTG.png)
+ ![Create a Connection Monitor](./media/connection-monitor-2-preview/createTG.png)
 
 4. In the "Review + create" tab, review basic information and test groups before you create the Connection Monitor. To edit Connection Monitor from the "Review + create" view:
   1. To edit the basic details, use the pencil icon as specified by box 1 in the image 2
@@ -119,13 +119,13 @@ To create a Connection Monitor, follow the below mentioned steps:
   3. Current Cost/month indicated the cost during preview. There's currently no charge to using Connection Monitor,so this column will show zero. Actual cost/month indicated the price that will be charged after General Availability. Do note, log analytics ingestion charges will apply even during the preview.
 5. In the "Review + create" tab, click the "create" button to create the Connection Monitor.
 
- ![Create a Connection Monitor](./media/connection-monitor-2-preview/ReviewCreateCM.png)
+ ![Create a Connection Monitor](./media/connection-monitor-2-preview/reviewCreateCM.png)
 
 6.  Connection Monitor (Preview) will create the Connection Monitor resource in the background.
 
 
 
-#### From ARM client
+#### From Armclient
 
 ```armclient
 $connectionMonitorName = "sampleConnectionMonitor"
@@ -379,16 +379,16 @@ Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with 
 
 You can also change the value of "Group by" field to start the tree from any other level. For example:  Group by – VNET will show the VMs with agents in the hierarchy VNETs -\&gt; Subnets -\&gt; VMs with agents.
 
-![Add Sources](./media/connection-monitor-2-preview/AddAzureSources.png)
+![Add Sources](./media/connection-monitor-2-preview/addAzureSources.png)
 
   2. Click on "Non – Azure Agents" tab to select on-premise agents. By default, you'll see agents grouped into workspaces in a region.Only those workspaces that have Network Performance Monitor solution configured will be listed. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) .By default, you'll see the region selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose agents from workspaces from the newly selected region. You can also change the value of "Group by" field to group on subnets.
 
-![Non-Azure Sources](./media/connection-monitor-2-preview/AddNonAzureSources.png)
+![Non-Azure Sources](./media/connection-monitor-2-preview/addNonAzureSources.png)
 
 
   3. Click "Review "to review the Azure and Non-Azure agents selected.
 
-![Review Sources](./media/connection-monitor-2-preview/ReviewSources.png)
+![Review Sources](./media/connection-monitor-2-preview/reviewSources.png)
 
 
   4. Click "Done" once you're done selecting the sources.
@@ -399,20 +399,20 @@ You can also change the value of "Group by" field to start the tree from any oth
   1. Click on "Azure VMs" tab to select Azure VMs as destinations. By default, you'll see Azure VMs grouped into subscription hierarchy in the same region that was selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose Azure VMs from the newly selected region. You can drill down from Subscriptions level to other levels in the hierarchy, like Azure Agents.
 
 
-![Add Destinations](./media/connection-monitor-2-preview/AddAzureDests1.png)
+![Add Destinations](./media/connection-monitor-2-preview/addAzureDests1.png)
 
 
- ![Add Destinations 2](./media/connection-monitor-2-preview/AddAzureDests2.png)
+ ![Add Destinations 2](./media/connection-monitor-2-preview/addAzureDests2.png)
 
 
   2. Click on "Endpoints" tab to select Azure VMs as destinations. Endpoint list will be populated with O365 and D365 test URLs, grouped by name.  You can also choose an endpoint created in other test groups in the same Connection Monitor. To add a new endpoint, click "+ Endpoint" from top-right corner of the screen and provide endpoint URL/IP/FQDN and name
 
- ![Add Endpoints](./media/connection-monitor-2-preview/AddEndpoints.png)
+ ![Add Endpoints](./media/connection-monitor-2-preview/addEndpoints.png)
 
 
   3. Click "Review" to review the Azure and Non-Azure agents selected.
   4. Click "Done" once you're done selecting the sources.
-5. Test Configuration – You can associate any number of test configurations in a given test group. Portal restricts it to one test configuration per test group, but use ARM Client to add more.
+5. Test Configuration – You can associate any number of test configurations in a given test group. Portal restricts it to one test configuration per test group, but use Armclient to add more.
   1. Name – Name for the test configuration
   2. Protocol – You can choose between TCP, ICMP, or HTTP. To change HTTP to HTTPS, select HTTP as protocol and 443 as port
   3. Create Network Test Configuration– You'll see this checkbox only if you select HTTP in the Protocol field. Enable this field to create another test configuration using the same sources and destinations specified in step 3 and 4 over TCP/ICMP protocol. The newly created test configuration is named "\&lt;name specified in 5.a\&gt;\_networkTestConfig"
@@ -423,15 +423,15 @@ You can also change the value of "Group by" field to start the tree from any oth
     1. Checks Failed in % - Percentage of checks failed when sources check connectivity to destination over the criteria specified above. For TCP/ICMP protocol, checks failed in % can be equated to packet loss %. For HTTP protocol, this field represents the number of http requests that didn't get a response.
     2. RTT in milliseconds – Round-trip time in milliseconds when sources connect to destination over the test configuration specified above.
 
- ![Add TG](./media/connection-monitor-2-preview/AddTestConfig.png)
+ ![Add TG](./media/connection-monitor-2-preview/addTestConfig.png)
 
 All sources and destinations added to a test group with the test configuration specified get broken down to individual tests. For example:
 
-1. Test Group: TG1
-2. Sources: 3 (A, B, C)
-3. Destinations: 2 (D, E)
-4. Test Configuration: 2 (Config 1, Config 2)
-5. Tests Created: Total = 12
+* Test Group: TG1
+* Sources: 3 (A, B, C)
+* Destinations: 2 (D, E)
+* Test Configuration: 2 (Config 1, Config 2)
+* Tests Created: Total = 12
 
 | **Test Number** | **Source** | **Destination** | **Test Config Name** |
 | --- | --- | --- | --- |
@@ -450,10 +450,10 @@ All sources and destinations added to a test group with the test configuration s
 
 ### Scale limits
 
-1. Max # of Connection Monitors per subscription per region– 100
-2. Max # of test groups per Connection Monitor - 20
-3. Max # sources + destinations per Connection Monitor – 100
-4. Max # of test configurations per Connection Monitor – 20 via ARM Client. 2 via Portal.
+* Max # of Connection Monitors per subscription per region– 100
+* Max # of test groups per Connection Monitor - 20
+* Max # sources + destinations per Connection Monitor – 100
+* Max # of test configurations per Connection Monitor – 20 via Armclient. 2 via Portal.
 
 ## Step 4:  Data analysis and alerts
 
@@ -493,11 +493,11 @@ You can expand each Connection Monitor into the Test Groups and each Test Group 
 
 You can filter this list based on:
 
-1. Top-Level filters - Subscriptions, regions, timestamp source, and destination types. Marked as [2] in the image below.
-2. State-Based Filters - Second Level Filter on state of Connection Monitor/ Test Group/ Test. Marked as [3] in the image below.
-3. Search Field –Choose "All" to do a generic search. To search on any specific entity, use the dropdown to narrow down search results. Marked as [4] in the image below.
+* Top-Level filters - Subscriptions, regions, timestamp source, and destination types. Marked as [2] in the image below.
+* State-Based Filters - Second Level Filter on state of Connection Monitor/ Test Group/ Test. Marked as [3] in the image below.
+* Search Field –Choose "All" to do a generic search. To search on any specific entity, use the dropdown to narrow down search results. Marked as [4] in the image below.
 
-![Filter Tests](./media/connection-monitor-2-preview/CMView.png)
+![Filter Tests](./media/connection-monitor-2-preview/cmView.png)
 
 For example:
 
@@ -517,7 +517,7 @@ For example:
   4. Use dropdown next to value to select "Destinations"
 
 
-![Failed Tests](./media/connection-monitor-2-preview/TestsView.png)
+![Failed Tests](./media/connection-monitor-2-preview/testsView.png)
 
 
 To view the trends of checks failed % and RTT for:
@@ -526,13 +526,13 @@ To view the trends of checks failed % and RTT for:
   1. Click the Connection Monitor you want to investigate in detail
   2. By default, you'll view monitoring data by "Test Groups"
 
-![View Metrics by](./media/connection-monitor-2-preview/CMDrillLanding.png)
+![View Metrics by](./media/connection-monitor-2-preview/cmDrillLanding.png)
 
 
 
   3. Choose the Test Group you want to investigate in detail
 
-![Metrics by TG](./media/connection-monitor-2-preview/CMDrillSelectTG.png)
+![Metrics by TG](./media/connection-monitor-2-preview/cmDrillSelectTG.png)
 
 
   4. You'll see top 5 failed tests on checks failed % or RTT msecs for the test group you chose in the previous step. For each test, you'll see trendlines for checks failed %, and RTT msec
@@ -540,19 +540,19 @@ To view the trends of checks failed % and RTT for:
   6. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values.
 
 
- ![RTT](./media/connection-monitor-2-preview/CMDrillCharts.png)
+ ![RTT](./media/connection-monitor-2-preview/cmDrillCharts.png)
 
   7. Change the time interval to view more data
   8. You can change the view in Step b and choose to view by sources, destinations, or test configurations. Then choose a source based on failed tests and investigate the top 5 failed tests.  For example: Choose View by: Sources and Destinations to investigate all the tests that run between that combination in the selected Connection Monitor.
 
 
-![RTT2](./media/connection-monitor-2-preview/CMDrillSelectSource.png)
+![RTT2](./media/connection-monitor-2-preview/cmDrillSelectSource.png)
 
 2. Test Group
   1. Click the Test Group you want to investigate in detail
   2. By default, you'll view monitoring data by "Source + Destination + Test Configuration (Test) "
 
- ![RTT3](./media/connection-monitor-2-preview/TGDrill.png)
+ ![RTT3](./media/connection-monitor-2-preview/tgDrill.png)
 
   3. Choose the Test you want to investigate in detail
   4. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
@@ -563,15 +563,15 @@ To view the trends of checks failed % and RTT for:
   2. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
 
 
- ![Test1](./media/connection-monitor-2-preview/TestDrill.png)
+ ![Test1](./media/connection-monitor-2-preview/testDrill.png)
 
   3. You can also click on "Topology" to see the network topology at any point in time.
 
- ![Test2](./media/connection-monitor-2-preview/TestTopo.png)
+ ![Test2](./media/connection-monitor-2-preview/testTopo.png)
 
   4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premise networks at the moment.
 
- ![Test3](./media/connection-monitor-2-preview/TestTopoHop.png)
+ ![Test3](./media/connection-monitor-2-preview/testTopoHop.png)
 
 #### Log queries in Azure Monitor Log Analytics
 
@@ -590,7 +590,7 @@ Resource Type - Microsoft.Network/networkWatchers/connectionMonitors
 | ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percent | Average | % of checks failed for a test |List: - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType -DestinationPort - TestGroupName - TestConfigurationName - Region |
 | RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | Round-trip time (ms) for checks sent between source and destination. This value is not averaged | List: - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType - DestinationPort - TestGroupName - TestConfigurationName - Region |
 
- ![Monitor Metrics](./media/connection-monitor-2-preview/MonitorMetrics.png)
+ ![Monitor Metrics](./media/connection-monitor-2-preview/monitorMetrics.png)
 
 #### Metric alerts in Azure Monitor
 
@@ -603,13 +603,13 @@ To create an alert:
 5. In Alert Logic, choose:
   1. Condition Type – Static
   2. Condition and Threshold
-  3. Aggregation Granularity and Frequency of Evaluation – Note that Connection Monitor (Preview) updated data every 1 minute.
+  3. Aggregation Granularity and Frequency of Evaluation – Connection Monitor (Preview) updates data every 1 minute.
 6.  In actions, choose your action group
 7. Provide alert details
 8. Create alert rule
 
 
- ![Alerts](./media/connection-monitor-2-preview/MDMAlerts.jpg)
+ ![Alerts](./media/connection-monitor-2-preview/mdmAlerts.jpg)
 
 ## Step 5: Diagnose issues in your network
 
