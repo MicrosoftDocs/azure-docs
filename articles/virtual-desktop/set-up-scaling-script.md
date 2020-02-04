@@ -201,42 +201,24 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
-
-     -AADTenantID $aadTenantId `
-
-     -SubscriptionID $subscriptionId `
-
-     -TenantName $tenantName `
-
-     -HostPoolName $hostPoolName `
-
-     -RecurrenceInterval $recurrenceInterval `
-
-     -BeginPeakTime $beginPeakTime `
-
-     -EndPeakTime $endPeakTime `
-
-     -TimeDifference $timeDifference `
-
-     -SessionThresholdPerCPU $sessionThresholdPerCPU `
-
-     -MinimumNumberOfRDSH $minimumNumberOfRdsh `
-
-     -LimitSecondsToForceLogOffUser $limitSecondsToForceLogOffUser `
-
-     -LogOffMessageTitle $logOffMessageTitle `
-
-     -LogOffMessageBody $logOffMessageBody `
-
-     -Location $location `
-
-     -ConnectionAssetName $connectionAssetName `
-
-     -WebHookURI $webHookURI `
-
-     -AutomationAccountName $automationAccountName `
-
-     -MaintenanceTagName $maintenanceTagName
+       -AADTenantID $aadTenantId `
+       -SubscriptionID $subscriptionId `
+       -TenantName $tenantName `
+       -HostPoolName $hostPoolName `
+       -RecurrenceInterval $recurrenceInterval `
+       -BeginPeakTime $beginPeakTime `
+       -EndPeakTime $endPeakTime `
+       -TimeDifference $timeDifference `
+       -SessionThresholdPerCPU $sessionThresholdPerCPU `
+       -MinimumNumberOfRDSH $minimumNumberOfRdsh `
+       -LimitSecondsToForceLogOffUser $limitSecondsToForceLogOffUser `
+       -LogOffMessageTitle $logOffMessageTitle `
+       -LogOffMessageBody $logOffMessageBody `
+       -Location $location `
+       -ConnectionAssetName $connectionAssetName `
+       -WebHookURI $webHookURI `
+       -AutomationAccountName $automationAccountName `
+       -MaintenanceTagName $maintenanceTagName
      ```
 
      After you run the script, the Logic App should appear in a resource group, as shown in the following image.
