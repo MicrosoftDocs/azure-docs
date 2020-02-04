@@ -328,7 +328,7 @@ Following are queries that you can use to help you monitor your Azure Storage ac
 
     ```Kusto
     StorageBlobLogs
-    | where TimeGenerated > ago(3d) and StatusText !contains ""Success"
+    | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
@@ -353,14 +353,14 @@ Following are queries that you can use to help you monitor your Azure Storage ac
     ```Kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
-    | project TimeGenerated, OperationName, StatusCode, StatusText"
+    | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
 * To list all requests with anonymous access over the last 3 days.
 
     ```Kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
-    | project TimeGenerated, OperationName, AuthenticationType, Uri"
+    | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
 * To create a pie chart of operations used over the last 3 days.
 
