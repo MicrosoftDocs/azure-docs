@@ -5,8 +5,8 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
 ---
@@ -81,8 +81,11 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][3]
 
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
-
-   > [!WARNING]
+  
+  > [!NOTE]
+   >Customer wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
+  
+  > [!WARNING]
    > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
@@ -238,6 +241,14 @@ In production, you are likely to refresh your storage keys periodically. When wr
 - When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
 
 - Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
+
+- For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
+
+    > [!IMPORTANT]
+    > The allow protected append blobs writes setting under time-based retention is currently available and visible only in the following regions:
+    > - East US
+    > - South Central US
+    > - West US 2
 
 
 ## <a id="subheading-7"></a>Manage Azure SQL Server and Database auditing using Azure PowerShell

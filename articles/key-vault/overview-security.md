@@ -83,12 +83,12 @@ Key Vault logging saves information about the activities performed on your vault
     - Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
 - Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.
 
-Logging information can be accessed within 10 minutes after the key vault operation. It's up to you to manage your logs in your storage account. 
+Logging information can be accessed within 10 minutes after the key vault operation. It's up to you to manage your logs in your storage account.
 
 - Use standard Azure access control methods to secure your logs by restricting who can access them.
 - Delete logs that you no longer want to keep in your storage account.
 
-For recommendation on securely managing storage accounts review the [Azure Storage security guide](../storage/common/storage-security-guide.md)
+For recommendation on securely managing storage accounts review the [Azure Storage security guide](../storage/blobs/security-recommendations.md)
 
 ## Next Steps
 

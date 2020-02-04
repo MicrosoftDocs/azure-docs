@@ -66,7 +66,7 @@ The top menu appears on every page:
 - To search for device templates and devices, enter a **Search** value.
 - To change the UI language or theme, choose the **Settings** icon.
 - To sign out of the application, choose the **Account** icon.
-- To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](howto-show-hide-chat.md).
+- To get help and support, choose the **Help** drop-down for a list of resources. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
 
 You can choose between a light theme or a dark theme for the UI:
 

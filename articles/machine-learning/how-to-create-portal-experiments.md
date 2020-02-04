@@ -146,11 +146,18 @@ Variance| Measure of how far spread out this column's data is from its average v
 Skewness| Measure of how different this column's data is from a normal distribution.
 Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
+
 <a name="preprocess"></a>
 
-## Advanced preprocessing options
+## Advanced featurization options
 
-When configuring your experiments, you can enable the advanced setting `Preprocess`. Doing so means that the following data preprocessing and featurization steps are performed automatically.
+When configuring your experiments, you can enable the advanced setting `feauturization`. 
+
+|Featurization Configuration | Description |
+| ------------- | ------------- |
+|"feauturization" = 'FeaturizationConfig'| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" = 'off'| Indicates featurization step should not be done automatically.|
+|"feauturization" = 'auto'| Indicates that as part of preprocessing the following data guardrails and featurization steps are performed automatically.|
 
 |Preprocessing&nbsp;steps| Description |
 | ------------- | ------------- |
@@ -163,6 +170,20 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 |Text target encoding|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
 |Cluster Distance|Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.|
+
+### Data guardrails
+
+Automated machine learning offers data guardrails to help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. There are many best practices that are available and can be applied to achieve reliable results. 
+
+The following table describes the currently supported data guardrails, and the associated statuses that users may come across when submitting their experiment.
+
+Guardrail|Status|Condition&nbsp;for&nbsp;trigger
+---|---|---
+Missing&nbsp;values&nbsp;imputation |**Passed** <br> <br> **Fixed**|	No missing value in any of the input&nbsp;columns <br> <br> Some columns have missing values
+Cross validation|**Done**|If no explicit validation set is provided
+High&nbsp;cardinality&nbsp;feature&nbsp;detection|	**Passed** <br> <br>**Done**|	No high cardinality features were detected <br><br> High cardinality input columns were detected
+Class balance detection	|**Passed** <br><br><br>**Alerted** |Classes are balanced in the training data; A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples <br> <br> Classes in the training data are imbalanced
+Time-series data consistency|**Passed** <br><br><br><br> **Fixed** |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. <br> <br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window has been turned off.
 
 ## Run experiment and view results
 

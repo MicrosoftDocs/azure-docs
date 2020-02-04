@@ -64,6 +64,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     For **Resource group**, select **Create new**. Enter a **Name** for the resource group that will contain the tenant, select the **Resource group location**, and then select **Create**.
 
     ![Link subscription settings form in Azure portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
+    You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. 
 
 ## Select your B2C tenant directory
 

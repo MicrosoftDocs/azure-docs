@@ -14,7 +14,6 @@ ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 # Possible fixes for the "You can't get there from here" error message
 

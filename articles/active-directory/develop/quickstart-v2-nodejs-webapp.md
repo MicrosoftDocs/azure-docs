@@ -13,7 +13,6 @@ ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign in using OpenID Connect to a Node.js Web App

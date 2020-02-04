@@ -46,7 +46,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Container characteristics
 
-Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) or [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python apps deployed to App Service on Linux run within a Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations inside the version-specific directories.
 
 This container has the following characteristics:
 

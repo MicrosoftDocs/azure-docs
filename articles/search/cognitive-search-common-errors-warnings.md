@@ -164,9 +164,26 @@ In all these cases, refer to [Supported Data types](https://docs.microsoft.com/r
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
 
+## Error: Integrated change tracking policy cannot be used because table has a composite primary key
+
+This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
+
+
 ## Error: Could not process document within indexer max run time
 
 This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
+
+<a name="could-not-project-document"/>
+
+## Error: Could not project document
+
+This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was an failure in our attempt to do so.  This failure could be consistent and fixable or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve.  Here are a set of known failure states and possible resolutions.
+
+| Reason | Details/Example | Resolution |
+| --- | --- | --- |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+| Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
@@ -228,7 +245,7 @@ If you know that your data set contains multiple languages and thus you need the
 ```
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
-* [Text Analytics Supported Languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), and [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Text Analytics Supported Languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md), and [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Translator Supported Languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (for the [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) Supported Languages: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -282,7 +299,7 @@ The [Table Storage service](https://azure.microsoft.com/services/storage/tables)
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## Warning: Truncated extracted text to X characters
-Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
 
 For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 

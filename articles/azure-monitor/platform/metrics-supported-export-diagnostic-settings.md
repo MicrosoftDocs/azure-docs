@@ -19,6 +19,19 @@ You can export the platform metrics from the Azure monitor pipeline to other loc
 
 Because of intricacies in the Azure Monitor backend, not all metrics are exportable using diagnostic settings. The table below lists which can and cannot be exported using diagnostic settings.
 
+The table contains the following columns. 
+- Exportable via Diagnostic Settings? 
+- ResourceType 
+- Metric 
+- MetricDisplayName
+- Unit 
+- AggregationType
+
+
+> [!NOTE]
+> The table below may have a horizontal scroll bar at the bottom. If you believe you are missing information, check to see that the scroll bar is all the way to the left.  
+
+
 Exportable via Diagnostic Settings? | ResourceType | Metric | MetricDisplayName | Unit | AggregationType
 |----|-----|------|----|----|-----|
 Yes | Microsoft.AnalysisServices/servers | CleanerCurrentPrice | Memory: Cleaner Current Price | Count | Average
@@ -683,10 +696,10 @@ Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Routing: mes
 Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Routing: message latency for Service Bus Queue | Milliseconds | Average
 Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Routing: message latency for Service Bus Topic | Milliseconds | Average
 Yes | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Routing: message latency for storage | Milliseconds | Average
-Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: telemetry messages dropped� | Count | Total
+Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: telemetry messages dropped  | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Routing: messages delivered to fallback | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Routing: telemetry messages incompatible | Count | Total
-Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: telemetry messages orphaned� | Count | Total
+Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: telemetry messages orphaned  | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Routing: telemetry messages delivered | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Telemetry message send attempts | Count | Total
 Yes | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Number of throttling errors | Count | Total

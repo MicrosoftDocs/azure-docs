@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
 # Backup and recover account credentials using the Microsoft Authenticator app

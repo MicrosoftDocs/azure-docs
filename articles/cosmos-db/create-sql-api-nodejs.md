@@ -137,11 +137,11 @@ Now go back to the Azure portal to get the connection string details of your Azu
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `config.js`. 
 
-    `config.endpoint = "https://FILLME.documents.azure.com"`
+    `config.endpoint = "<Your Azure Cosmos account URI>"`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.key` in `config.js`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-    `config.key = "FILLME"`
+    `config.key = "<Your Azure Cosmos account key>"`
     
 ## Run the app
 

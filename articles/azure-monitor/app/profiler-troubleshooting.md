@@ -43,6 +43,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 * If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Make sure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
+* Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.
 
 ### <a id="double-counting"></a>Double counting in parallel threads
 

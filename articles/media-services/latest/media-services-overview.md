@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/17/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -29,6 +29,14 @@ The Media Services v3 SDKs are based on [Media Services v3 OpenAPI Specification
 
 > [!NOTE]
 > Currently, you can't use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+
+## Compliance, Privacy and Security
+ 
+As an important reminder, you must comply with all applicable laws, in your use of Azure Media Services, and you may not use Azure Media Services or any other Azure service in a manner that violates the rights of others or may be harmful to others. 
+
+Before uploading any videos/images, including any biometric data, to Media Services for processing and storage, you must (1) have all proper rights to the videos/images; and (2) have all appropriate consents from the individual(s) in the videos allowing the use and storage of their biometric data in Media Services. 
+
+To learn about compliance, privacy and how Microsoft protects and secures your data in Azure Media Services, please visit the Azure [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and the [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). Information on customer data retention and deletion is available in the DPA. By using Azure Media Services, you agree to be bound by the OST, the DPA and the Privacy Statement.
 
 ## What can I do with Media Services?
 

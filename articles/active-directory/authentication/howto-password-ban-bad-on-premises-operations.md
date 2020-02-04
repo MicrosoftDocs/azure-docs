@@ -25,7 +25,7 @@ Follow the guidance in the article [Configuring the custom banned password list]
 
 ## Enable Password Protection
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Security**,**Authentication methods**, then **Password Protection**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password Protection**.
 1. Set **Enable Password Protection on Windows Server Active Directory** to **Yes**
 1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
    * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**

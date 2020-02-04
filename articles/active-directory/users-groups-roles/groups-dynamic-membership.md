@@ -316,7 +316,12 @@ You can create a group containing all users within a tenant using a membership r
 The "All users" rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+If you want your group to exclude guest users and include only members of your tenant, you can use the following syntax:
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### Create an "All devices" rule
@@ -326,7 +331,7 @@ You can create a group containing all devices within a tenant using a membership
 The "All Devices" rule is constructed using single expression using the -ne operator and the null value:
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## Extension properties and custom extension properties
@@ -360,7 +365,7 @@ You can also create a rule that selects device objects for membership in a group
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
 >
-> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0 (17763)"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0.17763"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
 
 The following device attributes can be used.
 
