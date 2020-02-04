@@ -44960,6 +44960,11 @@
       "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
       "redirect_document_id": true
     },
+    { 
+      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md", 
+      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage", 
+      "redirect_document_id": false 
+    },
     {
       "source_path": "articles/iot-central/preview/howto-use-app-templates.md",
       "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
