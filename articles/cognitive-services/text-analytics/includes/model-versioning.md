@@ -15,8 +15,8 @@ Version 3 of the Text Analytics API lets you choose the model version that is mo
 
 | Model version           | Features updated         | Latest version for:           |
 |-------------------------|--------------------------|--------------------------|
-| `2020-02-01`            | Entity Recognition                      | Entity Recognition                      |
-| `2019-10-01`            | Entity Recognition, Sentiment Analysis  | Language Detection, Keyphrase Extraction, Sentiment Analysis|
+| `2020-02-01`            | Entity recognition                      | Entity recognition                      |
+| `2019-10-01`            | Entity recognition, Sentiment analysis  | Language detection, Key phrase extraction, Sentiment analysis|
 
 
 Each response from the v3 endpoints includes a `model-version` field specifying the model version that was used.
