@@ -57,14 +57,14 @@ You identify the tool you need, and add it to an Azure Migrate project. If youâ€
 - In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.
 You centrally track your migration journey from within the Azure Migrate project, across Azure and other tools.
 
-### How do I delete a project?
+## How do I delete a project?
 
 [Learn how to](how-to-delete-project.md) delete a project. 
 
 
+## Do machines retain domain identity after migration?
 
-
-
+Assuming that domain services are [integrated into Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/), then domain membership, and machine identity in the domain, is retained after migration. 
 
 ## Next steps
 Read the [Azure Migrate overview](migrate-services-overview.md).

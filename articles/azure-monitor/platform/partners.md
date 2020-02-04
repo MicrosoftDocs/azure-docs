@@ -268,7 +268,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."
 [influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
-[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor documentation."
+[logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentation."
