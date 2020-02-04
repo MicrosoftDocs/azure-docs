@@ -49,7 +49,7 @@ Azure Firewall supports both traditional rules and policies. The following table
 |Protects     |Virtual hubs and VNets|VNets only|
 |Portal experience     |Central management using Firewall Manager|Standalone firewall experience|
 |Multiple firewall support     |Supported|Manually export and import rules|
-|Pricing     |Billed based on firewall association. See Pricing.|Free|
+|Pricing     |Billed based on firewall association. See [Pricing](#pricing).|Free|
 |Supported deployment mechanisms     |Portal, REST API, templates, Azure PowerShell, and CLI|Portal, REST API, templates, PowerShell, and CLI. |
 |Release Status     |Public Preview|General Availability|
 
