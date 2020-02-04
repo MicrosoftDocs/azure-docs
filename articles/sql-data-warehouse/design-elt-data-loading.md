@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Data loading strategies for SQL Analytics
+# Data loading strategies for data warehousing
 
 Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. SQL pools in Azure Synapse Analytics have a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Utilizing an Extract, Load, and Transform (ELT) process can take advantage of MPP and eliminate resources needed to transform the data prior to loading. While SQL pools support many loading methods including popular SQL Server options such as BCP and the SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
 
