@@ -79,7 +79,7 @@
       href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: VM types and sizes
     items:
-    - name: Size families
+    - name: VM sizes
       href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
