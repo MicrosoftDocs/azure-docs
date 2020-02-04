@@ -94,6 +94,18 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 </plist>
 ```
 
+#### Add a new keychain group
+
+Add a new keychain group to your project **Capabilities**. The keychain group should be:
+* `com.microsoft.adalcache` on iOS 
+* `com.microsoft.identity.universalstorage` on macOS.
+
+![keychain example](media/single-sign-on-macos-ios/keychain_example.png)
+
+For more information, see [keychain groups](howto-v2-keychain-objc.md).
+
+## Configure the application object
+
 Once you have the keychain entitlement enabled in each of your applications, and you're ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
 
 Objective-C:
@@ -111,16 +123,14 @@ Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
-        
+
 do {
-	let application = try MSALPublicClientApplication(configuration: config)
-  // continue on with application          
+   let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
 } catch let error as NSError {
   // handle error here
-}       
+}
 ```
-
-
 
 > [!WARNING]
 > When you share a keychain across your applications, any application can delete users or even all of the tokens across your application.
@@ -205,16 +215,6 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     }
 ```
 
-## Add a new keychain group
-
-Add a new keychain group to your project **Capabilities**. The keychain group should be:
-* `com.microsoft.adalcache` on iOS 
-* `com.microsoft.identity.universalstorage` on macOS.
-
-![](media/single-sign-on-macos-ios/keychain_example.png)
-
-For more information, see [keychain groups](howto-v2-keychain-objc.md).
-    
 ## Next steps
 
 Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
