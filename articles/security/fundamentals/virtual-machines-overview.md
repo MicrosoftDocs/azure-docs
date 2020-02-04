@@ -1,6 +1,6 @@
 ---
 title: Security features used with Azure VMs
-title.suffix: Azure security
+titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
 documentationcenter: na

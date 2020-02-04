@@ -1,7 +1,7 @@
 ---
 
 title: Security best practices for your Azure assets
-title.suffix: Azure security
+titleSuffix: Azure security
 description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
 documentationcenter: na
