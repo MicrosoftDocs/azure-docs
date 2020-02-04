@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/04/2020
 ms.author: helohr
 ---
 # Scale session hosts using Azure Automation
