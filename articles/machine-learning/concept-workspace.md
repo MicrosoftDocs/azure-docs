@@ -76,7 +76,7 @@ You can also perform the following workspace management tasks:
 | Create a Notebook VM |   | **&check;** | |     |
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a **North Central US**, **East US 2**, **North Europe** or **UK South**.
+> Compute instances are available only for workspaces with a region of **North Central US**, **East US 2**, **North Europe** or **UK South**, with support for other regions coming soon.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 ## <a name='create-workspace'></a> Create a workspace
