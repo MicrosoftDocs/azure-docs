@@ -19,3 +19,5 @@ While in preview, managed disks that have shared disks enabled are subject to th
 - ReadOnly host caching is not available for premium SSDs with maxShares>1.
 - AvailabilitySet and virtual machine scale  sets can only be used with `FaultDomainCount` set to 1.
 - Azure Backup and Azure Site Recovery support is not yet available.
+
+If you're interested in trying shared disks, [sign up for our preview](https://aka.ms/shareddisksignup).

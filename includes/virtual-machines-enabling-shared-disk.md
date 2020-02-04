@@ -125,3 +125,7 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 You will also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
 
 If any commands you expect to be in the list are missing, contact us at SharedDiskFeedback@microsoft .com
+
+## Next steps
+
+If you're interested in trying shared disks, [sign up for our preview](https://aka.ms/shareddisksignup).
