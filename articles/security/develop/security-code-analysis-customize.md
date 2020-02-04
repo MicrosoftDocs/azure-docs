@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Security Code Analysis task customization guide
+title: Customize Azure Security Code Analysis tasks
 description: This article describes customizing the tasks in the Microsoft Security Code Analysis extension
 author: vharindra
 manager: sukhans
