@@ -24,25 +24,41 @@ The **ping** method is useful for checking whether IoT Edge is running on a devi
 For example:
 
 ```azurecli
-az iot hub invoke-module-method --method-name "ping" -n <hub name> -d <device name> -m '$edgeAgent'
+az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
 ```
 
-In the Azure portal, invoke the method with the method name **ping** and an empty json payload **{}**.
+In the Azure portal, invoke the method with the method name **ping** and an empty JSON payload **{}**.
 
 ![Invoke direct method 'ping' in Azure portal](./media/how-to-monitor-edgeagent/ping-direct-method.png)
 
 ## Restart module
 
-The **restartModule** method allows for remote management of modules running on an IoT Edge device. If a module is reporting a failed state or other unhealthy behavior, you can trigger the IoT Edge agent to restart it.
+The **RestartModule** method allows for remote management of modules running on an IoT Edge device. If a module is reporting a failed state or other unhealthy behavior, you can trigger the IoT Edge agent to restart it. A successful restart command returns an empty payload and **"status": 200**.
+
+You can use the **RestartModule** direct method on any module running on an IoT Edge device, including the edgeAgent module itself. However, if you use this direct method to shut down the edgeAgent, you won't receive a success result since the connection is disrupted while the module restarts.
+
+For example:
 
 ```azurecli
-az iot hub invoke-module-method --method-name "restartModule" -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \
+az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \
 '
     {
-        <>
+        "schemaVersion": "1.0",
+        "id": "<module name>"
     }
 '
 ```
+
+In the Azure portal, invoke the method with the method name **RestartModule** and the following JSON payload:
+
+```json
+{
+    "schemaVersion": "1.0",
+    "id": "<module name>"
+}
+```
+
+![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-monitor-edgeagent/restartmodule-direct-method.png)
 
 ## Experimental methods
 
