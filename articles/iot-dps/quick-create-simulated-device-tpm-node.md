@@ -21,7 +21,7 @@ In this quickstart, you create a simulated device on a Windows computer, run the
 - Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node.js v4.0 or above](https://nodejs.org).
+- [Node.js v4.0+](https://nodejs.org).
 - [Git](https://git-scm.com/download/).
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
