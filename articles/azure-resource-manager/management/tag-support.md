@@ -12,7 +12,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
+> - [Microsoft.AAD](#microsoftaad)**
 > - [Microsoft.Addons](#microsoftaddons)
 > - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft.Advisor](#microsoftadvisor)
