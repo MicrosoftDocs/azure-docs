@@ -40,7 +40,7 @@
       href: quickstart-synapse-studio.md
     - name: SQL on-demand
       href: ./sql-analytics/quickstart-sql-on-demand.md
-    - name: Query SQL On-demand using Azure Data Studio
+    - name: Query SQL on-demand using Azure Data Studio
       href: ./sql-analytics/get-started-azure-data-studio.md
 - name: Tutorials
   items:
