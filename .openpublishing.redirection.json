@@ -24492,7 +24492,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-azure-slave-plugin-for-hudson-classic.md",
-      "redirect_url": "/azure/virtual-machines/workloads/",
+      "redirect_url": "/azure/virtual-machines/workloads",
       "redirect_document_id": false
     },
     {
