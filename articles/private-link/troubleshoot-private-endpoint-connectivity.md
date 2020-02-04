@@ -36,11 +36,11 @@ Go over the steps listed below to make sure all the usual configurations are as 
 
     a) Go to **Private Link Center**
 
-     ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
+      ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
 
     b) Select Private Endpoints from the left navigation pane
     
-     ![Private Endpoints](./media/private-endpoint-tsg/private-endpoints.png)
+      ![Private Endpoints](./media/private-endpoint-tsg/private-endpoints.png)
 
     c) Filter and select the private endpoint that you want to diagnose
 
@@ -50,14 +50,14 @@ Go over the steps listed below to make sure all the usual configurations are as 
      - Make sure the VM has connectivity to the VNet hosting the Private Endpoints
      - FQDN information (copy) and Private IP address assigned
     
-      ![VNet and DNS Configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
+       ![VNet and DNS Configuration](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
     
 2. Use [**Azure Monitor**](https://docs.microsoft.com/azure/azure-monitor/overview) to review data is flowing
 
     a) On Private Endpoint resource, select **Monitor**
      - Select data-in or data-out and review if the data is flowing when attempting to connect to the Private Endpoint. Expect a delay of approx. 10 mins.
     
-      ![Verify Private Endpoint Telemetry](./media/private-endpoint-tsg/private-endpoint-monitor.png)
+       ![Verify Private Endpoint Telemetry](./media/private-endpoint-tsg/private-endpoint-monitor.png)
 
 3. Use VM Connection Troubleshoot from **Network Watcher**
 
@@ -65,11 +65,11 @@ Go over the steps listed below to make sure all the usual configurations are as 
 
     b) Select the **Connection troubleshoot** section, **Outbound connection** tab
     
-     ![Network Watcher - Test outbound connections](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
+      ![Network Watcher - Test outbound connections](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
     c) Select **Use Network Watcher for detail connection tracing**
     
-     ![Network Watcher - Connection troubleshoot](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
+      ![Network Watcher - Connection troubleshoot](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
 
     d) Select **Test by FQDN**
      - Paste the FQDN from the Private Endpoint resource
@@ -77,7 +77,7 @@ Go over the steps listed below to make sure all the usual configurations are as 
 
     e) Click **Test** and validate the test results
     
-     ![Network Watcher - test results](./media/private-endpoint-tsg/network-watcher-test-results.png)
+      ![Network Watcher - test results](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
         
 4. DNS resolution from the test results must have the same private IP address assigned to the Private Endpoint
@@ -94,7 +94,7 @@ Go over the steps listed below to make sure all the usual configurations are as 
     b) If connectivity is failing because of NSG/UDRs
      - Review NSG outbound rules and create appropriate outbound rules to allow traffic
     
-     ![NSG outbound rules](./media/private-endpoint-tsg/nsg-outbound-rules.png)
+       ![NSG outbound rules](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
 5. If the connection has validated results, the connectivity issue might be related to other aspects like secrets, tokens, passwords at the application layer.
    - In this case, review configuration of the Private Link resource associated with the private endpoint. Refer to [Private Link troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting). 
