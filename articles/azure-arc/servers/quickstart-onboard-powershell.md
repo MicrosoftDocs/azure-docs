@@ -30,7 +30,7 @@ You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a serv
 > When you create a service principal, your account must be an Owner or User Access Administrator on the subscription that you want to use for onboarding. If you don't have sufficient permissions to create role assignments, the service principal might be created, but it won't be able to onboard machines.
 >
 
-The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can define the permission of a service principal to allow its scope include a resource group or a subscription.
+The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription.
 
 You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a later step.
 
@@ -76,54 +76,6 @@ In the install agent onboarding script:
 
 The following guide allows you to connect a machine to Azure by logging into the machine and performing the steps. You can also connect machines to Azure [From the Portal](quickstart-onboard-portal.md).
 
-### Download and install the agent
-
-Installing the agent package requires root or Local Administrator access on the target server, but no Azure access.
-
-#### Linux
-
-For **Linux** servers, the agent is distributed via [Microsoft's package repository](https://packages.microsoft.com) using the preferred package format for the distribution (.RPM or .DEB).
-
-> [!NOTE]
-> During Public Preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
-
-The simplest option is to register the package repository, and then install the package using the distribution's package manager.
-The bash script located at [https://aka.ms/azcmagent](https://aka.ms/azcmagent) performs the following actions:
-
-1. Configures the host machine to download from `packages.microsoft.com`.
-2. Installs the Hybrid Resource Provider package.
-3. Optionally, configures the agent for proxy operation, if you specify `--proxy`.
-
-The script also contains checks for supported and non-supported distributions, as well as detecting required permissions for install.
-
-The example below downloads the agent and installs it, without any of the conditional checks.
-
-```bash
-# Download the installation package
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
-
-# Install the connected machine agent. Omit the '--proxy "{proxy-url}"' parameters if proxy is not needed
-bash ~/Install_linux_azcmagent.sh--proxy "{proxy-url}"
-```
-
-> [!NOTE]
-> If you prefer not to reference Microsoft's package repository you can copy the package file from there to your internal repository.
-
-#### Windows
-
-For **Windows**, the agent is packaged in a Windows Installer (`.MSI`) file and can be downloaded from [https://aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent), which is hosted on [https://download.microsoft.com](https://download.microsoft.com).
-
-```powershell
-# Download the package
-Invoke-WebRequest -Uri https://aka.ms/AzureConnectedMachineAgent -OutFile AzureConnectedMachineAgent.msi
-
-# Install the package
-msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-String
-```
-
-> [!NOTE]
-> On Linux, running the installation script again will automatically upgrade to the latest version. On Windows, you must uninstall the "Azure Connected Machine Agent" before running the installer again to upgrade.
-
 ### Connecting to Azure
 
 Once installed, you can manage and configure the agent using a command-line tool called `azcmagent.exe`. The agent is located under `/opt/azcmagent/bin` on Linux and `$env:programfiles\AzureConnectedMachineAgent` on Windows.
@@ -167,62 +119,6 @@ You can find more information on the 'azcmagent' tool in [Azcmagent Reference](a
 Upon successful completion, your machine is connected to Azure. You can view your machine in the Azure portal by visiting [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
 
 ![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
-
-### Proxy server configuration
-
-#### Linux
-
-<!-- New proxy name? -->
-
-For **Linux**, if the server requires a proxy server, you can either:
-
-* Run the `install_linux_hybrid_agent.sh` script from the [Install the Agent](#download-and-install-the-agent) section above, with `--proxy`.
-* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add http://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
-
-#### Windows
-
-For **Windows**, if the server requires proxy server for access to internet resources, you should run the command below to set the proxy server environment variable. This allows the agent to use proxy server for internet access.
-
-```powershell
-# If a proxy server is needed, execute these commands with actual proxy URL
-[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
-$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
-Restart-Service -Name himds
-```
-
-> [!NOTE]
-> Authenticated proxies are not supported for Public Preview.
-
-## Clean up
-
-To disconnect a machine from Azure Arc for servers, you need to perform two steps.
-
-1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
-1. Uninstall the agent from the machine.
-
-   On Windows, you can use the "Apps & Features" control panel to uninstall the agent.
-  
-  ![Apps & Features](./media/quickstart-onboard/apps-and-features.png)
-
-   If you would like to script the uninstall, you can use the following example which retrieves the **PackageId** and uninstall the agent using `msiexec /X`.
-
-   look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the **PackageId**. You can then uninstall the agent using `msiexec`.
-
-   The example below demonstrates uninstalling the agent.
-
-   ```powershell
-   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-   Get-ItemProperty | `
-   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
-   ```
-
-   On Linux, execute the following command to uninstall the agent.
-
-   ```bash
-   sudo apt purge hybridagent
-   ```
 
 ## Next steps
 

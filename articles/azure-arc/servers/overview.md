@@ -52,7 +52,9 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Required permissions
 
-You are a member of the **Azure Connected Machine Onboarding** role.
+- To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
+
+- To read, modify, re-onboard, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
 
 ### Azure subscription and service limits
 
