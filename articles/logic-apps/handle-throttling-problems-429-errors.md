@@ -50,7 +50,7 @@ To handle throttling at this level, you have these options:
 
 * Disable array debatching ("split on") behavior in triggers.
 
-  If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) splits up the array items and starts a workflow instance for each array item, effectively triggering multiple concurrent runs up to the [**Split On** limit](logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). To control throttling, turn off the **Split On** behavior and have your logic app process the entire array with a single call, rather than handle a single item per call.
+  If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) splits up the array items and starts a workflow instance for each array item, effectively triggering multiple concurrent runs up to the [**Split On** limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). To control throttling, turn off the **Split On** behavior and have your logic app process the entire array with a single call, rather than handle a single item per call.
 
 * Refactor actions into smaller logic apps.
 
