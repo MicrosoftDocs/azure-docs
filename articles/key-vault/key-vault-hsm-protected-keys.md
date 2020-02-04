@@ -98,7 +98,8 @@ Please refer to your HSM vendor's documentation to download and install the BYOK
 
 Transfer the byok file to your connected workstation.
 
-> [!NOTE] Target key must be an RSA key of size 2048-bit or 3072-bit or 4096-bit. Importing Elliptic Curve keys is not supported at this time.
+> [!NOTE] 
+> Target key must be an RSA key of size 2048-bit or 3072-bit or 4096-bit. Importing Elliptic Curve keys is not supported at this time.
 
 ## Step 4: Transfer your key to Azure Key Vault
 
