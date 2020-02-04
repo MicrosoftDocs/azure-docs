@@ -954,6 +954,8 @@
         href: nexonia-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nintex Promapp
+        href: promapp-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1084,8 +1086,6 @@
         href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
-      - name: Promapp
-        href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
       - name: ProNovos Ops Manager
