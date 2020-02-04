@@ -36,8 +36,12 @@
     #   href: article-template.md
     # - name: SQL Analytics pool
     #   href: article-template.md
+    - name: Synapse studio
+      href: quickstart-synapse-studio.md
     - name: SQL on-demand
       href: ./sql-analytics/quickstart-sql-on-demand.md
+    - name: Query SQL On-demand using Azure Data Studio
+      href: ./sql-analytics/get-started-azure-data-studio.md
 - name: Tutorials
   items:
   - name: Connect to Power BI
