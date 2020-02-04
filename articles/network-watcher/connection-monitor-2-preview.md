@@ -373,11 +373,11 @@ To create a Test Group in a Connection Monitor, you specify the value for the be
 3. Sources – You can specify both Azure VMs and On-Premise machines as sources if agents are installed in them. Refer to Step 1 to install agent specific to your source.
    1. Click on "Azure Agents" tab to select Azure agents. You'll only see those VMs listed which are bound to the region you specified at the time of creating the Connection Monitor. VMs are by default grouped into the subscription they belong to and the groups are collapsed. You can drill down from Subscriptions level to other levels in the hierarchy:
 
-   ```Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with agents Y```
+      ```Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with agents Y```
 
-   You can also change the value of "Group by" field to start the tree from any other level. For example:  Group by – VNET will show the VMs with agents in the hierarchy VNETs -\&gt; Subnets -\&gt; VMs with agents.
+      You can also change the value of "Group by" field to start the tree from any other level. For example:  Group by – VNET will show the VMs with agents in the hierarchy VNETs -\&gt; Subnets -\&gt; VMs with agents.
 
-   ![Add Sources](./media/connection-monitor-2-preview/add-azure-sources.png)
+      ![Add Sources](./media/connection-monitor-2-preview/add-azure-sources.png)
 
    2. Click on "Non – Azure Agents" tab to select on-premise agents. By default, you'll see agents grouped into workspaces in a region.Only those workspaces that have Network Performance Monitor solution configured will be listed. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) .By default, you'll see the region selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose agents from workspaces from the newly selected region. You can also change the value of "Group by" field to group on subnets.
 
