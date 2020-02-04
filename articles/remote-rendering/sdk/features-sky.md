@@ -100,7 +100,7 @@ Additionally, Azure Remote Rendering also has built-in support for 2D sphere env
 
 Mipmaps do not need to be provided. The textures are processed internally to allow optimal interaction with the rendering engine and do not need additional processing by the user. However, the cube and sphere environment maps have to be in DDS file format to be correctly loaded during `AzureSession.Actions.LoadTextureAsync()`.
 
-## See also
+## Next steps
 
 * [Materials](../sdk/concepts-materials.md)
 * [Textures](../sdk/concepts-textures.md)

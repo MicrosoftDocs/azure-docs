@@ -51,7 +51,7 @@ Texture [URI](../concepts/sdk-concepts.md#built-in-and-external-resources) has t
 
 API calls that expect Textures as input will always specify what type of texture is expected.
 
-## See also
+## Next steps
 
 * [Materials](../concepts/materials-overview.md)
 * [Sky](../sdk/features-sky.md)

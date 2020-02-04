@@ -64,6 +64,6 @@ Additionally, this mode is more efficient when rendering mostly transparent obje
 
 Quality mode has a substantially higher resource consumption. Therefore it is only recommended for small to medium-sized models. When this mode is active, the remote rendering service may even reject loading some models.
 
-## See also
+## Next steps
 
 * [SDK concepts](../concepts/sdk-concepts.md)
