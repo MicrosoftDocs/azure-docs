@@ -1,11 +1,11 @@
 ---
 title: WHERE clause in Azure Cosmos DB
 description: Learn about SQL WHERE clause for Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
+ms.date: 02/03/2020
+ms.author: tisande
 
 ---
 # WHERE clause in Azure Cosmos DB
@@ -99,10 +99,10 @@ You can also use the unary operators +,-, ~, and NOT in queries, as shown in the
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result. 
+You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result.
 
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [IN keyword](sql-query-keywords.md#in)
 - [FROM clause](sql-query-from.md)

@@ -303,9 +303,11 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match any character, and any other character to match that actual character.
-**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
-**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match any character, and any other character to match that actual character. While,
+**match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
+are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
+**notMatchInsensitively**. For examples, see
+[Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
