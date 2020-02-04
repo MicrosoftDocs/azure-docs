@@ -39,9 +39,11 @@ Use the following steps to create a new support request from the Azure portal fo
    - **SQL Database** for single database and elastic pool quotas.
    - **SQL Database Managed Instance** for managed instances.
 
+   Then select **Next: Solutions >>**.
+
    ![Select a quota type](./media/sql-database-quota-increase-request/select-quota-type.png)
 
-1. Select **Next: Solutions** to open **PROBLEM DETAILS**. Select **Provide details** to enter additional information.
+1. In the **Details** window, select **Provide details** to enter additional information.
 
    ![The "Provide details" link](./media/sql-database-quota-increase-request/provide-details-link.png)
 
@@ -67,17 +69,21 @@ Use the following steps to request an increase in the DTUs per server.
 
    ![DTU quota details](./media/sql-database-quota-increase-request/quota-details-dtus.png)
 
+For more information, see [Resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md) and [Resources limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md).
+
 ### Servers per subscription
 
 Use the following steps to request an increase in the number of servers per subscription.
 
-1. Select the **Servers per subcription** quota type.
+1. Select the **Servers per subscription** quota type.
 
 1. In the **Location** list, select the Azure region to use. The quota is per subscription in each region.
 
 1. In the **New quota** field, enter your request for the maximum number of servers in that region.
 
    ![Servers quota details](./media/sql-database-quota-increase-request/quota-details-servers.png)
+
+For more information, see [SQL Database resource limits and resource governance](sql-database-resource-limits-database-server.md).
 
 ### Server whitelisting requests for a region
 
@@ -95,13 +101,8 @@ For the **SQL Server Managed Instance** quota type, use the following steps:
 
    ![Managed instance quota details](./media/sql-database-quota-increase-request/quota-details-managed-instance.png)
 
+For more information, see [Overview Azure SQL Database managed instance resource limits](sql-database-managed-instance-resource-limits.md).
+
 ## Next steps
 
 Next, fill in the remaining details of your SQL Database quota request, and then select **Next: Review + create>>**. After reviewing the request details, click **Create** to submit the request.
-
-For more information about SQL Database resource limits, see:
-
-- [Resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
-- [Resources limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
-- [SQL Database resource limits and resource governance](sql-database-resource-limits-database-server.md)
-- [Overview Azure SQL Database managed instance resource limits](sql-database-managed-instance-resource-limits.md)
