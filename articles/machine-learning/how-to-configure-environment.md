@@ -54,7 +54,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 The Azure Machine Learning [compute instance (preview)](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a **North Central US**, ** East US 2**, **North Europe** or **UK South**.
+> Compute instances are available only for workspaces with a **North Central US**, **East US 2**, **North Europe** or **UK South**.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
