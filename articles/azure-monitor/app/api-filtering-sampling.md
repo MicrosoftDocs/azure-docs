@@ -376,6 +376,54 @@ For a summary of the non-custom properties available on the telemetryItem, see [
 
 You can add as many initializers as you like, and they are called in the order they are added.
 
+### OpenCensus Python telemetry processors
+
+Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. Your callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. Your callback function can return `False` if you do not want a envelopes to be exported. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+
+```python
+# Example for log exporter
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+
+# Callback function to append '_hello' to each log message telemetry
+def callback_function(envelope):
+	envelope.data.baseData.message += '_hello'
+	return True
+
+handler = AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>')
+handler.add_telemetry_processor(callback_function)
+logger.addHandler(handler)
+logger.warning('Hello, World!')
+```
+```python
+# Example for trace exporter
+import requests
+
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import ProbabilitySampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['requests'])
+
+# Callback function to add os_type: linux to span properties
+def callback_function(envelope):
+	envelope.data.baseData.properties['os_type'] = 'linux'
+	return True
+
+exporter = AzureExporter(
+	connection_string='InstrumentationKey=<your-instrumentation-key-here>'
+)
+exporter.add_telemetry_processor(callback_function)
+tracer = Tracer(exporter=exporter, sampler=ProbabilitySampler(1.0))
+with tracer.span(name='parent'):
+response = requests.get(url='https://www.wikipedia.org/wiki/Rabbit')
+```
+You can add as many processors as you like, and they are called in the order they are added. If one processor should throw an exception, it does not impact the following processors.
+
 ### Example TelemetryInitializers
 
 #### Add custom property
