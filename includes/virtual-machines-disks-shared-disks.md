@@ -29,6 +29,23 @@ While in preview, managed disks that have shared disks enabled are subject to th
 - AvailabilitySet and virtual machine scale  sets can only be used with `FaultDomainCount` set to 1.
 - Azure Backup and Azure Site Recovery support is not yet available.
 
+## Disk sizes
+
+For now, only premium SSDs can enable shared disks. The disk sizes that support this feature are P15 and greater.
+
+For each disk, you can define a `maxShares` value that represents the maximum number of nodes you expect will share the disk. For example, if you plan to set up a 2-node failover cluster, you can set `maxShares=2`. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specified `maxShares` value.
+
+> [!NOTE]
+> The `maxShares` value can only be set or edited when the disk is detached from all nodes.
+
+The following table illustrates the allowed maximum values for `maxShares` by disk size:
+
+|Disk sizes  |maxShares limit  |
+|---------|---------|
+|P15, P20     |2         |
+|P30, P40, P50     |5         |
+|P60, P70, P80     |10         |
+
 
 ## Sample workloads
 
@@ -84,7 +101,7 @@ The flow is as follows:
 To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value `>1`. This will make the disk shareable across multiple VMs.
 
 > [!IMPORTANT]
-> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. Please see the following table for the allowed values for `maxShares`.
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. Please see the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
 ```json
 { 
@@ -178,19 +195,3 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 You will also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
 
 If any commands you expect to be in the list are missing, contact us at SharedDiskFeedback@microsoft .com
-
-## Disk sizes
-
-For now, only premium SSDs can enable shared disks. The disk sizes that support this feature are P15 and greater. For each disk, you can define a maxShares value that represents the maximum number of nodes you expect will share the disk. For example, if you plan to set up a 2-node failover cluster, you can set maxShares=2. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specified `maxShares` value.
-
-> [!NOTE]
-> The maxShares value can only be set or edited when the disk is detached from all nodes.
-
-The following table illustrates the allowed maximum values for maxShares by disk size:
-
-
-|Disk sizes  |maxShares limit  |
-|---------|---------|
-|P15, P20     |2         |
-|P30, P40, P50     |5         |
-|P60, P70, P80     |10         |
