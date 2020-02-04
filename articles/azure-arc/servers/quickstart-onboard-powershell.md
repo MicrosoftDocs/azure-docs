@@ -58,10 +58,10 @@ To create the service principal using PowerShell, perform the following.
 
 3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
 
-In the install agent onboarding script:
+The values from the following properties are used with parameters passed to the `azcmagent`:
 
-* The **ApplicationId** property is used for the `--service-principal-id` parameter used to connect the agent
-* The **password** property is used for the  `--service-principal-secret` parameter used to connect the agent.
+* The value from the **ApplicationId** property is used for the `--service-principal-id` parameter value
+* The value from the **password** property is used for the  `--service-principal-secret` parameter used to connect the agent.
 
 > [!NOTE]
 > Make sure to use the service principal **ApplicationId** property, not the **Id** property.
@@ -75,8 +75,8 @@ On Windows, open PowerShell as administrator on a target node and run:
 
 ```powershell
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
-  --service-principal-id "{your-spn-appid}" `
-  --service-principal-secret "{your-spn-password}" `
+  --service-principal-id "{your-azadsp-appid}" `
+  --service-principal-secret "{your-azadsp-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
   --location "{desired-location}" `
