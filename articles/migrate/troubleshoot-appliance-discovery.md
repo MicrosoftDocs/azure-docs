@@ -35,14 +35,7 @@ If you receive the error "The provided manifest file is invalid: Invalid OVF man
 This can happen if the appliance machine is behind a proxy.
 
 - Make sure you provide the authorization credentials if the proxy needs them.
-- If you're using a URL-based firewall proxy to control outbound connectivity, add these URLs to an allow list:
-
-    - [URLs for VMware assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URLs for Hyper-V assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [URLs for VMware agentless migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URLS for VMware agent-based migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URLs for Hyper-V migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  Date/time synchronization error
