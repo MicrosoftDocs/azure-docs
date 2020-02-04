@@ -1,6 +1,6 @@
 ---
-title: Collation 
-description: Collation types supported in Azure SQL Data Warehouse.
+title: Data warehouse collation types
+description: Collation types supported in Azure Synapse Analytics data warehouse.
 services: sql-data-warehouse
 author: antvgski 
 manager: igorstan
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Database collation support for Azure SQL Data Warehouse
 
-You can change the default database collation from the Azure portal when you create a new Azure SQL Data Warehouse database. This capability makes it even easier to create a new database using one of the 3800 supported database collations for SQL Data Warehouse.
+You can change the default database collation from the Azure portal when you create a new Azure Synapse Analytics data warehouse database. This capability makes it even easier to create a new database using one of the 3800 supported database collations for the data warehouse.
 Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
 ## Changing collation
-To change the default collation, you simple update to the Collation field in the provisioning experience.
+To change the default collation, update to the Collation field in the provisioning experience.
 
 For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 

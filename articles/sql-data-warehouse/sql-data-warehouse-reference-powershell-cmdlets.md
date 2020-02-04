@@ -1,6 +1,6 @@
 ---
-title: PowerShell cmdlets
-description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database.
+title: PowerShell & REST APIs 
+description: Find the top PowerShell cmdlets for Azure Synapse Analytics data warehouse including how to pause and resume a database.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -13,8 +13,8 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# PowerShell cmdlets and REST APIs for SQL Data Warehouse
-Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
+# PowerShell & REST APIs for Azure Synapse Analytics data warehouse
+Many Azure Synapse Analytics data warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your data warehouse.  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,12 +28,13 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
     Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
-## Pause SQL Data Warehouse Example
+## Pause data warehouse Example
 Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
+
 A variation, this example pipes the retrieved object to [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase).  As a result, the database is paused. The final command shows the results.
 
 ```Powershell
@@ -42,7 +43,8 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## Start SQL Data Warehouse Example
+## Start data warehouse Example
+
 Resume operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
 ```Powershell
@@ -62,7 +64,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 > 
 
 ## Other supported PowerShell cmdlets
-These PowerShell cmdlets are supported with Azure SQL Data Warehouse.
+These PowerShell cmdlets are supported with Azure Synapse Analytics data warehouse.
 
 * [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
 * [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
@@ -78,7 +80,7 @@ These PowerShell cmdlets are supported with Azure SQL Data Warehouse.
 ## Next steps
 For more PowerShell examples, see:
 
-* [Create a SQL Data Warehouse using PowerShell](create-data-warehouse-powershell.md)
+* [Create a data warehouse using PowerShell](create-data-warehouse-powershell.md)
 * [Database restore](sql-data-warehouse-restore-database-powershell.md)
 
-For other tasks that can be automated with PowerShell, see [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/az.sql). Not all Azure SQL Database cmdlets are supported for Azure SQL Data Warehouse.  For a list of tasks that can be automated with REST, see [Operations for Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+For other tasks that can be automated with PowerShell, see [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/az.sql). Not all Azure SQL Database cmdlets are supported for Azure Synapse Analytics data warehouse.  For a list of tasks that can be automated with REST, see [Operations for Azure SQL Database](/rest/api/sql/).
