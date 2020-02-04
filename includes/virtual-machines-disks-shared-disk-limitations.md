@@ -13,7 +13,7 @@
 While in preview, managed disks that have shared disks enabled are subject to the following limitations:
 
 - Currently only available with premium SSDs.
-- Only currently supported in the West Central US region.
+- Currently only supported in the West Central US region.
 - Can only be enabled on data disks, not OS disks.
 - Only basic disks can be used with WSFC, for details [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - ReadOnly host caching is not available for premium SSDs with maxShares>1.
