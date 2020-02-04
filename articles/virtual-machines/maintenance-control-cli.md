@@ -180,7 +180,7 @@ az maintenance update list \
 
 ### Dedicated host
 
-To check for pending updates for a dedicated host (ADH). In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
+To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
 
 ```azurecli-interactive
 az maintenance update list \
