@@ -126,7 +126,7 @@ Any request to the Microsoft Graph API requires an access token for authenticati
 The `RunAsync` method in the _Program.cs_ file:
 
 1. Reads application settings from the _appSettings.json_ file
-1. Initializes the auth provider using [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow) flow. With the client credentials grant flow, the app is able to get an access token to call the Microsoft Graph API.
+1. Initializes the auth provider using [OAuth 2.0 client credentials grant](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flow. With the client credentials grant flow, the app is able to get an access token to call the Microsoft Graph API.
 1. Next, it sets up the Microsoft Graph service client with the auth provider:
 
     ```csharp
