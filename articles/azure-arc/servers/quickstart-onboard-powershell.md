@@ -22,8 +22,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Service Principal for onboarding at scale
 
-In the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md), to connect the machine to Azure Arc, your identity needs to have privileged permissions in Azure to successfully connect the machine to Azure Arc using the `azcmagent` command. 
-
 You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet. Or you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) to complete this task.
 
 > [!NOTE]
@@ -32,41 +30,33 @@ You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a serv
 
 The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. 
 
-Perform the following steps to create the service principal for Azure Arc.
+To create the service principal using PowerShell, perform the following.
 
-1. 
+1. Run the following command. You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet in a variable, or you will not be able to retrieve the password needed in a later step.
 
-You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a step below.
+    ```azurepowershell-interactive
+    $sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
+    $sp
+    ```
 
-```azurepowershell-interactive
-$sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
-$sp
-```
+    ```output
+    Secret                : System.Security.SecureString
+    ServicePrincipalNames : {ad9bcd79-be9c-45ab-abd8-80ca1654a7d1, https://Arc-for-servers}
+    ApplicationId         : ad9bcd79-be9c-45ab-abd8-80ca1654a7d1
+    ObjectType            : ServicePrincipal
+    DisplayName           : Hybrid-RP
+    Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
+    Type                  :
+    ```
 
-```output
-Secret                : System.Security.SecureString
-ServicePrincipalNames : {ad9bcd79-be9c-45ab-abd8-80ca1654a7d1, https://Arc-for-servers}
-ApplicationId         : ad9bcd79-be9c-45ab-abd8-80ca1654a7d1
-ObjectType            : ServicePrincipal
-DisplayName           : Hybrid-RP
-Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
-Type                  :
-```
+2. To retrieve the password stored in the `$sp` variable, run the following command:
 
-> [!NOTE] 
-> It may take several minutes to get the service principal permissions properly populated. Running the following PowerShell cmdlet to modify role assignment sets the permission quicker.  
-> ``` PowerShell
-> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
-> ```
+    ```azurepowershell-interactive
+    $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
+    $credential.GetNetworkCredential().password
+    ```
 
-Now, retrieve the password using PowerShell.
-
-```azurepowershell-interactive
-$credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
-$credential.GetNetworkCredential().password
-```
-
-From the output, copy the **password** and **ApplicationId** (from the previous step) and store them for later in a safe place, such as the secret store for your server configuration tool. If you forget or lose your SPN password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. From the output, copy the values from **password** and **ApplicationId** and save them for later in a safe place, such as the secret store for your server configuration tool. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
 
 In the install agent onboarding script:
 
