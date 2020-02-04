@@ -31,7 +31,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period (90 days), while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
-Soft-delete is now on by default for newly created key vaults. It can be disabled through the [Azure CLI](key-vault-soft-delete-cli.md) or [Azure Powershell](key-vault-soft-delete-powershell.md).
+Soft-delete is now on by default for newly created key vaults. It can be disabled for creation through the [Azure CLI](key-vault-soft-delete-cli.md) or [Azure Powershell](key-vault-soft-delete-powershell.md). However, once created, soft-delete is immutable. 
 
 The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. 
 
