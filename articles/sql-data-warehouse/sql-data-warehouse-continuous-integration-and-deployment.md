@@ -1,19 +1,20 @@
 ---
 title: Continuous integration and deployment 
-description: Enterprise-class Database DevOps experience for SQL Data Warehouse with built-in support for continuous integration and deployment using Azure Pipelines.
+description: Enterprise-class Database DevOps experience for data warehousing with built-in support for continuous integration and deployment using Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
-# Continuous integration and deployment for Azure SQL Data Warehouse
+# Continuous integration and deployment for data warehousing
 
-This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with Azure DevOps and leverage Azure Pipelines to set up continuous integration and deployment. This tutorial is the second step in building your continuous integration and deployment pipeline with SQL Data Warehouse. 
+This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with Azure DevOps and leverage Azure Pipelines to set up continuous integration and deployment. This tutorial is the second step in building your continuous integration and deployment pipeline for data warehousing. 
 
 ## Before you begin
 
@@ -55,7 +56,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Next steps
 
-- Explore [Azure SQL Data Warehouse architecture](massively-parallel-processing-mpp-architecture.md)
-- Quickly [create a SQL Data Warehouse](create-data-warehouse-portal.md)
+- Explore [SQL Analytics MPP architecture](massively-parallel-processing-mpp-architecture.md)
+- Quickly [create a SQL pool](create-data-warehouse-portal.md)
 - [Load sample data](sql-data-warehouse-load-sample-databases.md)
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
