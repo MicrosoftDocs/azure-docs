@@ -1,21 +1,21 @@
 ---
 title: Manage and monitor workload importance
-description: Learn how to manage and monitor request level importance in Azure SQL Data Warehouse.
+description: Learn how to manage and monitor request level importance in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Manage and monitor workload importance in Azure SQL Data Warehouse
+# Manage and monitor workload importance in Azure Synapse Analytics
 
-Manage and monitor request level importance in Azure SQL Data Warehouse using DMVs and catalog views.
+Manage and monitor SQL Analytics request level importance in Azure Synapse using DMVs and catalog views.
 
 ## Monitor importance
 
@@ -34,7 +34,7 @@ To look further into how queries are being schedule, use the catalog views.
 
 ## Manage importance with catalog views
 
-The sys.workload_management_workload_classifiers catalog view contains information on classifiers in your Azure SQL Data Warehouse instance. To exclude the system-defined classifiers that map to resource classes execute the following code:
+The sys.workload_management_workload_classifiers catalog view contains information on classifiers. To exclude the system-defined classifiers that map to resource classes execute the following code:
 
 ```sql
 SELECT *
