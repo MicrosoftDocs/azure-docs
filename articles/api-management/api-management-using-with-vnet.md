@@ -136,7 +136,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com where `East US 2` is eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
 + **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
 
@@ -192,7 +192,7 @@ Given the calculation above the minimum size of the subnet, in which API Managem
 
 The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be whitelisted along with the **Region** specific IP Address.
 
-| **Azure Environment**|   **Region**|  **IP Address**|
+| **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
 | Azure Public| South Central US (Global)| 104.214.19.224|
 | Azure Public| North Central US (Global)| 52.162.110.80|
@@ -238,12 +238,12 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Public| Germany North| 51.116.0.0|
 | Azure Public| Norway East| 51.120.2.185|
 | Azure Public| Norway West| 51.120.130.134|
-| Azure China 21 Vianet| China North (Global)| 139.217.51.16|
-| Azure China 21 Vianet| China East (Global)| 139.217.171.176|
-| Azure China 21 Vianet| China North| 40.125.137.220|
-| Azure China 21 Vianet| China East| 40.126.120.30|
-| Azure China 21 Vianet| China North 2| 40.73.41.178|
-| Azure China 21 Vianet| China East 2| 40.73.104.4|
+| Azure China 21Vianet| China North (Global)| 139.217.51.16|
+| Azure China 21Vianet| China East (Global)| 139.217.171.176|
+| Azure China 21Vianet| China North| 40.125.137.220|
+| Azure China 21Vianet| China East| 40.126.120.30|
+| Azure China 21Vianet| China North 2| 40.73.41.178|
+| Azure China 21Vianet| China East 2| 40.73.104.4|
 | Azure Government| USGov Virginia (Global)| 52.127.42.160|
 | Azure Government| USGov Texas (Global)| 52.127.34.192|
 | Azure Government| USGov Virginia| 52.227.222.92|

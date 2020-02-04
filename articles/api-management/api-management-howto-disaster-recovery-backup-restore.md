@@ -68,11 +68,10 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 ### Add an application
 
-1. Once the application is created, click **Settings**.
-2. Click **Required permissions**.
-3. Click **+Add**.
-4. Press **Select an API**.
-5. Choose **Windows** **Azure Service Management API**.
+1. Once the application is created, click **API permissions**.
+2. Click **+ Add a permission**.
+4. Press **Select Microsoft APIs**.
+5. Choose **Azure Service Management**.
 6. Press **Select**.
 
     ![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -175,7 +174,11 @@ Note the following constraints when making a backup request:
 -   In addition, the following items are not part of the backup data: custom domain SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
 -   The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   **Allow** access from control plane to Azure Storage Account. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup.
+-   **Allow** access from control plane to Azure Storage Account. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup. 
+
+> [!NOTE]
+> If you have firewall enabled on the Storage Account and the are trying to do backup/restore from an API Management service in the same Region, 
+> then this will not work, as the requests to Azure Storage are not SNATed to public IP from Compute deployed in the same region.
 
 ### <a name="step2"> </a>Restore an API Management service
 
