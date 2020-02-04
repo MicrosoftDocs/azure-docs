@@ -11,17 +11,17 @@ ms.author: rambala
 
 ---
 
-# Active validation of S2S VPN to backup ExpressRoute private peering
+# Maintaining S2S VPN to backup ExpressRoute private peering
 
-In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider leveraging site-to-site (S2S) VPN to back up ExpressRoute private peering. 
+In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider how to leverage and maintain site-to-site (S2S) VPN to back up ExpressRoute private peering. 
 
-Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN combination only in active-passive mode. One of the major drawbacks of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection because of lack of active validation and maintenance of the passive connection. Therefore, in this article let's focus on how to validate and actively maintain S2S VPN connectivity that is backing an ExpressRoute private peering.
+Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN combination only in active-passive mode. One of the major drawbacks of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection because of lack of active verification and maintenance of the passive connection. Therefore, in this article let's focus on how to verify and actively maintain S2S VPN connectivity that is backing an ExpressRoute private peering.
 
 >[!NOTE] 
 >When a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute.  
 >
 
-In this article, let's see how to validate the connectivity both from the Azure perspective and from the perspective of the network equipment that peer with the Microsoft Enterprise Edge devices. Ability to validate from either end will help irrespective of the type of--Layer 2 or Layer 3--network service provider you have. 
+In this article, let's see how to verify the connectivity both from the Azure perspective and from the perspective of the network equipment that peer with the Microsoft Enterprise Edge devices. Ability to validate from either end will help irrespective of the type of--Layer 2 or Layer 3--network service provider you have. 
 
 ## Example Topology
 
@@ -29,7 +29,7 @@ Let's consider the following topology for our discussion. In our setup, we have 
 
 [![1]][1]
 
-In the setup, the ExpressRoute circuit is terminated on a pair of "Customer Edge" (CE) routers at the on-premises. The on-premises LAN is connected to the CE routers via a pair of firewalls that operate in master-slave mode. The S2S VPN is directly terminated on the firewalls.
+In the setup, the ExpressRoute circuit is terminated on a pair of "Customer Edge" (CE) routers at the on-premises. The on-premises LAN is connected to the CE routers via a pair of firewalls that operate in leader-follower mode. The S2S VPN is directly terminated on the firewalls.
 
 ## High availability and avoiding asymmetric traffic
 
@@ -255,8 +255,8 @@ To enable monitoring and alerts based on VPN gateway metrics, see [Set up alerts
 To expedite BGP convergence following an ExpressRoute failure, [Configure BFD over ExpressRoute][BFD].
 
 <!--Image References-->
-[1]: ./media/active-validation-of-s2s-vpn-to-backup-expressroute-private-peering/topology.png "topology under consideration"
-[2]: ./media/active-validation-of-s2s-vpn-to-backup-expressroute-private-peering/vpn-gw-config.png "VPN GW configuration"
+[1]: ./media/maintaining-s2s-vpn-to-backup-expressroute-private-peering/topology.png "topology under consideration"
+[2]: ./media/maintaining-s2s-vpn-to-backup-expressroute-private-peering/vpn-gw-config.png "VPN GW configuration"
 
 <!--Link References-->
 [DR-PP]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
