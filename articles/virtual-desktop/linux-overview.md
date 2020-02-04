@@ -50,7 +50,7 @@ Before you can develop a Linux client for Windows Virtual Desktop, you need to d
 
 ## Next steps
 
-The Linux SDK is currently in development. We'll update this document with onboarding information.
+You can request access to the Linux SDK on our [Tech Community forum](https://go.microsoft.com/fwlink/?linkid=2116541).
 
 Check out our documentation for the following clients:
 
