@@ -4,7 +4,7 @@ description: Create, delete, and modify Azure Batch account resources with the B
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 

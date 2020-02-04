@@ -4,7 +4,7 @@ description: Enable automatic scaling on a cloud pool to dynamically adjust the 
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: 
 
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779

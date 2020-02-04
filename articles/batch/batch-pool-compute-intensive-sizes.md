@@ -3,7 +3,7 @@ title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 ms.assetid: 
 ms.service: batch

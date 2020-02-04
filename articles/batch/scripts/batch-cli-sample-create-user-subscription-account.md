@@ -4,7 +4,7 @@ description: This script creates an Azure Batch account in user subscription mod
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: 
 
 ms.assetid:

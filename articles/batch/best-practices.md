@@ -6,7 +6,7 @@ ms.author: labrenne
 ms.date: 11/22/2019
 ms.service: batch 
 ms.topic: article
-manager: gwallace
+manager: evansma
 ---
 
 # Azure Batch best practices

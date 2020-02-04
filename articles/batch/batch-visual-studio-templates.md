@@ -4,7 +4,7 @@ description: Learn how Visual Studio project templates can help you implement an
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20

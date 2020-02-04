@@ -3,7 +3,7 @@ title: Azure Quickstart - Run Batch job - CLI
 description: Quickly learn to run a Batch job with the Azure CLI. Create and manage Azure resources from the command line or in scripts.
 services: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.service: batch
 ms.devlang: azurecli

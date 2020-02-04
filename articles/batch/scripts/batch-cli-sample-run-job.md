@@ -4,7 +4,7 @@ description: This script creates a Batch job and adds a series of tasks to the j
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: tysonn
 
 ms.assetid:

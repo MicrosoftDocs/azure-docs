@@ -4,7 +4,7 @@ description: Increase efficiency and lower costs by using fewer compute nodes an
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a

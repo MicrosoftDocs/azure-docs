@@ -4,7 +4,7 @@ description: Explore using Azure Active Directory to authenticate from applicati
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 

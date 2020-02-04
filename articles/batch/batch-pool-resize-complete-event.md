@@ -3,7 +3,7 @@ title: Azure Batch pool resize complete event
 description: Reference for Batch pool resize complete event. See an example of a pool that increased in size and completed successfully.
 services: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.assetid: 
 ms.service: batch

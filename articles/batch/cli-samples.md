@@ -4,7 +4,7 @@ description: Azure CLI examples for Azure Batch service. Learn how to create a B
 services: batch
 documentationcenter: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: 
 tags: 
 

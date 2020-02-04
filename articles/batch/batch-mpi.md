@@ -4,7 +4,7 @@ description: Learn how to execute Message Passing Interface (MPI) applications u
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327

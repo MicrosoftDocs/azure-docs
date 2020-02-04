@@ -4,7 +4,7 @@ description: Increase performance by filtering your queries when requesting info
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d

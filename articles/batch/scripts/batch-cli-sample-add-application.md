@@ -4,7 +4,7 @@ description: This sample script demonstrates how to add an application for use w
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: 
 
 ms.assetid:

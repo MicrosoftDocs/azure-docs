@@ -4,7 +4,7 @@ description: Batch supports Azure AD for authentication from the Batch service. 
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 tags: 
 

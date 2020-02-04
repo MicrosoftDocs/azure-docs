@@ -4,7 +4,7 @@ description: Learn the features of the Batch service and its APIs from a develop
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204

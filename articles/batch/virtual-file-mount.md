@@ -4,7 +4,7 @@ description: Learn how to mount a virtual file system on a Batch pool.
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.service: batch
 ms.workload: big-compute

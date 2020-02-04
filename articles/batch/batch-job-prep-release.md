@@ -4,7 +4,7 @@ description: Use job-level preparation tasks to minimize data transfer to Azure 
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3

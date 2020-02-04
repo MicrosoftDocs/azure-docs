@@ -4,7 +4,7 @@ description: This script creates an Azure Batch account in Batch service mode an
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: 
 
 ms.assetid:

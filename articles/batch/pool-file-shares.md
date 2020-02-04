@@ -4,7 +4,7 @@ description: How to mount an Azure Files share from compute nodes in a Linux or 
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 

@@ -3,7 +3,7 @@ title: Azure Batch task start event
 description: Reference information for Batch task start event. This event is emitted once a task has been scheduled to start on a compute node by the scheduler.
 services: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.assetid: 
 ms.service: batch

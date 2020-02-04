@@ -3,7 +3,7 @@ title: Azure Batch pool delete start event
 description: Reference for Batch pool delete start event. This event is emitted when a pool delete operation has started.
 services: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.assetid: 
 ms.service: batch

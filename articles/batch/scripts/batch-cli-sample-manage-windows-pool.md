@@ -4,7 +4,7 @@ description: This script demonstrates some of the commands available in the Azur
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: 
 
 ms.assetid:

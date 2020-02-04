@@ -4,7 +4,7 @@ description: Get a quick introduction to the Batch commands in Azure CLI for man
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85

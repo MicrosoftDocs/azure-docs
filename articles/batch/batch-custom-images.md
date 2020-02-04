@@ -3,7 +3,7 @@ title: Provision a custom pool from a managed image - Azure Batch | Microsoft Do
 description: Create a Batch pool from a managed image resource to provision compute nodes with the software and data for your application.
 services: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.service: batch
 ms.topic: article

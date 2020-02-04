@@ -4,7 +4,7 @@ description: Learn how to design your Batch application for a regional outage. W
 services: batch
 documentationcenter: ''
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: 

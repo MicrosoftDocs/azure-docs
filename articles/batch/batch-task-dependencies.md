@@ -4,7 +4,7 @@ description: Create tasks that depend on the completion of other tasks for proce
 services: batch
 documentationcenter: .net
 author: ju-shim
-manager: gwallace
+manager: evansma
 editor: ''
 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210

@@ -3,7 +3,7 @@ title: Run jobs end-to-end using templates - Azure Batch
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data. 
 services: batch
 author: ju-shim
-manager: gwallace
+manager: evansma
 
 ms.assetid: 
 ms.service: batch
