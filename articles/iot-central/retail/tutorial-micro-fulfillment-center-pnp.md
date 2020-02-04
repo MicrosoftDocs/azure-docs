@@ -11,8 +11,6 @@ ms.date: 01/09/2020
 
 # Tutorial: Deploy and walk through a micro-fulfillment center application template
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
-
 In this tutorial, we will leverage the Azure IoT Central ***Micro-fulfillment center*** application template to show you how to build a retail solution. You will learn about how to deploy the MFC template, what is included out of the box and what you might want to do next.
 
 In this tutorial, you learn how to: 
