@@ -43,9 +43,9 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot Private Endpoint connectivity problems
-      href: private-endpoint-connectivity-troubleshooting.md
+      href: troubleshoot-private-endpoint-connectivity.md
     - name: Troubleshoot Private Link Service connectivity problems
-      href: private-link-connectivity-troubleshooting.md 
+      href: troubleshoot-private-link-connectivity.md 
      
 
 - name: Reference
