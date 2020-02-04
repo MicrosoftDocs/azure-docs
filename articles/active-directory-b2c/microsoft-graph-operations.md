@@ -13,7 +13,7 @@ ms.date: 02/08/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
-# Supported Microsoft Graph operations
+# Microsoft Graph operations available for Azure AD B2C
 
 The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys.
 
