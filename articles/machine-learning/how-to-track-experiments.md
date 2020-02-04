@@ -57,44 +57,24 @@ Before adding logging and submitting an experiment, you must set up the workspac
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_ws)]
 
 
-  
 ## Option 1: Use start_logging
 
 **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 
 The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
 
-1. Create a training script in a local Jupyter notebook. 
+### Load the data
 
-   ```python
-   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from sklearn.externals import joblib
+This example uses the diabetes dataset, a well-known small dataset that comes with scikit-learn. This cell loads the dataset and splits it into random training and testing sets.
 
-   X, y = load_diabetes(return_X_y = True)
-   columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {
-      "train":{"X": X_train, "y": y_train},        
-      "test":{"X": X_test, "y": y_test}
-   }
-   reg = Ridge(alpha = 0.03)
-   reg.fit(data['train']['X'], data['train']['y'])
-   preds = reg.predict(data['test']['X'])
-   print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
-   joblib.dump(value = reg, filename = 'model.pkl');
-   ```
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_data)]
 
-2. Add experiment tracking using the Azure Machine Learning SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
+### Add tracking
+Add experiment tracking using the Azure Machine Learning SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
-
-
-    The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
+The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
 
 ## Option 2: Use ScriptRunConfig
 
