@@ -1,7 +1,7 @@
 ---
 
 title: Designing virtual networks with NAT gateway resources
-titlesuffix: Virtual Network NAT
+titlesuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks with NAT gateway resources.
 services: virtual-network
 documentationcenter: na
