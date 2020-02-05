@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 5/30/2019
+ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -20,7 +20,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Total number of entities, such as pipelines, data sets, triggers, linked services, and integration runtimes, within a data factory | 5,000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Total CPU cores for Azure-SSIS Integration Runtimes under one subscription | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent pipeline runs per data factory that's shared among all pipelines in the factory | 10,000  | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Concurrent External activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, HDInsights, and others.</small> | 3000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Concurrent External activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, HDInsights, Web, and others.</small> | 3000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent Pipeline activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. </small>| 1000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent authoring operations per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Including test connection, browse folder list and table list, preview data. | 200 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6000<br>Region group 2<sup>2</sup>: 3000<br>Region group 3<sup>2</sup>: 1500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

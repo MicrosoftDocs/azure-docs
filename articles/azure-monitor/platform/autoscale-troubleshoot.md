@@ -93,7 +93,7 @@ In the autoscale setting screen, go to the **Run history** tab to see the most r
 
 ## Autoscale Resource Logs
 
-Same as any other Azure resource, the autoscale service provides [resource logs](resource-logs-overview.md). There are two categories of logs.
+Same as any other Azure resource, the autoscale service provides [resource logs](platform-logs-overview.md). There are two categories of logs.
 
 - **Autoscale Evaluations** - The autoscale engine records log entries for every single condition evaluation every time it does a check.  The entry includes details on the observed values of the metrics, the rules evaluated, and if the evaluation resulted in a scale action or not.
 

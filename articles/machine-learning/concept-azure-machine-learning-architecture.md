@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 10/16/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ms.custom: seodec18
@@ -43,8 +43,7 @@ Use these tools for Azure Machine Learning:
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
++ Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
 + Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code.
 
 
@@ -83,7 +82,7 @@ Activities can provide notifications through the SDK or the web UI so that you c
 ### <a name="compute-instance"></a>Compute instance (preview)
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances are available only for workspaces with a region of **North Central US**, **East US 2**, **North Europe** or **UK South**, with support for other regions coming soon.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.

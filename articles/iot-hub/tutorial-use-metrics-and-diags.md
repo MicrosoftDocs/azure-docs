@@ -121,7 +121,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## Enable the diagnostic logs 
 
-[Diagnostic logs](../azure-monitor/platform/resource-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
+[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
 
 1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. Select the hub from the list of resources displayed. 
 

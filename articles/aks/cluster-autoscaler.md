@@ -37,7 +37,7 @@ To adjust to changing application demands, such as between the workday and eveni
 
 Both the horizontal pod autoscaler and cluster autoscaler can also decrease the number of pods and nodes as needed. The cluster autoscaler decreases the number of nodes when there has been unused capacity for a period of time. Pods on a node to be removed by the cluster autoscaler are safely scheduled elsewhere in the cluster. The cluster autoscaler may be unable to scale down if pods can't move, such as in the following situations:
 
-* A pod directly created and isn't backed by a controller object, such a deployment or replica set.
+* A pod is directly created and isn't backed by a controller object, such as a deployment or replica set.
 * A pod disruption budget (PDB) is too restrictive and doesn't allow the number of pods to be fall below a certain threshold.
 * A pod uses node selectors or anti-affinity that can't be honored if scheduled on a different node.
 
@@ -57,7 +57,7 @@ If you need to create an AKS cluster, use the [az aks create][az-aks-create] com
 > [!IMPORTANT]
 > The cluster autoscaler is a Kubernetes component. Although the AKS cluster uses a virtual machine scale set for the nodes, don't manually enable or edit settings for scale set autoscale in the Azure portal or using the Azure CLI. Let the Kubernetes cluster autoscaler manage the required scale settings. For more information, see [Can I modify the AKS resources in the node resource group?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-The following example creates an AKS cluster with single node pool backed by a virtual machine scale set. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
+The following example creates an AKS cluster with a single node pool backed by a virtual machine scale set. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
 
 ```azurecli-interactive
 # First create a resource group
@@ -150,7 +150,7 @@ To learn more about what is logged from the autoscaler, read the FAQ on the [Kub
 
 ## Use the cluster autoscaler with multiple node pools enabled
 
-The cluster autoscaler can be used together with the [multiple node pools](use-multiple-node-pools.md) enabled. Follow that document to learn how to enable multiple node pools and add additional node pools to an existing cluster. When using both features together, you enable the cluster autoscaler on each individual node pool in the cluster and can pass unique autoscaling rules to each.
+The cluster autoscaler can be used together with [multiple node pools](use-multiple-node-pools.md) enabled. Follow that document to learn how to enable multiple node pools and add additional node pools to an existing cluster. When using both features together, you enable the cluster autoscaler on each individual node pool in the cluster and can pass unique autoscaling rules to each.
 
 The below command assumes you followed the [initial instructions](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) earlier in this document and you want to update an existing node pool's max-count from *3* to *5*. Use the [az aks nodepool update][az-aks-nodepool-update] command to update an existing node pool's settings.
 

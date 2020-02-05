@@ -60,10 +60,11 @@ Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identit
 
 Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-Understanding SSO with Azure AD:
+Understand SSO with Azure AD:
+
 https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
-## 3.5: Use multi-factor authentication for all Azure Active Directory based access.
+## 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -88,9 +89,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
 Learn about Privileged Access Workstations:
+
 https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
 How to enable MFA in Azure:
+
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
@@ -131,20 +134,23 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 Use Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.
 
 How to create and configure an AAD instance:
+
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 ## 3.10: Regularly review and reconcile user access
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 3.1 | 16.9, 16.10 | Customer |
+| 3.10 | 16.9, 16.10 | Customer |
 
 Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-Azure AD Reporting 
+Azure AD Reporting:
+
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
 How to use Azure Identity Access Reviews:
+
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 ## 3.11: Monitor attempts to access deactivated accounts
@@ -189,7 +195,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review, and approve or reject customer data access requests.
 
-Understanding Customer Lockbox:
+Understand Customer Lockbox:
 
 https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 

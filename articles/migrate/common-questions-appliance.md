@@ -17,7 +17,7 @@ This article answers common questions about the Azure Migrate appliance. If you 
 
 The Azure Migrate appliance is a lightweight appliance used by the Azure Migrate: Server Assessment tool to discover and assess on-premises servers, and used by the Azure Migrate: Server Migration tool for agentless migration of on-premises VMware VMs. 
 
-The appliance is deployed on-premises as a VM or physical machine. The appliance discovers on-premises machines, and continually sends machine metadata and performance data to Azure Migrate. Appliance discovery is agentless. Nothing needs to be installed on discovered machines. [Learn more](migrate-appliance.md) about the appliance.
+The appliance is deployed on-premises as a VM or physical machine. The appliance discovers on-premises machines, and continually sends machine metadata and performance data to Azure Migrate. Appliance discovery is agentless. Nothing is installed on discovered machines. [Learn more](migrate-appliance.md) about the appliance.
 
 ## How does the appliance connect to Azure?
 
@@ -29,15 +29,15 @@ The Azure Migrate appliance profiles on-premises machines continuously to measur
 
 ### Can I harden the appliance VM?
 
-When you create the appliance VM using the downloaded template, you can add components (for example an antivirus) to the template, as long as you leave the communication and firewall rules required for the Azure Migrate appliance as is.
+When you create the appliance VM using the downloaded template, you can add components (for example an antivirus) to the template, as long as you leave the communication and firewall rules required for the Azure Migrate appliance as-is.
 
 
 ## What network connectivity is needed?
 
 Review the following:
-- Appliance VMware assessment: [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) and [port](migrate-support-matrix-vmware.md#assessment-port-requirements) access requirements.
-- Appliance agentless VMware migration: [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) and [port](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) access requirements.
-- Appliance Hyper-V assessment: [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) and [port](migrate-support-matrix-hyper-v.md#assessment-port-requirements) access requirements.
+- VMware assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware.md#port-access) access requirements.
+- VMware agentless migration using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware-migration.md#agentless-ports) access requirements.
+- Hyper-V assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-hyper-v.md#port-access) access requirements.
 
 
 ## What data does the appliance collect?
@@ -57,7 +57,7 @@ Data collected by the Azure Migrate appliance is stored in the Azure location th
 
 ## How much data is uploaded in continuous profiling?
 
-The volume of data sent to Azure Migrate depends on a number of parameters. To give you a sense of the volume, an Azure Migrate project with 10 machines (each with one disk and one NIC) sends around 50 MB per day. This value is approximate, and changes based on the number of data points for the NICs and disks. The increase in data sent is non-linear if the number of machines, NICs, or disks increases.
+The volume of data sent to Azure Migrate depends on a number of parameters. To give you a sense of the volume, an Azure Migrate project with 10 machines (each with one disk and one NIC) sends around 50 MB per day. This value is approximate, and changes based on the number of data points for the NICs and disks. The increase in data sent is non-linear if there's an increase in the number of machines, NICs, or disks.
 
 ## Is data encrypted at-rest/in-transit?
 
@@ -78,17 +78,35 @@ Yes, for both.
 
 No. There's a one-to-one mapping between an appliance and vCenter Server. To discover VMs on multiple vCenter Server instances, you need to deploy multiple appliances.
 
-### How many VMs can I discover with an appliance?
+### How many VMs or servers can I discover with an appliance?
 
-You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
+You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs and up to 250 servers with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) and [physical](scale-physical-assessment.md) assessment.
 
-### Can I delete an appliance?
+## Can I delete an appliance?
 
 Currently deletion of appliance from the project isn't supported.
 
 - The only way to delete the appliance is to delete the resource group that contains the Azure Migrate project associated with the appliance.
-- However, deleting the resource group will also delete other registered appliances, the discovered inventory, assessments and all other Azure components associated with the project in the resource group.
+- However, deleting the resource group will also delete other registered appliances, the discovered inventory, assessments, and all other Azure components associated with the project in the resource group.
 
+
+## Can I use the appliance with a different subscription/project?
+
+After using the appliance to initiate discovery, you can't reconfigure it with a different Azure subscription, or in a different Azure Migrate project. You also can't discover VMs on a different vCenter Server. Set up a fresh appliance for these tasks.
+
+## Can I set up the appliance on an Azure VM?
+Not currently supported. 
+
+## Can I discover on an ESXi host?
+Not you need a vCenter Server to discover VMware VMs.
+
+## How do I update the appliance?
+
+By default, the appliance and its installed agents are updated automatically. The appliance checks for updates once every 24 hours. If there are any failures during the update process, there's a retry process. Automatic updates only update the appliance and appliance agents. The operating system isn't updated. Use Microsoft Updates to keep the operating system up-to-date.
+
+## Can I check agent health?
+
+In the portal, go the **Agent health** page in the Server Assessment or Server Migration tool. There, you can check the connection status between the discovery and assessment agents on the appliance and Azure.
 
 ## Next steps
 Read the [Azure Migrate overview](migrate-services-overview.md).

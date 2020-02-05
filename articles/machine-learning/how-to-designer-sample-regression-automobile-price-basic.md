@@ -5,7 +5,7 @@ description: Build an ML regression model to predict an automobile's price witho
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
@@ -82,8 +82,8 @@ Pass the scores to the **Evaluate Model** module to generate evaluation metrics.
 Explore the other samples available for the designer:
 
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](service/how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](service/how-to-designer-sample-classification-flight-delay.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

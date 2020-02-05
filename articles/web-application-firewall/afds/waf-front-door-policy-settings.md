@@ -43,7 +43,7 @@ Custom response status code and response message is a policy level setting. Once
 
 ## URI for redirect action
 
-You are required to define an URI to redirect requests to if the **REDIRECT** action is selected for any of the rules contained in a WAF policy. This redirect URI needs to be a valid HTTP(S) site and once configured, all requests matching rules with a “REDIRECT” action will be redirected to the specified site.
+You are required to define a URI to redirect requests to if the **REDIRECT** action is selected for any of the rules contained in a WAF policy. This redirect URI needs to be a valid HTTP(S) site and once configured, all requests matching rules with a “REDIRECT” action will be redirected to the specified site.
 
 
 ## Next steps

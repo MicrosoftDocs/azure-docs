@@ -23,10 +23,12 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes 2.3 Only| Yes | No | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes 2.3 Only | Yes | No | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+
+\* HBase clusters can only be configured for schedule-based scaling, not load-based.
 
 ## How it works
 
@@ -185,7 +187,7 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 
 To enable Autoscale on a running cluster, select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
 
-![Enable worker node schedule-based autoscale running cluster](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![Enable worker node schedule-based autoscale running cluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
 #### Using the REST API
 

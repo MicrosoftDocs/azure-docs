@@ -108,6 +108,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Internet Peering
+    tocHref: /azure/internet-peering/
+    topicHref: /azure/internet-peering/
   - name: Blockchain
     tocHref: /azure/blockchain/
     topicHref: /azure/blockchain/
@@ -191,19 +194,16 @@
         - name: IoT Central
           tocHref: /azure/iot-central/core/
           topicHref: /azure/iot-central/core/
-        - name: IoT Central (preview features)
-          tocHref: /azure/iot-central/preview/
-          topicHref: /azure/iot-central/preview/
-        - name: IoT Central for Energy (preview features)
+        - name: IoT Central for Energy
           tocHref: /azure/iot-central/energy/
           topicHref: /azure/iot-central/energy/
-        - name: IoT Central for Government (preview features)
+        - name: IoT Central for Government
           tocHref: /azure/iot-central/government/
           topicHref: /azure/iot-central/government/
-        - name: IoT Central for Healthcare (preview features)
+        - name: IoT Central for Healthcare
           tocHref: /azure/iot-central/healthcare/
           topicHref: /azure/iot-central/healthcare/
-        - name: IoT Central for Retail (preview features)
+        - name: IoT Central for Retail
           tocHref: /azure/iot-central/retail/
           topicHref: /azure/iot-central/retail/
       - name: IoT Edge
@@ -252,9 +252,6 @@
   - name: Azure Stack User
     tocHref: /azure/azure-stack/user/
     topicHref: /azure/azure-stack/user/
-  - name: Supportability
-    tocHref: /azure/azure-supportability/
-    topicHref: /azure/azure-supportability/
   - name: Backup
     tocHref: /azure/backup/
     topicHref: /azure/backup/

@@ -2,7 +2,7 @@
 title: Kubernetes monitoring with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/07/2020
 ---
 
 # Monitor your Kubernetes cluster performance with Azure Monitor for containers
@@ -15,13 +15,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 
 Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time. 
 
-The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
-
-- Memory RSS metric isn't available for Windows node and containers.
-- Disk storage capacity information isn't available for Windows nodes.
-- Live logs support is available with the exception of Windows container logs.
-- Only pod environments are monitored, not Docker environments.
-- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation doesn't apply to Linux containers. 
+The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are described [here](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) in the overview article.
 
 ## Sign in to the Azure portal
 

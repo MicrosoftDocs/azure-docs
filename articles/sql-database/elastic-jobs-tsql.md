@@ -1199,7 +1199,7 @@ The following views are available in the [jobs database](sql-database-job-automa
 |[jobsteps](#jobsteps-view)     |     Shows all steps in the current version of each job.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Shows all steps in all versions of each job.    |
 |[target_groups](#target_groups-view)     |      Shows all target groups.   |
-|[target_group_members](#target_groups_members-view)     |   Shows all members of all target groups.      |
+|[target_group_members](#target_group_members-view)     |   Shows all members of all target groups.      |
 
 
 ### <a name="job_executions-view"></a>job_executions view
@@ -1314,9 +1314,9 @@ Lists all target groups.
 |**target_group_name**|	nvarchar(128)	|The name of the target group, a collection of databases. 
 |**target_group_id**	|uniqueidentifier	|Unique ID of the target group.
 
-### <a name="target_groups_members-view"></a>target_groups_members view
+### <a name="target_group_members-view"></a>target_group_members view
 
-[jobs].[target_groups_members]
+[jobs].[target_group_members]
 
 Shows all members of all target groups.
 

@@ -20,7 +20,7 @@ Sign in to the Azure portal at <https://portal.azure.com> with your Azure accoun
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. In this article, you create an App Service plan when you create your function app.
+You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. In this article, you create an App Service plan when you create your function app.
 
 1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
 
@@ -40,7 +40,7 @@ You must have a function app to host the execution of your functions on Linux. T
     | **[Hosting plan](functions-scale.md)** | App Service plan | Hosting plan that defines how resources are allocated to your function app. When you run in an App Service plan, you can control the [scaling of your function app](functions-scale.md).  |
     | **App Service plan/Location** | Create plan | Choose **Create new** and supply an **App Service plan** name. Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. Choose your desired **[Pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>You can't run both Linux and Windows function apps in the same App Service plan. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
-    | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](functions-scale.md#storage-account-requirements). |
+    | **[Storage](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](storage-considerations.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights is disabled by default. We recommend enabling Application Insights integration now and choosing a hosting location near your App Service plan location. If you want to do this later, see [Monitor Azure Functions](functions-monitoring.md).  |
 
 3. Select **Create** to provision and deploy the function app.

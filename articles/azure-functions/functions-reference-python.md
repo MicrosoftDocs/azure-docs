@@ -95,8 +95,8 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-* *funcignore*: (Optional) declares files that shouldn't get published to Azure.
-* *gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
+* *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
+* *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
 
 Each function has its own code file and binding configuration file (function.json). 
 
@@ -166,7 +166,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in  , which is the same storage account used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the storage account specified is the connection string found in the AzureWebJobsStorage app setting, which is the same storage account used by the function app.
 
 
 ## Outputs
@@ -278,7 +278,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Scaling and concurrency
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such the age of messages and queue size for QueueTrigger. For more information, see [How the consumption and premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
 
@@ -299,7 +299,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-A function without the `async` keyword is run automatically run in an asyncio thread-pool:
+A function without the `async` keyword is run automatically in an asyncio thread-pool:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -378,7 +378,7 @@ For local development, application settings are [maintained in the local.setting
 
 ## Python version 
 
-Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
+Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. Version change is allowed only on Function App creation.  
 
 ## Package management
 
@@ -637,7 +637,7 @@ Make sure that you also update your function.json to support the OPTIONS HTTP me
     ...
 ```
 
-This method is used by the Chrome browser to negotiate the allowed origins list. 
+This HTTP method is used by web browsers to negotiate the allowed origins list. 
 
 ## Next steps
 

@@ -33,10 +33,10 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](service/how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](concept-compute-instance.md) with the SDK already installed.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances are available only for workspaces with a region of **North Central US**, **East US 2**, **North Europe** or **UK South**, with support for other regions coming soon.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 Start by attaching your workspace:
@@ -128,7 +128,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  You create a `FileDataset` using [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- You can learn more about working with datasets from [Add & register datasets](service/how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/train-datasets).
+ You can learn more about working with datasets from [Add & register datasets](how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/train-datasets).
 
 ## Set up compute target
 

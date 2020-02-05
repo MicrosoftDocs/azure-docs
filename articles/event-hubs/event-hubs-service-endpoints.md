@@ -193,5 +193,5 @@ For more information about virtual networks, see the following links:
 - [Azure Event Hubs IP filtering][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [ip-filtering]: event-hubs-ip-filtering.md

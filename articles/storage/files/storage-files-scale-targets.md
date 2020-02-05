@@ -46,7 +46,7 @@ See the [Azure storage account scale targets](#azure-storage-account-scale-targe
 ### File share and file scale targets
 
 > [!NOTE]
-> Standard file shares larger than 5 TiB have certain limitations and regional restrictions.
+> Standard file shares larger than 5 TiB have certain limitations.
 > For a list of limitations, regional information, and instructions to enable these larger file share sizes, see the [Onboard to larger file shares](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
@@ -110,4 +110,3 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Scalability and performance targets for other storage services](../common/storage-scalability-targets.md)

@@ -30,8 +30,6 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Create an Oracle DB managed by ASM
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
-
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Prepare the environment
@@ -208,7 +206,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    fdisk /dev/sdc
    ```
    
-   Using the answers provided above, the output for the fdisk command should look like the following:
+   Using the answers provided above, the output for the `fdisk` command should look like the following:
 
    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -244,7 +242,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    Syncing disks.
    ```
 
-4. Repeat the preceding fdisk command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
+4. Repeat the preceding `fdisk` command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
 
 5. Check the disk configuration:
 

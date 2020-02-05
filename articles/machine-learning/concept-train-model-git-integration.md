@@ -34,6 +34,15 @@ This information is sent for runs that use an estimator, machine learning pipeli
 
 If your training files are not located in a git repository on your development environment, or the `git` command is not available, then no git-related information is tracked.
 
+> [!TIP]
+> To check if the git command is available on your development environment, open a shell session, command prompt, PowerShell or other command line interface and type the following command:
+>
+> ```
+> git --version
+> ```
+>
+> If installed, and in the path, you receive a response similar to `git version 2.4.1`. For more information on installing git on your development environment, see the [Git website](https://git-scm.com/).
+
 ## View the logged information
 
 The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and CLI. 

@@ -43,7 +43,7 @@ The impacts of the switch of preference to scheduledQueryRules API are compiled 
 The process of moving alert rules from [legacy Log Analytics Alert API](api-alerts.md) does not involve changing your alert definition, query, or configuration in any way. Your alert rules and monitoring are unaffected and the alerts will not stop or be stalled, during or after the switch. The only changes are:
 
 - A change in API preference and access to your rules via a new API.
-- A modified alert name containing the IDs used in the [legacy Log Analytics Alert API](api-alerts.md).
+- A modified alert rule resource URI containing the IDs used in the [legacy Log Analytics Alert API](api-alerts.md) instead of the alert rule name in this structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display name of the alert rule will remain unchanged.
 
 > [!NOTE]
 > Once a user chooses to switch preference to the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) it is not possible to revert to using of the older [legacy Log Analytics Alert API](api-alerts.md).

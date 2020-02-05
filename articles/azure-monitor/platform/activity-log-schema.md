@@ -10,7 +10,7 @@ ms.author: bwren
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The [Azure Activity log](activity-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema for each category. 
+The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema for each category. 
 
 The examples below show the schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](resource-logs-stream-event-hubs.md). A mapping of the properties to the [resource logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
 
@@ -862,6 +862,6 @@ Following is an example of an event using this schema..
 
 
 ## Next steps
-* [Learn more about the Activity Log](activity-logs-overview.md)
+* [Learn more about the Activity Log](platform-logs-overview.md)
 * [Create a diagnostic setting to send Activity Log to Log Analytics workspace, Azure storage, or event hubs](diagnostic-settings.md)
 

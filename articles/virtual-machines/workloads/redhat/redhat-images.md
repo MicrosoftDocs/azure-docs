@@ -152,5 +152,5 @@ Our current policy is to keep all previously published images. We reserve the ri
 ## Next steps
 * View the full list of [RHEL images in Azure](./redhat-imagelist.md).
 * Learn more about the Azure Red Hat Update Infrastructure [here](https://aka.ms/rhui-update).
-* Learn more about the [RHEL BYOS offer](./redhat-byos.md).
+* Learn more about the [RHEL BYOS offer](./byos.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

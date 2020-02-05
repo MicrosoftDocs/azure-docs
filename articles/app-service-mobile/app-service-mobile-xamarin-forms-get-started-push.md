@@ -196,8 +196,9 @@ With the back end configured with FCM, you can add components and codes to the c
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
-            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
+            //Unique request code to avoid PendingIntent collision.
+            var requestCode = new Random().Next();
+            var pendingIntent = PendingIntent.GetActivity(this, requestCode, intent, PendingIntentFlags.OneShot);
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                 .SetContentTitle("New Todo Item")

@@ -17,7 +17,7 @@ ms.date: 10/25/2019
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 > [!NOTE]
-> Compute instances (preview) are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances (preview) are available only for workspaces with a region of **North Central US**, **East US 2**, **North Europe** or **UK South**, with support for other regions coming soon.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
@@ -26,7 +26,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 - You are testing a model that is under development.
 
 > [!TIP]
-> Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance. For more information on deployments, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance. For more information on deployments, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
@@ -58,16 +58,33 @@ An example notebook that demonstrates local deployments is included on your comp
 
 To submit sample data to the running service, use the following code. Replace the value of `service_url` with the URL of from the previous step:
 
+> [!NOTE]
+> When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you using AAD, and returns a header that can then be used to authenticate to the service on the compute instance. For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#interactive-authentication).
+>
+> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#web-service-authentication).
+
 ```python
 import requests
 import json
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+# Get a token to authenticate to the compute instance from remote
+interactive_auth = InteractiveLoginAuthentication()
+auth_header = interactive_auth.get_authentication_header()
+
+# Create and submit a request using the auth header
+headers = auth_header
+# Add content type header
+headers.update({'Content-Type':'application/json'})
+
+# Sample data to send to the service
 test_sample = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
 ]})
 test_sample = bytes(test_sample,encoding = 'utf8')
-access_token = "your bearer token"
-headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
+
+# Replace with the URL for your compute instance, as determined from the previous section
 service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
 # for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
@@ -76,7 +93,7 @@ print("prediction:", resp.text)
 
 ## Next steps
 
-* [How to deploy a model using a custom Docker image](service/how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

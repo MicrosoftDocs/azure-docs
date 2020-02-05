@@ -87,7 +87,7 @@ You can create a new workbook from scratch or use a built-in workbook as the bas
 
 The following sample query enables you to compare trends of traffic across weeks. You can easily switch which device vendor and data source you run the query on. This example uses SecurityEvent from Windows, you can switch it to run on AzureActivity or CommonSecurityLog on any other firewall.
 
-     |where DeviceVendor = = "Palo Alto Networks":
+     |where DeviceVendor == "Palo Alto Networks":
       // week over week query
       SecurityEvent
       | where TimeGenerated > ago(14d)

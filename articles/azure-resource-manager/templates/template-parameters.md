@@ -1,6 +1,6 @@
 ---
 title: Parameters in templates
-description: Describes how to define parameters in an Azure Resource Manager template. 
+description: Describes how to define parameters in an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 09/05/2019
 ---
@@ -113,8 +113,8 @@ You reference the properties of the object by using the dot operator.
 ```json
 "resources": [
   {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2015-06-15",
     "name": "[parameters('VNetSettings').name]",
     "location": "[parameters('VNetSettings').location]",
     "properties": {

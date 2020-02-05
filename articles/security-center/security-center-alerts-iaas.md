@@ -36,7 +36,7 @@ Azure Security Center integrates with Azure services to monitor and protect your
 
     However, by using memory analysis, you can detect this kind of attack. By analyzing the memory in the crash dump, Security Center can detect the techniques the attack is using. For example, the attack might be attempting to exploit vulnerabilities in the software, access confidential data, and surreptitiously persist within a compromised machine. Security Center does this work with minimal performance impact to hosts.
 
-    For a list of the crash dump analysis alerts, see the [Reference table of alerts](alerts-reference.md#alerts-crashdump).
+    For details of the crash dump analysis alerts, see the [Reference table of alerts](alerts-reference.md#alerts-windows).
 
 * **Fileless attack detection** <a name="windows-fileless"></a> - Fileless attacks targeting your endpoints are common. To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes, and perform a wide range of malicious activities.
 
@@ -44,7 +44,7 @@ Azure Security Center integrates with Azure services to monitor and protect your
 
     It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless attack detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions, providing greater detection coverage.
 
-    For a list of the fileless attack detection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-filelessattackdetect).
+    For details of the fileless attack detection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-windows).
 
 > [!NOTE]
 > You can simulate Windows alerts by downloading [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046).

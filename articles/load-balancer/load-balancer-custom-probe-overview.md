@@ -18,7 +18,7 @@ ms.author: allensu
 
 # Load Balancer health probes
 
-When using load-balancing rules with Azure Load Balancer, you need to specify a health probes to allow Load Balancer to detect the backend endpoint status.  The configuration of the health probe and probe responses determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend endpoint. You can also generate a custom response to a health probe and use the health probe for flow control to manage load or planned downtime. When a health probe fails, Load Balancer will stop sending new flows to the respective unhealthy instance.
+When using load-balancing rules with Azure Load Balancer, you need to specify a health probes to allow Load Balancer to detect the backend endpoint status.  The configuration of the health probe and probe responses determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend endpoint. You can also generate a custom response to a health probe and use the health probe for flow control to manage load or planned downtime. When a health probe fails, Load Balancer will stop sending new flows to the respective unhealthy instance. Outbound connectivity is not impacted, only inbound connectivity is impacted.
 
 Health probes support multiple protocols. The availability of a specific health probe protocol varies by Load Balancer SKU.  Additionally, the behavior of the service varies by Load Balancer SKU as shown in this table:
 
@@ -44,8 +44,8 @@ Health probe configuration consists out of the following elements:
 - Port of the probe
 - HTTP path to use for HTTP GET when using HTTP(S) probes
 
-> [!NOTE]
-> A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
+>[!NOTE]
+>A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
 
 ## Understanding application signal, detection of the signal, and reaction of the platform
 
@@ -115,6 +115,9 @@ The following illustrates how you could express this kind of probe configuration
 HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration of all intervals cannot exceed 120 seconds.
 
 HTTP / HTTPS probes can also be useful to implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
+
+> [!NOTE] 
+> The HTTPS Probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
 
 If you use Cloud Services and have web roles that use w3wp.exe, you also achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.
 
@@ -192,7 +195,7 @@ Load Balancer is a pass through service (does not terminate TCP connections) and
 
 UDP datagrams will be delivered to healthy backend endpoints.
 
-UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows may move to another healthy instance in the backend pool.
+UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows will move to another healthy instance in the backend pool.
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
@@ -249,6 +252,6 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md)
+- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-create-standard-load-balancer-powershell.md)
 - [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)

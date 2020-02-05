@@ -18,7 +18,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Elevate access to manage all Azure subscriptions and management groups
+# Elevate access to manage all Azure subscriptions and management Groups
 
 As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
@@ -33,7 +33,7 @@ If you are a Global Administrator, there might be times when you want to do the 
 - See all Azure subscriptions or management groups in an organization
 - Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions or management groups
 
-## How does elevate access work?
+## How does elevated access work?
 
 Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 

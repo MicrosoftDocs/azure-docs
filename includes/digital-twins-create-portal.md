@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/12/2019
+ ms.date: 01/07/2020
  ms.custom: include file
 ---
 
@@ -15,17 +15,17 @@
 
 1. Select the home side-bar, then **+ Create a resource**. 
 
-   [![Expand the home side-bar, then select + Create a resource](./media/create-digital-twins-portal/create-a-resource.png)](./media/create-digital-twins-portal/create-a-resource.png#lightbox)
+   [![Expand the home side-bar, then select + Create a resource](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
 
 1. Search for **Digital Twins**, and select **Digital Twins**. 
 
-   [![Selections for creating a new Digital Twins instance](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![Selections for creating a new Digital Twins instance](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png)](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png#lightbox)
 
    Alternatively, select **Internet of Things**, and select **Digital Twins (preview)**.
 
 1. Select **Create** to start the deployment process.
 
-   [![Create and confirm the deployment of the resource](./media/create-digital-twins-portal/create-and-confirm-resource.png)](./media/create-digital-twins-portal/create-and-confirm-resource.png#lightbox)
+   [![Create and confirm the deployment of the resource](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. In the **Digital Twins** pane, enter the following information:
    * **Resource Name**: Create a unique name for your Digital Twins instance.

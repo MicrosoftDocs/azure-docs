@@ -31,143 +31,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 The following Resource Manager template can be used to create an Azure Machine Learning workspace and associated Azure resources:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the Azure Machine Learning workspace."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "southcentralus",
-      "allowedValues": [
-        "eastus",
-        "eastus2",
-        "southcentralus",
-        "southeastasia",
-        "westcentralus",
-        "westeurope",
-        "westus2"
-      ],
-      "metadata": {
-        "description": "Specifies the location for all resources."
-      }
-    },
-    "sku":{
-      "type": "string",
-      "defaultValue": "basic",
-        "allowedValues": [
-          "basic",
-          "enterprise"
-        ],
-        "metadata": {
-          "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
-        }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
-    "storageAccountType": "Standard_LRS",
-    "keyVaultName": "[concat('kv',uniqueString(resourceGroup().id))]",
-    "tenantId": "[subscription().tenantId]",
-    "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
-    "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2018-07-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "encryption": {
-          "services": {
-            "blob": {
-              "enabled": true
-            },
-            "file": {
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "supportsHttpsTrafficOnly": true
-      }
-    },
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2018-02-14",
-      "name": "[variables('keyVaultName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "tenantId": "[variables('tenantId')]",
-        "sku": {
-          "name": "standard",
-          "family": "A"
-        },
-        "accessPolicies": []
-      }
-    },
-    {
-      "type": "Microsoft.Insights/components",
-      "apiVersion": "2015-05-01",
-      "name": "[variables('applicationInsightsName')]",
-      "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
-      "kind": "web",
-      "properties": {
-        "Application_Type": "web"
-      }
-    },
-    {
-      "type": "Microsoft.ContainerRegistry/registries",
-      "apiVersion": "2017-10-01",
-      "name": "[variables('containerRegistryName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard"
-      },
-      "properties": {
-        "adminUserEnabled": true
-      }
-    },
-    {
-      "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-        "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",
-        "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-        "[resourceId('Microsoft.ContainerRegistry/registries', variables('containerRegistryName'))]"
-      ],
-      "identity": {
-        "type": "systemAssigned"
-      },
-      "sku": {
-        "tier": "[parameters('sku')]",
-        "name": "[parameters('sku')]"
-      },
-      "properties": {
-        "friendlyName": "[parameters('workspaceName')]",
-        "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
-        "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-        "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
-        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]"
-      }
-    }
-  ]
-}
-```
+[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
 This template creates the following Azure services:
 
@@ -187,6 +51,9 @@ The example template has two parameters:
     The template will use the location you select for most resources. The exception is the Application Insights service, which is not available in all of the locations that the other services are. If you select a location where it is not available, the service will be created in the South Central US location.
 
 * The **workspace name**, which is the friendly name of the Azure Machine Learning workspace.
+
+    > [!NOTE]
+    > The workspace name is case-insensitive.
 
     The names of the other services are generated randomly.
 
@@ -221,10 +88,10 @@ This example assumes that you have saved the template to a file named `azuredepl
 New-AzResourceGroup -Name examplegroup -Location "East US"
 new-azresourcegroupdeployment -name exampledeployment `
   -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
+  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## Use Azure CLI
 
@@ -236,12 +103,18 @@ az group deployment create \
   --name exampledeployment \
   --resource-group examplegroup \
   --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace location=eastus
+  --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/secure-template-with-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## Azure Key Vault access policy and Azure Resource Manager templates
+## Troubleshooting
+
+### Resource provider errors
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### Azure Key Vault access policy and Azure Resource Manager templates
 
 When you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a continuous integration and deployment pipeline.
 
@@ -250,11 +123,91 @@ Most resource creation operations through templates are idempotent, but Key Vaul
 To avoid this problem, we recommend one of the following approaches:
 
 * Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
-  
-* Examine the Key Vault access policies and then use these policies to set the accessPolicies property of the template.
-* Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, add a parameter that allows you to disable the creation of the Key Vault resource if it already exists.
+
+* Examine the Key Vault access policies and then use these policies to set the `accessPolicies` property of the template. To view the access policies, use the following Azure CLI command:
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
+    ```
+
+    For more information on using the `accessPolicies` section of the template, see the [AccessPolicyEntry object reference](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+
+* Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, to use the existing Key Vault instead of creating a new one, make the following changes to the template:
+
+    * **Add** a parameter that accepts the ID of an existing Key Vault resource:
+
+        ```json
+        "keyVaultId":{
+          "type": "string",
+          "metadata": {
+            "description": "Specify the existing Key Vault ID."
+          }
+        }
+      ```
+
+    * **Remove** the section that creates a Key Vault resource:
+
+        ```json
+        {
+          "type": "Microsoft.KeyVault/vaults",
+          "apiVersion": "2018-02-14",
+          "name": "[variables('keyVaultName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+            "tenantId": "[variables('tenantId')]",
+            "sku": {
+              "name": "standard",
+              "family": "A"
+            },
+            "accessPolicies": [
+            ]
+          }
+        },
+        ```
+
+    * **Remove** the `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` line from the `dependsOn` section of the workspace. Also **Change** the `keyVault` entry in the `properties` section of the workspace to reference the `keyVaultId` parameter:
+
+        ```json
+        {
+          "type": "Microsoft.MachineLearningServices/workspaces",
+          "apiVersion": "2019-11-01",
+          "name": "[parameters('workspaceName')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+            "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]"
+          ],
+          "identity": {
+            "type": "systemAssigned"
+          },
+          "sku": {
+            "tier": "[parameters('sku')]",
+            "name": "[parameters('sku')]"
+          },
+          "properties": {
+            "friendlyName": "[parameters('workspaceName')]",
+            "keyVault": "[parameters('keyVaultId')]",
+            "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
+            "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]"
+          }
+        }
+        ```
+
+    After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then re-use the Key Vault by setting the `keyVault` property of the workspace to its ID.
+
+    To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
+    ```
+
+    This command returns a value similar to the following text:
+
+    ```text
+    /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
 
 ## Next steps
 
-* [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+* [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

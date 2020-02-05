@@ -2,10 +2,10 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery 
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 12/23/2019
-
-
+ms.date: 01/10/2020
+ms.author: raynew
 ---
+
 # Support matrix for Azure VM disaster recovery between Azure regions
 
 This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
@@ -198,7 +198,7 @@ Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
-Encryption at rest (CMK) | Not Supported | 	 
+Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks	 
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported |
 Azure Disk Encryption (ADE) for Linux OS | Supported |
 Hot add	| Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks.

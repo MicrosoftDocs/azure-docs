@@ -46,11 +46,11 @@ Deep learning models have three intrinsic capabilities:
 1. They support multiple inputs and outputs
 1. They can automatically extract patterns in input data that spans over long sequences
 
-Given larger data, deep learning models, such as Microsofts' ForecastTCN, can improve the scores of the resulting model. 
+Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. 
 
 Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
 
-AutoRegressive Integrated Moving Average(ARIMA) is a popular statistical method for time series forecasting. This technique of forecasting is commonly used in short term forecasting scenarios where data shows evidence of trends such as cycles, which can be unpredictable and difficult to model or forecast. Auto-ARIMA transforms your data into stationary data to receive consistent, reliable results.
+AutoRegressive Integrated Moving Average (ARIMA) is a popular statistical method for time series forecasting. This technique of forecasting is commonly used in short term forecasting scenarios where data shows evidence of trends such as cycles, which can be unpredictable and difficult to model or forecast. Auto-ARIMA transforms your data into stationary data to receive consistent, reliable results.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-In this case the data is already sorted ascending by the time field `day_datetime`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. Assume the data contains 1,000 records, and make a deterministic split in the data to create training and test data sets. Identify the label column name and set it to label. In this example the label will be `sales_quantity`. Then separate the label field from `test_data` to form the `test_target` set.
+In this case, the data is already sorted ascending by the time field `day_datetime`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. Assume the data contains 1,000 records, and make a deterministic split in the data to create training and test data sets. Identify the label column name and set it to label. In this example, the label will be `sales_quantity`. Then separate the label field from `test_data` to form the `test_target` set.
 
 ```python
 train_data = data.iloc[:950]
@@ -105,34 +105,34 @@ test_labels = test_data.pop(label).values
 
 For forecasting tasks, automated machine learning uses pre-processing and estimation steps that are specific to time-series data. The following pre-processing steps will be executed:
 
-* Detect time-series sample frequency (e.g. hourly, daily, weekly) and create new records for absent time points to make the series continuous.
+* Detect time-series sample frequency (for example, hourly, daily, weekly) and create new records for absent time points to make the series continuous.
 * Impute missing values in the target (via forward-fill) and feature columns (using median column values)
 * Create grain-based features to enable fixed effects across different series
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
 
-The `AutoMLConfig` object defines the settings and data necessary for an automated machine learning task. Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. The following table explains each parameter and its usage.
+The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. The following table explains each parameter and its usage.
 
 | Param | Description | Required |
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
-|`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g. monthly, weekly that the forecaster should predict out.|✓|
-|`target_lags`|Number of rows to lag the target values based on the frequency of the data. This is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependant variable do not match up or correlate by default. For example, when trying to forecast demand for a product, the demand in any month may depend on the price of specific commodities 3 months prior. In this example, you may want to lag the target (demand) negatively by 3 months so that the model is training on the correct relationship.||
+|`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
+|`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. For example, when trying to forecast demand for a product, the demand in any month may depend on the price of specific commodities 3 months prior. In this example, you may want to lag the target (demand) negatively by 3 months so that the model is training on the correct relationship.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model.||
 |`enable_dnn`|Enable Forecasting DNNs.||
 
 See the [reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for more information.
 
-Create the time-series settings as a dictionary object. Set the `time_column_name` to the `day_datetime` field in the data set. Define the `grain_column_names` parameter to ensure that **two separate time-series groups** are created for the data; one for store A and B. Lastly, set the `max_horizon` to 50 in order to predict for the entire test set. Set a forecast window to 10 periods with `target_rolling_window_size`, and specify a single lag on the target values for 2 periods ahead with the `target_lags` parameter.
+Create the time-series settings as a dictionary object. Set the `time_column_name` to the `day_datetime` field in the data set. Define the `grain_column_names` parameter to ensure that **two separate time-series groups** are created for the data; one for store A and B. Lastly, set the `max_horizon` to 50 in order to predict for the entire test set. Set a forecast window to 10 periods with `target_rolling_window_size`, and specify a single lag on the target values for two periods ahead with the `target_lags` parameter. It is recommended to set `max_horizon`, `target_rolling_window_size` and `target_lags` to "auto" which will automatically detect these values for you. In the example below, "auto" settings have been used for these parameters. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50,
-    "target_lags": 2,
-    "target_rolling_window_size": 10,
+    "max_horizon": "auto",
+    "target_lags": "auto",
+    "target_rolling_window_size": "auto",
     "preprocess": True,
 }
 ```
@@ -143,7 +143,7 @@ time_series_settings = {
 > predictions, the same pre-processing steps applied during training are applied to
 > your input data automatically.
 
-By defining the `grain_column_names` in the code snippet above, AutoML will create two separate time-series groups, also known as multiple time-series. If no grain is defined, AutoML will assume that the dataset is a single time-series. To learn more about single time-series see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+By defining the `grain_column_names` in the code snippet above, AutoML will create two separate time-series groups, also known as multiple time-series. If no grain is defined, AutoML will assume that the dataset is a single time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 Now create a standard `AutoMLConfig` object, specifying the `forecasting` task type, and submit the experiment. After the model finishes, retrieve the best run iteration.
 
@@ -170,12 +170,13 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-See the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
 
-* holiday detection and featurization
-* rolling-origin cross validation
-* configurable lags
-* rolling window aggregate features
+* [holiday detection and featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [rolling-origin cross validation](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [configurable lags](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [rolling window aggregate features](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
 ### Configure a DNN enable Forecasting experiment
 
@@ -184,8 +185,8 @@ See the [energy demand notebook](https://github.com/Azure/MachineLearningNoteboo
 
 In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
 
-In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least 2 nodes as the compute target. 
-See the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) for more information. 
+In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least two nodes as the compute target. 
+For more information, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute). 
 See [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) for more information on the VM sizes that include GPUs.
 
 To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to at least a couple of hours.
@@ -230,11 +231,11 @@ Calculate RMSE (root mean squared error) between the `actual_labels` actual valu
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
+rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Now that the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. Simply supply a data set in the same format as the test set `test_data` but with future datetimes, and the resulting prediction set is the forecasted values for each time-series step. Assume the last time-series records in the data set were for 12/31/2018. To forecast demand for the next day (or as many periods as you need to forecast, <= `max_horizon`), create a single time series record for each store for 01/01/2019.
+Now that the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. Supply a data set in the same format as the test set `test_data` but with future datetimes, and the resulting prediction set is the forecasted values for each time-series step. Assume the last time-series records in the data set were for 12/31/2018. To forecast demand for the next day (or as many periods as you need to forecast, <= `max_horizon`), create a single time series record for each store for 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1

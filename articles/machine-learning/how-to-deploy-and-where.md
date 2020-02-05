@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 
 ms.custom: seoapril2019
 ---
@@ -34,7 +34,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 ## Connect to your workspace
 
@@ -55,7 +55,7 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
 + **Using VS Code**
 
-   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
+   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) in the VS Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -75,7 +75,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
 + **Using the SDK**
 
-  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or an [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
+  When you use the SDK to train a model, you can receive either a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) object or an [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
   + Register a model from an `azureml.core.Run` object:
  
@@ -84,7 +84,7 @@ The code snippets in this section demonstrate how to register a model from a tra
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    The `model_path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files. For more information, see the [Run.register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) documentation.
+    The `model_path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files. For more information, see the [Run.register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) documentation.
 
   + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
 
@@ -97,7 +97,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
     In this example, the `metric` and `iteration` parameters aren't specified, so the iteration with the best primary metric will be registered. The `model_id` value returned from the run is used instead of a model name.
 
-    For more information, see the [AutoMLRun.register_model]/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
+    For more information, see the [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
 
 + **Using the CLI**
 
@@ -111,7 +111,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
 + **Using VS Code**
 
-  Register models using any model files or folders by using the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
+  Register models using any model files or folders by using the [VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) extension.
 
 ### Register a model from a local file
 
@@ -161,6 +161,13 @@ You can use the following compute targets, or compute resources, to host your we
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
+## Single versus multi-model endpoints
+Azure ML supports deploying single or multiple models behind a single endpoint.
+
+Multi-model endpoints use a shared container to host multiple models. This helps to reduce overhead costs, improves utilization and enables you to chain modules together into ensembles. Models you specify in your deployment script are mounted and made available on the disk of the serving container - you can load them into memory on demand and score based on the specific model being requested at scoring time.
+
+For an E2E example which shows how to use multiple models behind a single containerized endpoint, see [this example](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
+
 ## Prepare to deploy
 
 To deploy the model, you need the following items:
@@ -174,7 +181,7 @@ To deploy the model, you need the following items:
     >
     > * The Azure Machine Learning SDK doesn't provide a way for web services or IoT Edge deployments to access your data store or datasets. If your deployed model needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    >   An alternative that might work for your scenario is [batch prediction](how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
+    >   An alternative that might work for your scenario is [batch prediction](how-to-use-parallel-run-step.md), which does provide access to data stores during scoring.
 
 * **Dependencies**, like helper scripts or Python/Conda packages required to run the entry script or model.
 
@@ -209,17 +216,23 @@ The following table describes the value of AZUREML_MODEL_DIR depending on the nu
 | Single model | The path to the folder containing the model. |
 | Multiple models | The path to the folder containing all models. Models are located by name and version in this folder (`$MODEL_NAME/$VERSION`) |
 
-To get the path to a file in a model, combine the environment variable with the filename you're looking for.
-The filenames of the model files are preserved during registration and deployment. 
+During model registration and deployment, Models are placed in the AZUREML_MODEL_DIR path, and their original filenames are preserved.
+
+To get the path to a model file in your entry script, combine the environment variable with the file path you're looking for.
 
 **Single model example**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Multiple model example**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### get_model_path
@@ -540,7 +553,7 @@ Before you deploy your model as a service, you might want to profile it to deter
 
 ```python
 import json
-test_sample = json.dumps({'data': [
+test_data = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10]
 ]})
 
@@ -579,7 +592,7 @@ For more information on how to secure a web service deployment, see [Use SSL to 
 To deploy a model locally, you need to have Docker installed on your local machine.
 
 #### Using the SDK
-zzs
+
 ```python
 from azureml.core.webservice import LocalWebservice, Webservice
 
@@ -614,6 +627,9 @@ See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance
 ### <a id="aks"></a>Azure Kubernetes Service (dev/test and production)
 
 See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+
+### A/B Testing (controlled rollout)
+See [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
 ## Consume web services
 

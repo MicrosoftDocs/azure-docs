@@ -1,6 +1,6 @@
 ---
 title:  Azure Relay - Migrate to Shared Access Signature authorization
-description: Migrate applications from Access Control Service to SAS
+description: Describes how to migrate Azure Relay applications from using Azure Active Directory Access Control Service to Shared Access Signature authorization.
 services: service-bus-relay
 documentationcenter: ''
 author: clemensv
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 01/21/2020
 ms.author: spelluru
 
 ---

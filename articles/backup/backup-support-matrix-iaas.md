@@ -21,11 +21,18 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
-Direct backup of Azure VMs  | Back up the entire VM.  | No agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
+Direct backup of Azure VMs  | Back up the entire VM.  | No additional agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
 Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
 Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
 Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs) and about [support requirements](backup-support-matrix-mabs-dpm.md).
+
+>[!NOTE]
+> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
+>
+>Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+>
+>**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**
 
 ## Supported backup actions
 
@@ -155,10 +162,10 @@ Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
 Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the Disks with Write Accelerator enabled during backup. Since they are not backed up, you will not be able to Restore these disks from Recovery-Points of the VM.
-Back up & Restore deduplicated VMs/disks | Azure Backup does not support deduplication. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup does not deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored as vault does not understand the format
+Back up & Restore deduplicated VMs/disks | Azure Backup does not support deduplication. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup does not deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored as vault does not understand the format. However, you will be able to successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
-Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
+Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 
 ## VM network support
 
