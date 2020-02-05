@@ -1,5 +1,5 @@
 ---
-title: Creating a new Unity project
+title: Create a new Unity project
 description: Explains the steps to create a new Unity project
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Creating a new Unity project
+# Create a new Unity project
 
 Make sure you have all the prerequisites in the [Unity Sample Project Documentation](run-unity-sample-project.md#prerequisites) fulfilled.
 
