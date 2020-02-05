@@ -118,8 +118,8 @@ Now that the project is created, you can run the notebooks.
 
     Follow the instructions in the notebook. You can also use run options from the **Cell** menu, `Ctrl` + `Enter` to run a cell, and `Shift` + `Enter` to run a cell and advance to the next cell.
 
-    [!TIP]
-    For consistent cell operations, avoid running the same notebook in multiple tabs in your browser.
+    > [!TIP]
+    > For consistent cell operations, avoid running the same notebook from multiple tabs in your browser.
 
 1. Scroll down to the cell that immediately follows the **Create a workspace** overview text and run that cell. In the cell's output, look for the link that instructs you to sign in to authenticate. 
 
