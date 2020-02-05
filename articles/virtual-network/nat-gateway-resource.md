@@ -1,7 +1,7 @@
 ---
 
 title: Designing virtual networks with NAT gateway resources
-titlesuffix: Azure Virtual Network NAT
+titleSuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks with NAT gateway resources.
 services: virtual-network
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: allensu
 
 # Designing virtual networks with NAT gateway resources
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md). NAT gateway resources provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses can come from individual public IP address resources or public IP prefix resources, or both.  A NAT gateway resource can use up to 16 static IP addresses from either.
+NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses come from individual public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
 ## How to deploy NAT
 
@@ -73,7 +73,7 @@ The total number of IP addresses provided by all four IP address resources can't
 }
 ```
 
-Once this NAT gateway resource has been created, it can now be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual networks.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
+Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual networks.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
 
 ```json
 {
