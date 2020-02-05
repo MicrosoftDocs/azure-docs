@@ -128,6 +128,16 @@ This parameter can be set to false when ray-cast support is not required.
 
 * `axis` - To override coordinate system unit-vectors, default values are `["+x", "+y", "+z"]` where sign means direction of a vector. In theory, the FBX format has a header where those vectors are defined and we use that information to transform the scene, and the glTF format defines a fixed coordinate system with Y-axis up. In practice, some assets have wrong header or saved with wrong Up-axis and it could be overridden by this option. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting  the Y-axis to the opposite direction.
 
+### Vertex format
+
+This paragraph is for advanced use cases, where changing the vertex format is necessary to meet memory constraints. While there is some potential to save valuable GPU memory by tweaking the vertex format,there is a high risk to compromise the visual quality or even stability of the server when the format is not appropriate.
+
+The config file allows for modifying the output vertex structure:
+* specific input data streams can be explicitly included or excluded
+* the accuracy of vertex components can be decreased to reduce the memory footprint
+
+
+
 ## Typical use cases
 
 Finding good import settings for given use case can be a tedious and time consuming process. On the other hand, ingestion settings may have a significant impact on runtime performance of the converted mesh. Better runtime performance means either more detailed models can be rendered at a stable framerate or VMs with lower specs (and thus cheaper VMs) can be allocated.  
