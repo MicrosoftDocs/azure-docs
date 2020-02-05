@@ -69,34 +69,7 @@ The values from the following properties are used with parameters passed to the 
 
 ## Install the agent and connect to Azure
 
-Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can install the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process. 
-
-
-
-On Windows, open PowerShell as administrator on a target node and run:
-
-```powershell
-& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
-  --service-principal-id "{your-azadsp-appid}" `
-  --service-principal-secret "{your-azadsp-password}" `
-  --resource-group "{your-resource-group-name}" `
-  --tenant-id "{your-tenant-id}" `
-  --location "{desired-location}" `
-  --subscription-id "{your-subscription-id}"
-```
-
-On Linux, open a shell and run
-
-<!-- Same command for linux?-->
-```bash
-azcmagent connect \
-  --service-principal-id "{your-spn-appid}" \
-  --service-principal-secret "{your-spn-password}" \
-  --resource-group "{your-resource-group-name}" \
-  --tenant-id "{your-tenant-id}" \
-  --location "{location-of-your-resource-group}" \
-  --subscription-id "{your-subscription-id}"
-```
+Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can install the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process. In this section to configure 
 
 Parameters:
 
@@ -107,6 +80,45 @@ Parameters:
 * `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
 
 You can learn more about the `azcmagent' command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
+
+### Windows install script
+
+```
+ # Download the package
+Invoke-WebRequest -Uri https://aka.ms/AzureConnectedMachineAgent -OutFile AzureConnectedMachineAgent.msi
+
+# Install the package
+msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-String
+
+# Run connect command
+& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
+  --service-principal-id "{your-azadsp-appid}" `
+  --service-principal-secret "{your-azadsp-password}" `
+  --resource-group "{your-resource-group-name}" `
+  --tenant-id "{your-tenant-id}" `
+  --location "{desired-location}" `
+  --subscription-id "{your-subscription-id}"
+```
+
+### Linux install script
+
+```
+# Download the installation package
+wget https://aka.ms/azcmagent -O ~/install_linux_azcmagent.sh
+
+# Install the hybrid agent
+bash ~/install_linux_azcmagent.sh
+
+# Run connect command
+azcmagent connect \
+  --service-principal-id "{your-spn-appid}" \
+  --service-principal-secret "{your-spn-password}" \
+  --resource-group "{your-resource-group-name}" \
+  --tenant-id "{your-tenant-id}" \
+  --location "{location-of-your-resource-group}" \
+  --subscription-id "{your-subscription-id}"
+```
+
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
