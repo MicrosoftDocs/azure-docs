@@ -117,11 +117,10 @@ If you prefer to grant access to the key vault manually, go to the **Access poli
 
 
 > [!NOTE]
-> Ensure you have the 'Azure Virtual Machines for deployment
-' and 'Azure Resource Manager for template deployment' options checked under the linked **Key Vault** resource **Access Polices**
-
-> ![Mandatory Key Vault Access Policy](./media/batch-account-create-portal/key-vault-access-policy.PNG)
-> This is not mandatory when creating Batch account through **Azure Portal** - The option is checked by default
+> Ensure that the **Azure Virtual Machines for deployment** and **Azure Resource Manager for template deployment** check boxes are selected under **Access policies** for the linked **Key Vault** resource.
+> 
+> ![Mandatory Key Vault Access Policy](./media/batch-account-create-portal/key-vault-access-policy.png)
+> This is not mandatory when creating a Batch account in the Azure portal. The option is selected by default.
 
 
 
