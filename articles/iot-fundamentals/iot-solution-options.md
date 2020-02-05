@@ -68,6 +68,6 @@ The managed app platform approach is appropriate for a business that:
 
 For a more comprehensive explanation of the different services and platforms, and how they're used, see [Azure IoT services and technologies](iot-services-and-technologies.md).
 
-To learn more about the key attributes of successful IoT solutions, see the [8 attributes of successful IoT solutions](https://aka.ms/8attributes) whitepaper.
+To learn more about the key attributes of successful IoT solutions, see the [8 attributes of successful IoT solutions](https://aka.ms/8attributes) white paper.
 
 For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
