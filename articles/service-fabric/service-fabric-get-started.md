@@ -62,8 +62,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 4.0.464
-* Service Fabric runtime 7.0.464
+* Service Fabric SDK and Tools 4.0.466
+* Service Fabric runtime 7.0.466
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
