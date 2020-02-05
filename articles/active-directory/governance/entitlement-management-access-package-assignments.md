@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # View, add, and remove assignments for an access package in Azure AD entitlement management
 
-In Azure AD entitlement management, you can see who has been assigned to access packages, their policy, and status. If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for an access packages.
+In Azure AD entitlement management, you can see who has been assigned to access packages, their policy, and status. If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for access packages.
 
 ## View who has an assignment
 
