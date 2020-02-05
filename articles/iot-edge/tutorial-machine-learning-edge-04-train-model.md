@@ -4,7 +4,7 @@ description: 'In this tutorial, you will train a machine learning model using Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/29/2020
+ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -98,7 +98,7 @@ Let's review the files you uploaded into your Azure Notebooks project. The activ
 
 ## Run Azure Notebooks
 
-Now that the project is created, run the **01-turbofan\_regression.ipynb** notebook.
+Now that the project is created, you can run the notebooks. 
 
 1. From your project page, select **01-turbofan\_regression.ipynb**.
 
@@ -118,6 +118,9 @@ Now that the project is created, run the **01-turbofan\_regression.ipynb** noteb
 
     Follow the instructions in the notebook. You can also use run options from the **Cell** menu, `Ctrl` + `Enter` to run a cell, and `Shift` + `Enter` to run a cell and advance to the next cell.
 
+    [!TIP]
+    For consistent cell operations, avoid running the same notebook in multiple tabs in your browser.
+
 1. Scroll down to the cell that immediately follows the **Create a workspace** overview text and run that cell. In the cell's output, look for the link that instructs you to sign in to authenticate. 
 
     ![Sign in prompt for device authentication](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
@@ -126,21 +129,37 @@ Now that the project is created, run the **01-turbofan\_regression.ipynb** noteb
 
     ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. From the **Cell** menu, select **Run All**. Scroll back up through the notebook and review how the cell operations are completed.
+1. At this point, you can run the cells. It is optimal to run all the cells so that the code in the cells runs sequentially. Select **Run All** from the **Cell** menu. Scroll back up through the notebook and review how the cell operations are completed.
 
-1. In the **Explore the data** section, you can review cells in the **Sensor readings and RUL** subsection that render scatterplots of sensor measurements.
+    In the **Explore the data** section, you can review cells in the **Sensor readings and RUL** subsection that render scatterplots of sensor measurements.
 
     ![Sensor readings scatterplots](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
 
-1. When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page.
+1. Save the notebook and return to your project page by clicking your project name in the upper-right corner of the notebook or going back in your browser.
 
-1. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this section to run the second notebook.
+1. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this procedure to run the second notebook.
+
+1. Save the notebook and return to your project page by clicking your project name in the upper-right corner of the notebook or going back in your browser.
+
+### Verify success
+
+To verify that the notebooks have completed successfully, verify that a few items were created.
+
+1. On your Azure Notebooks project page, select **Show hidden items** so that item names that begin with a period appear.
+
+1. Verify that the following files were created:
+
+    | File | Description |
+    | --- | --- |
+    | ./aml_config/.azureml/config.json | Configuration file used to create the Azure Machine Learning Workspace. |
+    | ./aml_config/model_config.json | Configuration file that we will need to deploy the model in the **turbofanDemo** Machine Learning workspace in Azure. |
+    | myenv.yml| Provides information about the dependencies for the deployed Machine Learning model.|
+
+1. Verify in the Azure portal that the **turboFanDemo** Machine Learning workspace exists in your resource group.
 
 ### Debugging
 
 You can inset Python statements into the notebook for debugging, mainly the `print()` command. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
-
-For information about debugging notebooks in Visual Studio Code, see [Debug notebooks using Visual Studio Code](../notebooks/tutorial-create-run-jupyter-notebook.md#debug-notebooks-using-visual-studio-code) and [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
 ## Next steps
 
