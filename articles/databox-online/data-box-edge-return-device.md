@@ -11,9 +11,9 @@ ms.date: 07/19/2019
 ms.author: alkohli
 ---
 
-# Return or replace your Azure Data Box Edge device
+# Return or replace your Azure Stack Edge device
 
-This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource associated with the device or order a replacement device.
+This article describes how to wipe the data and then return your Azure Stack Edge device. After you've returned the device, you can also delete the resource associated with the device or order a replacement device.
 
 In this article, you learn how to:
 
@@ -74,7 +74,7 @@ To begin the return process, take the following steps.
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
     3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
 
-    Instead of scheduling the pickup, you can also drop off the Data Box Edge at the nearest drop-off location.
+    Instead of scheduling the pickup, you can also drop off the Azure Stack Edge at the nearest drop-off location.
 
 ## Delete the resource
 

@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Data Box Edge issues 
+# Troubleshoot your Azure Stack Edge issues 
 
-This article describes how to troubleshoot issues on your Azure Data Box Edge. 
+This article describes how to troubleshoot issues on your Azure Stack Edge. 
 
 In this article, you learn how to:
 
@@ -61,7 +61,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
       ![Connect to and view share contents](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Click the _Microsoft Data Box Edge folder_. This folder has two subfolders:
+2. Click the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
 
     - Upload folder that has log files for upload errors.
     - Refresh folder for errors during refresh.
