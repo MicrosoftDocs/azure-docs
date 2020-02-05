@@ -102,7 +102,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Create or attach an existing compute target
 
-By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
+By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. You will submit Python code to run on this VM later in the tutorial. 
+
+The code below creates the compute clusters for you if they don't already exist in your workspace.
 
  **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
 
@@ -143,7 +145,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-You now have the necessary packages and compute resources to train a model in the cloud.
+You now have the necessary packages and compute resources to train a model in the cloud. 
 
 ## Explore data
 
@@ -212,7 +214,7 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ## Train on a remote cluster
 
-For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
+For this task, you submit the job to run on the remote training cluster you set up earlier.  To submit a job you:
 * Create a directory
 * Create a training script
 * Create an estimator object

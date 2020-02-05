@@ -17,7 +17,6 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 #Customer intent: As an Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
-ms.collection: M365-identity-device-management
 ---
 
 # ADAL to MSAL migration guide for Java

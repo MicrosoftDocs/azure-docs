@@ -11,9 +11,9 @@ ms.author: v-umha
 
 Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Datahub. Currently, the following sensor device partners are supported.
 
-  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the datahub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
+Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the data hub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
 
 To start sensor data streaming, ensure the following:
 
@@ -32,16 +32,14 @@ After you start the streaming of sensor data, you can begin the process of getti
  - Client secret
  - EventHub connection string
 
-The previous information is provided to you by your system integrator. For any issues you might encounter when you enable the device integrations, contact your system integrator.
-
-Alternatively, you can generate the credentials by running this script from Azure Cloud Shell. Follow these steps.
+You can generate the above information by following these steps: (Please note these steps are required to be done on Azure so you will need access to the Azure subscription where FarmBeats is deployed)
 
 1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
 2. Sign in to https://portal.azure.com/ and go to Azure Active Directory -> App Registrations
 
-3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats Datahub.
+3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats data hub.
 
-4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the azure cli (Cloud shell) to perform the below steps.
+4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
 
 5. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
@@ -69,13 +67,16 @@ Alternatively, you can generate the credentials by running this script from Azur
 
 ### Integrate device data by using the generated credentials
 
-Go to the device partner portal to link FarmBeats by using the set of credentials you generated in the previous section:
-
+Now you have the following information generated from the previous section.
  - API endpoint
  - EventHub connection string
  - Client ID
  - Client secret
  - Tenant ID
+ 
+You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, please go to the below page:
+
+[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
 
  The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
 

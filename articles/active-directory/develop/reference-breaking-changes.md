@@ -14,11 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # What's new for authentication? 
@@ -37,7 +36,20 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-September 2019: Additional enforcement of POST semantics according to URL parsing rules - duplicate parameters will trigger an error and [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignored.
+None scheduled at this time.  Please see below for the changes that are in or are coming to production. 
+
+## February 2020: 
+
+### Empty fragments will be appended to every HTTP redirect from the login endpoint. 
+
+**Effective date**: February 8, 2020
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: OAuth and OIDC flows that use response_type=query - this covers the [authorization code flow](v2-oauth2-auth-code-flow.md) in some cases, and the [implicit flow](v2-oauth2-implicit-grant-flow.md). 
+
+When an authentication response is sent from login.microsoftonline.com to an application via HTTP redirect, the service will append an empty fragment to the reply URL.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the authentication request.  No apps should have a dependency on this behavior. 
+
 
 ## August 2019
 

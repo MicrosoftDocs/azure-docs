@@ -153,7 +153,9 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 ## Connector reference
 
-The Service Bus connector can save up to 1,500 unique sessions at a time from a service bus to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For other technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/servicebus/).
+The Service Bus connector can save up to 1,500 unique sessions at a time from a service bus to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
+
+For other technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/servicebus/). For more about Azure Service Bus Messaging, see [What is Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
 ## Next steps
 

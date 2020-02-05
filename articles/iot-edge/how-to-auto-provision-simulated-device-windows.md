@@ -14,7 +14,7 @@ services: iot-edge
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
-DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check “is IoT Edge device” option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices. 
+DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check “is IoT Edge device” option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices.
 
 This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
@@ -23,9 +23,6 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 * Create an individual enrollment for the device.
 * Install the IoT Edge runtime and connect the device to IoT Hub.
 
-> [!NOTE]
-> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
-
 > [!TIP]
 > This article describes testing auto-provisioning by using TPM attestation on virtual devices, but much of it applies when using physical TPM hardware as well.
 
@@ -33,6 +30,9 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 
 * A Windows development machine. This article uses Windows 10.
 * An active IoT Hub.
+
+> [!NOTE]
+> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
 
 ## Set up the IoT Hub Device Provisioning Service
 

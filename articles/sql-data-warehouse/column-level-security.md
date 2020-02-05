@@ -1,6 +1,6 @@
 ---
-title: Column-level security 
-description: Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership. CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access.
+title: What is column-level security for SQL Data Warehouse? 
+description: Column-Level Security allows customers to control access to database table columns based on the user's execution context or group membership, simplifying the design and coding of security in your application, and allowing you to implement restrictions on column access.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -14,13 +14,16 @@ ms.custom: seo-lt-2019
 ---
 
 # Column-level Security
-Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership.
-Update to Video below - Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) is also available in SQL Data Warehouse. 
+
+Column-Level Security allows customers to control access to table columns based on the user's execution context or group membership.
+
+
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) became available for SQL Data Warehouse. 
 
-CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time that data access is attempted from any tier. This restriction makes your security system more reliable and robust by reducing the surface area of your overall security system. In addition, CLS also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
+Column-level security simplifies the design and coding of security in your application, allowing you to restrict column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time data access is attempted from any tier. This restriction makes your security more reliable and robust by reducing the surface area of your overall security system. In addition, column-level security also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
 
-You could implement CLS with the [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (AAD) authentication are supported.
+You could implement column-level security with the [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (AAD) authentication are supported.
 
 ![cls](./media/column-level-security/cls.png)
 
@@ -43,9 +46,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## Example
-The following example shows how to restrict ‘TestUser’ from accessing ‘SSN’ column of ‘Membership’ table:
+The following example shows how to restrict `TestUser` from accessing the `SSN` column of the `Membership` table:
 
-Create ‘Membership’ table with SSN column used to store social security numbers:
+Create `Membership` table with SSN column used to store social security numbers:
 
 ```sql
 CREATE TABLE Membership
@@ -57,13 +60,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Allow ‘TestUser’ to access all columns except for SSN column that has sensitive data:
+Allow `TestUser` to access all columns except for the SSN column,  which has the sensitive data:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-Queries executed as ‘TestUser’ will fail if they include the SSN column:
+Queries executed as `TestUser` will fail if they include the SSN column:
 
 ```sql
 SELECT * FROM Membership;
@@ -73,6 +76,8 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## Use Cases
-Some examples of how CLS is being used today:
+
+Some examples of how column-level security is being used today:
+
 - A financial services firm allows only account managers to have access to customer social security numbers (SSN), phone numbers, and other personally identifiable information (PII).
-- A health care provider allows only doctors and nurses to have access to sensitive medical records while not allowing members of the billing department to view this data.
+- A health care provider allows only doctors and nurses to have access to sensitive medical records while preventing members of the billing department from viewing this data.

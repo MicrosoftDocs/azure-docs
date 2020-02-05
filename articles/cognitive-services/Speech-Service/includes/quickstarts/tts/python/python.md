@@ -3,13 +3,13 @@ title: 'Quickstart: Synthesize speech, Python - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Python by using the Speech SDK
 services: cognitive-services
-author: yulin-li
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/14/2019
-ms.author: yulili
+ms.date: 19/14/2020
+ms.author: dapine
 ---
 
 ## Prerequisites
@@ -20,7 +20,6 @@ Before you get started, make sure to:
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
-```
 
 ## Support and updates
 

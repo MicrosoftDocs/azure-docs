@@ -75,6 +75,8 @@
       href: pay-by-invoice.md
     - name: Create additional subscriptions
       href: create-subscription.md
+    - name: Transfer CSP subscriptions
+      href: transfer-subscriptions-subscribers-csp.md
     - name: Export subscription information
       href: export-subscriptions.md
   - name: Manage Enterprise Agreement subscriptions
@@ -99,8 +101,6 @@
       href: ea-portal-vm-reservations.md
     - name: Troubleshoot Azure EA portal access
       href: ea-portal-troubleshoot.md
-    - name: EA tasks in Microsoft Customer Agreement
-      href: mca-enterprise-operations.md
 - name: Troubleshoot
   items:
   - name: No subscriptions found

@@ -11,7 +11,9 @@ ms.topic: include
 ms.date: 01/10/2020
 ms.author: vlvinogr
 ms.custom: include file
----| Resource | Limit |
+---
+
+| Resource | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
 | Maximum number of scale units | 10 per region<sup>1</sup> |
 | Cache size | 5 GiB per unit<sup>2</sup> |

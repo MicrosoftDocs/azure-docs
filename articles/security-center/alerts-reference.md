@@ -23,38 +23,27 @@ To learn about how to respond to these alerts, see [Manage and respond to securi
 
 To learn about how to export alerts (and recommendations) see [Export security alerts and recommendations (Preview)](continuous-export.md).
 
-Below the alerts table is a table describing the Azure Security Center kill chain that is used to categorize the intents of these alerts. 
+Below the alerts tables is a table describing the Azure Security Center kill chain that is used to categorize the intents of these alerts. 
 
-Types of alerts included in this table:
-* [Alerts for Windows machines](#alerts-windows)
-* [Alerts for Linux machines](#alerts-linux)
-* [Alerts for Azure App Service](#alerts-azureappserv)
-* [Alerts for AKS cluster level](#alerts-akscluster)
-* [Alerts for Container host level](#alerts-containerhost)
-* [Alerts for SQL Database and SQL Data Warehouse](#alerts-sql-db-and-warehouse)
-* [Alerts for Azure Storage](#alerts-azurestorage)
-* [Alerts for Azure Cosmos DB](#alerts-azurecosmos)
-* [Alerts for Azure network layer](#alerts-azurenetlayer)
-* [Alerts for Azure Resource Manager (Preview)](#alerts-azureresourceman)
-* [Alerts for Azure Key Vault (Preview)](#alerts-azurekv)
-* [Alerts for Azure DDoS Protection](#alerts-azureddos)
 
-## Azure Security Center alerts
+
+## <a name="alerts-windows"></a>Alerts for Windows machines
+
+[Further details and notes](security-center-alerts-iaas.md#windows-)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
-||<a name="alerts-windows"></a><h3>Windows machines</h3> [Further details and notes](security-center-alerts-iaas.md#windows-)||
-|**A logon from a malicious IP has been detected.**|A successful remote authentication for the account 'tristan.schleining' and process 'Advapi' occurred, however the logon IP address [IP address] has previously been reported as malicious or highly unusual. A successful attack has probably occurred.|-|
+|**A logon from a malicious IP has been detected**|A successful remote authentication for the account 'tristan.schleining' and process 'Advapi' occurred, however the logon IP address [IP address] has previously been reported as malicious or highly unusual. A successful attack has probably occurred.|-|
 |**A logon from a malicious IP has been detected. [seen multiple times]**|A successful remote authentication for the account 'IUSR_10001' and process 'Advapi' occurred, however the logon IP address [IP address] has previously been reported as malicious or highly unusual. A successful attack has probably occurred. Files with the .scr extensions are screen saver files and are normally reside and execute from the Windows system directory.|-|
 |**Addition of Guest account to Local Administrators group**|Analysis of host data has detected the addition of the built in Guest account to the Local Administrators group on %{Compromised Host}, which is strongly associated with attacker activity.|-|
 |**An event log was cleared**|Machine logs indicate a suspicious event log clearing operation by user: '%{user name}' in Machine: '%{CompromisedEntity}'. The %{log channel} log was cleared.|-|
-|**Detected actions indicative of disabling and deleting IIS log files.**|Analysis of host data detected actions that show IIS log files being disabled and/or deleted.|-|
+|**Detected actions indicative of disabling and deleting IIS log files**|Analysis of host data detected actions that show IIS log files being disabled and/or deleted.|-|
 |**Detected anomalous mix of upper and lower case characters in command line**|Analysis of host data on %{Compromised Host} detected a command line with anomalous mix of upper and lower case characters. This kind of pattern, while possibly benign, is also typical of attackers trying to hide from case-sensitive or hash-based rule matching when performing administrative tasks on a compromised host.|-|
 |**Detected change to a registry key that can be abused to bypass UAC**|Analysis of host data on %{Compromised Host} detected that a registry key that can be abused to bypass UAC (User Account Control) was changed. This kind of configuration, while possibly benign, is also typical of attacker activity when trying to move from unprivileged (standard user) to privileged (for example administrator) access on a compromised host.|-|
 |**Detected decoding of an executable using built-in certutil.exe tool**|Analysis of host data on %{Compromised Host} detected that certutil.exe, a built-in administrator utility, was being used to decode an executable instead of its mainstream purpose that relates to manipulating certificates and certificate data. Attackers are known to abuse functionality of legitimate administrator tools to perform malicious actions, for example using a tool such as certutil.exe to decode a malicious executable that will then be subsequently executed.|-|
 |**Detected enabling of the WDigest UseLogonCredential registry key**|Analysis of host data  detected a change in the registry key HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest\ "UseLogonCredential". Specifically this key has been updated to allow logon credentials to be stored in clear text in LSA memory. Once enabled an attacker can dump clear text passwords from LSA memory with credential harvesting tools such as Mimikatz.|-|
 |**Detected encoded executable in command line data**|Analysis of host data on %{Compromised Host} detected a base-64 encoded executable. This has previously been associated with attackers attempting to construct executables on-the-fly through a sequence of commands, and attempting to evade intrusion detection systems by ensuring that no individual command would trigger an alert. This could be legitimate activity, or an indication of a compromised host.|-|
-|**Detected obfuscated command line.**|Attackers use increasingly complex obfuscation techniques to evade detections that run against the underlying data. Analysis of host data on %{Compromised Host} detected suspicious indicators of obfuscation on the commandline.|-|
+|**Detected obfuscated command line**|Attackers use increasingly complex obfuscation techniques to evade detections that run against the underlying data. Analysis of host data on %{Compromised Host} detected suspicious indicators of obfuscation on the commandline.|-|
 |**Detected Petya ransomware indicators**|Analysis of host data on %{Compromised Host} detected indicators associated with Petya ransomware. See https://blogs.technet.microsoft.com/mmpc/2017/06/27/new-ransomware-old-techniques-petya-adds-worm-capabilities/ for more information. Review the commandline associated in this alert and escalate this alert to your security team.|-|
 |**Detected possible execution of keygen executable**|Analysis of host data on %{Compromised Host} detected execution of a process whose name is indicative of a keygen tool; such tools are typically used to defeat software licensing mechanisms but their download is often bundled with other malicious software. Activity group GOLD has been known to make use of such keygens to covertly gain back door access to hosts that they compromise.|-|
 |**Detected possible execution of malware dropper**|Analysis of host data on %{Compromised Host} detected a filename that has previously been associated with one of activity group GOLD's methods of installing malware on a victim host.|-|
@@ -73,7 +62,7 @@ Types of alerts included in this table:
 |**Detected suspicious named pipe communications**|Analysis of host data on %{Compromised Host} detected data being written to a local named pipe from a Windows console command. Named pipes are known to be a channel used by attackers to task and communicate with a malicious implant. This could be legitimate activity, or an indication of a compromised host.|-|
 |**Detected suspicious network activity**|Analysis of network traffic from %{Compromised Host} detected suspicious network activity. Such traffic, while possibly benign, is typically used by an attacker to communicate with malicious servers for downloading of tools, command-and-control and exfiltration of data. Typical related attacker activity includes copying remote administration tools to a compromised host and exfiltrating user data from it.|-|
 |**Detected suspicious new firewall rule**|Analysis of host data detected a new Firewall rule has been added via netsh.exe to allow traffic from an executable in a suspicious location.|-|
-|**Detected suspicious use of Cacls to lower the security state of the system.**|Attackers use myriad ways like brute force, spear phishing etc. to achieve initial compromise and get a foothold on the network . Once initial compromise is achieved they often take steps to lower the security settings of a system. Cacls—short for change access control list is Microsoft Windows native command line utility often used for modifying the security permission on folders and files.  A lot of time the binary is used by the attackers to lower the security settings of a system.  This is done by giving Everyone full access to some of the system binaries like ftp.exe, net.exe, wscript.exe etc. Analysis of host data on %{Compromised Host} detected suspicious use of Cacls to lower the security of a system.|-|
+|**Detected suspicious use of Cacls to lower the security state of the system**|Attackers use myriad ways like brute force, spear phishing etc. to achieve initial compromise and get a foothold on the network . Once initial compromise is achieved they often take steps to lower the security settings of a system. Cacls—short for change access control list is Microsoft Windows native command line utility often used for modifying the security permission on folders and files.  A lot of time the binary is used by the attackers to lower the security settings of a system.  This is done by giving Everyone full access to some of the system binaries like ftp.exe, net.exe, wscript.exe etc. Analysis of host data on %{Compromised Host} detected suspicious use of Cacls to lower the security of a system.|-|
 |**Detected suspicious use of FTP -s Switch**|Analysis of process creation data from the %{Compromised Host} detected the use of FTP's "-s:filename" switch. This switch is used to specify an FTP script file for the client to run. Malware or malicious processes are known to use this FTP switch (-s:filename) to point to a script file which is configured to connect to a remote FTP server and download additional malicious binaries.|-|
 |**Detected suspicious use of Pcalua.exe to launch executable code**|Analysis of host data on %{Compromised Host} detected the use of pcalua.exe to launch executable code. Pcalua.exe is component of the Microsoft Windows "Program Compatibility Assistant" which detects compatibility issues during the installation or execution of a program. Attackers are known to abuse functionality of legitimate Windows system tools to perform malicious actions, for example using pcalua.exe with the -a switch to launch malicious executables either locally or from remote shares.|-|
 |**Detected the disabling of critical services**|The analysis of host data on %{Compromised Host} detected execution of "net.exe stop" command being used to stop critical services like SharedAccess or Windows Security Center. The stopping of either of these service can be indication of a malicious behavior.|-|
@@ -84,6 +73,7 @@ Types of alerts included in this table:
 |**Local Administrators group members were enumerated**|Machine logs indicate a successful enumeration on group %{Enumerated Group Domain Name}\%{Enumerated Group Name}. Specifically, %{Enumerating User Domain Name}\%{Enumerating User Name} remotely enumerated the members of the %{Enumerated Group Domain Name}\%{Enumerated Group Name} group. This activity could either be legitimate activity, or an indication that a machine in your organization has been compromised and used to reconnaissance %{vmname}.|-|
 |**Malicious firewall rule created by ZINC server implant [seen multiple times]**|A firewall rule was created using techniques that match a known actor, ZINC. The rule was possibly used to open a port on %{Compromised Host} to allow for Command & Control communications. This behavior was seen [x] times today on the following machines: [Machine names]|-|
 |**Malicious SQL activity**|Machine logs indicate that '%{process name}' was executed by account: %{user name}. This activity is considered malicious.|-|
+|**Masquerading Windows Module Detected**|Crash dump analysis detected the presence of a 3rd party module impersonating a Windows module within a crash dump from the process identified in this alert. This occurrence may indicate a system compromise.|-|
 |**Multiple Domain Accounts Queried**|Analysis of host data has determined that an unusual number of distinct domain accounts are being queried within a short time period from %{Compromised Host}. This kind of activity could be legitimate, but can also be an indication of compromise.|-|
 |**Possible credential dumping detected [seen multiple times]**|Analysis of host data has detected use of native windows tool( e.g. sqldumper.exe) being used in a way that allows to extract credentials from memory. Often times attackers use these techniques to extract credentials that they then further use for lateral movement and privilege escalation. This behavior was seen [x] times today on the following machines: [Machine names]|-|
 |**Potential attempt to bypass AppLocker detected**|Analysis of host data on %{Compromised Host} detected a potential attempt to bypass AppLocker restrictions. AppLocker can be configured to implement a policy that limits what executables are allowed to run on a Windows system. The command line pattern similar to that identified in this alert has been previously associated with attacker attempts to circumvent AppLocker policy by using trusted executables (allowed by AppLocker policy) to execute untrusted code. This could be legitimate activity, or an indication of a compromised host.|-|
@@ -124,8 +114,16 @@ Types of alerts included in this table:
 |**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, while successfully hiding itself to prevent being found and removed.<br>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|-|
 |**Suspicious code segment detected**|Indicates that a code segment has been allocated by using non-standard methods, such as reflective injection and process hollowing. The alert provides additional characteristics of the code segment that have been processed to provide context for the capabilities and behaviors of the reported code segment.|-|
 |**Shellcode discovered**|Shellcode is the payload that is run after malware exploits a software vulnerability.<br>This alert indicates that crash dump analysis has detected executable code that exhibits behavior commonly performed by malicious payloads. Although non-malicious software can also perform this behavior, it isn't typical of normal software development practices.|-|
-|**Fileless attack technique detected**|The memory of the process specified contains a fileless attack toolkit: Meterpreter. Fileless attack toolkits typically don't have a presence on the file system, making detection by traditional antivirus software difficult.|DefenseEvasion / Execution|
-||<a name="alerts-linux"></a><h3>Linux machines</h3> [Further details and notes](security-center-alerts-iaas.md#linux-)||
+|**Fileless attack technique detected**|The memory of the process specified contains a fileless attack toolkit: [toolkit name]. Fileless attack toolkits typically don't have a presence on the file system, making detection by traditional antivirus software difficult.|DefenseEvasion / Execution|
+||||
+
+
+## <a name="alerts-linux"></a>Alerts for Linux machines
+
+[Further details and notes](security-center-alerts-iaas.md#linux-)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access can indicate that an attacker is attempting to gain persistent access to a machine.|-|
 |**Detected Persistence Attempt**|Host data analysis has detected that a startup script for single-user mode has been installed.<br>Because it's rare that any legitimate process would be required to run in that mode, this might indicate that an attacker has added a malicious process to every run-level to guarantee persistence. |Persistence|
 |**Suspicious file timestamp modification**|Host data analysis detected a suspicious timestamp modification. Attackers often copy timestamps from existing, legitimate files to new tools to avoid detection of these newly dropped files.|Persistence / DefenseEvasion|
@@ -206,7 +204,15 @@ Types of alerts included in this table:
 |**Suspicious password access [seen multiple times]**|Analysis of host data has detected suspicious access to encrypted user passwords on %{Compromised Host}. This behavior was seen [x] times today on the following machines: [Machine names]|-|
 |**Suspicious PHP execution detected**|Machine logs indicate a that a suspicious PHP process is running. The action included an attempt to run OS commands or PHP code from the command line using the PHP process. While this behavior can be legitimate, in web applications this behavior is also observed in malicious activities such as attempts to infect websites with web shells.|-|
 |**Suspicious request to Kubernetes API**|Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container.|-|
-||<a name="alerts-azureappserv"></a><h3>Azure App Service</h3> [Further details and notes](security-center-alerts-compute.md#azure-app-service-)||
+||||
+
+
+## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
+
+[Further details and notes](security-center-alerts-compute.md#azure-app-service-)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**Suspicious WordPress theme invocation detected**|The App Service activity log indicates a possible code injection activity on your App Service resource.<br>This suspicious activity resembles activity that manipulates a WordPress theme to support server-side execution of code, followed by a direct web request to invoke the manipulated theme file. This type of activity can be part of an attack campaign over WordPress.|-|
 |**Web fingerprinting detected**<br>(NMAP / Blind Elephant)|The App Service activity log indicates a possible web fingerprinting activity on your App Service resource.<br>This suspicious activity is associated with a tool called Blind Elephant. The tool fingerprints web servers and tries to detect the installed applications and their versions. Attackers often use this tool for probing the web applications to find vulnerabilities. |-|
 |**Suspicious access to possibly vulnerable web page detected**|The App Service activity log indicates that a web page that seems to be sensitive was accessed.<br>This suspicious activity originated from a source address whose access pattern resembles that of a web scanner. This kind of activity is often associated with an attempt by an attacker to scan your network to try to gain access to sensitive or vulnerable web pages. |-|
@@ -222,7 +228,15 @@ Types of alerts included in this table:
 |**Suspicious User Agent detected**|Azure App Service activity log indicates requests with suspicious user agent. This behavior can indicate on attempts to exploit a vulnerability in your App Service application.|-|
 |**PHP file in upload folder**|The Azure App Service activity log indicates an access to a suspicious PHP page located in the upload folder. This type of folder does not usually contain PHP files. The existence of this type of file might indicate an exploitation taking advantage of arbitrary file upload vulnerabilities.|-|
 |**Anomalous requests pattern detected**|The Azure App Service activity log indicates an anomalous HTTP activity to the App Service from %{Source IP}. This activity resembles a pattern of Fuzzing \ Brute force activity.|-|
-||<a name="alerts-akscluster"></a><h3>AKS cluster level</h3> [Further details and notes](security-center-alerts-compute.md#azure-containers-)||
+||||
+
+
+## <a name="alerts-akscluster"></a>Alerts for containers - Azure Kubernetes Service clusters
+
+[Further details and notes](security-center-alerts-compute.md#azure-containers-)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**PREVIEW - Role binding to the cluster-admin role detected**|Kubernetes audit log analysis detected a new binding to the cluster-admin role resulting in administrator privileges. Unnecessarily providing administrator privileges might result in privilege escalation issues in the cluster.|Persistence|
 |**PREVIEW - Exposed Kubernetes dashboard detected**|Kubernetes audit log analysis detected exposure of the Kubernetes Dashboard by a LoadBalancer service. Exposed dashboards allow unauthenticated access to the cluster management and pose a security threat.|Persistence|
 |**PREVIEW - New high privileges role detected**|Kubernetes audit log analysis detected a new role with high privileges. A binding to a role with high privileges gives the user/group elevated privileges in the cluster. Unnecessarily providing elevated privileges might result in privilege escalation issues in the cluster.|Persistence|
@@ -230,7 +244,14 @@ Types of alerts included in this table:
 |**PREVIEW - Digital currency mining container detected**|Kubernetes audit log analysis detected a container that has an image associated with a digital currency mining tool.|Execution|
 |**PREVIEW - Privileged container detected**|Kubernetes audit log analysis detected a new privileged container. A privileged container has access to the node’s resources and breaks the isolation between containers. If compromised, an attacker can use the privileged container to gain access to the node.|PrivilegeEscalation|
 |**PREVIEW - Container with a sensitive volume mount detected**|Kubernetes audit log analysis detected a new container with a sensitive volume mount. The volume that was detected is a hostPath type that mounts a sensitive file or folder from the node to the container. If the container gets compromised, the attacker can use this mount to gain access to the node.|PrivilegeEscalation|
-||<a name="alerts-containerhost"></a><h3>Container host level</h3> [Further details and notes](security-center-alerts-compute.md#azure-containers-)||
+||||
+
+## <a name="alerts-containerhost"></a>Alerts for containers - host level
+
+[Further details and notes](security-center-alerts-compute.md#azure-containers-)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**Privileged Container Detected**|Machine logs indicate that a privileged Docker container is running. A privileged container has full access to the host's resources. If compromised, an attacker can use the privileged container to gain access to the host machine.|PrivilegeEscalation / Execution|
 |**Privileged command run in container**|Machine logs indicate that a privileged command was run in a Docker container. A privileged command has extended privileges on the host machine.|PrivilegeEscalation|
 |**Exposed Docker daemon detected**|Machine logs indicate that your Docker daemon (dockerd) exposes a TCP socket. By default, Docker configuration doesn't use encryption or authentication when a TCP socket is enabled. Anyone with access to the relevant port can then get full access to the Docker daemon.|Exploitation / Execution|
@@ -238,34 +259,65 @@ Types of alerts included in this table:
 |**Container with a miner image detected**|Machine logs indicate execution of a Docker container running an image associated with digital currency mining. This behavior can possibly indicate that your resources are being abused.|Execution|
 |**Suspicious request to Kubernetes API**|Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container.|Execution|
 |**Suspicious request to the Kubernetes Dashboard**|Machine logs indicate that a suspicious request was made to the Kubernetes Dashboard. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container.|-|
-||<a name="alerts-sql-db-and-warehouse"></a><h3>SQL Database and SQL Data Warehouse</h3> [Further details and notes](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-) ||
+||||
+
+
+## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and SQL Data Warehouse
+
+[Further details and notes](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**A possible vulnerability to SQL Injection**|An application has generated a faulty SQL statement in the database. This can indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for a faulty statement. A defect in application code might have constructed the faulty SQL statement. Or, application code or stored procedures didn't sanitize user input when constructing the faulty SQL statement, which can be exploited for SQL injection.|-|
-|**Potential SQL injection**|An active exploit has occurred against an identified application vulnerable to SQL injection. This means an attacker is trying to inject malicious SQL statements by using the vulnerable application code or stored procedures.|-|
+|**Attempted logon by a potentially harmful application**|A potentially harmful application has been used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack that uses common tools.|Probing|
 |**Logon from an unusual location**|There has been a change in the access pattern to SQL Server, where someone has signed in to the server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (a former employee or external attacker).|Exploitation|
 |**Logon by an unfamiliar principal**|There has been a change in the access pattern to SQL Server. Someone has signed in to the server by using an unusual principal (user). In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (a former employee or external attacker).|Exploitation|
-|**Attempted logon by a potentially harmful application**|A potentially harmful application has been used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack that uses common tools.|Probing|
 |**Potential SQL Brute Force attempt**|An abnormally high number of failed sign-ins with different credentials have occurred. In some cases, the alert detects penetration testing in action. In other cases, the alert detects a brute force attack.|Probing|
+|**Potential SQL injection**|An active exploit has occurred against an identified application vulnerable to SQL injection. This means an attacker is trying to inject malicious SQL statements by using the vulnerable application code or stored procedures.|-|
 |**Logon from an unusual Azure Data Center**|There has been a change in the access pattern to an SQL Server, where someone has signed in to the server from an unusual Azure Data Center. In some cases, the alert detects a legitimate action (a new application or Azure service). In other cases, the alert detects a malicious action (attacker operating from breached resource in Azure).|Probing|
 |**Potentially Unsafe Action**|High privileged SQL command which is commonly used in malicious sessions has been executed in an SQL Server. Those commands are recommended to be disabled by default. In some cases, the alert detects a legitimate action (admin script running). In other cases, the alert detects a malicious action (attacker using SQL trusts to breach Windows layer).|Execution|
 |**Unusual export location**|There has been a change in the export storage destination for a SQL import and export operation. In some cases, the alert detects a legitimate change (new backup destination). In other cases, the alert detects a malicious action (attacker easily exfiltrated data to a file).|Exfiltration|
-||<a name="alerts-azurestorage"></a><h3>Azure Storage</h3> [Further details and notes](security-center-alerts-data-services.md#azure-storage-)||
-|**Access from an unusual location to a storage account**|Indicates that there was a change in the access pattern to an Azure Storage account. Someone has accessed this account from an IP address considered unfamiliar when compared with recent activity. Either an attacker has gained access to the account, or a legitimate user has connected from a new or unusual geographic location. An example of the latter is remote maintenance from a new application or developer.|Exploitation|
-|**Unusual application accessed a storage account**|Indicates that an unusual application has accessed this storage account. A potential cause is that an attacker has accessed your storage account by using a new application.|Exploitation|
-|**Anonymous access to a storage account**|Indicates that there's a change in the access pattern to a storage account. For instance, the account has been accessed anonymously (without any authentication), which is unexpected compared to the recent access pattern on this account. A potential cause is that an attacker has exploited public read access to a container that holds blob storage.|Exploitation|
+||||
+
+
+## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
+
+[Further details and notes](security-center-alerts-data-services.md#azure-storage-)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
+|**PREVIEW - Potential malware uploaded to a storage account**|Indicates that a blob containing potential malware has been uploaded to a storage account. Potential causes may include an intentional malware upload by an attacker or an unintentional upload, of a potentially malicious blob, by a legitimate user.|LateralMovement|
 |**Access from a Tor exit node to a storage account**|Indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access. Potential causes can be an attacker who has accessed your storage account by using Tor, or a legitimate user who has accessed your storage account by using Tor.|Probing / Exploitation|
+|**Access from an unusual location to a storage account**|Indicates that there was a change in the access pattern to an Azure Storage account. Someone has accessed this account from an IP address considered unfamiliar when compared with recent activity. Either an attacker has gained access to the account, or a legitimate user has connected from a new or unusual geographic location. An example of the latter is remote maintenance from a new application or developer.|Exploitation|
+|**Anonymous access to a storage account**|Indicates that there's a change in the access pattern to a storage account. For instance, the account has been accessed anonymously (without any authentication), which is unexpected compared to the recent access pattern on this account. A potential cause is that an attacker has exploited public read access to a container that holds blob storage.|Exploitation|
+|**Unusual access inspection in a storage account**|Indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|Collection|
 |**Unusual amount of data extracted from a storage account**|Indicates that an unusually large amount of data has been extracted compared to recent activity on this storage container. A potential cause is that an attacker has extracted a large amount of data from a container that holds blob storage.|Exfiltration|
+|**Unusual application accessed a storage account**|Indicates that an unusual application has accessed this storage account. A potential cause is that an attacker has accessed your storage account by using a new application.|Exploitation|
+|**Unusual change of access permissions in a storage account**|Indicates that the access permissions of this storage container have been changed in an unusual way. A potential cause is that an attacker has changed container permissions to weaken its security posture or to gain persistence.|Persistence|
+|**Unusual data exploration in a storage account**|Indicates that blobs or containers in a storage account have been enumerated in an abnormal way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|Collection|
 |**Unusual deletion in a storage account**|Indicates that one or more unexpected delete operations has occurred in a storage account, compared to recent activity on this account. A potential cause is that an attacker has deleted data from your storage account.|Exfiltration|
 |**Unusual upload of .cspkg to a storage account**|Indicates that an Azure Cloud Services package (.cspkg file) has been uploaded to a storage account in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has been preparing to deploy malicious code from your storage account to an Azure cloud service.|LateralMovement / Execution|
 |**Unusual upload of .exe to a storage account**|Indicates that an .exe file has been uploaded to a storage account in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has uploaded a malicious executable file to your storage account, or that a legitimate user has uploaded an executable file.|LateralMovement / Execution|
-|**Unusual change of access permissions in a storage account**|Indicates that the access permissions of this storage container have been changed in an unusual way. A potential cause is that an attacker has changed container permissions to weaken its security posture or to gain persistence.|Persistence|
-|**Unusual access inspection in a storage account**|Indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|Collection|
-|**Unusual data exploration in a storage account**|Indicates that blobs or containers in a storage account have been enumerated in an abnormal way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|Collection|
-|**PREVIEW - Potential malware uploaded to a storage account**|Indicates that a blob containing potential malware has been uploaded to a storage account. Potential causes may include an intentional malware upload by an attacker or an unintentional upload, of a potentially malicious blob, by a legitimate user.|LateralMovement|
-||<a name="alerts-azurecosmos"></a><h3>Azure Cosmos DB</h3> [Further details and notes](security-center-alerts-data-services.md#azure-cosmos-db)||
+||||
+
+
+## <a name="alerts-azurecosmos"></a>Alerts for Azure Cosmos DB (Preview)
+
+[Further details and notes](security-center-alerts-data-services.md#azure-cosmos-db)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**Access from an unusual location to a Cosmos DB account**|Indicates that there was a change in the access pattern to an Azure Cosmos DB account. Someone has accessed this account from an unfamiliar IP address, compared to recent activity. Either an attacker has accessed the account, or a legitimate user has accessed it from a new and unusual geographical location. An example of the latter is remote maintenance from a new application or developer.|Exploitation|
 |**Unusual amount of data extracted from a Cosmos DB account**|Indicates that there was a change in the data extraction pattern from an Azure Cosmos DB account. Someone has extracted an unusual amount of data compared to recent activity. An attacker might have extracted a large amount of data from an Azure Cosmos DB database (for example, data exfiltration or leakage, or an unauthorized transfer of data). Or, a legitimate user or application might have extracted an unusual amount of data from a container (for example, for maintenance backup activity).|Exfiltration|
-||<a name="alerts-azurenetlayer"></a><h3>Azure network layer</h3> [Further details and notes](security-center-alerts-service-layer.md#azure-network-layer)||
-|**Traffic detected from IP addresses recommended for blocking**|Azure Security Center detected inbound traffic from IP addresses that are recommended to be blocked. This typically occurs when this IP address doesn't communicate regularly with this resource. Alternatively, the IP address has been flagged as malicious by Security Center's threat intelligence sources.|Probing|
+||||
+
+
+## <a name="alerts-azurenetlayer"></a>Alerts for Azure network layer
+
+[Further details and notes](security-center-alerts-service-layer.md#azure-network-layer)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**Network communication with a malicious machine detected**|Network traffic analysis indicates that your machine (IP %{Victim IP}) has communicated with what is possibly a Command and Control center. When the compromised resource is a load balancer or an application gateway, the suspected activity might indicate that one or more of the resources in the backend pool (of the load balancer or application gateway) has communicated with what is possibly a Command and Control center.|-|
 |**Possible compromised machine detected**|Threat intelligence indicates that your machine (at IP %{Machine IP}) may have been compromised by a malware of type Conficker. Conficker was a computer worm that targets the Microsoft Windows operating system and was first detected in November 2008. Conficker infected millions of computers including government, business and home computers in over 200 countries, making it the largest known computer worm infection since the 2003 Welchia worm.|-|
 |**Possible incoming %{Service Name} brute force attempts detected**|Network traffic analysis detected incoming %{Service Name} communication to %{Victim IP}, associated with your resource %{Compromised Host} from %{Attacker IP}. When the compromised resource is a load balancer or an application gateway, the suspected incoming traffic has been forwarded to one or more of the resources in the backend pool (of the load balancer or application gateway). Specifically, sampled network data shows suspicious activity between %{Start Time} and %{End Time} on port %{Victim Port}. This activity is consistent with brute force attempts against %{Service Name} servers.|-|
@@ -281,31 +333,55 @@ Types of alerts included in this table:
 |**Suspicious outgoing RDP network activity to multiple destinations**|Network traffic analysis detected anomalous outgoing Remote Desktop Protocol (RDP) communication to multiple destinations originating from %{Compromised Host} (%{Attacker IP}), a resource in your deployment. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). Specifically, sampled network data shows your machine connecting to %{Number of Attacked IPs} unique IPs, which is considered abnormal for this environment. This activity may indicate that your resource was compromised and is now used to brute force external RDP end points. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|-|
 |**Suspicious outgoing SSH network activity**|Network traffic analysis detected anomalous outgoing SSH communication to %{Victim IP} originating from %{Compromised Host} (%{Attacker IP}), a resource in your deployment. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). Specifically, sampled network data shows %{Number of Connections} outgoing connections from your resource, which is considered abnormal for this environment. This activity may indicate that your resource was compromised and is now used to brute force external SSH end points. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|-|
 |**Suspicious outgoing SSH network activity to multiple destinations**|Network traffic analysis detected anomalous outgoing SSH communication to multiple destinations originating from %{Compromised Host} (%{Attacker IP}), a resource in your deployment. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). Specifically, sampled network data shows your resource connecting to %{Number of Attacked IPs} unique IPs, which is considered abnormal for this environment. This activity may indicate that your resource was compromised and is now used to brute force external SSH end points. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|-|
-||<a name="alerts-azureresourceman"></a><h3>Azure Resource Manager (Preview)</h3> [Further details and notes](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)||
-|**PREVIEW - MicroBurst toolkit function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool [MicroBurst](https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscriptions' resources, identify insecure configurations, and leak confidential information.|-|
+|**Traffic detected from IP addresses recommended for blocking**|Azure Security Center detected inbound traffic from IP addresses that are recommended to be blocked. This typically occurs when this IP address doesn't communicate regularly with this resource. Alternatively, the IP address has been flagged as malicious by Security Center's threat intelligence sources.|Probing|
+||||
+
+
+## <a name="alerts-azureresourceman"></a>Alerts for Azure Resource Manager (Preview)
+
+[Further details and notes](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**PREVIEW - Azurite toolkit run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool [Azurite](https://github.com/mwrlabs/Azurite) can be used by an attacker (or penetration tester) to map your subscriptions' resources and identify insecure configurations.|-|
-|**PREVIEW - Suspicious management session using an inactive account detected**|Subscription activity logs analysis has detected suspicious behavior. A principal not in use for a long period of time is now performing actions that can secure persistence for an attacker.|Persistence|
-|**PREVIEW - Suspicious management session using PowerShell detected**|Subscription activity logs analysis has detected suspicious behavior. A principal that doesn’t regularly use PowerShell to manage the subscription environment is now using PowerShell, and performing actions that can secure persistence for an attacker.|Persistence|
+|**PREVIEW – MicroBurst toolkit “Get-AzureDomainInfo” function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool “MicroBurst” (see https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscription(s) resources, identify insecure configurations, and leak confidential information.|-||**PREVIEW - Suspicious management session using an inactive account detected**|Subscription activity logs analysis has detected suspicious behavior. A principal not in use for a long period of time is now performing actions that can secure persistence for an attacker.|Persistence|
+|**PREVIEW – MicroBurst toolkit “Get-AzurePasswords” function run detected**|A known cloud-environment reconnaissance toolkit run has been detected in your environment. The tool “MicroBurst” (see https://github.com/NetSPI/MicroBurst) can be used by an attacker (or penetration tester) to map your subscription(s) resources, identify insecure configurations, and leak confidential information.|-|
 |**PREVIEW – Suspicious management session using Azure portal detected**|Analysis of your subscription activity logs has detected a suspicious behavior. A principal that doesn’t regularly use the Azure portal (Ibiza) to manage the subscription environment (hasn’t used Azure portal to manage for the last 45 days, or a subscription that it is actively managing), is now using the Azure portal and performing actions that can secure persistence for an attacker.|-|
-|**Use of advanced Azure persistence techniques**|Subscription activity logs analysis has detected suspicious behavior. Customized roles have been given legitimized identity entities. This can lead the attacker to gain persistency in an Azure customer environment.|-|
-|**Activity from infrequent country**|Activity from a location that wasn't recently or ever visited by any user in the organization has occurred.<br>This detection considers past activity locations to determine new and infrequent locations. The anomaly detection engine stores information about previous locations used by users in the organization.|-|
+|**PREVIEW - Suspicious management session using PowerShell detected**|Subscription activity logs analysis has detected suspicious behavior. A principal that doesn’t regularly use PowerShell to manage the subscription environment is now using PowerShell, and performing actions that can secure persistence for an attacker.|Persistence|
 |**Activity from anonymous IP addresses**|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device’s IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.|-|
+|**Activity from infrequent country**|Activity from a location that wasn't recently or ever visited by any user in the organization has occurred.<br>This detection considers past activity locations to determine new and infrequent locations. The anomaly detection engine stores information about previous locations used by users in the organization.|-|
 |**Impossible travel activity**|Two user activities (in a single or multiple sessions) have occurred, originating from geographically distant locations. This occurs within a time period shorter than the time it would have taken the user to travel from the first location to the second. This indicates that a different user is using the same credentials.<br>This detection uses a machine learning algorithm that ignores obvious false positives contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The detection has an initial learning period of seven days, during which it learns a new user’s activity pattern. |-|
-||<a name="alerts-azurekv"></a><h3>Azure Key Vault (Preview)</h3> [Further details and notes](security-center-alerts-service-layer.md#azure-keyvault)||
+|**Use of advanced Azure persistence techniques**|Subscription activity logs analysis has detected suspicious behavior. Customized roles have been given legitimized identity entities. This can lead the attacker to gain persistency in an Azure customer environment.|-|
+||||
+
+
+## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault (Preview)
+
+[Further details and notes](security-center-alerts-service-layer.md#azure-keyvault)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**Access from a TOR exit node to a Key Vault**|The Key Vault has been accessed by someone using the TOR IP anonymization system to hide their location. Malicious actors often try to hide their location when attempting to gain unauthorized access to internet-connected resources.|-|
+|**High volume of operations in a Key Vault**|A larger volume of Key Vault operations has been performed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|-|
 |**Suspicious policy change and secret query in a Key Vault**|A Key Vault policy change has been made and then operations to list and/or get secrets occurred. In addition, this operation pattern isn't normally performed by the user on this vault. This is highly indicative that the Key Vault is compromised and the secrets within have been stolen by a malicious actor.|-|
 |**Suspicious secret listing and query in a Key Vault**|A Secret List operation was followed by many Secret Get operations. Also, this operation pattern isn't normally performed by the user on this vault. This indicates that someone could be dumping the secrets stored in the Key Vault for potentially malicious purposes.|-|
 |**Unusual user-application pair accessed a Key Vault**|The Key Vault has been accessed by a User-Application pairing that doesn't normally access it. This may be a legitimate access attempt (for example, following an infrastructure or code update). This is also a possible indication that your infrastructure is compromised and a malicious actor is trying to access your Key Vault.|-|
 |**Unusual application accessed a Key Vault**|The Key Vault has been accessed by an Application that doesn't normally access it. This may be a legitimate access attempt (for example, following an infrastructure or code update). This is also a possible indication that your infrastructure is compromised and a malicious actor is trying to access your Key Vault.|-|
 |**Unusual user accessed a Key Vault**|The Key Vault has been accessed by a User that doesn't normally access it. This may be a legitimate access attempt (for example, a new user needing access has joined the organization). This is also a possible indication that your infrastructure is compromised and a malicious actor is trying to access your Key Vault.|-|
 |**Unusual operation pattern in a Key Vault**|An unusual set of Key Vault operations has been performed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|-|
-|**High volume of operations in a Key Vault**|A larger volume of Key Vault operations has been performed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|-|
 |**User accessed high volume of Key Vaults**|The number of vaults that a user or application accesses has changed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|-|
-||<a name="alerts-azureddos"></a><h3>Azure DDoS Protection</h3> [Further details and notes](security-center-alerts-integration.md#azure-ddos)||
+||||
+
+
+## <a name="alerts-azureddos"></a>Alerts for Azure DDoS Protection
+
+[Further details and notes](security-center-alerts-integration.md#azure-ddos)
+
+|Alert|Description|Intent ([Learn more](#intentions))|
+|----|----|:----:|
 |**DDoS Attack detected for Public IP**|DDoS Attack detected for Public IP (IP address) and being mitigated.|Probing|
 |**DDoS Attack mitigated for Public IP**|DDoS Attack mitigated for Public IP (IP address).|Probing|
 ||||
-
 
 ## Intentions
 

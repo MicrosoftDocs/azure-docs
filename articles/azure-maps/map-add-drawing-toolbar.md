@@ -65,7 +65,7 @@ Below is the complete running code sample of the functionality above:
 
 ## Change drawing rendering style
 
-The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon, lines will be red and four pixels wide, polygons will have a green fill color and an orange outline.
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon. Lines will be red and four pixels wide. Polygons will have a green fill color and an orange outline.
 
 ```Javascript
 var layers = drawingManager.getLayers();

@@ -3,10 +3,7 @@ title: Packet inspection with Azure Network Watcher | Microsoft Docs
 description: This article describes how to use Network Watcher to perform deep packet inspection collected from a VM
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
+author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -14,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Packet inspection with Azure Network Watcher
@@ -49,7 +46,7 @@ Load the **.cap** file from your packet capture. This file can be found in the b
 
 ### Step 3
 
-To view the initial Round Trip Time (RTT) in TCP conversations, we will only be looking at the first two packets involved in the TCP handshake. We will be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They are named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, will not be used in this scenario. The [SYN] packet is sent by the client. Once it is received the server sends the [ACK] packet as an acknowledgement of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
+To view the initial Round Trip Time (RTT) in TCP conversations, we will only be looking at the first two packets involved in the TCP handshake. We will be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They are named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, will not be used in this scenario. The [SYN] packet is sent by the client. Once it is received the server sends the [ACK] packet as an acknowledgment of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
 
 Using WireShark this value is calculated for us.
 

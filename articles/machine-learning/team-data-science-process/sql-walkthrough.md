@@ -3,12 +3,12 @@ title: Build and deploy a model in a SQL Server VM - Team Data Science Process
 description: Build and deploy a machine learning model using SQL Server on an Azure VM with a publicly available dataset.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 In this tutorial, you walk through the process of building and deploying a machine learning model using SQL Server and a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows a standard data science workflow: ingest and explore the data, engineer features to facilitate learning, then build and deploy a model.
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
-The NYC Taxi Trip data is about 20GB of compressed CSV files (~48GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+The NYC Taxi Trip data is about 20 GB of compressed CSV files (~48 GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
    
@@ -40,15 +40,15 @@ The unique key to join trip\_data and trip\_fare is composed of the fields: meda
 ## <a name="mltasks"></a>Examples of Prediction Tasks
 We will formulate three prediction problems based on the *tip\_amount*, namely:
 
-1. Binary classification: Predict whether or not a tip was paid for a trip, i.e. a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
-2. Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
+* Binary classification: Predict whether or not a tip was paid for a trip, that is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
+* Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Regression task: To predict the amount of tip paid for a trip.  
+* Regression task: To predict the amount of tip paid for a trip.  
 
 ## <a name="setup"></a>Setting Up the Azure data science environment for advanced analytics
 As you can see from the [Plan Your Environment](plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
@@ -56,7 +56,7 @@ As you can see from the [Plan Your Environment](plan-your-environment.md) guide,
 * Work with the data in Azure blobs then model in Azure Machine Learning
 * Load the data into a SQL Server database then model in Azure Machine Learning
 
-In this tutorial we will demonstrate parallel bulk import of the data to a SQL Server, data exploration, feature engineering and down sampling using SQL Server Management Studio as well as using IPython Notebook. [Sample scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) and [IPython notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) are shared in GitHub. A sample IPython notebook to work with the data in Azure blobs is also available in the same location.
+In this tutorial we will demonstrate parallel bulk import of the data to a SQL Server, data exploration, feature engineering, and down sampling using SQL Server Management Studio as well as using IPython Notebook. [Sample scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) and [IPython notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) are shared in GitHub. A sample IPython notebook to work with the data in Azure blobs is also available in the same location.
 
 To set up your Azure Data Science environment:
 
@@ -81,7 +81,7 @@ To get the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset from
 To copy the data using AzCopy:
 
 1. Log in to your virtual machine (VM)
-2. Create a new directory in the VM's data disk (Note: Do not use the Temporary Disk which comes with the VM as a Data Disk).
+2. Create a new directory in the VM's data disk (Note: Do not use the Temporary Disk that comes with the VM as a Data Disk).
 3. In a Command Prompt window, run the following Azcopy command line, replacing <path_to_data_folder> with your data folder created in (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -90,32 +90,32 @@ To copy the data using AzCopy:
 4. Unzip the downloaded files. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_data\_files\>.
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
-The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using *Partitioned Tables and Views*. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](parallel-load-sql-partitioned-tables.md) to create a new database and load the data into partitioned tables in parallel.
+The performance of loading/transferring large amounts of data to an SQL Database and subsequent queries can be improved by using *Partitioned Tables and Views*. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](parallel-load-sql-partitioned-tables.md) to create a new database and load the data into partitioned tables in parallel.
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 2. Connect using Windows Authentication.
    
     ![SSMS Connect][12]
-3. If you have not yet changed the SQL Server authentication mode and created a new SQL login user, open the script file named **change\_auth.sql** in the **Sample Scripts** folder. Change the  default user name and password. Click **!Execute** in the toolbar to run the script.
+3. If you have not yet changed the SQL Server authentication mode and created a new SQL login user, open the script file named **change\_auth.sql** in the **Sample Scripts** folder. Change the  default user name and password. Click **Execute** in the toolbar to run the script.
    
     ![Execute Script][13]
-4. Verify and/or change the SQL Server default database and log folders to ensure that newly created databases will be stored in a Data Disk. The SQL Server VM image that is optimized for datawarehousing loads is pre-configured with data and log disks. If your VM did not include a Data Disk and you added new virtual hard disks during the VM setup process, change the default folders as follows:
+4. Verify and/or change the SQL Server default database and log folders to ensure that newly created databases will be stored in a Data Disk. The SQL Server VM image that is optimized for data warehousing loads is pre-configured with data and log disks. If your VM did not include a Data Disk and you added new virtual hard disks during the VM setup process, change the default folders as follows:
    
    * Right-click the SQL Server name in the left panel and click **Properties**.
      
        ![SQL Server Properties][14]
    * Select **Database Settings** from the **Select a page** list to the left.
-   * Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This is where new databases reside if created with the default location settings.
+   * Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This location is where new databases reside if created with the default settings.
      
        ![SQL Database Defaults][15]  
-5. To create a new database and a set of filegroups to hold the partitioned tables, open the sample script **create\_db\_default.sql**. The script will create a new database named **TaxiNYC** and 12 filegroups in the default data location. Each filegroup will hold one month of trip\_data and trip\_fare data. Modify the database name, if desired. Click **!Execute** to run the script.
+5. To create a new database and a set of filegroups to hold the partitioned tables, open the sample script **create\_db\_default.sql**. The script will create a new database named **TaxiNYC** and 12 filegroups in the default data location. Each filegroup will hold one month of trip\_data and trip\_fare data. Modify the database name, if desired. Click **Execute** to run the script.
 6. Next, create two partition tables, one for the trip\_data and another for the trip\_fare. Open the sample script **create\_partitioned\_table.sql**, which will:
    
    * Create a partition function to split the data by month.
    * Create a partition scheme to map each month's data to a different filegroup.
    * Create two partitioned tables mapped to the partition scheme: **nyctaxi\_trip** will hold the trip\_data and **nyctaxi\_fare** will hold the trip\_fare data.
      
-     Click **!Execute** to run the script and create the partitioned tables.
+     Click **Execute** to run the script and create the partitioned tables.
 7. In the **Sample Scripts** folder, there are two sample PowerShell scripts provided to demonstrate parallel bulk imports of data to SQL Server tables.
    
    * **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify this script to set the input and target variables as indicated in the comment lines in the script.
@@ -125,9 +125,9 @@ The performance of loading/transferring large amounts of data to an SQL database
     ![Bulk Import Data][16]
    
     You may also select the authentication mode, default is Windows Authentication. Click the green arrow in the toolbar to run. The script will launch 24 bulk import operations in parallel, 12 for each partitioned table. You may monitor the data import progress by opening the SQL Server default data folder as set above.
-9. The PowerShell script reports the starting and ending times. When all bulk imports complete, the ending time is reported. Check the target log folder to verify that the bulk imports were successful, i.e., no errors reported in the target log folder.
-10. Your database is now ready for exploration, feature engineering, and other operations as desired. Since the tables are partitioned according to the **pickup\_datetime** field, queries which include **pickup\_datetime** conditions in the **WHERE** clause will benefit from the partition scheme.
-11. In **SQL Server Management Studio**, explore the provided sample script **sample\_queries.sql**. To run any of the sample queries, highlight the query lines then click **!Execute** in the toolbar.
+9. The PowerShell script reports the starting and ending times. When all bulk imports complete, the ending time is reported. Check the target log folder to verify that the bulk imports were successful, that is, no errors reported in the target log folder.
+10. Your database is now ready for exploration, feature engineering, and other operations as desired. Since the tables are partitioned according to the **pickup\_datetime** field, queries that include **pickup\_datetime** conditions in the **WHERE** clause will benefit from the partition scheme.
+11. In **SQL Server Management Studio**, explore the provided sample script **sample\_queries.sql**. To run any of the sample queries, highlight the query lines then click **Execute** in the toolbar.
 12. The NYC Taxi Trips data is loaded in two separate tables. To improve join operations, it is highly recommended to index the tables. The sample script **create\_partitioned\_index.sql** creates partitioned indexes on the composite join key **medallion, hack\_license, and pickup\_datetime**.
 
 ## <a name="dbexplore"></a>Data Exploration and Feature Engineering in SQL Server
@@ -144,10 +144,10 @@ In this exercise, we will:
 
 When you are ready to proceed to Azure Machine Learning, you may either:  
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a [Import Data][import-data] module in Azure Machine Learning, or
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an [Import Data][import-data] module in Azure Machine Learning, or
 2. Persist the sampled and engineered data you plan to use for model building in a new database table and use the new table in the [Import Data][import-data] module in Azure Machine Learning.
 
-In this section we will save the final query to extract and sample the data. The second method is demonstrated in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section.
+In this section, we will save the final query to extract and sample the data. The second method is demonstrated in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section.
 
 For a quick verification of the number of rows and columns in the tables populated earlier using parallel bulk import,
 
@@ -195,7 +195,7 @@ This example finds the number of trips that were tipped vs. not tipped in a give
     GROUP BY tipped
 
 #### Exploration: Tip Class/Range Distribution
-This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This is the distribution of the label classes that will be used later for multiclass classification modeling.
+This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This distribution of the label classes will be used later for multiclass classification modeling.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -224,7 +224,7 @@ This example converts the pickup and dropoff longitude and latitude to SQL geogr
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 #### Feature Engineering in SQL Queries
-The label generation and geography conversion exploration queries can also be used to generate labels/features by removing the counting part. Additional feature engineering SQL examples are provided in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section. It is more efficient to run the feature generation queries on the full dataset or a large subset of it using SQL queries which run directly on the SQL Server database instance. The queries may be executed in **SQL Server Management Studio**, IPython Notebook or any development tool/environment which can access the database locally or remotely.
+The label generation and geography conversion exploration queries can also be used to generate labels/features by removing the counting part. Additional feature engineering SQL examples are provided in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section. It is more efficient to run the feature generation queries on the full dataset or a large subset of it using SQL queries that run directly on the SQL Server database instance. The queries may be executed in **SQL Server Management Studio**, IPython Notebook, or any development tool or environment that can access the database locally or remotely.
 
 #### Preparing Data for Model Building
 The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
@@ -249,7 +249,7 @@ The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, ge
 In this section, we will perform data exploration and feature generation
 using both Python and SQL queries against the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. This notebook is also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
-The recommended sequence when working with big data is the following:
+When working with big data, follow this recommended sequence:
 
 * Read in a small sample of the data into an in-memory data frame.
 * Perform some visualizations and explorations using the sampled data.
@@ -259,7 +259,7 @@ The recommended sequence when working with big data is the following:
 
 When ready to proceed to Azure Machine Learning, you may either:  
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a [Import Data][import-data] module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an [Import Data][import-data] module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
 2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the [Import Data][import-data] module.
 
 The following are a few data exploration, data visualization, and feature engineering examples. For more examples, see the sample SQL IPython notebook in the **Sample IPython Notebooks** folder.
@@ -375,7 +375,7 @@ Similarly we can check the relationship between **rate\_code** and **trip\_dista
 ### Sub-Sampling the Data in SQL
 When preparing data for model building in [Azure Machine Learning Studio](https://studio.azureml.net), you may either decide on the **SQL query to use directly in the Import Data module** or persist the engineered and sampled data in a new table, which you could use in the [Import Data][import-data] module with a simple **SELECT * FROM <your\_new\_table\_name>**.
 
-In this section we will create a new table to hold the sampled and engineered data. An example of a direct SQL query for model building is provided in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
+In this section, we will create a new table to hold the sampled and engineered data. An example of a direct SQL query for model building is provided in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
 #### Create a Sample Table and Populate with 1% of the Joined Tables. Drop Table First if it Exists.
 In this section, we join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, extract a 1% random sample, and persist the sampled data in a new table name **nyctaxi\_one\_percent**:
@@ -402,7 +402,7 @@ In this section, we join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, ext
     cursor.commit()
 
 ### Data Exploration using SQL Queries in IPython Notebook
-In this section, we explore data distributions using the 1% sampled data which is persisted in the new table we created above. Note that similar explorations can be performed using the original tables, optionally using **TABLESAMPLE** to limit the exploration sample or by limiting the results to a given time period using the **pickup\_datetime** partitions, as illustrated in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
+In this section, we explore data distributions using the 1% sampled data that is persisted in the new table we created above. Similar explorations can be performed using the original tables, optionally using **TABLESAMPLE** to limit the exploration sample or by limiting the results to a given time period using the **pickup\_datetime** partitions, as illustrated in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
 #### Exploration: Daily distribution of trips
     query = '''
@@ -484,7 +484,7 @@ This example transforms a categorical field into a numeric field by replacing ea
     cursor.commit()
 
 #### Feature Engineering: Bin features for Numerical Columns
-This example transforms a continuous numeric field into preset category ranges, i.e., transform numeric field into a categorical field.
+This example transforms a continuous numeric field into preset category ranges, that is, transform numeric field into a categorical field.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -512,7 +512,7 @@ This example transforms a continuous numeric field into preset category ranges, 
     cursor.commit()
 
 #### Feature Engineering: Extract Location Features from Decimal Latitude/Longitude
-This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country/region, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
+This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country/region, city, town, block, etc. The new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -552,22 +552,22 @@ To begin the modeling exercise, log in to your Azure Machine Learning workspace.
 
 1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
-3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-A typical training experiment consists of the following:
+A typical training experiment consists of the following steps:
 
 1. Create a **+NEW** experiment.
 2. Get the data to Azure Machine Learning.
-3. Pre-process, transform and manipulate the data as needed.
+3. Pre-process, transform, and manipulate the data as needed.
 4. Generate features as needed.
 5. Split the data into training/validation/testing datasets(or have separate datasets for each).
-6. Select one or more machine learning algorithms depending on the learning problem to solve. E.g., binary classification, multiclass classification, regression.
+6. Select one or more machine learning algorithms depending on the learning problem to solve. For example, binary classification, multiclass classification, regression.
 7. Train one or more models using the training dataset.
 8. Score the validation dataset using the trained model(s).
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
-10. Fine tune the model(s) and select the best model to deploy.
+10. Tune the model(s) and select the best model to deploy.
 
-In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure Machine Learning. To build one or more of the prediction models we decided:
+In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure Machine Learning. To build one or more of the prediction models, we decided:
 
 1. Get the data to Azure Machine Learning using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
    
@@ -576,7 +576,7 @@ In this exercise, we have already explored and engineered the data in SQL Server
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Enter the **Database name** in the corresponding field.
 5. Enter the **SQL user name** in the **Server user account name**, and the **password** in the **Server user account password**.
-7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
+7. In the **Database query** edit text area, paste the query that extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
 
 An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments can be constructed for multiclass classification and regression problems.
 
@@ -607,7 +607,7 @@ Azure Machine Learning will attempt to create a scoring experiment based on the 
 2. Identify a logical **input port** to represent the expected input data schema.
 3. Identify a logical **output port** to represent the expected web service output schema.
 
-When the scoring experiment is created, review it and adjust as needed. A typical adjustment is to replace the input dataset and/or query with one which excludes label fields, as these will not be available when the service is called. It is also a good practice to reduce the size of the input dataset and/or query to a few records, just enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the [Select Columns in Dataset][select-columns] module.
+When the scoring experiment is created, review it and adjust as needed. A typical adjustment is to replace the input dataset and/or query with one that excludes label fields, since these labels will not be available in the schema when the service is called. It is also a good practice to reduce the size of the input dataset and/or query to a few records, enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the [Select Columns in Dataset][select-columns] module.
 
 A sample scoring experiment is in the figure below. When ready to deploy, click the **PUBLISH WEB SERVICE** button in the lower action bar.
 
@@ -616,7 +616,7 @@ A sample scoring experiment is in the figure below. When ready to deploy, click 
 To recap, in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset all the way from data acquisition to model training and deploying of an Azure Machine Learning web service.
 
 ### License Information
-This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
+This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ### References
 •    [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)  
