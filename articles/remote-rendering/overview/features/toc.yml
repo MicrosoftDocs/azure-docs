@@ -18,3 +18,5 @@
   href: sky.md
 - name: Z-fighting mitigation
   href: z-fighting-mitigation.md
+- name: Server-side performance queries
+  href: concepts-performance-queries.md
