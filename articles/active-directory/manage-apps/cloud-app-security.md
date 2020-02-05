@@ -13,7 +13,7 @@ ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
 
-# Cloud app visibility and control with 
+# Cloud app visibility and control
 
 To get the full benefit of cloud apps and services, an IT team must find the right balance of supporting access while maintaining control to protect critical data. Microsoft Cloud App Security provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyber threats across all your Microsoft and third-party cloud services.
 
