@@ -89,6 +89,6 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
    * For Configuration Center, go to the Certificate Registration Point (CRP) and adjust the URL. This URL is what devices call out to and present their challenge.
    * For Intune Cloud Only, also known as Intune Standalone, either edit or create a new SCEP policy and add the new URL.
 
-## Next Steps
+## Next steps
 
 With the Azure AD Application Proxy integrated with NDES, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
