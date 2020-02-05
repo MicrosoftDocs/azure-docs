@@ -177,13 +177,13 @@ Only premium SSDs that are P15 or greater support shared disks.
 You need to use the following API/tooling versions:
 
 
-|Column1  |Column2  |
+|Azure tools  |Supported versions  |
 |---------|---------|
-|Row1     |         |
-|Row2     |         |
-|Row3     |         |
-|Row4     |         |
-|Row5     |         |
+|Azure REST API     |2019-07-01 or later         |
+|Azure PowerShell     |4.1.0 or later         |
+|Azure CLI v1     |0.10.13 or later         |
+|Azure CLI v2     |2.0.12 or later         |
+|Azure .NET SDK     |6.1.0 or later         |
 
 **If I have an existing premium SSD, can I enable shared disks on it?**
 All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
@@ -192,9 +192,11 @@ All managed disks created with API version 2019-07-01 or higher can enable share
 Unmount the disk from all VMs that it is attached to. Then edit the maxShare property on the disk to 1.
 
 **Can you resize a shared disk?**
+
 Yes.
 
 **Can I enable write accelerator on a disk that also has shared disks enabled?**
+
 No.
 
 **Can I enable host caching for a disk that has shared disk enabled?**

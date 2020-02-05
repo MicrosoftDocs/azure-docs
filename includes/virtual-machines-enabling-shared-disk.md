@@ -82,7 +82,7 @@ $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -Manage
 
 ## Supported SCSI PR commands
 
-Once you've mounted the shared disk on your VMs in your cluster, you can establish quorum and read/write to the disk using SCSI PR. The following PR commands are available when using Azure shared disks:
+Once you've mounted the shared disk to your VMs in your cluster, you can establish quorum and read/write to the disk using SCSI PR. The following PR commands are available when using Azure shared disks:
 
 To interact with the disk, start with the persistent-reservation-action list:
 
