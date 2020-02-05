@@ -389,13 +389,11 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
 
 ## [Optional] Localize your email
 
-The `GenerateSendGridRequestBody` claims transformation which generates the JSON payload, uses input claims that contain dynamic values (such as the email address and the OTP code), and static values (such as the template name, and email subject).
-
-To localize the email, you must send localized strings to SendGrid, or your email provider. For example to localize the email subject, body, your code message, and signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types.
+To localize the email, you must send localized strings to SendGrid, or your email provider. For example to localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. In the `GenerateSendGridRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
 
 1. In your policy define the following string claims: subject, message, codeIntro and signature.
 1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
-1. Change the `GenerateSendGridRequestBody` technical profile to use input claims with the following XML snippet.
+1. Change the `GenerateSendGridRequestBody` claims transformation to use input claims with the following XML snippet.
 1. Update your SendGrind template to use dynamic parameters in place of all the strings which will be localized by Azure AD B2C.
 
 ```XML
