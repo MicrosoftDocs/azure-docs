@@ -12,5 +12,3 @@
   href: unity/toc.yml
 - name: Profile performance
   href: performance-tracing.md
-- name: Troubleshoot
-  href: troubleshoot.md

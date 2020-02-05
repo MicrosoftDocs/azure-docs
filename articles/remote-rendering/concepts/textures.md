@@ -15,8 +15,8 @@ ms.service: azure-remote-rendering
 
 Textures are immutable shared resources that can be used in various places in the API. Textures can be encountered in a loaded model when inspecting its meshes and materials or loaded on demand by the user. There are three distinguished types of textures:
 
-* 2D Textures - Mainly used in [materials](../reference/features/materials.md)
-* Cube Maps - Example of use is setting the [sky](../reference/features/sky.md)
+* 2D Textures - Mainly used in [materials](../overview/features/materials.md)
+* Cube Maps - Example of use is setting the [sky](../overview/features/sky.md)
 * 3D Textures - Not used at the moment
 
 ## Loading textures
@@ -45,7 +45,7 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-Texture [URI](../concepts/sdk-concepts.md#built-in-and-external-resources) has to point to a texture in dds format to be loadable by the Remote Rendering Server. Specific content of the dds file is affected by the texture type (2D/CubeMap/3D) and feature that will be using it. For example, the pixel content has to be grayscale for PBR material [roughness maps](../reference/features/materials.md#roughness).
+Texture [URI](../concepts/sdk-concepts.md#built-in-and-external-resources) has to point to a texture in dds format to be loadable by the Remote Rendering Server. Specific content of the dds file is affected by the texture type (2D/CubeMap/3D) and feature that will be using it. For example, the pixel content has to be grayscale for PBR material [roughness maps](../overview/features/materials.md#roughness).
 
 ## Using textures
 
@@ -54,4 +54,4 @@ API calls that expect Textures as input will always specify what type of texture
 ## Next steps
 
 * [Materials](materials.md)
-* [Sky](../reference/features/sky.md)
+* [Sky](../overview/features/sky.md)

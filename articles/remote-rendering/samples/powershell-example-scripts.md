@@ -24,18 +24,22 @@ Prior to invoking the script you need to install the Azure PowerShell module and
 
 More information about Azure PowerShell can be found at: https://docs.microsoft.com/powershell/azure/ 
 
-In powershell with admin rights:
+In PowerShell with admin rights:
+
 ```powershell
 PS> Install-Module -Name Az -AllowClobber
 ```
+
 ## Allow PowerShell scripts to be executed
 If you get an error about running scripts, ensure your execution policy is set appropriately
 Open PowerShell as an admin and run  the command below to allow unrestricted execution. For more details, read [Set-Execution Policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-In a powershell window:
+In a PowerShell window:
+
 ```powershell
 PS> Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ```
+
 ## Prepare an Azure Storage account 
 In order to use the asset ingestion service you need to have an Azure subscription and an Azure Storage V2 account. 
 In the Azure Storage account, you need to create at least one input blob container and output blob container. 
@@ -43,10 +47,12 @@ You can create a storage account and the containers in the Azure portal at: http
 
 ## Make sure to be logged into your subscription
 If you want to use the asset ingestion service and upload files to azure blob storage, you will need to log into your subscription.
-In a powershell window (does not need admin rights):
+In a PowerShell window (does not need admin rights):
+
 ```powershell
 PS> Connect-AzAccount -Subscription "<your azure subscription id>"
 ```
+
 This will open a browser window for you to log in to your subscription.
 
 ## Fill out the configuration file 
@@ -144,7 +150,8 @@ PS> .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:s
 
 ## Converting an asset using Ingestion.ps1
 Make sure you have filled out the accountSettings and azureStorageSettings sections in arrconfig.json next to the Ingestion.ps1 script.
-Open a powershell in the Scripts folder and make sure you are logged into the Azure subscription under which your storage account exists
+Open a PowerShell in the Scripts folder and make sure you are logged into the Azure subscription under which your storage account exists
+
 ```powershell
 PS> Connect-AzAccount -Subscription "<your azure subscription id>"
 ```

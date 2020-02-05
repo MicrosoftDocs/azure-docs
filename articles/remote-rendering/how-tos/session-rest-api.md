@@ -18,7 +18,7 @@ Once an asset has been converted, a session should be created to render it. The 
 We provide a PowerShell script which demonstrates the use of our service.
 The RenderingSession.ps1 can be found in the Scripts directory of the arrclient repo.
 
-The script and its configuration are described here: [Example PowerShell scripts](../samples/powershell-example-scripts-for-frontend.md)
+The script and its configuration are described here: [Example PowerShell scripts](../samples/powershell-example-scripts.md)
 
 ## Environments
 

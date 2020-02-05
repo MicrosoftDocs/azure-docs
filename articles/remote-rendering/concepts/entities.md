@@ -14,7 +14,7 @@ An *Entity* represents a movable object in space and is the fundamental building
 
 ## Entity properties
 
-Entities have a transform defined by a position, rotation, and scale. By themselves entities do not have any observable functionality. Instead, behavior is added through components, which are attached to entities. For instance, attaching a [CutPlaneComponent](../reference/features/cut-planes.md)  will create a cut plane at the position of the entity.
+Entities have a transform defined by a position, rotation, and scale. By themselves entities do not have any observable functionality. Instead, behavior is added through components, which are attached to entities. For instance, attaching a [CutPlaneComponent](../overview/features/cut-planes.md)  will create a cut plane at the position of the entity.
 
 The most important aspect of the entity itself is the hierarchy and the resulting hierarchical transform. For example, when multiple entities are attached as children to a shared parent entity, all of these entities can be moved, rotated and scaled in unison by changing the transform of the parent entity.
 

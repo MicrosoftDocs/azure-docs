@@ -18,7 +18,7 @@ Materials are [shared resources](../concepts/sdk-concepts.md#resources-and-lifet
 Materials can be shared between mesh parts, which means changing the property on a shared material will change the visual appearance of all these parts likewise.
 
 > [!NOTE]
->Depending on the use case, changing the material settings might be an integral part of the application. For instance, changing the floor texture in architectural context. Assigning and managing materials introduces some bookkeeping overhead on the client code side. So for simple use cases, specifically color-tinting objects or switching objects to see-through mode, we introduced a much more lightweight workflow through the [HierarchicalStateOverrideComponent](../reference/features/override-hierarchical-state.md).
+>Depending on the use case, changing the material settings might be an integral part of the application. For instance, changing the floor texture in architectural context. Assigning and managing materials introduces some bookkeeping overhead on the client code side. So for simple use cases, specifically color-tinting objects or switching objects to see-through mode, we introduced a much more lightweight workflow through the [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md).
 
 ## Material types
 

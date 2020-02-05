@@ -137,7 +137,7 @@ There are certain classes of use cases that qualify for specific optimizations. 
 
 * These types of scenes tend to be static as in they don't need movable/addressable parts. Accordingly, the `sceneGraphMode` can be set to `static`, which improves runtime performance. The scene's root node can still be moved, rotated and scaled, for example to dynamically switch between 1:1 scale (for first person view) and table top view.
 * Using movable parts often come in pair with ray casting to identify parts. Accordingly, if ray casts are not needed, the generation of the physics representation can be turned off via the `generateCollisionMesh` flag. Turning off collisions has significant impact on ingestion times, runtime loading times and also runtime per-frame update costs.
-* If the application does not use the [cut planes feature](../../reference/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off as well. The performance gain is typically 20%-30%. However, cut planes can still be used, but there won't be backfaces when looking into the inner parts of objects, which looks counter-intuitive.
+* If the application does not use the [cut planes feature](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off as well. The performance gain is typically 20%-30%. However, cut planes can still be used, but there won't be backfaces when looking into the inner parts of objects, which looks counter-intuitive.
 
 ### Use case: Photogrammetry models
 

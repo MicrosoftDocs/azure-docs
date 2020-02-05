@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 Azure Remote Rendering uses the [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) pattern. While [entities](entities.md) represent the position and the hierarchical composition of objects, components are responsible for implementing behavior.
 
-The most frequently used types of components are [mesh components](meshes.md), which add meshes into the rendering pipeline. Similarly, [light components](../reference/features/lights.md) are used to add lighting and [cut plane components](../reference/features/cut-planes.md) are used to cut open meshes.
+The most frequently used types of components are [mesh components](meshes.md), which add meshes into the rendering pipeline. Similarly, [light components](../overview/features/lights.md) are used to add lighting and [cut plane components](../overview/features/cut-planes.md) are used to cut open meshes.
 
 All these components use the transform (position, rotation, scale) of the entity they are attached to, as their reference point.
 
