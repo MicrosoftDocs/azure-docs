@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ms.author: radeltch
 
 ---
@@ -341,7 +341,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
    > [!NOTE]
-   > Do not use dashes in the hostnames of your cluster nodes. Otherwise your cluster will not work. This is a known limitation and SUSE is working on a fix. The fix will be released as a patch of the sap-suse-cloud-connector package.
+   > The known issue with using a dash in host names is fixed with version **3.1.1** of package **sap-suse-cluster-connector**. Make sure that you are using at least version 3.1.1 of package sap-suse-cluster-connector, if using cluster nodes with dash in the host name. Otherwise your cluster will not work. 
 
    Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.
 

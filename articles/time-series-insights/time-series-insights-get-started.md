@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 12/03/2019
+ms.date: 01/31/2020
 ms.custom: seodec18
 ---
 
@@ -40,7 +40,7 @@ Follow these steps to create an environment:
    Setting|Suggested value|Description
    ---|---|---
    Environment name | A unique name | This name represents the environment in [time series explorer](https://insights.timeseries.azure.com)
-   Subscription | Your subscription | If you have multiple subscriptions, choose the subscription that contains your event source preferably. Time Series Insights can auto-detect Azure IoT Hub and Event Hub resources existing in the same subscription.
+   Subscription | Your subscription | If you have multiple subscriptions, choose the subscription that contains your event source preferably. Time Series Insights can automatically detect Azure IoT Hub and Event Hub resources existing in the same subscription.
    Resource group | Create a new or use existing | A resource group is a collection of Azure resources used together. You can choose an existing resource group, for example the one that contains your Event Hub or IoT Hub. Or you can make a new one if this resource is not related to the other resources.
    Location | Nearest your event source | Preferably, choose the same data center location that contains your event source data, in effort to avoid added cross-region and cross-zone bandwidth costs and added latency when moving data out of the region.
    Pricing tier | S1 | Choose the throughput needed. For lowest costs and starter capacity, select S1.

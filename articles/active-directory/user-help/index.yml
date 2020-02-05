@@ -74,7 +74,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Access the My Apps portal
-            url: my-applications-portal-access.md
+            url: my-apps-portal-end-user-access.md
       - linkListType: how-to-guide
         links:
           - text: Access and use workspaces

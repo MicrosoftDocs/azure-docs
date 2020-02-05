@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/22/2020
+ms.date: 01/23/2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) authoring client library for Node.js to:
@@ -119,7 +119,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 ## Authenticate the client
 
-Create an [CognitiveServicesCredentials]() object with your key, and use it with your endpoint to create an [LUISAuthoringClient]() object.
+Create an [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) object with your key, and use it with your endpoint to create an [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) object.
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 
@@ -183,7 +183,7 @@ Publish the LUIS app using the [app.publish](https://docs.microsoft.com/javascri
 
 ## Delete a Language Understanding app
 
-Publish the LUIS app using the [app.deleteMethod](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) method. This deletes the current app.
+Delete the LUIS app using the [app.deleteMethod](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) method. This deletes the current app.
 
 [!code-javascript[Publish LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringDeleteApp&highlight=2)]
 

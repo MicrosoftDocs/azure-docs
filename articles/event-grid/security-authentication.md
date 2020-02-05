@@ -80,9 +80,9 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
-You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.The http request must complete within 30 seconds. If the operation doesn’t finish within 30 seconds then the operation will be canceled and it may be re-attempted after 5 seconds. If all the attempts fail then it will be treated as validation handshake error.
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response. The http request must complete within 30 seconds. If the operation doesn’t finish within 30 seconds then the operation will be canceled and it may be re-attempted after 5 seconds. If all the attempts fail then it will be treated as validation handshake error.
 
-Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.The validation Url uses port 553. If your firewall rules block port 553 then rules may need to be updated for successful manual handshake.
+Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation Url uses port 553. If your firewall rules block port 553 then rules may need to be updated for successful manual handshake.
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -90,7 +90,7 @@ For an example of handling the subscription validation handshake, see a [C# samp
 
 During event subscription creation, if you're seeing an error message such as "The attempt to validate the provided endpoint https:\//your-endpoint-here failed. For more details, visit https:\//aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
 
-* Do you have control of the application code in the target endpoint? For example, if you're writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
+* Do you control of the application code running in the target endpoint? For example, if you're writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
 * If you have access to the application code, implement the ValidationCode based handshake mechanism as shown in the sample above.
 
 * If you don't have access to the application code (for example, if you're using a third-party service that supports webhooks), you can use the manual handshake mechanism. Make sure you're using the 2018-05-01-preview API version or later (install Event Grid Azure CLI extension) to receive the validationUrl in the validation event. To complete the manual validation handshake, get the value of the `validationUrl` property and visit that URL in your web browser. If validation is successful, you should see a message in your web browser that validation is successful. You'll see that event subscription's provisioningState is "Succeeded". 
@@ -347,6 +347,10 @@ The following are sample Event Grid role definitions that allow users to take di
 ```
 
 You can create custom roles with [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), and [REST](../role-based-access-control/custom-roles-rest.md).
+
+## Encryption at rest
+
+All events or data written to disk by the Event Grid service is encrypted by a Microsoft-managed key ensuring that it is encrypted at rest. Additionally, the maximum period of time that events or data is retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
 
 ## Next steps
 

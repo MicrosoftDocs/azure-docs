@@ -97,7 +97,7 @@ Azure AD client registration must be reconfigured to allow the Azure portal to r
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers. 
+>If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers matching those specified in Step 3 below.
 
 ### Client registration reconfiguration
 
