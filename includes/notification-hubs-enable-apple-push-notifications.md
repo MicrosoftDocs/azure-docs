@@ -20,6 +20,10 @@ Generate the Certificate Signing Request (CSR) file, which Apple uses to generat
 1. Select **Keychain Access**, expand **Certificate Assistant**, and then select **Request a Certificate from a Certificate Authority**.
 
     ![Use Keychain Access to request a new certificate](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
+    
+> [!NOTE]
+> OS X does default to selecting the first item in whatever category you have selected within Keychain Assistant and could be problematic if you’re on the Certificates section and the Apple Worldwide Developer Relations Certification Authority is not the first item in the list. Make sure you’re in the **"Certificates"** section and select **"Apple Worldwide Developer Relations Certification Authority"** before requesting a certificate.
+
 
 1. Select your **User Email Address**, enter your **Common Name** value, make sure that you specify **Saved to disk**, and then select **Continue**. Leave **CA Email Address** blank as it isn't required.
 
