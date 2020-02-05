@@ -106,7 +106,7 @@ A load balancer rule defines how traffic is distributed to resources. The rule d
 
 - The front-end IP configuration for incoming traffic.
 - The back-end IP pool to receive the traffic.
-- The required source and destination ports.
+- The required source and destination ports. 
 
 The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the front-end **LoadBalancerFrontEnd**. The rule sends network traffic to the back-end address pool **MyBackendPool**, also on port 80. 
 
