@@ -27,7 +27,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Billing](/azure/billing/) |
+| Microsoft.Billing | [Cost Management and Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Maps](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain Service](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Azure Blueprints](/azure/governance/blueprints/) |

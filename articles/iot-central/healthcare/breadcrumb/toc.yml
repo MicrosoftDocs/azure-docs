@@ -10,6 +10,6 @@
       tocHref: /azure/iot-central/
       topicHref: /azure/iot-central/
       items:
-      - name: IoT Central for Healthcare (preview features)
+      - name: IoT Central for Healthcare
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/healthcare/index/

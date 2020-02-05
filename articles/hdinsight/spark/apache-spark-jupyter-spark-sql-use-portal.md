@@ -63,7 +63,7 @@ You use the Azure portal to create an HDInsight Spark cluster that uses Azure St
     |Primary storage account|Use the auto-populated value.|
     |Container|Use the auto-populated value.|
 
-    ![Create HDInsight Spark cluster basic configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Create Spark cluster in HDInsight the Basic configurations")
+    ![Create HDInsight Spark cluster basic configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Create Spark cluster in HDInsight the Basic configurations")
 
     Select **Review + create** to continue.
 
