@@ -20,7 +20,7 @@ Data stored in your Azure Cosmos account is automatically and seamlessly encrypt
 
 - **Customer-managed keys (CMK)**: You can optionally choose to add a second layer of encryption with your own keys.
 
-You must store customer-managed keys in the [Azure Key Vault](../key-vault/key-vault-overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
+You must store customer-managed keys in [Azure Key Vault](../key-vault/key-vault-overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
 > Currently, customer-managed keys are available only for new Azure Cosmos accounts. You should configure them during account creation.
@@ -72,7 +72,7 @@ To learn how to enable these properties on an existing Azure Key Vault instance,
 
    ![Create a new key](./media/how-to-setup-cmk/portal-akv-gen.png)
 
-1. After the key is created, select the newly created key, then its current version.
+1. After the key is created, select the newly created key and then its current version.
 
 1. Copy the key's **Key Identifier**, except the part after the last forward slash:
 
@@ -90,7 +90,7 @@ When you create a new Azure Cosmos DB account from the Azure portal, choose **Cu
 
 When you create a new Azure Cosmos DB account with PowerShell:
 
-- Pass the URI of the Azure Key Vault key copied from earlier under the **keyVaultKeyUri** property in the **PropertyObject**.
+- Pass the URI of the Azure Key Vault key copied earlier under the **keyVaultKeyUri** property in **PropertyObject**.
 
 - Use **2019-12-12** as the API version.
 
@@ -119,7 +119,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### Using an Azure Resource Manager template
 
-When creating a new Azure Cosmos account through an Azure Resource Manager template:
+When you create a new Azure Cosmos account through an Azure Resource Manager template:
 
 - Pass the URI of the Azure Key Vault key that you copied earlier under the **keyVaultKeyUri** property in the **properties** object.
 
