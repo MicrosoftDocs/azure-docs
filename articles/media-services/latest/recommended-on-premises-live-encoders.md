@@ -55,7 +55,7 @@ Media Services recommends using one of following live encoders that have RTMP as
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
-- Telestream Wirecast 8.1+
+- Telestream Wirecast (version 13.0.02 or higher)
   
   RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Teradek Slice 756
