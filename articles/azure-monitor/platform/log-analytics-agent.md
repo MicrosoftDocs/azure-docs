@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/29/2020
+ms.date: 02/04/2020
 
 ---
 
@@ -18,6 +18,9 @@ This article provides a detailed overview of the agent, system and network requi
 > [!NOTE]
 > You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
 
+> [!NOTE]
+> Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
+
 ## Comparison to Azure diagnostics extension
 The [Azure diagnostics extension](diagnostics-extension-overview.md) in Azure Monitor can also be used to collect monitoring data from the guest operating system of Azure virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
 
@@ -25,6 +28,7 @@ The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
 - Azure Diagnostics extension send data to Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent primarily collects data to [Azure Monitor Logs](data-platform-logs.md) where it supports [Azure Monitor for VMs](../insights/vminsights-overview.md) and [solutions](../insights/solutions.md).
+- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../insights/vminsights-overview.md), and other services such as [Azure Security Center](s/azure/security-center/).
 
 ## Costs
 There is no cost for Log Analytics agent, but you may incur charges for the data ingested. Check [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for detailed information on the pricing for data collected in a Log Analytics workspace.
@@ -40,9 +44,6 @@ The following table lists the types of data you can configure for a Log Analytic
 | [IIS logs](data-sources-iis-logs.md)                 | Usage information for IIS web sites running on the guest operating system. |
 | [Custom logs](data-sources-custom-logs.md)           | Events from text files on both Windows and Linux computers. |
 
-
-## Data destinations
-The Log Analytics agent collects data into one or more Log Analytics workspaces in Azure Monitor. 
 
 
 ## Other services
