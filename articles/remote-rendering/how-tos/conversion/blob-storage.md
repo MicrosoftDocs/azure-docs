@@ -11,7 +11,7 @@ ms.topic: how-to
 
 The [model conversion](model-conversion.md) service requires you to store input data and retrieve output data through Azure blob storage. This article describes how to do the most common steps.
 
-## Preparing Azure blob storage accounts
+## Preparing Azure Storage accounts
 
 - Create a storage account (StorageV2)
 - Create an input blob container in the storage account (for example named "arrinput")
@@ -27,11 +27,11 @@ The creation of the storage account and the blob containers can be done with one
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
-## Retrieving Stored Access Signatures for the storage containers
+## Retrieving SAS for the storage containers
 
 Stored access signatures (SAS) are used to grant read access for input, and write access for output. We recommend generating new URIs each time a model is converted. Since URIs expire after some time, persisting them for a longer duration may risk breaking your application unexpectedly.
 
-Details about SAS can be found at the [SAS documentation](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1>).
+Details about SAS can be found at the [SAS documentation](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
 A SAS URI can be generated using one of:
 

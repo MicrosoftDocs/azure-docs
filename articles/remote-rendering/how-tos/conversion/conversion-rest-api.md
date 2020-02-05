@@ -17,8 +17,8 @@ The following environments are available:
 
 | Environment | Base URL |
 |-----------|:-----------|
-| Production West US 2 | [https://remoterendering.westus2.mixedreality.azure.com](https://remoterendering.westus2.mixedreality.azure.com) |
-| Production West Europe | [https://remoterendering.westeurope.mixedreality.azure.com](https://remoterendering.westeurope.mixedreality.azure.com) |
+| Production West US 2 | `https://remoterendering.westus2.mixedreality.azure.com` |
+| Production West Europe | `https://remoterendering.westeurope.mixedreality.azure.com` |
 
 ## Common headers
 
