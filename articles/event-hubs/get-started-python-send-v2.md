@@ -1,26 +1,25 @@
 ---
-title: Send or receive events by using Python - Azure Event Hubs | Microsoft Docs
-description: This article provides a walkthrough for creating a Python application that sends events to Azure event hubs.
+title: Send or receive events from Azure Event Hubs using Python (latest)
+description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub version 5 package.
 services: event-hubs
 author: spelluru
 
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.date: 01/08/2020
+ms.topic: quickstart
+ms.date: 01/30/2020
 ms.author: spelluru
 
 ---
 
-# Send events to or receive events from event hubs by using Python
+# Send events to or receive events from event hubs by using Python (azure-eventhub version 5)
 
 Azure Event Hubs is a big data streaming platform and event-ingestion service that can receive and process millions of events per second. Event hubs can process and store events, data, or telemetry that's produced by distributed software and devices. Data that's sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. For more information, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This quickstart describes how to create Python applications that can send events to or receive events from an event hub.
 
 > [!IMPORTANT]
-> This quickstart uses version 5 of the Azure Event Hubs Python SDK. For a quickstart that uses version 1 of the Python SDK, see [Quickstart: Send and receive events with event hubs by using Python](event-hubs-python-get-started-send.md). If you're using version 1 of the SDK, we recommend that you migrate your code to the latest version. For more information, see the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
-
+> This quickstart uses version 5 of the Azure Event Hubs Python SDK. For a quick start that uses version 1 of the Python SDK, see [this article](event-hubs-python-get-started-send.md). 
 
 ## Prerequisites
 
@@ -85,7 +84,7 @@ In this section, you create a Python script to send events to the event hub that
 This quickstart uses Azure Blob storage as a checkpoint store. The checkpoint store is used to persist checkpoints (that is, the last read positions).  
 
 ### Create an Azure storage account and a blob container
-Create an Azure storage account and a blob container in it by doing the following:
+Create an Azure storage account and a blob container in it by doing the following steps:
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
