@@ -23,7 +23,7 @@ In the Unity editor, go to *File > Build Settings*. Select *Player Settings* in 
 
 ![Depth Buffer Sharing Enabled flag](./media/unity-depth-buffer-sharing-enabled.png)
 
-If it is, your app will use *Depth LSR*, otherwise it will use *Planar LSR*.
+If it is, your app will use Depth LSR, otherwise it will use Planar LSR.
 
 ## Depth LSR
 
@@ -39,10 +39,10 @@ Planar LSR reprojects those objects best that lie close to the supplied plane. T
 
 ### Configure Planar LSR in Unity
 
-The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you, however the fallback often leads to suboptimal results.
+The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
 
 You can calculate the focus point yourself, though it might make sense to base it on the one calculated by the Remote Rendering host. Call `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` to obtain that. You are asked to provide a coordinate frame in which to express the focus point. In most cases, you'll just want to provide the result from `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` here.
 
 Usually both the client and the host render content that the other side isn't aware of, such as UI elements on the client. Therefore, it might make sense to combine the remote focus point with a locally calculated one.
 
-The focus points calculated in two successive frames can be quite different. Simply using them as-is, can lead to holograms appearing to be jumping around. To prevent this behavior, interpolating between the previous and current focus points is advisable.
+The focus points calculated in two successive frames can be quite different. Simply using them as-is can lead to holograms appearing to be jumping around. To prevent this behavior, interpolating between the previous and current focus points is advisable.
