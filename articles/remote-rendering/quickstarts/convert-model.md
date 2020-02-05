@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 # Quickstart: Convert a model for rendering
 
-In the [previous quickstart](render-model.md), you learned how to use the Unity sample project to render a built-in model. This guide shows how to convert your own models.
+In [Quickstart: Render a model with Unity](render-model.md), you learned how to use the Unity sample project to render a built-in model. This guide shows how to convert your own models.
 
 You'll learn how to:
 
@@ -21,8 +21,7 @@ You'll learn how to:
 
 ## Prerequisites
 
-In addition to completing the [previous quickstart](render-model.md), the following software must be installed:
-
+* Complete [Quickstart: Render a model with Unity](render-model.md)
 * Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
 * Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
   * Open a PowerShell with admin rights

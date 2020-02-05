@@ -1,5 +1,3 @@
-- name: Getting started
-  href: getting-started.md
 - name: Render a model with Unity
   href: render-model.md
 - name: Convert a model for rendering

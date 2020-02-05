@@ -1,3 +1,6 @@
+- name: arrClient repository (GitHub)
+  href: https://dev.azure.com/arrClient/arrClient/_git/arrClient
+- name: ArrPackages NuGet feed (dev.azure.com)
+  href: https://dev.azure.com/arrClient/arrClient/_packaging?_a=feed&feed=ArrPackages
 - name: Azure Mixed Reality Resource Management REST API
   href: https://docs.microsoft.com/rest/api/mixedreality/
-  

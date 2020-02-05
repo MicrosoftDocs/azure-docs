@@ -49,4 +49,4 @@ Network latency is the main problem. The turn-around time between sending a requ
 ## Next steps
 
 * [System requirements](system-requirements.md)
-* [Getting started with Azure Remote Rendering](../quickstarts/getting-started.md)
+* [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
