@@ -6,7 +6,7 @@ ms.topic: conceptual
 ---
 # Azure Policy definition structure
 
-Azure Policies establish conventions for resources. Policy definitions describe resource compliance condition and the effect to take if the condition is met. This [condition](#conditions) compares a resource property [field](#fields) to a required value. Resource property fields are accessed using [aliases](#aliases) and are either single valued field or an [array](#understanding-the--alias) of multiple values. The condition evaluation is different on arrays - see [condition](#conditions) for details.
+Azure Policy establishes conventions for resources. Policy definitions describe resource compliance [conditions](#conditions) and the effect to take if a condition is met. A condition compares a resource property [field](#fields) to a required value. Resource property fields are accessed by using [aliases](#aliases). A resource property field is either a single-valued field or an [array](#understanding-the--alias) of multiple values. Condition evaluation is different on arrays. Learn more about [conditions](#conditions).
 
 By defining conventions, you can control costs and more easily manage your resources. For example,
 you can specify that only certain types of virtual machines are allowed. Or, you can require that
@@ -310,8 +310,8 @@ letter, `.` to match any character, and any other character to match that actual
 **match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
 **matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
-When working with **\[\*\] alias** array field values, every element of the
-array is evaluated individually with logical AND between them. For details see
+In an **\[\*\] alias** array field value, every element in the
+array is evaluated individually, with logical AND between elements. For more information, see
 [Evaluating the \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### Fields
