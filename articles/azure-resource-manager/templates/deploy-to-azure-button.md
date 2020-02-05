@@ -2,11 +2,11 @@
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 ---
-# Use button to deploy templates from GitHub repository
+# Use a deployment button to deploy templates from GitHub repository
 
-This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to your GitHub repository or to a web page that references the repository.
+This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to the README.md file in your GitHub repository or to a web page that references the repository.
 
 ## Use common image
 
@@ -28,7 +28,13 @@ To create the URL for your template, start with the raw URL to the template in y
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Then, URL encode it.
+Then, URL encode it. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
+
+```powershell
+[uri]::EscapeDataString($url)
+```
+
+The example URL has the following value when URL encoded.
 
 ```html
 https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
@@ -50,7 +56,7 @@ You have your full URL for the link.
 
 ## Create Deploy to Azure button
 
-Finally, put the link and image together.
+Finally, put the link and image together. You can add this HTML to either the README.md file in your GitHub repository or a web page.
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
