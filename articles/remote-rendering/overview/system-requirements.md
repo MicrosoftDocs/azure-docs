@@ -2,13 +2,9 @@
 title: System requirements
 description: Lists the system requirements for Azure Remote Rendering
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: overview
-ms.service: azure-remote-rendering
 ---
 
 # System requirements
@@ -64,4 +60,4 @@ For troubleshooting network issues, check the performance statistics provided by
 
 ## Next steps
 
-* [Getting started with Azure Remote Rendering](../quickstarts/getting-started.md)
+* [Quickstart: Render a model with Unity](../quickstarts/render-model.md)

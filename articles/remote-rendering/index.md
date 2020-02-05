@@ -2,10 +2,7 @@
 title: Welcome page
 description: Azure Remote Rendering welcome page
 author: jakrams
-manager: jlyons
-titleSuffix: Azure Remote Rendering
 ms.author: jakras
-ms.service: azure-remote-rendering
 ms.topic: overview
 ms.date: 01/24/2020
 ---
@@ -29,7 +26,6 @@ Learn key concepts to get started with Azure Remote Rendering:
 
 Use our demo project to see Azure Remote Rendering in action:
 
-* [Getting started with Azure Remote Rendering](quickstarts/getting-started.md)
 * [Quickstart: Render a model with Unity](quickstarts/render-model.md)
 * [Quickstart: Convert a model for rendering](quickstarts/convert-model.md)
 
