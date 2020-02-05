@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Install Azure CycleCloud CLI
 
-The Azure CycleCloud Command Line Interface (CLI) provides console access to the CycleCloud application, making functions seen in the GUI available from the command line. It can be used to control CycleCloud and CycleCloud Clusters directly or via script. CycleCloud's file transfer tool, [pogo](pogo-overview.md), is packaged with the CLI and will be installed at the same time.
+The Azure CycleCloud Command Line Interface (CLI) provides console access to the CycleCloud application, making functions seen in the GUI available from the command line. It can be used to control CycleCloud and CycleCloud Clusters directly or via script. 
 
 ## Pre-Requisites
 
