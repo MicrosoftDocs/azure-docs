@@ -26,15 +26,13 @@ Changes to the proxy settings will not take effect until after a restart. To res
 
 CycleCloud requires access to a Blob Storage container in your subscription in order to cache installation files for nodes. When operating behind a proxy or on a locked down network, you should configure a [Virtual Network Service Endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the storage service. This will route requests to the storage container through the Azure backbone network instead of through the public management URLs.
 
-
-> [!NOTE:]
+> [!TIP]
 > When combining a Service Endpoint for Azure Storage access with an HTTPS Proxy for outbound Azure API traffic, CycleCloud itself can be configured to avoid the Proxy and send Storage requests directly via the Service Endpoint.
 > 
 > To disable the proxy for Storage Account access, add:
 > `-Dhttp.nonProxyHosts=”*.core.windows.net"`
 > to the `webServerJvmOptions=` property in the: */opt/cycle_server/config/cycle_server.properties*
 > file and then restart CycleCloud.
-
 
 ## Export **HTTPS_PROXY** before running the CycleCloud CLI installer
 
