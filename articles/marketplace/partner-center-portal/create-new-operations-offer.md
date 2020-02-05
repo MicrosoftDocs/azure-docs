@@ -106,7 +106,7 @@ Enter the version number of your offer. Customers will see this version listed o
 
 ### Terms and conditions
 
-Provide your own legal terms and conditions in the **Terms and conditions** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
+Provide your own legal terms and conditions in the **Terms and conditions** field. You can also provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 ## Offer listing
 
