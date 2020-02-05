@@ -2,7 +2,7 @@
 title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about Azure Migrate Server Migration
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 ---
 
 # Azure Migrate Server Migration: Common questions
@@ -22,7 +22,7 @@ The frequency of the periodic replication cycles is automatically managed by the
 
 When you migrate, an on-demand replication cycle is scheduled for the VM to capture any remaining data. You can choose to Shut down the VM as part of the migration to ensure zero data loss and application consistency.
 
-## Why is the resynchronization option not exposed in agentless stack?
+## How does re-synchronization work in the agentless VMware stack?
 
 In agentless stack, in every delta cycle, we transfer the diff between the current snapshot and the previous snapshot that we had taken. Since it is always a diff between snapshots, this gives the advantage of folding the data (i.e. if a particular sector is written 'n' times between the snapshots, we only need to transfer the last write, as we are interested only in the last sync). This is different from the agent-based stack in which we track every write and apply them. This means every delta cycle is a resynchronization. Hence, there is no resynchronization option exposed. 
 
