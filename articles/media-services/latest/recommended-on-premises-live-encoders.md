@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 11/18/2019
+ms.date: 02/04/2020
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -35,6 +35,10 @@ In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/medi
 
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
 
+## Encoder requirements
+
+Encoders must support TLS 1.2 when using HTTPS or RTMPS protocols.
+
 ## Live encoders that output RTMP
 
 Media Services recommends using one of following live encoders that have RTMP as output. The supported URL schemes are `rtmp://` or `rtmps://`.
@@ -44,6 +48,10 @@ Media Services recommends using one of following live encoders that have RTMP as
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- Elemental Live (version 2.14.15 and higher).  
+
+  > [!NOTE]
+  > RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
@@ -65,7 +73,10 @@ Media Services recommends using one of the following live encoders that have mul
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
+- Elemental Live (version 2.14.15 and higher)
+
+  > [!NOTE]
+  > HTTPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
