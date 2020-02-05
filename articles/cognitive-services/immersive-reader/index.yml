@@ -27,7 +27,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Getting started - short engineering videos
-            url: https://techcommunity.microsoft.com/t5/education-blog/getting-started-documentation-and-videos-for-partners-using/ba-p/700709
+            url: https://aka.ms/ImmersiveReaderSDKVideos
 
   - title: Get started
     linkLists:
