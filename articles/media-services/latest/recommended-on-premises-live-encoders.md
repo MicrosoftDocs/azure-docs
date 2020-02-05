@@ -43,21 +43,19 @@ Encoders must support TLS 1.2 when using HTTPS or RTMPS protocols.
 
 Media Services recommends using one of following live encoders that have RTMP as output. The supported URL schemes are `rtmp://` or `rtmps://`.
 
+When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
+
 > [!NOTE]
-> When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
+> RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (version 2.14.15 and higher).  
-
-  RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
 - Telestream Wirecast (version 13.0.02 or higher)
-  
-  RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -71,12 +69,13 @@ Media Services recommends using one of following live encoders that have RTMP as
 
 Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented MP4) as output. The supported URL schemes are `http://` or `https://`.
 
+> [!NOTE]
+> HTTPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
+
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live (version 2.14.15 and higher)
-
-   HTTPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
-- Envivio 4Caster C4 Gen III
+- Envivio 4Caster C4 Gen III 
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 - [Ffmpeg](https://www.ffmpeg.org)
