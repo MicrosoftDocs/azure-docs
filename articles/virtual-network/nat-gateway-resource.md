@@ -19,7 +19,7 @@ ms.author: allensu
 
 # Designing virtual networks with NAT gateway resources
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md). NAT gateway resources provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual netrwork states which NAT gateway will be used. NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses can come from individual public IP address resources or public IP prefix resources, or both.  A NAT gateway resource can use up to 16 static IP addresses from either.
+NAT gateway resources are part of [Virtual Network NAT](nat-overview.md). NAT gateway resources provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses can come from individual public IP address resources or public IP prefix resources, or both.  A NAT gateway resource can use up to 16 static IP addresses from either.
 
 ## How to deploy NAT
 
