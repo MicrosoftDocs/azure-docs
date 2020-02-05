@@ -67,7 +67,7 @@ You will use the following steps to generate and transfer your key to an Azure K
 
 ## Step 1: Generate a KEK
 
-The KEK (Key Exchange Key) is an RSA key generated in Key Vault's HSM. 
+The KEK (Key Exchange Key) is an RSA key generated in Key Vault's HSM. This key is used to encrypt the key to be imported (target key).
 
 KEK must be:
 1. an **RSA-HSM** key (2048-bit or 3072-bit or 4096-bit)
