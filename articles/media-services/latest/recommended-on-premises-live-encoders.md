@@ -50,14 +50,14 @@ Media Services recommends using one of following live encoders that have RTMP as
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (version 2.14.15 and higher).  
 
-  > [!NOTE]
-  > RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
+  RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
 - Telestream Wirecast 8.1+
-- Telestream Wirecast S
+  
+  RTMPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -75,8 +75,7 @@ Media Services recommends using one of the following live encoders that have mul
 - Cisco Digital Media Encoder 2200
 - Elemental Live (version 2.14.15 and higher)
 
-  > [!NOTE]
-  > HTTPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
+   HTTPS requires version 2.14.15 and higher due to the TLS 1.2 requirement.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
