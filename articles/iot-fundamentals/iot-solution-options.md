@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 02/05/2020
 ms.author: dobett
 ---
 
@@ -13,9 +13,9 @@ ms.author: dobett
 
 To build an IoT solution for your business, you typically choose to use either the *platform services* or the *managed app platform* approach.
 
-Platform services include services such as Azure IoT Hub and Azure Digital Twins that provide the building blocks for you to build a customized IoT solution.
+Platform services provide the building blocks for customized and flexible IoT applications. You have more options to choose and code when you connect devices, and ingest, store, and analyze your data. Azure IoT platform services include the products Azure IoT Hub and Azure Digital Twins.
 
-Azure IoT Central lets you get started quickly building IoT applications using a fully managed app platform.
+A managed app platform lets you get started building apps more quickly than platform services by reducing the number of decisions needed to achieve results. The managed app platform takes care of most elements of your solution, so you can focus on adding industry knowledge, and scaling and connecting devices. Azure IoT Central is a managed app platform.
 
 To choose between these two approaches, you should consider:
 
