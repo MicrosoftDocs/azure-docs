@@ -36,7 +36,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    az account set --subscription "<subscription ID>"
    ```
 
-2.  Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs
 
    ```azurecli
    az provider register --namespace Microsoft.Network
