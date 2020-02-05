@@ -193,7 +193,7 @@ If you're not going to continue to use this application, delete the Kafka cluste
 1. Click **Delete**. Click **Yes**.
 
 ## Troubleshooting
-If your kafka-producer-consumer.jar does not work in a domain joined cluster, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
+If kafka-producer-consumer.jar does not work in a domain joined cluster, please make sure you are using the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
 
 ## Next steps
 
