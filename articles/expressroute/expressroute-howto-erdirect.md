@@ -25,7 +25,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
    
-2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteports APIs.
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs.
 
    ```powershell
    Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
