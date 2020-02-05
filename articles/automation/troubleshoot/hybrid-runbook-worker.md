@@ -22,41 +22,39 @@ The Hybrid Runbook Worker depends on an agent to communicate with your Automatio
 
 #### Issue
 
-Runbook execution fails and you receive the following error:
+Runbook execution fails and you receive the following error.
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Your runbook is suspended shortly after it attempts to execute three times. There are conditions that may interrupt the runbook from completing. The related error message may not include any additional information.
+Your runbook is suspended shortly after it attempts to execute three times. There are conditions that can interrupt the runbook from completing. The related error message might not include any additional information.
 
 #### Cause
 
 The following are possible causes:
 
-* The runbooks can't authenticate with local resources
+* The runbooks can't authenticate with local resources.
 
-* The hybrid worker is behind a proxy or firewall
-
-* The runbooks can't authenticate with local resources
+* The hybrid worker is behind a proxy or firewall.
 
 * The computer configured to run the Hybrid Runbook Worker feature doesn't meet the minimum hardware requirements.
 
 #### Resolution
 
-Verify the computer has outbound access to *.azure-automation.net on port 443.
+Verify that the computer has outbound access to *.azure-automation.net on port 443.
 
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use may cause the system to be over-used and cause runbook job delays or timeouts.
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be over-used and cause runbook job delays or timeouts.
 
-Confirm the computer that will run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure may indicate the need to upgrade resources. You can also select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
+Confirm that the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate that an increase is necessary.
 
-Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
+Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm that you have correctly configured authentication for your runbooks.
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
 
 #### Issue
 
-A runbook running on a Hybrid Runbook Worker fails with the following error message:
+A runbook running on a Hybrid Runbook Worker fails with the following error message.
 
 ```error
 Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -68,11 +66,11 @@ At line:3 char:1
 ```
 #### Cause
 
-This error occurs when you attempt to use a [Run As Account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As Account certificate's not present. Hybrid Runbook Workers don't have the certificate asset locally by default, which is required by the Run As Account to function properly.
+This error occurs when you attempt to use a [Run As account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate's not present. Hybrid Runbook Workers don't have the certificate asset locally by default, which is required by the Run As account to operate properly.
 
 #### Resolution
 
-If your Hybrid Runbook Worker is an Azure VM, you can use [Managed identities for Azure resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As Account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As Account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook Export-RunAsCertificateToHybridWorker in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+If your Hybrid Runbook Worker is an Azure VM, you can use [Managed identities for Azure resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook Export-RunAsCertificateToHybridWorker in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="error-403-on-registration"></a>Scenario: Error 403 during registration of Hybrid Runbook Worker
 
@@ -97,7 +95,7 @@ To verify if the agent’s workspace ID or workspace key has been mistyped, see 
 
 ##### Configuration not downloaded
 
-Your Log Analytics workspace and Automation Account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
+Your Log Analytics workspace and Automation account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
 
 You might also need to update the date and or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
 
@@ -127,10 +125,9 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the `/var/opt/microsoft/omsagent/state/automationworker/` directory.
 
-
 * **oms.conf** - The worker manager process. It's started directly from DSC.
 
-* **worker.conf** - The Auto Registered Hybrid worker process, it's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
+* **worker.conf** - The Auto Registered Hybrid worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
 
 * **diy/worker.conf** - The DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled and the DIY Linux Hybrid Worker isn't registered.
 
@@ -220,7 +217,7 @@ Machine is already registered
 
 #### Cause
 
-This issue can be caused if the machine is already registered with a different Automation Account or if you try to readd the Hybrid Runbook Worker after removing it from a machine.
+This issue can be caused if the machine is already registered with a different Automation account or if you try to readd the Hybrid Runbook Worker after removing it from a machine.
 
 #### Resolution
 
