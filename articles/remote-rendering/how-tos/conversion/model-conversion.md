@@ -16,8 +16,8 @@ Azure Remote Rendering allows you to render very complex models. To achieve this
 At this time, the conversion service supports these formats:
 
 - **FBX**  (version 2011 and above)
-- **GLTF** (version 1.0 and 2.0)
-- **GLB**  (version 1.0 and 2.0)
+- **GLTF** (version 2.x)
+- **GLB**  (version 2.x)
 
 ## The conversion process
 
