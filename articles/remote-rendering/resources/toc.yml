@@ -1,0 +1,4 @@
+- name: Tools
+  href: tools/toc.yml
+- name: Troubleshoot
+  href: troubleshoot.md

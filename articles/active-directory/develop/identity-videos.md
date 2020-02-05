@@ -30,6 +30,18 @@ Learn about the Microsoft identity platform and the Microsoft Authentication lib
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        Introduction to the MSAL libraries
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
+    :::column-end:::
+    :::column:::
         How MSAL makes authentication easier
     :::column-end:::
     :::column:::

@@ -2,20 +2,14 @@
 title: About
 description: Introduction into Azure Remote Rendering
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/05/2020
 ms.topic: overview
-ms.service: azure-remote-rendering
 ---
 
 # About Azure Remote Rendering
 
 *Azure Remote Rendering* (ARR) is a service that enables you to render high-quality, interactive 3D content in the cloud and stream it in real time to devices, such as the HoloLens 2.
-
-## Introduction
 
 Untethered devices have limited computational power for rendering complex models. For many applications it would be unacceptable, though, to reduce the visual fidelity in any way.
 
@@ -23,7 +17,9 @@ Untethered devices have limited computational power for rendering complex models
 
 ## Hybrid rendering
 
-The remotely rendered content can be combined with content that is rendered locally on the device, for instance markers or UI elements. The process of merging the two images (with correct occlusion) is referred to as *Hybrid Rendering*. A key feature of ARR is to hide this complexity. From a user's perspective, everything acts like it's rendered locally.
+In most applications, it is not sufficient to only render a complex model. You also need custom UI to provide functionality to the user. Azure Remote Rendering does not force you to use a dedicated UI framework, instead it supports *Hybrid Rendering*. This means you can render elements on device, using your preferred method, such as [MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html).
+
+At the end of a frame, Azure Remote Rendering then automatically combines your locally rendered content with the remote image. It is even able to do so with correct occlusion.
 
 ## Multi-GPU rendering
 
@@ -48,9 +44,9 @@ A full cycle for image generation involves the following steps:
     1. Your code: Optional local content (UI, markers, ...) is rendered
     1. ARR code: On 'present', locally rendered content gets automatically merged with video stream
 
-Network latency is the main problem. The turn-around time between sending a request and receiving the result is typically longer than the desired framerate. Therefore more than one frame may be in flight at any time.
+Network latency is the main problem. The turn-around time between sending a request and receiving the result is typically too long for interactive frame rates. Therefore more than one frame may be in flight at any time.
 
 ## Next steps
 
 * [System requirements](system-requirements.md)
-* [Getting started with Azure Remote Rendering](../quickstarts/getting-started.md)
+* [Quickstart: Render a model with Unity](../quickstarts/render-model.md)

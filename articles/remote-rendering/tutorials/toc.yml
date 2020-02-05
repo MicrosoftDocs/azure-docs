@@ -1,6 +1,6 @@
 - name: Setting up a Unity project from scratch
-  href: tutorial-1-unity-project-setup.md
+  href: unity/project-setup.md
 - name: Working with remote entities
-  href: tutorial-2-working-with-remote-entities.md
+  href: unity/working-with-remote-entities.md
 - name: Changing environment and materials
-  href: tutorial-3-changing-environment-and-materials.md
+  href: unity/changing-environment-and-materials.md

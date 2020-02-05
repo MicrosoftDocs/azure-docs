@@ -103,11 +103,11 @@ The lifetime of a message from the host engine to the remote engine can be visua
 
 ## Notes on Unity
 
-Unity uses a special initialization function to bind to Unity's coordinate system which can be found in the [Unity docs](./sdk-unity-concepts.md).
+Unity uses a special initialization function to bind to Unity's coordinate system which can be found in [Unity SDK concepts](../how-tos/unity/unity-concepts.md).
 
 ## Asynchronous operations and loading data
 
-Data can be loaded through asynchronous APIs. Models that have been [converted](../conversion/conversion-rest-api.md) can be loaded through the following APIs:
+Data can be loaded through asynchronous APIs. Models that have been [converted](../how-tos/conversion/conversion-rest-api.md) can be loaded through the following APIs:
 
 ```cs
 LoadModelAsync _pendingLoadTask = null;
@@ -148,25 +148,25 @@ async void LoadModel(string modelId, Entity parent = null)
 
 ### Threading
 
-All asynchronous calls from `Actions` and `Entity` are completed during the call to `AzureSession.Actions.Update`. [Azure Frontend APIs](../azure/authentication.md) are completed in a background thread.
+All asynchronous calls from `Actions` and `Entity` are completed during the call to `AzureSession.Actions.Update`. [Azure Frontend APIs](../how-tos/frontend-apis.md) are completed in a background thread.
 
 ### Built-in and external resources
 
-Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. The available built-in resources are listed in the documentation for each respective feature. For example, the [sky chapter](../sdk/features-sky.md) lists the built-in sky textures.
+Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. The available built-in resources are listed in the documentation for each respective feature. For example, the [sky chapter](../overview/features/sky.md) lists the built-in sky textures.
 
-Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to a [converted model](../conversion/conversion-rest-api.md) in blob storage.
+Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to a [converted model](../how-tos/conversion/conversion-rest-api.md) in blob storage.
 
 A SAS URI of a sample model can be found [here](../samples/sample-model.md).
 
 ## Objects and lifetime management
 
-[Components](../sdk/concepts-components.md) and [Entities](../sdk/concepts-entities.md) are unique objects with explicit lifetime management. Both objects have a `Destroy()` member function that will destroy the object when it can be freed from the remote rendering runtime. `Entity.Destroy()` will destroy the entity, its children, and all of its components.
+[Components](components.md) and [entities](entities.md) are unique objects with explicit lifetime management. Both objects have a `Destroy()` member function that will destroy the object when it can be freed from the remote rendering runtime. `Entity.Destroy()` will destroy the entity, its children, and all of its components.
 
 The lifetime of these objects are not related to the lifetime of the user object representation such as the `Entity` class in C#. `Destroy` must be called to deallocate and remove the internal representation. The lifetimes are separate so that the user can work on smaller sections of large models in a less efficient user representation, while the compressed representation is stored inside the SDK.
 
 ## Resources and lifetime management
 
-[Meshes](../sdk/concepts-meshes.md), [materials](../sdk/concepts-materials.md) and [textures](../sdk/concepts-textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count. Consequently, there is no explicit ```Destroy``` method for them. When the resource is not assigned anywhere in the scene tree (for example, a *Mesh* to a *MeshComponent*) and the user code does not hold a reference to the resource, then the resource gets destroyed on both the client and the server. The server will then release the native resource data and free the memory.
+[Meshes](meshes.md), [materials](materials.md) and [textures](textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count. Consequently, there is no explicit ```Destroy``` method for them. When the resource is not assigned anywhere in the scene tree (for example, a *Mesh* to a *MeshComponent*) and the user code does not hold a reference to the resource, then the resource gets destroyed on both the client and the server. The server will then release the native resource data and free the memory.
 
 ## General lifetime management
 
@@ -174,5 +174,5 @@ The lifetime of all API objects is bound to a connection. On disconnect all reso
 
 ## Next steps
 
-* [Entities](../sdk/concepts-entities.md)
-* [Graphics binding](../sdk/concepts-graphics-binding.md)
+* [Entities](entities.md)
+* [Graphics bindings](graphics-bindings.md)

@@ -1,6 +1,0 @@
-- name: The model conversion REST API
-  href: conversion-rest-api.md
-- name: Configuring the model conversion
-  href: configure-model-conversion.md
-- name: Overriding materials during model conversion
-  href: override-materials.md
