@@ -38,7 +38,7 @@ After end-user consent is disabled or restricted, there are several important co
 
 3. If your organization has the appropriate license:
 
-    * Use additional [OAuth application auditing features in Microsoft Cloud App Security](https://docs.microsoft.com/azure/cloud-app-security/investigate-risky-oauth).
+    * Use additional [OAuth application auditing features in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
     * Use [Azure Monitor Workbooks to monitor permissions and consent](../reports-monitoring/howto-use-azure-monitor-workbooks.md) related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This can be helpful to prioritize applications for administrators to review and decide whether to grant them admin consent.
 
 ### Additional considerations for reducing friction

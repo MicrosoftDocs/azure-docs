@@ -128,7 +128,7 @@ Review supported and unsupported policies to determine whether you can use an MD
 If your MDM solution is not available through the Azure AD app gallery, you can add it following the process 
 outlined in [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information, see [Co-management for Windows 10 devices](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, please check with your MDM provider on applicable co-management scenarios.
+Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information on co-management for Windows 10 devices, see [What is co-management?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, please check with your MDM provider on applicable co-management scenarios.
 
 **Recommendation:** Consider MDM only management for Azure AD joined devices.
 

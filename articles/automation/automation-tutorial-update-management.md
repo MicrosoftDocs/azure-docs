@@ -4,7 +4,7 @@ description: This article provides an overview of how to use Azure Automation Up
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: mvc
 ---
 # Manage updates and patches for your Azure VMs
@@ -135,7 +135,7 @@ Under **New update deployment**, specify the following information:
 
 * **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
-* **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
+* **Update classification**: Select the supported update classifications available for each product that can be included in the update deployment. For this tutorial, leave all types selected.
 
   The classification types are:
 

@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 ## Video
 
-**Watch this video to learn more about data retention in Azure Time Series Insights and how to plan for it**:<br />
+**Watch this video to learn more about data retention in Azure Time Series Insights and how to plan for it**:<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 

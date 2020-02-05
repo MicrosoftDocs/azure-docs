@@ -22,7 +22,7 @@ For more than a decade, many organizations have used the domain join to their on
 - IT departments to manage work-owned devices from a central location.
 - Users to sign in to their devices with their Active Directory work or school accounts.
 
-Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **System Center Configuration Manager (SCCM)** or **group policy (GP)** to manage them.
+Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **Configuration Manager** or **group policy (GP)** to manage them.
 
 If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These devices, are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
@@ -42,7 +42,7 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 |   | Password |
 |   | Windows Hello for Business for Win10 |
 | **Device management** | Group Policy |
-|   | System Center Configuration Manager standalone or co-management with Microsoft Intune |
+|   | Configuration Manager standalone or co-management with Microsoft Intune |
 | **Key capabilities** | SSO to both cloud and on-premises resources |
 |   | Conditional Access through Domain join or through Intune if co-managed |
 |   | Self-service Password Reset and Windows Hello PIN reset on lock screen |

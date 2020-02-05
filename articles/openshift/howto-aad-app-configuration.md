@@ -52,6 +52,9 @@ To grant cluster admin access, the memberships in an Azure AD security group are
 9. When the group is created, you will see it in the list of all groups. Click on the new group.
 10. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
+> [!IMPORTANT]
+> To sync this group with the osa-customer-admins OpenShift group, create the cluster by using the Azure CLI. The Azure portal currently lacks a field to set this group.
+
 ## Create an Azure AD app registration
 
 You can automatically create an Azure Active Directory (Azure AD) app registration client as part of creating the cluster by omitting the `--aad-client-app-id` flag to the `az openshift create` command. This tutorial shows you how to create the Azure AD app registration for completeness.
@@ -86,8 +89,8 @@ For details on creating a new Azure AD application, see [Register an app with th
 ## Add API permissions
 
 1. In the **Manage** section click **API permissions**.
-2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**
-3. Expand **User** on the list below and make sure **User.Read** is enabled.
+2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**. 
+3. Expand **User** on the list below and enable the **User.Read** permission. If **User.Read** is enabled by default, ensure that it is the **Azure Active Directory Graph** permission **User.Read**, *not* the **Microsoft Graph** permission **User.Read**.
 4. Scroll up and select **Application permissions**.
 5. Expand **Directory** on the list below and enable **Directory.ReadAll**
 6. Click **Add permissions** to accept the changes.

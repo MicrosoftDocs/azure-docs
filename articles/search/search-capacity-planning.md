@@ -119,7 +119,7 @@ High availability for Azure Cognitive Search pertains to queries and index updat
 > [!NOTE]
 > You can add new fields to an Azure Cognitive Search index without rebuilding the index. The value of the new field will be null for all documents already in the index.
 
-To maintain index availability during a rebuild, you must have a copy of the index with a different name on the same service, or a copy of the index with the same name on a different service, and then provide redirection or failover logic in your code.
+When rebuilding the index there will be a period of time when the data is being added to the new index. If you would like to continue to make your old index available during this time, you must have a copy of the old index with a different name on the same service, or a copy of the index with the same name on a different service, and then provide redirection or failover logic in your code.
 
 ## Disaster recovery
 Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by setting up a second search service in another region. As with availability during an index rebuild, the redirection or failover logic must come from your code.

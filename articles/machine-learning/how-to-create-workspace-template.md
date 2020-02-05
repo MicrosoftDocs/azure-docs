@@ -52,6 +52,9 @@ The example template has two parameters:
 
 * The **workspace name**, which is the friendly name of the Azure Machine Learning workspace.
 
+    > [!NOTE]
+    > The workspace name is case-insensitive.
+
     The names of the other services are generated randomly.
 
 > [!TIP]

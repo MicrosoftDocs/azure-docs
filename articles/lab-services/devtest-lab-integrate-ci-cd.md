@@ -136,7 +136,7 @@ The next step is to create the golden image VM to use for future deployments. Yo
    
    |Field|Value|
    |---|---|
-   |**Azure RM Subscription**|Select a service connection or subscription from **Available Azure Service Connections** or **Available Azure Subscriptions** in the dropdown, and select **Authorize** if necessary.<br /><br />**Note:** For information about creating a more restricted permissions connection to your Azure subscription, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).|
+   |**Azure RM Subscription**|Select a service connection or subscription from **Available Azure Service Connections** or **Available Azure Subscriptions** in the dropdown, and select **Authorize** if necessary.<br /><br />**Note:** For information about creating a more restricted permissions connection to your Azure subscription, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Lab Name**|Select the name of an existing lab in which the lab VM will be created.|
    |**Template Name**|Enter the full path and name of the template file you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Template Parameters**|Enter the parameters for the variables you defined earlier:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|

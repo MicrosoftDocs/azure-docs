@@ -239,7 +239,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       distributed_training=MpiConfiguration(),
                       framework_version='1.13',
                       use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
+                      pip_packages=['azureml-dataprep[pandas,fuse]'])
 ```
 
 ### Parameter server
@@ -263,7 +263,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       process_count_per_node=1,
                       distributed_training=distributed_training,
                       use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
+                      pip_packages=['azureml-dataprep[pandas,fuse]'])
 
 # submit the TensorFlow job
 run = exp.submit(tf_est)

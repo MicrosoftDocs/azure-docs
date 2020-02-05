@@ -216,17 +216,23 @@ The following table describes the value of AZUREML_MODEL_DIR depending on the nu
 | Single model | The path to the folder containing the model. |
 | Multiple models | The path to the folder containing all models. Models are located by name and version in this folder (`$MODEL_NAME/$VERSION`) |
 
-To get the path to a file in a model, combine the environment variable with the filename you're looking for.
-The filenames of the model files are preserved during registration and deployment. 
+During model registration and deployment, Models are placed in the AZUREML_MODEL_DIR path, and their original filenames are preserved.
+
+To get the path to a model file in your entry script, combine the environment variable with the file path you're looking for.
 
 **Single model example**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Multiple model example**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### get_model_path
@@ -547,7 +553,7 @@ Before you deploy your model as a service, you might want to profile it to deter
 
 ```python
 import json
-test_sample = json.dumps({'data': [
+test_data = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10]
 ]})
 

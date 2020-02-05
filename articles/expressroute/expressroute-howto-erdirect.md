@@ -6,14 +6,14 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/22/2020
 ms.author: jaredro
 
 ---
 
 # How to configure ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Create the resource
 
@@ -24,7 +24,13 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. List all locations where ExpressRoute Direct is supported.
+   
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. List all locations where ExpressRoute Direct is supported.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -57,7 +63,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Determine if a location listed above has available bandwidth
+4. Determine if a location listed above has available bandwidth
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -79,7 +85,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
                           }
                         ]
    ```
-4. Create an ExpressRoute Direct resource based on the location chosen above
+5. Create an ExpressRoute Direct resource based on the location chosen above
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
 
