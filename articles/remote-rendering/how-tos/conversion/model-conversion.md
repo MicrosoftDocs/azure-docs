@@ -36,7 +36,7 @@ For the various conversion options, see [this chapter](configure-model-conversio
 ## Examples
 
 - [Quickstart: Convert a model for rendering](../../quickstarts/convert-model.md) is a step-by-step introduction how to convert a model.
-- [Example PowerShell scripts](../../samples/powershell-example-scripts-for-frontend.md), which demonstrate the use of the conversion service, can be found in the [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) in the *Scripts* folder.
+- [Example PowerShell scripts](../../samples/powershell-example-scripts.md), which demonstrate the use of the conversion service, can be found in the [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) in the *Scripts* folder.
 
 ## Next steps
 
