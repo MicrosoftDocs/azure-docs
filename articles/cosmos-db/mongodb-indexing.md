@@ -34,9 +34,7 @@ Compound indexes can be used to sort efficiently on multiple fields at once, suc
 
 ### Track the index progress
 
-The 3.6 version of Azure Cosmos DB's API for MongoDB accounts support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about all the in-progress operations on a database instance.
-
-This command is not supported for all in-progress operations.
+The 3.6 version of Azure Cosmos DB's API for MongoDB accounts support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about the in-progress operations on a database instance. The `currentOp` command is used to track all the in-progress operations in native MongoDB whereas in Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
 
 Here are some examples that show how to use the `currentOp` command to track the index progress:
 
@@ -60,7 +58,7 @@ Here are some examples that show how to use the `currentOp` command to track the
 
 The index progress details contain percentage of progress for the current index operation. The following example shows the output document format for different stages of index progress:
 
-1. If the index operation on a ‘foo’ collection and ‘bar’ database that has 60 % indexing complete will have the following output document.  `Inprog[0].progress.total` shows 100 as the target completion.
+1. If the index operation on a ‘foo’ collection and ‘bar’ database that has 60 % indexing complete will have the following output document. `Inprog[0].progress.total` shows 100 as the target completion.
 
    ```json
    {
