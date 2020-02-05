@@ -13,7 +13,7 @@ ms.date: 07/17/2019
 
 Azure Data Lake Storage is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
  
-Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
+Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage (Gen1 and Gen2), providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
 > The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query external data without prior ingestion should only be used for historical data or data that is rarely queried. [Optimize your query performance in the lake](#optimize-your-query-performance) for best results.
