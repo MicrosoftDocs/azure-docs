@@ -2,7 +2,6 @@
 title: Entities
 description: Definition of entities in the scope of the Azure Remote Rendering API
 author: FlorianBorn71
-manager: jlyons
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
