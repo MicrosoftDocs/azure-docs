@@ -154,11 +154,11 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 
 ### Q: What level of access does Microsoft have to my HSM?
 
-Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If required, the customer can disable this account.
+Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If necessary, the customer can disable this account.
 
 ### Q: What is the "tenantadmin" account Microsoft uses, I am used to the admin user being "admin" on SafeNet HSMs?
 
-The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
+The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password, which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
 
 ### Q: Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
 
@@ -222,7 +222,7 @@ It is highly recommended to use an on-premises HSM backup device to perform regu
 
 ### Q: How do I get support for Dedicated HSM?
 
-Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software and application development raise a support request with Gemalto. If you have an undetermined issue, raise a support request with Microsoft and then Gemalto can be engaged as required. 
+Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software, and application development raise a support request with Gemalto. If you have an undetermined issue, raise a support request with Microsoft and then Gemalto can be engaged as required. 
 
 ### Q: How do I get the client software, documentation and access to integration guidance for the SafeNet Luna 7 HSM?
 
