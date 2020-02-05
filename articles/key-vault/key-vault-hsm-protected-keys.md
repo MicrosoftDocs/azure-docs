@@ -47,12 +47,13 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium SKU to import HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | An HSM from supported HSMs list and BYOK tool and instructions provided by your HSM vendor | You must have access to a Hardware Security Module and basic operational knowledge of your HSMs. See [Supported HSMs](#supported-hsms). |
+| Azure CLI version 2.0.82 or newer | Please see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) for more information.|
 
 ## Supported HSMs
 
 |HSM Vendor Name|Supported HSM models|Additional details|
 |---|---|---|
-|Thales|SafeNet Luna family of HSMs with firmware version 7.3 or newer| [Link to Gemalto BYOK tool and documentation](https://safenet.gemalto.com/blah-blah)|
+|Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li><li>SafeNet Luna HSM 5 & 6 family (Key Export variant only)</li>| [Link to Gemalto BYOK tool and documentation](https://safenet.gemalto.com/blah-blah)|
 |nCipher|nShield family of HSMs|[Use legacy BYOK procedure](key-vault-hsm-protected-keys-legacy.md)|
 
 
