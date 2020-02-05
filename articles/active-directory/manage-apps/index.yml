@@ -48,12 +48,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is automatic user provisioning?
+          - text: What is application provisioning?
             url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
       - linkListType: tutorial
         links:
           - text: SaaS apps provisioning tutorials
-            url: /azure/active-directory/app-provisioning/saas-apps/
+            url: /azure/active-directory/saas-apps/
       - linkListType: how-to-guide
         links:
           - text: Building an app? Use SCIM for provisioning (App provisioning documentation)
