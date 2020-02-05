@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is automatic user provisioning?
+          - text: What is application provisioning?
             url: user-provisioning.md
           - text: How provisioning works
             url: how-provisioning-works.md
