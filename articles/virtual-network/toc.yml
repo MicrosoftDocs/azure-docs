@@ -36,7 +36,11 @@
 - name: Concepts
   items:
   - name: NAT
-    href: nat-overview.md
+    items:
+    - name: Overview
+      href: nat-overview.md
+    - name: NAT gateway resource
+      href: nat-gateway-resource.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
