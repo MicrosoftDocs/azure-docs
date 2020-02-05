@@ -18,7 +18,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## Named Entity Recognition v3 public preview - February 2020
 
-Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2020-02-01`, which includes:
+Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](how-tos/text-analytics-how-to-entity-linking?tabs=version-3#model-versioning) `2020-02-01`, which includes:
 
 * Recognition of the following general entity types (English only):
     * PersonType
