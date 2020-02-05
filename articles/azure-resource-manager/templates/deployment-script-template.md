@@ -24,7 +24,7 @@ Learn how to use deployment scripts in Azure Resource templates. With a new reso
 The benefits of deployment script:
 
 - Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
-- You can specify the script language and platform. Currently, only Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
+- You can specify the script language and platform. Currently, only Azure PowerShell deployment scripts on the Linux environment are supported.
 - Allow specifying the identities that are used to execute the scripts. Currently, only [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
@@ -52,7 +52,7 @@ The benefits of deployment script:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell version 3.0.0, 2.8.0 or 2.7.0** or **Azure CLI version 2.0.80, 2.0.79, 2.0.78 or 2.0.77**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+- **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
 
 ## Resource schema
 
@@ -97,13 +97,13 @@ The following json is an example.  The latest template schema can be found [here
 Property value details:
 
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
-- **kind**: Specify the type of script. Currently, only Azure PowerShell and Azure CLI scripts are support. The value are **AzurePowerShell** and **AzureCLI**.
+- **kind**: Specify the type of script. Currently, only Azure PowerShell script is support. The value is **AzurePowerShell**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. Deployment script currently supports Azure PowerShell version 2.7.0, 2.8.0, 3.0.0 and Azure CLI version 2.0.80, 2.0.79, 2.0.78, 2.0.77.
+- **azPowerShellVersion**: Specify the Azure PowerShell module version to be used. Deployment script currently supports version 2.7.0, 2.8.0, and 3.0.0.
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
-- **primaryScriptUri**: Specify a publicly accessible Url to the primary deployment script with supported file extensions.
-- **supportingScriptUris**: Specify an array of publicly accessible Urls to supporting files that are called in either `ScriptContent` or `PrimaryScriptUri`.
+- **primaryScriptUri**: Specify a publicly accessible Url to the primary powershell script with supported PowerShell file extension.
+- **supportingScriptUris**: Specify an array of publicly accessible Urls to supporting powershell files that will be called in either `ScriptContent` or `PrimaryScriptUri`.
 - **timeout**: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
 - **cleanupPreference**. Specify the preference of cleaning up deployment resources when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 - **retentionInterval**: Specify the interval for which the service retains the deployment script resources after the deployment script execution reaches a terminal state. The deployment script resources will be deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The default value is **P1D**, which means seven days. This property is used when cleanupPreference is set to *OnExpiration*. The *OnExpiration* property is not enabled currently. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
