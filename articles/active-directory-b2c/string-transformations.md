@@ -545,7 +545,7 @@ Gets the domain portion of an email address.
 | InputClaim | emailAddress | string | The ClaimType that contains the email address. |
 | OutputClaim | domain | string | The ClaimType that is produced after this claims transformation has been invoked - the domain. |
 
-Use this claims transformation to parse the domain name after the @ symbol of the user. This claims transformation can be helpful in removing Personally identifiable information (PII) from audit data. The following claims transformation demonstrates how to parse the domain name from an **email** claim.
+Use this claims transformation to parse the domain name after the @ symbol of the user. The following claims transformation demonstrates how to parse the domain name from an **email** claim.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
