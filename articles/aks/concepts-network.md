@@ -16,7 +16,6 @@ In a container-based microservices approach to application development, applicat
 
 This article introduces the core concepts that provide networking to your applications in AKS:
 
-- [Services](#services)
 - [Azure virtual networks](#azure-virtual-networks)
 - [Ingress controllers](#ingress-controllers)
 - [Network policies](#network-policies)
@@ -28,8 +27,6 @@ To allow access to your applications, or for application components to communica
 In Kubernetes, *Services* logically group pods to allow for direct access via an IP address or DNS name and on a specific port. You can also distribute traffic using a *load balancer*. More complex routing of application traffic can also be achieved with *Ingress Controllers*. Security and filtering of the network traffic for pods is possible with Kubernetes *network policies*.
 
 The Azure platform also helps to simplify virtual networking for AKS clusters. When you create a Kubernetes load balancer, the underlying Azure load balancer resource is created and configured. As you open network ports to pods, the corresponding Azure network security group rules are configured. For HTTP application routing, Azure can also configure *external DNS* as new ingress routes are configured.
-
-## Services
 
 To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. The following Service types are available:
 
