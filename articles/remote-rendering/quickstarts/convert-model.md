@@ -2,13 +2,9 @@
 title: Convert a model
 description: Quickstart that shows the conversion steps for a custom model.
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.service: azure-remote-rendering
 ---
 
 # Quickstart: Convert a model for rendering
@@ -43,12 +39,8 @@ You need:
 * A 'StorageV2' account in your subscription
 * A blob storage container for your input model
 * A blob storage container for your output data
-
-ARR supports the conversion of these source formats:
-
-* FBX
-* GLTF
-* GLB
+* A model to convert, see [sample models](../samples/sample-model.md)
+  * See the list of [supported source formats](../how-tos/conversion/model-conversion.md#supported-source-formats)
 
 ## Azure setup
 
