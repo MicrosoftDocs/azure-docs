@@ -42,7 +42,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * EAB Navigate supports **SP** initiated SSO
 
-* Once you configure the EAB Navigate you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding EAB Navigate from the gallery
 
@@ -55,7 +56,6 @@ To configure the integration of EAB Navigate into Azure AD, you need to add EAB 
 1. In the **Add from the gallery** section, type **EAB Navigate** in the search box.
 1. Select **EAB Navigate** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for EAB Navigate
 
 Configure and test Azure AD SSO with EAB Navigate using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EAB Navigate.
@@ -65,8 +65,8 @@ To configure and test Azure AD SSO with EAB Navigate, complete the following bui
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure EAB Navigate SSO](#configure-eab-navigate-sso)** - to configure the single sign-on settings on application side.
-    * **[Create EAB Navigate test user](#create-eab-navigate-test-user)** - to have a counterpart of B.Simon in EAB Navigate that is linked to the Azure AD representation of user.
+1. **[Configure EAB Navigate SSO](#configure-eab-navigate-impl-sso)** - to configure the single sign-on settings on application side.
+    * **[Create EAB Navigate test user](#create-eab-navigate-impl-test-user)** - to have a counterpart of B.Simon in EAB Navigate that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -79,33 +79,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. Click **Upload metadata file**.
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
-    ![Upload metadata file](common/upload-metadata.png)
+	> [!NOTE]
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [EAB Navigate Client support team](mailto:EABTechSupport@eab.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
-
-	![EAB Navigate Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.navigate.eab.com`
-
-	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [EAB Navigate Client support team](mailto:jmahoney@eab.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
-
-	![The Certificate download link](common/certificateraw.png)
-
-1. On the **Set up EAB Navigate** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -139,13 +123,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EAB Navigate SSO
 
-To configure single sign-on on **EAB Navigate** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [EAB Navigate support team](mailto:jmahoney@eab.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **EAB Navigate** side, you need to send the **App Federation Metadata Url** to [EAB Navigate support team](mailto:EABTechSupport@eab.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create EAB Navigate test user
 
-In this section, you create a user called B.Simon in EAB Navigate. Work with [EAB Navigate support team](mailto:jmahoney@eab.com) to add the users in the EAB Navigate platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in EAB Navigate. Work with [EAB Navigate support team](mailto:EABTechSupport@eab.com) to add the users in the EAB Navigate platform. Users must be created and activated before you use single sign-on.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
