@@ -50,6 +50,12 @@ Similar to a Select transformation, in the **Mapping** tab of the sink, you can 
 
 When you turn off auto-mapping, you'll have the option to add either fixed column-based mappings or rule-based mappings. Rule-based mappings allow you to write expressions with pattern matching while fixed mapping will map logical and physical column names. For more information on rule-based mapping, see [column patterns in mapping data flow](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
+## Custom sink ordering
+
+By default, data is written to multiple sinks in a nondeterministic order. The execution engine will write data in parallel as the transformation logic is completed and the sink ordering may vary each run. To specify and exact sink ordering, enable **Custom sink ordering** in the general tab of the data flow. When enabled, sinks will be written sequentially in increasing order.
+
+![Custom sink ordering](media/data-flow/custom-sink-ordering.png "Custom sink ordering")
+
 ## Data preview in sink
 
 When fetching a data preview on a debug cluster, no data will be written to your sink. A snapshot of what the data looks like will be returned, but nothing will be written to your destination. To test writing data into your sink, run a pipeline debug from the pipeline canvas.

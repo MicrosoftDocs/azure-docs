@@ -419,6 +419,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate
+        href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
@@ -606,6 +608,8 @@
         href: helpscout-tutorial.md
       - name: Helpshift
         href: helpshift-tutorial.md
+      - name: Health Support System
+        href: health-support-system-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -1328,8 +1332,6 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
-      - name: Spintr SSO
-        href: spintr-sso-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
       - name: StatusPage
@@ -1400,6 +1402,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: TicketManager
+        href: ticketmanager-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger

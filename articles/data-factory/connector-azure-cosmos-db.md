@@ -268,6 +268,18 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
+#### JSON Settings
+
+**Single document:** Select this option if ADF is to treat the entire file as a single JSON doc.
+
+**Unquoted column names:** Select this option if column names in the JSON as not quoted.
+
+**Has comments:** Use this selection if your JSON documents have comments in the data.
+
+**Single quoted:** This should be selected if the columns and values in your document are quoted with single quotes.
+
+**Backslash escaped:** If using backslashes to escape characters in your JSON, choose this option.
+
 ### Sink transformation
 
 Settings specific to Azure Cosmos DB are available in the **Settings** tab of the sink transformation.

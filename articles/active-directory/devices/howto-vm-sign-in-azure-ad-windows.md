@@ -237,9 +237,9 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
    | Command to run | Expected output |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Correct information about the Azure VM |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Valid Tenant ID associated with the Azure Subscription |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > The access token can be decoded using a tool like [http://calebb.net/](http://calebb.net/). Verify the "appid" in the access token matches the managed identity assigned to the VM.
