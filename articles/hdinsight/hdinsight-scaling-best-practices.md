@@ -32,7 +32,7 @@ Microsoft provides the following utilities to scale clusters:
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count> |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
