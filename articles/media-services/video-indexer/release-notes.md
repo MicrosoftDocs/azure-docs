@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/07/2020
 ms.author: juliako
 ---
 
@@ -26,6 +26,25 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## January 2020
+ 
+### Custom language support for additional languages
+
+Video Indexer now supports custom language models for `ar-SY` , `en-UK`, and `en-AU` (API only).
+ 
+### Delete account timeframe action update
+
+Delete account action now deletes the account within 90 days instead of 48 hours.
+ 
+### New Video Indexer GitHub repository
+
+A new Video Indexer GitHub with different projects, getting started guides and code samples is now available:
+https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### Swagger update
+
+Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+
 ## December 2019
 
 ### Update transcript with the new API
@@ -34,7 +53,13 @@ Update a specific section in the transcript using the [Update-Video-Index](https
 
 ### Fix account configuration from the Video Indexer portal
 
-You can now update Media Services connection configuration in order to self-help with issues like: incorrect Azure Media Services resource, and `____`. To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
+You can now update Media Services connection configuration in order to self-help with issues like: 
+
+* incorrect Azure Media Services resource
+* password changes
+* Media Services resources were moved between subscriptions  
+
+To fix the account configuration, in the Video Indexer portal navigate to Settings > Account tab (as owner).
 
 ### Configure the custom vision account
 

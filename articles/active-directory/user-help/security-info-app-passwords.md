@@ -12,7 +12,6 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Create app passwords from the Security info (preview) page

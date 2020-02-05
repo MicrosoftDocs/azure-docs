@@ -93,7 +93,7 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
+Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
 + Azure Machine Learning studio: Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
 
@@ -160,7 +160,7 @@ Learn more and see an example of [automated machine learning for time series for
 
 * holiday detection and featurization
 * time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
-* many model support through grouping
+* many models support through grouping
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features

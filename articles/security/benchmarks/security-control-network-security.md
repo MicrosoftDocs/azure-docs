@@ -24,9 +24,10 @@ Network security recommendations focus on specifying which network protocols, TC
 
 Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. Use Azure Services with Private Link enabled, deploy the service inside your Vnet, or connect privately using Private Endpoints. For service specific requirements, please refer to the security recommendation for that specific service.
 
-Alternatively, if you has a specific use case, requirements can be met by implementing Azure Firewall.
+Alternatively, if you have a specific use case, requirements can be met by implementing Azure Firewall.
 
 General Information on Private Link:
+
 https://docs.microsoft.com/azure/private-link/private-link-overview
 
 How to create a Virtual Network:
@@ -53,7 +54,7 @@ How to Enable NSG Flow Logs:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Understanding Network Security provided by Azure Security Center:
+Understand Network Security provided by Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
@@ -95,11 +96,11 @@ Understand Azure Security Center Integrated Threat Intelligence:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Understand Azure Security Center Adaptive Network Hardening
+Understand Azure Security Center Adaptive Network Hardening:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Understand Azure Security Center Just In Time Network Access Control
+Understand Azure Security Center Just In Time Network Access Control:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -112,9 +113,11 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 Record NSG flow logs into a storage account to generate flow records. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
 How to Enable NSG Flow Logs:
+
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
 How to enable Network Watcher:
+
 https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
@@ -140,12 +143,15 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.
 
 How to deploy Application Gateway:
+
 https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
 How to configure Application Gateway to use HTTPS:
+
 https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
 
-Understanding layer 7 load balancing with Azure web application gateways:
+Understand layer 7 load balancing with Azure web application gateways:
+
 https://docs.microsoft.com/azure/application-gateway/overview
 
 ## 1.8: Minimize complexity and administrative overhead of network security rules
@@ -154,9 +160,10 @@ https://docs.microsoft.com/azure/application-gateway/overview
 |--|--|--|
 | 1.8 | 1.5 | Customer |
 
-Use Virtual Network Service Tags &nbsp;to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-Understanding and using Service Tags:
+Understand and use Service Tags:
+
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## 1.9: Maintain standard security configurations for network devices
@@ -167,7 +174,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 Define and implement standard security configurations for network resources with Azure Policy.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
 How to configure and manage Azure Policy:
 

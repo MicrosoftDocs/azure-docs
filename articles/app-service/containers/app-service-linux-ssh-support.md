@@ -13,11 +13,9 @@ ms.custom: seodec18
 ---
 # SSH support for Azure App Service on Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
 
-![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-For custom Docker images, by configuring SSH server in your custom image.
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 You can also connect to the container directly from your local development machine using SSH and SFTP.
 

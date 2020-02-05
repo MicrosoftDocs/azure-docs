@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/21/2019
+ms.date: 01/09/2020
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -118,7 +118,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![Run the simulated device](./media/quickstart-control-device-python/simulated-device-1.png)
 
 ## Call the direct method
 
@@ -144,11 +144,11 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Run the back-end application](./media/quickstart-control-device-python/BackEndApplication.png)
+    ![Run the back-end application](./media/quickstart-control-device-python/backend-application.png)
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-python/SimulatedDevice-2.png)
+    ![Change in simulated client](./media/quickstart-control-device-python/simulated-device-2.png)
 
 ## Clean up resources
 

@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 01/06/2020
+ ms.date: 02/03/2020
  ms.custom: include file
 ---
 
@@ -16,21 +16,46 @@
 
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the expandable left menu, and then open the **App registrations** pane. 
 
-    [![Select the Azure Active Directory pane](./media/digital-twins-permissions/select-aad-pane.png)](./media/digital-twins-permissions/select-aad-pane.png#lightbox)
+    [![Select the Azure Active Directory pane](./media/digital-twins-permissions/azure-portal-select-aad-pane.png)](./media/digital-twins-permissions/azure-portal-select-aad-pane.png#lightbox)
 
 1. Select the **+ New registration** button.
 
     [![Select the New registration button](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
-1. Give a friendly name for this app registration in the **Name** box. Under the **Redirect URI (optional)** section, choose **Public client/native (mobile & desktop)** in the drop-down menu on the left, and enter `https://microsoft.com` in the textbox on the right. Select **Register**.
+1. Give a friendly name for this app registration in the **Name** box. 
+
+    1. Under **Redirect URI (optional)** section, enter `https://microsoft.com` in the textbox.     
+
+    1. Verify which accounts and tenants are supported by your Azure Active Directory app.
+
+    1. Select **Register**.
 
     [![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
+1. The **Authentication** blade specifies important authentication configuration settings. 
 
-    Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
+    1. Add **Redirect URIs** and configure **Access Tokens** by selecting **+ Add a platform**.
 
-    [![Public client configuration setting](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
+    1. Select **Yes** to specify that the app is a **public client**.
+
+    1. Verify which accounts and tenants are supported by your Azure Active Directory app.
+
+    [![Public client configuration setting](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+
+1. After selecting the appropriate platform, configure your **Redirect URIs** and **Access Tokens** in the side panel to the right of the user interface.
+
+    1. **Redirect URIs** must match the address supplied by the authentication request:
+
+        * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set **public client** to **Yes**.
+        * For Single-Page Apps hosted on Azure App Service, select **Web**.
+
+    1. Determine whether a **Logout URL** is appropriate.
+
+    1. Enable the implicit grant flow by checking **Access tokens** or **ID tokens**.
+                
+    [![Configure Redirect URIs](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+
+    Click **Configure**, then **Save**.
 
 1.  Open the **Overview** pane of your registered app, and copy the values of the following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
 

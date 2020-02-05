@@ -14,7 +14,6 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: "end-user, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
 # Sign in to your work or school account using your two-factor verification method

@@ -15,7 +15,6 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.collection: M365-identity-device-management
 ---
 
 # Understanding Azure AD application consent experiences

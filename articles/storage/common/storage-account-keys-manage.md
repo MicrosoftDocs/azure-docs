@@ -52,4 +52,4 @@ Follow this process to rotate your storage account keys:
 ## Next steps
 
 - [Azure storage account overview](storage-account-overview.md)
-- [Create a storage account](storage-quickstart-create-account.md)
+- [Create a storage account](storage-account-create.md)

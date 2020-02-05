@@ -86,7 +86,7 @@ compliance results. The exception is **resource groups**. Policies that enforce 
 a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
-[Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
+[Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
 
@@ -218,6 +218,12 @@ You use **displayName** and **description** to identify the policy definition an
 for when it's used. **displayName** has a maximum length of _128_ characters and **description**
 a maximum length of _512_ characters.
 
+> [!NOTE]
+> During the creation or updating of a policy definition, **id**, **type**, and **name** are defined
+> by properties external to the JSON and aren't necessary in the JSON file. Fetching the policy
+> definition via SDK returns the **id**, **type**, and **name** properties as part of the JSON, but
+> each are read-only information related to the policy definition.
+
 ## Policy rule
 
 The policy rule consists of **If** and **Then** blocks. In the **If** block, you define one or more
@@ -297,9 +303,11 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match any character, and any other character to match that actual character.
-**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
-**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match any character, and any other character to match that actual character. While,
+**match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
+are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
+**notMatchInsensitively**. For examples, see
+[Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
@@ -474,8 +482,8 @@ evaluation.
 Conditions that count how many members of an array in the resource payload satisfy a condition
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
-evaluates each array member for a condition expression and sums the _true_ results, which is then
-compared to the expression operator.
+evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
+sums the _true_ results, which is then compared to the expression operator.
 
 The structure of the **count** expression is:
 
@@ -646,7 +654,7 @@ For complete details on each effect, order of evaluation, properties, and exampl
 ### Policy functions
 
 All [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+functions](../../../azure-resource-manager/templates/template-functions.md) are available to
 use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
@@ -880,10 +888,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 

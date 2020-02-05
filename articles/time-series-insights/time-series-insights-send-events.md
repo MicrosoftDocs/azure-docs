@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 ## Configure an event hub
 
-1. To learn how to create an event hub, see the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
+1. To learn how to create an event hub, read the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
 1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 1. Select your event hub.
 1. When you create an event hub, you're creating an event hub namespace. If you haven't yet created an event hub within the namespace, on the menu, under **Entities**, create an event hub.  
@@ -50,13 +50,13 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 ## Add a Time Series Insights instance
 
-The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about Time Series Insight instances and **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
+The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about Time Series Insight instances and **Time Series ID**, read [Time Series Models](./time-series-insights-update-tsm.md).
 
 ### Create a Time Series Insights event source
 
 1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
+1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, read [Time Series Models](./time-series-insights-update-tsm.md).
 
 ### Push events to windmills sample
 
@@ -75,7 +75,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
 
-1. Go back to your event hub in the Azure portal. On the **Overview** page, you see the new events that are received by the event hub.
+1. Go back to your event hub in the Azure portal. On the **Overview** page, the new events received by the event hub are displayed.
 
     [![An event hub Overview page that shows metrics for the event hub](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 

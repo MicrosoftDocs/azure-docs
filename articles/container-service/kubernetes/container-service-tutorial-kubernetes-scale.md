@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Scale Application
 description: Azure Container Service tutorial - Scale Application
-services: container-service
 author: dlepow
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

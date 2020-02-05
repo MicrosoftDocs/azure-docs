@@ -14,7 +14,6 @@ ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 # Register your personal device on your organization's network
 Register your personal device (typically a phone or tablet) on your organization's network. After your device is registered, it will be able to access your organization's restricted resources.
