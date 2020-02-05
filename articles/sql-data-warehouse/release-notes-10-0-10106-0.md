@@ -26,8 +26,15 @@ Use the version identified to confirm which release has been applied to your SQL
 
 Note: By June 2020, the product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Azure Synapse Analytics. We will publish the schedule in our release notes. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. To avoid application code changes due to product rebranding, please use these commands to query SERVERPROPERTY for the database product name and version:
  
-- To return version number XX.X.XXXXX.X (without product name) use this command: SELECT SERVERPROPERTY('ProductVersion')
-- To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse): SELECT SERVERPROPERTY('EngineEdition')
+- To return version number XX.X.XXXXX.X (without product name) use this command: 
+```
+SELECT SERVERPROPERTY('ProductVersion')
+```
+
+- To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse): 
+```
+SELECT SERVERPROPERTY('EngineEdition')
+```
 
 ## January 2020
 
