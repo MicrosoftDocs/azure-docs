@@ -15,9 +15,9 @@ ms.service: azure-remote-rendering
 
 Good rendering performance on the server is critical for stable frame rates and thus a good user experience. Accordingly, it is important to monitor performance characteristics on the server carefully and optimize where necessary. Performance data can be queried through dedicated API functions as described in the following paragraphs.
 
-Most impactful for the rendering performance is the model input data. You can tweak the input data as described in the [Configuring the model conversion](../conversion/configure-model-conversion.md) chapter.
+Most impactful for the rendering performance is the model input data. You can tweak the input data as described in the [configuring the model conversion](../../how-tos/conversion/configure-model-conversion.md) chapter.
 
-Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it is recommended to take a [performance trace](../how-tos/performance-tracing.md).
+Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it is recommended to take a [performance trace](../../how-tos/performance-tracing.md).
 
 ## Client/server timeline
 
@@ -61,7 +61,7 @@ The retrieved `FrameStatistics` object holds the following members:
 | videoFrameMinDelta | Minimum amount of time between two consecutive frames arriving during the last second. Together with videoFrameMaxDelta, this range gives an indication of jitter caused either by the network or video codec. |
 | videoFrameMaxDelta | Maximum amount of time between two consecutive frames arriving during the last second. Together with videoFrameMinDelta, this range gives an indication of jitter caused either by the network or video codec. |
 
-The sum of all latency values is typically much larger than the available frame time at 60 Hz. This is OK, because multiple frames are in flight in parallel, and new frame requests are kicked off at desired frame rate, as shown in the illustration. However if latency becomes too large, it affects the quality of the [late stage reprojection](../sdk/concepts-late-stage-reprojection.md), and thus may compromise the overall experience.
+The sum of all latency values is typically much larger than the available frame time at 60 Hz. This is OK, because multiple frames are in flight in parallel, and new frame requests are kicked off at desired frame rate, as shown in the illustration. However if latency becomes too large, it affects the quality of the [late stage reprojection](../../overview/features/late-stage-reprojection.md), and thus may compromise the overall experience.
 
 `videoFramesReceived`, `videoFrameReusedCount`, and `videoFramesDiscarded` can be used to gauge network and server performance. If `videoFramesReceived` is low and `videoFrameReusedCount` is high, this can indicate network congestion or poor server performance. A high `videoFramesDiscarded` value also indicates network congestion.
 
