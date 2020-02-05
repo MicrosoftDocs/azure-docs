@@ -80,6 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+    
     In the **Identifier (Entity ID)** text box, enter exactly the following value:
     `https://bouncer.eab.com`
     
