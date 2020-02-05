@@ -42,8 +42,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Verkada Command supports **SP and IDP** initiated SSO
 
-* Verkada Command supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)
-
 * Once you configure the Verkada Command you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Verkada Command from the gallery
@@ -81,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode, perform the following steps:
 
 	a. Click **Upload metadata file**.
 
