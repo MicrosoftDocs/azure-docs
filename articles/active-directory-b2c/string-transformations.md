@@ -374,6 +374,8 @@ To use the GetLocalizedStringsTransformation claims transformation:
 1. In the claims transformation specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a ClaimType already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
 1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
 
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
 The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. These claims later used by custom email verification template.
 
 Define localized strings for English (default) and Spanish.
