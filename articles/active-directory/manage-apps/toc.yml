@@ -7,6 +7,8 @@
        href: what-is-application-management.md
      - name: What is Application Proxy for on-premises apps?
        href: what-is-application-proxy.md
+     - name: What is application provisioning?
+       href: /azure/active-directory/app-provisioning/user-provisioning.md
   - name: Quickstarts
     items:
     - name: Add a cloud app from the gallery
