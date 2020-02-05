@@ -65,8 +65,8 @@ To configure and test Azure AD SSO with EAB Navigate, complete the following bui
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure EAB Navigate SSO](#configure-eab-navigate-impl-sso)** - to configure the single sign-on settings on application side.
-    * **[Create EAB Navigate test user](#create-eab-navigate-impl-test-user)** - to have a counterpart of B.Simon in EAB Navigate that is linked to the Azure AD representation of user.
+1. **[Configure EAB Navigate SSO](#configure-eab-navigate-sso)** - to configure the single sign-on settings on application side.
+    * **[Create EAB Navigate test user](#create-eab-navigate-test-user)** - to have a counterpart of B.Simon in EAB Navigate that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.navigate.impl.eab.com/`
+    `https://<SUBDOMAIN>.navigate.eab.com/`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [EAB Navigate Client support team](mailto:EABTechSupport@eab.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
