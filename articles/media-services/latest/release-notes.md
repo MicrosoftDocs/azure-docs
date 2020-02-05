@@ -32,10 +32,6 @@ To stay up-to-date with the most recent developments, this article provides you 
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
-
-## December 2020
-
-Added CDN support for *Origin-Assist Prefetch* headers for both live and video on-demand streaming; available for customers who have direct contract with Akamai CDN. 
  
 ## January 2020
 
@@ -43,7 +39,11 @@ Added CDN support for *Origin-Assist Prefetch* headers for both live and video o
 
 - Improved support for interlaced sources in Video Analysis – such content is now de-interlaced correctly before being sent to inference engines.
 - When generating thumbnails with the “Best” mode, the encoder now searches beyond 30 seconds to select a frame that is not monochromatic.
- 
+
+## December 2019
+
+Added CDN support for *Origin-Assist Prefetch* headers for both live and video on-demand streaming; available for customers who have direct contract with Akamai CDN. 
+
 ## November 2019
 
 ### Live transcription Preview
