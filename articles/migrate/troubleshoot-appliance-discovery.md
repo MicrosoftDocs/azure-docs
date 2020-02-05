@@ -142,7 +142,7 @@ If you delete VMs and they still appear in the portal, wait 30 minutes. If they 
 
 Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.
 
-Typical app discovery errors are summarized in the table.
+Typical app discovery errors are summarized in the table. 
 
 **Error** | **Cause** | **Action**
 --- | --- | --- | ---
