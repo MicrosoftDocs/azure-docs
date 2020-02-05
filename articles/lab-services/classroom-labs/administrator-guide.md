@@ -23,7 +23,7 @@ Information Technology (IT) administrators who manage a university's cloud resou
 
 - Classroom labs are hosted within an Azure subscription owned by Azure Lab Services.
 - Lab accounts, shared image gallery, and image versions are hosted within your subscription.
-- You can have your lab account and the shard image gallery in the same resource group. In this diagram, they are in different resource groups. 
+- You can have your lab account and the shared image gallery in the same resource group. In this diagram, they are in different resource groups. 
 
 ## Subscription
 Your university has one or more Azure subscriptions. A subscription is used to manage billing and security for all Azure resources\services that are used within it, including lab accounts.
@@ -61,7 +61,7 @@ The following list highlights scenarios where more than one lab account may be b
 
 - **Separate budget by lab account**
   
-    Instead of reporting all classroom lab costs through a single lab account, you may need a more clearly separated budget. For example, you can create lab accounts for your university's Math department, Computer Science department, and so forth, to separate the budget across departments.  You can then view the cost for each individual lab account using [Azure Cost Management] (https://docs.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview).
+    Instead of reporting all classroom lab costs through a single lab account, you may need a more clearly separated budget. For example, you can create lab accounts for your university's Math department, Computer Science department, and so forth, to separate the budget across departments.  You can then view the cost for each individual lab account using [Azure Cost Management] (https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
     
 - **Isolate pilot labs from active\production labs**
   
@@ -102,7 +102,7 @@ Shared image gallery is an optional resource that you may not need immediately w
     You can save and reuse an image so that you don't have to configure the image from scratch each time that you create a new classroom lab. For example, if multiple classes are being offered that need the same image, this image only needs to be created once and exported to the shared image gallery so that it can be shared across classroom labs.
 - **Ensures image availability through replication**.
 
-    When you save to the shared image gallery from a classroom lab, your image is automatically replicated to other [regions within the same geography](https://azure.microsoft.com/en-us/global-infrastructure/regions/). In the case that there's an outage for a region, publishing the image to your classroom lab isn't affected since an image replica from another region can be used.  Publishing VMs from multiple replicas can also help with performance.
+    When you save to the shared image gallery from a classroom lab, your image is automatically replicated to other [regions within the same geography](https://azure.microsoft.com/global-infrastructure/regions/). In the case that there's an outage for a region, publishing the image to your classroom lab isn't affected since an image replica from another region can be used.  Publishing VMs from multiple replicas can also help with performance.
 
 To logically group shared images, you have a couple of options:
 
@@ -156,7 +156,7 @@ When administrators or lab creators create a classroom lab, they can choose from
 | Medium GPU (Visualization) | <ul><li>12 Cores</li><li>112 GB RAM</li></ul> | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. |
 
 ## Manage identity
-Using [Azure's role based access control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview), the following roles can be assigned to give access to lab accounts and classroom labs:
+Using [Azure's role based access control](https://docs.microsoft.com/azure/role-based-access-control/overview), the following roles can be assigned to give access to lab accounts and classroom labs:
 
 - **Lab account owner**
 
@@ -176,7 +176,7 @@ Using [Azure's role based access control](https://docs.microsoft.com/en-us/azure
 
 - **Classroom lab creator**
 
-    To create classroom labs within a lab account, an educator must be a member of the **Lab Creator** role.  When an educator creates a classroom lab, they are automatically added as an owner of the lab.  Refer to the tutorial on how to [add a user to the **Lab Creator** role](https://docs.microsoft.com/en-us/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    To create classroom labs within a lab account, an educator must be a member of the **Lab Creator** role.  When an educator creates a classroom lab, they are automatically added as an owner of the lab.  Refer to the tutorial on how to [add a user to the **Lab Creator** role](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
 
 - **Classroom lab owner**
   
@@ -195,7 +195,7 @@ Here are some tips to help with assigning roles:
    
   1. To give an educator the ability to create\manage new classroom labs and manage labs that are created by other educators; you should assign access to the **Lab Creator** role *and* to the **Owner** role for each of the specific classroom labs that were created by others.
    
-  1. You may choose to have multiple owners for a classroom lab.  For example, allow both a professor and a teaching assistant to co-own a classroom lab.  To do this, the educator must be given access to both the classroom lab's **Owner** and the lab account's **Reader** roles. Refer to the guide on how to [add a user as an owner to a classroom lab](https://docs.microsoft.com/en-us/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+  1. You may choose to have multiple owners for a classroom lab.  For example, allow both a professor and a teaching assistant to co-own a classroom lab.  To do this, the educator must be given access to both the classroom lab's **Owner** and the lab account's **Reader** roles. Refer to the guide on how to [add a user as an owner to a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
 ## Pricing
 
@@ -212,7 +212,7 @@ To store image versions, a shared image gallery uses standard HDD-managed disks.
 
 
 ### Replication and network egress charges
-When you save an image version using a classroom lab’s template virtual machine (VM), Azure Lab Services first stores it in a source region and then automatically replicates the source image version to one or more target regions. It’s important to note that Azure Lab Services automatically replicates the source image version to all target [regions within the geography] (https://azure.microsoft.com/en-us/global-infrastructure/regions/) where the classroom lab is located. For example, if your classroom lab is in the U.S. geography, an image version is replicated to each of the eight regions that exist within the U.S.
+When you save an image version using a classroom lab’s template virtual machine (VM), Azure Lab Services first stores it in a source region and then automatically replicates the source image version to one or more target regions. It’s important to note that Azure Lab Services automatically replicates the source image version to all target [regions within the geography] (https://azure.microsoft.com/global-infrastructure/regions/) where the classroom lab is located. For example, if your classroom lab is in the U.S. geography, an image version is replicated to each of the eight regions that exist within the U.S.
 
 A network egress charge occurs when an image version is replicated from the source region to additional target regions. The amount charged is based on the size of the image version when the image’s data is initially transferred outbound from the source region.  For pricing details, refer to the following article: [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
