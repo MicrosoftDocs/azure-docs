@@ -77,13 +77,13 @@ KEK must be:
 2. generated in the same key vault where you intend to import the target key
 3. created with allowed key operations set to **import**
 
-Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to create KEK with key operations set to import.
+Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to create KEK with key operations set to import. Note down the key identifier 'kid' returned from the above command. You'll need it in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).
+
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
 
-Note down the key identifier 'kid' returned from the above command. You'll need it in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).
 
 ## Step 2: Download KEK public key
 
@@ -93,11 +93,11 @@ Use the [az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
 
-Transfer the .pem file to your offline workstation.
+Transfer the KEKforBYOK.publickey.pem file to your offline workstation. You will need this file during next step.
 
 ## Step 3: Generate and prepare your key for transfer
 
-Please refer to your HSM vendor's documentation to download and install the BYOK tool. Follow instruction from your HSM vendor to generate a target key and then create a Key Transfer Package (a byok file). The BYOK tool will use the key identifier from [Step 1](#step-1-generate-a-kek) and .pem file you downloaded in [Step 2](#step-2-download-kek-public-key) to generate an encrypted target key in a byok file.
+Please refer to your HSM vendor's documentation to download and install the BYOK tool. Follow instruction from your HSM vendor to generate a target key and then create a Key Transfer Package (a byok file). The BYOK tool will use the key identifier from [Step 1](#step-1-generate-a-kek) and KEKforBYOK.publickey.pem file you downloaded in [Step 2](#step-2-download-kek-public-key) to generate an encrypted target key in a byok file.
 
 Transfer the byok file to your connected workstation.
 
@@ -106,7 +106,7 @@ Transfer the byok file to your connected workstation.
 
 ## Step 4: Transfer your key to Azure Key Vault
 
-For this final step, on the Internet-connected workstation, use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the byok file that you copied from the disconnected workstation to the Azure Key Vault HSM, to complete the key import.
+For this final step, transfer the Key Transfer Package (a byok file) from your disconnected workstation to the Internet-connected workstation and then use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the byok file the Azure Key Vault HSM, to complete the key import.
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
