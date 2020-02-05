@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ---
-# Use the Azure portal to manage bandwidth schedules on your Azure Data Box Edge  
+# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge  
 
-This article describes how to manage users on your Azure Data Box Edge. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
+This article describes how to manage users on your Azure Stack Edge. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
-You can add, modify, or delete the bandwidth schedules for your Data Box Edge via the Azure portal.
+You can add, modify, or delete the bandwidth schedules for your Azure Stack Edge via the Azure portal.
 
 In this article, you learn how to:
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 Do the following steps in the Azure portal to add a schedule.
 
-1. In the Azure portal for your Data Box Edge resource, go to **Bandwidth**.
+1. In the Azure portal for your Azure Stack Edge resource, go to **Bandwidth**.
 2. In the right-pane, select **+ Add schedule**.
 
     ![Select Bandwidth](media/data-box-edge-manage-bandwidth-schedules/add-schedule-1.png)
@@ -51,7 +51,7 @@ Do the following steps in the Azure portal to add a schedule.
 
 Do the following steps to edit a bandwidth schedule.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Bandwidth**. 
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**. 
 2. From the list of bandwidth schedules, select and select a schedule that you want to modify.
     ![Select bandwidth schedule](media/data-box-edge-manage-bandwidth-schedules/modify-schedule-1.png)
 
@@ -66,9 +66,9 @@ Do the following steps to edit a bandwidth schedule.
 
 ## Delete a schedule
 
-Do the following steps to delete a bandwidth schedule associated with your Data Box Edge device.
+Do the following steps to delete a bandwidth schedule associated with your Azure Stack Edge device.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Bandwidth**.  
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**.  
 
 2. From the list of bandwidth schedules, select a schedule that you want to delete. In the **Edit schedule**, select **Delete**. When prompted for confirmation, select **Yes**.
 

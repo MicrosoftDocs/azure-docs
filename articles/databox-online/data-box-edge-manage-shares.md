@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ---
-# Use the Azure portal to manage shares on your Azure Data Box Edge
+# Use the Azure portal to manage shares on your Azure Stack Edge
 
-This article describes how to manage shares on your Azure Data Box Edge. You can manage the Azure Data Box Edge via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
+This article describes how to manage shares on your Azure Stack Edge. You can manage the Azure Stack Edge via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
 
 ## About shares
 
-To transfer data to Azure, you need to create shares on your Azure Data Box Edge. The shares that you add on the Data Box Edge device can be local shares or shares that push data to cloud.
+To transfer data to Azure, you need to create shares on your Azure Stack Edge. The shares that you add on the Azure Stack Edge device can be local shares or shares that push data to cloud.
 
  - **Local shares**: Use these shares when you want the data to be processed locally on the device.
  - **Shares**: Use these shares when you want the device data to be automatically pushed to your storage account in the cloud. All the cloud functions such as **Refresh** and **Sync storage keys** apply to the shares.
@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 Do the following steps in the Azure portal to create a share.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
 
     ![Select add share](media/data-box-edge-manage-shares/add-share-1.png)
 
@@ -64,7 +64,7 @@ Do the following steps in the Azure portal to create a share.
 
 ## Add a local share
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
 
     ![Select add share](media/data-box-edge-manage-shares/add-local-share-1.png)
 
@@ -94,10 +94,10 @@ Do the following steps in the Azure portal to create a share.
 
 ## Mount a share
 
-If you created a share before you configured compute on your Data Box Edge device, you will need to mount the share. Take the following steps to mount a share.
+If you created a share before you configured compute on your Azure Stack Edge device, you will need to mount the share. Take the following steps to mount a share.
 
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
 
     ![Select share](media/data-box-edge-manage-shares/select-share-mount.png)
 
@@ -121,7 +121,7 @@ If you created a share before you configured compute on your Data Box Edge devic
 
 Do the following steps in the Azure portal to unmount a share.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**.
+1. In the Azure portal, go to your Azure Stack Box Edge resource and then go to **Gateway > Shares**.
 
     ![Select share](media/data-box-edge-manage-shares/select-share-unmount.png)
 

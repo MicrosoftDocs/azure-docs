@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ---
-# Manage compute on your Azure Data Box Edge
+# Manage compute on your Azure Stack Edge
 
-This article describes how to manage compute on your Azure Data Box Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
+This article describes how to manage compute on your Azure Stack Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
 
 In this article, you learn how to:
 
@@ -23,7 +23,7 @@ In this article, you learn how to:
 
 ## Manage triggers
 
-Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Data Box Edge, triggers can be in response to file events or a schedule.
+Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Azure Stack Edge, triggers can be in response to file events or a schedule.
 
 - **File**: These triggers are in response to file events such as creation of a file, modification of a file.
 - **Scheduled**: These triggers are in response to a schedule that you can define with a start date, start time, and the repeat interval.
@@ -33,7 +33,7 @@ Events are things that happen within your cloud environment or on your device th
 
 Take the following steps in the Azure portal to create a trigger.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Edge compute > Trigger**. Select **+ Add trigger** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Trigger**. Select **+ Add trigger** on the command bar.
 
     ![Select add trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
 
@@ -77,13 +77,13 @@ The list of triggers updates to reflect the deletion.
 
 ## Manage compute configuration
 
-Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Data Box Edge.
+Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Azure Stack Edge.
 
 ### View compute configuration
 
 Take the following steps in the Azure portal to view the compute configuration for your device.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Edge compute > Modules**. Select **View compute** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Modules**. Select **View compute** on the command bar.
 
     ![Select View compute](media/data-box-edge-manage-compute/view-compute-1.png)
 
@@ -96,7 +96,7 @@ Take the following steps in the Azure portal to view the compute configuration f
 
 Take the following steps in the Azure portal to remove the existing Edge compute configuration for your device.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Edge compute > Get started**. Select **Remove compute** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Get started**. Select **Remove compute** on the command bar.
 
     ![Select Remove compute](media/data-box-edge-manage-compute/remove-compute-1.png)
 
@@ -106,15 +106,15 @@ Take the following steps in the Azure portal to remove the existing Edge compute
 
 ### Sync up IoT device and IoT Edge device access keys
 
-When you configure compute on your Data Box Edge, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
+When you configure compute on your Azure Stack Edge, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 
 To rotate these keys, you can go to the IoT Hub service that you created and select the IoT device or the IoT Edge device. Each device has a primary access key and a secondary access keys. Assign the primary access key to the secondary access key and then regenerate the primary access key.
 
-If your IoT device and IoT Edge device keys have been rotated, then you need to refresh the configuration on your Data Box Edge to get the latest access keys. The sync helps the device get the latest keys for your IoT device and IoT Edge device. Data Box Edge uses only the primary access keys.
+If your IoT device and IoT Edge device keys have been rotated, then you need to refresh the configuration on your Azure Stack Edge to get the latest access keys. The sync helps the device get the latest keys for your IoT device and IoT Edge device. Azure Stack Edge uses only the primary access keys.
 
 Take the following steps in the Azure portal to sync the access keys for your device.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Edge compute > Get started**. Select **Refresh configuration** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Get started**. Select **Refresh configuration** on the command bar.
 
     ![Select Refresh configuration](media/data-box-edge-manage-compute/refresh-configuration-1.png)
 

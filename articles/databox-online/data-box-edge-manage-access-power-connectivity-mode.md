@@ -11,9 +11,9 @@ ms.date: 06/24/2019
 ms.author: alkohli
 ---
 
-# Manage access, power, and connectivity mode for your Azure Data Box Edge
+# Manage access, power, and connectivity mode for your Azure Stack Edge
 
-This article describes how to manage the access, power, and connectivity mode for your Azure Data Box Edge. These operations are performed via the local web UI or the Azure portal.
+This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge. These operations are performed via the local web UI or the Azure portal.
 
 In this article, you learn how to:
 
@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 ## Manage device access
 
-The access to your Data Box Edge device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
+The access to your Azure Stack Edge device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
 
 ### Change device password
 
@@ -57,12 +57,12 @@ To create your Data Box Edge/Data Box Gateway, IoT Hub, and Azure Storage resour
 
 ### Manage Microsoft Azure Active Directory Graph API permissions
 
-When generating the activation key for the Data Box Edge device, or performing any operations that require credentials, you need permissions to Azure Active Directory Graph API. The operations that need credentials could be:
+When generating the activation key for the Azure Stack Edge device, or performing any operations that require credentials, you need permissions to Azure Active Directory Graph API. The operations that need credentials could be:
 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Data Box Edge device, creation of a user, configuration of Edge compute role, reset device password will all fail.
+You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
 For more information on how to provide access to users to Azure Active Directory Graph API, see [Default access for administrators, users, and guest users](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -85,7 +85,7 @@ To get a list of registered resource providers in the current subscription, run 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-For Data Box Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
+For Azure Stack Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
