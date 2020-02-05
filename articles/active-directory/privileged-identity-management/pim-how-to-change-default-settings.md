@@ -38,12 +38,8 @@ Follow the steps in this article to approve or deny requests for Azure AD roles.
 Follow these steps to open the settings for an Azure AD role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure AD roles**.
-
-1. Select **Role settings**.
+gt
+1. Open **Azure AD Privileged Identity Management** &gt; **Azure AD roles** &gt; **Role settings**.
 
     ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 

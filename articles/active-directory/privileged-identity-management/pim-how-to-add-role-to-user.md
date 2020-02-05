@@ -58,27 +58,19 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select a member to whom you want to assign to the role and then select **Select**.
 
-    ![Select a member or group pane](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
-
 1. In the **Assignment type** list on the **Membership settings** pane, select **Eligible** or **Active**.
 
     - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
-    ![Memberships settings pane](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
 1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox.
 
     Depending on the role settings, the check box might not appear or might be unmodifiable.
 
-1. To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes.
+1. To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes. When finished, select **Done**.
 
     ![Memberships settings - date and time](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. When finished, select **Done**.
-
-    ![New assignment - Add](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
 1. To create the new role assignment, select **Add**. A notification of the status is displayed.
 
