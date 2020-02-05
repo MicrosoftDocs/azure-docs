@@ -1,5 +1,3 @@
-- name: Features
-  href: features/toc.yml
-- name: Tools
-  href: tools/toc.yml
+- name: Azure Mixed Reality Resource Management REST API
+  href: https://docs.microsoft.com/rest/api/mixedreality/
   

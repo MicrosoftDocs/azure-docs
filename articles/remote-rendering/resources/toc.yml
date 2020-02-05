@@ -1,2 +1,4 @@
-- name: Azure Mixed Reality Resource Management REST API
-  href: https://docs.microsoft.com/rest/api/mixedreality/
+- name: Tools
+  href: tools/toc.yml
+- name: Troubleshoot
+  href: troubleshoot.md

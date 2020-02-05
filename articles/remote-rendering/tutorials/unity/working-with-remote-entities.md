@@ -118,7 +118,7 @@ Press play, connect to a session and load a model. Now point at objects in the s
 
 ## Highlight objects
 
-As a next step, we want to give visual feedback, which parts of a model the user is pointing at. To achieve this, we attach a [HierarchicalStateOverrideComponent](../../reference/features/override-hierarchical-state.md) to the entity that we picked. This component can be used to enable or disable various features on an object. Here we use it to set a tint color and enable [outline rendering](../../reference/features/outlines.md).
+As a next step, we want to give visual feedback, which parts of a model the user is pointing at. To achieve this, we attach a [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) to the entity that we picked. This component can be used to enable or disable various features on an object. Here we use it to set a tint color and enable [outline rendering](../../overview/features/outlines.md).
 
 Create another script file called **RemoteModelEntity** and replace its content with the following code:
 
@@ -242,7 +242,7 @@ Run your project and point at a model, you should see it getting a red tint and 
 
 ## Isolate the selected object
 
-Another use of the [HierarchicalStateOverrideComponent](../../reference/features/override-hierarchical-state.md) is the ability to override visibility. This enables you to isolate a selected object from the rest of the model. Open the **RemoteModelEntity** script, add the following code, and remove the duplicate functions:
+Another use of the [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) is the ability to override visibility. This enables you to isolate a selected object from the rest of the model. Open the **RemoteModelEntity** script, add the following code, and remove the duplicate functions:
 
 ```csharp
     private bool isolated = false;
@@ -424,7 +424,7 @@ Running the code again, you should be able to left-click on an object and drag i
 
 ## Add a cut plane
 
-The final feature we want to try out in this tutorial, is using [cut planes](../../reference/features/cut-planes.md). A cut plane cuts away parts of rendered objects, such that you can look inside of them.
+The final feature we want to try out in this tutorial, is using [cut planes](../../overview/features/cut-planes.md). A cut plane cuts away parts of rendered objects, such that you can look inside of them.
 
 Create a new GameObject in the scene **CutPlane**. Create a new script and call it **RemoteCutPlane**. Add the component to the new GameObject.
 

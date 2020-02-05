@@ -39,4 +39,4 @@ public void GetBounds(Entity entity)
 
 ## Next steps
 
-* [Spatial queries](../reference/features/spatial-queries.md)
+* [Spatial queries](../overview/features/spatial-queries.md)

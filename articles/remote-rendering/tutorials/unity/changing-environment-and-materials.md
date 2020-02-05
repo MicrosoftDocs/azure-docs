@@ -30,7 +30,7 @@ This tutorial assumes that you are familiar with [the previous tutorial](working
 
 ## Change the environment map
 
-Azure Remote Rendering supports the use of [sky boxes](../../reference/features/sky.md) (sometimes also called 'environment maps') to simulate ambient lighting. This is especially useful when your objects use *[Physically Based Rendering](../../concepts/materials.md#pbr-material)*, as our sample models do. ARR also comes with a variety of built-in sky textures, that we will use in this tutorial.
+Azure Remote Rendering supports the use of [sky boxes](../../overview/features/sky.md) (sometimes also called 'environment maps') to simulate ambient lighting. This is especially useful when your objects use *[Physically Based Rendering](../../concepts/materials.md#pbr-material)*, as our sample models do. ARR also comes with a variety of built-in sky textures, that we will use in this tutorial.
 
 Create a new script called **RemoteSky** and add it to a new GameObject. Open the script file and replace it with the following code:
 
@@ -95,7 +95,7 @@ When you run the code and toggle through the sky maps, you will notice drastical
 
 ## Modify materials
 
-In the previous tutorial, we used [state override components](../../reference/features/override-hierarchical-state.md) to change the tint color of selected objects. Now we want to achieve a similar effect, but do so by modifying the [material](../../concepts/materials.md) of an object.
+In the previous tutorial, we used [state override components](../../overview/features/override-hierarchical-state.md) to change the tint color of selected objects. Now we want to achieve a similar effect, but do so by modifying the [material](../../concepts/materials.md) of an object.
 
 First we need a script to pick objects, as we did in [the second tutorial](working-with-remote-entities.md). If you don't have a **RemoteRaycaster** script yet, create it now. Replace its content with the following code:
 
@@ -377,7 +377,7 @@ Run this code and hover over your model. If your model has proper UV coordinates
 
 ## Next steps
 
-That concludes our introduction series on how to use Azure Remote Rendering with Unity. As a next step you should familiarize yourself with [the fundamental concepts](../../concepts/sdk-concepts.md) of ARR to build a deeper understanding. There are also various features like [lights](../../reference/features/lights.md), [outline rendering](../../reference/features/outlines.md), [hierarchical state overrides](../../reference/features/override-hierarchical-state.md), and [materials](../../concepts/materials.md) that you should explore in more detail.
+That concludes our introduction series on how to use Azure Remote Rendering with Unity. As a next step you should familiarize yourself with [the fundamental concepts](../../concepts/sdk-concepts.md) of ARR to build a deeper understanding. There are also various features like [lights](../../overview/features/lights.md), [outline rendering](../../overview/features/outlines.md), [hierarchical state overrides](../../overview/features/override-hierarchical-state.md), and [materials](../../concepts/materials.md) that you should explore in more detail.
 
 > [!div class="nextstepaction"]
 > [Unity SDK concepts](../../how-tos/unity/unity-concepts.md)

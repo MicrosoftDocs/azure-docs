@@ -152,7 +152,7 @@ All asynchronous calls from `Actions` and `Entity` are completed during the call
 
 ### Built-in and external resources
 
-Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. The available built-in resources are listed in the documentation for each respective feature. For example, the [sky chapter](../reference/features/sky.md) lists the built-in sky textures.
+Azure Remote Rendering contains some built-in resources, which can be loaded by prepending their respective identifier with `builtin://` during the call to `AzureSession.Actions.LoadXXXAsync()`. The available built-in resources are listed in the documentation for each respective feature. For example, the [sky chapter](../overview/features/sky.md) lists the built-in sky textures.
 
 Besides these built-in resources, the user may also use resources from external storage by specifying their blob storage URI. URIs are most frequently represented as a SAS URI to a [converted model](../how-tos/conversion/conversion-rest-api.md) in blob storage.
 
