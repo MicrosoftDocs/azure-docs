@@ -53,6 +53,8 @@ The following user actions cause automatic group renewal:
 
 Administrators can get a list of automatically renewed groups from the activity audit logs in Azure AD.
 
+![Automatic renewal of groups based on activity](./media/groups-lifecycle/AADAuditLogsAutoRenewGroup.png)
+
 ## Roles and permissions
 
 The following are roles that can configure and use expiration for Office 365 groups in Azure AD.
