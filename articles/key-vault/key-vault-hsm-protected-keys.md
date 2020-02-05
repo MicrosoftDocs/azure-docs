@@ -25,7 +25,7 @@ This functionality is not available for Azure China 21Vianet.
 
 ## Supported HSMs
 
-Transferring HSM-protected keys to Key Vault is supported via two different methods. The method you need to use depends on the HSMs you use. Use the information in the table below to determine which method should be used for your HSMs to  generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. 
+Transferring HSM-protected keys to Key Vault is supported via two different methods depending on the HSMs you use. Use the table below to determine which method should be used for your HSMs to  generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. 
 
 |HSM Vendor Name|Supported HSM models|Supported HSM-key transfer method|
 |---|---|---|
