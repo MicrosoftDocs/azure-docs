@@ -54,10 +54,6 @@ Once a session has been created and its state has been marked as ready, it can b
 
 All AzureSession and AzureFrontend async calls are completed in a background thread, not the main application thread.
 
-### Azure Frontend APIs
-
-This section will cover Azure Frontend APIs, which SDK wrappers around the the ingestion service and rendering service REST APIs.
-
 ### Conversion APIs
 
 See [the model conversion REST API](conversion/conversion-rest-api.md) for more details about the conversion service.
