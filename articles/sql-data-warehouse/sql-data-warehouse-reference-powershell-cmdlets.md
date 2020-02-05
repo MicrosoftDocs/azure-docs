@@ -28,7 +28,7 @@ Many Azure Synapse Analytics data warehouse administration tasks can be managed 
     Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
-## Pause data warehouse Example
+## Pause data warehouse example
 Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
 ```Powershell
@@ -43,7 +43,7 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## Start data warehouse Example
+## Start data warehouse example
 
 Resume operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
@@ -83,4 +83,4 @@ For more PowerShell examples, see:
 * [Create a data warehouse using PowerShell](create-data-warehouse-powershell.md)
 * [Database restore](sql-data-warehouse-restore-database-powershell.md)
 
-For other tasks that can be automated with PowerShell, see [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/az.sql). Not all Azure SQL Database cmdlets are supported for Azure Synapse Analytics data warehouse.  For a list of tasks that can be automated with REST, see [Operations for Azure SQL Database](/rest/api/sql/).
+For other tasks that can be automated with PowerShell, see [Azure SQL Database cmdlets](https://docs.microsoft.com/powershell/module/az.sql). Not all Azure SQL Database cmdlets are supported for Azure Synapse Analytics data warehouse.  For a list of tasks that can be automated with REST, see [Operations for Azure SQL Database](/rest/api/sql/).

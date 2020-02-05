@@ -27,7 +27,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
    If you choose to connect directly to your database, you must create a firewall rule to allow access. This method is the simplest and most secure method.
 
-   If you choose to connect by using an SSH tunnel, Fivetran connects to a separate server on your network. The server provides an SSH tunnel to your database. You must use this method if your database is in an inaccessible subnet on a virtual network.
+   If you choose to connect using an SSH tunnel, Fivetran connects to a separate server on your network. The server provides an SSH tunnel to your database. You must use this method if your database is in an inaccessible subnet on a virtual network.
 
 3. Add the IP address **52.0.2.4** to your server-level firewall to allow incoming connections to your data warehouse instance from Fivetran.
 
@@ -35,16 +35,17 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
 ## Set up user credentials
 
-1. Connect to your data warehouse by using SQL Server Management Studio or the tool that you prefer. Sign in as a server admin user. Then, run the following SQL commands to create a user for Fivetran:
+1. Connect to your data warehouse by using SQL Server Management Studio (SSMS) or the tool that you prefer. Sign in as a server admin user. Then, run the following SQL commands to create a user for Fivetran:
+
     - In the master database: 
     
-      ```
+      ```sql
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
     - In the data warehouse database:
 
-      ```
+      ```sql
       CREATE USER fivetran_user_without_login without login;
       CREATE USER fivetran FOR LOGIN fivetran;
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
@@ -52,7 +53,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
 2. Grant the Fivetran user the following permissions to your data warehouse:
 
-    ```
+    ```sql
     GRANT CONTROL to fivetran;
     ```
 
@@ -62,7 +63,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
     We recommend that you use static resource classes. You can start with the `staticrc20` resource class. The `staticrc20` resource class allocates 200 MB for each user, regardless of the performance level you use. If columnstore indexing fails at the initial resource class level, increase the resource class.
 
-    ```
+    ```sql
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
