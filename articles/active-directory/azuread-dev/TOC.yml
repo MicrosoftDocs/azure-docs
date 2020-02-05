@@ -72,7 +72,7 @@
     displayName: Scopes
     items:
     - name: Types of permissions and consent
-      href: v1-permissions-and-consent.md
+      href: v1-permissions-consent.md
     - name: Consent framework
       href: ../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Application consent experiences
