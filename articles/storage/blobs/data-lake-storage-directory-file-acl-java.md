@@ -273,9 +273,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     fileClient.read(targetStream);
 
     targetStream.close();
-
-    fileClient.flush(file.length());
-        
+      
 }
 
 ```
