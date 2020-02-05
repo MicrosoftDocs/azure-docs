@@ -148,5 +148,5 @@ There are also variants of the members, which aggregate the values over time. Se
 
 ## Next steps
 
-* [Create performance traces](../how-tos/performance-tracing.md)
-* [Configuring the model conversion](../conversion/configure-model-conversion.md)
+* [Create performance traces](../../how-tos/performance-tracing.md)
+* [Configuring the model conversion](../../how-tos/conversion/configure-model-conversion.md)
