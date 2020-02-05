@@ -28467,7 +28467,7 @@
     },
     {
       "source_path": "articles/data-factory/concepts-data-flow-json.md",
-      "redirect_url": "/azure/data-factory/format-json.md",
+      "redirect_url": "/azure/data-factory/format-json",
       "redirect_document_id": true
     },
     {
