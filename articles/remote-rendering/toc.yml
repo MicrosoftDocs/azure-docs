@@ -10,10 +10,10 @@
   href: tutorials/toc.yml
 - name: Samples
   href: samples/toc.yml
-- name: How to
-  href: how-tos/toc.yml
 - name: Concepts
   href: concepts/toc.yml
+- name: How to
+  href: how-tos/toc.yml
 - name: Reference
   href: reference/toc.yml
 - name: Resources

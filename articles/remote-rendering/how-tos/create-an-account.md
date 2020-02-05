@@ -1,5 +1,5 @@
 ---
-title: Creating an account
+title: Create an account
 description: Describes the steps to create an account
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Creating an account for Azure Remote Rendering
+# Create an account for Azure Remote Rendering
 
 This chapter guides you through the steps to create an account for the **Azure Remote Rendering** service. A valid account is mandatory for completing any of the quickstarts or tutorials.
 
