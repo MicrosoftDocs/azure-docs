@@ -1,5 +1,5 @@
 ---
-title: Integrate with a continuous integration and delivery pipeline
+title: Integrate Azure App Configuration using a continuous integration and delivery pipeline
 description: Learn to implement continuous integration and delivery using Azure App Configuration
 services: azure-app-configuration
 author: lisaguthrie
