@@ -4,7 +4,7 @@ description: This article describes some common issues that can occur with an Az
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 02/04/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
