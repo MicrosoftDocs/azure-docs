@@ -185,11 +185,20 @@ The respective memory footprints of the distinct formats are as follows:
 |8_8_8_8_UNSIGNED_NORMALIZED|four-component byte, normalized to 0..1 range|4
 |8_8_8_8_SIGNED_NORMALIZED|four-component byte, normalized to -1..1 range|4
 
+Here are some notes regarding best practices for component format changes:
+* `position` : There are rare cases where reduced floating point accuracy is sufficient. **16_16_16_16_FLOAT** introduces noticeable quantization of the position, even for small models. Position format should always be left to **32_32_32_FLOAT**.
+* `normal`, `tangent`, `binormal` : Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there is no reason to use increased accuracy through format **16_16_16_16_FLOAT**. There are many use cases where these components can be set to **NONE**:
+  * A normal, tangent, and binormal vector is only required when the material is lit. That is, when any material in the mesh is using [PBR material type](../../concepts/materials.md#pbr-material).
+  * tangent and binormal are only needed when any of the lit materials uses a normal map texture.
+  * [Color materials](../../concepts/materials.md#color-material) do not need normals, tangents, or binormals
+  * the mentioned material criteria also apply for materials that are assigned during runtime.
+* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when texture coordinates stay in small range (0..1) and if the textures are not too large. With only 11 bits of mantissa, a 16-bit float component can only address textures up to size 2048 per-pixel accurate. When using the half precision on texture coordinates when not appropriate, the texture mapping might be off.
+
 #### Example
 
 Here is some example how removing components can save memory:
 
-Assume you have a source photogrammetry model with **100M vertices**. The source model provides `position`, `normal`, `tangent`, `binormal`, and `texcoord0`. Using the default format, the memory footprint of a vertex is **32 Bytes**, or **3.2 GB** of memory for all mesh vertices. Photogrammetry typically has the lighting baked into the textures and accordingly does not require dynamic lighting. Accordingly, `normal`, `tangent`, and `binormal` can be removed altogether. Furthermore, if texture coordinates stay in normalized (0..1) range, half precision (`16_16_FLOAT`) might be sufficient. With these optimizations, memory footprint goes down to **16 Bytes** or **1.6 GB** for all vertices.
+Assume you have a source photogrammetry model with **100M vertices**. The source model provides `position`, `normal`, `tangent`, `binormal`, and `texcoord0`. Using the default format, the memory footprint of a vertex is **32 Bytes**, or **3.2 GB** of memory for all mesh vertices. Photogrammetry typically has the lighting baked into the textures and thus does not require dynamic lighting. Accordingly, `normal`, `tangent`, and `binormal` can be removed altogether. Furthermore, if texture coordinates stay in normalized (0..1) range, half precision (`16_16_FLOAT`) might be sufficient. With these optimizations, memory footprint goes down to **16 Bytes** or **1.6 GB** for all vertices.
 
 ## Typical use cases
 
