@@ -265,7 +265,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
-    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **Azure CLI**: When using the [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
 
