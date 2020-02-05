@@ -81,7 +81,7 @@ Parameters:
 
 You can learn more about the `azcmagent' command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
 
-### Windows install script
+### Windows installion script
 
 ```
  # Download the package
