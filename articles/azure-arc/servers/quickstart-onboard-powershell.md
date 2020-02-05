@@ -69,7 +69,9 @@ The values from the following properties are used with parameters passed to the 
 
 ## Install the agent and connect to Azure
 
-Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. You can install the Windows or Linux agent manually or automate using a script template we provide. After the agent is installed on the machine, perform the steps below to connect the agent to Azure Arc using the service principal with the `azcmagent` tool. 
+Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can install the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process. 
+
+
 
 On Windows, open PowerShell as administrator on a target node and run:
 
