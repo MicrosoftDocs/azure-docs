@@ -100,7 +100,7 @@ If your application uses server or application authentication, then request a to
 | Azure environment   | Azure AD token endpoint | Azure resource ID |
 | --------------------|-------------------------|-------------------|
 | Azure public cloud        | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
-| Azure Government    | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` | 
+| Azure Government cloud   | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` | 
 
 For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
