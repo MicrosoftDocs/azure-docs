@@ -57,7 +57,7 @@ To run this sample you will need:
 >    - Leave **Redirect URI** blank for now, and select **Register**.
 > 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
 > 1. Select the **Authentication** from the menu, and then add the following information:
->    - In **Redirect URIs**, add `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/me`.
+>    - In **Redirect URIs**, add `https://localhost:8080/msal4jsample/secure/aad` and `https://localhost:8080/msal4jsample/graph/me`.
 >    - Select **Save**.
 > 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
 >
@@ -71,7 +71,7 @@ To run this sample you will need:
 >
 > For the code sample for this quickstart to work, you need to:
 >
-> 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
+> 1. Add reply URLs as `https://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
 > 1. Create a Client Secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
@@ -94,8 +94,8 @@ To run this sample you will need:
     aad.clientId=Enter_the_Application_Id_here
     aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
     ```
 
 > [!div renderon="docs"]
@@ -105,6 +105,20 @@ To run this sample you will need:
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
 > - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
+ 4. In order to use https with localhost fill in server.ssl.key properties.  
+ Use keytool utility (included in JRE) if you want to generate self-signed certificate.
+
+   ```
+   Example: 
+   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+
+   server.ssl.key-store-type=PKCS12  
+   server.ssl.key-store=classpath:keystore.p12  
+   server.ssl.key-store-password=password  
+   server.ssl.key-alias=testCert 
+   ```
+   Put generated keystore file to "resources" folder.
+
 #### Step 4: Run the code sample
 
 To run the project, you can either:
@@ -113,11 +127,11 @@ Run it directly from your IDE by using the embedded spring boot server or packag
 
 ##### Running from IDE
 
-If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is http://localhost:8080
+If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8080
 
 1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
 
-1. After the user is authenticated, they are redirected to *http://localhost:8080/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
+1. After the user is authenticated, they are redirected to *https://localhost:8080/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
     - *Sign Out*: Signs the current user out of the application and redirects them to the home page.
     - *Show User Info*: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request containing the token, which returns basic information about the signed-in user.
 
