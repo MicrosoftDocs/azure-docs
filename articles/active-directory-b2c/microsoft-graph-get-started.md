@@ -34,6 +34,8 @@ There are two modes of communication you can use when working with the Microsoft
 
 * **Automated** - For scheduled or continuously run tasks, this method uses a service account that you configure with the permissions required to perform management tasks. You create the "service account" in Azure AD B2C by registering an application that your applications and scripts use for authenticating using its *Application (Client) ID* and the OAuth 2.0 client credentials grant. In this case, the application acts as itself to call the Microsoft Graph API, not the administrator user as in the previously described interactive method.
 
+You enable the **Automated** interaction scenario by creating an application registration shown in the following sections.
+
 ## Register management application
 
 Before your scripts and applications can interact with the [Microsoft Graph API][ms-graph-api] to manage Azure AD B2C resources, you need to create an application registration in your Azure AD B2C tenant that grants the required API permissions.
