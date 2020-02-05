@@ -4,6 +4,8 @@
   href: entities.md
 - name: Components
   href: components.md
+- name: Models
+  href: models.md
 - name: Meshes
   href: meshes.md
 - name: Textures
