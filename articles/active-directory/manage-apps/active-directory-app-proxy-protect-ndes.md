@@ -27,7 +27,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 > If you have Enterprise Mobility Suite (EMS) licenses, you are eligible to use this solution.
 > The Azure AD Application Proxy connector only installs on Windows Server 2012 R2 or later. This is also a requirement of the NDES server.
 
-Install and register the Azure AD Application Proxy connector on the NDES server by completing these steps:
+## Install and register the Azure AD Application Proxy connector on the NDES server
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
@@ -88,3 +88,7 @@ Install and register the Azure AD Application Proxy connector on the NDES server
 
    * For Configuration Center, go to the Certificate Registration Point (CRP) and adjust the URL. This URL is what devices call out to and present their challenge.
    * For Intune Cloud Only, also known as Intune Standalone, either edit or create a new SCEP policy and add the new URL.
+
+## Next Steps
+
+With the Azure AD Application Proxy integrated with NDES, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
