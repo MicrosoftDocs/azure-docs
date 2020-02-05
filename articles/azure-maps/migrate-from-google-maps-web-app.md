@@ -13,9 +13,9 @@ ms.custom:
 
 # Migrate a web app from Google Maps
 
-Most web apps, which use Google Maps are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
+Most web apps, which use Google Maps, are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
 
-If migrating an existing web application, check to see if it is using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. If it is and you do not want to use the Azure Maps Web SDK, another option for migrating your application is to continue using the open-source map control and connect it to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+If migrating an existing web application, check to see if it is using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. If your application uses an open-source map control library, and you do not want to use the Azure Maps Web SDK, you can still migrate. In this case, connect your application to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 \| [satellite tiles](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
 - Cesium - A 3D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentation](https://cesiumjs.org/)
@@ -24,7 +24,7 @@ If migrating an existing web application, check to see if it is using an open-so
 
 ## Key features support
 
-The following table lists key API features in the Google Maps V3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
+The table lists key API features in the Google Maps V3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
 
 | Google Maps feature     | Azure Maps Web SDK support |
 |-------------------------|:--------------------------:|
@@ -44,26 +44,25 @@ The following table lists key API features in the Google Maps V3 JavaScript SDK 
 
 ## Notable differences in the web SDKs
 
-The following are some of the key differences between the Google Maps and Azure Maps Web SDKs, to be aware of:
+The following are some key differences between the Google Maps and Azure Maps Web SDKs, to be aware of:
 
-- In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is also available for embedding the Web
-    SDK into apps if preferred. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
-- After creating an instance of the Map class in Azure Maps, your code should wait for the maps `ready` or `load` event to fire before interacting with the map. This order will ensure that all the map resources have been loaded and are ready to be accessed.
-- Both platforms use a similar tiling system for the base maps, however the tiles in Google Maps are 256 pixels in dimension while the tiles in Azure Maps are 512 pixels in dimension. As such, to get the same map view in Azure Maps as Google Maps, a zoom level used in Google Maps needs to be subtracted by one in Azure Maps.
-- Coordinates in Google Maps are referred to as "latitude, longitude", while Azure Maps uses "longitude, latitude". The Azure Maps format is aligned with the standard `[x, y]` which is followed by most GIS platforms.
-- Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [*atlas.data* namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data?view=azure-iot-typescript-latest). There's also the [*atlas.Shape*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class. This class can be used to wrap GeoJSON objects and make them easy to update and maintain in a data bindable way.
-- Coordinates in Azure Maps are defined as Position objects. A coordinate is specified as a number array in the format `[longitude, latitude]`, or specified using new atlas.data.Position(longitude, latitude).
+- In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is available. Embed the Web SDK package into apps. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
+- You first need to create an instance of the Map class in Azure Maps. Wait for the maps `ready` or `load` event to fire before programmatically interacting with the map. This order will ensure that all the map resources have been loaded and are ready to be accessed.
+- Both platforms use a similar tiling system for the base maps. The tiles in Google Maps are 256 pixels in dimension; however, the tiles in Azure Maps are 512 pixels in dimension. To get the same map view in Azure Maps as Google Maps, subtract Google Maps zoom level by the number one in Azure Maps.
+- Coordinates in Google Maps are referred to as "latitude, longitude", while Azure Maps uses "longitude,latitude". The Azure Maps format is aligned with the standard `[x, y]`, which is followed by most GIS platforms.
+- Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [*atlas.data* namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data?view=azure-iot-typescript-latest). There's also the [*atlas.Shape*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class. Use this class to wrap GeoJSON objects, to make it easy to update and maintain the data bindable way.
+- Coordinates in Azure Maps are defined as Position objects. A coordinate is specified as a number array in the format `[longitude,latitude]`. Or, it's specified using new atlas.data.Position(longitude, latitude).
     > [!TIP]
-    > The Position class has a static helper method for importing coordinates that are in "latitude, longitude" format. The [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position?view=azure-iot-typescript-latest) method can often be replaced with the `new google.maps.LatLng` method in Google Maps code.
-- Rather than specifying styling information on each shape that is added to the map, Azure Maps separates styles from the data. Data is stored in data sources is connected to rendering layers. Azure Maps code uses data sources to render the data. This approach provides enhanced performance benefit. Additionally, many layers support data-driven styling where business logic can be added to layer style options. This support changes how individual shapes are rendered within a layer based on properties defined in the shape.
+    > The Position class has a static helper method for importing coordinates that are in "latitude,longitude" format. Often, you can replace the [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position?view=azure-iot-typescript-latest) method with the `new google.maps.LatLng` method in Google Maps code.
+- Azure Maps separates styles from the data. Separating data and styles is more performance efficient than specifying styling information on each shape that's added to the map. Data is stored in data sources is connected to rendering layers. Azure Maps code uses data sources to render the data. This approach provides enhanced performance benefit. Additionally, many layers support data-driven styling where business logic can be added to layer style options. This support changes how individual shapes are rendered within a layer, based on properties defined in the shape.
 
 ## Web SDK side-by-side examples
 
-The following collection has code samples for each platform, each covering common use cases. It is intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](how-to-use-map-control.md).
+This collection has code samples for each platform, each sample covers a common use cases. It is intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](how-to-use-map-control.md).
 
 ### Load a map
 
-Loading a map follows the same set of steps in both SDKs:
+Both SDKs have the same steps to load a map:
 
 - Add a reference to the Map SDK.
 - Add a `div` tag to the body of the page, which will act as a placeholder for the map.
@@ -78,13 +77,13 @@ Loading a map follows the same set of steps in both SDKs:
 - Coordinates in Azure Maps are defined as Position objects, which can be specified as a simple number array in the format `[longitude, latitude]`.
 - The zoom level in Azure Maps is one level lower than the zoom level in Google Maps. This discrepancy is due to the difference in the sizes of tiling system of the two platforms.
 - Azure Maps doesn't add any navigation controls to the map canvas. So, by default, a map doesn't have zoom buttons and map style buttons. There are however controls for adding a map style picker, zoom buttons, compass or rotation control, and a pitch control.
-- An event handler is added in Azure Maps to monitor the `ready` event of the map instance. This event will fire when the map has finished loading the WebGL context and all the needed resources. Add any code you want to run, after the map completes loading, to this event handler.
+- An event handler is added in Azure Maps to monitor the `ready` event of the map instance. This event will fire when the map has finished loading the WebGL context and all the needed resources. Add any code you want to run after the map completes loading, to this event handler.
 
-The examples below show how to load a basic map such that is centered over New York at coordinates (longitude: -73.985, latitude: 40.747) and is at zoom level 12 in Google Maps.
+The basic examples below uses Google Maps to load a map centered over New York at coordinates. The longitude: -73.985, latitude: 40.747, and the map is at zoom level of 12.
 
 **Before: Google Maps**
 
-The following code is an example of how to display a Google Map centered and zoomed over a location.
+Display a Google Map centered and zoomed over a location.
 
 ```html
 <!DOCTYPE html>
@@ -123,7 +122,7 @@ Running this code in a browser will display a map that looks like the following 
 
 **After: Azure Maps**
 
-The following code shows how to load a map with the same view in Azure Maps along with a map style control and zoom buttons.
+Load a map with the same view in Azure Maps along with a map style control and zoom buttons.
 
 ```html
 <!DOCTYPE html>
@@ -180,14 +179,14 @@ Running this code in a browser will display a map that looks like the following 
 
 ![Simple Azure Maps](media/migrate-google-maps-web-app/simple-azure-maps.png)</center>
 
-Detailed documentation on how to set up and use the Azure Maps map control in a web app can be found [here](how-to-use-map-control.md).
+Find detailed documentation on how to set up and use the Azure Maps map control in a web app, by clicking [here](how-to-use-map-control.md).
 
 > [!NOTE]
-> Unlike Google Maps, Azure Maps does not require an initial center and a zoom level to be specified when loading the map. If this information is not provided when loading the map, the map will try to determine which city the user is in and will center and zoom the map there.
+> Unlike Google Maps, Azure Maps does not require an initial center and a zoom level to load the map. If this information is not provided when loading the map, Azure maps will try to determine city of the user. It will center and zoom the map there.
 
 **Additional resources:**
 
-- Azure Maps also provides navigation controls for rotating and pitching the map view as documented [here](map-add-controls.md).
+- Azure Maps also provides navigation controls for rotating and pitching the map view, as documented [here](map-add-controls.md).
 
 ### Localizing the map
 
