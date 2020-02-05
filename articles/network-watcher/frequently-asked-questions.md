@@ -94,7 +94,7 @@ You can check the storage logs after a few minutes, you should see an updated Ti
 
 ### How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?
 
-NSG Flow Logs are compantible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
+NSG Flow Logs are compatible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
 
 
 ### What is the difference between flow logs versions 1 & 2?
