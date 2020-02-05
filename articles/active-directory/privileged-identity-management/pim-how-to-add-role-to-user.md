@@ -56,23 +56,17 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select a role you want to assign and then click **Select**.
 
-    The **Select a member or group** page opens.
-
-1. Select a member or group you want to assign to the role and then select **Select**.
+1. Select a member to whom you want to assign to the role and then select **Select**.
 
     ![Select a member or group pane](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    The Membership settings pane opens.
-
-1. In the **Assignment type** list, select **Eligible** or **Active**.
-
-    ![Memberships settings pane](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
-    Privileged Identity Management for Azure resources provides two distinct assignment types:
+1. In the **Assignment type** list on the **Membership settings** pane, select **Eligible** or **Active**.
 
     - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
+
+    ![Memberships settings pane](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
 1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox.
 
