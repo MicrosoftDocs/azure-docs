@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 5/8/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -69,6 +69,10 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * South Central US
 * Southeast Asia
 * East Asia
+* India Central
+* India South
+* Japan East
+* Japan West
 * North Europe
 * West Europe
 * UK South
