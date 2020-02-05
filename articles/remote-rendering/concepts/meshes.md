@@ -2,21 +2,37 @@
 title: Meshes
 description: Definition of meshes in the scope of Azure Remote Rendering
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/05/2020
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
 # Meshes
 
-Meshes are an immutable shared resource. Meshes own the vertex data associated with a shape in the rendered scene and which materials to be used by default for rendering. The vertex data is not exposed, but can be attached to and moved via a MeshComponent as an opaque grouping.
+## Mesh resource
 
-Meshes cannot be modified at runtime. To change rendering properties, the preferred method is to specify override Material references in a MeshComponent to change which Material to use for rendering each part of the mesh.
+Meshes are an immutable [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management), that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes contain one or multiple *submeshes*. Each submesh references a [material](materials.md) with which it should be rendered by default. To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
 
-A Mesh can be referenced from multiple MeshComponents in 3d space.
+### Mesh resource properties
 
-Meshes store a queryable axis aligned bounding boxes for their vertex data.  The bounds are stored in local space.
+The `Mesh` class properties are:
+
+**Materials:** An array of materials. Each material is used by a different submesh. Multiple entries in the array may reference the same [material](materials.md). This data cannot be modified at runtime.
+
+**Bounds:** A local-space axis-aligned bounding box (AABB) of the mesh vertices.
+
+## MeshComponent
+
+The `MeshComponent` class is used to place an instance of a mesh resource. Each MeshComponent references a single mesh. It may override which materials are used to render each submesh.
+
+### MeshComponent properties
+
+**Mesh:** The mesh resource that is used by this component.
+
+**Materials:** The array of materials specified on the mesh component itself. The array will always have the same length as the *Materials* array on the mesh resource. Materials that shall not be overridden from the mesh default, are set to *null* in this array.
+
+**UsedMaterials:** The array of actually used materials for each submesh. Will be identical to the data in the *Materials* array, for non-null values. Otherwise it contains the value from the *Materials* array in the mesh instance.
+
+## Next steps
+
+* [Materials](materials.md)

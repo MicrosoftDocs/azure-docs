@@ -2,34 +2,37 @@
 title: Textures
 description: Texture resource workflow
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/05/2020
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
 # Textures
 
-Textures are immutable shared resources that can be used in various places in the API. Textures can be encountered in a loaded model when inspecting its meshes and materials or loaded on demand by the user. There are three distinguished types of textures:
+Textures are an immutable [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management). Textures can be loaded from [blob storage](../how-tos/conversion/blob-storage.md) and applied to models directly, as demonstrated in [Tutorial: Changing the environment and materials](../tutorials/unity/changing-environment-and-materials.md). Most commonly, though, textures will be part of a [converted model](../how-tos/conversion/model-conversion.md), where they are referenced by its [materials](materials.md).
 
-* 2D Textures - Mainly used in [materials](../overview/features/materials.md)
-* Cube Maps - Example of use is setting the [sky](../overview/features/sky.md)
-* 3D Textures - Not used at the moment
+## Texture types
+
+Different texture types have different use cases:
+
+* **2D Textures** are mainly used in [materials](../overview/features/materials.md).
+* **Cubemaps** can be used for the [sky](../overview/features/sky.md).
+
+## Supported texture formats
+
+All textures given to ARR have to be in [DDS format](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferably with mipmaps and texture compression. See [the TexConv command-line tool](../resources/tools/tex-conv.md) if you want to automate the conversion process.
 
 ## Loading textures
 
-When loading a texture, the user has to know the type of the texture. If the texture type mismatches, the texture load fails and an error code is returned.
-Loading texture with the same URI twice will return the same texture as it is a [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management).
+When loading a texture, you have to specify its expected type. If the type mismatches, the texture load fails.
+Loading a texture with the same URI twice will return the same texture object, as it is a [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management).
 
 ``` cs
 LoadTextureAsync _async = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-     _async  = session.Actions.LoadTextureAsync(
-        new LoadTextureParams(textureUri, TextureType.Texture2D )).Completed +=
+    _async = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _async.Completed +=
         (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)
@@ -38,18 +41,14 @@ void LoadMyTexture(AzureSession session, string textureUri)
             }
             else
             {
-                Console.WriteLine("Texture loading failed!");
+                System.Console.WriteLine("Texture loading failed!");
             }
             _async = null;
         };
 }
 ```
 
-Texture [URI](../concepts/sdk-concepts.md#built-in-and-external-resources) has to point to a texture in dds format to be loadable by the Remote Rendering Server. Specific content of the dds file is affected by the texture type (2D/CubeMap/3D) and feature that will be using it. For example, the pixel content has to be grayscale for PBR material [roughness maps](../overview/features/materials.md#roughness).
-
-## Using textures
-
-API calls that expect Textures as input will always specify what type of texture is expected.
+The URI may point to a [builtin or external file](../concepts/sdk-concepts.md#built-in-and-external-resources). Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the [roughness map](../overview/features/materials.md#roughness) of a [PBR material](../overview/features/materials.md) must be grayscale.
 
 ## Next steps
 
