@@ -227,3 +227,9 @@ These types of use cases are typically characterized by much detail compacted to
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to default `dynamic`. 
 * Accurate ray casts are typically integral part of the application, so collision meshes must be generated
 * Cutplanes look better with the `opaqueMaterialDefaultSidedness` flag enabled
+
+## Next steps
+
+* [Color materials](../../concepts/materials.md#color-material)
+* [PBR materials](../../concepts/materials.md#pbr-material)
+* [Customized material overrides](override-materials.md)
