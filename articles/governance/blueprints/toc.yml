@@ -52,6 +52,17 @@
     - name: Steps to deploy
       displayName: standards, cis
       href: ./samples/cis-azure-1.1.0/deploy.md
+  - name: DoD Impact Level 4
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL4
+      href: ./samples/DoDIL4/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL4
+      href: ./samples/DoDIL4/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL4
+      href: ./samples/DoDIL4/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview
