@@ -13,16 +13,18 @@ ms.author: ambapat
 
 ---
 
-# How to generate and transfer HSM-protected keys to Azure Key Vault
+# How to generate and transfer HSM-protected keys to Azure Key Vault (preview)
 
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses nCipher nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
 > [!NOTE]
-> This document describes a **new** key import process that supports importing keys from an HSM if the HSM vendor provides a BYOK tool for Key Vault. This feature is currently in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions.
+> This feature is currently in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions.
 
 This functionality is not available for Azure China 21Vianet.
+This import method is only available for [supported HSMs](#supported-hsms). 
+
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  
@@ -53,7 +55,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 |HSM Vendor Name|Supported HSM models|Additional details|
 |---|---|---|
-|Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li><li>SafeNet Luna HSM 5 & 6 family (Key Export variant only)</li>| [Link to Gemalto BYOK tool and documentation](https://safenet.gemalto.com/blah-blah)|
+|Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li><li>SafeNet Luna HSM 5 & 6 family (Key Export variant only)</li>| [SafeNet Luna BYOK tool and documentation](https://safenet.gemalto.com/blah-blah)|
 |nCipher|nShield family of HSMs|[Use legacy BYOK procedure](key-vault-hsm-protected-keys-legacy.md)|
 
 
