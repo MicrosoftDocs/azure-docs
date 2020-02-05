@@ -53,7 +53,7 @@ The following user actions cause automatic group renewal:
 
 Administrators can get a list of automatically renewed groups from the activity audit logs in Azure AD.
 
-![Automatic renewal of groups based on activity](./media/groups-lifecycle/AADAuditLogsAutoRenewGroup.png)
+![Automatic renewal of groups based on activity](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## Roles and permissions
 
