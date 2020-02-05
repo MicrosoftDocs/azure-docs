@@ -1,6 +1,6 @@
 ---
 title: Sample - Enforce tag match pattern 
-description: This sample policy definition requires that resources meet the match pattern for tag value.
+description: This sample policy definition requires that resources meet the match pattern for tag value for a specific date format.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

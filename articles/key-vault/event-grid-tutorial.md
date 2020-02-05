@@ -117,8 +117,6 @@ Create a webhook to trigger your newly created runbook.
 
 Create an Event Grid subscription through the [Azure portal](https://portal.azure.com).
 
-1.  Open the [Azure portal](https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
-
 1.  Go to your key vault and select the **Events** tab. If you can't see it, make sure you're using the [preview version of the portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
     ![Events tab in Azure portal](media/image7.png)
@@ -181,7 +179,7 @@ Verify that your Event Grid subscription is properly configured. This test assum
 
 ### You can't create an event subscription
 
-Reregister Event Grid and the key vault provider in your Azure subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
+Reregister Event Grid and the key vault provider in your Azure subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Next steps
 
@@ -191,8 +189,10 @@ If you've been using a polling-based system to search for status changes of secr
 
 Learn more:
 
+
+- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
+- How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
+- [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
 - [Azure Key Vault overview](key-vault-overview.md)
 - [Azure Event Grid overview](../event-grid/overview.md)
-- [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
-- [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
 - [Azure Automation overview](../automation/index.yml)

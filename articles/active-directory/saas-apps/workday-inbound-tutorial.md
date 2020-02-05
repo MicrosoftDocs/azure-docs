@@ -71,7 +71,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 
 1. The HR team performs worker transactions (Joiners/Movers/Leavers or New Hires/Transfers/Terminations) in Workday HCM
 2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premises Active Directory.
-3. The Azure AD Provisioning Service invokes the on-premises AAD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
+3. The Azure AD Provisioning Service invokes the on-premises Azure AD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
 4. The Azure AD Connect Provisioning Agent uses a service account to add/update AD account data.
 5. The Azure AD Connect / AD Sync engine runs delta sync to pull updates in AD.
 6. The Active Directory updates are synced with Azure Active Directory.
@@ -104,11 +104,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To facilitate provisioning workflows between Workday and Active Directory, Azure AD provides multiple provisioning connector apps that you can add from the Azure AD app gallery:
 
-![AAD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
+![Azure AD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
 
 * **Workday to Active Directory User Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
 
-* **Workday to Azure AD User Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
+* **Workday to Azure AD User Provisioning** - While Azure AD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
 
 * **Workday Writeback** - This app facilitates write-back of user's email addresses from Azure Active Directory to Workday.
 
@@ -232,16 +232,16 @@ A common requirement of all the Workday provisioning connectors is that they req
 
 **To create an integration system user:**
 
-1. Sign into your Workday tenant using an administrator account. In the **Workday Application**, enter create user in the search box, and then click **Create Integration System User**.
+1. Sign in to your Workday tenant using an administrator account. In the **Workday Application**, enter create user in the search box, and then click **Create Integration System User**.
 
-    ![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
+   ![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
   
-* Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
-* Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.
-* Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
+   * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
+   * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.
+   * Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
 
-    ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
+   ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
 
 ### Creating an integration security group
 
@@ -352,20 +352,44 @@ In this step, you'll grant "business process security" policy permissions for th
 
 This section provides steps for user account provisioning from Workday to each Active Directory domain within the scope of your integration.
 
-* [Install and configure on-premises Provisioning Agent(s)](#part-1-install-and-configure-on-premises-provisioning-agents)
-* [Adding the provisioning connector app and creating the connection to Workday](#part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Configure attribute mappings](#part-3-configure-attribute-mappings)
+* [Add the provisioning connector app and download the Provisioning Agent](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Install and configure on-premises Provisioning Agent(s)](#part-2-install-and-configure-on-premises-provisioning-agents)
+* [Configure connectivity to Workday and Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)
+* [Configure attribute mappings](#part-4-configure-attribute-mappings)
 * [Enable and launch user provisioning](#enable-and-launch-user-provisioning)
 
-### Part 1: Install and configure on-premises Provisioning Agent(s)
+### Part 1: Add the provisioning connector app and download the Provisioning Agent
 
-To provision to Active Directory on-premises, an agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
+**To configure Workday to Active Directory provisioning:**
+
+1. Go to <https://portal.azure.com>.
+
+2. In the Azure portal, search for and select **Azure Active Directory**.
+
+3. Select **Enterprise Applications**, then **All Applications**.
+
+4. Select **Add an application**, and select the **All** category.
+
+5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
+
+6. After the app is added and the app details screen is shown, select **Provisioning**.
+
+7. Change the **Provisioning** **Mode** to **Automatic**.
+
+8. Click on the information banner displayed to download the Provisioning Agent. 
+
+   ![Download Agent](./media/workday-inbound-tutorial/pa-download-agent.png "Download Agent Screen")
+
+
+### Part 2: Install and configure on-premises Provisioning Agent(s)
+
+To provision to Active Directory on-premises, the Provisioning agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
 
 > [!TIP]
 > You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > If the server does not have .NET 4.7.1 or higher installed, you can download it from [here](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisioning agent here](https://go.microsoft.com/fwlink/?linkid=847801)** and follow the steps given below to complete the agent configuration.
+Transfer the downloaded agent installer to the server host and follow the steps given below to complete the agent configuration.
 
 1. Sign in to the Windows Server where you want to install the new agent.
 
@@ -416,25 +440,12 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
   
    ![Services](./media/workday-inbound-tutorial/services.png)
 
-### Part 2: Adding the provisioning connector app and creating the connection to Workday
+### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
+In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
 
-**To configure Workday to Active Directory provisioning:**
+1. In the Azure portal, go back to the Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 
-1. Go to <https://portal.azure.com>
-
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
-
-5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**
-
-7. Change the **Provisioning** **Mode** to **Automatic**
-
-8. Complete the **Admin Credentials** section as follows:
+1. Complete the **Admin Credentials** section as follows:
 
    * **Admin Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
 
@@ -454,7 +465,7 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
    * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
 
      > [!NOTE]
-     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
@@ -462,7 +473,7 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize Workday Workers to On Premises Active Directory**
 
-### Part 3: Configure attribute mappings
+### Part 4: Configure attribute mappings
 
 In this section, you will configure how user data flows from Workday to Active Directory.
 
@@ -583,7 +594,7 @@ The following sections describe steps for configuring user provisioning from Wor
 
 1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -591,9 +602,9 @@ The following sections describe steps for configuring user provisioning from Wor
 
 5. Search for **Workday to Azure AD provisioning**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Complete the **Admin Credentials** section as follows:
 
@@ -688,9 +699,9 @@ Follow these instructions to configure writeback of user email addresses and use
 
 **To configure Workday Writeback connector:**
 
-1. Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -698,9 +709,9 @@ Follow these instructions to configure writeback of user email addresses and use
 
 5. Search for **Workday Writeback**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Complete the **Admin Credentials** section as follows:
 
@@ -768,7 +779,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
   * [What is the GA version of the Provisioning Agent?](#what-is-the-ga-version-of-the-provisioning-agent)
   * [How do I know the version of my Provisioning Agent?](#how-do-i-know-the-version-of-my-provisioning-agent)
   * [Does Microsoft automatically push Provisioning Agent updates?](#does-microsoft-automatically-push-provisioning-agent-updates)
-  * [Can I install the Provisioning Agent on the same server running AAD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-aad-connect)
+  * [Can I install the Provisioning Agent on the same server running Azure AD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect)
   * [How do I configure the Provisioning Agent to use a proxy server for outbound HTTP communication?](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)
   * [How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
   * [How do I de-register the domain associated with my Provisioning Agent?](#how-do-i-de-register-the-domain-associated-with-my-provisioning-agent)
@@ -797,7 +808,7 @@ No, sending email notifications after completing provisioning operations is not 
 
 One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user’s AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user’s manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
 
-As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using AAD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
+As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
 
 #### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
 
@@ -858,9 +869,9 @@ When suggesting a new idea, please check to see if someone else has already sugg
 
 Yes, Microsoft automatically updates the provisioning agent. You can disable automatic updates by stopping the Windows service **Microsoft Azure AD Connect Agent Updater**.
 
-#### Can I install the Provisioning Agent on the same server running AAD Connect?
+#### Can I install the Provisioning Agent on the same server running Azure AD Connect?
 
-Yes, you can install the Provisioning Agent on the same server that runs AAD Connect.
+Yes, you can install the Provisioning Agent on the same server that runs Azure AD Connect.
 
 #### At the time of configuration the Provisioning Agent prompts for Azure AD admin credentials. Does the Agent store the credentials locally on the server?
 
@@ -910,7 +921,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* From the list of agents that appear – copy the value of the "id" field from that resource whose *resourceName* equals to your AD domain name.
+* From the list of agents that appear – copy the value of the `id` field from that resource whose *resourceName* equals to your AD domain name.
 * Paste the ID value into this command and execute the command in PowerShell.
 
   ```powershell
@@ -1198,7 +1209,7 @@ This section covers commonly seen errors with Workday user provisioning and how 
 |#|Error Scenario |Probable Causes|Recommended Resolution|
 |--|---|---|---|
 |1.| Error installing the provisioning agent with error message:  *Service 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) failed to start. Verify that you have sufficient privileges to start the system.* | This error usually shows up if you are trying to install the provisioning agent on a domain controller and group policy prevents the service from starting.  It is also seen if you have a previous version of the agent running and  you have not uninstalled it before starting a new installation.| Install the provisioning agent on a non-DC server. Ensure that previous versions of the agent are uninstalled before installing the new agent.|
-|2.| The Windows Service 'Microsoft Azure AD Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the **Log On** account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Azure AD Connect Provisioning Agent' and in the Log On tab specify the account of a domain administrator to run the service. Restart the service. |
+|2.| The Windows Service 'Microsoft Azure AD Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the logon account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Azure AD Connect Provisioning Agent' and in the logon tab specify the account of a domain administrator to run the service. Restart the service. |
 |3.| When configuring the provisioning agent with your AD domain in the step *Connect Active Directory*, the wizard takes a long time trying to load the AD schema and eventually times out. | This error usually shows up if the wizard is unable to contact the AD domain controller server due to firewall issues. | On the *Connect Active Directory* wizard screen, while providing the credentials for your AD domain, there is an option called *Select domain controller priority*. Use this option to select a domain controller that is in the same site as the agent server and ensure that there are no firewall rules blocking the communication. |
 
 #### Connectivity errors

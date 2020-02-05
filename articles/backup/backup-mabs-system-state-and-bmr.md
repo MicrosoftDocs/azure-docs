@@ -1,13 +1,8 @@
 ---
-title: Protect system state & bare metal restore - Azure Backup Server 
+title: System state and bare metal recovery protection
 description: Use Azure Backup Server to back up your system state and provide bare metal recovery (BMR) protection.
-author: dcurwin
-manager: carmonm
-keywords: 
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dacurwin
 ---
 
 # Back up system state and restore to bare metal with Azure Backup Server
@@ -140,7 +135,7 @@ Set up a protection group as described in [Deploy protection groups](https://doc
 
 12. On the **Specify Online Retention Policy** page, select how the recovery points that are created from the daily, weekly, monthly, and yearly backups are retained in Azure.
 
-13. On the **Choose Online Replication** page, select how the initial full replication of data occurs. You can replicate over the network or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. For more information, see [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+13. On the **Choose Online Replication** page, select how the initial full replication of data occurs. You can replicate over the network or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. For more information, see [Offline backup workflow in Azure Backup](offline-backup-azure-data-box.md).
 
 14. On the  **Summary** page, review your settings. After you select **Create Group**, initial replication of the data occurs. When data replication finishes, on the **Status** page, the protection group status is **OK**. Backup then takes place per the protection group settings.
 

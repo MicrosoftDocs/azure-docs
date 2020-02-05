@@ -1,12 +1,12 @@
 ---
 title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
-ms.service:  azure-monitor
+ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 11/12/2019
+ms.date: 12/04/2019
 
 ms.reviewer: carlrab
 ---
@@ -47,7 +47,7 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 | Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. | Yes | Yes |
 | Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. | Yes | No |
 | Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. | Yes | No |
-| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |Yes | Yes |
+| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |Yes | No |
 | Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
 | Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 

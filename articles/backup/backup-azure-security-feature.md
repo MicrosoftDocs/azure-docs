@@ -1,13 +1,9 @@
 ---
-title: Security features that protect hybrid backups using Azure Backup
+title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 

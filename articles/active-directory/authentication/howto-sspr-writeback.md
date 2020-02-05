@@ -1,15 +1,15 @@
 ---
-title: How-to configure password writeback for Azure AD SSPR - Azure Active Directory
+title: Configure password writeback for SSPR - Azure Active Directory
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 

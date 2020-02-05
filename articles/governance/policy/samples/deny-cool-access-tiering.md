@@ -1,6 +1,6 @@
 ---
 title: Sample - No cool access tiering on storage account
-description: This sample policy definition prohibits the use of cool access tiering for blob storage accounts.
+description: This sample policy definition prohibits the use of cool access tiering for all blob storage accounts.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

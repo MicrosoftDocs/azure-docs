@@ -1,5 +1,5 @@
 ---
-title: Azure Services that support managed identities for Azure resources
+title: Azure Services that support managed identities - Azure AD
 description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
 author: MarkusVi
@@ -102,7 +102,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
-- [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal-system-logic-app)
+- [Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity)
 
 ### Azure Data Factory V2
@@ -153,6 +153,17 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+
+### Azure Service Fabric
+[Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| System assigned | Available | Not Available | Not Available | not Available |
+| User assigned | Available | Not Available | Not Available |Not Available |
+
+Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+- [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## Azure services that support Azure AD authentication
 

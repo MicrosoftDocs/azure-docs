@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Launch an application using Maven - Azure Spring Cloud"
-description: Launch a sample application using Maven
-author: jpconnock
+title: "Quickstart - Launch an application using Maven with Azure Spring Cloud"
+description: In this quickstart, launch a sample application using Maven
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 
@@ -23,7 +23,7 @@ Following this quickstart, you will learn how to:
 > * Assign a public endpoint for your application
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 
 >[!TIP]
@@ -34,22 +34,11 @@ To complete this quickstart:
 1. [Install Git](https://git-scm.com/).
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).
-4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-5. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
-
-## Install the Azure CLI extension
-
-Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
-
-```Azure CLI
-az extension add --name spring-cloud
-```
+4. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
 
 ## Provision a service instance on the Azure portal
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform), and sign in to your account.
-
-1. Select **Create** on the **Overview** page to open the creation dialog.
 
 1. Provide the **Project Details** for the sample application as follows:
 
@@ -64,6 +53,9 @@ az extension add --name spring-cloud
 
 It takes about 5 minutes for the service to be deployed. After the service is deployed, select **Go to resource** and the **Overview** page for the service instance appears.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## Set up your configuration server
 
 1. On the service **Overview** page, select **Config Server**.
@@ -71,6 +63,9 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
     > [!div class="mx-imgBorder"]
     > ![Define and apply config settings](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## Clone and build the sample application repository
 
@@ -113,6 +108,9 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
+
 ## Next steps
 
 In this quickstart, you've deployed a Spring Cloud application from a Maven repository. To learn more about Azure Spring Cloud, continue to the tutorial about preparing your app for deployment.
@@ -120,3 +118,5 @@ In this quickstart, you've deployed a Spring Cloud application from a Maven repo
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
 > [Learn more about Maven plug-ins for Azure](https://github.com/microsoft/azure-maven-plugin)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

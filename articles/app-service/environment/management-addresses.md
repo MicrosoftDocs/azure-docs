@@ -1,15 +1,9 @@
 ---
-title: App Service Environment management addresses - Azure
-description: Lists the management addresses used to command an App Service Environment 
-services: app-service
-documentationcenter: na
+title: Management addresses
+description: Find the management addresses used to control an App Service Environment. Configured them in a route table to avoid asymmetric routing problems.
 author: ccompy
-manager: stefsch
 
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: ccompy

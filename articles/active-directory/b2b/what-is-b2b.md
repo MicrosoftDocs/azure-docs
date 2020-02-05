@@ -1,12 +1,12 @@
 ---
-title: What is Azure Active Directory B2B collaboration? - Azure Active Directory | Microsoft Docs
+title: What is B2B collaboration in Azure Active Directory?
 description: Azure Active Directory B2B collaboration supports guest user access so you can securely share resources and collaborate with external partners.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 09/14/2018
+ms.date: 01/23/2020
 
 ms.author: mimart
 author: msmimart
@@ -58,7 +58,7 @@ As an administrator, you can easily add guest users to your organization in the 
 - The guest user immediately receives a customizable invitation that lets them sign in to their Access Panel.
 - Guest users in the directory can be assigned to apps or groups.  
 
-![Screenshot showing the New Guest User invitation entry page](media/what-is-b2b/adding-b2b-users-admin.png)
+![Screenshot showing the New Guest User invitation entry page](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 ## Let application and group owners manage their own guest users
 

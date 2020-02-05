@@ -83,7 +83,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13.	Select the **BROKENSYSTEM** key and then select **File** > **Load Hive** from the menu.
+13.	Select the **BROKENSYSTEM** key and then select **File** > **Unload Hive** from the menu.
 
 14.	Detach the OS disk from the troubleshooting VM.
 

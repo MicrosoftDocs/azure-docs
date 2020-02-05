@@ -301,7 +301,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | **IoT Services**                 |                    |                    |                    |
 | IoT Hub                          | Yes                | -                  | Yes                |
 | **Management and Governance**    |                    |                    |                    |
-| Azure Site Recovery              | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure Site Recovery              | Yes                | -                  | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | -                  | Yes                |
 | **Storage**                      |                    |                    |                    |

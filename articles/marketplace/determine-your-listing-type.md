@@ -3,7 +3,7 @@ title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 
 
@@ -43,7 +43,7 @@ Before you select a publishing option, it's important to understand the storefro
 
 ## Understand storefront selection
 
-The storefront where your offer will be presented, Azure Marketplace and/or AppSource, will be automatically determined by your offer details and target audience, as well as the categories and industries selected by you when creating your offer. 
+Each storefront serves unique customer requirements. The storefront where your offer will be published will be determined by offer type, offer transact capabilities and category and/or industry selection to target a specific audience. 
 
 >[!Note]
 >"Cross-listing" (for SaaS Apps only): when a list or trial-based offer meets the criteria for both a technical and business user audience, your offer will be listed in both storefronts. Learn more about the publishing options below.

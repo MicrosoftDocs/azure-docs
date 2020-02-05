@@ -70,10 +70,6 @@ You can point your cluster to a previously created Azure SQL Database during clu
 
 ![HDInsight Hive Metadata Store Azure portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 
-You can also add additional clusters to a custom metastore from Azure portal or from Ambari configurations (Hive > Advanced)
-
-![HDInsight Hive Metadata Store Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
-
 ## Hive metastore best practices
 
 Here are some general HDInsight Hive metastore best practices:

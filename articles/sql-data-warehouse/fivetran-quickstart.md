@@ -66,7 +66,7 @@ This quickstart describes how to set up a new Fivetran user to work with Azure S
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    For more information, read about [memory and concurrency limits]memory-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    For more information, read about [memory and concurrency limits](memory-concurrency-limits.md) and [resource classes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## Sign in to Fivetran
@@ -76,5 +76,5 @@ To sign in to Fivetran, enter the credentials that you use to access SQL Data Wa
 * Host (your server name).
 * Port.
 * Database.
-* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
+* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: **_server\_name_.database.windows.net**).
 * Password.

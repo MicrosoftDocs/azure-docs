@@ -53,8 +53,6 @@
     items:
     - name: Authorization
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Storage security
-      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure Storage encryption
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure AD authentication over SMB
@@ -141,6 +139,8 @@
       href: storage-sync-offline-data-transfer.md
     - name: Move data to and from Azure Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Migrate to Azure File Sync from StorSimple
+      href: storage-sync-files-storsimple-migration.md
     - name: Move data with AzCopy
       items:
         - name: Get started
@@ -149,6 +149,8 @@
           href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configure, optimize, troubleshoot
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Transfer data with the Data Movement library
+          href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Develop
     items:
     - name: Configure connection strings
@@ -183,6 +185,8 @@
       href: storage-sync-files-troubleshoot.md
     - name: Troubleshoot Deleting Azure Files
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+    - name: Recover a deleted storage account
+      href: storage-how-to-recover-deleted-account.md
 - name: Reference
   items:
   - name: Azure PowerShell

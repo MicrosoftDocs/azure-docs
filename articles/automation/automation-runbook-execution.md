@@ -2,13 +2,9 @@
 title: Runbook execution in Azure Automation
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Runbook execution in Azure Automation
 
@@ -31,11 +27,11 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 |Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Optimal performance to manage azure resources|Azure Sandbox|Script is run in the same environment, which in turn has less latency|
 |Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
-|Long running script|Hybrid Runbook Worker|Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
+|Long running script|Hybrid Runbook Worker|Azure sandboxes have [limitation on resources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Interact with Local services|Hybrid Runbook Worker|Can have access directly to host machine|
 |Require 3rd party software and executables|Hybrid Runbook Worker|You manage the OS and can install software|
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
-|Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
+|Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Using modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> **WinSCP** - dependency on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
 |Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be copiable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
@@ -69,7 +65,7 @@ else
     }
 ```
 
-### Time dependant scripts
+### Time dependent scripts
 
 Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are run only during specific times.
 
@@ -314,7 +310,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
 
-For long running tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks run on them should be developed to support restart behaviors from unexpected local infrastructure issues.
+For long running tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks run on them should be developed to support restart behaviors from unexpected local infrastructure issues.
 
 Another option is to optimize the runbook by using child runbooks. If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a [child runbook](automation-child-runbooks.md) and call it with the [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete. You can use the [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in your runbook to check the job status for each child if there are operations that perform after the child runbook completes.
 

@@ -1,12 +1,9 @@
 ---
-title: Examples & common scenarios - Azure Logic Apps
+title: Examples & common scenarios
 description: Find examples, common scenarios, tutorials, and walkthroughs for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
 ---
@@ -74,15 +71,15 @@ and [switch statements](../logic-apps/logic-apps-control-flow-switch-statement.m
 * [Group actions together with scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Author error and exception handling in a workflow](../logic-apps/logic-apps-exception-handling.md)
 * [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Turn on monitoring and diagnostics logging when creating logic apps](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
+* [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/monitor-logic-apps.md)
+* [Turn on monitoring and diagnostics logging when creating logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)
 
 ## Deploy and manage logic apps
 
 You can fully develop and deploy logic apps with Visual Studio, Azure DevOps, or any other source control and automated build tools. To support deployment for workflows and dependent connections in a resource template, logic apps use Azure resource deployment templates. Visual Studio tools automatically generate these templates, which you can check in to source control for versioning.
 
 * [Create and deploy logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
-* [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/monitor-logic-apps.md)
 * [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Sample: Connect to Azure Service Bus queues from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)

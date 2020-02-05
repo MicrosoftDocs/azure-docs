@@ -1,14 +1,11 @@
 ---
-title: Install on-premises data gateway - Azure Logic Apps
+title: Install on-premises data gateway
 description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ---
 
 # Install on-premises data gateway for Azure Logic Apps
@@ -73,7 +70,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
 * **Related considerations**
 
-  * You can install the on-premises data gateway only on a local computer, not a domain controller. However, you don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
+  * Install the on-premises data gateway only on a local computer, not a domain controller. You don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
 
     > [!TIP]
     > To minimize latency, you can install the gateway as close 
@@ -86,6 +83,8 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
 
+  * If you're updating your gateway installation to the latest version, uninstall your current gateway first for a cleaner experience.
+
   * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
 
   * Azure Logic Apps supports read and write operations through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
@@ -95,14 +94,6 @@ This article shows how to download, install, and set up your on-premises data ga
 ## Install data gateway
 
 1. [Download and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
-
-1. After the installer opens, select **Next**.
-
-   ![Intro screen for gateway installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Select **On-premises data gateway (recommended)**, which is standard mode, and then select **Next**.
-
-   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
 

@@ -5,7 +5,6 @@
   - name: About Virtual Network
     href: virtual-networks-overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create virtual network - Portal
     href: quick-create-portal.md
@@ -13,6 +12,7 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Filter network traffic
@@ -39,7 +39,7 @@
     href: security-overview.md
   - name: Routing
     href: virtual-networks-udr-overview.md
-  - name: Service tags 
+  - name: Service tags
     href: service-tags-overview.md
   - name: Service endpoints
     href: virtual-network-service-endpoints-overview.md
@@ -67,8 +67,10 @@
     href: ipv6-public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
-  - name: Subnet extension 
+  - name: Subnet extension
     href: subnet-extension.md
+  - name: Subnet delegation
+    href: subnet-delegation-overview.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -81,12 +83,8 @@
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: Cross-network connectivity
     href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-  - name: Classic
-    items:
-    - name: IP addressing
-      href: virtual-network-ip-addresses-overview-classic.md
-    - name: Access control lists
-      href: virtual-networks-acl.md
+  - name: Classic deployment
+    href: https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides
   items:
   - name: Plan
@@ -100,7 +98,7 @@
     - name: IPv6 for VNet
       items:
       - name: Basic Public Load Balancer
-        items:  
+        items:
         - name: Azure PowerShell
           href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
         - name: Azure CLI
@@ -114,7 +112,7 @@
         - name: Azure CLI
           href: ipv6-add-to-existing-vnet-cli.md
       - name: Standard Public Load Balancer
-        items: 
+        items:
         - name: Azure PowerShell
           href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
         - name: Azure CLI
@@ -124,7 +122,7 @@
       - name: Standard Internal Load Balancer
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
       - name: Virtual machine scale set with IPv6
-        href: ipv6-virtual-machine-scale-set.md    
+        href: ipv6-virtual-machine-scale-set.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
@@ -180,6 +178,8 @@
           href: virtual-network-deploy-static-pip-arm-cli.md
       - name: Add public IP address to existing VM
         href: associate-public-ip-address-vm.md
+      - name: Dissociate public IP address from a VM
+        href: remove-public-ip-address-vm.md
       - name: Create VM - Static private IP address
         items:
         - name: Azure portal
@@ -254,6 +254,8 @@
         href: virtual-network-manage-peering.md
       - name: DDoS protection
         href: manage-ddos-protection.md
+      - name: Onboard partners to DDoS Protection Standard
+        href: ddos-protection-partner-onboarding.md  
     - name: Network security groups
       href: manage-network-security-group.md
       items:
@@ -274,7 +276,7 @@
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
     - name: Public IPv6 address prefix
-      href: ipv6-reserve-public-ip-address-prefix.md    
+      href: ipv6-reserve-public-ip-address-prefix.md
   - name: Move across regions
     items:
     - name: Network security groups - Portal
@@ -317,74 +319,8 @@
       href: what-is-ip-address-168-63-129-16.md
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
-  - name: Classic
-    items:
-    - name: Create and manage a virtual network
-      items:
-      - name: Create a virtual network
-        href: create-virtual-network-classic.md
-        items:
-        - name: Azure portal
-          href: virtual-networks-create-vnet-classic-pportal.md
-        - name: Azure PowerShell
-          href: virtual-networks-create-vnet-classic-netcfg-ps.md
-        - name: Azure CLI
-          href: virtual-networks-create-vnet-classic-cli.md
-      - name: Specify DNS settings in a virtual network configuration file
-        href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
-      - name: Specify DNS settings in a service configuration file
-        href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
-      - name: Manage
-        items:
-        - name: Network configuration file
-          href: virtual-networks-using-network-configuration-file.md
-        - name: Migrate from an affinity group to a region
-          href: virtual-networks-migrate-to-regional-vnet.md
-    - name: Create a network security group
-      items:
-      - name: Azure PowerShell
-        href: virtual-networks-create-nsg-classic-ps.md
-      - name: Azure classic CLI
-        href: virtual-networks-create-nsg-classic-cli.md
-    - name: Create a route table
-      items:
-      - name: Azure PowerShell
-        href: virtual-network-create-udr-classic-ps.md
-      - name: Azure CLI
-        href: virtual-network-create-udr-classic-cli.md
-    - name: Virtual machine networking
-      items:
-      - name: Create VM - Multiple network interfaces
-        items:
-        - name: Azure PowerShell
-          href: virtual-network-deploy-multinic-classic-ps.md
-        - name: Azure CLI
-          href: virtual-network-deploy-multinic-classic-cli.md
-      - name: Create VM - Static private IP address
-        href: virtual-networks-reserved-public-ip.md
-      - name: Manage
-        items:
-        - name: Static IP addresses
-          items:
-          - name: Azure PowerShell
-            href: virtual-networks-reserved-private-ip.md
-          - name: Azure CLI
-            href: virtual-networks-static-private-ip-classic-cli.md
-        - name: Instance level public IP address
-          href: virtual-networks-instance-level-public-ip.md
-        - name: Access control lists
-          items:
-          - name: Azure portal
-            href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-          - name: Azure PowerShell
-            href: virtual-networks-acl-powershell.md
-        - name: Move VM to a different subnet
-          href: virtual-networks-move-vm-role-to-subnet.md
-    - name: Cloud service and network security
-      href: https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter
-      items:
-      - name: Sample application
-        href: virtual-networks-sample-app.md
+  - name: Classic deployment
+    href: https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Reference
   items:
   - name: Azure CLI

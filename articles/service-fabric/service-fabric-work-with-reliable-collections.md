@@ -1,20 +1,9 @@
 ---
-title: Working with Reliable Collections | Microsoft Docs
-description: Learn the best practices for working with Reliable Collections.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
+title: Working with Reliable Collections 
+description: Learn the best practices for working with Reliable Collections within an Azure Service Fabric application.
 
-ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/22/2019
-ms.author: atsenthi
 ---
 
 # Working with Reliable Collections

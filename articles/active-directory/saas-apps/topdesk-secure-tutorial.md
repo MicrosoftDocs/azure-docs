@@ -269,7 +269,7 @@ In the case of TOPdesk - Secure, provisioning is a manual task.
     e. Click **Save**.
 
 > [!NOTE]
-> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision AAD user accounts.
+> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

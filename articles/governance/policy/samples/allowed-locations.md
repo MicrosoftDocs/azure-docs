@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed locations
-description: This sample policy definition requires that all resources are deployed to the approved locations.
+description: This sample policy definition requires that all resources are deployed to the approved locations defined in a parameter.
 ms.date: 01/26/2019
 ms.topic: sample
 ---

@@ -42,6 +42,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
 
 * Atlassian Cloud supports **SP and IDP** initiated SSO
+* Atlassian Cloud supports [Automatic user provisioning and deprovisioning](atlassian-cloud-provisioning-tutorial.md)
 
 ## Adding Atlassian Cloud from the gallery
 

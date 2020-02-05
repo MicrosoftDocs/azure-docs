@@ -3,10 +3,6 @@ title: Tutorial - Configure queues in Azure Service Bus using Ansible
 description: Learn how to use Ansible to create an Azure Service Bus queue
 keywords: ansible, azure, devops, bash, playbook, service bus, queue
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 
@@ -89,7 +85,7 @@ Save the following playbook as `servicebus_queue_policy.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -192,7 +188,7 @@ Save the following playbook as `servicebus_queue_policy_delete.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"

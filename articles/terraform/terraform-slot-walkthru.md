@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Provision infrastructure with Azure deployment slots using Terraform
 description: Tutorial about using Terraform with Azure provider deployment slots
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
 ---

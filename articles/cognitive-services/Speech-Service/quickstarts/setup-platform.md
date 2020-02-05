@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
 ---
@@ -17,9 +17,9 @@ zone_pivot_groups: programming-languages-set-three
 
 ::: zone pivot="programming-language-csharp"
 **Choose your target environment**
-#### [.Net](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 [!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
-#### [.Net Core](#tab/dotnetcore)
+#### [.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](../includes/quickstarts/platform/csharp-dotnetcore-windows.md)]
 #### [Unity](#tab/unity)
 [!INCLUDE [unity](../includes/quickstarts/platform/csharp-unity.md)]
@@ -35,7 +35,7 @@ zone_pivot_groups: programming-languages-set-three
 **Choose your target environment**
 #### [Linux](#tab/linux)
 [!INCLUDE [linux](../includes/quickstarts/platform/cpp-linux.md)]
-#### [MacOS](#tab/macos)
+#### [macOS](#tab/macos)
 [!INCLUDE [macos](../includes/quickstarts/platform/cpp-macos.md)]
 #### [Windows](#tab/windows)
 [!INCLUDE [windows](../includes/quickstarts/platform/cpp-windows.md)]

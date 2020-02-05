@@ -4,12 +4,12 @@ description: 'Learn about how to add fault tolerance to copy activity in Azure D
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 10/26/2018
@@ -35,7 +35,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
 
 - **Mismatch in the number of columns between the source and the sink**.
 
-    For example: Copy data from a CSV file in Blob storage to a SQL database with a schema definition that contains six columns. The CSV file rows that contain six columns are copied successfully to the sink store. The CSV file rows that contain more or fewer than six columns are detected as incompatible and are skipped.
+    For example: Copy data from a CSV file in Blob storage to a SQL database with a schema definition that contains six columns. The CSV file rows that contain six columns are copied successfully to the sink store. The CSV file rows that contain more than six columns are detected as incompatible and are skipped.
 
 - **Primary key violation when writing to SQL Server/Azure SQL Database/Azure Cosmos DB**.
 

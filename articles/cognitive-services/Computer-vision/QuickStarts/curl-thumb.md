@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and cURL
 
-In this quickstart, you generate a thumbnail from an image using Computer Vision's REST API. You specify the desired height and width, which can differ in aspect ration from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates around that region.
+In this quickstart, you generate a thumbnail from an image using the Computer Vision REST API. You specify the desired height and width, which can differ in aspect ration from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates around that region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 

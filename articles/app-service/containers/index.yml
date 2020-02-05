@@ -2,18 +2,10 @@
 documentType: LandingData
 title: App Service on Linux Documentation
 metadata:
-  document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: Azure Web App for Containers Documentation - Tutorials, API Reference
-  meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
-  services: app-service
-  author: syntaxc4
-  manager: carolz
-  ms.service: app-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Linux containers - Tutorials, Reference
+  meta.description: Learn how to build Linux websites and web applications in App Service. Run your code in a default Docker container or run a custom container.
   ms.topic: landing-page
   ms.date: 09/05/2017
-  ms.author: cfowler
 sections:
 - title: 5-Minute Quickstarts
   items:

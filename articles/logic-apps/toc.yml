@@ -103,6 +103,22 @@
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
+  - name: Access Azure virtual networks
+    items: 
+      - name: Connect to virtual networks with integration service environments
+        href: connect-virtual-network-vnet-isolated-environment.md
+      - name: Set up access for multiple integration service environments
+        href: connect-virtual-network-vnet-set-up-single-ip-address.md
+      - name: Add artifacts to integration service environments
+        href: add-artifacts-integration-service-environment-ise.md
+      - name: Set up customer-managed encryption keys for integration service environments
+        href: customer-managed-keys-integration-service-environment.md
+  - name: Access on-premises data
+    items: 
+      - name: Install data gateway
+        href: logic-apps-gateway-install.md
+      - name: Connect to on-premises data
+        href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
     items: 
       - name: Create integration account
@@ -159,22 +175,14 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
-  - name: Connect to virtual networks with isolated environments
-    href: connect-virtual-network-vnet-isolated-environment.md
-  - name: Add artifacts to integration service environments
-    href: add-artifacts-integration-service-environment-ise.md  
-  - name: Access on-premises data
-    items: 
-      - name: Install data gateway
-        href: logic-apps-gateway-install.md
-      - name: Connect to on-premises data
-        href: logic-apps-gateway-connection.md
   - name: Connectors - In-depth topics
     items: 
       - name: AS2
         href: logic-apps-enterprise-integration-as2.md
       - name: Azure Blob Storage
         href: ../connectors/connectors-create-api-azureblobstorage.md
+      - name: Azure Container Instances
+        href: ../connectors/connectors-create-api-container-instances.md
       - name: Azure Event Hubs
         href: ../connectors/connectors-create-api-azure-event-hubs.md      
       - name: Azure Functions
@@ -322,16 +330,13 @@
   - name: Monitor
     items: 
       - name: Monitor logic apps
-        href: logic-apps-monitor-your-logic-apps.md
+        href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
-        href: logic-apps-monitor-your-logic-apps-oms.md
+        href: monitor-logic-apps-log-analytics.md
       - name: Monitor B2B messages with Azure Monitor logs
-        href: logic-apps-monitor-b2b-message.md
-        items:
-        - name: Track B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Create queries for B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+        href: monitor-b2b-messages-log-analytics.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 

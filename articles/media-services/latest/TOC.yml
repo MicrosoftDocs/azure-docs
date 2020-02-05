@@ -77,7 +77,7 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: cae-experimental.md          
+      href: content-aware-encoding.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
@@ -90,7 +90,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest      
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
@@ -164,7 +164,7 @@
     items:
     - name: Overview
       href: media-services-apis-overview.md
-      displayName: accessing, long-running, invalid character, name, naming, file name
+      displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC

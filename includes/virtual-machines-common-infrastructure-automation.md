@@ -65,7 +65,7 @@ DSC configurations define what to install on a machine and how to configure the 
 
 Learn how to:
 
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
+- [Create a basic DSC configuration](/powershell/scripting/dsc/quickstarts/website-quickstart).
 - [Configure a DSC pull server](/powershell/scripting/dsc/pull-server/pullserver).
 - [Use DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 

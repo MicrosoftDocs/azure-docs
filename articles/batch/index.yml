@@ -8,8 +8,8 @@ metadata:
   services: batch
   ms.service: batch 
   ms.topic: landing-page 
-  author: laurenhughes 
-  ms.author: lahugh 
+  author: LauraBrenner 
+  ms.author: labrenne 
   ms.date: 09/23/2019 
 
 landingContent:
@@ -76,6 +76,8 @@ landingContent:
             url: batch-pool-vm-sizes.md
           - text: Quotas and limits
             url: batch-quota-limit.md
+          - text: Best practices
+            url: best-practices.md
 
   - title: API reference
     linkLists:

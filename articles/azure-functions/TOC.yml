@@ -13,26 +13,25 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - C#
-    href: functions-create-your-first-function-visual-studio.md
-  - name: Create function - Java
-    href: functions-create-first-java-maven.md
-  - name: Create function - JavaScript
-    href: functions-create-first-function-vs-code.md
-  - name: Create function - PowerShell
-    href: functions-create-first-function-powershell.md
-  - name: Create function - Python
-    href: functions-create-first-function-python.md
-  - name: Connect to services
+  - name: Create function
+    expanded: true
+    items:   
+    - name: Visual Studio Code
+      href: /azure/azure-functions/functions-create-first-function-vs-code
+    - name: Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Command line
+      href: functions-create-first-azure-function-azure-cli.md
+    - name: Maven (Java)
+      href: functions-create-first-java-maven.md
+  - name: Connect to storage
     items:
-    - name: Storage - C#
-      href: functions-add-output-binding-storage-queue-vs.md
-    - name: Storage - Java
-      href: functions-add-output-binding-storage-queue-java.md
-    - name: Storage - JavaScript
+    - name: Visual Studio Code
       href: functions-add-output-binding-storage-queue-vs-code.md
-    - name: Storage - Python
-      href: functions-add-output-binding-storage-queue-python.md
+    - name: Visual Studio
+      href: functions-add-output-binding-storage-queue-vs.md
+    - name: Maven (Java)
+      href: functions-add-output-binding-storage-queue-java.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -131,14 +130,15 @@
   - name: Performance considerations
     href: functions-best-practices.md 
     displayName: best practice
+  - name: Storage considerations
+    href: storage-considerations.md
+    displayName: encryption, keys
   - name: Functions Proxies
     href: functions-proxies.md 
   - name: Networking options
     href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md 
-  - name: Functions in Kubernetes
-    href: functions-kubernetes-keda.md 
 - name: How-to guides
   items:
   - name: Develop
@@ -162,7 +162,7 @@
         - name: Azure portal
           href: functions-create-first-azure-function.md
         - name: Command line
-          href: functions-create-first-azure-function-azure-cli.md
+          href: create-cli.md
         - name: Visual Studio
           href: create-visual-studio.md  
         - name: Visual Studio Code
@@ -228,6 +228,9 @@
       href: deployment-zip-push.md
     - name: Run from package
       href: run-functions-from-deployment-package.md
+    - name: Functions in Kubernetes
+      href: functions-kubernetes-keda.md 
+      displayName: keda
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
@@ -361,6 +364,8 @@
       href: functions-bindings-timer.md
     - name: Twilio
       href: functions-bindings-twilio.md    
+    - name: Warmup
+      href: functions-bindings-warmup.md
   - name: host.json 2.x reference
     href: functions-host-json.md      
   - name: host.json 1.x reference

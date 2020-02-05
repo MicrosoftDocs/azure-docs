@@ -1,9 +1,9 @@
 ---
-title: "Azure Batch task fail event | Microsoft Docs"
-description: Reference for Batch task fail event.
+title: Azure Batch task fail event
+description: Reference for Batch task fail event. This event will be emitted in addition to a task complete event and can be used to detect when a task has failed.
 services: batch
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 
 ms.assetid: 
 ms.service: batch
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: lahugh
+ms.author: labrenne
 ---
 
 # Task fail event

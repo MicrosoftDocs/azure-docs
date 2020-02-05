@@ -88,7 +88,7 @@ conceptualContent:
       links:
         - url: ./speech-service/index.md
           itemType: overview
-          text: Speech Services
+          text: Speech service
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
@@ -113,34 +113,37 @@ conceptualContent:
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links:
-        - url: ./Bing-Autosuggest/index.yml
+        - url: ./Bing-web-search/index.yml
+          itemType: overview
+          text: Bing Search APIs hub page
+        - url: ./Bing-Autosuggest/get-suggested-search-terms.md
           itemType: overview
           text: Autosuggest Search
-        - url: ./bing-custom-search/index.yml
+        - url: ./bing-custom-search/overview.md
           itemType: overview
           text: Custom Search
-        - url: ./bing-entities-search/index.yml
+        - url: ./bing-entities-search/overview.md
           itemType: overview
           text: Entity Search
-        - url: ./bing-image-search/index.yml
+        - url: ./bing-image-search/overview.md
           itemType: overview
           text: Image Search
-        - url: ./bing-local-business-search/index.yml
+        - url: ./bing-local-business-search/overview.md
           itemType: overview
           text: Local Business Search (Preview)
-        - url: ./bing-news-search/index.yml
+        - url: ./bing-news-search/search-the-web.md
           itemType: overview
           text: News Search
-        - url: ./bing-spell-check/index.yml
+        - url: ./bing-spell-check/overview.md
           itemType: overview
           text: Spell Check
-        - url: ./Bing-Video-Search/index.yml
+        - url: ./Bing-Video-Search/overview.md
           itemType: overview
           text: Video Search
-        - url: ./bing-visual-search/index.yml
+        - url: ./bing-visual-search/overview.md
           itemType: overview
           text: Visual Search
-        - url: ./bing-web-search/index.yml
+        - url: ./bing-web-search/overview.md
           itemType: overview
           text: Web Search
     - title: Cognitive Service Containers

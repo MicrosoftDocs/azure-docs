@@ -206,7 +206,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail. In the case of Zoho Mail, provisioning is a manual task.
 
 > [!NOTE]
-> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.
+> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision Azure AD user accounts.
 
 ### To provision a user account, perform the following steps:
 

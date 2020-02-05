@@ -100,7 +100,7 @@ To install the `Microsoft.Extensions.Configuration.Json` NuGet package in Visual
 
 In order to connect to your Azure Cognitive Search service you will need to add the search service information to your project. Right click on your project in the Solution Explorer and select **Add** > **New Item...** . Name the file `appsettings.json` and select **Add**. 
 
-This file will need to be included in your output directory. To do that, right click on `appsettings.json` and select **Properties**. Change the value of **Copy to Output Directory** to **Copy of newer**.
+This file will need to be included in your output directory. To do that, right click on `appsettings.json` and select **Properties**. Change the value of **Copy to Output Directory** to **Copy if newer**.
 
 Copy the below JSON into your new JSON file.
 

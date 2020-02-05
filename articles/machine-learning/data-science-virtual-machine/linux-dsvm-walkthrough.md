@@ -171,17 +171,17 @@ Let's also try a random forest model. Random forests train a multitude of decisi
 
 ## Deploy a model to Azure Machine Learning Studio (classic)
 
-[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of the classic version of Azure Machine Learning Studio is its ability to publish any R function as a web service. The Azure Machine Learning Studio R package makes deployment easy, right from your R session on the DSVM.
+[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of Azure Machine Learning Studio (classic) is its ability to publish any R function as a web service. The Azure Machine Learning Studio (classic) R package makes deployment easy, right from your R session on the DSVM.
 
 To deploy the decision tree code from the preceding section, sign in to Azure Machine Learning Studio (classic). You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
 
 1. In the left menu, select **Settings**. Note the value for **WORKSPACE ID**.
 
-   ![The Azure Machine Learning Studio workspace ID](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![The Azure Machine Learning Studio (classic) workspace ID](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. Select the **Authorization Tokens** tab. Note the value for **Primary Authorization Token**.
 
-   ![The Azure Machine Learning Studio primary authorization token](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![The Azure Machine Learning Studio (classic) primary authorization token](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Load the **AzureML** package, and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
         if(!require("AzureML")) install.packages("AzureML")

@@ -1,17 +1,14 @@
 ---
-title: Sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app | Microsoft Docs
+title: Sign in users & call Microsoft Graph APIs from .NET Desktop (WPF) | Azure
 description: Learn how to build a .NET Windows Desktop application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth 2.0.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/17/2019
@@ -19,7 +16,6 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app

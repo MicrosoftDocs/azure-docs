@@ -31,6 +31,22 @@ For information about the support policy for Azure VMs, see [Microsoft server so
 >1. The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required to be done and followed on the Guest OS to prepare the image prior the migration.
 
+## System File Checker (SFC) command
+
+### Run Windows System File Checker utility (run sfc /scannow) on OS prior to generalization step of creating customer OS image
+
+The System File Checker (SFC) command is used to verify and replace Windows system files.
+
+To run the SFC command:
+
+1. Open an elevated CMD prompt as Administrator.
+1. Type `sfc /scannow` and select **Enter**.
+
+    ![System File Checker](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+After the SFC scan is completed, try to install Windows Updates and restart the computer.
+
 ## Convert the virtual disk to a fixed size and to VHD
 
 If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section:
@@ -75,6 +91,10 @@ In this command, replace the value for `-Path` with the path to the virtual hard
 If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), use the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) to convert it to VHD format. For more information, see [How to convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Set Windows configurations for Azure
+
+> [!NOTE]
+> Azure platform mounts an ISO file to the DVD-ROM when a Windows VM is created from a generalized image.
+> For this reason, the DVD-ROM must be enabled in the OS in the generalized image. If it is disabled, the Windows VM will be stuck at OOBE.
 
 On the VM that you plan to upload to Azure, run the following commands from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
 
@@ -145,7 +165,6 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## Update remote-desktop registry settings
 Make sure the following settings are configured correctly for remote access:
 
@@ -353,7 +372,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 12. Uninstall any other third-party software or driver that's related to physical components or any other virtualization technology.
 
 ### Install Windows updates
-Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed:
+Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed. To get the latest updates, see the Windows update history pages: [Windows 10 and Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4009470) and [Windows 7 SP1 and Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Component               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|

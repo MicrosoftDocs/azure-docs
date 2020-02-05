@@ -4,7 +4,7 @@ description: In this tutorial, you create an Azure Data Factory pipeline with a 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b

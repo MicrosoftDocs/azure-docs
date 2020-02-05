@@ -1,6 +1,6 @@
 ---
 title: 'Plan your GA environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn about best practices to follow as you plan your GA environment.
+description: Best practices for preparing, configuring, and deploying your Azure Time Series Insights GA environment.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -27,7 +27,7 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 To get started with Azure Time Series Insights, it’s best if you know how much data you expect to push by the minute and how long you need to store your data.  
 
-For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
+For more information about capacity and retention for both Time Series Insights SKUs, read [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 To best plan your Time Series Insights environment for long-term success, consider the following attributes:
 
@@ -48,7 +48,7 @@ You can change the **Data retention time** setting in your Azure Time Series Ins
 Azure Time Series Insights has two modes:
 
 * One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
-* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when its selected as the **Storage limit exceeded behavior**. 
+* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**.
 
 You can adjust retention and toggle between the two modes on the environment’s configuration page in the Azure portal.
 
@@ -59,14 +59,14 @@ You can adjust retention and toggle between the two modes on the environment’s
 
 1. In the [Azure portal](https://portal.azure.com), select your Time Series Insights environment.
 
-1. In the **Time Series Insights environment** pane, under **Settings**, select **Configure**.
+1. In the **Time Series Insights environment** pane, under **Settings**, select **Storage configuration**.
 
 1. In the **Data retention time (in days)** box, enter a value between 1 and 400.
 
-   [![Configure retention](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [![Configure retention](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 > [!TIP]
-> To learn more about how to implement an appropriate data retention policy, see [How to configure retention](./time-series-insights-how-to-configure-retention.md).
+> To learn more about how to implement an appropriate data retention policy, read [How to configure retention](./time-series-insights-how-to-configure-retention.md).
 
 ## Ingress capacity
 
@@ -98,7 +98,7 @@ To calculate your ingress requirements:
 
 ### Mitigate throttling and latency
 
-For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md).
+For information about how to prevent throttling and latency, read [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md).
 
 ## Shape your events
 
@@ -114,7 +114,7 @@ A *reference dataset* is a collection of items that augment the events from your
 > [!NOTE]
 > Reference data isn't joined retroactively. Only current and future ingress data is matched and joined to the reference dataset after it's configured and uploaded. If you plan to send a large amount of historical data to Time Series Insights and don't first upload or create reference data in Time Series Insights, you might have to redo your work (hint: not fun).  
 
-To learn more about how to create, upload, and manage your reference data in Time Series Insights, see our [Reference dataset documentation](time-series-insights-add-reference-data-set.md).
+To learn more about how to create, upload, and manage your reference data in Time Series Insights, read our [Reference dataset documentation](time-series-insights-add-reference-data-set.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

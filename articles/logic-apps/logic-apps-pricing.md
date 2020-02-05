@@ -1,12 +1,11 @@
 ---
-title: Pricing & billing model - Azure Logic Apps
+title: Pricing & billing model
 description: Overview about how the pricing and billing model works for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-ms.suite: logic-apps
+ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
 ---
@@ -25,7 +24,7 @@ For example, actions include:
 
 * Triggers, which are special actions. All logic apps require a trigger as the first step.
 * ["Built-in" or native actions](../connectors/apis-list.md#built-in) such as HTTP, calls to Azure Functions and API Management, and so on
-* Calls to [managed connectors](../connectors/apis-list.md##managed-connectors) such as Outlook 365, Dropbox, and so on
+* Calls to [managed connectors](../connectors/apis-list.md#managed-connectors) such as Outlook 365, Dropbox, and so on
 * Control flow steps, such as loops, conditional statements, and so on
 
 [Standard connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps). Generally available [Enterprise connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps), while public preview Enterprise connectors are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps).

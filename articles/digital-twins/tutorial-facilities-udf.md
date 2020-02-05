@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Monitor a space with Azure Digital Twins'
+title: 'Tutorial: Monitor an IoT device space - Azure Digital Twins| Microsoft Docs'
 description: Learn how to provision your spatial resources and monitor the working conditions with Azure Digital Twins by using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,7 +8,7 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to monitor a space using Azure Digital Twins. 
 ---
 
@@ -34,7 +34,7 @@ This tutorial assumes that you have [finished your Azure Digital Twins setup](tu
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Run `dotnet --version` to verify that the right version is installed. 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
-> [!TIP]
+>[!TIP]
 > Use a unique Digital Twins instance name if you're provisioning a new instance.
 
 ## Define conditions to monitor
@@ -70,7 +70,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 
    Modify the JavaScript file to monitor temperature and other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1,000 ppm, and temperature is below 78 degrees Fahrenheit.
 
-   > [!NOTE]
+   >[!NOTE]
    > This section modifies the file *src\actions\userDefinedFunctions\availability.js* so you can learn in detail one way to write a user-defined function. However, you can choose to directly use the file [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) in your setup. This file has all the changes required for this tutorial. If you use this file instead, make sure to use the correct file name for the **script** key in [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
     a. At the top of the file, add the following lines for temperature below the comment `// Add your sensor type here`:
@@ -174,7 +174,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > To prevent unauthorized access to your Digital Twins Management API, the **occupancy-quickstart** application requires you to sign in with your Azure account credentials. It saves your credentials for a brief period, so you might not need to sign in every time you run it. The first time this program runs, and when your saved credentials expire after that, the application directs you to a sign-in page and gives a session-specific code to enter on that page. Follow the prompts to sign in with your Azure account.
 
 1. After your account is authenticated, the application starts creating a sample spatial graph as configured in *provisionSample.yaml*. Wait until the provisioning finishes. It will take a few minutes. After that, observe the messages in the command window and notice how your spatial graph is created. Notice how the application creates an IoT hub at the root node or the `Venue`.
@@ -183,7 +183,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 
     [![Provision sample](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > If you get an error message similar to "The I/O operation has been aborted because of either a thread exit or an application request" in the middle of the provisioning, try running the command again. This might happen if the HTTP client timed out from a network issue.
 
 ## Simulate sensor data
@@ -225,12 +225,12 @@ In this section, you'll use the project named *device-connectivity* in the sampl
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > Because the simulation sample does not directly communicate with your Digital Twins instance, it does not require you to authenticate.
 
 ## Get results of the user-defined function
 
-The user-defined function runs every time your instance receives device and sensor data. This section queries your Azure Digital Twins instance to get the results of the user-defined function. You'll see in near real time, when a room is available, that the air is fresh and temperature is right. 
+The user-defined function runs every time your instance receives device and sensor data. This section queries your Azure Digital Twins instance to get the results of the user-defined function. You'll be notified in near real time, when a room is available, that the air is fresh and temperature is right. 
 
 1. Open the command window that you used to provision the sample, or a new command window, and go to the **occupancy-quickstart\src** folder of the sample again.
 
@@ -242,7 +242,7 @@ The user-defined function runs every time your instance receives device and sens
 
 The output window shows how the user-defined function runs and intercepts events from the device simulation. 
 
-   [![Output for the UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![Output for the UDF](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 If the monitored condition is met, the user-defined function sets the value of the space with the relevant message, as we saw [earlier](#create-a-user-defined-function). The `GetAvailableAndFreshSpaces` function prints out the message on the console.
 
@@ -252,7 +252,7 @@ If you want to stop exploring Azure Digital Twins at this point, feel free to de
 
 1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, select your Digital Twins resource group, and select **Delete**.
 
-    > [!TIP]
+    >[!TIP]
     > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
 
 2. If necessary, delete the sample applications on your work machine.

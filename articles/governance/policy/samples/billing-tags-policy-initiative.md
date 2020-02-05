@@ -1,6 +1,6 @@
 ---
 title: Sample - Billing tags policy initiative
-description: This sample policy definition set requires specified tag values for cost center and product name.
+description: This sample policy initiative (policy set) requires specified tag values defined in parameters for cost center and product name.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

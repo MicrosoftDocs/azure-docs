@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor logs data model for Azure Backup
+title: Azure Monitor logs data model 
 description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Backup data.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: dacurwin
 ---
 # Log Analytics data model for Azure Backup data
 
 Use the Log Analytics data model to create custom alerts from Log Analytics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+>
+> This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
+> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](https://aka.ms/diagnosticsdatamodel)
 
 ## Using Azure Backup data model
 

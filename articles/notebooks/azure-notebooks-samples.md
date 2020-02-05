@@ -1,22 +1,15 @@
 ---
-title: Sample Jupyter notebooks for Azure Notebooks
+title: Sample Jupyter notebooks for Azure Notebooks Preview
 description: Samples are a great way to experience Jupyter notebooks running in the free Azure Notebooks cloud services.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 01/11/2019
-ms.author: kraigb
 ---
 
-# Discover and use sample notebooks
+# Discover and use sample notebooks in Azure Notebooks Preview
 
 The Internet has many collections of interesting and useful Jupyter notebooks that you can easily bring into Azure Notebooks. This article provides a list of notable samples.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Once you've identified a notebook you'd like to explore, here are a few details you'll want to understand:
 

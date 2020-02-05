@@ -1,10 +1,11 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/09/2018	
+author: ecfan
 ms.author: estfan
+ms.date: 11/09/2018	
 ---
+
 To estimate more accurate consumption costs, consider the possible 
 number of messages or events that might arrive on any given day, 
 rather than base your calculations on only the polling interval. 

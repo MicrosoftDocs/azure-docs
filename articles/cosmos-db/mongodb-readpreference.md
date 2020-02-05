@@ -1,5 +1,5 @@
 ---
-title: Using MongoDB Read Preference with the Azure Cosmos DB's API for MongoDB 
+title: Use Read preference with the Azure Cosmos DB's API for MongoDB 
 description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB's API for MongoDB
 author: sivethe
 ms.author: sivethe

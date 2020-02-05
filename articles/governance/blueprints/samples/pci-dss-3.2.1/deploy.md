@@ -1,8 +1,8 @@
 ---
-title: PCI-DSS v3.2.1 blueprint sample - Deploy steps
+title: Deploy PCI-DSS v3.2.1 blueprint sample
 description: Deploy steps for the Payment Card Industry Data Security Standard v3.2.1 blueprint sample including blueprint artifact parameter details.
-ms.date: 06/24/2019
-ms.topic: conceptual
+ms.date: 01/29/2020
+ms.topic: sample
 ---
 # Deploy the PCI-DSS v3.2.1 blueprint sample
 

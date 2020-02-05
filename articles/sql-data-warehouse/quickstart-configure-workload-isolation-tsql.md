@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 10/29/2019
+ms.date: 11/21/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -72,19 +72,25 @@ Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-
 
 ```sql
 CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
-WITH (WORKLOAD_GROUP = 'ELTLogin'
-      ,MEMBERNAME = 'DataLoads')
+WITH (WORKLOAD_GROUP = 'DataLoads'
+      ,MEMBERNAME = 'ELTLogin')
 ;
 ```
 
-## View existing workload groups and classifiers
+## View existing workload groups and classifiers and run-time values
 
 ```sql
+--Workload groups
 SELECT * FROM 
 sys.workload_management_workload_groups
 
+--Workload classifiers
 SELECT * FROM 
 sys.workload_management_workload_classifiers
+
+--Run-time values
+SELECT * FROM 
+sys.dm_workload_management_workload_groups_stats
 ```
 
 ## Clean up resources

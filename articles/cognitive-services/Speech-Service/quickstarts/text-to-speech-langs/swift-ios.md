@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Swift - Speech Service'
+title: 'Quickstart: Synthesize speech, Swift - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Swift on iOS using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: yulili
 ---
 
@@ -20,7 +20,7 @@ In this article, you learn how to create a iOS app in Swift using the Cognitive 
 
 Before you get started, here's a list of prerequisites:
 
-* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech Service.
+* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech service.
 * A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later and [CocoaPods](https://cocoapods.org/) installed.
 
 ## Get the Speech SDK for iOS

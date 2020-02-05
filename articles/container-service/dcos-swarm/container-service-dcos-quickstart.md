@@ -1,10 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018

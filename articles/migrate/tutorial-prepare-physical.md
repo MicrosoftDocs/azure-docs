@@ -1,11 +1,11 @@
 ---
-title: Prepare physical servers for assessment with Azure Migrate Server Assessment
-description: Describes how to prepare for assessment and migration of physical servers to Azure using Azure Migrate Server Assessment.
+title: Prepare physical servers for assessment/migration with Azure Migrate
+description: Learn how to prepare for assessment/migration of physical servers with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -13,10 +13,6 @@ ms.custom: mvc
 # Prepare for assessment and migration of physical servers to Azure
 
 This article describes how to prepare for assessment of on-premises physical servers with [Azure Migrate](migrate-services-overview.md).
-
-
-> [!NOTE]
-> If you don't yet see some of these features in the Azure Migrate portal, hang on. They will appear over the next week or so.
 
 [Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
@@ -40,10 +36,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need set up permissions for Azure Migrate deployment.
 
-- Permissions for your Azure account to create an Azure Migrate project. 
-- Permissions for your account to register the Azure Migrate appliance. The appliance is used for Hyper-V discovery and migration. During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
-    - The first app communicates with Azure Migrate service endpoints.
-    - The second app accesses an Azure Key Vault that's created during registration, to store Azure AD app info and appliance configuration settings.
+**Task** | **Permissions**
+--- | ---
+**Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
+**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess physical servers with Azure Migrate Server Assessment. This appliance discovers servers, and sends their metadata and performance data to Azure Migrate.<br/><br/>During appliance registration, the following Register Providers are registered with the subscription chosen in the appliance- Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. Registering a resource provider configures your subscription to work with the resource provider. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/><br/> As part of onboarding, Azure Migrate creates an Azure Active Directory (Azure AD) app:<br/> The AAD app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.
 
 
 
@@ -60,15 +56,14 @@ Check you have permissions to create an Azure Migrate project.
 
 ### Assign permissions to register the appliance
 
-You can assign permissions for Azure Migrate to create the Azure AD apps creating during appliance registration, using one of the following methods:
+You can assign permissions for Azure Migrate to create the Azure AD app during appliance registration, using one of the following methods:
 
 - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
 - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
 
-It's worth noting that:
-
-- The apps don't have any other access permissions on the subscription other than those described above.
-- You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up. 
+> [!NOTE]
+> - The app does not have any other access permissions on the subscription other than those described above.
+> - You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
 
 
 #### Grant account permissions
@@ -83,7 +78,7 @@ The tenant/global admin can grant permissions as follows:
 > [!NOTE]
 > This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### Assign Application Developer role 
+#### Assign Application Developer role
 
 The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -94,18 +89,18 @@ To prepare for physical server assessment, you need to verify the physical serve
 
 ### Verify physical server settings
 
-1. Verify [physical server requirements](migrate-support-matrix-physical.md#assessment-physical-server-requirements) for server assessment.
-2. Make sure the [required ports](migrate-support-matrix-physical.md#assessment-port-requirements) are open on physical servers.
+1. Verify [physical server requirements](migrate-support-matrix-physical.md#physical-server-requirements) for server assessment.
+2. Make sure the [required ports](migrate-support-matrix-physical.md#port-access) are open on physical servers.
 
 
 ### Verify appliance settings
 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
-1. [Verify](migrate-support-matrix-physical.md#assessment-appliance-requirements) appliance requirements.
-2. [Review](migrate-support-matrix-physical.md#assessment-appliance-url-access) the Azure URLs that the appliance will need to access.
-3. Review the data that the appliance will collect during discovery and assessment.
-4. [Note](migrate-support-matrix-physical.md#assessment-port-requirements) port access requirements for the appliance.
+1. [Verify](migrate-appliance.md#appliance---physical) appliance requirements for physical servers.
+2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
+3. [Review](migrate-appliance.md#collected-data---vmware) that that the appliance will collect during discovery and assessment.
+4. [Note](migrate-support-matrix-physical.md#port-access) port access requirements physical server assessment.
 
 
 ### Set up an account for physical server discovery
@@ -118,16 +113,25 @@ Azure Migrate needs permissions to discover on-premises servers.
         - Performance Log users
 - **Linux:** You need a root account on the Linux servers that you want to discover.
 
+## Prepare for physical server migration
+
+Review the requirements for migration of physical servers.
+
+- [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
+- Azure Migrate: Server Migration uses a replication server for physical server migration:
+    - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance, and the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
+    - Review the [URL](migrate-replication-appliance.md#url-access) and [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
+
 
 ## Next steps
 
 In this tutorial, you:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Set up Azure account permissions.
 > * Prepared physical servers for assessment.
 
 Continue to the next tutorial to create an Azure Migrate project, and assess physical servers for migration to Azure
 
-> [!div class="nextstepaction"] 
-> [Assess physical servers](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [Assess physical servers](./tutorial-assess-physical.md)

@@ -1,20 +1,18 @@
 ---
-title: Integration runtime in Azure Data Factory 
+title: Integration runtime
 description: 'Learn about integration runtime in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: abnarain
-
+ms.custom: seo-lt-2019
+ms.date: 01/28/2020
 ---
 
 # Integration runtime in Azure Data Factory
@@ -72,10 +70,13 @@ For information about creating and configuring an Azure IR, see How to create an
 A self-hosted IR is capable of:
 
 - Running copy activity between a cloud data stores and a data store in private network.
-- Dispatching the following transform activities against compute resources in On-Premise or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
+- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
 
 > [!NOTE] 
 > Use self-hosted integration runtime to support data stores that requires bring-your-own driver such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+> [!NOTE] 
+> Java Runtime Environment (JRE) is a dependency of Self Hosted IR. Please make sure you have JRE installed on the same host.
 
 ### Self-hosted IR network environment
 If you want to perform data integration securely in a private network environment, which does not have a direct line-of-sight from the public cloud environment, you can install a self-hosted IR on premises environment behind your corporate firewall, or inside a virtual private network.  The self-hosted integration runtime only makes outbound HTTP-based connections to open internet.
@@ -136,9 +137,9 @@ When used to perform data movement, the self-hosted IR extracts data from the so
 ### Azure-SSIS IR location
 Selecting the right location for your Azure-SSIS IR is essential to achieve high performance in your extract-transform-load (ETL) workflows.
 
-- The location of your Azure-SSIS IR does not need be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database/Managed Instance server where SSISDB is to be hosted. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
-- If you do not have an existing Azure SQL Database/Managed Instance server to host SSISDB, but you have on-premises data sources/destinations, you should create a new Azure SQL Database/Managed Instance server in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database/Managed Instance server and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
-- If the location of your existing Azure SQL Database/Managed Instance server where SSISDB is hosted is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database/Managed Instance server and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
+- The location of your Azure-SSIS IR does not need be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database or Managed Instance server where SSISDB is to be hosted. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
+- If you do not have an existing Azure SQL Database or Managed Instance server to host SSISDB, but you have on-premises data sources/destinations, you should create a new Azure SQL Database or Managed Instance server in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database or Managed Instance server and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
+- If the location of your existing Azure SQL Database or Managed Instance server where SSISDB is hosted is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database or Managed Instance server and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
 
 The following diagram shows location settings of Data Factory and its integration run times:
 
@@ -158,13 +159,13 @@ For Copy activity, it requires source and sink linked services to define the dir
 
 The Lookup and GetMetadata activity is executed on the integration runtime associated to the data store linked service.
 
-### Transformation activity
+### External transformation activity
 
-Each transformation activity has a target compute Linked Service, which points to an integration runtime. This integration runtime instance is where the transformation activity is dispatched from.
+Each external transformation activity that utilizes an external compute engine has a target compute Linked Service, which points to an integration runtime. This integration runtime instance determines the location where that external hand-coded transformation activity is dispatched from.
 
 ### Data Flow activity
 
-Data Flow activity is executed on the integration runtime associated to it. 
+Data Flow activities are executed on the Azure integration runtime associated to it. The Spark compute utilized by Data Flows are determined by the data flow properties in your Azure Integration Runtime and are fully managed by ADF.
 
 ## Next steps
 See the following articles:

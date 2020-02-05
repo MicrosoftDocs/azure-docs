@@ -1,5 +1,5 @@
 ---
-title: Sample - SWIFT CSP-CSCF v2020 blueprint - Overview
+title: SWIFT CSP-CSCF v2020 blueprint sample overview
 description: Overview of the SWIFT CSP-CSCF v2020 blueprint sample. This blueprint sample helps customers assess specific SWIFT CSP-CSCF controls.
 ms.date: 09/24/2019
 ms.topic: sample

@@ -25,7 +25,7 @@ Before you set up disaster recovery, make sure that migration has completed as e
 
 Each Azure VM must have the [Azure VM agent](../virtual-machines/extensions/agent-windows.md) installed. To replicate Azure VMs, Site Recovery installs an extension on the agent.
 
-- If the machine is running version 9.7.0.0 or later of the Site Recovery Mobility service, the Azure VM agent is automatically installed by the Mobility service on Windows VMs. On earlier versions of the Mobility service, you need to install the agent manually.
+- If the machine is running version 9.7.0.0 or later of the Site Recovery Mobility service, the Azure VM agent is automatically installed by the Mobility service on Windows VMs. On earlier versions of the Mobility service, you'll install the agent manually.
 - For Linux VMs, you must install the Azure VM agent manually. You only need to install the Azure VM agent if the Mobility service installed on the migrated machine is v9.6 or earlier.
 
 

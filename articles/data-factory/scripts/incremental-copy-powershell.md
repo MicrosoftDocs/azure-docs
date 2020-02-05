@@ -1,18 +1,15 @@
 ---
-title: "PowerShell script: Incrementally load data by using Azure Data Factory "
+title: Incrementally load data using PowerShell
 description: This PowerShell script shows how to use Azure Data Factory to copy data incrementally from an Azure SQL Database to an Azure Blob Storage.. 
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
-editor: ''
-
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: article
+ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.author: jingwang
 ---
 
 # PowerShell script - Incrementally load data by using Azure Data Factory

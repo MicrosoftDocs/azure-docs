@@ -1,4 +1,4 @@
-- name: Security Center Documentation
+- name: Security Center documentation
   href: index.yml
 - name: Overview
   items:
@@ -32,6 +32,10 @@
 
 - name: Concepts
   items:
+  - name: Secure Score in Security Center
+    href: security-center-secure-score.md
+  - name: The enhanced Secure Score
+    href: secure-score-security-controls.md
   - name: Permissions
     href: security-center-permissions.md
   - name: Data security
@@ -52,6 +56,8 @@
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
+    - name: Reference list of alerts
+      href: alerts-reference.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
@@ -64,7 +70,7 @@
       href: security-center-alerts-data-services.md
     - name: Threat detection for Azure service layers
       href: security-center-alerts-service-layer.md   
-    - name: Integration with Azure Security Products
+    - name: Threat detection alerts from Azure WAF & Azure DDoS Protection
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
@@ -75,10 +81,16 @@
 
 - name: How-to guides
   items:
-  - name: Improve your secure score
-    href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
+  - name: Scan your VMs for vulnerabilities
+    items:
+    - name: Vulnerability scanning overview
+      href: security-center-vulnerability-assessment-recommendations.md
+    - name: Integrated vulnerability scanner for VMs
+      href: built-in-vulnerability-assessment.md
+    - name: Using external scanners
+      href: partner-vulnerability-assessment.md
   - name: Protect your servers with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Use advanced data security for SQL on Azure VMs
@@ -129,6 +141,8 @@
       href: security-center-remediate-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
+    - name: Reference list of recommendations
+      href: recommendations-reference.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
     - name: Protect network resources
@@ -156,8 +170,6 @@
       href: security-center-apply-system-updates.md
     - name: Install Endpoint Protection
       href: security-center-install-endpoint-protection.md
-    - name: Vulnerability assessment not installed
-      href: security-center-vulnerability-assessment-recommendations.md
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Alert confidence score
@@ -166,8 +178,6 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
-    - name: Logic Apps playbooks
-      href: security-center-playbooks.md
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
 

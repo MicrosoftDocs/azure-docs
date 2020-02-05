@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure LucidChart for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: User provisioning for LucidChart - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LucidChart.
 services: active-directory
 documentationcenter: ''

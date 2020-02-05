@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: ypitsch
 ---
 
 # Register Peering Service Preview by using the Azure portal
@@ -46,7 +46,7 @@ Before you proceed to the steps of registering the Peering Service, you need to 
 **Azure PowerShell**
 
 ```azurepowershell-interactive
-Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
+Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
 

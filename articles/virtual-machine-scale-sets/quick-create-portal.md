@@ -1,11 +1,8 @@
 ---
-title: Quickstart - Create a virtual machine scale set in the Azure portal | Microsoft Docs
-description: Learn how to quickly create a virtual machine scale in the Azure portal
-services: virtual-machine-scale-sets
+title: Quickstart - Create a virtual machine scale set in the Azure portal
+description: Get started with your deployments by learning how to quickly create a virtual machine scale the Azure portal.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
-
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -31,7 +28,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 Azure [load balancer](../load-balancer/load-balancer-overview.md) distributes incoming traffic among healthy virtual machine instances. 
 
-First, create a public Basic Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public Standard Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
 1. In the search box, type **load balancer**. Under **Marketplace** in the search results, pick **Load balancer**.
 1. In the **Basics** tab of the **Create load balancer** page, enter or select the following information:

@@ -1,6 +1,6 @@
 ---
 title: Configure lab accounts in Azure Lab Services | Microsoft Docs
-description: Learn how to configure a lab account after it's created. 
+description: This article describes how to create a lab account, view all lab accounts, or delete a lab account in Azure Lab Services. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
@@ -129,6 +129,14 @@ On the **Sign-in options** page, select **Sign in with GitHub**.
 
 Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the instructor selects **Next**.  The instructor is then immediately signed in and connected to the classroom lab.
 
+## Automatic shutdown of VMs on disconnect
+You can enable or disable automatic shutdown of Windows lab VMs (template or student) after a remote desktop connection is disconnected. You can also specify how long the VMs should wait for the user to reconnect before automatically shutting down.
+
+![Automatic shutdown setting at lab account](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+This setting applies to all the labs created in the lab account. A lab owner can override this setting at the lab level. The change to this setting at the lab account will only affect labs that are created after the change is made.
+
+To learn about how a lab owner can configure this setting at the lab level, see [this article](how-to-enable-shutdown-disconnect.md)
 
 ## Next steps
 See the following articles:

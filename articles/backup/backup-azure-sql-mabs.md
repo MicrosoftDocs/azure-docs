@@ -1,13 +1,8 @@
 ---
-title: Azure Backup for SQL Server workloads using Azure Backup Server
+title: Backup SQL Server using Azure Backup Server
 description: In this article, learn the configuration steps for backup of SQL Server databases using Microsoft Azure Backup Server (MABS).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: dacurwin
 ---
 # Back up SQL Server to Azure With Azure Backup Server
 
@@ -100,7 +95,7 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
 14. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
 
     * **Automatically over the network** transfers the backup data to Azure as per the schedule chosen for backup.
-    * How **Offline Backup** works is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+    * How **Offline Backup** works is explained at [Overview of Offline Backup](offline-backup-overview.md).
 
     Choose the relevant transfer mechanism to send the initial backup copy to Azure and click **Next**.
 15. Once you review the policy details in the **Summary** screen, click on the **Create group** button to complete the workflow. You can click the **Close** button and monitor the job progress in Monitoring workspace.

@@ -250,6 +250,9 @@ After updating a token, or a scope map associated with a token, the permission c
 
 After updating a token, you might want to generate new passwords to access the registry using the [az acr token credential generate][az-acr-token-credential-generate] command.
 
+
+## Manage tokens and scope maps - portal
+
 ## Next steps
 
 * To manage scope maps and access tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.

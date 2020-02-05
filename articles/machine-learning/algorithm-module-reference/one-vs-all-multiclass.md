@@ -1,7 +1,7 @@
 ---
 title: "One-vs-All Multiclass"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the One-vs-All Multiclass module in the Azure Machine Learning service to create a multiclass classification model from an ensemble of binary classification models.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the One-vs-All Multiclass module in Azure Machine Learning to create a multiclass classification model from an ensemble of binary classification models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -56,4 +56,4 @@ Alternatively, you can pass the untrained classifier to [Cross-Validate Model](c
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

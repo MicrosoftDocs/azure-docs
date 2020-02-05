@@ -1,12 +1,8 @@
 ---
-title: OpenAPI metadata in Azure Functions | Microsoft Docs
+title: OpenAPI metadata in Azure Functions 
 description: Overview of OpenAPI support in Azure Functions
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
 
-ms.assetid:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche

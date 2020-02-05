@@ -1,7 +1,6 @@
 ---
 title: Useful operators in Azure Monitor log queries | Microsoft Docs
 description: Common functions to use for different scenarios in Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

@@ -4,16 +4,13 @@
   items:
   - name: What is authentication?
     href: overview-authentication.md
-- name: Quickstart
-  items:
-  - name: Configure password reset
-    href: quickstart-sspr.md
 - name: Tutorials
+  expanded: true
   items:
-  - name: 1 Enable MFA for Applications
+  - name: Enable self-service password reset
+    href: tutorial-enable-sspr.md
+  - name: Enable MFA for Applications
     href: tutorial-mfa-applications.md
-  - name: 2 Enable a SSPR pilot
-    href: tutorial-sspr-pilot.md
   - name: Enable SSPR on-premises integration
     href: tutorial-enable-writeback.md
   - name: Integrate Azure Identity Protection
@@ -43,14 +40,14 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: Enable MFA
-      href: concept-mfa-get-started.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider
       href: concept-mfa-authprovider.md
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
+    - name: Data residency
+      href: concept-mfa-data-residency.md
     - name: MFA for Office 365
       href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: MFA FAQ
@@ -100,7 +97,7 @@
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
       - name: Azure VPN and Azure MFA
-        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+        href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN

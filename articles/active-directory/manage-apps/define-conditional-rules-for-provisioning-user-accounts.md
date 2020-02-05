@@ -47,7 +47,7 @@ Each user or group processed by the Azure AD provisioning service is always eval
 
 As an example, consider the following scoping filter:
 
-![Scoping filter](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Scoping filter](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 According to this scoping filter, users must satisfy the following criteria to be provisioned:
 
@@ -89,8 +89,14 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99.
 
    h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern.
+   
+   i. **Greater_Than.** Clause returns "true" if the evaluated attribute is greater than the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
+   
+   j. **Greater_Than_OR_EQUALS.** Clause returns "true" if the evaluated attribute is greater than or equal to the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
 
-8. Select **Add new scoping clause**.
+
+>[!IMPORTANT] 
+> The Includes and IsMemberOf filters are not supported. They will soon be removed from the UI.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 
@@ -105,6 +111,14 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 >[!IMPORTANT] 
 > Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](skip-out-of-scope-deletions.md).
 
+
+## Common scoping filters
+| Target Attribute| Operator | Value | Description|
+|----|----|----|----|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |All users with userPrincipal that has the domain @domain.com will be in scope for provisioning|
+|userPrincipalName|NOT REGEX MATCH|.\*@domain.com|All users with userPrincipal that has the domain @domain.com will be out of scope for provisioning|
+|department|EQUALS|sales|All users from the sales department are in scope for provisioning|
+|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
 
 ## Related articles
 * [Automate user provisioning and deprovisioning to SaaS applications](user-provisioning.md)

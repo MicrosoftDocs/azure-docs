@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
@@ -17,7 +17,7 @@ ms.author: diberry
 
 [Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -25,13 +25,20 @@ ms.author: diberry
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
+## Train before testing
+
+In order to test against the most recent version of the active app, select **Train** from the top menu, before testing. 
+
 ## Test an utterance
+
+The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user. 
 
 1. Access your app by selecting its name on the **My Apps** page. 
 
 1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
-    ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
 
 1. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
 
@@ -87,10 +94,11 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
 
-![Test panel with Additional Settings link highlighted](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+> [!div class="mx-imgBorder"]
+> ![Test panel with Additional Settings link highlighted](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
-
-### View Bing Spell Check corrections in test panel
+<!--
+###  View Bing Spell Check corrections in test panel
 
 Requirements to view the spelling corrections: 
 
@@ -120,6 +128,7 @@ Use the following procedure to include the [Bing Spell Check v7](https://azure.m
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+-->
 
 ## Batch testing
 See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.

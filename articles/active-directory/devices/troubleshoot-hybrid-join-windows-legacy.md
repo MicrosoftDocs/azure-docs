@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting hybrid Azure Active Directory joined down-level devices | Microsoft Docs
+title: Troubleshoot legacy hybrid Azure Active Directory joined devices
 description: Troubleshooting hybrid Azure Active Directory joined down-level devices. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -1,5 +1,6 @@
 ---
-title: Implement disaster recovery using backup and restore in Azure API Management | Microsoft Docs
+title: Implement disaster recovery using backup and restore in API Management
+titleSuffix: Azure API Management
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -11,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 02/03/2020
 ms.author: apimpm
 ---
 
@@ -67,11 +68,10 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 ### Add an application
 
-1. Once the application is created, click **Settings**.
-2. Click **Required permissions**.
-3. Click **+Add**.
-4. Press **Select an API**.
-5. Choose **Windows** **Azure Service Management API**.
+1. Once the application is created, click **API permissions**.
+2. Click **+ Add a permission**.
+4. Press **Select Microsoft APIs**.
+5. Choose **Azure Service Management**.
 6. Press **Select**.
 
     ![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -168,15 +168,18 @@ Backup is a long running operation that may take more than a minute to complete.
 Note the following constraints when making a backup request:
 
 -   **Container** specified in the request body **must exist**.
--   While backup is in progress, **avoid changes in service management** such as SKU upgrade or downgrade, change in domain name, and more.
+-   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
 -   In addition, the following items are not part of the backup data: custom domain SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
 -   The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   **Allow** access from control plane to Azure Storage Account. Customer should open the following set of Inbound IPs on their Storage Account for Backup. 
-    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32,
-    > 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+-   **Allow** access from control plane to Azure Storage Account. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup. 
+
+> [!NOTE]
+> If you have firewall enabled on the Storage Account and the are trying to do backup/restore from an API Management service in the same Region, 
+> then this will not work, as the requests to Azure Storage are not SNATed to public IP from Compute deployed in the same region.
+
 ### <a name="step2"> </a>Restore an API Management service
 
 To restore an API Management service from a previously created backup, make the following HTTP request:
@@ -237,3 +240,4 @@ Check out the following resources for different walkthroughs of the backup/resto
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips

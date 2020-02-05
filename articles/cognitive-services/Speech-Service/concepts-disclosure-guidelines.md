@@ -3,12 +3,12 @@ title: Disclosure Design Guidelines
 titleSuffix: Azure Cognitive Services
 description: Introduction to disclosure design guidelines and assessing disclosure level.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
 ---
 

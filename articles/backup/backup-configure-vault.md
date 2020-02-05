@@ -1,12 +1,9 @@
 ---
-title: Back up Windows machines with the Azure Backup MARS agent
+title: Back up Windows machines with the MARS agent
 description: Use the Azure Backup Microsoft Recovery Services (MARS) agent to back up Windows machines.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
+
 ---
 
 # Back up Windows machines with the Azure Backup MARS agent
@@ -32,7 +29,7 @@ The MARS agent is used by Azure Backup to back up files, folders, and system sta
 What you can back up depends on where the agent is installed.
 
 > [!NOTE]
-> The primary method for backing up Azure VMs is by using an Azure Backup extension on the VM. This backs up the entire VM. You might want to install and use the MARS agent alongside the extension if you want to back up specific files and folders on the VM. [Learn more](backup-architecture.md#architecture-direct-backup-of-azure-vms).
+> The primary method for backing up Azure VMs is by using an Azure Backup extension on the VM. This backs up the entire VM. You might want to install and use the MARS agent alongside the extension if you want to back up specific files and folders on the VM. [Learn more](backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -61,14 +58,17 @@ If your machine has limited internet access, ensure that firewall settings on th
 * 20.190.128.0/18
 * 40.126.0.0/18
 
+Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
+
 ## Create a Recovery Services vault
 
 A Recovery Services vault stores all the backups and recovery points you create over time, and contains the backup policy applied to backed up machines. Create a vault as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
-2. In search, type **Recovery Services** and click **Recovery Services vaults**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png)
+2. Search for and select **Recovery Services vaults**.
+
+    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/open-recovery-services-vaults.png)
 
 3. On the **Recovery Services vaults** menu, click **+Add**.
 
@@ -139,7 +139,7 @@ Download the MARS agent for installation on machines you want to back up.
    * Azure Backup uses the cache to store data snapshots before sending them to Azure.
    * The cache location should have free space equal to at least 5% of the size of the data you'll back up.
 
-     ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
+    ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
 
 3. In **Proxy Configuration**, specify how the agent running on the Windows machine will connect to the internet. Then click **Next**.
 
@@ -169,45 +169,66 @@ The backup policy specifies when to take snapshots of the data to create recover
 * Azure Backup doesn't automatically take daylight savings time (DST) into account. This could cause some discrepancy between the actual time and scheduled backup time.
 
 Create a policy as follows:
-
-1. On each machine, open the MARS agent. You can find it by searching your machine for **Microsoft Azure Backup**.
+1. After downloading and registering the MARS agent, launch the agent console. You can find it by searching your machine for **Microsoft Azure Backup**.  
 2. In **Actions**, click **Schedule Backup**.
 
     ![Schedule a Windows Server backup](./media/backup-configure-vault/schedule-first-backup.png)
-
 3. In the Schedule Backup Wizard >  **Getting started**, click **Next**.
-4. In **Select Items to Backup**, click **Add Items**.
-5. In **Select Items**, select what you want to back up. Then click **OK**.
-6. In **Select Items to Backup** page, click **Next**.
-7. In **Specify Backup Schedule** page, specify when you want to take daily or weekly backups. Then click **Next**.
+4. In **Select Items to Back up**, click **Add Items**.
 
-    * A recovery point is created when a backup is taken.
-    * The number of recovery points created in your environment is dependent upon your backup schedule.
+    ![Select Items to Back up](./media/backup-azure-manage-mars/select-item-to-backup.png)
 
-8. You can schedule daily backups, up to three times a day. For example, the screenshot shows two daily backups, one at midnight and one at 6pm.
+5. In **Select Items**, select what you want to back up and click **OK**.
+
+    ![Selected Items to Back up](./media/backup-azure-manage-mars/selected-items-to-backup.png)
+
+6. In **Select Items to Back up** page, click **Next**.
+7. In **Specify Back up Schedule** page, specify when you want to take daily or weekly backups. Then click **Next**.
+
+    - A recovery point is created when a backup is taken.
+    - The number of recovery points created in your environment is dependent upon your backup schedule.
+
+
+8. You can schedule daily backups, up to three times a day. For example, the screenshot shows two daily backups, one at midnight and one at 6:00 PM.
 
     ![Daily schedule](./media/backup-configure-vault/day-schedule.png)
 
-9. You can run weekly backups too. For example, the screenshot shows backups taken every alternate Sunday & Wednesday at 9:30AM and 1:00AM.
+
+9. You can run weekly backups too. For example, the screenshot shows backups taken every alternate Sunday & Wednesday at 9:30 AM and 1:00 AM.
 
     ![Weekly schedule](./media/backup-configure-vault/week-schedule.png)
 
+
 10. On the **Select Retention Policy** page, specify how you store historical copies of your data. Then click **Next**.
 
-* Retention settings specify which recovery points should be stored, and how long they should be stored for.
-* For example, when you set a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Or, as another example, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
-  * Daily and weekly recovery point retention usually coincides with the backup schedule. Meaning that when the backup is triggered according to schedule, the recovery point created by the backup is stored for the duration indicated in the daily or weekly retention policy.
-  * As an example, in the following screenshot:
-    * Daily backups at midnight and 6 PM are kept for seven days.
-    * Backups taken on a Saturday at midnight and 6 PM are kept for four weeks.
-    * Backups taken on Saturday on the last week of the month at midnight and 6 PM are kept for 12 months. - Backups taken on a Saturday in the last week of March are kept for 10 years.
+    - Retention settings specify which recovery points should be stored, and how long they should be stored for.
+    - For example, when you set a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Or, as another example, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
+    - Daily and weekly recovery point retention usually coincides with the backup schedule. Meaning that when the backup is triggered according to schedule, the recovery point created by the backup is stored for the duration indicated in the daily or weekly retention policy.
+    - As an example, in the following screenshot:
 
-   ![Retention example](./media/backup-configure-vault/retention-example.png)
+        -   Daily backups at midnight and 6:00 PM are kept for seven days.
+        -   Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
+        -   Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
+        -   Backups taken on a Saturday in the last week of March are kept for 10 years.
 
-12. In **Choose Initial Backup Type** specify how to take the initial backup, over the network or offline. Then click **Next**.
+        ![Retention example](./media/backup-configure-vault/retention-example.png)
 
-13. In **Confirmation**, review the information, and then click **Finish**.
-14. After the wizard finishes creating the backup schedule, click **Close**.
+
+11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer, see this [article](offline-backup-azure-data-box.md)). To take the initial backup over the network, select **Automatically over the network** and click **Next**.
+
+    ![initial Backup Type](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
+
+
+12. In **Confirmation**, review the information, and then click **Finish**.
+
+    ![Confirm Backup Type](./media/backup-azure-manage-mars/confirm-backup-type.png)
+
+
+13. After the wizard finishes creating the backup schedule, click **Close**.
+
+    ![Confirm Modify Backup Process](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
+
+You must create a policy on each machine where the agent is installed.
 
 ### Perform the initial backup offline
 
@@ -220,14 +241,14 @@ You can run an initial backup automatically over the network, or offline. Offlin
 5. At the datacenter, the disk data is copied to an Azure storage account.
 6. Azure Backup copies the data from the storage account to the vault, and incremental backups are scheduled.
 
-[Learn more](backup-azure-backup-import-export.md) about offline seeding.
+[Learn more](offline-backup-azure-data-box.md) about offline seeding.
 
 ### Enable network throttling
 
 You can control how network bandwidth is used by the MARS agent by enabling network throttling. Throttling is helpful if you need to back up data during work hours but want to control how much bandwidth is used for backup and restore activity.
 
 * Azure Backup network throttling uses [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
-* Network throttling for backup is available on Windows Server 2008 R2 onwards, and Windows 7 onwards. Operating systems should be running the latest service packs.
+* Network throttling for backup is available on Windows Server 2012 onwards, and Windows 8 onwards. Operating systems should be running the latest service packs.
 
 Enable network throttling as follows:
 
@@ -239,16 +260,23 @@ Enable network throttling as follows:
 
 ## Run an on-demand backup
 
-1. In the MARS agent, click **Back Up Now**. This kicks off the initial replication over the network.
+1. In the MARS agent, click **Back Up Now**.
 
     ![Windows Server backup now](./media/backup-configure-vault/backup-now.png)
 
-2. In **Confirmation**, review the settings, and click **Back Up**.
-3. Click **Close** to close the wizard. If you do this before the backup finishes, the wizard continues to run in the background.
+2. If the MARS agent version is 2.0.9169.0 or newer, a custom retention can be set. In the **Retain Backup Till** section, choose a date from the presented calendar:
 
-After the initial backup is completed, the **Job completed** status appears in the Backup console.
+   ![Retain Backup calendar](./media/backup-configure-vault/mars-ondemand.png)
+
+3. In **Confirmation**, review the settings, and click **Back Up**.
+4. Click **Close** to close the wizard. If you do this before the backup finishes, the wizard continues to run in the background.
+5. After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
 ## On-demand backup policy retention behavior
+
+>[!NOTE]
+>Applicable only to MARS agent versions older than 2.0.9169.0
+>
 
 * For more information, refer step 8 of [Create a backup policy](backup-configure-vault.md#create-a-backup-policy)
 

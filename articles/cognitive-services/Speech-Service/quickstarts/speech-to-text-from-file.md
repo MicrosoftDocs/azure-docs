@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file - Speech Service"
+title: "Quickstart: Recognize speech from an audio file - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Speech SDK to recognize speech from an audio file.
 services: cognitive-services

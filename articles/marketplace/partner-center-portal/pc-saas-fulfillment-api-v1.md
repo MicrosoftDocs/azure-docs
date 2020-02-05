@@ -18,7 +18,7 @@ This article explains how to create a SaaS offer with APIs. The APIs, composed o
 through Azure selected.  
 
 > [!WARNING]
-> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  This intial version of the API is currently being maintained only to serve existing publishers. 
+> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  This initial version of the API is currently being maintained only to serve existing publishers. 
 
 The following APIs are provided to help you integrate your SaaS service with Azure:
 

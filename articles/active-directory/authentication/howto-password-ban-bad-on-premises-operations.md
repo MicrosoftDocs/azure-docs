@@ -1,20 +1,20 @@
 ---
-title: Azure AD Password Protection operations and reporting - Azure Active Directory
+title: Password protection operations and reports - Azure Active Directory
 description: Azure AD Password Protection post-deployment operations and reporting
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
-
 # Azure AD Password Protection operational procedures
 
 After you have completed the [installation of Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md) on-premises, there are a couple items that must be configured in the Azure portal.
@@ -25,7 +25,7 @@ Follow the guidance in the article [Configuring the custom banned password list]
 
 ## Enable Password Protection
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password Protection**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password Protection**.
 1. Set **Enable Password Protection on Windows Server Active Directory** to **Yes**
 1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
    * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**

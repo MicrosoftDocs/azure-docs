@@ -1,6 +1,6 @@
 ---
-title: View privacy-related info on the My Account portal - Azure AD
-description: How to view your privacy information from the Privacy page of the My Account portal.
+title: View privacy-related info from the My Account portal - Azure AD
+description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,10 +12,9 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
-# View your privacy-related info from the My Account portal
+# View how your organization uses your privacy-related data
 
 You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
 
