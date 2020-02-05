@@ -860,7 +860,7 @@ Returns a string array that contains the substrings in this instance that are de
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
   
-The following example takes a comma delimiter string of user roles, and convert it to a string collection.
+The following example takes a comma delimiter string of user roles, and converts it to a string collection.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
