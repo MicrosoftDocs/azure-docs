@@ -146,6 +146,8 @@
       href: how-to-manage-workspace.md
     - name: Use Azure CLI
       href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
@@ -286,7 +288,7 @@
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
     - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
+      displayName: log, monitor, metrics, Databricks
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics

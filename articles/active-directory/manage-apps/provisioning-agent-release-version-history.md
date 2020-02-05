@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 02/04/2020
 ms.subservice: app-mgmt
 ms.author: chmutali
 
@@ -22,6 +22,17 @@ ms.collection: M365-identity-device-management
 This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. The Provisioning Agent is updated automatically when a new version is released. 
 
 We recommend enabling auto update for your agents to ensure that you have the latest features and bug fixes. Microsoft provides direct support for the latest agent version and one version before.
+
+## 1.1.96.0
+
+### Release status
+
+December 4, 2019: Released for download
+
+### New features and improvements
+
+* Includes support for [Azure AD Connect cloud provisioning](../cloud-provisioning/what-is-cloud-provisioning.md) to synchronize user, contact and group data from on-premises Active Directory to Azure AD
+
 
 ## 1.1.67.0
 

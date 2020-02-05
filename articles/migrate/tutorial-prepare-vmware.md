@@ -1,11 +1,8 @@
 ---
 title: Prepare VMware VMs for assessment/migration with Azure Migrate
 description: Learn how to prepare for assessment/migration of VMware VMs with Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -36,8 +33,12 @@ You need these permissions.
 **Task** | **Permissions**
 --- | ---
 **Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
-**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to assess VMware VMs with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance, and needs permissions to create these apps.<br/> - The first app communicates with Azure Migrate service endpoints.<br/> - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings.
+**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to assess VMware VMs with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During appliance registration, the following Resource Providers are registered with the subscription chosen in the appliance- Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. Registering a resource provider configures your subscription to work with the resource provider. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/><br/> As part of onboarding, Azure Migrate creates two Azure Active Directory (Azure AD) apps:<br/> -    The first app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.<br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless migration. It is provided with an RBAC access on the Azure Key Vault (created in customer's tenant) when discovery is initiated from the appliance.
 **Create a Key Vault** | To migrate VMware VMs with Azure Migrate Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides.
+
+
+
+
 
 
 ### Assign permissions to create project
@@ -75,9 +76,9 @@ The tenant/global admin can grant permissions as follows
 
 The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-### Assign role assignment permissions
+### Assign permissions to create a Key Vault
 
-To enable Azure Migrate to create a Key Vault, assign role assignment permissions as follows:
+To enable Azure Migrate to create a Key Vault, assign permissions as follows:
 
 1. In the resource group in the Azure portal, select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and click it to view permissions.
