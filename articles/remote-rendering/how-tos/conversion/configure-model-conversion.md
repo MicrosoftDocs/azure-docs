@@ -209,7 +209,7 @@ Models that originate from photogrammetry data typically do not come with a dedi
 Due to the nature of photogrammetry data, materials do not need to go through a dynamic lighting pipeline in the renderer since the lighting is already baked into the textures. This fact can be utilized to gain slightly better performance and also a better memory footprint:
 
 * The `unlitMaterials` flag turns all materials into unlit materials at ingestion time
-* The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](#Example) above.
+* The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](#example) above.
 
 ### Use case: Visualization of compact machines, etc.
 
