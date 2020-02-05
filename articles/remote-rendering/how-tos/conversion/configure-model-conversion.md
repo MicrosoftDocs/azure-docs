@@ -110,7 +110,7 @@ If a model is defined using gamma space, then these options should be set to tru
 
 Naturally, each of the mode comes with specific runtime performance cost. The `dynamic` case implies significant runtime performance overhead, esp. for large amounts of scene graph objects. This mode should only be used when moving parts individually is mandatory for the application, for example for an 'explosion view' animation. This mode has a high baseline performance overhead, even when no part is moved.
 
-The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object however can still be moved, rotated or scaled at no significant performance cost. Furthermore, individual parts are returned through ray cast hits or can be modified individually through state overrides (hidden state, selected, color tint etc.). The runtime cost of this mode is negligible compared to the dynamic case. Accordingly, this mode is ideal for large scenes that still need per-object inspection but no per-object transform changes.
+The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object however can still be moved, rotated, or scaled at no significant performance cost. Furthermore, individual parts are returned through ray cast hits or can be modified individually through state overrides (hidden state, selected, color tint etc.). The runtime cost of this mode is negligible compared to the dynamic case. Accordingly, this mode is ideal for large scenes that still need per-object inspection but no per-object transform changes.
 
 The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects is not possible in this mode. Use cases for this mode could be photogrammetry models that do not have a meaningful scene graph in the first place.
 
@@ -126,17 +126,70 @@ This parameter can be set to false when ray-cast support is not required.
 
 ### Coordinate system overriding
 
-* `axis` - To override coordinate system unit-vectors, default values are `["+x", "+y", "+z"]` where sign means direction of a vector. In theory, the FBX format has a header where those vectors are defined and we use that information to transform the scene, and the glTF format defines a fixed coordinate system with Y-axis up. In practice, some assets have wrong header or saved with wrong Up-axis and it could be overridden by this option. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting  the Y-axis to the opposite direction.
+* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`, where sign means direction of a vector. In theory, the FBX format has a header where those vectors are defined and conversion uses that information to transform the scene, and the glTF format defines a fixed coordinate system with Y-axis up. In practice, some assets have wrong header or saved with wrong Up-axis and it could be overridden by this option. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting  the Y-axis to the opposite direction.
 
 ### Vertex format
 
-This paragraph is for advanced use cases, where changing the vertex format is necessary to meet memory constraints. While there is some potential to save valuable GPU memory by tweaking the vertex format,there is a high risk to compromise the visual quality or even stability of the server when the format is not appropriate.
+This paragraph is for advanced use cases, where changing the vertex format is necessary to meet memory constraints. While there is some potential to save valuable GPU memory by tweaking the vertex format, there is a high risk to degrade the visual quality or even compromise stability of the server when the format is not appropriate.
 
 The config file allows for modifying the output vertex structure:
 * specific input data streams can be explicitly included or excluded
-* the accuracy of vertex components can be decreased to reduce the memory footprint
+* the floating point accuracy of vertex components can be decreased to reduce the memory footprint
 
+The following `vertex` section in the `.json` file is optional. For each portion that is not explicitly specified, the conversion service falls back to default, or `NONE` respectively, if not present in source model.
 
+```json
+{
+    "ez": {
+        ...
+        "vertex" : {
+            "position"  : "32_32_32_FLOAT",
+            "color0"    : "NONE",
+            "color1"    : "NONE",
+            "normal"    : "NONE",
+            "tangent"   : "NONE",
+            "binormal"  : "NONE",
+            "texcoord0" : "32_32_FLOAT",
+            "texcoord1" : "NONE"
+        },
+        ...
+```
+
+By forcing a component to `NONE`, it is guaranteed that the output mesh does not have the respective stream. Conversely, if the input model does not have a stream but it is defined by user settings, the conversion will create this stream and fill it with meaningful data.
+
+#### Component formats per vertex stream
+
+The following formats are supported per vertex input component:
+
+| Vertex component | supported formats (default format is bold) |
+|:-----------------|:------------------|
+|position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
+|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE | 
+|color1| 8_8_8_8_UNSIGNED_NORMALIZED, **NONE**|
+|normal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
+|tangent| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
+|binormal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
+|texcoord0| **32_32_FLOAT**, 16_16_FLOAT, NONE |
+|texcoord1| **32_32_FLOAT**, 16_16_FLOAT, NONE |
+
+#### Supported component formats
+
+The respective memory footprints of the distinct formats are as follows:
+
+| Format | description | memory (Bytes) |
+|:-------|:------------|:---------------|
+|32_32_FLOAT|two-component full floating point precision|8
+|16_16_FLOAT|two-component half floating point precision|4
+|32_32_32_FLOAT|three-component full floating point precision|12
+|16_16_16_16_FLOAT|four-component half floating point precision|8
+|8_8_8_8_UNSIGNED_NORMALIZED|four-component byte, normalized to 0..1 range|4
+|8_8_8_8_SIGNED_NORMALIZED|four-component byte, normalized to -1..1 range|4
+
+#### Example
+
+Here is some example how removing components can save memory:
+
+Assume you have a source photogrammetry model with **100M vertices**. The source model provides `position`, `normal`, `tangent`, `binormal`, and `texcoord0`. Using the default format, the memory footprint of a vertex is **32 Bytes**, or **3.2 GB** of memory for all mesh vertices. Photogrammetry typically has the lighting baked into the textures and accordingly does not require dynamic lighting. Accordingly, `normal`, `tangent`, and `binormal` can be removed altogether. Furthermore, if texture coordinates stay in normalized (0..1) range, half precision (`16_16_FLOAT`) might be sufficient. With these optimizations, memory footprint goes down to **16 Bytes** or **1.6 GB** for all vertices.
 
 ## Typical use cases
 
@@ -145,8 +198,8 @@ There are certain classes of use cases that qualify for specific optimizations. 
 
 ### Use case: Architectural visualization / large outdoor maps
 
-* These types of scenes tend to be static as in they don't need movable/addressable parts. Accordingly, the `sceneGraphMode` can be set to `static`, which improves runtime performance. The scene's root node can still be moved, rotated and scaled, for example to dynamically switch between 1:1 scale (for first person view) and table top view.
-* Using movable parts often come in pair with ray casting to identify parts. Accordingly, if ray casts are not needed, the generation of the physics representation can be turned off via the `generateCollisionMesh` flag. Turning off collisions has significant impact on ingestion times, runtime loading times and also runtime per-frame update costs.
+* These types of scenes tend to be static as in they don't need movable/addressable parts. Accordingly, the `sceneGraphMode` can be set to `static`, which improves runtime performance. The scene's root node can still be moved, rotated, and scaled, for example to dynamically switch between 1:1 scale (for first person view) and table top view.
+* Using movable parts often come in pair with ray casting to identify parts. Accordingly, if ray casts are not needed, the generation of the physics representation can be turned off via the `generateCollisionMesh` flag. Turning off collisions has significant impact on ingestion times, runtime loading times, and also runtime per-frame update costs.
 * If the application does not use the [cut planes feature](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off as well. The performance gain is typically 20%-30%. However, cut planes can still be used, but there won't be backfaces when looking into the inner parts of objects, which looks counter-intuitive.
 
 ### Use case: Photogrammetry models
@@ -156,11 +209,11 @@ Models that originate from photogrammetry data typically do not come with a dedi
 Due to the nature of photogrammetry data, materials do not need to go through a dynamic lighting pipeline in the renderer since the lighting is already baked into the textures. This fact can be utilized to gain slightly better performance and also a better memory footprint:
 
 * The `unlitMaterials` flag turns all materials into unlit materials at ingestion time
-* The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint
+* The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](configure-model-conversion#Example) above.
 
-### Use case: Visualization of compact machines, etc
+### Use case: Visualization of compact machines, etc.
 
-These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes quite well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
+These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
 
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to default `dynamic`. 
 * Accurate ray casts are typically integral part of the application, so collision meshes must be generated
