@@ -23,8 +23,33 @@ Azure Cosmos DB is a fast and flexible distributed database that scales seamless
 So if you're asking "How can I improve my database performance?" consider the following options:
 
 ## Networking
+
+1. **Connection mode: Use Direct Mode**
+<a id="direct-connection"></a>
+    
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There is one key configuration setting available for configuring the client ConnectionPolicy - the ConnectionMode. For Async Java SDK, the two available ConnectionModes are:  
+      
+    1. [Gateway (default)](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
+    2. [Direct](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+
+    Gateway mode is supported on all SDK platforms and is the configured default. If your applications run within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+
+    The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter.
+    
+    ```java
+        public ConnectionPolicy getConnectionPolicy() {
+          ConnectionPolicy policy = new ConnectionPolicy();
+          policy.setConnectionMode(ConnectionMode.DirectHttps);
+          policy.setMaxPoolSize(1000);
+          return policy;
+        }
+
+        ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+        DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+    ```
+
+2. **Collocate clients in same Azure region for performance**
    <a id="same-region"></a>
-1. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
@@ -42,7 +67,53 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 3. **Tuning ConnectionPolicy**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using the Async Java SDK, and are subjected to the default max connection pool size (1000). This default value should be ideal for the majority of use cases. However, in case you have a large collection with many partitions, you can set the max connection pool size to a larger number (say, 1500) using setMaxPoolSize.
+    By default, Direct Mode Cosmos DB requests are made over TCP when using the Async Java SDK. Internally the SDK uses an architecture called **RNTBD** to dynamically manage network resources and get the best performance.
+
+    In the Async Java SDK, Direct mode is the best choice to improve database performance with most workloads. 
+
+    1. ***Overview of Direct Mode***
+
+        ![Illustration of the RNTBD architecture](./media/performance-tips-async-java/RntbdTransportClient.png)
+
+        The RNTBD client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Cosmos replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The RNTBD architecture allocates up to **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica **Service Endpoint**. When the user issues a request to Cosmos DB in Direct mode, the **TransportClient** routes the request to the proper Service Endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
+
+    2. ***ConnectionPolicy Configuration Options for Direct Mode***
+
+        As a first step, use the recommended configuration settings below. Please contact Cosmos DB for guidance before making any changes. 
+
+        If you are using Cosmos DB as a reference database (that is, the database is used for many point reads and few writes), it may be acceptable to set *ideEndpointTimeout* to -1 (no timeout).
+
+
+        | Configuration Option       | Default    | Meaning  |
+        | :------------------:       | :-----:    | :-----:  |
+        | bufferPageSize             | 8192       |          |
+        | connectionTimeout          | "PT1M"     |          |
+        | idleChannelTimeout         | "PT0S"     |          |
+        | idleEndpointTimeout        | "PT1M10S"  |          |
+        | maxBufferCapacity          | 8388608    |          |
+        | maxChannelsPerEndpoint     | 10         |          |
+        | maxRequestsPerChannel      | 30         |          |
+        | receiveHangDetectionTime   | "PT1M5S"   |          |
+        | requestExpiryInterval      | "PT5S"     |          |
+        | requestTimeout             | "PT1M"     |          |
+        | requestTimerResolution     | "PT0.5S"   |          |
+        | sendHangDetectionTime      | "PT10S"    |          |
+        | shutdownTimeout            | "PT15S"    |          |
+
+    3. ***Programming Tips for Direct Mode***
+
+        [Review the Cosmos DB Async Java SDK Troubleshooting document](https://docs.microsoft.com/en-us/azure/cosmos-db/troubleshoot-java-async-sdk) as a baseline for resolving any Async Java SDK issues.
+
+        Some important programming tips when using Direct mode:
+
+        + **Use multithreading in your application for efficient TCP data transfer** - After making a request, your application should subscribe to receive data on another thread. Not doing so forces unintended "half-duplex" operation in that subsequent requests are blocked waiting for the previous request's reply
+
+        + **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex data processing are best placed in a separate thread. A request that pulls in data from another data store (i.e. because the thread utilizes Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an additional thread that awaits a response from the other data store.
+
+            + The underlying network IO in the Async Java SDK is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](https://docs.microsoft.com/en-us/azure/cosmos-db/troubleshoot-java-async-sdk#invalid-coding-pattern-blocking-netty-io-thread).
+
+        + **Data modeling** - *The Cosmos DB SLA assumes document size <1KB.* Optimizing your data model and programming to favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than 1KB, the recommended approach is for Cosmos DB documents to link to data in Azure Blob Storage.
+
 
 4. **Tuning parallel queries for partitioned collections**
 
