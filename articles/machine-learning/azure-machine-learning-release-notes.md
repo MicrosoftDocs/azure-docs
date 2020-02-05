@@ -20,16 +20,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2020-02-04
 
-### Azure Machine Learning SDK for Python v1.86.0rc0
-
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
+### Azure Machine Learning SDK for Python v1.1.0rc0
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
