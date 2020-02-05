@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/07/2020
 ms.author: helohr
 ---
 # Windows 10 Enterprise multi-session FAQ
@@ -66,6 +66,31 @@ For more information about how to configure an FSLogix profile container, see [C
 ## Which license do I need to access Windows 10 Enterprise multi-session?
 
 For a full list of applicable licenses, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## Why do my apps disappear after I sign off?
+
+This happens because you're using Windows 10 Enterprise multi-session with a profile management solution like FSLogix. Your admin configured your system to delete user profiles when the users sign off, which removes any apps the user installed during their session. If you want to keep these apps, you'll need to ask your admin to provision these apps for all users in your Windows Virtual Desktop environment.
+
+## How do I make sure apps don't disappear when users sign out?
+
+Most virtualized environments are configured by default to prevent users from installing additional apps to their profiles. If you want to make sure an app doesn't disappear when your user signs out of Windows Virtual Desktop, you have to provision that app for all user profiles in your environment. For more information about provisioning apps, check out these resources:
+
+- [Publish built-in apps in Windows Virtual Desktop](publish-apps.md)
+- [DISM app package servicing command-line options](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## How do I make sure users don't download extra apps?
+
+You can disable the Microsoft Store app to make sure users don't download extra apps beyond the apps you've already provisioned for them.
+
+To disable the Store app:
+
+1. Create a new Group Policy.
+2. Select **Computer Configuration** > **Administrative Templates** > **Windows Components**.
+3. Select **Store**.
+4. Select **Store Application**.
+5. Select **Disabled**, then select **OK**.
+6. Select **Apply**.
  
 ## Next steps
 
