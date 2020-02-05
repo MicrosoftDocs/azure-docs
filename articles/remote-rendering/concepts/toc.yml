@@ -1,20 +1,18 @@
 - name: SDK concepts
   href: sdk-concepts.md
-- name: Rendering modes
-  href: rendering-modes.md
 - name: Entities
   href: entities.md
 - name: Components
   href: components.md
-- name: Materials
-  href: materials.md
 - name: Meshes
   href: meshes.md
 - name: Textures
   href: textures.md
+- name: Materials
+  href: materials.md
 - name: Object bounds
   href: object-bounds.md
+- name: Rendering modes
+  href: rendering-modes.md
 - name: Graphics bindings
   href: graphics-bindings.md
-- name: Late stage reprojection
-  href: late-stage-reprojection.md
