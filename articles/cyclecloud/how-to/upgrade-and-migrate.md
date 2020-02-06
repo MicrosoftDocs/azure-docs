@@ -2,18 +2,15 @@
 title: Upgrade or Migrate
 description: Upgrading to a newer CycleCloud version or migrate to a new host.
 author: mvrequa
-ms.date: 09/06/2018
+ms.date: 02/04/2020
 ms.author: mirequa
 ---
 
 # Upgrade CycleCloud
 
-It is possible to upgrade the Azure CycleCloud application in place as new versions become
-available. CycleCloud versions _7.5.0_ and later are released via
-[Download Center](https://www.microsoft.com/download/details.aspx?id=57182) as either a Debian or RPM package.
+It is possible to upgrade the Azure CycleCloud application in place as new versions become available. CycleCloud is released via [Download Center](https://www.microsoft.com/download/details.aspx?id=57182) as either a Debian or RPM package.
 
-To upgrade, copy the installer to the host running CycleCloud and run the platform-specific
-package upgrade command.
+To upgrade, copy the installer to the host running CycleCloud and run the platform-specific package upgrade command.
 
 For Debian, use:
 
@@ -32,21 +29,14 @@ rpm -U cyclecloud_7.5.2.rpm
 
 ## Migrate CycleCloud to a New Host
 
-While the first time installation of CycleCloud configures the service user and
-startup configuration, these will be absent if the installation data is simply
+The first installation of CycleCloud configures the service user and startup configuration. These will be absent if the installation data is simply
 copied from host to host. The following instructions describe how to migrate a CycleCloud installation to another host.
 
 ### A Note on Running Clusters
 
-Clusters managed by CycleCloud are sending information to CycleCloud via HTTPs
-and AMQP. The access information to setup these communication protocols are received
-by the nodes at launch time. So if the hostname or IP address of CycleCloud changes
-while nodes are running then communication might be broken. It's recommended to
-terminate all clusters before migrating.
+Clusters managed by CycleCloud are sending information to CycleCloud via HTTPS and AMQP. The access information to setup these communication protocols are received by the nodes at launch time. So if the hostname or IP address of CycleCloud changes while nodes are running then communication might be broken. It's recommended to terminate all clusters before migrating.
 
-One exception to this is nodes that are configured with `IsReturnProxy = true`.
-In this case, the channels of communication are initiated outbound from CycleCloud
-and will be re-established after migration automatically.
+One exception to this is nodes that are configured with `IsReturnProxy = true`. In this case, the channels of communication are initiated outbound from CycleCloud and will be automatically re-established after migration.
 
 To migrate a CycleCloud host:
 
@@ -57,12 +47,11 @@ To migrate a CycleCloud host:
 5. Enable the LSB init or *systemd* init for CycleCloud by running `/opt/cycle_server/util/autostart.sh on`
 6. Start the CycleCloud service with either `service cycle_server start` or `systemctl start cycle_server`
 
-The instructions are shortened, if, instead of migrating to a new host, it's intended to migrate the installation from a non-standard directory to _/opt/cycle_server_:
+The instructions can be simplified if, instead of migrating to a new host, the installation migration is from a non-standard directory to _/opt/cycle_server_:
 
 1. Stop cycle_server on the source host: `service cycle_server stop` (LSB init scripts) or `systemctl stop cycle_server` (*systemd* init)
 2. Transfer to the default location `rsync -a /usr/share/hpc/cycle_server /opt/cycle_server`.
 3. Enable the LSB init or *systemd* init for CycleCloud by running `/opt/cycle_server/util/autostart.sh on`
 4. Start the CycleCloud service with either `service cycle_server start` or `systemctl start cycle_server`
 
-After migrating to a new host, or migrating to the default installation
-directory, upgrades can be performed as described in the first section.
+After migrating to a new host, or migrating to the default installation directory, upgrades can be performed as described in the first section.
