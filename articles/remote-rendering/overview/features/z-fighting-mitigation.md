@@ -1,51 +1,28 @@
 ---
 title: Z-fighting mitigation
-description: Techniques to mitigate z-fighting artifacts
+description: Describes techniques to mitigate z-fighting artifacts
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+ms.date: 02/06/2020
+ms.topic: article
 ---
 
 # Z-fighting mitigation
 
-Generally, z-fighting refers to a problem in rasterization-based rendering, where two or more surfaces in close proximity to each other seemingly intersect in specific and view dependent patterns. In practice this creates visible flickering, called z-fighting, while the camera moves. This problem is intensified for AR and VR due to the fact that head-mounted devices naturally always move, thus changing the camera. To reduce viewer discomfort a z-fighting mitigation functionality is available in the Remote Rendering API.
+When two surfaces overlap, it is not clear which one should be rendered on top of the other. The result even varies per pixel, resulting in view-dependent artifacts. Consequently, when the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort z-fighting mitigation functionality is available in Azure Remote Rendering.
 
-|Situation                        | Result                              |
-|---------------------------------|:-----------------------------------|
+## Z-fighting mitigation modes
+
+|Situation                        | Result                               |
+|---------------------------------|:-------------------------------------|
 |Regular z-fighting               |![Z-fighting](./media/zfighting-0.png)|
 |Z-fighting mitigation enabled    |![Z-fighting](./media/zfighting-1.png)|
 |Checkerboard highlighting enabled|![Z-fighting](./media/zfighting-2.png)|
 
-## Reasons for z-fighting
-
-Z-fighting is created mainly in two situations:
-
-* Surfaces are positioned very far from the camera where their depth values quantize badly
-* Surfaces being (nearly) coplanar
-
-While the former is a problem, which is difficult to eliminate due to the technical reality of floating-point precision, the latter can actually be an indicator of badly conditioned scenes. In physical reality surfaces are never coplanar so depending on the use case of the scene the user might want to know if such surfaces exist and where they are in the scene. For example, a CAD scene building the basis for a real world construction ideally should not contain physically impossible surface intersections. To allow for visual investigation of the scene for such problems a visual highlighter is available, which will display z-fighting potential as an animated checkerboard alternation between the respective surfaces.
-
-> [!CAUTION]
-> Due to technical limitations the z-fighting mitigation is a best effort method, i.e. depending on the scene and the frequency of z-fighting there might still be some visible z-fighting left. Also, all approximately co-planar surfaces in a scene will be affected, even if they did not exhibit z-fighting.
-
-## API usage
-
-The ZFightingMitigationSettings state provides the necessary object to toggle the mitigation and employ additional configuration. These settings affect rendering globally. That is, every loaded and rendered model and cannot be toggled for individual models or subparts in a model.
-
-> [!NOTE]
-> To see the checkerboard highlighting the ordinary z-fighting mitigation needs to be enabled as well.
-
-### Example calls
-
-Enabling the z-fighting mitigation and the checkerboard intersection highlighting can be done as follows:
+The following code enables z-fighting mitigation:
 
 ``` cs
-public void exampleZFightingMitigation(AzureSession session)
+void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
     ZFightingMitigationSettings settings = session.Actions.GetZFightingMitigationSettings();
 
@@ -53,6 +30,34 @@ public void exampleZFightingMitigation(AzureSession session)
     settings.Enabled = true;
 
     // enabling checkerboard highlighting of z-fighting potential
-    settings.Highlighting = true;
+    settings.Highlighting = highlight;
 }
 ```
+
+> [!NOTE]
+> Z-fighting mitigation is a global setting that affects all rendered meshes.
+
+## Reasons for z-fighting
+
+Z-fighting happens mainly for two reasons:
+
+1. when surfaces are very far away from the camera, the precision of their depth values degrades and the values become indistinguishable
+1. when surfaces in a mesh physically overlap
+
+The first problem can always happen and is difficult to eliminate. If this happens in your application, make sure that the ratio of the *near plane* distance to the *far plane* distance is as low as practical. For example, a near plane at distance 0.01 and far plane at distance 1000 will create this problem much earlier, than having the near plane at 0.1 and the far plane at distance 20.
+
+The second problem is an indicator for badly authored content. In the real world, two objects can't be in the same place at the same time. Depending on the application, users might want to know whether overlapping surfaces exist and where they are. For example, a CAD scene of a building that is the basis for a real world construction, shouldn't contain physically impossible surface intersections. To allow for visual inspection, the highlighting mode is available, which displays potential z-fighting as an animated checkerboard pattern.
+
+## Limitations
+
+The provided z-fighting mitigation is a best effort. There is no guarantee that it removes all z-fighting. Also it will automatically prefer one surface over another. Thus when you have surfaces that are too close to each other, it might happen that the "wrong" surface ends up on top. A common problem case is when text and other decals are applied to a surface. With z-fighting mitigation enabled these details could easily just vanish.
+
+## Performance considerations
+
+* Enabling z-fighting mitigation incurs little to no performance overhead.
+* Additionally enabling the z-fighting overlay does incur a non-trivial performance overhead, though it may vary depending on the scene.
+
+## Next steps
+
+* [Rendering modes](../../concepts/rendering-modes.md)
+* [Late stage reprojection](late-stage-reprojection.md)
