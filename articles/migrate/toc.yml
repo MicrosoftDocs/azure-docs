@@ -14,6 +14,8 @@
       href: common-questions-appliance.md
     - name: Questions about discovery, assessment/dependency visualization
       href: common-questions-discovery-assessment.md
+    - name: Questions about Server Migration
+      href: common-questions-server-migration.md
 - name: Tutorials
   items:
   - name: Assess and migrate VMware VMs
