@@ -322,7 +322,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 #### Considerations when hiding inputs and outputs
 
-* When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that trigger or action for monitoring.
+* When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
@@ -810,7 +810,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 ## Next steps
 
-* [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)  
-* [Diagnose logic app failures and issues](logic-apps-diagnosing-failures.md)  
-* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)  
+* [Diagnose logic app failures and issues](../logic-apps/logic-apps-diagnosing-failures.md)  
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

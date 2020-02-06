@@ -314,6 +314,8 @@ Customize properties:
 - **restartCheckCommand** – Command to check if restart succeeded (optional). 
 - **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
 
+### Linux restart  
+There is no Linux Restart customizer, however, if you are installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer, there is a 20min SSH timeout to the build VM.
 
 ### PowerShell customizer 
 The shell customizer supports running PowerShell scripts and inline command, the scripts must be publicly accessible for the IB to access them.

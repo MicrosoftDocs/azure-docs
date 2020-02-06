@@ -285,7 +285,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 
-1. Sign in to Azure with the [az login](/cli/azure/group#az-login) command:
+1. Sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
 
     ```azurecli
     az login

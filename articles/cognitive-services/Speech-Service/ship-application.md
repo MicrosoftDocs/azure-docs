@@ -3,14 +3,13 @@ title: Develop apps with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy an application that uses the Speech SDK on supported platforms.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
 ---
 

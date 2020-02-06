@@ -25,6 +25,9 @@ You need the following to use Azure AD Connect cloud provisioning:
 - An on-premises server for the provisioning agent with Windows 2012 R2 or later.
 - On-premises firewall configurations.
 
+>[!NOTE]
+>The provisioning agent can currently only be installed on English language servers. Installing an English language pack on a non-English server is not a valid workaround and will result in the agent failing to install. 
+
 The rest of the document provides step-by-step instructions for these prerequisites.
 
 ### In the Azure Active Directory admin center
