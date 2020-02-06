@@ -142,7 +142,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
-| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. Instances of the specified types are sampled; the types that aren't specified or implied are transmitteed without sampling. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
