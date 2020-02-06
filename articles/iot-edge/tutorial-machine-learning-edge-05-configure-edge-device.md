@@ -38,6 +38,8 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 7. In the dialog, accept the default value for the image name and tag: **createcertificates:latest**.
 
+    ![Create certificates in Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
+
 8. Wait for the build to complete.
 
     > [!NOTE]
