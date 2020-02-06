@@ -195,7 +195,7 @@ Switch back to the Azure portal, and select **Delete**.
 
 ![Azure portal delete an HDInsight cluster](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
 
-You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight Spark cluster, and the default storage account.
+You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 
 ### Piecemeal clean up with PowerShell Az module
 
