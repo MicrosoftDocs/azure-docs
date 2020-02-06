@@ -5,7 +5,7 @@ author: jpconnock
 
 ms.topic: article
 ms.date: 02/05/2020
-ms.author: jpconnock
+ms.author: jeconnoc
 ms.reviewer: lcozzens
 
 ---
@@ -237,7 +237,7 @@ For .NET applications and functions, the simplest way to work with a managed ide
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference](https://go.microsoft.com/fwlink/p/?linkid=862452).
+To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference].
 
 ### Using the Azure SDK for Java
 
@@ -285,6 +285,6 @@ Removing a system-assigned identity in this way will also delete it from AAD. Sy
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
+> [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
 
 [Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452
