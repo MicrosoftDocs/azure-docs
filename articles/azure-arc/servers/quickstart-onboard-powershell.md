@@ -12,7 +12,7 @@ ms.topic: quickstart
 ---
 # Connect hybrid machines to Azure at scale
 
-You can enable Azure Arc for servers (preview) for multiple Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of the Connected Machine agent for both operating systems. To connect the machines to Azure Arc for servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](quickstart-onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
+You can enable Azure Arc for servers (preview) for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate the installation and establish the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure. To connect the machines to Azure Arc for servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](quickstart-onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
 
 The installation methods to install and configure the Connected Machine agent requires that you have administrator permissions on the machines. On Linux, by using the root account and on Windows, you are a member of the Local Administrators group.
 
@@ -71,10 +71,7 @@ The **Azure Connected Machine Onboarding** role contains only the permissions re
 
 ## Install the agent and connect to Azure
 
-You can automate the installation of the Connected Machine agent for Windows or Linux, including 
-
-
-Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can automate the installation of the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process.
+The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs the same steps described in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. But, the final step establishing the connection to Azure Arc using the `azcmagent` command uses the service principal.
 
 The following are the settings that you configure to use the service principal with the `acmagent` command to connect the machine to Auzre Arc.
 
