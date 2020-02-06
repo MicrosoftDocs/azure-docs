@@ -130,4 +130,4 @@ As updates are constantly made to the product, some features have added or diffe
 
 ## Data flow expressions
 
-* [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+[Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
