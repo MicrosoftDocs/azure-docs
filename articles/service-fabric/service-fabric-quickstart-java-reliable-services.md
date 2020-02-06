@@ -16,10 +16,9 @@ Azure Service Fabric is a distributed systems platform for deploying and managin
 
 ## Prerequisites
 
-- [Java environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
-- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/)
+- [Java environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) and [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) and [Eclipse plug-in for Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
 - [Service Fabric SDK and Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
-- [Eclipse plug-in for Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
 - [Git](https://git-scm.com/downloads)
 
 ## Download the sample
