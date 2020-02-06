@@ -33,12 +33,29 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Updated general troubleshooting.
 - [Telemetry sampling in Azure Application Insights](app/sampling.md) - Updated and restructured to  improve readability based on customer feedback.
 
+
 ### Data security
 - [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - New article.
 
 ### Insights and solutions
+
+#### Azure Monitor for Containers
+- [Configure Azure Monitor for containers agent data collection](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Create performance alerts for Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-alerts) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
+- [Kubernetes monitoring with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
+- [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat-setup) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
+- [How to manage the Azure Monitor for containers agent](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-manage-agent) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Azure Monitor for containers Prometheus Integration](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [How to update Azure Monitor for containers for metrics](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-update-metrics) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+
+
+#### Azure Monitor for VMs
 - [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
+
+#### Office 365
 - [Office 365 management solution in Azure](insights/solution-office-365.md) - Added details and FAQ on migrating to Office 365 solution in Azure Sentinel. Removed onboarding section.
+
 
 
 ### Logs
