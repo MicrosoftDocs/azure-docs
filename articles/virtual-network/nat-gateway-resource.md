@@ -39,6 +39,8 @@ User-defined routes aren't necessary.
 
 The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  This template-like format is shown here to illustrate the concepts and structure.  Modify the example for your needs.  This document isn't intended as a tutorial.
 
+NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound SNAT](../load-balancer/load-balancer-outbound-connections.md).
+
 The following example would create a NAT gateway resource called _myNATGateway_ is created in region _East US 2, AZ 1_ with a _4-minutes_ idle timeout. The outbound IP addresses provided are:
 - A set of public IP address resources _myIP1_ and _myIP2_ and 
 - A set of public IP prefix resources _myPrefix1_ and _myPrefix2_. 
@@ -130,6 +132,8 @@ The zones property isn't mutable.  Redeploy NAT gateway resource with the intend
 
 Source network address translation (SNAT) rewrites the source of a flow to originate from a different IP address.  NAT gateway resources use a variant of SNAT commonly referred to port address translation (PAT). PAT rewrites the source address and source port.  With the addition of source port translation, there's no fixed relationship between the number of private addresses and their translated public addresses.  
 
+### Fundamentals
+
 Let's look at an example of four flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.0.2.
 
 | Flow | Source tuple | Destination tuple |
@@ -152,9 +156,19 @@ The destination will see the source of the flow as 65.52.0.2 (SNAT source tuple)
 
 Don't take a dependency on the specific way source ports are assigned.  The preceding is an illustration of the fundamental concept only.
 
+SNAT provided by NAT is very different from [Load Balancer](../load-balancer/load-balancer-outbound-connections.md).
+
+### On-demand
+
+NAT allocates SNAT ports on-demand at the time the flow is created.  And all available SNAT ports in inventory can be used by any virtual machine on subnets configured with NAT.  Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.
+
+Once a SNAT port is released, it becomes available for use for any virtual machine on subnets configured with NAT as needed.  This allows dynamic and divergent workloads on subnet(s) to use SNAT ports as they need.  As long as there is SNAT port inventory available, SNAT flows will succeed. Any intermittent SNAT port hot spots in your deployment can benefit from the larger inventory instead of leaving SNAT ports unused for virtual machines not actively needing them.
+
 ### Scaling
 
-You can have multiple private addresses map to one public IP address.  Additionally you can have multiple public addresses for scaling PAT. 
+NAT needs sufficient SNAT port inventory for the scenario. Scaling NAT is primarily a function of managing the shared, available SNAT ports.  Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.
+
+SNAT can map multiple private addresses map to one public IP address.  Additionally you can have multiple public addresses for scaling PAT. 
 
 A NAT gateway resource will use 64,000 ports (SNAT ports) of a public IP address.  These SNAT ports become the available inventory for the private to public flow mapping. And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can be configured with up to 16 IP addresses for up to 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
 
@@ -162,7 +176,7 @@ NAT gateway resources opportunistically reuse source ports. For scaling purposes
 
 ### Protocols
 
-NAT gateway resources interact with UDP and TCP flows.  Other IP protocols aren't supported.
+NAT gateway resources interact with IP and IP transport headers of UDP and TCP flows and are agnostic to application layer payloads.  Other IP protocols aren't supported.
 
 ### Timers
 
