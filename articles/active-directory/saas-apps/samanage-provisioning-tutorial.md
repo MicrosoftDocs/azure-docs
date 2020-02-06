@@ -123,11 +123,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Samanage matching group attributes](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-<<<<<<< HEAD
 13. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-=======
-12. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
->>>>>>> 3ecb11efa56a007aa2e21ce0d318a053dab20e3c
 
 13. To enable the Azure AD provisioning service for Samanage, in the **Settings** section, change **Provisioning Status** to **On**.
 

@@ -22,12 +22,6 @@ ms.author: Zhchia
 
 This tutorial describes the steps you need to perform in both Insight4GRC and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Insight4GRC](https://www.rsmuk.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-<<<<<<< HEAD
-> [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-=======
 
 ## Capabilities supported
 > [!div class="checklist"]
@@ -36,7 +30,6 @@ This tutorial describes the steps you need to perform in both Insight4GRC and Az
 > * Keep user attributes synchronized between Azure AD and Insight4GRC
 > * Provision groups and group memberships in Insight4GRC
 > * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial) to Insight4GRC (recommended)
->>>>>>> 3ecb11efa56a007aa2e21ce0d318a053dab20e3c
 
 ## Prerequisites
 
