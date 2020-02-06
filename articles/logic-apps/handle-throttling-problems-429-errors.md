@@ -46,7 +46,7 @@ To handle throttling at this level, you have these options:
 
 * Enable high throughput mode.
 
-  Your logic app has a default limit on the number of actions that can run in a 5-minute rolling interval. To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
+  A logic app has a [default limit for the number of actions that can run over a 5-minute rolling interval](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
 
 * Disable array debatching ("split on") behavior in triggers.
 
@@ -54,15 +54,19 @@ To handle throttling at this level, you have these options:
 
 * Refactor actions into smaller logic apps.
 
-  Consider whether you can break down your logic app's actions into smaller logic apps so that each logic app runs a number of actions below the limit.
+  As mentioned earlier, a logic app is limited to a [default number of actions that can run over a 5-minute period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Although you can increase this limit by enabling [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), you might also consider whether you want to break down your logic app's actions into smaller logic apps so that the number of actions that run in each logic app remains under the limit.
 
-  Here's the first logic app that gets the tables and then calls another logic app for each table to get the rows:
+  For example, this logic app does all the work to get the tables from a SQL Server database and then gets the rows from each table.
 
-  ![Create a logic app for one action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+  ![Logic app "before" refactoring](./media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png)
 
-  Here's the second logic app that's called by the first logic app to get the rows for each table:
+  After refactoring, the logic app is now a parent and child logic app. The parent gets the tables from SQL Server and then calls a child logic app for each table to get the rows:
 
-  ![Create another logic app for a different action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
+  ![Create logic app for one action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+
+  Here's the child logic app that's called by the parent logic app to get the rows for each table:
+
+  ![Create another logic app for a second action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
 
 <a name="connector-throttling"></a>
 
