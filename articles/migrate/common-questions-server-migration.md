@@ -2,7 +2,7 @@
 title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about Azure Migrate Server Migration
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 02/06/2020
 ---
 
 # Azure Migrate Server Migration: Common questions
