@@ -1,5 +1,5 @@
 ---
-title: Migrate StorSimple Device Manager storage account, subscription
+title: Migrate StorSimple Device Manager storage accounts, subscriptions
 description: Learn how to migrate subscriptions, storage accounts for your StorSimple Device Manager service.
 services: storsimple
 documentationcenter: ''
