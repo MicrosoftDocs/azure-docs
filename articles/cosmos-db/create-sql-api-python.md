@@ -32,7 +32,7 @@ This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azur
 
 * [Python 3.6+](https://www.python.org/downloads/), with the `python` executable available in your `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
+* [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
 ## Create a database account
 

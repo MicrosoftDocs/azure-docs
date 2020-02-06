@@ -19,6 +19,10 @@ In this article, you'll learn how to:
 > * Discover databases and set up backups.
 > * Set up auto-protection for databases.
 
+>[!NOTE]
+>**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+
 ## Prerequisites
 
 Before you back up a SQL Server database, check the following criteria:
@@ -99,6 +103,9 @@ Avoid using the following elements in database names:
 * Forward slash '/'
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
+>[!NOTE]
+>The **Configure Protection** operation for databases with special characters like "+” or “&" in their name is not supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

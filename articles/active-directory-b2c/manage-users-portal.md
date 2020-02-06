@@ -57,4 +57,4 @@ For details about restoring a user within the first 30 days after deletion, or f
 
 ## Next steps
 
-For automated user management scenarios, for example migrating users from another identity provider to your Azure AD B2C directory, see [Azure AD B2C: User migration](active-directory-b2c-user-migration.md).
+For automated user management scenarios, for example migrating users from another identity provider to your Azure AD B2C directory, see [Azure AD B2C: User migration](user-migration.md).

@@ -95,12 +95,6 @@
         href: sql-database-ssms-mfa-authentication.md
       - name: Configure multi-factor auth
         href: sql-database-ssms-mfa-authentication-configure.md
-      - name: Configure TDE with BYOK
-        href: transparent-data-encryption-byok-azure-sql-configure.md
-      - name: Rotate TDE BYOK keys
-        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-      - name: Remove TDE protector
-        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
 
     - name: Data protection
       items:
@@ -110,6 +104,12 @@
           href: transparent-data-encryption-azure-sql.md
         - name: TDE with Bring Your Own Key
           href: transparent-data-encryption-byok-azure-sql.md
+        - name: Configure TDE with BYOK
+          href: transparent-data-encryption-byok-azure-sql-configure.md
+        - name: Rotate TDE BYOK keys
+          href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+        - name: Remove TDE protector
+          href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
       - name: Dynamic data masking
         href: sql-database-dynamic-data-masking-get-started.md
       - name: Always encrypted

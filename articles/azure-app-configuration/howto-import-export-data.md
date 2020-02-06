@@ -3,7 +3,7 @@ title: Import or export data with Azure App Configuration | Microsoft Docs
 description: Learn how to import or export data to or from Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 
@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 ---
 

@@ -133,6 +133,10 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 1) Take pause view on [Azure Kinect viewer](azure-kinect-viewer.md) and take a screenshot or
 2) Take recording using [Azure Kinect recorder](azure-kinect-recorder.md), for example, `k4arecorder.exe -l 5 -r 5 output.mkv`
 
+## Inconsistent or unexpected device timestamps
+
+Calling ```k4a_device_set_color_control``` can temporarily induce timing changes to the device that may take a few captures to stabilize. Avoid calling the API in the image capture loop to avoid resetting the internal timing calculation with each new image. Instead call the API before the starting the camera or just when needing to change the value within the image capture loop. In particular avoid calling ```k4a_device_set_color_control(K4A_COLOR_CONTROL_AUTO_EXPOSURE_PRIORITY)```.
+
 ## USB3 host controller compatibility
 
 If the device is not enumerating under device manager, it may be because it's plugged into an unsupported USB3 controller. 

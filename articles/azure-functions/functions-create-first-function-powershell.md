@@ -62,36 +62,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 Visual Studio Code creates the PowerShell function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, which apply to all function in the project. This [PowerShell project](functions-reference-powershell.md#folder-structure) is the same as a function app running in Azure.
 
-## Run the function locally
-
-Azure Functions Core Tools integrates with Visual Studio Code to let you run and debug an Azure Functions project locally.  
-
-1. To debug your function, insert a call to the [`Wait-Debugger`] cmdlet in the function code before you want to attach the debugger, then press F5 to start the function app project and attach the debugger. Output from Core Tools is displayed in the **Terminal** panel.
-
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
-
-    ![Azure local output](./media/functions-create-first-function-powershell/functions-vscode-f5.png)
-
-1. Append the query string `?name=<yourname>` to this URL, and then use `Invoke-RestMethod` to execute the request, as follows:
-
-    ```powershell
-    PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
-    Hello PowerShell
-    ```
-
-    You can also execute the GET request from a browser.
-
-    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a [HttpStatusCode]::BadRequest error. When you review the code in run.ps1, you see that this error occurs by design.
-
-1. To stop debugging, press Shift + F5.
-
-After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
-
-> [!NOTE]
-> Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
->
-> Creating a function app in Azure only prompts for your function app name. Other values are defined for you.
-> Set `azureFunctions.advancedCreation` to `true` to be prompted for all other values.
+[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

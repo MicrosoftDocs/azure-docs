@@ -13,7 +13,6 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
 ---
 
 # Change your two-factor verification method and settings
