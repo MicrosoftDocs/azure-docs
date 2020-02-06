@@ -75,7 +75,7 @@ The total number of IP addresses provided by all four IP address resources can't
 
 Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual networks.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
 
-Scenarios that don't use Availability Zones will be regional (no zone specified).  If you're using Availability Zones, you can specify a zone force NAT to be isolated to a specific zone. Review NAT [availability zones](#availability-zones).
+Scenarios that don't use availability zones will be regional (no zone specified).  If you're using Availability Zones, you can specify a zone force NAT to be isolated to a specific zone. Review NAT [availability zones](#availability-zones).
 
 
 ```json
@@ -111,7 +111,7 @@ All flows created by virtual machines on subnet _mySubnet1_ of virtual network _
 
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures.
 
-When availability zones are part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations and data plane is constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. 
+When availability zones are part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations and data plane is constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
 
 When you create a zone-isolated NAT gateway, you must also use zonal IP addresses that match the zone of the NAT gateway resource.  NAT gateway resources don't allow IP addresses from a different zone or without zone to be attached.
 
