@@ -124,7 +124,7 @@ Requests is a popular module that is used to send HTTP 1.1 requests. There’s n
    ```
 
 > [!NOTE]
-> If you'd like to learn more about requests, see [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/).
+> If you'd like to learn more about requests, see [Requests: HTTP for Humans](https://2.python-requests.org/en/master/).
 
 ### Install and configure Flask
 

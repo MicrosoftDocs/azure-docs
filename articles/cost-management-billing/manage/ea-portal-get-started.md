@@ -4,7 +4,7 @@ description: This article explains how Azure Enterprise Agreement (Azure EA) cus
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
