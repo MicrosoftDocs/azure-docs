@@ -440,6 +440,8 @@ Following is the current default parameterization template. If you need to add o
 {
     "Microsoft.DataFactory/factories/pipelines": {
     },
+    "Microsoft.DataFactory/factories/dataflows": {
+    },
     "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
             "typeProperties": {
@@ -548,6 +550,8 @@ The following example shows how to add a single value to the default parameteriz
 {
     "Microsoft.DataFactory/factories/pipelines": {
     },
+    "Microsoft.DataFactory/factories/dataflows": {
+    },
     "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
             "typeProperties": {
@@ -617,6 +621,7 @@ The following example shows how to add a single value to the default parameteriz
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
+		    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
