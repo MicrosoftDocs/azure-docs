@@ -9,15 +9,41 @@ ms.topic: conceptual
 
 # Rendering modes
 
-Remote Rendering offers two main modes of operation, *Balanced* mode and *Quality* mode. These modes fundamentally govern how assets are rendered and can't be changed at runtime. They represent trade-offs between resource usage, performance, and rendering quality and are built to accommodate different use cases. The modes allow the user to choose the best suitable approach for their needs.
+Remote Rendering offers two main modes of operation, **TileBasedComposition** mode and **DepthBasedComposition** mode. These modes determine how the workload is distributed across multiple GPUs on the server. The mode has to be specified at connection time and cannot be changed during runtime.
 
-Use these guidelines to quickly decide which mode is most appropriate for you:
+Both modes come with advantages but also with inherent feature limitations, so picking the most suitable mode is use case specific.
 
-* If it proves to be running well, prefer *Quality* mode to avoid inaccuracies.
-* For everything else, especially complex scenes, use *Balanced* mode.
-* If in doubt, use the special *Default* enum value, which is set to the recommended mode.
+## Modes
 
-## Usage
+The two modes are now discussed in more detail.
+
+### 'TileBasedComposition' mode
+
+In **TileBasedComposition** mode, every involved GPU renders specific subrectangles (tiles) on the screen. The main GPU composes the final image from the tiles before it is sent as a video frame to the client. Accordingly, all GPUs require to have the same set of resources for rendering, so the loaded assets need to fit into a single GPU's memory.
+
+The rendering quality in this mode is slightly better than in **DepthBasedComposition** mode, since MSAA can work on the full set of geometry for every GPU. The following screenshot shows that antialiasing works properly for both edges likewise:
+
+![MSAA in TileBasedComposition](./media/service-render-mode-quality.png)
+
+Furthermore, in this mode each part can be switched to a transparent material or switched to **see-through** mode via the [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
+
+### 'DepthBasedComposition' mode
+
+In **DepthBasedComposition** mode, every involved GPU renders at full screen resolution but only a subset of meshes. Final image composition on the main GPU takes care that parts are properly merged according to their depth information. Naturally, memory payload is distributed across the GPUs, thus allowing for rendering models that would not fit into a single GPU's memory.
+
+Every single GPU uses MSAA to antialias local content. However, there might be inherent aliasing between edges from distinct GPUs. This effect is mitigated by postprocessing the final image, but MSAA quality is still worse than in **TileBasedComposition** mode.
+
+MSAA artifacts are illustrated in the following image:
+![MSAA in DepthBasedComposition](./media/service-render-mode-balanced.png)
+
+Antialiasing works properly between the sculpture and the curtain, because both parts are rendered on the same GPU. On the other hand, the edge between curtain and wall shows some aliasing because these two parts are composed from distinct GPUs.
+
+The biggest limitation of this mode is, that geometry parts cannot be switched to transparent materials dynamically nor does the **see-through** mode work for [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Other state override features (outline, color tint, ...) do work, though. Also materials that were marked at transparent at conversion time do work properly in this mode.
+
+### Performance
+The performance characteristics for both modes do vary based on the use case, and it is hard to reason or provide general recommendations. If you are not constrained by the limitations mentioned above (memory or transparency/see-through), it is recommended to try out both modes and monitor the performance using various camera positions.
+
+## Setting the render mode
 
 The render mode used on a Remote Rendering VM is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`. A single VM can have multiple rendering modes during different connections.
 
@@ -27,7 +53,7 @@ async void ExampleConnect(AzureSession session)
     ConnectToRuntimeParams parameters = new ConnectToRuntimeParams();
 
     // Connect with one rendering mode
-    parameters.mode = ServiceRenderMode.Quality;
+    parameters.mode = ServiceRenderMode.TileBasedComposition;
     await session.ConnectToRuntime(parameters).AsTask();
 
     session.DisconnectFromRuntime();
@@ -35,35 +61,12 @@ async void ExampleConnect(AzureSession session)
     // Wait until session.IsConnected == false
 
     // Reconnect with a different rendering mode
-    parameters.mode = ServiceRenderMode.Default;
+    parameters.mode = ServiceRenderMode.DepthBasedComposition;
     await session.ConnectToRuntime(parameters).AsTask();
 }
 ```
 
-## Modes
-
-### 'Balanced' mode
-
-*Balanced* mode is optimized for a wide range of scenarios. It maximizes the utilization of the VM's CPU, GPU, main memory, and graphics memory and is well suited for complex scenes.
-
-The trade-off is that it can't deliver the best possible rendering quality in all situations, as shown in the image below:
-
-![BalancedMode](./media/service-render-mode-balanced.png)
-
-Have a look at the multi-sampling quality. Between the sculpture and the green curtain, it looks mostly correct. However, at the border between the green curtain and the wall it's noticeably worse. For most users, these sporadic occurrences are difficult to perceive, though.
-
-In terms of performance, this mode is usually better than *Quality* mode. It should be used if the artifacts mentioned above are not an issue. There is one scenario where it can perform worse than *Quality* mode, though, which is for scenes consisting mostly or exclusively of transparent objects.
-
-### 'Quality' mode
-
-*Quality* mode offers the best rendering quality, at the cost of resource consumption. Especially in terms of memory usage, this mode will consume vastly more of the VMs resources, which makes this mode unsuitable for huge scenes (many objects/triangles, a large amount of large textures). The main advantage of *Quality* mode is that the rendering artifacts mentioned for *Balanced* mode will be reduced significantly, which can be seen below:
-
-![QualityMode](./media/service-render-mode-quality.png)
-
-Additionally, this mode is more efficient when rendering mostly transparent objects.
-
-Quality mode has a substantially higher resource consumption. Therefore it is only recommended for small to medium-sized models. When this mode is active, the remote rendering service may even reject loading some models.
-
 ## Next steps
 
 * [SDK concepts](../concepts/sdk-concepts.md)
+* [Hierarchical state override component](../overview/features/override-hierarchical-state.md)
