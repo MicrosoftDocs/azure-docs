@@ -150,7 +150,7 @@ These flows might look like this after PAT has taken place:
 
 The destination will see the source of the flow as 65.52.0.2 (SNAT source tuple) with the assigned port shown.  PAT as shown in the preceding table is also called port masquerading SNAT.  Multiple private sources are masqueraded behind an IP and port.
 
-Don't take a dependency on the specific way source ports are assigned.  The proceeing is an illustration of the fundamental concept only.
+Don't take a dependency on the specific way source ports are assigned.  The preceding is an illustration of the fundamental concept only.
 
 ### Scaling
 
