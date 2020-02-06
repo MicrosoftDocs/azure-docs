@@ -6,13 +6,56 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 01/05/2020
+ms.date: 02/05/2020
 
 ---
 
 # What's new in Azure Monitor documentation
+This article provides a listing of Azure Monitor articles that are either new or have received significant updates in the previous month. It will be updated the first week of each month.
 
-## December, 2019
+## January 2020
+
+### General
+- [What is monitored by Azure Monitor?](monitor-reference.md) - New article.
+
+### Agents
+- [Collect log data with Azure Log Analytics agent](platform/log-analytics-agent.md) - Updated network firewall requirements table.
+
+
+### Alerts
+- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Setting removed for v2 functions that is no longer required.
+- [Create a metric alert with a Resource Manager template](platform/alerts-metric-create-templates.md) - Added example for the *ignoreDataBefore* parameter.  Added constraints about multi-criteria rules.
+- [Using Log Analytics Alert REST API](platform/api-alerts.md) - JSON example corrected.
+
+
+### Application Insights
+- [IP addresses used by Application Insights and Log Analytics](azure-monitor/app/ip-addresses.md) - Updated the Availability test section with how to add an inbound port rule to allow traffic using Azure Network Security Groups.
+- [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Updated general troubleshooting.
+- [Telemetry sampling in Azure Application Insights](app/sampling.md) - Updated and restructured to  improve readability based on customer feedback.
+
+### Data security
+- [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - New article.
+
+### Insights and solutions
+- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
+- [Office 365 management solution in Azure](insights/solution-office-365.md) - Added details and FAQ on migrating to Office 365 solution in Azure Sentinel. Removed onboarding section.
+
+
+### Logs
+- [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Updates to Not actions.
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added clarification on calculation of data volume in the Pricing Model section.
+- [Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace](platform/template-workspace-configuration.md) - Updated template with new pricing tiers.
+
+
+### Platform logs
+- [Collect Azure Activity log with diagnostic settings- Azure Monitor](platform/diagnostic-settings-legacy) - Additional information on changed properties.
+- [Export the Azure Activity Log](platform/activity-log-export.md) - Updated for UI changes. 
+
+
+
+
+
+## December 2019
 
 ### Agents
 - [Connect Linux computers to Azure Monitor](platform/agent-linux.md) - New article.
