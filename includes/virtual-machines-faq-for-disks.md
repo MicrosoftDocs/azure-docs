@@ -159,7 +159,7 @@ Azure disks reservation are purchased for a specific region and SKU (like P30 in
 **What happens when my Azure disks reservation expires?**	
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-### Azure Shared disks
+### Azure shared disks
 
 **Is the shared disks feature supported for unmanaged disks or page blobs?**
 No, it is only supported for premium SSD managed disks.
