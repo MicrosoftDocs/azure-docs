@@ -42,7 +42,7 @@ Since agentless replication uses snapshots, there will be IOPs consumption on st
 
 ## Does agentless migration stack support migration of UEFI VMs to Azure Gen 2 VMs?
 
-No, you must use ASR to migrate these VMs to Gen 2 Azure VMs. 
+No, you must use Azure Site Recovery to migrate these VMs to Gen 2 Azure VMs. 
 
 ## Can I pin my VMs to Azure Availability Zones when I migrate?
 
