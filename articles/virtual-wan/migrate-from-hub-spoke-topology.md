@@ -81,7 +81,7 @@ Review the architecture. The following figure shows a single region topology for
 ![Single region topology](./media/migrate-from-hub-spoke-topology/figure1.png)
 **Figure 1: VDC hub-and-spoke single region**
 
-In line with the Virtual Data Center (VDC) approach, the customer-managed hub virtual network contains several function blocks:
+In keeping with the Virtual Data Center (VDC) approach, the customer-managed hub virtual network contains several function blocks:
 
 - Shared services (any common function required by multiple spokes). Example: Contoso uses Windows Server domain controllers on Infrastructure-as-a-service (IaaS) virtual machines.
 - IP/Routing firewall services are provided by a third-party network virtual appliance, enabling spoke-to-spoke layer-3 IP routing.
