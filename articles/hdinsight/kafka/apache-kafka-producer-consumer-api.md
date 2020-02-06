@@ -137,9 +137,10 @@ If you would like to skip this step, prebuilt jars can be downloaded from `Prebu
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. To get the Kafka broker hosts, substitute the cluster name for <clustername> in the following command and execute it:
+1. To get the Kafka broker hosts, substitute the cluster name for `<clustername>` in the following command and execute it:
 
     ```bash
+    sudo apt -y install jq
     export clusterName='<clustername>'
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
