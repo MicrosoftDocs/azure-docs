@@ -10,9 +10,9 @@ services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Create a water consumption monitoring application in Azure IoT Central
+# Tutorial: Create a water consumption monitoring application with Azure IoT Central
 
-This tutorial shows you how to create an Azure IoT Central water consumption monitoring application from the Azure IoT Central water consumption monitoring application template.
+This tutorial shows you how to create an Azure IoT Central water consumption monitoring application by using the Azure IoT Central water consumption monitoring application template.
 
 In this tutorial, you will learn how to:
 
@@ -31,11 +31,11 @@ To complete this tutorial, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
-## Create a water consumption monitoring app in Azure IoT Central
+## Create a water consumption monitoring app with Azure IoT Central
 
 In this section, you use the Azure IoT Central water consumption monitoring template to create your water consumption monitoring application in Azure IoT Central.
 
-To create a new Azure IoT Central water consumption monitoring application:  
+To create a new Azure IoT Central water consumption monitoring application:
 
 1. Go to the [Azure IoT Central home page](https://aka.ms/iotcentral) website.
 
@@ -47,13 +47,13 @@ To create a new Azure IoT Central water consumption monitoring application:
 
    ![Build government app templates](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png)
 
-1. Select the **water consumption monitoring** application template.
+1. Select the **Water consumption monitoring** application template.
 This template includes a sample water consumption device template, a simulated device, an operator dashboard, and preconfigured monitoring rules.
 
 1. Select **Create app** to open the **New application** creation form with the following fields:
     * **Application name**: By default, the application uses *Water consumption monitoring* followed by a unique ID string that Azure IoT Central generates. Optionally, choose a friendly application name. You can change the application name later, too.
     * **URL**: Azure IoT Central autogenerates a URL based on the application name. You can choose to update the URL to your liking. You can change the URL later, too.
-    * If you have an Azure subscription, enter your **Directory**, **Azure subscription**, and **Location**. If you don't have a subscription, you can select **7-day free trial** option and complete the required contact information.  
+    * If you have an Azure subscription, enter your **Directory**, **Azure subscription**, and **Location**. If you don't have a subscription, you can select the **7-day free trial** option and complete the required contact information.
 
     For more information about directories and subscriptions, see [Create an application quickstart](../core/quick-deploy-iot-central.md).
 
@@ -63,17 +63,17 @@ This template includes a sample water consumption device template, a simulated d
 
     ![Azure IoT Central Billing info page](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 
-1. You've now created a water consumption monitoring app by using the Azure IoT Central water consumption monitoring template.
+You've now created a water consumption monitoring app by using the Azure IoT Central water consumption monitoring template.
 
-You've finished creating your water quality monitoring application, which comes with preconfigured:
+The water consumption monitoring application comes with preconfigured:
 
 * Sample operator dashboards.
 * Sample predefined water flow and valve device templates.
 * Simulated water flow and smart valve devices.
-* Preconfigured rules and jobs.
+* Rules and jobs.
 * Sample branding by using white labeling.
 
-It's your application, and you can modify it anytime. Now let's explore the application and make some customizations.  
+It's your application, and you can modify it anytime. Now let's explore the application and make some customizations.
 
 ## Explore and customize the operator dashboard
 
@@ -95,7 +95,7 @@ The dashboard consists of different kinds of tiles:
 
     ![Water consumption monitoring dashboard map](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard-map.png)
 
-* **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.  
+* **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.
 * **Average valve pressure heatmap chart**: You can choose the heatmap visualization type of device telemetry data you want to see distributed over a time range with a color index.
 * **Reset alert thresholds content tile**: You can include call-to-action content tiles and embed a link to an action page. In this case, the reset alert threshold takes you to the application **Jobs**, where you can run updates to device properties. We'll explore this option later in the "Configure jobs" section of this tutorial.
 * **Property tiles**: The dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** tiles.
@@ -138,7 +138,7 @@ Customize the following:
 
 ### Add a cloud property
 
-1. Go to **Cloud property** on the **Device templates** menu.
+1. Go to **Cloud Properties** on the **Device templates** menu.
 1. Add a new cloud property by selecting **+ Add Cloud Property**.
     In Azure IoT Central, you can add a property that's relevant to the device. As an example, a cloud property could be an alerting threshold specific to an installation area, asset information, or other maintenance information.
 1. Select **Save** to save any changes.
@@ -156,7 +156,7 @@ If you made any changes, make sure to **Publish** the device template.
 ### Create a new device template
 
 Select **+ New** to create a new device template and follow the creation process.
-You'll be able to create a custom device template from scratch, or you can choose a device template from the Azure Device Catalog.
+You can create a custom device template from scratch, or you can choose a device template from the Azure Device Catalog.
 
 ## Explore simulated devices
 
@@ -164,13 +164,13 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 ### View the devices
 
-1. Go to **Devices** > **All devices** on the left pane.
+1. Select **Devices** > **All devices** on the left pane.
 
-   ![Devices](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png)
+   ![All devices pane](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png)
 
 1. Select **Smart Valve 1**.
 
-    ![Device 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
+    ![Smart Valve 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
 
 1. On the **Commands** tab, you can see the three device commands **Close valve**, **Open valve**, and **Set valve position** that are capabilities defined in the **Smart Valve** device template.
 
@@ -185,15 +185,15 @@ Add new devices by selecting **+ New** on the **Devices** tab.
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules to automatically monitor device telemetry and trigger actions when one or more conditions are met. The actions might include sending email notifications or triggering a Microsoft Flow action or a webhook action to send data to other services.
+In Azure IoT Central, you can create rules to automatically monitor device telemetry and trigger actions when one or more conditions are met. The actions might include sending email notifications or triggering a Microsoft Power Automate action or a webhook action to send data to other services.
 
 The water consumption monitoring application you created has three preconfigured rules.
 
 ### View rules
 
-1. Go to **Rules** on the left pane.
+1. Select **Rules** on the left pane.
 
-   ![Rules](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
+   ![Rules pane](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
 1. Select **High pH alert**, which is one of the preconfigured rules in the application.
 
@@ -226,29 +226,29 @@ Select **+ New** on the **Rules** tab on the left pane.
 
 In Azure IoT Central, jobs allow you to trigger device or cloud property updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. Azure IoT Central automates the workflow for you.
 
-1. Go to **Jobs** on the left pane.
+1. Select **Jobs** on the left pane.
 2. Select **+ New**, and configure one or more jobs.
 
 ## Customize your application
 
 As a builder, you can change several settings to customize the user experience in your application.
 
-1. Go to **Administration** > **Customize your application**.
-1. Use the **Change** button to choose an image to upload as the **Application logo**.
-1. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
+1. Select **Administration** > **Customize your application**.
+1. To choose an image to upload as the **Application logo**, select the **Change** button.
+1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
 1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
 
    ![Azure IoT Central customize your application](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
-1. You can also change application images by selecting **Administration** > **Application settings**. Select the **Select image** button to choose an image to upload as the application image.
-1. Finally, you can also change the **Theme** by selecting **Settings** on the masthead of the application.
+1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
+1. Finally, you can also change the **Theme** by selecting the **Settings** icon in the upper-right corner of the application.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete it.
 
-1. Open the **Administration** tab on the left pane of your Azure IoT Central application.
-2. Select **Application settings**, and select **Delete** at the bottom of the page.
+1. Select **Administration** on the left pane of your Azure IoT Central application.
+2. Select **Application settings**, and then select **Delete** at the bottom of the page.
 
 ## Next steps
 
