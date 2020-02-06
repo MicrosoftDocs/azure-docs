@@ -49,7 +49,7 @@ It should only take a few moments to create the host group.
 
 ## Create a dedicated host
 
-Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host. The following host SKU values are supported: DSv3_Type1 and ESv3_Type1.
+Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
