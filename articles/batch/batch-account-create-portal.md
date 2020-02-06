@@ -115,6 +115,15 @@ If you prefer to grant access to the key vault manually, go to the **Access poli
 
 ![Secret permissions for Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
+
+> [!NOTE]
+> Ensure that the **Azure Virtual Machines for deployment** and **Azure Resource Manager for template deployment** check boxes are selected under **Access policies** for the linked **Key Vault** resource.
+> 
+> ![Mandatory Key Vault Access Policy](./media/batch-account-create-portal/key-vault-access-policy.png)
+> This is not mandatory when creating a Batch account in the Azure portal. The option is selected by default.
+
+
+
 ### Configure subscription quotas
 
 Core quotas are not set by default on user subscription Batch accounts. Core quotas must be set manually because standard Batch core quotas do not apply to accounts in user subscription mode.
