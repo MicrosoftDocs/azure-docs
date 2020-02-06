@@ -41,15 +41,20 @@ If you are using Azure Pipelines to continuously build and deploy your applicati
 
 ## Configure Your Application Insights Resource with a Source Map Storage Account
 
-From the end-to-end transaction details blade, you can click on `Unminify` and it will automatically allow you to configure if you have not done so already.
+### From the End-to-end Transaction Details Page
 
-## Reconfigure Your Source Map Storage Account
+From the end-to-end transaction details blade, you can click on *Unminify* and it will display a prompt to configure if your resource is unconfigured.
+1. In the Portal, view the details of an exception that is minified
+2. Click on *Unminify*
+3. If your resource has not been configured, a message will appear, prompting you to configure
 
-If you would like to change the Storage Account or Blob Container that is linked to your Application Insights Resource, you can do it by viewing your App Insights resource's Properties.
+### From the Properties Page
 
-1. Navigate to the `Properties` blade of your Application Insights Resource.
-2. Click on `Change source map Blob Container`
-3. Select a different existing Blob Container as your source maps container.
+If you would like to change or reconfigure the Storage Account or Blob Container that is linked to your Application Insights Resource, you can do it by viewing the Application Insights resource's Properties blade.
+
+1. Navigate to the *Properties* blade of your Application Insights Resource.
+2. Click on *Change source map blob container*
+3. Select a different Blob Container as your source maps container.
 4. Click `Apply`.
 
 ![reconfigure]
