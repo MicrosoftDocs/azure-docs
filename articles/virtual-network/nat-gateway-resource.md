@@ -156,7 +156,7 @@ Don't take a dependency on the specific way source ports are assigned.  The prec
 
 You can have multiple private addresses map to one public IP address.  Additionally you can have multiple public addresses for scaling PAT. 
 
-A NAT gateway resources will use 64,000 ports (SNAT ports) of a public IP address.  These SNAT ports become the available inventory for the private to public flow mapping. And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can be configured with up to 16 IP addresses for up to 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
+A NAT gateway resource will use 64,000 ports (SNAT ports) of a public IP address.  These SNAT ports become the available inventory for the private to public flow mapping. And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can be configured with up to 16 IP addresses for up to 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
 
 NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound to Internet flows.
 
@@ -166,7 +166,7 @@ NAT gateway resources interact with UDP and TCP flows.  Other IP protocols aren'
 
 ### Timers
 
-Idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  One common method for idle connections and endpoint liveness detection are TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+Idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 | Timer | Value |
 |---|---|
