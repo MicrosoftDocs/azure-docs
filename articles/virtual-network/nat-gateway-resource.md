@@ -121,7 +121,7 @@ Virtual networks and subnets are regional and have no zonal alignment.  For a zo
 
 When you deploy virtual machine scale sets to use with NAT, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT will not provide a zonal promise.  NAT doesn't support zone-redundancy.
 
-The zone property isn't mutable.  Redeploy NAT gateway resource with the desired zone preference.
+The zones property isn't mutable.  Redeploy NAT gateway resource with the desired regional or zone preference.
 
 >[!NOTE] 
 >IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
