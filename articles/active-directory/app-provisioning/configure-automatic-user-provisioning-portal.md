@@ -34,7 +34,7 @@ Use the Azure Active Directory portal to view and manage all applications that a
 1. Select any app to load its resource pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 
-   ![Provisioning screen to manage user account provisioning settings](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Provisioning screen to manage user account provisioning settings](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## Provisioning modes
 
@@ -64,7 +64,7 @@ Expand **Mappings** to view and edit the user attributes that flow between Azure
 
 There's a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Select a mapping in the table to open the mapping editor to the right, where you can view and customize them.
 
-![Shows the Attribute Mapping screen](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Shows the Attribute Mapping screen](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Supported customizations include:
 

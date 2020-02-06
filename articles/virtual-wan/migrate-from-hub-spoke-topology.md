@@ -217,7 +217,7 @@ Path 5 shows traffic flow from roaming VPN (P2S) users to an Azure VNet in the W
 
 The traffic is routed as follows:
 
-- Laptop and mobile device users utilize the OpenVPN client for transparent connectivity in to the P2S VPN gateway in West Europe.
+- Laptop and mobile device users use the OpenVPN client for transparent connectivity in to the P2S VPN gateway in West Europe.
 
 - West Europe Virtual WAN hub routes traffic locally to connected VNet.
 
