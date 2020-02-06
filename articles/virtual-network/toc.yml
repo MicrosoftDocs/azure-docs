@@ -35,7 +35,6 @@
     href: policy-samples.md
 - name: Concepts
   items:
- items:
   - name: Business continuity
     href: virtual-network-disaster-recovery-guidance.md
   - name: Connectivity
