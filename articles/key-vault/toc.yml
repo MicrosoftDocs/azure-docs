@@ -113,13 +113,13 @@
     - name: Use an access control policy
       href: key-vault-group-permissions-for-apps.md
     - name: Import HSM-protected keys
-    items:
-    - name: Overview
-      href: key-vault-hsm-protected-keys.md
-    - name: Import HSM-protected keys to Azure Key Vault (preview)
-      href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Import HSM-protected keys to Azure Key Vault (Legacy)
-      href: hsm-protected-keys-legacy.md
+      items:
+      - name: Overview
+        href: key-vault-hsm-protected-keys.md
+      - name: Import HSM-protected keys to Azure Key Vault (preview)
+        href: hsm-protected-keys-vendor-agnostic-byok.md
+      - name: Import HSM-protected keys to Azure Key Vault (Legacy)
+        href: hsm-protected-keys-legacy.md
   - name: Route key vault notifications with Event Grid
     href: event-grid-tutorial.md      
   - name: Receive notifications via Event Grid and Logic Apps
