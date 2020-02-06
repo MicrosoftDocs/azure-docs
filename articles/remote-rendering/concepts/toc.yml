@@ -12,6 +12,8 @@
   href: textures.md
 - name: Materials
   href: materials.md
+- name: Object and resource lifetime
+  href: lifetime.md
 - name: Object bounds
   href: object-bounds.md
 - name: Rendering modes

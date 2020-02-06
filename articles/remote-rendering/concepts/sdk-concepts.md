@@ -158,20 +158,6 @@ Besides these built-in resources, the user may also use resources from external 
 
 A SAS URI of a sample model can be found [here](../samples/sample-model.md).
 
-## Objects and lifetime management
-
-[Components](components.md) and [entities](entities.md) are unique objects with explicit lifetime management. Both objects have a `Destroy()` member function that will destroy the object when it can be freed from the remote rendering runtime. `Entity.Destroy()` will destroy the entity, its children, and all of its components.
-
-The lifetime of these objects are not related to the lifetime of the user object representation such as the `Entity` class in C#. `Destroy` must be called to deallocate and remove the internal representation. The lifetimes are separate so that the user can work on smaller sections of large models in a less efficient user representation, while the compressed representation is stored inside the SDK.
-
-## Resources and lifetime management
-
-[Meshes](meshes.md), [materials](materials.md) and [textures](textures.md) are shared resources that are reference counted, which means their lifetime is managed by their reference count. Consequently, there is no explicit ```Destroy``` method for them. When the resource is not assigned anywhere in the scene tree (for example, a *Mesh* to a *MeshComponent*) and the user code does not hold a reference to the resource, then the resource gets destroyed on both the client and the server. The server will then release the native resource data and free the memory.
-
-## General lifetime management
-
-The lifetime of all API objects is bound to a connection. On disconnect all resources and objects are destroyed on both the client and the server. The log can be checked for information about unreleased resources that were destroyed.
-
 ## Next steps
 
 * [Entities](entities.md)
