@@ -2,7 +2,7 @@
 title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about Azure Migrate Server Migration
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 06/03/2020
 ---
 
 # Azure Migrate Server Migration: Common questions
@@ -14,7 +14,7 @@ This article answers common questions about the Azure Migrate: Server Migration.
 - [Questions](common-questions-discovery-assessment.md) about the discovery, assessment, and dependency visualization.
 
 
-## How does agentless replication work?
+## How does agentless VMware replication work?
 
 The agentless replication method for VMware uses VMware snapshots, and VMware changed block tracking (CBT). An initial replication cycle is scheduled when the user starts replication. In the initial replication cycle, a snapshot of the VM is taken, and this snapshot is used to replicate the VMs VMDKs (disks). 
 After the initial replication cycle is completed, delta replication cycles are scheduled periodically. In the delta replication cycle, a snapshot is taken, and data blocks that have changed since the previous replication cycle are replicated. VMware changed block tracking is used to determine blocks that have changed since the last cycle.
@@ -22,7 +22,7 @@ The frequency of the periodic replication cycles is automatically managed by the
 
 When you migrate, an on-demand replication cycle is scheduled for the VM to capture any remaining data. You can choose to Shut down the VM as part of the migration to ensure zero data loss and application consistency.
 
-## How does re-synchronization work in the agentless VMware stack?
+## Why is the resynchronization option not exposed in agentless stack?
 
 In agentless stack, in every delta cycle, we transfer the diff between the current snapshot and the previous snapshot that we had taken. Since it is always a diff between snapshots, this gives the advantage of folding the data (i.e. if a particular sector is written 'n' times between the snapshots, we only need to transfer the last write, as we are interested only in the last sync). This is different from the agent-based stack in which we track every write and apply them. This means every delta cycle is a resynchronization. Hence, there is no resynchronization option exposed. 
 
@@ -42,11 +42,11 @@ Since agentless replication uses snapshots, there will be IOPs consumption on st
 
 ## Does agentless migration stack support migration of UEFI VMs to Azure Gen 2 VMs?
 
-No, currently you must use ASR to migrate UEFI VMs to Gen 2 Azure VMs. Azure Migrate will support the migration to Gen 2 VMs soon.
+No, you must use ASR to migrate these VMs to Gen 2 Azure VMs. 
 
 ## Can I pin my VMs to Azure Availability Zones when I migrate?
 
-No. But we will start supporting it soon.
+No, support for Azure Availability Zones is not there.
 
 ## Which transport protocol is used by Azure Migrate during replication?
 
@@ -62,7 +62,8 @@ No. Azure Migrate supports migration only to managed disks (standard HDD, premiu
 
 ## How many VMs can replicate simultaneously using agentless VMware stack?
 
-Currently, customers can migrate 100 VMs per vCenter Server simultaneously. We are working on increasing this limit.
+Currently, customers can migrate 100 VMs per vCenter Server simultaneously. This can be done in batches of 10 VMs.
+
 
 
 
