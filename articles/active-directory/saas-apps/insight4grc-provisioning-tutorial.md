@@ -121,11 +121,7 @@ This section guides you through the steps to configure the Azure AD provisioning
       |externalId|String|
       |members|Reference|
 
-<<<<<<< HEAD
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-=======
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
->>>>>>> 3ecb11efa56a007aa2e21ce0d318a053dab20e3c
 
 13. To enable the Azure AD provisioning service for Insight4GRC, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -141,12 +137,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-<<<<<<< HEAD
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
-=======
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
->>>>>>> 3ecb11efa56a007aa2e21ce0d318a053dab20e3c
 
 * Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully.
 * Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion.
@@ -154,17 +146,9 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Additional resources
 
-<<<<<<< HEAD
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-=======
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
->>>>>>> 3ecb11efa56a007aa2e21ce0d318a053dab20e3c
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-<<<<<<< HEAD
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md).
-=======
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
->>>>>>> 3ecb11efa56a007aa2e21ce0d318a053dab20e3c
