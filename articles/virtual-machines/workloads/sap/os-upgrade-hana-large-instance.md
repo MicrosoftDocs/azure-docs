@@ -23,7 +23,7 @@ This document describes the details on operating system upgrades on the HANA Lar
 >[!NOTE]
 >The OS upgrade is customers responsibility, Microsoft operations support can guide you to the key areas to watch out during the upgrade. You should consult your operating system vendor as well before you plan for an upgrade.
 
-At the time, of the HLI unit provisioning, the Microsoft operations team install the operating system. 
+During HLI unit provisioning, the Microsoft operations team install the operating system.
 Over the time, you are required to maintain the operating system (Example: Patching, tuning, upgrading etc.) on the HLI unit.
 
 Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you need to contact Microsoft Operations team by opening a support ticket to consult.
@@ -52,7 +52,7 @@ The following are the few common known issues during the upgrade:
 Customer operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers.  Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Below given instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
 ### Compatible enic/fnic driver versions
-  In order to have proper network performance and system stability, it is advised that customers maintain versions of the enic and        fnic drives below. Servers are delivered to customers with these versions, however, in some cases versions can get rolled        back to the default enic and fnic  versions when OS/Kernel patching is performed.
+  In order to have proper network performance and system stability, it is advised that customers maintain versions of the eNIC and        fNIC drivers below. Servers are delivered to customers with these versions.However, in some cases versions can get rolled back to the default eNIC and fNIC driver versions when OS/Kernel patching is performed.
        
       
   |  OS Vendor    |  OS Package Version     |  eNIC Driver	|  fNIC Driver |
@@ -76,7 +76,7 @@ Customer operating system configuration can drift from the recommended settings 
 
 #### SUSE HLIs GRUB UPDATE FAILURE
 SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state when updated. The below procedure fixes this issue.
-##### Steps to perform 
+##### Steps for Execution
 ```
 * Take backup of file /etc/default/grub_installdevice
 * Run below entire script
@@ -93,10 +93,10 @@ device_mapper+=$device_id
 sed -i '/\/disk\/by-uuid/c '"$device_mapper"'' /etc/default/grub_installdevice
 ```
 
-#### Disable EDAC (The Error Detection And Correction ):
+#### Disable EDAC (The Error Detection And Correction):
    The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HNA on Azure Large Instances (Type I) is already performing the same function. Having the same feature enabled at the hardware and Operating system (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
 
-##### Steps to perform
+##### Steps for Execution
 ```
 * Check if EDAC module is enabled. If an output is returned in below command, that means the module is enabled. 
     lsmod | grep -i edac 
@@ -118,7 +118,7 @@ A reboot is required to have this reflected. Module should not be listed in ‘l
 ```
 Incorrect settings have created both performance and instability issues in the past. Follow SAP’s recommendation in your next maintenance window at the latest. Check all your SAP HANA instances on SLES and ensure the correct setting is applied.
 
-##### Steps to perform
+##### Steps for Execution
 ```
 * Add these parameters to the GRB_CMDLINE_LINUX line in the file /etc/default/grub 
       intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable
