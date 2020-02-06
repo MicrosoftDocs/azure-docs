@@ -308,7 +308,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Active Directory Domain Services | Yes          | Yes, RSA 2048-bit  | -                  |
 | **Integration**                  |                    |                    |                    |
 | Service Bus                      | Yes                | Yes                | Yes                |
-| Event Grid                       | Yes                | Yes                | -                  |
+| Event Grid                       | Yes                | -                  | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
 | IoT Hub                          | Yes                | Yes                | Yes                |
