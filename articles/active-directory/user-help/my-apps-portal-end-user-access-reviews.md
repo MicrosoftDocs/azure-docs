@@ -16,12 +16,14 @@ ms.custom: "user-help, seo-update-azuread-jan"
 
 # Perform an access review from the My Apps portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform *access reviews* for your apps and groups. If you don’t have access to the **My Apps** portal, contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal to Perform access reviews for your apps and groups. Access reviews help you ensure that outdated access or changing access requirements are reviewed and addressed.
+
+If you don’t have access to the **My Apps** portal, contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## Using myapps.microsoft.com
 
