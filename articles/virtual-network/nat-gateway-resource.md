@@ -119,8 +119,8 @@ If you deploy virtual machine scale sets, you must deploy a zonal scale set on i
 
 The zone property isn't mutable.  Redeploy NAT gateway resource with the desired zone preference.
 
->!NOTE
->IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.
+>[!NOTE] 
+>IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
 
 
 ## Limitations
