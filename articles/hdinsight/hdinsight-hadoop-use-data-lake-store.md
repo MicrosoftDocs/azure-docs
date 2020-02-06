@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/05/2020
 ---
 
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
@@ -125,6 +125,8 @@ To configure Data Lake Storage access from your HDInsight cluster, you must have
 
 > [!NOTE]  
 > If you are going to use Azure Data Lake Storage Gen1 as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Storage Gen1 as additional storage to an existing HDInsight cluster is not a supported scenario.
+
+For more information on the basics of the access control model for Data Lake Storage Gen1, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ## Access files from the cluster
 
