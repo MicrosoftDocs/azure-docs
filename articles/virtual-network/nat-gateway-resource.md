@@ -109,16 +109,18 @@ All flows created by virtual machines on subnet _mySubnet1_ of virtual network _
 
 ## Availability Zones
 
-When Availability Zones is part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations as well as the data plane is constrained to the specified zone.  The zone property is not mutable.  Redeploy NAT gateway resource with the desired zone preference.
+When Availability Zones is part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations as well as the data plane is constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact. 
 
 When you create a zone-isolated NAT gateway, you must also use zonal IP addresses which match the zone of the NAT gateway resource.
 
-Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource.  If you cross zones, there is no zonal promise.  
+Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource.  If you cross zones, a zonal promise can't exist.
 
 If you deploy virtual machine scale sets, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT will not provide a zonal promise.  NAT doesn't support zone-redundancy.
 
+The zone property isn't mutable.  Redeploy NAT gateway resource with the desired zone preference.
+
 >!NOTE
->IP addresses by themselves are not zone-redundant if no zone is specified.  The frontend of a Standard Load Balancer is zone-redundant if an IP address is not created in a specific zone.  This does not apply to NAT.
+>IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.
 
 
 ## Limitations
