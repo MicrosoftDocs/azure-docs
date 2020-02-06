@@ -10,4 +10,6 @@ ms.subservice: disks
 ---
 
 # Enabling shared disk
+
+This article covers how to enable shared disks on Azure managed disks. If you are looking for conceptual information about managed disks that have shared disks enabled, refer to [Azure shared disks](disks-shared-disks.md).
 [!INCLUDE [virtual-machines-enabling-shared-disk](../../../includes/virtual-machines-enabling-shared-disk.md)]
