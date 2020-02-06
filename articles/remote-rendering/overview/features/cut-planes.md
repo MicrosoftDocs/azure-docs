@@ -1,61 +1,56 @@
 ---
 title: Cut planes
-description: Explains what cut planes are and how they can be created through API
-author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
-ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+description: Explains what cut planes are and how to use them
+author: jakrams
+ms.author: jakras
+ms.date: 02/06/2020
+ms.topic: article
 ---
 
 # Cut planes
 
-A cut plane is a visual feature that clips each pixel on one side of a virtual, infinite plane thus revealing the inside of a mesh.
-The following image shows a car model with a horizontal cut plane added on the right side:
+A *cut plane* is a visual feature that clips pixels on one side of a virtual plane, revealing the inside of [meshes](../../concepts/meshes.md).
+The image below demonstrates the effect. The left shows the original mesh, on the right one can look inside the mesh:
 
 ![Cut plane](./media/cutplane-1.png)
 
-Each cut plane effect can have an arbitrary spatial location and orientation in the scene.
-For presentation purposes, there are some additional parameters that affect the visuals of the cut itself, such as fading color and fading distance. It is also important to note that each cut plane affects all remotely rendered objects likewise - there is currently no way to exclude meshes or mesh parts.
+## Limitations
 
-## Adding cut planes to the scene programmatically
-
-Since a cut plane is implemented as a component, it must be attached to a game object. This game object serves as the spatial location and orientation of the plane. Here is some code to create a new cut plane component programmatically:
-
-```cs
-    // Get the connected azure session via application logic
-    AzureSession session = GetRenderingSession();
-
-    CutPlaneComponent cutplane = (CutPlaneComponent)session.Actions.CreateComponent(ObjectType.CutPlaneComponent, OwnerEntity);
-    cutPlane.Normal = Axis.X; // normal points along the positive x-axis of the owner object's orientation
-    cutPlane.FadeColor = new ColorUb(255,0,0,128); // fade to 50% red
-    cutPlane.FadeLength = 0.05f; // gradient width: 5cm
-
-```
+* For the time being, Azure Remote Rendering supports a **maximum of eight active cut planes**. You may create more cut plane components, but if you try to enable more simultaneously, it will ignore the activation. Disable other planes first if you want to switch which component should affect the scene.
+* Each cut plane affects all remotely rendered objects. There is currently no way to exclude specific objects or mesh parts.
+* Cut planes are purely a visual feature, they don't affect the outcome of [spatial queries](spatial-queries.md). If you do want to ray cast into a cut-open mesh, you can adjust the starting point of the ray to be on the cut plane. This way the ray can only hit visible parts.
 
 ## Performance considerations
 
-Cut planes do not come for free. Each active cut plane adds a small fixed cost to the rendering but usually this is not noticeable since the rendering performance increases substantially as scene objects are cut. Still, in light of this fact it is a best practice to disable or delete cut planes if they are unused instead of, for example, moving them far away from the objects. Respectively, performance will be unaffected if no cut plane is enabled.
+Each active cut plane incurs a small cost during rendering. Disable or delete cut planes when they aren't needed.
 
-## Cut plane properties
+## CutPlaneComponent
+
+You add a cut plane to the scene by creating a *CutPlaneComponent*. The location and orientation of the plane is determined by the component's owner [entity](../../concepts/entities.md).
+
+```cs
+void CreateCutPlane(AzureSession session, Entity ownerEntity)
+{
+    CutPlaneComponent cutPlane = (CutPlaneComponent)session.Actions.CreateComponent(ObjectType.CutPlaneComponent, ownerEntity);
+    cutPlane.Normal = Axis.X; // normal points along the positive x-axis of the owner object's orientation
+    cutPlane.FadeColor = new ColorUb(255, 0, 0, 128); // fade to 50% red
+    cutPlane.FadeLength = 0.05f; // gradient width: 5cm
+}
+```
+
+### CutPlaneComponent properties
 
 The following properties are exposed on a cut plane component:
 
-### Enabling
+**Enabled:** You can temporarily switch off cut planes by disabling the component. Disabled cut planes don't incur rendering overhead and also don't count against the global cut plane limit.
 
-As with all other components, cut planes support enabling and disabling. The result of disabling a cut plane will be comparable to deleting the cut plane i.e. it won't be applied to the scene anymore. In contrast to deletion, disabled cut planes still retain their properties and will be applied again if re-enabled. Currently, there is a limit of eight globally enabled cut planes, meaning newly created cut planes won't be automatically enabled if this limit is already reached and the enabling of existing disabled cut planes will fail. To be able to enable another cut plane again one or more currently enabled cut planes will need to be disabled.
+**Normal:** Specifies which direction (+X,-X,+Y,-Y,+Z,-Z) is used as the plane normal. This direction is relative to the owner entity's orientation. Move and rotate the owner entity for exact placement.
 
-### Normal
+**FadeColor** and **FadeLength:**
 
-The normal is a cartesian direction (+X,-X,+Y,-Y,+Z,-Z) that determines the orientation and clipping hemisphere of the plane relative to its owner game object's transformation. This property is redundant in a sense that the same can be achieved by rotating the owner object accordingly, however changing the normal might be useful to easily flip the clipping hemisphere.
+If the alpha value of *FadeColor* is non-zero, pixels close to the cut plane will fade towards the RGB part of FadeColor. The strength of the alpha channel determines whether it will fade fully towards the fade color or only partially. *FadeLength* defines over which distance this fade will take place.
 
-### Fading Color
+## Next steps
 
-A 4-component color that defines color (RGB) and intensity (alpha) for the mixing color close to the edge. There is a mixing gradient of definable width that fades the mesh into the fading color. If the alpha portion of the color is set to 100%, the fading color will be fully opaque at the edge. If the alpha portion is 0, no fading is applied.
-
-### Fade Length
-
-Determines the width of the color mixing gradient at the edge, measured in world units.
+* [Single sided rendering](single-sided-rendering.md)
+* [Spatial queries](spatial-queries.md)
