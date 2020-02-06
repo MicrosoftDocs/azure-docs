@@ -24,7 +24,7 @@ Here are some common types of throttling that your logic app might experience:
 
 ## Logic app throttling
 
-The Azure Logic Apps service has its own [throughput limits](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). If your logic app exceeds these limits, throttling happens at the logic app's level, not the logic app's run level, Azure subscription level, or Azure resource group level.
+The Azure Logic Apps service has its own [throughput limits](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). So, if your logic app exceeds these limits, your logic app resource gets throttled, not just a specific instance or run.
 
 To find throttling events at this level, check your logic app's **Metrics** pane in the Azure portal.
 
@@ -78,7 +78,7 @@ To learn whether a trigger or action supports retry policies, check the trigger 
 
 Although the retry history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
 
-For logic apps that run in the public, multi-tenant Azure Logic Apps service, versus an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling happens at the *connection* level, not connector level.
+For logic apps in the public, multi-tenant Azure Logic Apps service, throttling happens at the *connection* level. So, for example, for logic apps that run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling still happens for non-ISE connections because they run in the public, multi-tenant Logic Apps service. However, ISE connections, which are created by ISE connectors, aren't throttled because they run in your ISE.
 
 To handle throttling at this level, you have these options:
 
