@@ -20,6 +20,8 @@ Before you get started, be sure to review the [prerequisites](overview.md#prereq
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+At the end of this process, you will have successfully connected your hybrid machines to Azure Arc for servers.
+
 ## Create a Service Principal for onboarding at scale
 
 You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet. Or you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) to complete this task.
@@ -27,8 +29,6 @@ You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a serv
 > [!NOTE]
 > When you create a service principal, your account must be an Owner or User Access Administrator in the subscription that you want to use for onboarding. If you don't have sufficient permissions to create role assignments, the service principal might be created, but it won't be able to onboard machines.
 >
-
-The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. 
 
 To create the service principal using PowerShell, perform the following.
 
@@ -67,9 +67,14 @@ The values from the following properties are used with parameters passed to the 
 > Make sure to use the service principal **ApplicationId** property, not the **Id** property.
 >
 
+The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. To add role assignment, see [Add or remove role assignments using Azure RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Add or remove role assignments using Azure RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
 ## Install the agent and connect to Azure
 
-Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can install the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process.
+You can automate the installation of the Connected Machine agent for Windows or Linux, including 
+
+
+Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can automate the installation of the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process.
 
 The following are the settings that you configure to use the service principal with the `acmagent` command to connect the machine to Auzre Arc.
 
