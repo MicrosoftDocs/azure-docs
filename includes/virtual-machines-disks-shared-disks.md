@@ -55,20 +55,20 @@ The following diagram illustrates a sample 2-node clustered database application
 
 The flow is as follows:
 
-- The clustered application running on both Azure VM1 and VM2 registers the intent to read or write to the disk.
-- The application instance on VM1 then takes exclusive reservation to write to the disk.
-- This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 will not succeed.
-- If the application instance on VM1 goes down, the instance on VM2 can now initiate a database failover and take-over of the disk (simple or hostile).
-- This reservation is now enforced on the Azure disk and the disk will no longer accept writes from the application on VM1. It will only accept writes from the application on VM2.
-- The clustered application can complete the database failover and serve requests from VM2.
+1. The clustered application running on both Azure VM1 and VM2 registers its intent to read or write to the disk.
+1. The application instance on VM1 then takes exclusive reservation to write to the disk.
+1. This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 will not succeed.
+1. If the application instance on VM1 goes down, the instance on VM2 can now initiate a database failover and take-over of the disk (simple or hostile).
+1. This reservation is now enforced on the Azure disk and the disk will no longer accept writes from the application on VM1. It will only accept writes from the application on VM2.
+1. The clustered application can complete the database failover and serve requests from VM2.
 
-The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from the disk for running parallel processes, such as training of ML models.
+The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from the disk for running parallel processes, such as training of machine learning models.
 
 ![shared-disk-machine-learning-trainer-model.png](media/virtual-machines-disks-shared-disks/shared-disk-machine-learning-trainer-model.png)
 
 The flow is as follows:
 
-- The clustered application running on all VMs registers the intent to read or write to the disk.
-- The application instance on VM1 takes an exclusive reservation to write to the disk while opening up reads to the disk from other VMs.
-- This reservation is enforced on your Azure disk.
-- All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
+1. The clustered application running on all VMs registers the intent to read or write to the disk.
+1. The application instance on VM1 takes an exclusive reservation to write to the disk while opening up reads to the disk from other VMs.
+1. This reservation is enforced on your Azure disk.
+1. All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
