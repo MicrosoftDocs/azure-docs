@@ -81,7 +81,9 @@ The following are the settings that you configure to use the service principal w
 
 You can learn more about the `azcmagent` command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
 
-### Windows installion script
+### Windows installation script
+
+The following is an example of the Connected Machine agent for Windows installation script that has been modified to use the service principal to support a fully automated, non-interactive installation of the agent.
 
 ```
  # Download the package
@@ -100,7 +102,9 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{your-subscription-id}"
 ```
 
-### Linux install script
+### Linux installation script
+
+The following is an example of the Connected Machine agent for Linux installation script that has been modified to use the service principal to support a fully automated, non-interactive installation of the agent.
 
 ```
 # Download the installation package
@@ -118,7 +122,6 @@ azcmagent connect \
   --location "{location-of-your-resource-group}" \
   --subscription-id "{your-subscription-id}"
 ```
-
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
