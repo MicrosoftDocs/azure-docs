@@ -24,7 +24,7 @@ The model's geometry needs to be processed to generate the optimized data that w
 A ray cast query traces a line in space, and returns objects that intersect the line. It also returns the object's surface normal at the point of impact. To perform ray casts on objects, the server needs the model data to be prepared as so called collision meshes. This is a [conversion setting](../../how-tos/conversion/configure-model-conversion.md) that is enabled by default. Without collision meshes, ray cast queries will always gracefully return with no result.
 If no ray casts are required on a model it is recommended to export without collision meshes, because collision mesh generation has large impact on:
 
-- ingestion time
+- conversion time
 - file size
 - runtime loading time
 - runtime memory consumption

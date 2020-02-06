@@ -30,7 +30,7 @@ The API provides three rendering modes for single-sided geometry:
 * `DynamicDoubleSiding` (default): Use heuristic to determine if double-sided rendering is needed
 * `AlwaysDoubleSided`: Force single-sided geometry to be rendered double sided
 
-The general heuristic employed for `DynamicDoubleSiding` is assuming a mesh part only needs to be rendered double sided if it is sliced by a cut plane, opening an otherwise assumed closed surface topology. While this does not require the geometry to be watertight (which allows vertex splits for hard normal discontinuities, etc.) it requires the model to contain topologically connected surfaces in the same mesh part, which might not be the case. For respective models, double siding may be forced to give the desired quality by either importing them with `opaqueMaterialDefaultSidedness` set to `DoubleSided` during ingestion or use the `AlwaysDoubleSided` rendering mode provided by the new API.
+The general heuristic employed for `DynamicDoubleSiding` is assuming a mesh part only needs to be rendered double sided if it is sliced by a cut plane, opening an otherwise assumed closed surface topology. While this does not require the geometry to be watertight (which allows vertex splits for hard normal discontinuities, etc.) it requires the model to contain topologically connected surfaces in the same mesh part, which might not be the case. For respective models, double siding may be forced to give the desired quality by either importing them with `opaqueMaterialDefaultSidedness` set to `DoubleSided` during conversion or use the `AlwaysDoubleSided` rendering mode provided by the new API.
 
 ## API usage
 

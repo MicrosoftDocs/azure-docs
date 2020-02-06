@@ -13,9 +13,9 @@ ms.service: azure-remote-rendering
 
 # Overriding materials during model conversion
 
-When a model is ingested for use in Azure Remote Rendering, in addition to the converted asset, a *materials file* is also produced.
+When a model is converted for use in Azure Remote Rendering, in addition to the converted asset, a *materials file* is also produced.
 This file describes how the settings in the source model are used to define the **physically-based rendering** (**PBR**) materials used by the renderer.
-For a source file `foo.fbx`, the material file will be named `foo_materials.json` and can be found after ingestion beside the model output in the output container.
+For a source file `foo.fbx`, the material file will be named `foo_materials.json` and can be found after conversion beside the model output in the output container.
 
 As an example, for a simple asset `box.fbx`, which uses one material, the following simple `box_materials.json` file was produced:
 
@@ -62,9 +62,9 @@ Some parameters are set as **\<generated\>**, which means they are computed from
 This kind of conversion is done when the input data does not match what we expect in our material model, but we have a way of computing the parameters from what we have.
 Sometime, it's almost a 1:1 match (going from a specular/glossiness PBR workflow to a Roughness/Metalness one), sometime it's a best effort conversion (adapting a Phong material to a PBR material), sometime it's a parameter deduced from other ones (enabling transparency when the alpha component of the albedo is less than 1).
 
-## The override file used during ingestion
+## The override file used during conversion
 
-A file of exactly the same format can be provided during ingestion to allow the material generation to be customized.
+A file of exactly the same format can be provided during conversion to allow the material generation to be customized.
 
 > [!NOTE]
 > Editing the materials file and reusing it as an override file directly is likely to lead to confusion.
@@ -121,15 +121,15 @@ In this case, the file `box_materials_override.json` can be edited as follows.
 
 \<generated\> parameters will be ignored when consuming the override file. They are provided in the output file to highlight the customization points that contribute to the appearance of the model.
 
-The `box_materials_override.json` file is placed the input container, and add a `ModelIngestionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
+The `box_materials_override.json` file is placed the input container, and add a `ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
 
 ```json
 {
-    "ez" : { "material-override" : "box_materials_override.json" }
+    "material-override" : "box_materials_override.json"
 }
 ```
 
-When the model is reingested, the new settings will apply.
+When the model is reconverted, the new settings will apply.
 
 ### Unlit materials
 
