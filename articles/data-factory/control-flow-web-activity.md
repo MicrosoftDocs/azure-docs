@@ -85,7 +85,7 @@ The following table shows the requirements for JSON content:
 
 ## Authentication
 
-Below are the supported authentication types in the Web Activity.
+Below are the supported authentication types in the web activity.
 
 ### None
 

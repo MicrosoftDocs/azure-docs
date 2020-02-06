@@ -62,7 +62,7 @@ Report status on callback | Allows the user the report the failed status of the 
 
 ## Authentication
 
-Below are the supported authentication types in the Web Activity.
+Below are the supported authentication types in the webhook activity.
 
 ### None
 
