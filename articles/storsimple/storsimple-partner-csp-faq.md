@@ -1,5 +1,5 @@
 ---
-title: FAQ for partners: StorSimple for Cloud Solutions Provider Program
+title: 'FAQ for partners: StorSimple for Cloud Solutions Provider Program'
 description: Find answers to some common questions regarding StorSimple and CSP for partners.
 services: storsimple
 documentationcenter: NA
