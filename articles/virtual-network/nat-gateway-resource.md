@@ -156,7 +156,7 @@ The destination will see the source of the flow as 65.52.0.2 (SNAT source tuple)
 
 Don't take a dependency on the specific way source ports are assigned.  The preceding is an illustration of the fundamental concept only.
 
-SNAT provided by NAT is very different from [Load Balancer](../load-balancer/load-balancer-outbound-connections.md).
+SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-balancer-outbound-connections.md) in several aspects.
 
 ### On-demand
 
