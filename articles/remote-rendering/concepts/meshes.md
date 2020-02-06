@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ## Mesh resource
 
-Meshes are an immutable [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management), that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes contain one or multiple *submeshes*. Each submesh references a [material](materials.md) with which it should be rendered by default. To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
+Meshes are an immutable [shared resource](../concepts/lifetime.md), that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes contain one or multiple *submeshes*. Each submesh references a [material](materials.md) with which it should be rendered by default. To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
 
 ### Mesh resource properties
 

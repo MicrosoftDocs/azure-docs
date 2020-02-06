@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Textures
 
-Textures are an immutable [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management). Textures can be loaded from [blob storage](../how-tos/conversion/blob-storage.md) and applied to models directly, as demonstrated in [Tutorial: Changing the environment and materials](../tutorials/unity/changing-environment-and-materials.md). Most commonly, though, textures will be part of a [converted model](../how-tos/conversion/model-conversion.md), where they are referenced by its [materials](materials.md).
+Textures are an immutable [shared resource](../concepts/lifetime.md). Textures can be loaded from [blob storage](../how-tos/conversion/blob-storage.md) and applied to models directly, as demonstrated in [Tutorial: Changing the environment and materials](../tutorials/unity/changing-environment-and-materials.md). Most commonly, though, textures will be part of a [converted model](../how-tos/conversion/model-conversion.md), where they are referenced by its [materials](materials.md).
 
 ## Texture types
 
@@ -25,7 +25,7 @@ All textures given to ARR have to be in [DDS format](https://en.wikipedia.org/wi
 ## Loading textures
 
 When loading a texture, you have to specify its expected type. If the type mismatches, the texture load fails.
-Loading a texture with the same URI twice will return the same texture object, as it is a [shared resource](../concepts/sdk-concepts.md#resources-and-lifetime-management).
+Loading a texture with the same URI twice will return the same texture object, as it is a [shared resource](../concepts/lifetime.md).
 
 ``` cs
 LoadTextureAsync _async = null;

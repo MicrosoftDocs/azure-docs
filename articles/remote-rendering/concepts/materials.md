@@ -14,7 +14,7 @@ ms.service: azure-remote-rendering
 
 ## Preface
 
-Materials are [shared resources](../concepts/sdk-concepts.md#resources-and-lifetime-management) that describe the rendering paradigm and properties of meshes. Each loaded mesh comes with a set of distinct materials that may differ by color, assigned texture, or any other visual property. These materials can either be modified by the user or the user can create and assign new instances of materials.
+Materials are [shared resources](../concepts/lifetime.md) that describe the rendering paradigm and properties of meshes. Each loaded mesh comes with a set of distinct materials that may differ by color, assigned texture, or any other visual property. These materials can either be modified by the user or the user can create and assign new instances of materials.
 Materials can be shared between mesh parts, which means changing the property on a shared material will change the visual appearance of all these parts likewise.
 
 > [!NOTE]
