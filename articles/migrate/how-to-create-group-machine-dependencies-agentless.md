@@ -58,7 +58,7 @@ Agentless dependency visualization doesn't require you to install any agents on 
 
 Set up a user account that has the required permissions so that Server Assessment can access the VM for discovery. You can specify one user account.
 
-- **Required permission on Windows VMs**: The user account requires 'Guest' access.
+- **Required permission on Windows VMs**: The user account needs to be a local or a domain administrator.
 - **Required permission on Linux VMs**: The root privilege is required on the account. Alternately, the user account requires these two capabilities on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 
 ## Add the user account to the appliance

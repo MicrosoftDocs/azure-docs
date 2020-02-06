@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 This tutorial demonstrates the steps to perform in Samanage and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to Samanage.
 
 > [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Samanage matching group attributes](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-12. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Samanage, in the **Settings** section, change **Provisioning Status** to **On**.
 
@@ -142,7 +142,7 @@ This operation starts the initial synchronization of all users or groups defined
 
 You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Samanage.
 
-For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -152,13 +152,13 @@ If you select the **Sync all users and groups** option and configure a value for
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png
