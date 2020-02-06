@@ -144,7 +144,7 @@ As the Virtual WAN hub is a managed entity and does not allow deployment of cust
 
 At this stage, Contoso has mostly completed their migrations of business applications in into the Microsoft Cloud, with only a few legacy applications remaining within the on-premises DC.
 
-![Optimize on-premises connectivity to fully utilise Virtual WAN](./media/migrate-from-hub-spoke-topology/figure10.png)
+![Optimize on-premises connectivity to fully utilize Virtual WAN](./media/migrate-from-hub-spoke-topology/figure10.png)
 **Figure 10: VDC hub-and-spoke to Virtual WAN migration – Step 7**
 
  To leverage the full functionality of Azure Virtual WAN, Contoso decides to decommission their legacy on-premises VPN connections. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure Virtual WAN. 
@@ -202,7 +202,7 @@ The traffic is routed as follows:
 Path 5 describes traffic flow from roaming VPN (P2S) users to an Azure VNet in the West Europe region.
 
 The traffic is routed as follows:
-- Laptop and mobile device users utilise the OpenVPN client for transparent connectivity in to the P2S VPN gateway in West Europe.
+- Laptop and mobile device users utilize the OpenVPN client for transparent connectivity in to the P2S VPN gateway in West Europe.
 - West Europe Virtual WAN hub routes traffic locally to connected VNet.
 
 ![Flow 5](./media/migrate-from-hub-spoke-topology/flow5.png)
