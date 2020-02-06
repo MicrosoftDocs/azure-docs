@@ -1,11 +1,11 @@
 ---
-title: 'Migrate to Azure Virtual WAN'
+title: 'Architecture: Migrate to Azure Virtual WAN'
 description: Learn about how to migrate to Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: overview
-ms.date: 11/04/2019
+ms.topic: article
+ms.date: 02/06/2020
 ms.author: cherylmc
 
 ---
@@ -49,7 +49,7 @@ The networking team have been tasked with delivering a global network model that
     - **VNet -to- Hub -to- Hub -to- VNet**: Spoke virtual networks in the different regions must be able to communicate with each other.
 - Provide the ability for Contoso roaming users (laptop and phone) to access company resources whilst not on the corporate network.
 
-## Azure Virtual WAN architecture
+## <a name="architecture"></a>Azure Virtual WAN architecture
 
 Figure 3 shows a high-level view of the updated target topology using Azure Virtual WAN to meet the requirements detailed in the previous section.
 
@@ -144,7 +144,7 @@ As the Virtual WAN hub is a managed entity and does not allow deployment of cust
 
 At this stage, Contoso has mostly completed their migrations of business applications in into the Microsoft Cloud, with only a few legacy applications remaining within the on-premises DC.
 
-![Optimize on-premises connectivity to fully utilise Virtual WAN](./media/migrate-from-hub-spoke-topology/figure10.png)
+![Optimize on-premises connectivity to fully utilize Virtual WAN](./media/migrate-from-hub-spoke-topology/figure10.png)
 **Figure 10: VDC hub-and-spoke to Virtual WAN migration – Step 7**
 
  To leverage the full functionality of Azure Virtual WAN, Contoso decides to decommission their legacy on-premises VPN connections. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure Virtual WAN. 
@@ -202,14 +202,14 @@ The traffic is routed as follows:
 Path 5 describes traffic flow from roaming VPN (P2S) users to an Azure VNet in the West Europe region.
 
 The traffic is routed as follows:
-- Laptop and mobile device users utilise the OpenVPN client for transparent connectivity in to the P2S VPN gateway in West Europe.
+- Laptop and mobile device users utilize the OpenVPN client for transparent connectivity in to the P2S VPN gateway in West Europe.
 - West Europe Virtual WAN hub routes traffic locally to connected VNet.
 
 ![Flow 5](./media/migrate-from-hub-spoke-topology/flow5.png)
 
 ## Security and policy control via Azure Firewall
 
-Contoso has now validated connectivity between all branches and VNets in line with the requirements discussed earlier in this document. To meet their requirements for security control and network isolation, they need to continue to separate and log traffic via the Hub network, previously this function was performed by an network virtual appliance (NVA). Contoso also wants to decommission their existing proxy services and utilise native Azure services for outbound Internet filtering. 
+Contoso has now validated connectivity between all branches and VNets in line with the requirements discussed earlier in this document. To meet their requirements for security control and network isolation, they need to continue to separate and log traffic via the Hub network, previously this function was performed by a network virtual appliance (NVA). Contoso also wants to decommission their existing proxy services and utilize native Azure services for outbound Internet filtering. 
 
 ![Security and policy control via Azure Firewall](./media/migrate-from-hub-spoke-topology/figure12.png)
 **Figure 12: Azure Firewall in Virtual WAN (Secured Virtual Hub)**
@@ -225,7 +225,7 @@ The following high-level steps are required to introduce Azure Firewall into the
 The following paths describe the connectivity paths enabled by utilizing Azure secured virtual hubs.
 
 ### Path 6
-Path 6 describes secure traffic flow betweens VNets within the same region.
+Path 6 describes secure traffic flow between VNets within the same region.
 
 The traffic is routed as follows:
 - Virtual Networks connected to the same Secured Virtual Hub now route traffic to via the Azure Firewall.

@@ -25,18 +25,18 @@ Automatic provisioning refers to creating user identities and roles in the cloud
 The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS SSL encryption.
 
 
-![Azure AD Provisioning Service](media/how-provisioning-works/provisioning0.PNG)
+![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
 *Figure 1: The Azure AD Provisioning Service*
 
-![Outbound user provisioning workflow](media/how-provisioning-works/provisioning1.PNG)
+![Outbound user provisioning workflow](./media/how-provisioning-works/provisioning1.PNG)
 *Figure 2: "Outbound" user provisioning workflow from Azure AD to popular SaaS applications*
 
-![Inbound user provisioning workflow](media/how-provisioning-works/provisioning2.PNG)
+![Inbound user provisioning workflow](./media/how-provisioning-works/provisioning2.PNG)
 *Figure 3: "Inbound" user provisioning workflow from popular Human Capital Management (HCM) applications to Azure Active Directory and Windows Server Active Directory*
 
 ## Provisioning using SCIM 2.0
 
-The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
+The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, fill out an [Azure Active Directory Application Request](https://aka.ms/aadapprequest).
 
@@ -44,7 +44,7 @@ To request an automatic Azure AD provisioning connector for an app that doesn't 
 
 Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you'll need to enter valid credentials. You can find credential types and requirements for the application by referring to the app tutorial. In the Azure portal, you'll be able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
-If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](application-provisioning-config-problem-storage-limit.md).
+If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](../manage-apps/application-provisioning-config-problem-storage-limit.md).
 
 ## Mapping attributes
 
@@ -54,14 +54,14 @@ There's a pre-configured set of attributes and attribute mappings between Azure 
 
 When setting up provisioning, it's important to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. Review and configure the matching property (**Match objects using this attribute**) that is used to uniquely identify and match users/groups between the two systems.
 
-You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings. For details, see [Customizing user provisioning attribute-mappings for SaaS applications](customize-application-attributes.md).
+You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings. For details, see [Customizing user provisioning attribute-mappings for SaaS applications](../manage-apps/customize-application-attributes.md).
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application. For details, see [Writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
 ## Scoping 
 ### Assignment-based scoping
 
-For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
+For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](../manage-apps/assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
 * **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects.
 
@@ -94,7 +94,7 @@ When the provisioning service is started, the first cycle will:
 
 1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](customize-application-attributes.md).
 
-2. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
+2. Filter the users and groups returned, using any configured [assignments](../manage-apps/assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
 3. When a user is assigned or in scope for provisioning, the service queries the target system for a matching user using the specified [matching attributes](customize-application-attributes.md#understanding-attribute-mapping-properties). Example: If the userPrincipal name in the source system is the matching attribute and maps to userName in the target system, then the provisioning service queries the target system for userNames that match the userPrincipal name values in the source system.
 
@@ -114,7 +114,7 @@ After the initial cycle, all other cycles will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
 
-2. Filter the users and groups returned, using any configured [assignments](assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
+2. Filter the users and groups returned, using any configured [assignments](../manage-apps/assign-user-or-group-access-portal.md) or [attribute-based scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
 3. When a user is assigned or in scope for provisioning, the service queries the target system for a matching user using the specified [matching attributes](customize-application-attributes.md#understanding-attribute-mapping-properties).
 
@@ -153,19 +153,19 @@ Resolve these failures by adjusting the attribute values for the affected user i
 
 ### Quarantine
 
-If most or all of the calls that are made against the target system consistently fail because of an error (for example invalid admin credentials) the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
+If most or all of the calls that are made against the target system consistently fail because of an error (for example invalid admin credentials) the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](../manage-apps/check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
 
 When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
-The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](application-provisioning-quarantine-status.md).
+The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](../manage-apps/application-provisioning-quarantine-status.md).
 
 ### How long provisioning takes
 
-Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
+Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### How to tell if users are being provisioned properly
 
-All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](../manage-apps/check-status-user-account-provisioning.md).
 
 ## De-provisioning
 
@@ -176,7 +176,7 @@ The Azure AD provisioning service will soft delete a user in an application when
 * The user account is deleted in Azure AD
 *	The user is unassigned from the application
 *	The user no longer meets a scoping filter and goes out of scope
-    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](skip-out-of-scope-deletions.md).
+    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](../app-provisioning/skip-out-of-scope-deletions.md).
 *	The AccountEnabled property is set to False
 
 If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app. 
@@ -187,10 +187,10 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it is used to 
 
 ## Next Steps
 
-[Plan an automatic user provisioning deployment](plan-auto-user-provisioning.md)
+[Plan an automatic user provisioning deployment](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configure provisioning for a gallery app](configure-automatic-user-provisioning-portal.md)
+[Configure provisioning for a gallery app](../manage-apps/configure-automatic-user-provisioning-portal.md)
 
-[Build a SCIM endpoint and configure provisioning when creating your own app](use-scim-to-provision-users-and-groups.md)
+[Build a SCIM endpoint and configure provisioning when creating your own app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Troubleshoot problems with configuring and provisioning users to an application](application-provisioning-config-problem.md).
+[Troubleshoot problems with configuring and provisioning users to an application](../manage-apps/application-provisioning-config-problem.md).
