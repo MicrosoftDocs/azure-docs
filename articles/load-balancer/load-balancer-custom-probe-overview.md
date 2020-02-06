@@ -123,7 +123,7 @@ If you use Cloud Services and have web roles that use w3wp.exe, you also achieve
 
 An HTTP / HTTPS probe fails when:
 * Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark down the health probe immediately. 
-* Probe endpoint doesn't respond at all during the 31-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
+* Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
 * Probe endpoint closes the connection via a TCP reset.
 
 The following illustrates how you could express this kind of probe configuration in a Resource Manager template:
