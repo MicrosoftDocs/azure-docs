@@ -112,6 +112,14 @@
       href: managed-identity.md
     - name: Use an access control policy
       href: key-vault-group-permissions-for-apps.md
+    - name: Import HSM-protected keys
+    items:
+      -name: Overview
+       href: key-vault-hsm-protected-keys.md
+      -name: Import HSM-protected keys to Azure Key Vault (preview)
+       href: hsm-protected-keys-vendor-agnostic-byok.md
+      -name: Import HSM-protected keys to Azure Key Vault (Legacy)
+       href: hsm-protected-keys-legacy.md
   - name: Route key vault notifications with Event Grid
     href: event-grid-tutorial.md      
   - name: Receive notifications via Event Grid and Logic Apps
@@ -170,8 +178,6 @@
     items:
     - name: Developer's guide
       href: key-vault-developers-guide.md
-    - name: HSM-protected keys
-      href: key-vault-hsm-protected-keys.md
     - name: Migrate to .NET 2.0
       href: key-vault-dotnet2api-release-notes.md
     - name: Save Web App secrets
