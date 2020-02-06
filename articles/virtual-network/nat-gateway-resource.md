@@ -168,6 +168,8 @@ NAT gateway resources interact with UDP and TCP flows.  Other IP protocols aren'
 
 Idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
+The following timers are used for SNAT port release:
+
 | Timer | Value |
 |---|---|
 | TCP FIN | 60 seconds |
