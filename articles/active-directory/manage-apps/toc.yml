@@ -267,6 +267,8 @@
             href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Publishing walkthroughs
           items:
+          - name: Integrate with Application Proxy on an NDES server
+            href: active-directory-app-proxy-protect-ndes.md
           - name: Integrate with Azure AD Domain Services
             href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
           - name: Integrate with Power BI

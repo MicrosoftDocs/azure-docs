@@ -28466,6 +28466,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/data-factory/concepts-data-flow-json.md",
+      "redirect_url": "/azure/data-factory/format-json",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/data-lake-store/data-lake-store-authenticate-using-active-directory.md",
       "redirect_url": "/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory",
       "redirect_document_id": false
