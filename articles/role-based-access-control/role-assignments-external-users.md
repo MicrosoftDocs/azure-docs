@@ -1,5 +1,5 @@
 ---
-title: Add or remove role assignments for external guest users using Azure RBAC and the Azure portal
+title: Use RBAC and the Azure portal to manage role assignments for external users
 description: Learn how to grant access to Azure resources for users external to an organization using Azure role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''

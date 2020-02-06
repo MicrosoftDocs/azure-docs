@@ -1,5 +1,5 @@
 ---
-title: List deny assignments for Azure resources using Azure PowerShell | Microsoft Docs
+title: Use Azure Powershell to list deny assignments for Azure resources
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using Azure PowerShell.
 services: active-directory
 documentationcenter: ''

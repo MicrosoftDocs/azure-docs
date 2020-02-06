@@ -1,5 +1,5 @@
 ---
-title: Add or remove role assignments using Azure RBAC and the REST API
+title: Use RBAC and the REST API to manage role assignments
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (RBAC) and the REST API.
 services: active-directory
 documentationcenter: na

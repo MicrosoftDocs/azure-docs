@@ -1,5 +1,5 @@
 ---
-title: Manage access to Azure management with Conditional Access in Azure Active Directory
+title: Use Conditional Access in Azure AD to manage access to Azure management
 description: Learn about using Conditional Access in Azure AD to manage access to Azure management.
 services: active-directory
 documentationcenter: ''

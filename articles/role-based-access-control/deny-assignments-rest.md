@@ -1,5 +1,5 @@
 ---
-title: List deny assignments for Azure resources using the REST API - Azure | Microsoft Docs
+title: Use REST API to list deny assignments for Azure resources
 description: Learn how to list deny assignments for users, groups, and applications using role-based access control (RBAC) for Azure resources and the REST API.
 services: active-directory
 documentationcenter: na

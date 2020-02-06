@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Grant a user access to Azure resources using RBAC and Azure PowerShell
+title: "Tutorial: Use RBAC and Azure PowerShell to give user access to Azure resources"
 description: Learn how to grant a user access to Azure resources using role-based access control (RBAC) and Azure PowerShell in this tutorial.
 services: active-directory
 documentationCenter: ''
