@@ -36,7 +36,7 @@ You may need to reset your Azure Kinect DK if a firmware update didn't install c
 
 - [About Azure Kinect DK](about-azure-kinect-dk.md)
 - [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
-- [Azure Kinect DK hardware specifications: Operating environment](hardware-specification.md#operating-environment.md)
+- [Azure Kinect DK hardware specifications: Operating environment](hardware-specification.md#operating-environment)
 - [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md)
 - [Azure Kinect Viewer](azure-kinect-viewer.md)
 - [Synchronization across multiple Azure Kinect DK devices](multi-camera-sync.md)
