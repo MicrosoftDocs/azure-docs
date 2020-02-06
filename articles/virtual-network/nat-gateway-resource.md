@@ -37,7 +37,9 @@ User-defined routes aren't necessary.
 
 ## Resource
 
-The resource is designed to be simple as you can see from the following Azure Resource Manager example in template format.  A NAT gateway resource called _myNATGateway_ is created in region _East US 2, AZ 1_ with a _4-minutes_ idle timeout. The outbound IP addresses provided are:
+The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  It is shown here to illustrate the concepts and structure.  You need to modify this to your needs.  This document is not intended as a tutorial.
+
+The following example would create a NAT gateway resource called _myNATGateway_ is created in region _East US 2, AZ 1_ with a _4-minutes_ idle timeout. The outbound IP addresses provided are:
 - A set of public IP address resources _myIP1_ and _myIP2_ and 
 - A set of public IP prefix resources _myPrefix1_ and _myPrefix2_. 
 
