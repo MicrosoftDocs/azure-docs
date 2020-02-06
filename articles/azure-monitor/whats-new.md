@@ -11,7 +11,7 @@ ms.date: 02/05/2020
 ---
 
 # What's new in Azure Monitor documentation
-This article provides a listing of Azure Monitor articles that are either new or have received significant updates in the previous month. It will be updated the first week of each month.
+This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
 ## January 2020
 
@@ -29,7 +29,7 @@ This article provides a listing of Azure Monitor articles that are either new or
 
 
 ### Application Insights
-- [IP addresses used by Application Insights and Log Analytics](azure-monitor/app/ip-addresses.md) - Updated the Availability test section with how to add an inbound port rule to allow traffic using Azure Network Security Groups.
+- [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) - Updated the Availability test section with how to add an inbound port rule to allow traffic using Azure Network Security Groups.
 - [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Updated general troubleshooting.
 - [Telemetry sampling in Azure Application Insights](app/sampling.md) - Updated and restructured to  improve readability based on customer feedback.
 
@@ -48,7 +48,7 @@ This article provides a listing of Azure Monitor articles that are either new or
 
 
 ### Platform logs
-- [Collect Azure Activity log with diagnostic settings- Azure Monitor](platform/diagnostic-settings-legacy) - Additional information on changed properties.
+- [Collect Azure Activity log with diagnostic settings- Azure Monitor](platform/diagnostic-settings-legacy.md) - Additional information on changed properties.
 - [Export the Azure Activity Log](platform/activity-log-export.md) - Updated for UI changes. 
 
 
