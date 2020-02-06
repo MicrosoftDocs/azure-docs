@@ -58,7 +58,7 @@ First, register your application with your Azure Active Directory (Azure AD) ten
 
 At a high level, the entire authorization flow for an application looks a bit like this:
 
-![OAuth Auth Code Flow](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
+![OAuth Auth Code Flow](./media/v1-protocols-oauth-code/active_directory_oauth_code_flow_native_app.png)
 
 ## Request an authorization code
 
