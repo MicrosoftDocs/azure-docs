@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), the term **app provisioning** refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), and more.
 
-![Provisioning overview diagram](media/user-provisioning/provisioning-overview.png)
+![Provisioning overview diagram](./media/user-provisioning/provisioning-overview.png)
 
 This feature lets you:
 
@@ -56,7 +56,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
 * **Pre-integrated applications (gallery SaaS apps)**. You can find all applications for which Azure AD supports a pre-integrated provisioning connector in the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md). The pre-integrated applications listed in the gallery generally use SCIM 2.0-based user management APIs for provisioning. 
 
-   ![Salesforce logo](media/user-provisioning/gallery-app-logos.png)
+   ![Salesforce logo](./media/user-provisioning/gallery-app-logos.png)
 
    If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../develop/howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Please request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
 
@@ -80,7 +80,7 @@ Applications in the Azure AD gallery support one of two provisioning modes:
 
 In the Azure AD gallery, applications that support automatic provisioning are designated by a **Provisioning** icon. Switch to the new gallery preview experience to see these icons (in the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**).
 
-![Provisioning icon in the application gallery](media/user-provisioning/browse-gallery.png)
+![Provisioning icon in the application gallery](./media/user-provisioning/browse-gallery.png)
 
 The provisioning mode supported by an application is also visible on the **Provisioning** tab once you've added the application to your **Enterprise apps**.
 
@@ -97,7 +97,7 @@ For other applications that support SCIM 2.0, follow the steps in the article [B
 
 - [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
 - [Customizing attribute mappings for user provisioning](customize-application-attributes.md)
-- [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-- [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
+- [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md)
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

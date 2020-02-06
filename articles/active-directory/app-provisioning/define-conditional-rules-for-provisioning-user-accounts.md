@@ -26,10 +26,10 @@ A scoping filter allows the Azure Active Directory (Azure AD) provisioning servi
 
 Scoping filters can be used differently depending on the type of provisioning connector:
 
-* **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
+* **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
-    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. Using this option plus attribute-based scoping filters offers faster performance than using group-based assignments.  
+    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. Using this option plus attribute-based scoping filters offers faster performance than using group-based assignments.  
 
 * **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](../saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
@@ -47,7 +47,7 @@ Each user or group processed by the Azure AD provisioning service is always eval
 
 As an example, consider the following scoping filter:
 
-![Scoping filter](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Scoping filter](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 According to this scoping filter, users must satisfy the following criteria to be provisioned:
 
@@ -109,7 +109,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 13. Select **Save** on the **Attribute Mapping** screen. 
 
 >[!IMPORTANT] 
-> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](skip-out-of-scope-deletions.md).
+> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md).
 
 
 ## Common scoping filters
@@ -121,10 +121,10 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 |workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
 
 ## Related articles
-* [Automate user provisioning and deprovisioning to SaaS applications](user-provisioning.md)
-* [Customize attribute mappings for user provisioning](customize-application-attributes.md)
+* [Automate user provisioning and deprovisioning to SaaS applications](../app-provisioning/user-provisioning.md)
+* [Customize attribute mappings for user provisioning](../app-provisioning/customize-application-attributes.md)
 * [Write expressions for attribute mappings](functions-for-customizing-application-data.md)
-* [Account provisioning notifications](user-provisioning.md)
-* [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
+* [Account provisioning notifications](../app-provisioning/user-provisioning.md)
+* [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
 
