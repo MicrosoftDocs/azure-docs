@@ -128,12 +128,12 @@ To view the device template:
 
 ### Customize the device template
 
-Customize the following:
+To customize the device template:
 
 1. Go to **Customize** on the **Device templates** menu.
 1. Find the `Temperature` telemetry type.
 1. Update the **Display Name** of `Temperature` to `Reported temperature`.
-1. Update the unit of measurement, or set the *Min value* and *Max value*.
+1. Update the unit of measurement, or set the **Min value** and **Max value**.
 1. Select **Save** to save any changes.
 
 ### Add a cloud property
@@ -220,7 +220,7 @@ Within a few minutes, you should receive an email after the configured condition
   
 To create a new rule:
 
-Select **+ New** on the **Rules** tab on the left pane.
+* Select **+ New** on the **Rules** tab on the left pane.
 
 ## Configure jobs
 
