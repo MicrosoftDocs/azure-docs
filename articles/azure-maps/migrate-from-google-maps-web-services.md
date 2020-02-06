@@ -265,7 +265,7 @@ Add markers using the `markers` parameter in the URL. The `markers` parameter ta
 To add additional styles, use the `markers` parameters
 to the URL with a different style and set of locations.
 
-Specify marker locations with the "latitude,longitude" format .
+Specify marker locations with the "latitude,longitude" format.
 
 Add marker styles with the `optionName:value` format, with multiple styles separated by pipe (\|) characters like this "optionName1:value1\|optionName2:value2". Note the option names and values are separated with a colon (:). Use the following names of style option to style markers in Google Maps:
 
@@ -446,7 +446,7 @@ This table cross-references the Google Maps API parameters with the comparable A
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-In addition to this Time zone by coordinate API, Azure Maps provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
+In addition to this API, Azure Maps provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
 
 - [**Time zone by ID**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebyid): Returns current, historical, and future time zone information for the specified IANA time zone ID.
 - [**Time zone Enum IANA**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumiana): Returns a full list of IANA time zone IDs. Updates to the IANA service are reflected in the system within one day.
@@ -460,7 +460,7 @@ Azure Maps provides client libraries for the following programming languages:
 
 - JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
 
-These are Open-source client libraries for other programming languages:
+These Open-source client libraries are for other programming languages:
 
 - .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
