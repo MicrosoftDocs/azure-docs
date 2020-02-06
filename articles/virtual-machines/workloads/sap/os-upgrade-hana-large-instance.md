@@ -54,11 +54,11 @@ Customer operating system configuration can drift from the recommended settings 
   In order to have proper network performance and system stability, it is advised that customers maintain versions of the enic and        fnic drives below. Servers are usually delivered to customers with these versions, however, in some cases versions can get rolled        back to the default enic and fnic  versions when OS/Kernel patching is performed.
        
       
-  |  OS Vendor    |  OS Package Version    |  UCS Blade Firmware    |  Enic Driver	     |  Fnic Driver    |
-  |---------------|------------------------|------------------------|--------------------|-----------------|
-  |   SUSE        |  SLES 12 SP2           |  3.1.3h                |   2.3.0.40         |       1.6.0.34  |
-  |   SUSE        |  SLES 12 SP2           |  3.1.3h                |   2.3.0.43         |       1.6.0.36  |
-  |   RHEL        |  RHEL 7.2              |  3.1.3h                |   2.3.0.39         |       1.6.0.34  |
+  |  OS Vendor    |  OS Package Version     |  eNIC Driver	|  fNIC Driver |
+  |---------------|-------------------------|---------------|--------------|
+  |   SUSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
+  |   SUSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
+  |   RHEL        |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
  
 
 ### Commands for driver upgrade and to clean old rpm packages
