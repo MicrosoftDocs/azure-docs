@@ -51,12 +51,8 @@ Access the [AVS portal](access-cloudsimple-portal.md).
 
 5. In the AVS portal, provide a name for your AVS Private Cloud.
 6. Select **Location** for your AVS Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure.
-8. Specify **Node count**. At least three nodes are required to create an AVS Private Cloud.
-5. In the CloudSimple portal, provide a name for your Private Cloud.
-6. Select **Location** for your Private Cloud.
 7. Select **Node type**, consistent with what you provisioned on Azure.
-8. Specify **Node count**.  At least three nodes are required to create a Private Cloud.
+8. Specify **Node count**. At least three nodes are required to create an AVS Private Cloud.
 
     ![Create AVS Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
 
