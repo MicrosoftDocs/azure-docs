@@ -148,6 +148,10 @@ These flows might look like this after PAT has taken place:
 | 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
 | 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
 
+The destination will see the source of the flow as 65.52.0.2 (SNAT source tuple) with the assigned port shown.  PAT as shown in the preceeding table is also called port masquerading SNAT.  Multiple private sources are masqueraded behind an IP and port.
+
+You should not take a dependency on the specific way source ports are allocated.  The proceeding is an illustration of the fundamental concept only.
+
 ### Scaling
 
 You can have multiple private addresses map to one public IP address.  Additionally you can have multiple public addresses for scaling PAT. 
