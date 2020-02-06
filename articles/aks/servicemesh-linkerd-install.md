@@ -244,7 +244,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > Deleting Linkerd from a running system may result in traffic related issues between your services. Ensure that you have made provisions for your system to still operate correctly without Linkerd before proceeding.
 
-First you'll need to remove the data plane proxies. Remove any Automatic Proxy Injection [annotations][linkerd-automatic-proxy-injection] from workload namespaces and roll your workload deployments. Your workloads  should no longer have any associated data plane components.
+First you'll need to remove the data plane proxies. Remove any Automatic Proxy Injection [annotations][linkerd-automatic-proxy-injection] from workload namespaces and roll out your workload deployments. Your workloads  should no longer have any associated data plane components.
 
 Finally, remove the control plane as follows:
 

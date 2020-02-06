@@ -12,7 +12,12 @@
       items:
       - name: Azure portal
         href: create-cosmosdb-resources-portal.md
-      - name: .NET app
+      - name: Azure Resource Manager template
+        displayName: ARM
+        href: quick-create-template.md
+      - name: .NET app - V4 SDK
+        href: create-sql-api-dotnet-v4.md
+      - name: .NET app - V3 SDK
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
@@ -47,8 +52,11 @@
         - name: Xamarin
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
-      displayName: import 
-      href: import-data.md
+      items:
+       - name: Using Data migration tool
+         href: import-data.md
+       - name: Using .NET bulk support
+         href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - Query data
       href: tutorial-query-sql-api.md
     - name: 4 - Create a notebook
@@ -77,6 +85,8 @@
       href: resource-manager-samples.md
   - name: Concepts
     items:
+    - name: NoSQL Vs relational databases
+      href: relational-nosql.md
     - name: Global distribution
       items:
       - name: Overview
@@ -122,6 +132,10 @@
       - name: Provision throughput on containers and databases
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
+      - name: Provision throughput - autopilot mode
+        href: provision-throughput-autopilot.md
+      - name: Autopilot FAQ
+        href: autopilot-faq.md        
     - name: SQL query reference      
       items:
       - name: Getting started
@@ -462,9 +476,6 @@
         href: change-feed-functions.md
     - name: Globally distributed analytics and AI
       items:
-      - name: Introduction
-        displayName: Apache Spark, spark
-        href: spark-api-introduction.md
       - name: Analytics use cases
         href: analytics-usecases.md
       - name: Analytics - solution architectures
@@ -564,6 +575,8 @@
           href: cassandra-import-data.md
       - name: How-to guides
         items:
+        - name: Change feed 
+          href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
           maintainContext: true
@@ -668,6 +681,8 @@
           href: mongodb-readpreference.md
         - name: Time to live - MongoDB
           href: mongodb-time-to-live.md
+        - name: Change streams
+          href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
         - name: Store and manage Spring Data 
@@ -839,8 +854,6 @@
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: how-to-manage-consistency.md
-      - name: Implement custom synchronization
-        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
@@ -857,6 +870,9 @@
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
+      - name: Scale using Azure Functions timer
+        displayName: request units, RUs, RU, timer
+        href: scale-on-schedule.md
     - name: Work with containers and items
       items:
       - name: Work with Cosmos DB data
@@ -953,31 +969,40 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
+      - name: Configure access from private endpoints
+        href: how-to-configure-private-endpoints.md
+      - name: Connect privately to a Cosmos DB account
+        href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+        maintainContext: true 
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
       - name: Secure Azure Cosmos keys using Key Vault
         href: access-secrets-from-keyvault.md
       - name: Certificate-based authentication with Azure AD
         href: certificate-based-authentication.md
+      - name: Restrict user access to data operations only
+        href: how-to-restrict-user-data.md
+      - name: Configure customer-managed keys
+        href: how-to-setup-cmk.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
-    - name : Logging
+    - name : Monitor
       items:
-      - name: Diagnostic logging
-        href: logging.md
+      - name: Monitor Cosmos DB
+        href: monitor-cosmos-db.md
+      - name: Monitor with diagnostic logs
+        href: cosmosdb-monitor-resource-logs.md
+      - name: Azure Monitor for Cosmos (preview) 
+        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+      - name: View metrics from Cosmos DB account 
+        href: use-metrics.md
       - name: Application logging with Logic Apps
         href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
         maintainContext: true 
-    - name : Monitor with metrics
-      items:
-      - name: View metrics from Cosmos DB account 
-        href: use-metrics.md
-      - name: View metrics from Azure Monitor
-        href: cosmos-db-azure-monitor-metrics.md
-      - name: Monitor SLAs
-        href: monitor-accounts.md
+      - name: Monitoring data reference
+        href: monitor-cosmos-db-reference.md
     - name: Develop locally
       items:
       - name: Use the emulator
@@ -1002,7 +1027,7 @@
         href: changefeed-ecommerce-solution.md
       - name: Azure App Service
         href: create-website.md
-      - name: Azure Search indexer
+      - name: Azure Cognitive Search indexer
         href: /azure/search/search-howto-index-cosmosdb
         maintainContext: true 
       - name: Azure Functions
@@ -1018,12 +1043,13 @@
       - name: Azure Stream Analytics
         href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
         maintainContext: true 
-      - name: Logic Apps and Service bus
-        href: change-feed-hl7-fhir-logic-apps.md
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
         href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+        maintainContext: true
+      - name: Spring Data developer guide
+        href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md
@@ -1041,6 +1067,8 @@
         href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
+      - name: Migrate one-to-few relational data
+        href: migrate-relational-to-cosmos-db-sql-api.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library

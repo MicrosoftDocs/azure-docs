@@ -1,5 +1,5 @@
 ---
-title: ActiveDirectoryInteractive connects to SQL | Microsoft Docs
+title: ActiveDirectoryInteractive connects to SQL 
 description: "C# Code example, with explanations, for connecting to Azure SQL Database by using SqlAuthenticationMethod.ActiveDirectoryInteractive mode."
 services: sql-database
 ms.service: sql-database

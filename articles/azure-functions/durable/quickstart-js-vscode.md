@@ -1,22 +1,18 @@
 ---
 title: Create your first durable function in Azure using JavaScript
 description: Create and publish an Azure Durable Function using Visual Studio Code.
-services: functions
-documentationcenter: na
 author: ColbyTresness
-manager: jeconnoc
-keywords: azure functions, functions, event processing, compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
 ---
 
 # Create your first durable function in JavaScript
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
@@ -38,7 +34,31 @@ To complete this tutorial:
 
 [!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
+## <a name="create-an-azure-functions-project"></a>Create your local project 
+
+In this section, you use Visual Studio Code to create a local Azure Functions project. 
+
+1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Create new project...`.
+
+1. Choose a directory location for your project workspace and choose **Select**.
+
+    > [!NOTE]
+    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+
+1. Following the prompts, provide the following information for your desired language:
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
+    | Select a version | Azure Functions v2 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a template for your project's first function | HTTP trigger | Create an HTTP triggered function in the new function app. |
+    | Provide a function name | HttpTrigger | Press Enter to use the default name. |
+    | Authorization level | Function | The `function` authorization level requires you to supply an access key when calling your function's HTTP endpoint. This makes it more difficult to access an unsecured endpoint. To learn more, see [Authorization keys](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Select how you would like to open your project | Add to workspace | Creates the function app in the current workspace. |
+
+Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a new workspace. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files. It also creates an HttpExample folder that contains the [function.json definition file](../functions-reference-node.md#folder-structure) and the [index.js file](../functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+A package.json file is also created in the root folder.
 
 ## Install the Durable Functions npm package
 

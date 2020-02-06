@@ -1,6 +1,6 @@
 ---
-title: Use the Video Indexer website to customize a Person model - Azure  
-titlesuffix: Azure Media Services
+title: Use the Video Indexer website to customize a Person model - Azure
+titleSuffix: Azure Media Services
 description: This article shows how to customize a Person model with the Video Indexer website.
 services: media-services
 author: anikaz

@@ -1,13 +1,14 @@
 ---
-title: "Quickstart: Content Moderator client library for Python | Microsoft Docs"
-description: Get started with the Content Moderator client library for Python.
+title: "Quickstart: Content Moderator client library for Python"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ---
 
@@ -98,8 +99,8 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 The following code uses a Content Moderator client to analyze a body of text and print the results to the console. First, create a **text_files/** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Add a reference to the new folder.
@@ -290,7 +291,7 @@ Use the following code to delete a given image list.
 
 ## Create a review
 
-You can use the Content Moderator Python SDK to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
+You can use the Content Moderator Python SDK to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
 
 The following code uses the [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) class to create a review, retrieve its ID, and check its details after receiving human input through the Review tool's web portal.
 
@@ -307,7 +308,7 @@ Add the following code to create and post a review for the given image URL. The 
 
 ### Get review details
 
-Use the following code to check the details of a given review. After you create the review, you can go to the Review tool yourself and interact with the content. When you're finished, you can run this code again, and it will retrieve the results of the review process.
+Use the following code to check the details of a given review. After you create the review, you can go to the Review tool yourself and interact with the content. For information on how to do this, see the [Reviews how-to guide](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). When you're finished, you can run this code again, and it will retrieve the results of the review process.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 

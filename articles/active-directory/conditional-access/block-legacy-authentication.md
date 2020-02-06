@@ -1,12 +1,12 @@
 ---
-title: How to block legacy authentication to Azure Active Directory (Azure AD) with Conditional Access| Microsoft Docs
+title: Block legacy authentication - Azure Active Directory
 description: Learn how to improve your security posture by blocking legacy authentication using Azure AD Conditional Access.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

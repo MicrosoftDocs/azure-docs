@@ -1,5 +1,5 @@
 ---
-title: Generic performance troubleshooting for Azure virtual machine running Linux or Windows
+title: Troubleshoot Azure virtual machine performance on Linux or Windows
 description: This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 09/18/2019
 ms.author: v-miegge
 ---
 
-# Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
+# Troubleshoot Azure virtual machine performance on Linux or Windows
 
 This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur. Besides monitoring, you can also use Perfinsights which can provide a report with best practices recommendations and key bottlenecks around IO/CPU/Memory. Perfinsights is available for both [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) and [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM’s in Azure.
 
@@ -27,7 +27,7 @@ This article will walk through using monitoring to diagnose Performance bottlene
 
 ### Azure IAAS virtual machine monitoring
 
-To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). If you see the following, then you most likely don't have the diagnostics enabled:
+To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). If you see the following, then you most likely don't have the diagnostics enabled:
 
 ![Monitoring isn't enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -209,11 +209,11 @@ With new disk offerings under Standard storage, the IOPS and Throughput limits c
 
 #### References
 
-* [Scalability targets for virtual machine disks](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Scalability and performance targets for premium page blob storage accounts](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 The bandwidth of the storage account is measured by the Storage Account Metrics: TotalIngress and TotalEgress. You have different thresholds for bandwidth depending on type of redundancy and regions.
 
-* [Scalability targets for blobs, queues, tables, and files](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Scalability and performance targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
 
 Check the TotalIngress and TotalEgress against the Ingress and Egress limits for the storage account redundancy type and region.
 

@@ -5,7 +5,7 @@
  author: jaredr80
  ms.service: expressroute
  ms.topic: include
- ms.date: 10/07/2019
+ ms.date: 10/29/2019
  ms.author: jaredro
  ms.custom: include file
 ---
@@ -19,31 +19,7 @@ Customers will need to work with their local carriers and co-location providers 
 
 ### What locations currently support ExpressRoute Direct? 
 
-The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
-
-* Amsterdam
-* Amsterdam2
-* Auckland 
-* Chicago
-* Dallas
-* Dublin
-* Hong Kong SAR
-* London
-* London2
-* Melbourne
-* New York City
-* Perth
-* San Antonio
-* Seattle
-* Seoul
-* Silicon Valley
-* Singapore2 
-* Sydney
-* Taipei
-* Tokyo
-* Toronto
-* Washington DC
-* Washington DC2
+Please check the availability on the [location page](../articles/expressroute/expressroute-locations-providers.md). 
 
 ### What is the SLA for ExpressRoute Direct?
 

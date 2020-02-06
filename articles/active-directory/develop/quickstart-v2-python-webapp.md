@@ -1,17 +1,13 @@
 ---
-title: Microsoft identity platform Python web app quickstart | Azure
+title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
 description: Learn how to implement Microsoft Sign-In on a Python Web App using OAuth2
 services: active-directory
-documentationcenter: dev-center-name
 author: abhidnya13
-editor: ''
+manager: CelesteDG
 
-ms.assetid: 9551f0b5-04f2-44d7-87b5-756409180fe9
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
@@ -34,7 +30,7 @@ When you've completed the guide, your application will accept sign-ins of person
 To run this sample, you will need:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org//en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -71,6 +67,13 @@ To run this sample, you will need:
 >      - Select a key duration of **In 1 year**.
 >      - When you click on **Add**, the key value will be displayed.
 >      - Copy the value of the key. You will need it later.
+> 1. Select the **API permissions** section
+>
+>      - Click the **Add a permission** button and then,
+>      - Ensure that the **Microsoft APIs** tab is selected
+>      - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
+>      - In the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
+>      - Select the **Add permissions** button
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -80,9 +83,10 @@ To run this sample, you will need:
 >
 > 1. Add a reply URL as `http://localhost:5000/getAToken`.
 > 1. Create a Client Secret.
+> 1. Add Microsoft Graph API's User.ReadBasic.All delegated permission.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
+> > [Make these changes for me]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute
 
@@ -123,24 +127,24 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    python app.py
    ```
    > [!IMPORTANT]
-   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-   ## More information
+## More information
 
-   ### Getting MSAL
-   MSAL is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
-   You can add MSAL Python to your application using Pip.
+### Getting MSAL
+MSAL is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+You can add MSAL Python to your application using Pip.
 
-   ```Shell
-   pip install msal
-   ```
+```Shell
+pip install msal
+```
 
-   ### MSAL initialization
-   You can add the reference to MSAL Python by adding the following code to the top of the file where you will be using MSAL:
+### MSAL initialization
+You can add the reference to MSAL Python by adding the following code to the top of the file where you will be using MSAL:
 
-   ```Python
-   import msal
-   ```
+```Python
+import msal
+```
 
 ## Next steps
 

@@ -3,11 +3,7 @@ title: Tutorial - Configure dynamic inventories of your Azure resources using An
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
-ms.date: 04/30/2019
+ms.date: 10/23/2019
 ---
 
 # Tutorial: Configure dynamic inventories of your Azure resources using Ansible
@@ -123,9 +119,9 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/
 
 ### Ansible version >= 2.8
 
-Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plugin:
+Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plug-in:
 
-1. The inventory plugin requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
+1. The inventory plug-in requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
 
     ```yml
         plugin: azure_rm
@@ -150,7 +146,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg`.
+    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`.
 
     ```bash
     host_key_checking = False
@@ -191,7 +187,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
 
 ### If you're using Ansible >=  2.8
 
-- run the this command `ansible-inventory -i myazure_rm.yml --graph` to get the following:
+- Run the command `ansible-inventory -i myazure_rm.yml --graph` to get the following output:
 
     ```Output
         @all:
@@ -227,7 +223,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     

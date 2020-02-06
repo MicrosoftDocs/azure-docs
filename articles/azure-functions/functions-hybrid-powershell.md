@@ -2,9 +2,7 @@
 title: Manage remote on-premises resources by using PowerShell functions
 description: Learn how to configure Hybrid Connections in Azure Relay to connect a PowerShell function app to on-premises resources, which can then be used to remotely manage the on-premises resource.
 author: eamono
-manager: gailey777
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 9/5/2019
 ms.author: eamono

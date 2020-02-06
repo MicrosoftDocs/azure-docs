@@ -21,95 +21,63 @@ Percentage is managed from the [Recognizers-text](https://github.com/Microsoft/R
 
 ## Resolution for prebuilt percentage entity
 
-#### [V2 prediction endpoint response](#tab/V2)
+The following entity objects are returned for the query:
 
-The following example shows the resolution of the **builtin.percentage** entity.
+`set a trigger when my stock goes up 2%`
 
-```json
-{
-  "query": "set a trigger when my stock goes up 2%",
-  "topScoringIntent": {
-    "intent": "SetTrigger",
-    "score": 0.971157849
-  },
-  "intents": [
-    {
-      "intent": "SetTrigger",
-      "score": 0.971157849
-    }
-  ],
-  "entities": [
-    {
-      "entity": "2%",
-      "type": "builtin.percentage",
-      "startIndex": 36,
-      "endIndex": 37,
-      "resolution": {
-        "value": "2%"
-      }
-    }
-  ]
-}
-```
-
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-{
-    "query": "set a trigger when my stock goes up 2%",
-    "prediction": {
-        "normalizedQuery": "set a trigger when my stock goes up 2%",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.541765451
-            }
-        },
-        "entities": {
-            "percentage": [
-                2
-            ]
-        }
-    }
+"entities": {
+    "percentage": [
+        2
+    ]
 }
 ```
-
+#### [V3 verbose response](#tab/V3-verbose)
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
-{
-    "query": "set a trigger when my stock goes up 2%",
-    "prediction": {
-        "normalizedQuery": "set a trigger when my stock goes up 2%",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.541765451
-            }
-        },
-        "entities": {
-            "percentage": [
-                2
-            ],
-            "$instance": {
-                "percentage": [
-                    {
-                        "type": "builtin.percentage",
-                        "text": "2%",
-                        "startIndex": 36,
-                        "length": 2,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "percentage": [
+        2
+    ],
+    "$instance": {
+        "percentage": [
+            {
+                "type": "builtin.percentage",
+                "text": "2%",
+                "startIndex": 36,
+                "length": 2,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### [V2 response](#tab/V2)
 
+The following example shows the resolution of the **builtin.percentage** entity.
+
+```json
+"entities": [
+    {
+        "entity": "2%",
+        "type": "builtin.percentage",
+        "startIndex": 36,
+        "endIndex": 37,
+        "resolution": {
+        "value": "2%"
+        }
+    }
+]
+```
 * * * 
 
 ## Next steps

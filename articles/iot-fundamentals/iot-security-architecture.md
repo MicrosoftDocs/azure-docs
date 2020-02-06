@@ -1,6 +1,6 @@
 ---
 title: IoT Security Architecture
-description: IoT security architecture guidelines and considerations
+description: Security architecture guidelines and considerations for Azure IoT solutions
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals

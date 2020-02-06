@@ -5,6 +5,7 @@
   - name: About Media Services
     href: media-services-overview.md
   - name: What's new in Media Services
+    displayName: release notes
     href: release-notes.md    
 - name: Tutorials
   expanded: true
@@ -76,7 +77,7 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: cae-experimental.md          
+      href: content-aware-encoding.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
@@ -89,7 +90,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest      
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
@@ -108,7 +109,7 @@
   - name: Content protection
     items:
     - name: Dynamic encryption and key delivery
-      displayName: content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay     
+      displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
     - name: Design of multi-DRM system 
       displayName: drm, access control
@@ -137,6 +138,8 @@
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
       href: live-event-cloud-dvr.md
+    - name: Live transcription
+      href: live-transcription.md
     - name: Feature comparison
       href: live-event-types-comparison.md
     - name: States and billing
@@ -161,7 +164,7 @@
     items:
     - name: Overview
       href: media-services-apis-overview.md
-      displayName: accessing, long-running, invalid character, name, naming, file name
+      displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC

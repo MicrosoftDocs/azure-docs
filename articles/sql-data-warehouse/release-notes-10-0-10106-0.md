@@ -1,15 +1,16 @@
 ---
-title: Azure SQL Data Warehouse Release Notes | Microsoft Docs
+title: Release notes 
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 09/18/2019
+ms.date: 1/14/2020
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
+ms.custom: seo-lt-2019
 ---
 
 # Azure SQL Data Warehouse release notes
@@ -20,11 +21,33 @@ This article summarizes the new features and improvements in the recent releases
 
 As new features are rolled out to all regions, check the version deployed to your instance and the latest Azure SQL DW release notes for feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version of Azure SQL DW.
 
-Example output:
+Sample output:
 
-![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
+![SQL Data Warehouse version](./media/release-notes/t47-1-version.png)
 
-Use the date identified to confirm which release has been applied to your Azure SQL DW.
+Use the version identified to confirm which release has been applied to your Azure SQL DW.
+
+## January 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Workload Management Portal Metrics (Preview)**|With the release of [Workload Isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) for preview this past October, users can create their own [workload groups](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) to efficiently manage system resources and ensure business SLAs are met.  As part of the overall [workload management](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) enhancements for Azure Synapse Analytics, new [workload management monitoring metrics](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) are now available.</br> </br> Monitoring your workload now has greater insights with the following metrics: </br> - Effective cap resource percent  </br> - Effective min resource percent </br> - Workload group active queries </br> - Workload group allocation by max resource percent </br> - Workload group allocation by system percent </br> - Workload group query timeouts </br> - Workload group queued queries </br></br> Use these metrics to identify [workload group bottlenecks](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) or workload groups that are configured with [underutilized workload isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  These metrics can be used in the Azure Portal that allows splitting by workload group.  Filter and pin your favorite graphs to a dashboard for quick access to insights.|
+|**Portal Monitoring Metrics**| The following metrics were added to the portal for monitoring overall query activity: </br> - Active queries </br> - Queued queries </br> </br>These metrics are described along with the existing metrics in the [Monitoring resource utilization and query activity documentation](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Product Name**|By June 2020, the product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Azure Synapse Analytics. We will publish the schedule in our release notes. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. To avoid application code changes due to product rebranding, please use these commands to query SERVERPROPERTY for the database product name and version. </br> To return DW version number XX.X.XXXXX.X (without product name) use this command: SELECT SERVERPROPERTY('ProductVersion') </br> To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse): SELECT SERVERPROPERTY('EngineEdition')|
+
+## October 2019
+
+| Service improvements | Details |
+| --- | --- |
+|**Copy (Preview)**|We are excited to announce the public preview of a simple and flexible COPY statement for data ingestion. With only one statement, you can now seamlessly ingest data with additional flexibility and without requiring high privileged users. For more information, see [COPY command documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest).|
+|**Workload Isolation (Preview)**|To support customers as they democratize their data warehouses, we are announcing new features for intelligent workload management. The new [Workload Isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) functionality allows you to manage the execution of heterogeneous workloads while providing flexibility and control over data warehouse resources. This leads to improved execution predictability and enhances the ability to satisfy predefined SLAs. </br>In addition to workload isolation, additional options are now available for [Workload Classification](/azure/sql-data-warehouse/sql-data-warehouse-workload-classification).  Beyond login classification, the [Create Workload Classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) syntax provides the capability to classify requests based on query label, session context and time of day.|
+|**PREDICT (Preview)**|You can now score machine learning models within your data warehouse avoiding the need for large and complex data movement. The T-SQL PREDICT function relies on open model framework and takes data and machine learning model as input to generate predictions.
+|**SSDT CI/CD (GA)**|Today we are excited to announce the General Availability of the [highest requested feature](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247--in-preview-database-project-from-visual-studio-t) for SQL Data Warehouse – SQL Server Data Tools (SSDT) Database projects. This release includes support for SSDT with Visual Studio 2019 along with native platform integration with Azure DevOps providing built-in continuous integration and deployment (CI/CD) capabilities for enterprise level deployments. |
+|**Materialized View (GA)**|A Materialized View persists the data returned from the view definition query and automatically gets updated as data changes in the underlying tables. It improves the performance of complex queries (typically queries with joins and aggregations) while offering simple maintenance operations. For more information, see [Performance tuning with materialized views](/azure/sql-data-warehouse/performance-tuning-materialized-views).  Install [SQL Server Management Studio 18.4 or later](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for scripting Materialized Views.|
+|**Dynamic Data Masking (GA)**|Dynamic Data Masking (DDM) prevents unauthorized access to your sensitive data in your data warehouse by obfuscating it on-the-fly in the query results, based on the masking rules you define. For more information, see [SQL Database dynamic data masking](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Read Committed Snapshot Isolation  (GA)**|You can use ALTER DATABSE to enable or disable snapshot isolation for a user database. To avoid impact to your current workload, you may want to set this option during database maintenance window or wait until there is no other active connection to the database. For more information, see [Alter database set options](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
+|**Ordered Clustered Columnstore Index (GA)**|Columnstore is a key enabler for storing and efficiently querying large amounts of data. Ordered clustered columnstore indexes further optimize query execution by enabling efficient segment elimination.   For more information, see [Performance tuning with ordered clustered columnstore index](/azure/sql-data-warehouse/performance-tuning-ordered-cci).|
+|**Result Set Caching (GA)**|When result set caching is enabled, Azure SQL Data Warehouse automatically caches query results in the user database for repetitive use. This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed. Result set caching improves query performance and reduces compute resource usage. In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results. For more information, see [Performance tuning with result set caching](/azure/sql-data-warehouse/performance-tuning-result-set-caching). Applies to version 10.0.10783.0 or higher.|
 
 ## September 2019
 
@@ -129,7 +152,7 @@ Use the date identified to confirm which release has been applied to your Azure 
 ## More information
 
 - [Blog - Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Customer Advisory Team blogs](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Customer Advisory Team blogs](https://docs.microsoft.com/archive/blogs/sqlcat/)
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

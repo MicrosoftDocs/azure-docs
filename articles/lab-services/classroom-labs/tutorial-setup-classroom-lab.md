@@ -1,6 +1,6 @@
 ---
 title: Set up a classroom lab using Azure Lab Services | Microsoft Docs
-description: In this tutorial, you set up a lab to use in a classroom. 
+description: In this tutorial, you use Azure Lab Services to set up a classroom lab with virtual machines that are used by students in your class. 
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
@@ -88,6 +88,11 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     2. To start all the VMs at once, select **Start all** on the toolbar. 
     3. To start a specific VM, select the down arrow in the **Status**, and then select **Start**. You can also start a VM by selecting a VM in the first column, and then by selecting **Start** on the toolbar.
 
+    For more information about creating and managing templates, and setting up and managing student virtual machines, see the following articles: 
+    
+    - [Create and manage classroom lab templates](how-to-create-manage-template.md)
+    - [Set up and manage virtual machine pool](how-to-set-virtual-machine-passwords.md)
+
 ## Add users to the lab
 
 1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
@@ -101,23 +106,27 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
+    You will see names of users in the list after they are registered to the lab. 
+    
 ## Set a schedule for the lab
 Create a scheduled event for the lab so that VMs in the lab are automatically started/stopped at specific times. The user quota you specified earlier is the additional time assigned to each user outside this scheduled time. 
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
-2. Confirm that **Standard** is selected the **Event type**. You select **Start only** to specify only the start time for the VMs. You select **Stop only** to specify only the stop time for the VMs. 
-7. In the **Repeat** section, select the current schedule. 
+2. On the **Add scheduled event** page, do the following steps:
+    1. Confirm that **Standard** is selected the **Event type**.  
+    2. Specify the **start date** for the class. 
+    4. Specify the **start time** at which you want the VMs to be started.
+    5. Specify the **stop time** on which the VMs are to be shut down. 
+    6. Specify the **time zone** for the start and stop times you specified. 
+3. On the same **Add scheduled event** page, select the current schedule in the **Repeat** section.  
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/select-current-schedule.png)
 5. On the **Repeat** dialog box, do the following steps:
     1. Confirm that **every week** is set for the **Repeat** field. 
-    3. Specify the **start date**.
-    4. Specify the **start time** at which you want the VMs to be started.
-    5. Specify the **stop time** on which the VMs are to be shut down. 
-    6. Specify the **time zone** for the start and stop times you specified. 
-    2. Select the days on which you want the schedule to take effect. In the following example, Monday-Thursday is selected. 
+    2. Select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected. 
+    3. Select an **end date** for the schedule.
     8. Select **Save**. 
 
         ![Set repeat schedule](../media/how-to-create-schedules/set-repeat-schedule.png)
@@ -126,6 +135,11 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 4. On the **Add scheduled event** page, select **Save**. 
 
     ![Weekly schedule](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+5. Navigate to the start date in the calendar to verify that the schedule is set.
+    
+    ![Schedule in the calendar](../media/how-to-create-schedules/schedule-calendar.png)
+
+    For more information about creating and managing schedules for a class, see [Create and manage schedule for classroom labs](how-to-create-schedules.md).
 
 ## Send invitation emails to students
 
@@ -137,6 +151,8 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
     ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
 4. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**. 
+
+    For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

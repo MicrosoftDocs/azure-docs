@@ -1,6 +1,7 @@
 ---
-title: Define a validation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+title: Define a validation technical profile in a custom policy
+titleSuffix: Azure AD B2C
+description: Validate claims by using a validation technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -34,6 +35,9 @@ Validation technical profiles are executed in the sequence that they appear in t
 A validation technical profile can be conditionally executed based on preconditions defined in the **ValidationTechnicalProfile** element. For example, you can check whether a specific claims exists, or if a claim is equal or not to the specified value.
 
 A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
+
+> [!NOTE]
+> Only self-asserted technical profiles can use validation technical profiles. If you need to validate the output claims from non-self-asserted technical profiles, consider using an additional orchestration step in your user journey to accommodate the technical profile in charge of the validation.
 
 ## ValidationTechnicalProfiles
 

@@ -16,7 +16,8 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ---
-# Dynamic encryption: Configure a content key authorization policy
+# Configure a content key authorization policy
+
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
@@ -420,6 +421,10 @@ To get a test token based on the token restriction that was used for the key aut
         JWT = 2,
     }
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,10 +1,10 @@
 ---
-title: Review access to Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to review access of Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Review access to Azure AD roles in PIM - Azure AD | Microsoft Docs
+description: Learn how to review access of Azure Active Directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory

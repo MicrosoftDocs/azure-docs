@@ -31,13 +31,21 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period (90 days), while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
-Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. It can be turned on via [CLI](key-vault-soft-delete-cli.md) or [Powershell](key-vault-soft-delete-powershell.md).
+Soft-delete is now on by default for newly created key vaults. It can be disabled through the [Azure CLI](key-vault-soft-delete-cli.md) or [Azure Powershell](key-vault-soft-delete-powershell.md).
+
+The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. 
+
+Once soft-delete has been set on a key vault it cannot be disabled, and the retention policy interval cannot be changed. 
+
+You cannot reuse the name of a key vault that has been soft-deleted until the retention period has passed. 
 
 ### Purge protection 
 
-When purge protection is on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. These vaults and objects can still be recovered, assuring customers that the retention policy will be followed. 
-
 Purge protection is an optional Key Vault behavior and is **not enabled by default**. It can be turned on via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) or [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+
+When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed. 
+
+The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Once the retention policy interval is set and saved it cannot be changed for that vault. 
 
 ### Permitted purge
 

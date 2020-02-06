@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C# quickstart for SSH and RDP (preview) | Microsoft Docs
+title: Azure IoT Hub device streams C# quickstart for SSH and RDP
 description: In this quickstart, you run two sample C# applications that enable SSH and RDP scenarios over an IoT Hub device stream.
 author: robinsh
 ms.service: iot-hub
@@ -48,6 +48,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   * Central US
   * Central US EUAP
+  * Southeast Asia
+  * North Europe
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
 
@@ -65,7 +67,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    az extension add --name azure-cli-iot-ext
    ```
 
-* [Download the sample C# project](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
+* [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
 
 * A valid user account and credential on the device (Windows or Linux) used to authenticate the user.
 
@@ -145,7 +147,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### Run the service-local proxy application
 
-In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. Keep the following information handy:
+In another local terminal window, navigate to `iot-hub/quickstarts/device-streams-proxy/service` in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|

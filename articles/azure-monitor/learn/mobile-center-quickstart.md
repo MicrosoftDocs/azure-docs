@@ -1,16 +1,15 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly set up a mobile app for monitoring with Application Insights and App Center
-services: application-insights
-keywords:
+title: Monitor mobile apps with Azure Monitor Application Insights
+description: Provides instructions to quickly set up a mobile app for monitoring with Azure Monitor Application Insights and App Center
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
+
 ms.reviewer: daviste
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Start analyzing your mobile app with App Center and Application Insights

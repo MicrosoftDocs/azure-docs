@@ -2,13 +2,9 @@
 title: Child runbooks in Azure Automation
 description: Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 01/17/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Child runbooks in Azure Automation
 

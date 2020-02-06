@@ -1,10 +1,10 @@
 ---
 title: SQL subqueries for Azure Cosmos DB
-description: Learn about SQL subqueries and their common use cases in Azure Cosmos DB
+description: Learn about SQL subqueries and their common use cases and different types of subqueries in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---

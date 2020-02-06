@@ -96,7 +96,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 ### 2. <a name="local"></a>Configure the local site
 
 1. Navigate to **All resources** and locate the **ClassicVNet** in the list.
-2. On the **Overview** page, in the **VPN connections** section, click **Gateway** to create a gateway.
+2. Click **Gateway** in the **Settings** section of the menu, and then click on the banner to create a gateway.
   ![Configure a VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configure a VPN gateway")
 3. On the **New VPN Connection** page, for **Connection type**, select **Site-to-site**.
 4. For **Local site**, click **Configure required settings**. This opens the **Local site** page.

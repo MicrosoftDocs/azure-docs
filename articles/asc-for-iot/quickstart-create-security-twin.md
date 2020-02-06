@@ -1,6 +1,6 @@
 ---
-title: Create a security module twin for Azure Security Center for IoT| Microsoft Docs
-description: Learn how to create a Azure Security Center for IoT module twin for use with Azure Security Center for IoT.
+title: "Quickstart: Create a security module twin for Azure Security Center for IoT"
+description: In this quickstart, learn how to create a Azure Security Center for IoT module twin for use with Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 11/08/2019
 ms.author: mlottner
 
 ---

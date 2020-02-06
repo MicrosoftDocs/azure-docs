@@ -1,18 +1,13 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about how to use this solution to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: nolavime
 ms.author: v-jysur
+ms.date: 05/24/2018
+
 ---
 
 # Connect Azure to ITSM tools using IT Service Management Connector
@@ -59,7 +54,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
    >[!NOTE]
    > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
-   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West Europe, Southeast Asia, Southeast Australia, West Central US, East Japan, South UK, Central India, Central Canada.
+   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West US2, South Central US, West Central US, Central Canada, West Europe, South UK, Southeast Asia, East Japan, Central India, Southeast Australia.
 
 4. In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
@@ -69,7 +64,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
 5. Click **Create**.
 
-When the solution resource is deployed, a notification appears at the top right of the window.
+When the solution resource is deployed, a notification appears at the top right- of the window.
 
 
 ## Creating an ITSM  connection
@@ -126,7 +121,7 @@ Use the following procedure:
     ![Action Groups detail](media/itsmc-overview/action-groups-details.png)
 
 4. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click **Edit details**.
-5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)".
+5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
 
     ![ITSM Action details](media/itsmc-overview/itsm-action-details.png)
 

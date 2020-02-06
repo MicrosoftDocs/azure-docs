@@ -4,7 +4,7 @@ description: How to troubleshoot Traffic Manager profiles when it shows as degra
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: dcscontentpm
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/12/2019
+ms.date: 11/26/2019
 ms.author: shvija
 
 ---
@@ -30,12 +30,11 @@ The result is a private and isolated relationship between the workloads bound to
 > Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Azure Monitor
+> - Integration with Azure Monitor. You can't stream diagnostic logs from **other** Azure services into Event Hubs. However, you can enable Azure diagnostic logs on the event hub itself. It's the same case when you have the firewall (IP filtering) enabled.
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
 > - Azure Web Apps
@@ -194,5 +193,5 @@ For more information about virtual networks, see the following links:
 - [Azure Event Hubs IP filtering][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [ip-filtering]: event-hubs-ip-filtering.md

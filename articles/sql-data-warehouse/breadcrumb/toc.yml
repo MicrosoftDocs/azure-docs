@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-data-warehouse/index
 
@@ -10,7 +10,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /azure/azure-databricks/
     topicHref: /azure/sql-data-warehouse/index
 
@@ -18,7 +18,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /azure/data-factory/
     topicHref: /azure/sql-data-warehouse/index
 
@@ -26,6 +26,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /sql/t-sql/
     topicHref: /azure/sql-data-warehouse/index

@@ -8,6 +8,7 @@ manager: evansma
 editor: ''
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na

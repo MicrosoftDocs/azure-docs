@@ -1,14 +1,14 @@
 ---
 title: Translator Text API V3.0 Reference
 titleSuffix: Azure Cognitive Services
-description: Reference documentation for the Translator Text API V3.0.
+description: Reference documentation for the Translator Text API V3.0. Version 3 of the Translator Text API provides a modern JSON-based Web API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
 ---
 
@@ -160,3 +160,21 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
+## Metrics 
+Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Translator Metrics](../media/translatormetrics.png)
+
+This table lists available metrics with description of how they are used to monitor translation API calls.
+
+| Metrics | Description |
+|:----|:-----|
+| TotalCalls| Total number of API calls.|
+| TotalTokenCalls| Total number of API calls via token service using authentication token.|
+| SuccessfulCalls| Number of successful calls.|
+| TotalErrors| Number of calls with error response.|
+| BlockedCalls| Number of calls that exceeded rate or quota limit.|
+| ServerErrors| Number of calls with server internal error(5XX).|
+| ClientErrors| Number of calls with client side error(4XX).|
+| Latency| Duration to complete request in milliseconds.|
+| CharactersTranslated| Total number of characters in incoming text request.|

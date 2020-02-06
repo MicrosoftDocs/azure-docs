@@ -1,20 +1,11 @@
 ---
-title: PHP (Laravel) with MySQL - Azure App Service | Microsoft Docs 
+title: 'Tutorial: PHP app with MySQL' 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure. Laravel is used in the tutorial.
-services: app-service\web
-documentationcenter: php
-author: cephalin
-manager: erikre
-editor: ''
 
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/15/2018
-ms.author: cephalin
+ms.date: 11/25/2019
 ms.custom: mvc
 ms.custom: seodec18
 

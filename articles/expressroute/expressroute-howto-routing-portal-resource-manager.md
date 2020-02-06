@@ -1,14 +1,14 @@
 ---
-title: 'Configure peering for a circuit - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure peering'
 description: This article documents the steps for creating and provisioning ExpressRoute private and Microsoft peering. This article also demonstrates how to check the status, update, or delete peerings for a circuit.
 services: expressroute
 author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 02/13/2019
 ms.author: mialdrid
-ms.custom: seodec18
+
 
 ---
 # Create and modify peering for an ExpressRoute circuit
@@ -19,13 +19,13 @@ This article helps you create and manage routing configuration for an Azure Reso
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
+> * [Public peering](about-public-peering.md)
 > * [Video - Private peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Public peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-You can configure Azure private and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About circuits and peerings](expressroute-circuit-peerings.md).
+You can configure private peering and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md). For information about public peering, see [ExpressRoute public peering](about-public-peering.md).
 
 ## Configuration prerequisites
 
@@ -78,6 +78,12 @@ This section helps you create, get, update, and delete the Microsoft peering con
 4. Configure Microsoft peering. **Save** the configuration once you have specified all parameters. The following image shows an example configuration:
 
    ![Configure Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
+
+> [!IMPORTANT]
+> Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
+>
+> If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket as shown below. 
+>
 
    If your circuit gets to a 'Validation needed' state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
 
@@ -163,25 +169,6 @@ You can remove your peering configuration by selecting the delete icon, as shown
 
 ![delete private peering](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
-## <a name="public"></a>Azure public peering
-
-This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
-
-> [!Note]
-> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
->
-
-### <a name="getpublic"></a>To view Azure public peering details
-
-View the properties of Azure public peering by selecting the peering.
-
-### <a name="updatepublic"></a>To update Azure public peering configuration
-
-Select the row for peering, then modify the peering properties.
-
-### <a name="deletepublic"></a>To delete Azure public peering
-
-Remove your peering configuration by selecting the delete icon.
 
 ## Next steps
 

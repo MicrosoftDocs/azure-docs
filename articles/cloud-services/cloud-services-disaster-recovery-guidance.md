@@ -1,5 +1,6 @@
 ---
-title: What to do in the event of an Azure service disruption that impacts Azure Cloud Services | Microsoft Docs
+title: Handling an Azure service disruption that impacts Azure Cloud Services
+titleSuffix: Azure Cloud Services
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -50,4 +51,4 @@ In this case, no action on your part is required, but your service will be unava
 ## Next steps
 To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
+To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](/azure/architecture/checklist/resiliency-per-service).

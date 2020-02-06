@@ -1,5 +1,5 @@
 ---
-title: Diagnosing graphics performance issues in remote desktop - Azure
+title: Diagnose graphics performance issues Remote Desktop - Azure
 description: This article describes how to use RemoteFX graphics counters in remote desktop protocol sessions to diagnose performance issues with graphics in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr

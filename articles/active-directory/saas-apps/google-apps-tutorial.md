@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -85,6 +84,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * G Suite supports **SP** initiated SSO
 
 * G Suite supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+* Once you configure G Suite you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding G Suite from the gallery
 
@@ -151,31 +151,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Your G Suite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but G Suite expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
-1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
-
-	| Name | Source Attribute |
-	| ---------------| --------------- |
-	| Unique User Identifier | User.mail |
-
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -247,7 +224,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create G Suite test user
 
-The objective of this section is to create a user called B.Simon in G Suite Software. G Suite supports auto provisioning, which is by default enabled. There is no action for you in this section. If a user doesn't already exist in G Suite Software, a new one is created when you attempt to access G Suite Software.
+The objective of this section is to [create a user in G Suite](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in G Suite, the user will now be able to sign in using their Office 365 login credentials.
+
+G Suite also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure G Suite for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Make sure that your user already exists in G Suite if provisioning in Azure AD has not been turned on before testing Single Sign-on.
@@ -270,7 +249,9 @@ When you click the G Suite tile in the Access Panel, you should be automatically
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 - [Try G Suite with Azure AD](https://aad.portal.azure.com/)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
+- [How to protect G Suite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

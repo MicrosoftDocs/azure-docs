@@ -4,6 +4,7 @@ description: This article describes the eligibility criteria and publishing requ
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
@@ -12,7 +13,7 @@ ms.author: pabutler
 # Consulting Services for Azure Marketplace and AppSource
 Consulting Services in Azure Marketplace and AppSource provides Microsoft partners the goal of connecting customers with services to support and extend their use of Azure and business goals. 
 
-Azure Marketplace and AppSource support the listing of consulting service offerings from System Integrator (SI) partners of Microsoft – the goal being to offer quality consulting services to enable customers to connect with the expert services they need. Helping customers assess, evaluate, and deploy the right solutions and implementation that will help with their business objectives and goals.  
+Azure Marketplace and AppSource support the listing of consulting service offerings from System Integrator (SI) partners of Microsoft - the goal being to offer quality consulting services to enable customers to connect with the expert services they need. Helping customers assess, evaluate, and deploy the right solutions and implementation that will help with their business objectives and goals.  
 
 These consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type and with fixed scope and duration, either fixed-price or free, and have a defined agenda with deliverables to the customer. Leads are received through a notification in partner's CRM system and aim to respond to customers within 48 hours. 
 
@@ -122,13 +123,13 @@ Listing your consulting-service offer on the Azure Marketplace and AppSource
 ## Offer Listings and Content Review Criteria
 Offerings must be of one of the following five service types (you can list more than one): 
 
-* **Assessment**: An evaluation of a customer’s environment to determine the applicability of a solution and provide an estimate of cost and timing. 
+* **Assessment**: An evaluation of a customer's environment to determine the applicability of a solution and provide an estimate of cost and timing. 
 * **Briefing**: An introduction to a solution or a consulting service to draw customer interest by using frameworks, demos, and customer examples. 
 * **Implementation**: A complete installation that results in a fully working solution. We recommend limiting it to solutions that can be implemented in two weeks or less. 
 * **Proof of concept**: A limited-scope implementation to determine whether a solution meets customer requirements. 
-* **Workshop**: An interactive engagement that's conducted on a customer’s premises. It can involve training, briefings, assessments, or demos that are built on the customer’s data or environment. 
+* **Workshop**: An interactive engagement that's conducted on a customer's premises. It can involve training, briefings, assessments, or demos that are built on the customer's data or environment. 
 
-**Note:** Except for the *Briefing* service type, consulting services can be offered in person (that is, onsite at a customer’s location or a partner’s facility) or virtually (that is, via teleconferencing, web conferencing, or remote implementation). Briefings must be offered in person.
+**Note:** Except for the *Briefing* service type, consulting services can be offered in person (that is, onsite at a customer's location or a partner's facility) or virtually (that is, via teleconferencing, web conferencing, or remote implementation). Briefings must be offered in person.
 
 Once you have configured the required elements listed above, the content review team will validate that your offer description is informative and complete for your target audience. 
 

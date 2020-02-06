@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure SQL Database performance issues with Intelligent Insights | Microsoft Docs
+title: Troubleshoot performance issues with Intelligent Insights
 description: Intelligent Insights helps you troubleshoot Azure SQL Database performance issues.
 services: sql-database
 ms.service: sql-database
@@ -325,4 +325,4 @@ Intelligent Insights usually needs one hour of time to perform the root cause an
 - Learn [Intelligent Insights](sql-database-intelligent-insights.md) concepts.
 - Use the [Intelligent Insights Azure SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitor [Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Learn to [collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md).
+- Learn to [collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md).

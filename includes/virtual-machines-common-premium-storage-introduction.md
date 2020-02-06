@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-# Azure premium storage: design for high performance
+
 
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 

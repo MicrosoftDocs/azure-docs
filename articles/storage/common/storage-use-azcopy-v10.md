@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -29,14 +29,7 @@ First, download the AzCopy V10 executable file to any directory on your computer
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-These files are compressed as a zip file (Windows and Mac) or a tar file (Linux).
-
-You can use these commands to download and decompress the tar file on Linux.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
-tar -xf azcopy.tar.gz
-```
+These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -54,6 +47,8 @@ To learn about a specific command, just include the name of the command (For exa
 
 ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
+To find detailed reference documentation for each command and command parameter, see [azcopy](storage-ref-azcopy.md)
+
 > [!NOTE] 
 > As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
@@ -66,7 +61,7 @@ Use this table as a guide:
 | Storage type | Currently supported method of authorization |
 |--|--|
 |**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchial namespace)** | Azure AD & SAS |
+|**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
 |**File storage** | SAS only |
 
 ### Option 1: Use Azure Active Directory
@@ -298,16 +293,9 @@ If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to p
 /usr/bin/keyctl new_session
 ```
 
-## Use AzCopy in Storage Explorer
+## Use AzCopy in Azure Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
-
-In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
-
-![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of it's data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to leverage the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
 
 Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
 

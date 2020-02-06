@@ -1,5 +1,5 @@
 ---
-title: Monitor application performance hosted on Azure VM and Azure virtual machine scale sets | Microsoft Docs
+title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
 ms.service:  azure-monitor
 ms.subservice: application-insights
@@ -46,7 +46,7 @@ There are two ways to enable application monitoring for Azure virtual machines a
 ## Manage Application Insights Agent for .NET applications on Azure virtual machines using PowerShell
 
 > [!NOTE]
-> Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
+> Before installing the Application Insights Agent, you'll need a connection string. [Create a new Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) or copy the connection string from an existing application insights resource.
 
 > [!NOTE]
 > New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
@@ -55,14 +55,15 @@ Install or update the Application Insights Agent as an extension for Azure virtu
 ```powershell
 $publicCfgJsonString = '
 {
-  "RedfieldConfiguration": {
-    "InstrumentationKeyMap": {
-      "Filters": [
+  "redfieldConfiguration": {
+    "instrumentationKeyMap": {
+      "filters": [
         {
-          "AppFilter": ".*",
-          "MachineFilter": ".*",
-          "InstrumentationSettings" : {
-            "InstrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          "appFilter": ".*",
+          "machineFilter": ".*",
+          "virtualPathFilter": ".*",
+          "instrumentationSettings" : {
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -101,7 +102,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 You may also view installed extensions in the [Azure virtual machine blade](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) in the Portal.
 
 > [!NOTE]
-> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
+> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the connection string you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
 
 ## Manage Application Insights Agent for .NET applications on Azure virtual machine scale sets using powershell
 
@@ -109,14 +110,15 @@ Install or update the Application Insights Agent as an extension for Azure virtu
 ```powershell
 $publicCfgHashtable =
 @{
-  "RedfieldConfiguration"= @{
-    "InstrumentationKeyMap"= @{
-      "Filters"= @(
+  "redfieldConfiguration"= @{
+    "instrumentationKeyMap"= @{
+      "filters"= @(
         @{
-          "AppFilter"= ".*";
-          "MachineFilter"= ".*";
-          "InstrumentationSettings"= @{
-            "InstrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "appFilter"= ".*";
+          "machineFilter"= ".*";
+          "virtualPathFilter": ".*",
+          "instrumentationSettings" : {
+            "connectionString": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )

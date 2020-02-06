@@ -13,7 +13,7 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
 
 ---
@@ -30,7 +30,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
 * Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
-* Uses the [Resource Manager deployment model](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Uses the [Resource Manager deployment model](../../../azure-resource-manager/management/deployment-models.md).
 * Uses [premium SSDs](../disks-types.md).
 
 ## New VMs
@@ -43,7 +43,7 @@ When provisioning an Azure VM using a SQL Server gallery image, select **Change 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *Readonly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](virtual-machines-windows-sql-performance.md). 
+Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *ReadOnly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](virtual-machines-windows-sql-performance.md). 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
@@ -107,7 +107,6 @@ You can modify the disk settings for the drives that were configured during the 
 ![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-
 ## Storage configuration
 
 This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure portal.
@@ -127,15 +126,12 @@ Azure uses the following settings to create the storage pool on SQL Server VMs.
 | Disk sizes |1 TB each |
 | Cache |Read |
 | Allocation size |64 KB NTFS allocation unit size |
-| Instant file initialization |Enabled |
-| Lock pages in memory |Enabled |
-| Recovery |Simple recovery (no resiliency) |
-| Number of columns |Number of data disks<sup>1</sup> |
-| TempDB location |Stored on data disks<sup>2</sup> |
+| Recovery | Simple recovery (no resiliency) |
+| Number of columns |Number of data disks up to 8<sup>1</sup> |
+
 
 <sup>1</sup> After the storage pool is created, you cannot alter the number of columns in the storage pool.
 
-<sup>2</sup> This setting only applies to the first drive you create using the storage configuration feature.
 
 ## Workload optimization settings
 

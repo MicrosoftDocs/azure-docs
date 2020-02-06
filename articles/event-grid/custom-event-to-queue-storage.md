@@ -1,11 +1,11 @@
 ---
-title: Send custom events to storage queue - Event Grid, Azure CLI
-description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint. 
+title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
+description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.' 
 services: event-grid 
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 01/07/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18

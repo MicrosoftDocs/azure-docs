@@ -1,13 +1,14 @@
 ---
-title: "Quickstart: Content Moderator client library for Java | Microsoft Docs"
-description: Get started with the Content Moderator client library for Java.
+title: "Quickstart: Content Moderator client library for Java"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ---
 
@@ -19,7 +20,7 @@ Use the Content Moderator client library for Java to:
 
 * Moderate images for adult or racy content, text, or human faces.
 
-[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artifact (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=0)
+[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artifact (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## Prerequisites
 
@@ -120,14 +121,14 @@ In the application's `main` method, create a [ContentModeratorClient](https://do
 
 ### Get images
 
-In the **src/main/** folder of your project, create a **resources** folder and navigate to it. Then create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample contents:
+In the **src/main/** folder of your project, create a **resources** folder and navigate to it. Then create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample images:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### Use helper class
+### Define helper class
 
 Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class will be used later in the image moderation process.
 

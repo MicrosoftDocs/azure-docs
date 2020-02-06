@@ -1,6 +1,5 @@
 ---
-title: Manage the configuration server for VMware and physical server disaster recovery with Azure Site Recovery | Microsoft Docs
-description: This article describes how to manage an existing configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
+title: Manage the configuration server for disaster recovery with Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -9,7 +8,7 @@ ms.date: 04/15/2019
 ms.author: ramamill
 ---
 
-# Manage the configuration server for VMware VM disaster recovery
+# Manage the configuration server for VMware VM/physical server disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 

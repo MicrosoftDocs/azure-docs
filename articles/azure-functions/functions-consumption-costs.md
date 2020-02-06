@@ -1,18 +1,14 @@
 ---
 title: Estimating Consumption plan costs in Azure Functions
 description: Learn how to better estimate the costs that you may incur when running your function app in a Consumption plan in Azure.
-author: ggailey777
-ms.author: glenga
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.service: azure-functions
-manager: gwallace
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in Azure Functions so that I can make better architectural and business decisions.
 ---
 
 # Estimating Consumption plan costs
 
-There are currently three types of hosting plans for an app that run in Azure Functions, with each plan having its own pricing model: 
+There are currently three types of hosting plans for an app that runs in Azure Functions, with each plan having its own pricing model: 
 
 | Plan | Description |
 | ---- | ----------- |
@@ -22,7 +18,7 @@ There are currently three types of hosting plans for an app that run in Azure Fu
 
 You chose the plan that best supports your function performance and cost requirements. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-This article deals only with the Consumption plan, since this plan results in variable costs. 
+This article deals only with the Consumption plan, since this plan results in variable costs. This article supersedes the [Consumption plan cost billing FAQ](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ) article.
 
 Durable Functions can also run in a Consumption plan. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
 
@@ -47,7 +43,7 @@ When estimating the overall costs of your function app and related services, use
 
 | Related cost | Description |
 | ------------ | ----------- |
-| **Storage account** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. To learn more, see [Storage account requirements](functions-scale.md#storage-account-requirements).|
+| **Storage account** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).|
 | **Application Insights** | Functions relies on [Application Insights](../azure-monitor/app/app-insights-overview.md) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](functions-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Network bandwidth** | You don't pay for data transfer between Azure services in the same region. However, you can incur costs for outbound data transfers to another region or outside of Azure. To learn more, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/). |
 
@@ -85,11 +81,11 @@ Use [Azure Monitor metrics explorer](../azure-monitor/platform/metrics-getting-s
 
 1. Select **Apply** to choose your function app as the resource to monitor.
 
-1. From **Metric**, choose **Function execution count** and **Sum** for **Aggregation**. This adds the sum of the execution counts during chosen period to the chart.
+1. From **Metric**, choose **Function Execution Count** and **Sum** for **Aggregation**. This adds the sum of the execution counts during chosen period to the chart.
 
     ![Define a functions app metric to add to the chart](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 
-1. Select **Add metric** and repeat steps 2-4 to add **Function execution units** to the chart. 
+1. Select **Add metric** and repeat steps 2-4 to add **Function Execution Units** to the chart. 
 
 The resulting chart contains the totals for both execution metrics in the chosen time range, which in this case is two hours.
 
@@ -188,7 +184,7 @@ This command returns a JSON payload that looks like the following example:
   ]
 }
 ```
-This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, during which the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
+This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
 
 ## Determine memory usage
 

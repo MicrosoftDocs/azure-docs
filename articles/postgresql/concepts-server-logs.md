@@ -1,11 +1,11 @@
 ﻿---
-title: Logs in Azure Database for PostgreSQL - Single Server
-description: Concepts of logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
+title: Logs - Azure Database for PostgreSQL - Single Server
+description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/25/2019
 ---
 
 # Logs in Azure Database for PostgreSQL - Single Server
@@ -24,7 +24,7 @@ To learn more about Postgres log parameters, visit the [When To Log](https://www
 To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> Configuring a high volume of logs, for example statement logging, can add significant perfomance overhead. 
+> Configuring a high volume of logs, for example statement logging, can add significant performance overhead. 
 
 ## Access .log files
 The default log format in Azure Database for PostgreSQL is .log. A sample line from this log looks like:
@@ -64,7 +64,7 @@ To enable Diagnostic logs using Powershell, CLI, or REST API, visit the [diagnos
 
 ### Access diagnostic logs
 
-The way you access the logs depends on which endpoint you choose. For Azure Storage, the schema is described in the [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
+The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
 
 For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../azure-monitor/log-query/log-query-overview.md) overview.
 
@@ -73,16 +73,17 @@ The following are queries you can try to get started. You can configure alerts b
 Search for all Postgres logs for a particular server in the last day
 ```
 AzureDiagnostics
-| where LogicalServerName_s == 'myservername'
+| where LogicalServerName_s == "myservername"
 | where TimeGenerated > ago(1d) 
 ```
 
-Search for all errors for all Postgres servers in this workspace over the last 6 hours
+Search for all non-localhost connection attempts
 ```
 AzureDiagnostics
-| where errorLevel_s == "error" and category == "PostgreSQLogs"
-| where TimeGenerated > ago(6h)
+| where Message contains "connection received" and Message !contains "host=127.0.0.1"
+| where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
+The query above will show results over the last 6 hours for any Postgres server logging in this workspace.
 
 ### Log format
 

@@ -1,15 +1,15 @@
 ---
-title: Remote Desktop Gateway integration with Azure MFA NPS extension - Azure Active Directory
+title: Integrate RDG with Azure MFA NPS extension - Azure Active Directory
 description: Integrate your Remote Desktop Gateway infrastructure with Azure MFA using the Network Policy Server extension for Microsoft Azure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -117,11 +117,11 @@ This section provides instructions for configuring RDS infrastructure to use Azu
 As part of the configuration of the NPS extension, you need to supply admin credentials and the Azure AD ID for your Azure AD tenant. The following steps show you how to get the tenant ID.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. In the left navigation, select the **Azure Active Directory** icon.
+1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 1. Select **Properties**.
 1. In the Properties blade, beside the Directory ID, click the **Copy** icon, as shown below, to copy the ID to clipboard.
 
-   ![Getting the Directory ID from the Azure portal](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Getting the Directory ID from the Azure portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
 
 ### Install the NPS extension
 
@@ -230,7 +230,7 @@ To ensure there is time to validate users’ credentials, perform two-step verif
 
 ### Verify Connection Request Policies
 
-By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.
+By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.  
 
 1. On the RD Gateway, in the NPS (Local) console, expand **Policies**, and select **Connection Request Policies**.
 1. Double-click **TS GATEWAY AUTHORIZATION POLICY**.
@@ -240,6 +240,9 @@ By default, when you configure the RD Gateway to use a central policy store for 
    ![Configure Authentication Settings specifying the server group](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Click **Cancel**.
+
+>[!NOTE]
+> For more information about creating a connection request policy see the article, [Configure connection request policies](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) documentation for the same. 
 
 ## Configure NPS on the server where the NPS extension is installed
 

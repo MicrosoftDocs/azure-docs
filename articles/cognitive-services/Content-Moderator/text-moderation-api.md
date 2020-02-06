@@ -106,33 +106,33 @@ The following example shows a sample response:
   "Phone":[ 
     { 
       "CountryCode":"US",
-      "Text":"6657789887",
+      "Text":"4255550111",
       "Index":56
     },
     { 
       "CountryCode":"US",
-      "Text":"870 608 4000",
+      "Text":"425 555 0111",
       "Index":212
     },
     { 
       "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
+      "Text":"+123 456 7890",
       "Index":208
     },
     { 
       "CountryCode":"UK",
-      "Text":"0344 800 2400",
+      "Text":"0234 567 8901",
       "Index":228
     },
     { 
       "CountryCode":"UK",
-      "Text":"0800 820 3300",
+      "Text":"0456 789 0123",
       "Index":245
     }
   ],
   "Address":[ 
     { 
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Text":"1234 Main Boulevard, Panapolis WA 96555",
       "Index":89
     }
   ],
@@ -181,4 +181,4 @@ The Content Moderator provides a [Term List API](https://westus.dev.cognitive.mi
 
 ## Next steps
 
-Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) if you're familiar with Visual Studio and C#.
+Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the Text moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you're familiar with Visual Studio and C#.

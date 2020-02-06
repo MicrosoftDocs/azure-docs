@@ -1,5 +1,5 @@
 ---
-title: "Deploy a model for Custom Speech - Speech Service"
+title: "Deploy a model for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this document, you'll learn how to create and deploy an endpoint using the Custom Speech portal."
 services: cognitive-services

@@ -1,19 +1,12 @@
 ---
-title: Azure CLI Script Sample - Create ASP.NET Core app in Azure Container Registry | Microsoft Docs
-description: Azure CLI Script Sample - Create an ASP.NET Core app in a Docker container in App Service from Azure Container Registry
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Create ASP.NET Core app from ACR'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to create an Linux ASP.NET Core app from ACR.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: mvc

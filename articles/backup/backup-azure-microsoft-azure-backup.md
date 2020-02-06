@@ -1,18 +1,14 @@
 ---
-title: Use Azure Backup Server to back up workloads to Azure
-description: Use Azure Backup Server to protect or back up workloads to the Azure portal.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: Use Azure Backup Server to back up workloads
+description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
 ---
 
 # Install and upgrade Azure Backup Server
 
 > [!div class="op_single_selector"]
+>
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
@@ -30,7 +26,7 @@ This article explains how to prepare your environment to back up workloads using
 MABS deployed in an Azure VM can back up VMs in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation, see [DPM as an Azure virtual machine](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/management/deployment-models.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 >
 >
 
@@ -55,16 +51,16 @@ If you do not want to run the base server in Azure, you can run the server on a 
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials  |
 
-
 You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You cannot install Azure Backup Server on:
-> - A computer running as a domain controller
-> - A computer on which the Application Server role is installed
-> - A computer that is a System Center Operations Manager management server
-> - A computer on which Exchange Server is running
-> - A computer that is a node of a cluster
+>
+> * A computer running as a domain controller
+> * A computer on which the Application Server role is installed
+> * A computer that is a System Center Operations Manager management server
+> * A computer on which Exchange Server is running
+> * A computer that is a node of a cluster
 
 Always join Azure Backup Server to a domain. If you plan to move the server to a different domain, install Azure Backup Server first, then join the server to the new domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
@@ -177,16 +173,16 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
-    Use the following values for SSRS configuration: 
-    - Service Account: ‘Use built-in account’ should be Network Service
-    - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-    - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-    - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    Use the following values for SSRS configuration:
+    * Service Account: ‘Use built-in account’ should be Network Service
+    * Web Service URL: ‘Virtual Directory’ should be ReportServer_\<SQLInstanceName>
+    * Database: DatabaseName should be ReportServer$\<SQLInstanceName>
+    * Web Portal URL: ‘Virtual Directory’ should be Reports_\<SQLInstanceName>
 
     [Learn more](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
 
     > [!NOTE]
-    > Licensing for SQL Server used as the database for MABS is governed by [Microsoft Online Services Terms](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). According to OST, SQL Server bundled with MABS can be used only as the database for MABS.
+    > Licensing for SQL Server used as the database for MABS is governed by [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST). According to OST, SQL Server bundled with MABS can be used only as the database for MABS.
 
 4. Provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
 
@@ -252,10 +248,10 @@ The following sections describe how to update protection agents for client compu
 
 Here are the steps if you need to move MABS to a new server, while retaining the storage. This can be done only if all the data is on Modern Backup Storage.
 
-
   > [!IMPORTANT]
-  > - The new server name must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and MABS Database (DPMDB) to retain recovery points.
-  > - You must have a backup of the MABS Database (DPMDB). You'll need to restore the database.
+  >
+  > * The new server name must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and MABS Database (DPMDB) to retain recovery points.
+  > * You must have a backup of the MABS Database (DPMDB). You'll need to restore the database.
 
 1. In the display pane, select the client computers for which you want to update the protection agent.
 2. Shut down the original Azure backup server or take it off the wire.
@@ -330,8 +326,6 @@ Use the following steps to upgrade MABS:
    > [!NOTE]
    >
    > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and hence an attempt to re-upgrade MABS will fail.
-
-   Important things to note:
 
    > [!IMPORTANT]
    >

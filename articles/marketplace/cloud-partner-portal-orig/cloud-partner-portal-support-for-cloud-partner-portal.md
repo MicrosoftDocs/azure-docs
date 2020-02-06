@@ -4,6 +4,7 @@ description: Get support in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler

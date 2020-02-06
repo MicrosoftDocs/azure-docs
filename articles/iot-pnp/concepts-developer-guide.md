@@ -3,7 +3,7 @@ title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
 description: Description of device modeling for IoT Plug and Play developers
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -40,7 +40,7 @@ The following example shows the device capability model for a thermostat device:
       "schema": "urn:azureiot:deviceManagement:DeviceInformation:1"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -79,7 +79,7 @@ The following example shows the interface for a thermostat device:
       "schema": "double"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/Interface.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -169,7 +169,7 @@ interfaces[1] = deviceInfoInterfaceHandle;
 result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
     digitalTwinClientHandle, // The handle for the connection to Azure IoT
     "urn:example:Thermostat_T_1000:1",
-    interfaceHandleList, 2,
+    interfaces, 2,
     null, null);
 ```
 

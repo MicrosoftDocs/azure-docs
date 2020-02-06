@@ -6,6 +6,7 @@ author: msaburnley
 manager: daveba
 
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 07/31/2019
 ms.author: ajburnle
@@ -50,7 +51,7 @@ To enhance your Azure AD implementation, you can also add paid capabilities by u
 
 - **Azure Active Directory Premium P1.** In addition to the Free features, P1 also lets your hybrid users access both on-premises and cloud resources. It also supports advanced administration, such as dynamic groups, self-service group management, Microsoft Identity Manager (an on-premises identity and access management suite) and cloud write-back capabilities, which allow self-service password reset for your on-premises users.
 
-- **Azure Active Directory Premium P2.** In addition to the Free and P1 features, P2 also offers [Azure Active Directory Identity Protection](../identity-protection/enable.md) to help provide risk-based Conditional Access to your apps and critical company data and [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) to help discover, restrict, and monitor administrators and their access to resources and to provide just-in-time access when needed.
+- **Azure Active Directory Premium P2.** In addition to the Free and P1 features, P2 also offers [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) to help provide risk-based Conditional Access to your apps and critical company data and [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) to help discover, restrict, and monitor administrators and their access to resources and to provide just-in-time access when needed.
 
 - **"Pay as you go" feature licenses.** You can also get additional feature licenses, such as Azure Active Directory Business-to-Customer (B2C). B2C can help you provide identity and access management solutions for your customer-facing apps. For more information, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).
 

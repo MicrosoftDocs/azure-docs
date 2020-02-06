@@ -11,6 +11,6 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [Portal](../articles/iot-central/howto-manage-iot-central-from-portal.md)
-> * [CLI](../articles/iot-central/howto-manage-iot-central-from-cli.md)
-> * [PowerShell](../articles/iot-central/howto-manage-iot-central-from-powershell.md)
+> * [Portal](../articles/iot-central/core/howto-manage-iot-central-from-portal.md)
+> * [CLI](../articles/iot-central/core/howto-manage-iot-central-from-cli.md)
+> * [PowerShell](../articles/iot-central/core/howto-manage-iot-central-from-powershell.md)

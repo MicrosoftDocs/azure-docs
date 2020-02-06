@@ -4,6 +4,7 @@ description: Deprecated and linked to corresponding PC articles; was "Explains h
 services: Dynamics 365 Business Central, AppSource Marketplace, 
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: pabutler

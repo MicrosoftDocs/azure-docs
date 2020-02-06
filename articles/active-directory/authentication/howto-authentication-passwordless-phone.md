@@ -1,15 +1,15 @@
 ---
-title: Enable passwordless sign-in with the Microsoft Authenticator app (preview) - Azure Active Directory
+title: Passwordless sign-in with the Microsoft Authenticator app - Azure Active Directory
 description: Enable passwordless sign-in to Azure AD using the Microsoft Authenticator app (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 
@@ -43,7 +43,7 @@ Registration features for passwordless authentication methods rely on the combin
 ### Enable passwordless phone sign-in authentication methods
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **Authentication methods** > **Authentication method policy (Preview)**
+1. Search for and select *Azure Active Directory*. Select **Security** > **Authentication methods** > **Authentication method policy (Preview)**
 1. Under **Passwordless phone sign-in**, choose the following options
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users

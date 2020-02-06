@@ -1,6 +1,6 @@
 ---
-title: Enable replication of VMware VMs for disaster recovery to Azure with Azure Site Recovery| Microsoft Docs'
-description: This article describes how to enable VMware VMs for replication to Azure for disaster recovery by using Azure Site Recovery.
+title: Enable VMware VMs for disaster recovery using Azure Site Recovery
+description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.date: 06/28/2019
@@ -12,12 +12,23 @@ ms.author: ramamill
 
 This article describes how to enable replication of on-premises VMware VMs to Azure.
 
+## Resolve common issues
+
+* Each disk should be smaller than 4 TB.
+* The OS disk should be a basic disk, not a dynamic disk.
+* For generation 2/UEFI-enabled virtual machines, the operating system family should be Windows, and the boot disk should be smaller than 300 GB.
+
 ## Prerequisites
 
 This article assumes that you have:
 
 - [Set up your on-premises source environment](vmware-azure-set-up-source.md).
 - [Set up your target environment in Azure](vmware-azure-set-up-target.md).
+- [Verify requirements and prerequisites](vmware-physical-azure-support-matrix.md) before you start. Important things to note include:
+    - [Supported operating systems](vmware-physical-azure-support-matrix.md#replicated-machines) for replicated machines.
+    - [Storage/disk](vmware-physical-azure-support-matrix.md#storage) support.
+    - [Azure requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements) with which on-premises machines should comply.
+
 
 ## Before you start
 When you're replicating VMware virtual machines, keep this information in mind:
@@ -118,11 +129,7 @@ Microsoft Software Assurance customers can use Azure Hybrid Benefit to save on l
 
 Learn more about [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## Resolve common issues
 
-* Each disk should be smaller than 4 TB.
-* The OS disk should be a basic disk, not a dynamic disk.
-* For generation 2/UEFI-enabled virtual machines, the operating system family should be Windows, and the boot disk should be smaller than 300 GB.
 
 ## Next steps
 

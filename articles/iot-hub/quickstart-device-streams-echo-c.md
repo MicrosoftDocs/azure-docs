@@ -1,5 +1,5 @@
 ---
-title: Communicate to a device app in C via Azure IoT Hub device streams (preview) | Microsoft Docs
+title: Communicate to device app in C with Azure IoT Hub device streams
 description: In this quickstart, you run a C device-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub
@@ -51,9 +51,10 @@ You need the following prerequisites:
 
 The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 
-* Central US
-
-* Central US EUAP
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 ## Prepare the development environment
 
@@ -64,18 +65,19 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 1. Install the [CMake build system](https://cmake.org/download/) as described on the download page.
 
-1. Open a command prompt or Git Bash shell. Run the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt or Git Bash shell. Run the following commands to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     This operation should take a few minutes.
 
-1. Create a *cmake* directory in the root directory of the Git repository, as shown in the following command, and then go to that folder.
+1. Create a *cmake* subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the *azure-iot-sdk-c* directory:
 
-    ```cmd
-    cd azure-iot-sdk-c
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```

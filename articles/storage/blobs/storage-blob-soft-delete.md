@@ -37,7 +37,7 @@ You can change the soft delete retention period at any time. An updated retentio
 
 Soft delete preserves your data in many cases where blobs or blob snapshots are deleted or overwritten.
 
-When a blob is overwritten using **Put Blob**, **Put Block**, **Put Block List** or **Copy Blob** a snapshot of the blob's state prior to the write operation is automatically generated. This snapshot is a soft deleted snapshot; it is invisible unless soft deleted objects are explicitly listed. See the [Recovery](#recovery) section to learn how to list soft deleted objects.
+When a blob is overwritten using **Put Blob**, **Put Block**, **Put Block List**, or **Copy Blob** a snapshot of the blob's state prior to the write operation is automatically generated. This snapshot is a soft deleted snapshot; it is invisible unless soft deleted objects are explicitly listed. See the [Recovery](#recovery) section to learn how to list soft deleted objects.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -65,7 +65,7 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
 Soft delete does not save your data in cases of container or account deletes, nor when blob metadata and blob properties are overwritten. To protect a storage account from erroneous deletion, you can configure a lock using the Azure Resource Manager. Please see the Azure Resource Manager article [Lock Resources to Prevent Unexpected
-Changes](../../azure-resource-manager/resource-group-lock-resources.md) to learn more.
+Changes](../../azure-resource-manager/management/lock-resources.md) to learn more.
 
 The following table details expected behavior when soft delete is turned on:
 
@@ -73,10 +73,10 @@ The following table details expected behavior when soft delete is turned on:
 |--------------------|---------------|-------------|--------------------|
 | [Delete](/rest/api/storagerp/StorageAccounts/Delete) | Account | Deletes the storage account, including all containers and blobs that it contains.                           | No change. Containers and blobs in the deleted account are not recoverable. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Container | Deletes the container, including all blobs that it contains. | No change. Blobs in the deleted container are not recoverable. |
-| [Put Blob](/rest/api/storageservices/put-blob) | Block, Append, and Page Blobs | Creates a new blob or replaces an existing blob within a container | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
+| [Put Blob](/rest/api/storageservices/put-blob) | Block, Append, and Page Blobs | Creates a new blob or replaces an existing blob within a container | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append, or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
 | [Delete Blob](/rest/api/storageservices/delete-blob) | Block, Append, and Page Blobs | Marks a blob or blob snapshot for deletion. The blob or snapshot is later deleted during garbage collection | If used to delete a blob snapshot, that snapshot is marked as soft deleted. If used to delete a blob, that blob is marked as soft deleted. |
-| [Copy Blob](/rest/api/storageservices/copy-blob) | Block, Append, and Page Blobs | Copies a source blob to a destination blob in the same storage account or in another storage account. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
-| [Put Block](/rest/api/storageservices/put-block) | Block Blobs | Creates a new block to be committed as part of a block blob. | If used to commit a block to a blob that is active there is no change. If used to commit a block to a blob that is soft deleted, a new blob is created and a snapshot is automatically generated to capture the state of the soft deleted blob. |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | Block, Append, and Page Blobs | Copies a source blob to a destination blob in the same storage account or in another storage account. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append, or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
+| [Put Block](/rest/api/storageservices/put-block) | Block Blobs | Creates a new block to be committed as part of a block blob. | If used to commit a block to a blob that is active, there is no change. If used to commit a block to a blob that is soft deleted, a new blob is created and a snapshot is automatically generated to capture the state of the soft deleted blob. |
 | [Put Block List](/rest/api/storageservices/put-block-list) | Block Blobs | Commits a blob by specifying the set of block IDs that comprise the block blob. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is a Block Blob. If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
 | [Put Page](/rest/api/storageservices/put-page) | Page Blobs | Writes a range of pages to a Page Blob. | No change. Page Blob data that is overwritten or cleared using this operation is not saved and is not recoverable. |
 | [Append Block](/rest/api/storageservices/append-block) | Append Blobs | Writes a block of data to the end of an Append Blob | No change. |
@@ -89,7 +89,7 @@ It is important to notice that calling "Put Page" to overwrite or clear ranges o
 
 Calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on a soft deleted base blob restores it and all associated soft deleted snapshots as active. Calling the `Undelete Blob` operation on an active base blob restores all associated soft deleted snapshots as active. When snapshots are restored as active, they look like user-generated snapshots; they do not overwrite the base blob.
 
-To restore a blob to a specific soft deleted snapshot you can call `Undelete Blob` on the base blob. Then, you can copy the snapshot over the now-active blob. You can also copy the snapshot to a new blob.
+To restore a blob to a specific soft deleted snapshot, you can call `Undelete Blob` on the base blob. Then, you can copy the snapshot over the now-active blob. You can also copy the snapshot to a new blob.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
@@ -147,9 +147,19 @@ When you initially turn on soft delete, we recommend using a small retention per
 
 The following steps show how to get started with soft delete.
 
-### Azure portal
+# [Portal](#tab/azure-portal)
 
-To enable soft delete, navigate to the **Soft delete** option under **Blob Service**. Then click **Enabled** and enter the number of days you want to retain soft deleted data.
+Enable soft delete for blobs on your storage account by using Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+
+2. Navigate to the **Data Protection** option under **Blob Service**.
+
+3. Click **Enabled** under **Blob soft delete**
+
+4. Enter the number of days you want to *retain for* under **Retention policies**
+
+5. Choose the **Save** button to confirm your Data Protection settings
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -177,7 +187,7 @@ Once you undelete a blob's snapshots, you can click **Promote** to copy a snapsh
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-### PowerShell
+# [Powershell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -214,7 +224,7 @@ To find the current soft delete retention policy, use the following command:
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### Azure CLI 
+# [CLI](#tab/azure-CLI)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -228,7 +238,7 @@ To verify soft delete is turned on, use the following command:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### Python client library
+# [Python](#tab/python)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -246,7 +256,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### .NET client library
+# [.NET](#tab/net)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -288,9 +298,11 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## Are there any special considerations for using soft delete?
+---
 
-If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, turning on soft delete is recommended. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this additional cost by storing the frequently overwritten data in a separate storage account where soft delete is disabled. 
+## Special considerations
+
+If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, turning on soft delete is recommended. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this additional cost and latency by storing the frequently overwritten data in a separate storage account where soft delete is disabled. 
 
 ## FAQ
 
@@ -304,7 +316,7 @@ Yes, soft delete is available for Blob storage accounts as well as for blobs in 
 
 ### Is soft delete available for all storage tiers?
 
-Yes, soft delete is available for all storage tiers including hot, cool and archive. However, soft delete does not afford overwrite protection for blobs in the archive tier.
+Yes, soft delete is available for all storage tiers including hot, cool, and archive. However, soft delete does not afford overwrite protection for blobs in the archive tier.
 
 ### Can I use the Set Blob Tier API to tier blobs with soft deleted snapshots?
 
@@ -320,7 +332,7 @@ Yes, soft delete is configurable for both existing and new storage accounts.
 
 ### If I delete an entire account or container with soft delete turned on, will all associated blobs be saved?
 
-No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from accidental deletes, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/resource-group-lock-resources.md).
+No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from accidental deletes, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/management/lock-resources.md).
 
 ### Can I view capacity metrics for deleted data?
 

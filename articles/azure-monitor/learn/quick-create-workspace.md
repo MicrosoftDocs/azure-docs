@@ -1,18 +1,13 @@
 ---
 title: Create a Log Analytics workspace in the Azure Portal | Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/12/2019
-ms.author: magoedte
+
 ---
 
 # Create a Log Analytics workspace in the Azure portal
@@ -20,7 +15,7 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 
 * Azure resources in your subscription
 * On-premises computers monitored by System Center Operations Manager
-* Device collections from System Center Configuration Manager 
+* Device collections from Configuration Manager 
 * Diagnostics or log data from Azure storage
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:

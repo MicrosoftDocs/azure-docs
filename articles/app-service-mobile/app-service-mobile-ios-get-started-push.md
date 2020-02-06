@@ -1,20 +1,12 @@
 ---
-title: Add Push Notifications to iOS App with Azure Mobile Apps
+title: Add Push Notifications to iOS
 description: Learn how to use Azure Mobile Apps to send push notifications to your iOS app.
-services: app-service\mobile
-documentationcenter: ios
-manager: crdun
-editor: ''
-author: elamalani
 
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Add Push Notifications to your iOS App
 

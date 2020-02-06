@@ -32,8 +32,8 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ### Disabling Cloud Shell in a locked down network environment
 
-- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com.
-- **Resolution**: Restrict access to `ux.console.azure.com` via network settings to your environment. The Cloud Shell icon will still exist in portal.azure.com, but will not successfully connect to the service.
+- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com. In the US Government cloud, the entrypoint is `ux.console.azure.us`; there is no corresponding shell.azure.us.
+- **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` via network settings to your environment. The Cloud Shell icon will still exist in the Azure portal, but will not successfully connect to the service.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
 
@@ -83,6 +83,12 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 ## General limitations
 
 Azure Cloud Shell has the following known limitations:
+
+### Quota limitations
+
+Azure Cloud Shell has a limit of 20 concurrent users per tenant per region. If you try to open more simultaneous sessions than the limit, you will see an "Tenant User Over Quota" error. If you have a legitimate need to have more sessions open than this (for example for training sessions), contact support in advance of your anticipated usage to request a quota increase.
+
+Cloud Shell is provided as a free service and is designed to be used to configure your Azure environment, not as a general purpose computing platform. Excessive automated usage may be considered in breach to the Azure Terms of Service and could lead to Cloud Shell access being blocked.
 
 ### System state and persistence
 

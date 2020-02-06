@@ -32,12 +32,6 @@ AppDynamics Application Performance Management (APM) enables application owners 
 
 [Go to the documentation.][appdynamics-doc]
 
-## Microfocus ArcSight
-
-ArcSight has a smart connector for Azure Monitor event hubs.
-
-[Learn more.][arcsight-doc]
-
 ## Atlassian JIRA
 
 ![Atlassian Logo](./media/partners/atlassian.png)
@@ -65,7 +59,7 @@ Circonus is a microservices monitoring and analytics platform built for on premi
 
 Unite and automate your cloud with a platform built to save time and money. CloudHealth provides visibility, intuitive optimization, and rock-solid governance practices for cloud management. The CloudHealth platform enables enterprises and MSPs to maximize return on cloud investments. Make confident decisions around cost, usage, performance, and security.
 
-[Learn More.][cloudhealth-doc]
+[Learn more][cloudhealth-doc]
 
 ## CloudMonix
 
@@ -123,6 +117,31 @@ InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform buil
 LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources -- all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
 [Go to the documentation.][logicmonitor-doc]
+
+## LogRhythm
+
+![LogRhythm Logo](./media/partners/logrhythm.png)
+
+LogRhythm, a leader in NextGen SIEM, empowers organizations on six continents to measurably reduce risk by rapidly detecting, responding to, and neutralizing cyberthreats. LogRhythm’s Threat Lifecycle Management (TLM) workflow is the foundation for security operations centers, helping customers secure their cloud, physical, and virtual infrastructures for IT and OT environments. If you’re a LogRhythm customer and are ready to start your Azure journey, you’ll need to install and configure the LogRhythm Open Collector and EventHub integration. More details, including documentation of both configuring Azure Monitor and the Open Collector, can be found [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+
+
+## Microfocus
+
+![Microfocus Logo](./media/partners/microfocus.png)     
+
+Microfocus **ArcSight** has a smart connector for Azure Monitor event hubs.
+
+[Learn more](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation.")
+
+Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs and dependencies. It provides a unique combination of quality of service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
+
+Learn more
+- [OB Suite overview](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope is a component in the Operations Bridge Suite.
+
+
 
 ## Moogsoft
 
@@ -232,14 +251,13 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 - [Learn more about Azure Monitor](../../azure-monitor/overview.md)
 - [Access metrics using the REST API](rest-api-walkthrough.md)
 - [Stream the Activity Log to a non-Microsoft service](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Stream Diagnostic Logs to a non-Microsoft service](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Stream resource logs to a non-Microsoft service](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
@@ -250,7 +268,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."
 [influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
-[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor documentation."
+[logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentation."
@@ -263,5 +281,5 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds documentation."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic introduction."
+[turbonomic-doc]: https://turbonomic.com/ "Turbonomic introduction."
 

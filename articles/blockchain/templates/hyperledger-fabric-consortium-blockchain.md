@@ -1,19 +1,16 @@
 ---
-title: Hyperledger Fabric Consortium Network on Azure
-description: Solution template to deploy and configure a Hyperledger Fabric consortium network
-services: azure-blockchain
-keywords:
-author: PatAltimore
-ms.author: patricka
+title: Deploy Hyperledger Fabric Consortium solution template on Azure
+description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure 
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
 ---
 # Hyperledger Fabric consortium network
 
 You can use the Hyperledger Fabric consortium solution template to deploy and configure a Hyperledger Fabric consortium network on Azure.
+
+> [!IMPORTANT]
+> The [Hyperledger Fabric on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabric) template will be deprecated. Use the [Hyperledger Fabric on Azure Kubernetes Service](hyperledger-fabric-consortium-azure-kubernetes-service.md) instead.  
 
 After reading this article, you will:
 
