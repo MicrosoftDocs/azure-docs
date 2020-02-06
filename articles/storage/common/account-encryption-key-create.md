@@ -51,6 +51,10 @@ az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionK
 az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
 ```
 
+# [Template](#tab/template)
+
+N/A
+
 ---
 
 ### Check the status of your registration
@@ -68,24 +72,44 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowAcc
 
 # [Azure CLI](#tab/azure-cli)
 
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show).
+To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
 az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
 ```
 
+# [Template](#tab/template)
+
+N/A
+
 ---
 
 ### Re-register the Azure Storage resource provider
 
-After your registration is approved, you must re-register the Azure Storage resource provider. 
+After your registration is approved, you must re-register the Azure Storage resource provider. Use PowerShell or Azure CLI to re-register the resource provider.
 
-Call the [az provider register](/cli/azure/provider#az-provider-register) command:
+# [PowerShell](#tab/powershell)
+
+To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
 ```
+
+# [Template](#tab/template)
+
+N/A
+
+---
 
 ## Create an account that uses the account encryption key
 
@@ -188,11 +212,31 @@ After you have created an account that relies on the account encryption key, see
 
 To verify that a service in a storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
+# [PowerShell](#tab/powershell)
+
+To verify that a service in a storage account is using the account encryption key, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Look for the `KeyType` field for each service within the `Encryption` property and verify that it is set to `Account`.
+
+```powershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -StorageAccountName <storage-account>
+$account.Encryption.Services.Queue
+$account.Encryption.Services.Table
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To verify that a service in a storage account is using the account encryption key, call the [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+
 ```azurecli
 az storage account show /
     --name <storage-account> /
     --resource-group <resource-group>
 ```
+
+# [Template](#tab/template)
+
+N/A
+
+---
 
 ## Next steps
 
