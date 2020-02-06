@@ -147,7 +147,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
     -Kind StorageV2 `
     -EncryptionKeyTypeForTable Account `
     -EncryptionKeyTypeForQueue Account
-    ```
+```
 
 # [Azure CLI](#tab/azure-cli)
 
