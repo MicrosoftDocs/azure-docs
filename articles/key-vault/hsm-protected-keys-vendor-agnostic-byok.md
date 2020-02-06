@@ -56,7 +56,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 |HSM Vendor Name|Supported HSM models|Additional details|
 |---|---|---|
 |Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li><li>SafeNet Luna HSM 5 & 6 family (Key Export variant only)</li>| [SafeNet Luna BYOK tool and documentation](https://safenet.gemalto.com/blah-blah)|
-|nCipher|nShield family of HSMs|[Use legacy BYOK procedure](key-vault-hsm-protected-keys-legacy.md)|
+|nCipher|nShield family of HSMs|[Use legacy BYOK procedure](hsm-protected-keys-legacy.md)|
 
 
 ## Generate and transfer your key to Azure Key Vault HSM
