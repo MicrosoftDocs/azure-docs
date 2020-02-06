@@ -10,7 +10,7 @@ ms.date: 02/05/2020
 
 ---
 
-# What's new in Azure Monitor documentation
+# What's new in Azure Monitor documentation?
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
 ## January 2020
