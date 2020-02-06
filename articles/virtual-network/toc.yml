@@ -109,7 +109,7 @@
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
     items:
-    - name: Create or delete a network interface
+    - name: Manage NICs
       href: virtual-network-network-interface.md
     - name: Add or remove IP addresses
       href: virtual-network-network-interface-addresses.md
