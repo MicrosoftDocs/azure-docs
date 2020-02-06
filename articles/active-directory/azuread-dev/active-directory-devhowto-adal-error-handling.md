@@ -590,5 +590,5 @@ Use the comments section that follows, to provide feedback and help us refine an
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign_in_with_microsoft_light.png
 

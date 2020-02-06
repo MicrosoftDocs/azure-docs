@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) supports authentication for a variety of moder
 
 The following diagram illustrates the scenarios and application types, and how different components can be added:
 
-![Application Types and scenarios](./media/authentication-scenarios/application_types_and_scenarios.png)
+![Application Types and scenarios](./media/authentication-scenarios/application_types_scenarios.png)
 
 These are the five primary application scenarios supported by Azure AD:
 
