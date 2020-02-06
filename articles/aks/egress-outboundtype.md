@@ -18,7 +18,7 @@ Egress from an AKS cluster can be customized to fit specific scenarios. By defau
 1. A public IP address is required for the Standard SKU load balancer for egress, so AKS automatically assigns a public IP to the load balancer as egress setup is not provided by default. This behavior changes between the Basic SKU load balancers. 
 1. AKS [requires outbound connectivity](limit-egress-traffic.md) to function properly and issue common operations such as pulling system-pod images or security patches. To learn more about why clusters require external connectivity and the required endpoints that clusters must be able to access, read about [controlling egress traffic for cluster nodes](limit-egress-traffic.md).
 
-However, this setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
+The default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
 This article walks through how to customize a cluster's egress path to support a locked down scenario which disallows public IPs and requires the cluster to sit behind a network virtual appliance (NVA).
 
@@ -29,8 +29,8 @@ This article walks through how to customize a cluster's egress path to support a
 > * [Azure Support FAQ](faq.md)
 
 ## Prerequisites
-* The Azure CLI version 2.0.81 or greater
-* The Azure CLI Preview extension version 0.4.28 or greater
+* Azure CLI version 2.0.81 or greater
+* Azure CLI Preview extension version 0.4.28 or greater
 * API version of `2020-01-01` or greater
 
 ## Install the latest Azure CLI AKS Preview extension
@@ -53,27 +53,40 @@ az extension update --name aks-preview
 
 ## Overview of outbound types in AKS
 
-An AKS cluster can define it's `outboundType` as `loadBalancer` or `userDefinedRoute`. This impacts only the egress traffic of your cluster, to learn about ingress read documentation on setting up [ingress controllers](ingress-basic.md).
+An AKS cluster can be customized with a unique `outboundType`. Options include
+1. `loadBalancer`
+1. `userDefinedRoute`. 
+
+This impacts only the egress traffic of your cluster, to learn about ingress read documentation on setting up [ingress controllers](ingress-basic.md).
+
+### Outbound type of loadBalancer
 
 * If `loadBalancer` is set, AKS completes the following setup automatically. The load balancer is used for egress through an AKS assigned public IP. This supports Kubernetes services of type loadBalancer which expect egress out of the cloud provider created load balancer. The following setup is done by AKS.
-   * A public IP address is provisioned.
+   * A public IP address is provisioned for cluster egress.
    * The public IP address is assigned to the load balancer resource.
-   * Backend pools are setup for agent nodes in the cluster.
+   * Backend pools for the load balancer are setup for agent nodes in the cluster.
+
+Below is a network topology deployed in AKS clusters by default, which use an `outboundType` of `loadBalancer`.
+
+![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+
+### Outbound type of userDefinedRoute
+
 * If `userDefinedRoute` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
    * A valid user defined route (UDR) must exist on the subnet the cluster is deployed into.
    * The cluster must have valid outbound connectivity through the UDR setup.
    * AKS will not automatically provision a public IP address.
    * AKS will not configure the load balancer backend pool.
 
-## How to use outbound type
+## Deploy a cluster with outbound type of UDR and Azure Firewall
 
-To illustrate the application of a UDR outbound type cluster, a cluster can be configured on a virtual network which is peered with an Azure Firewall.
+To illustrate the application of a cluster with outbound type using a user defined route, a cluster can be configured on a virtual network peered with an Azure Firewall.
 
-Resources are isolated to dedicated subnets and route inbound traffic from the Azure Firewall to an internal load balancer created with the AKS cluster. Egress from the AKS cluster follows a UDR which defines the next hop to the Azure Firewall.
+Azure resources are isolated in dedicated subnets and route inbound traffic from the Azure Firewall to an internal load balancer created with the AKS cluster. Egress from the AKS cluster follows a UDR which defines the next hop to the Azure Firewall. All cluster egress is handled strictly through the firewall.
 
-![Locked down topology](media/egress-outboundtype/lockeddown-topology.png)
+![Locked down topology](media/egress-outboundtype/outboundtype-udr.png)
 
-## Set configuration via environment variables
+### Set configuration via environment variables
 
 To begin, define a set of environment variables to be used in resource creations.
 
@@ -98,7 +111,7 @@ export PASSWORD="enter service principal secret"
 export BASE_ADDRESS=10.42
 ```
 
-### Create virtual networks and subnets
+## Create virtual networks and subnets
 
 Now, create a resource group to hold all of the resources in this scenario.
 
@@ -129,7 +142,7 @@ az network vnet subnet create \
 
 ## Create an Azure Firewall with a public endpoint
 
-Azure Firewall is the NVA, acting as the ingress point for incoming traffic so firewall filters can be applied upfront. On egress, the AKS cluster will rely on a UDR to make the next hop to the Azure Firewall for exit from the virtual network.
+Azure Firewall acts as the ingress point for incoming traffic so firewall filters can be applied. On egress, the AKS cluster will rely on a UDR to make the next hop to the Azure Firewall for exit from the virtual network.
 
 Create a standard SKU public IP resource which will be used as the Azure Firewall frontend address.
 
@@ -173,7 +186,7 @@ az network firewall application-rule create -g $RG -f $FWNAME --collection-name 
 
 To learn more about Azure Firewall rules, visit the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/overview).
 
-## Create a UDR for cluster egress
+## Create a UDR for egress
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
 
@@ -209,7 +222,7 @@ Permissions must also be granted to the service principal passed to the AKS clus
 az role assignment create --assignee $APPID --scope $VNETID --role Contributor
 ```
 
-## Deploy a cluster with outbound type set to UDR to the existing subnet
+## Deploy a cluster with outbound type of UDR to an existing subnet
 
 Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balancer which can now be strictly internal.
 
