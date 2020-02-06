@@ -71,7 +71,7 @@ To create a Microsoft.Network/networkWatchers/flowLogs resource, add the above J
 
 ## Creating your template
 
-If you are using Azure Resource Manager templates for this time, you can learn more about them the links below.
+If you are using Azure Resource Manager templates for the first time, you can learn more about them using the links below.
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
 * [Tutorial: Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
@@ -79,7 +79,7 @@ If you are using Azure Resource Manager templates for this time, you can learn m
 
 Below are two examples of complete templates to set up NSG Flow Logs.
 
-Example 1:  The simplest version of the above with minimum parameters passed. The below template enables NSG Flow Logs on a target NSG and stores them in a given storage account.
+**Example 1**:  The simplest version of the above with minimum parameters passed. The below template enables NSG Flow Logs on a target NSG and stores them in a given storage account.
 
 ```json
 {
@@ -111,7 +111,7 @@ Example 1:  The simplest version of the above with minimum parameters passed. Th
 > * targetResourceId is the resource ID of the target NSG
 > * storageId is the resource ID of the destination storage account
 
-Example 2: The following templates enabling NSG Flow Logs (version 2) with a retention for 5 days. Enabling Traffic Analytics with a processing interval of 10 minutes.
+**Example 2**: The following templates enabling NSG Flow Logs (version 2) with a retention for 5 days. Enabling Traffic Analytics with a processing interval of 10 minutes.
 
 ```json
 {
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## Verifying your deployment
 
-There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors) article.
+There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
 
 ## Next steps

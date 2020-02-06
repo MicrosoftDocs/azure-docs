@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/31/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -67,7 +67,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ta-IN` | Tamil (India) | Yes | Language model
 `te-IN` | Telugu (India) | Yes | No
 `th-TH` | Thai (Thailand) | Yes | No
-`tr-TR` | Turkey | Yes | No
+`tr-TR` | Turkish (Turkey) | Yes | No
 `zh-CN` | Chinese (Mandarin, simplified) | Yes | Acoustic model<br>Language model
 `zh-HK` | Chinese (Cantonese, Traditional) | Yes | Language model
 `zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Language model
@@ -106,7 +106,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 Locale | Language | Gender | Full service name mapping | Short name
 -------|----------|---------|----------|----------
-<sup>**1**</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
+<sup>1</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 `bg-BG` | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
 `ca-ES` | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
@@ -176,7 +176,7 @@ Locale | Language | Gender | Full service name mapping | Short name
 `ta-IN` | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)" | "ta-IN-Valluvar"
 `te-IN` | Telugu (India) | Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)" | "te-IN-Chitra"
 `th-TH` | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara"
-`tr-TR` | Turkish | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
+`tr-TR` | Turkish (Turkey) | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
 `vi-VN` | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-An"
 `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"
@@ -235,8 +235,10 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
 | Indonesian      | `id`          |
+| Irish      | `ga`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+| Kannada      | `kn`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
@@ -245,11 +247,14 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Lithuanian      | `lt`          |
 | Malagasy      | `mg`          |
 | Malay      | `ms`          |
+| Malayalam      | `ml`          |
 | Maltese      | `mt`          |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese      | `pt`          |
+| Portuguese (Brazil)      | `pt-br`          |
+| Portuguese (Portugal)      | `pt-pt`          |
+| Punjabi      | `pa`          |
 | Queretaro Otomi      | `otq`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |

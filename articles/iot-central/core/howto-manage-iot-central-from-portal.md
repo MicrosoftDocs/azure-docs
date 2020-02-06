@@ -36,16 +36,10 @@ Now, select **Create**.
 
 Fill in all the fields in the form. This form is similar to the form you fill out to create applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. For more information, see the [Create an IoT Central application](quick-deploy-iot-central.md) quickstart.
 
-You can create IoT Central application with generally available features by selecting **Legacy application** as application template, all the other application templates uses public preview features.
-
 ![create IoT Central form](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **United States**, **Australia**, **Asia Pacific**, or in **Europe**.  Once you choose a location, you can't move your application to a different location later.
+**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **United States**, **Australia**, **Asia Pacific**, or in **Europe**.  Once you choose a location, you can't move your application to a different location later.
 
-> [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **United States** locations.
-
-![Management portal: create IoT Central resource](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 After filling out all fields, select **Create**.
 
@@ -54,7 +48,7 @@ After filling out all fields, select **Create**.
 If you already have an Azure IoT Central application you can delete it, or move it to a different subscription or resource group in the Azure portal.
 
 > [!NOTE]
-> You can't see Trial applications in the Azure portal because they are not associated with your subscription.
+> You can't see applications created on the free pricing plan in the Azure portal because they are not associated with your subscription.
 
 To get started, select **All resources** in the main pane on the left. Use the search box to type in the name of your application to find it in your list of resources. Then select the IoT Central application you'd like to manage.
 

@@ -509,6 +509,7 @@ Following is the current default parameterization template. If you need to add o
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
+		    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
