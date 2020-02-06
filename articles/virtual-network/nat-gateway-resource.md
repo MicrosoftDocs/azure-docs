@@ -126,6 +126,51 @@ The zones property isn't mutable.  Redeploy NAT gateway resource with the desire
 >[!NOTE] 
 >IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
 
+## SNAT
+
+Source network address translation (SNAT) rewrites the source of flow to originate from a different IP address.  NAT gateway resources use a variant of SNAT commonly referred to port address translation (PAT). PAT rewrites the source address and source port.  With the addition of source port translation, there is no fixed relationship between the number of private addresses and their translated public addresses.  
+
+Let's look at an example of 4 flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.0.2.
+
+| Flow | Source tuple | Destination tuple |
+|---|---|---|
+| 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+These flows might look like this after PAT has taken place:
+
+| Flow | Source tuple | SNAT source tuple | Destination tuple | 
+|---|---|---|
+| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
+| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+
+### Scaling
+
+You can have multiple private addresses map to one public IP address.  Additionally you can have multiple public addresses for scaling PAT. 
+
+A NAT gateway resources will use 64,000 ports (SNAT ports) of a public IP address.  This becomes the available inventory for the private to public flow mapping.  And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can be configured with up to 16 IP addresses for up to 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
+
+NAT gateway resources opportunistically reuse source ports. For scaling purposes you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound to Internet flows accordingly.
+
+### Protocols
+
+NAT gateway resources interact with UDP and TCP flows.  Other IP protocols are not supported.
+
+### Timers
+
+Idle timeout can be adjusted from 4-minutes (default) to 120-minutes (2 hours) for all flows irrespective of protocol.  Additionally, you can reset the idle timer with traffic on the flow.  One common method for idle connections and endpoint liveness detection are TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+
+| Timer | Value |
+|---|---|
+| TCP FIN | 60s |
+| TCP RST | 10s |
+| TCP half open | 30s |
+
+A SNAT port is available for reuse to the same destination IP address and destination port after 5 seconds.
 
 ## Limitations
 
