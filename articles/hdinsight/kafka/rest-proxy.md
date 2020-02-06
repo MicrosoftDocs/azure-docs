@@ -10,7 +10,7 @@ ms.date: 12/17/2019
 ---
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
 
-Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTP. This means that your Kafka clients can be outside of your virtual network. So the Kafka producers or consumers can be located anywhere. Additionally, clients can make simple HTTP calls to send and receive messages to the Kafka cluster, instead of relying on Kafka libraries. This tutorial will show you how to create a REST proxy enabled Kafka cluster and provide a sample code that shows how to make calls to REST proxy.
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTP. This means that your Kafka clients can be outside of your virtual network. Additionally, clients can make simple HTTP calls to send and receive messages to the Kafka cluster, instead of relying on Kafka libraries. This tutorial will show you how to create a REST proxy enabled Kafka cluster and provide a sample code that shows how to make calls to REST proxy.
 
 ## REST Api Reference
 
