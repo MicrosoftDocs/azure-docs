@@ -35,17 +35,17 @@ Follow these steps to access the **Mappings** feature of user provisioning:
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 1. Expand **Mappings** to view and edit the user attributes that flow between Azure AD and the target application. If the target application supports it, this section lets you optionally configure provisioning of groups and user accounts.
 
-   ![Use Mappings to view and edit user attributes](media/customize-application-attributes/21.png)
+   ![Use Mappings to view and edit user attributes](./media/customize-application-attributes/21.png)
 
 1. Select a **Mappings** configuration to open the related **Attribute Mapping** screen. Some attribute-mappings are required by a SaaS application to function correctly. For required attributes, the **Delete** feature is unavailable.
 
-   ![Use Attribute Mapping to configure attribute mappings for apps](media/customize-application-attributes/22.png)
+   ![Use Attribute Mapping to configure attribute mappings for apps](./media/customize-application-attributes/22.png)
 
    In this screenshot, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
 
 1. Select an existing **Attribute Mapping** to open the **Edit Attribute** screen. Here you can edit the user attributes that flow between Azure AD and the target application.
 
-   ![Use Edit Attribute to edit user attributes](media/customize-application-attributes/23.png)
+   ![Use Edit Attribute to edit user attributes](./media/customize-application-attributes/23.png)
 
 ### Understanding attribute-mapping types
 
@@ -55,7 +55,7 @@ There are four different mapping types supported:
 - **Direct** – the target attribute is populated with the value of an attribute of the linked object in Azure AD.
 - **Constant** – the target attribute is populated with a specific string you specified.
 - **Expression** - the target attribute is populated based on the result of a script-like expression.
-  For more information, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](functions-for-customizing-application-data.md).
+  For more information, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it's populated with the Default value that you specify.
 
 Along with these four basic types, custom attribute-mappings support the concept of an optional **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there's not a value in Azure AD or on the target object. The most common configuration is to leave this blank.
@@ -67,7 +67,7 @@ Along with this property, attribute-mappings also support the following attribut
 
 - **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (example: ServiceNow).
-- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If, for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
+- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If, for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
 - **Match objects using this attribute** – Whether this mapping should be used to uniquely identify users between the source and target systems. It's typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
 - **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 - **Apply this mapping**
@@ -88,14 +88,14 @@ The Azure AD provisioning service can be deployed in both "greenfield" scenarios
 
 A selected number of applications, such as ServiceNow, Box, and G Suite, support the ability to provision Group objects and User objects. Group objects can contain group properties such as display names and email aliases, along with group members.
 
-![Example shows ServiceNow with provisioned Group and User objects](media/customize-application-attributes/24.png)
+![Example shows ServiceNow with provisioned Group and User objects](./media/customize-application-attributes/24.png)
 
 Group provisioning can be optionally enabled or disabled by selecting the group mapping under **Mappings**, and setting **Enabled** to the option you want in the **Attribute Mapping** screen.
 
 The attributes provisioned as part of Group objects can be customized in the same manner as User objects, described previously. 
 
 > [!TIP]
-> Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](assign-user-or-group-access-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects is not required to use groups in assignments.
+> Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](../manage-apps/assign-user-or-group-access-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects is not required to use groups in assignments.
 
 ## Editing the list of supported attributes
 
@@ -189,13 +189,13 @@ Custom attributes can't be referential attributes or multi-value attributes. Cus
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](functions-for-customizing-application-data.md). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
+- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
   - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from: (roles[primary eq "True"].display, roles[primary eq "True].type, and roles[primary eq "True"].value). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.  
   
-  ![Add SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
     
@@ -227,11 +227,11 @@ Use the steps below to provision roles for a user to your application. Note that
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
   - **How to configure:** Edit the list of supported attributes as described above to include a new attribute for roles: 
   
-    ![Add roles](media/customize-application-attributes/add-roles.png)<br>
+    ![Add roles](./media/customize-application-attributes/add-roles.png)<br>
 
     Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below:
 
-    ![Add AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
     - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
@@ -315,7 +315,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 ## Next steps
 
 - [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
-- [Writing Expressions for Attribute-Mappings](functions-for-customizing-application-data.md)
-- [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Writing Expressions for Attribute-Mappings](../app-provisioning/functions-for-customizing-application-data.md)
+- [Scoping Filters for User Provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
 - [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)

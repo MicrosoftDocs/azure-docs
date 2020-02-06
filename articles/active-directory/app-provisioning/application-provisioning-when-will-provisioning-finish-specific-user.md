@@ -39,7 +39,7 @@ After a provisioning cycle is complete, the **Statistics to date** section shows
 
 The provisioning progress can viewed in the Azure portal, in the **Azure Active Directory &gt; Enterprise Apps &gt; \[application name\] &gt; Provisioning** tab.
 
-![Provisioning page progress bar](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
+![Provisioning page progress bar](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
 ## Use provisioning logs to check a user's provisioning status
 
@@ -57,7 +57,7 @@ The provisioning logs record all the operations performed by the provisioning se
 For more information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How long will it take to provision users?
-When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](assign-user-or-group-access-portal.md) at a regularly scheduled time interval, typically every 40 minutes.
+When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](../manage-apps/assign-user-or-group-access-portal.md) at a regularly scheduled time interval, typically every 40 minutes.
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial cycle or an incremental cycle.
 
@@ -99,7 +99,7 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 - The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
 
-- If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
+- If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
