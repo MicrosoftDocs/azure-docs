@@ -94,12 +94,12 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
 
 # Run connect command
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
-  --service-principal-id "{your-azadsp-appid}" `
-  --service-principal-secret "{your-azadsp-password}" `
-  --resource-group "{your-resource-group-name}" `
-  --tenant-id "{your-tenant-id}" `
-  --location "{desired-location}" `
-  --subscription-id "{your-subscription-id}"
+  --service-principal-id "{serviceprincipalAppID}" `
+  --service-principal-secret "{serviceprincipalPassword}" `
+  --resource-group "{ResourceGroupName}" `
+  --tenant-id "{tenantID}" `
+  --location "{resourceLocation}" `
+  --subscription-id "{subscriptionID}"
 ```
 
 ### Linux installation script
@@ -115,12 +115,12 @@ bash ~/install_linux_azcmagent.sh
 
 # Run connect command
 azcmagent connect \
-  --service-principal-id "{your-spn-appid}" \
-  --service-principal-secret "{your-spn-password}" \
-  --resource-group "{your-resource-group-name}" \
-  --tenant-id "{your-tenant-id}" \
-  --location "{location-of-your-resource-group}" \
-  --subscription-id "{your-subscription-id}"
+  --service-principal-id "{serviceprincipalAppID}" \
+  --service-principal-secret "{serviceprincipalPassword}" \
+  --resource-group "{ResourceGroupName}" \
+  --tenant-id "{tenantID}" \
+  --location "{resourceLocation}" \
+  --subscription-id "{subscriptionID}"
 ```
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
