@@ -1,13 +1,13 @@
 ---
 title: Connection Monitor (Preview) | Microsoft Docs
-description: Learn how to use Connection Monitor (Preview) to monitor network communication in a distributed environment
+description: Learn how to use Connection Monitor (Preview) to monitor network communication in a distributed environment.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
 manager: agummadi
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.devlang: na
@@ -18,27 +18,27 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ---
-# Unified connectivity monitoring with Connection Monitor (Preview)
+# Unified connectivity monitoring in Connection Monitor (Preview)
 
-Connection Monitor (Preview) provides unified end-to-end connection monitoring capabilities in Azure Network Watcher for hybrid and Azure cloud deployments. Azure Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
+Connection Monitor (Preview) provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Azure Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
-Key Use Cases:
+Here are some use cases for Connection Monitor (Preview):
 
-- You have a front-end web server VM that communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
-- You want VMs in East US region to ping VMs in Central US region and compare cross region network latencies
-- You have multiple on-premise office sites in cities like Seattle. connecting to Office 365 URLs. You want to compare the latencies experienced by users using Office 365 URLs from  Seattle and Ashburn.
-- You have a hybrid application set up that needs connectivity to an Azure Storage Endpoint. You want to compare latencies between an on-premise site and the Azure application both connecting to the same Azure Storage Endpoint.
-- You want to check connectivity from Azure VMs hosting your cloud application to your on-premise setups.
+- Your front-end web server VM communicates with a database server VM in a multiple-tier application. You want to check network connectivity between the two VMs.
+- You want VMs in the East US region to ping VMs in the Central US region, and you want to compare cross-region network latencies.
+- You have multiple on-premises office sites in Seattle and in Ashburn, Virginia. Your office sites connect to Office 365 URLs. For your users of Office 365 URLs, you want to compare the latencies in Seattle with those in Ashburn.
+- Your hybrid application needs connectivity to an Azure Storage endpoint. You want to compare the latencies of the on-premises site and the Azure application that connect to the same Azure Storage endpoint.
+- You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-In this preview phase, the solution brings together the best of two key capabilities - Network Watcher's [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) and Network Performance Monitor(NPM)'s [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity).
+In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature, and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) feature.
 
-Highlights:
+Here are some highlights of the Connection Monitor (Preview) benefits:
 
 * Unified, intuitive experience for Azure and hybrid monitoring needs
-* Cross region, cross workspace connectivity monitoring
+* Cross-region, cross-workspace connectivity monitoring
 * Higher probing frequencies and better visibility into network performance
 * Faster alerting for your hybrid deployments
-* Support for HTTP, TCP, and ICMP based connectivity checks
+* Support for connectivity checks that are based on HTTP, TCP, and ICMP 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
 ![Connection Monitor](./media/connection-monitor-2-preview/hero-graphic.png)
@@ -55,9 +55,9 @@ For Connection Monitor to recognize your Azure VMs as source for monitoring, you
 
 If NSG or firewall rules are blocking communication between source and destination, Connection Monitor will detect the issue and show it as a diagnostic message in the topology. To enable connection monitoring, ensure that NSG and firewall rules allow packets over TCP or ICMP between source and destination.
 
-### Agents for on-premise machines
+### Agents for on-premises machines
 
-For Connection Monitor to recognize your on-premise machines as sources for monitoring, you would need to install the Log Analytics agent on the machines and enable Network Performance Monitoring solution. These agents are linked to Log Analytics workspaces and need workspace ID and primary key set up before they can start monitoring.
+For Connection Monitor to recognize your on-premises machines as sources for monitoring, you would need to install the Log Analytics agent on the machines and enable Network Performance Monitoring solution. These agents are linked to Log Analytics workspaces and need workspace ID and primary key set up before they can start monitoring.
 
 To install Log Analytics agent for Windows machines, follow the instructions mentioned in [this link](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)
 
@@ -69,36 +69,36 @@ All subscriptions with a VNET are enabled with Network Watcher. When you create 
 
 ## Step 3: Create Connection Monitor 
 
-_Connection Monitor_ monitors communication at regular intervals and informs you of reachability, latency, and network topology changes between source agents and destination endpoints. Sources may be Azure VMs or on-premise machines that have a monitoring agent installed. Destination Endpoints can be Office 365 URLs, Dynamics 365 URLs, Custom URLs, Azure VM resource IDs, IPv4, IPv6, FQDN, or any domain name.
+_Connection Monitor_ monitors communication at regular intervals and informs you of reachability, latency, and network topology changes between source agents and destination endpoints. Sources may be Azure VMs or on-premises machines that have a monitoring agent installed. Destination Endpoints can be Office 365 URLs, Dynamics 365 URLs, Custom URLs, Azure VM resource IDs, IPv4, IPv6, FQDN, or any domain name.
 
-### Accessing Connection Monitor (Preview)
+### Access Connection Monitor (Preview)
 
-1. From the Azure portal home page, visit Network Watcher
+1. From the Azure portal home page, go to **Network Watcher**.
 2. Click "Connection Monitor (Preview)" tab in the Monitoring section in Network Watcher's left pane.
 3. You can see all Connection Monitors that are created using Connection Monitor (Preview) experience. All Connection Monitors created using the classic experience of Connection Monitor tab will be visible in Connection Monitor tab.
 
     ![Create a Connection Monitor](./media/connection-monitor-2-preview/cm-resource-view.png)
 
 
-### Creating a Connection Monitor
+### Create a connection monitor
 
 Connection Monitors created using Connection Monitor (Preview) provide the ability to add both on-premises and Azure VMs as sources and monitor connectivity to endpoints, which can span Azure or any other URL/IP.
 
 Following are the entities in a Connection Monitor:
 
 * Connection Monitor Resource – Region specific Azure resource. All the entities mentioned below are properties of a Connection Monitor resource.
-* Endpoints – All sources and destinations that participate in connectivity checks are called as endpoints. Examples of endpoint – Azure VMs, On-Premise agents, URLs, IPs
+* Endpoints – All sources and destinations that participate in connectivity checks are called as endpoints. Examples of endpoint – Azure VMs, on-premises agents, URLs, IPs
 * Test Configuration – Each test configuration is protocol specific. Based on the protocol chosen, you can define port, thresholds, test frequency, and other parameters
 * Test Group – Each test group contains source endpoints, destination endpoints, and test configurations. Each Connection Monitor can contain more than one test groups
 * Test – Combination of a source endpoint, destination endpoint, and test configuration make one test. Test is lowest level at which monitoring data (checks failed % and RTT) is available
 
  ![Create a Connection Monitor](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-#### From portal
+#### From the portal
 
-To create a Connection Monitor, follow the below mentioned steps:
+To create a connection monitor, follow the below mentioned steps:
 
-1. In Connection Monitor (Preview) dashboard, click "Create" from top-left corner.
+1. On the Connection Monitor (Preview) dashboard, click "Create" from top-left corner.
 2. In the Basic tab, enter information for your connection monitor
    1. Connection Monitor Name – Name of your Connection Monitor. Standard naming rules for Azure resources apply here.
    2. Subscription – Choose a subscription for your Connection Monitor.
@@ -154,7 +154,7 @@ filter: {
 
 type: 'AgentAddress',
 
-address: '\&lt;FQDN of your on-premise agent'
+address: '\&lt;FQDN of your on-premises agent'
 
 }]
 
@@ -360,17 +360,17 @@ Deployment command:
 armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-version=2019-07-01 $body -verbose
 ```
 
-### Creating test groups in Connection Monitor
+### Create test groups in Connection Monitor
 
 Each test group in Connection Monitor includes sources and destination that get tested on network parameters of Checks Failed and RTT over test configurations.
 
-#### From portal
+#### From the portal
 
-To create a Test Group in a Connection Monitor, you specify the value for the below mentioned fields:
+To create a test group in a connection monitor, you specify the value for the below mentioned fields:
 
 1. Disable Test Group – Checking this field will disable monitoring for all sources and destinations specified in the test group. You'll see this option unchecked by default.
 2. Name – Name of your test group
-3. Sources – You can specify both Azure VMs and On-Premise machines as sources if agents are installed in them. Refer to Step 1 to install agent specific to your source.
+3. Sources – You can specify both Azure VMs and on-premises machines as sources if agents are installed in them. Refer to Step 1 to install agent specific to your source.
    1. Click on "Azure Agents" tab to select Azure agents. You'll only see those VMs listed which are bound to the region you specified at the time of creating the Connection Monitor. VMs are by default grouped into the subscription they belong to and the groups are collapsed. You can drill down from Subscriptions level to other levels in the hierarchy:
 
       ```Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with agents Y```
@@ -379,7 +379,7 @@ To create a Test Group in a Connection Monitor, you specify the value for the be
 
       ![Add Sources](./media/connection-monitor-2-preview/add-azure-sources.png)
 
-   2. Click on "Non – Azure Agents" tab to select on-premise agents. By default, you'll see agents grouped into workspaces in a region.Only those workspaces that have Network Performance Monitor solution configured will be listed. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) .By default, you'll see the region selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose agents from workspaces from the newly selected region. You can also change the value of "Group by" field to group on subnets.
+   2. Click on "Non – Azure Agents" tab to select on-premises agents. By default, you'll see agents grouped into workspaces in a region.Only those workspaces that have Network Performance Monitor solution configured will be listed. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) .By default, you'll see the region selected in the Basic Info tab in the Create Connection Monitor view. You can change the region and choose agents from workspaces from the newly selected region. You can also change the value of "Group by" field to group on subnets.
 
       ![Non-Azure Sources](./media/connection-monitor-2-preview/add-non-azure-sources.png)
 
@@ -448,7 +448,7 @@ All sources and destinations added to a test group with the test configuration s
 * Max # sources + destinations per Connection Monitor – 100
 * Max # of test configurations per Connection Monitor – 20 via Armclient. 2 via Portal.
 
-## Step 4:  Data analysis and alerts
+## Step 4: Data analysis and alerts
 
 Once a Connection Monitor is created, sources check connectivity to destinations based on the test configuration specified.
 
@@ -458,7 +458,7 @@ Based on the protocol selected by a user in the test configuration, Connection M
 
 If HTTP is selected, the service calculates the number of HTTP responses that returned a response code to determine the checks failed %.  To calculate RTT we measure the time taken to receive the response of an HTTP call.
 
-If TCP or ICMP is selected, the service calculates packet % to determine checks failed %. To calculate RTT we measure the time taken to receive the ACK for packets sent. If you have enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premise network.
+If TCP or ICMP is selected, the service calculates packet % to determine checks failed %. To calculate RTT we measure the time taken to receive the ACK for packets sent. If you have enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
 
 ### States of a test
 
@@ -468,11 +468,11 @@ Based on the data returned by checks in a test, each test can then have the foll
 * Fail = When actual values for Checks Failed % or RTT cross specified thresholds. If no threshold is specified, then a test is marked fail when checks failed % = 100%
 * Warning – When criteria for checks failed % isn't specified. In such a case, Connection Monitor (Preview) uses an auto set criterion as threshold and when that threshold is breached status of the test is set to "Warning"
 
-### Data collection, analysis and alerts
+### Data collection, analysis, and alerts
 
 All the data collected by Connection Monitor (Preview) is stored in the Log Analytics workspace configured at the time of Connection Monitor creation. Monitoring data is also available in Azure Monitor Metrics. You can use Log Analytics to keep your monitoring data for as long as you like but Azure Monitor stores metrics by default for 30 days**.** You can then [set metric based alerts on the data](https://azure.microsoft.com/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/).
 
-#### Monitoring dashboards in Connection Monitor solution
+#### Monitor dashboards in the Connection Monitor solution
 
 You'll see a list of your Connection Monitor that you have access to for a given selection of subscriptions, regions, timestamp, source, and destination types.
 
@@ -555,7 +555,7 @@ To view the trends of checks failed % and RTT for:
 
       ![Test2](./media/connection-monitor-2-preview/test-topo.png)
 
-   4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premise networks at the moment.
+   4. You can click on any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premises networks at the moment.
 
        ![Test3](./media/connection-monitor-2-preview/test-topo-hop.png)
 
@@ -600,7 +600,7 @@ To create an alert:
 
 Connection Monitor will help you diagnose issues corresponding to the Connection Monitor resource and in your network. Issues in your hybrid network will be detected by the Log Analytics agents  you installed in Step 1 and issues in Azure will be detected by the Network Watcher Extension.  Issues in hybrid network will be visible in the Diagnostics page and issues in Azure Network will be visible in the network topology.
 
-For networks with on-premise VMs as sources, we detect:
+For networks with on-premises VMs as sources, we detect:
 
 * Request timed out
 * Endpoint not resolved by DNS – temporary or persistent. URL invalid.
