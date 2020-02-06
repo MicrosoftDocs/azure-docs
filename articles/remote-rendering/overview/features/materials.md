@@ -165,8 +165,11 @@ Imagine a car staying in the garage, the floor under the car will always be occl
 
 Transparent geometry is expensive for the renderer and it is important to minimize the usage to the minimum possible. For instance, if you only need holes in the surface it would be better to use `alphaClipEnable` with `alphaClipThreshold` properties, which are not that expensive and provide "cutting-holes" functionality. Alpha clipping works well for leaves of trees, for instance.
 
- ![Occlusion Map](./media/transparency.png)
+ ![Transparency](./media/transparency.png)
  Notice here the right-most sphere is fully transparent but the reflection is still visible.
+
+> [!NOTE]
+> If any material is supposed to be switched from opaque to transparent during runtime, the renderer must be initialized in **TileBasedComposition** mode as described in the [rendering modes](../../concepts/rendering-modes.md) chapter. This limitation does not apply to materials that are converted as transparent materials from source data.
 
 ## Projections from other well-known formats
 
