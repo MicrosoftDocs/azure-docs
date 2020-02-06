@@ -10,24 +10,20 @@ ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ---
 # Quickstart: Deploy a Java Spring Boot app on Azure Service Fabric
 
-In this quickstart, you deploy a Java Spring Boot application to Azure Service Fabric by using familiar command-line tools. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
+In this quickstart, you deploy a Java Spring Boot application to Azure Service Fabric by using familiar command-line tools on Linux or MacOS. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 ## Prerequisites
 
-#### [Linux](#tab/linux)
-
-- [Java Environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
-- [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+**Linux:**
+- [Java environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Git](https://git-scm.com/downloads)
 
-#### [Mac](#tab/mac)
-
-- [Java Environment and Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+**Mac:**
+- [Java environment and Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
 - [Git](https://git-scm.com/downloads)
-
---- 
 
 ## Download the sample
 
