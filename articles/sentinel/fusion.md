@@ -21,8 +21,6 @@ By using Fusion technology that’s based on machine learning, Azure Sentinel ca
 
 Customized for your environment, this detection not only reduces false positive rates but can also detect attacks with limited or missing information.
 
-For details about the alerts for the scenarios supported, see the [Scenarios supported for multistage attack detection](#scenarios-supported-for-advanced-multistage-attack-detection) section on this page.
-
 ## Configuration for advanced multistage attack detection
 
 This detection is enabled by default in Azure Sentinel. To check the status, or to disable it perhaps because you are using an alternative solution to create incidents based on multiple alerts, use the following instructions:
@@ -43,7 +41,7 @@ Rule templates are not applicable for the advanced multistage attack detection.
 
 - Network request to TOR anonymization service followed by anomalous traffic flagged by Palo Alto Networks firewall​
 
-- Powershell made a suspicious network connection followed by anomalous traffic flagged by Palo Alto Networks firewall​
+- PowerShell made a suspicious network connection followed by anomalous traffic flagged by Palo Alto Networks firewall​
 
 - Outbound connection to IP with a history of unauthorized access attempts followed by anomalous traffic flagged by Palo Alto Networks firewall​
 
