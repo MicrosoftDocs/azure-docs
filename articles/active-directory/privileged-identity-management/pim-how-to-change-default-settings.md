@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -38,12 +38,8 @@ Follow the steps in this article to approve or deny requests for Azure AD roles.
 Follow these steps to open the settings for an Azure AD role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure AD roles**.
-
-1. Select **Role settings**.
+gt
+1. Open **Azure AD Privileged Identity Management** &gt; **Azure AD roles** &gt; **Role settings**.
 
     ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -84,7 +80,7 @@ Privileged Identity Management provides optional enforcement of Azure Multi-Fact
 
 ### Require Multi-Factor Authentication on active assignment
 
-In some cases, you might want to assign a user or group to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+In some cases, you might want to assign a user to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
 To ensure that the resource administrator fulfilling the assignment is who they say they are, you can enforce multi-factor authentication on active assignment by checking the **Require Multi-Factor Authentication on active assignment** box.
 
@@ -110,11 +106,11 @@ If you want to require approval to activate a role, follow these steps.
 
 1. Check the **Require approval to activate** check box.
 
-1. Select **Select approvers** to open the **Select a member or group** page.
+1. Select **Select approvers**.
 
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Select at least one user or group and then click **Select**. You can add any combination of users and groups. You must select at least one approver. There are no default approvers.
+1. Select at least one user and then click **Select**. You must select at least one approver. There are no default approvers.
 
     Your selections will appear in the list of selected approvers.
 
@@ -203,7 +199,7 @@ If you want to delegate the required approval to activate a role, follow these s
 
     ![Azure AD roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Select one or more approvers in addition to the Privileged role administrator and then click **Select**. You can select users or groups. We recommend that you add at least two approvers. Even if you add yourself as an approver, you can't self-approve a role activation. Your selections will appear in the list of selected approvers.
+1. Select one or more approvers in addition to the Privileged role administrator and then click **Select**. We recommend that you add at least two approvers. Even if you add yourself as an approver, you can't self-approve a role activation. Your selections will appear in the list of selected approvers.
 
 1. After you have specified your all your role settings, select **Save** to save your changes.
 

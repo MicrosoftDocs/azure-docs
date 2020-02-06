@@ -38,6 +38,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Join transformation](https://www.youtube.com/watch?v=zukwayEXRtg)
 
+[Self-join pattern](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
+
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
