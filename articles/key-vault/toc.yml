@@ -116,9 +116,9 @@
       items:
       - name: Overview
         href: key-vault-hsm-protected-keys.md
-      - name: Import HSM-protected keys to Azure Key Vault (preview)
+      - name: Import HSM-protected keys to Key Vault (preview)
         href: hsm-protected-keys-vendor-agnostic-byok.md
-      - name: Import HSM-protected keys to Azure Key Vault (Legacy)
+      - name: Import HSM-protected keys to Key Vault (Legacy)
         href: hsm-protected-keys-legacy.md
   - name: Route key vault notifications with Event Grid
     href: event-grid-tutorial.md      
@@ -212,4 +212,3 @@
     href: https://blogs.technet.com/b/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-
