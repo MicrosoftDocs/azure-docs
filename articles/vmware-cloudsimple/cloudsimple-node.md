@@ -52,7 +52,5 @@ The following node limits apply to AVS Private Clouds.
 
 ## Next steps
 
-* Learn how to [purchase nodes](create-nodes.md)
-* Learn about [AVS Private Clouds](cloudsimple-private-cloud.md)
 * Learn how to [provision nodes](create-nodes.md)
-* Learn about [Private Clouds](cloudsimple-private-cloud.md)
+* Learn about [AVS Private Clouds](cloudsimple-private-cloud.md)
