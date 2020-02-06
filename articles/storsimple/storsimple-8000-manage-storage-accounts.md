@@ -1,5 +1,5 @@
 ---
-title: Manage your StorSimple storage account credentials for Microsoft Azure StorSimple 8000 series devices| Microsoft Docs
+title: Manage storage account credentials with StorSimple Device Manager
 description: Explains how you can use the StorSimple Device Manager Configure page to add, edit, delete, or rotate the security keys for a storage account.
 services: storsimple
 documentationcenter: NA

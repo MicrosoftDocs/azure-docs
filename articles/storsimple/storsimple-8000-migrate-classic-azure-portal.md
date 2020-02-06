@@ -1,6 +1,6 @@
 ---
-title: Migrate storage accounts, subscriptions for your StorSimple Device Manager service | Microsoft Docs
-description: Learn how to migrate subscriptions, storage accounts for your StorSimple Device Manager service8000.
+title: Migrate StorSimple Device Manager storage account, subscription
+description: Learn how to migrate subscriptions, storage accounts for your StorSimple Device Manager service.
 services: storsimple
 documentationcenter: ''
 author: alkohli
