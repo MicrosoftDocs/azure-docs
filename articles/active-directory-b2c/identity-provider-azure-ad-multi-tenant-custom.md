@@ -62,9 +62,9 @@ You need to store the application key that you created in your Azure AD B2C tena
 
 ## Configuring optional claims
 
-If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application through the UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
 1. From the **Manage** section, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
 1. From the **Manage** section, select **Token configuration (preview)**.
