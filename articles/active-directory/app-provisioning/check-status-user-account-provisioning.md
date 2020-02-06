@@ -50,13 +50,13 @@ From here, you can access both the provisioning progress bar and the provisionin
 The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for given application. It is located in the **Current Status** section underneath **Settings**, and shows the status of the current initial or incremental cycle. This section also shows:
 
 * The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
-* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
-* Whether or not an [initial cycle](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
+* The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
+* Whether or not an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
 
 The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
- ![Summary report](media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Summary report](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## Provisioning logs (preview)
 
@@ -67,9 +67,9 @@ Logged activity event types include:
 
 The provisioning summary report and provisioning logs play a key role helping admins troubleshoot various user account provisioning issues.
 
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
+For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](../app-provisioning/application-provisioning-config-problem.md).
 
 ## Additional Resources
 
 * [Managing user account provisioning for Enterprise Apps](configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

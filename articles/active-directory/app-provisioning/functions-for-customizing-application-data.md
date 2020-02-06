@@ -772,9 +772,9 @@ You wish to flow the mail attribute if it is present. If it is not, you wish to 
 * **OUTPUT**:  "John.Doe@contoso.com"
 
 ## Related Articles
-* [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
-* [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
+* [Automate User Provisioning/Deprovisioning to SaaS Apps](../app-provisioning/user-provisioning.md)
+* [Customizing Attribute Mappings for User Provisioning](../app-provisioning/customize-application-attributes.md)
 * [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
-* [Account Provisioning Notifications](user-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Account Provisioning Notifications](../app-provisioning/user-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)

@@ -45,7 +45,7 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 1. Start [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Select the "Sign-In with Microsoft" button and sign in using Azure AD global administrator or App Admin credentials.
 
-    ![Graph Sign-in](media/application-provisioning-configure-api/wd_export_02.png)
+    ![Graph Sign-in](./media/application-provisioning-configure-api/wd_export_02.png)
 
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
