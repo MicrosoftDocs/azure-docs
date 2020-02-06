@@ -66,7 +66,7 @@ Now let's switch to working with code. Let's clone a Gremlin API app from GitHub
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the *connect.py* file in the *C:\git-samples\azure-cosmos-db-graph-python-getting-started\* folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the *connect.py* file in the *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
 * The Gremlin `client` is initialized in line 104 in *connect.py*:
 
