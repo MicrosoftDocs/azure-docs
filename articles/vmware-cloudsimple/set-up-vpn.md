@@ -92,7 +92,7 @@ A Point-to-Site VPN connection resolves the DNS names of the first AVS Private C
 
     ![Edit VPN Connection](media/viscosity-edit-connection.png)
 
-7. Click the **Networking** tab and enter the AVS Private Cloud DNS server IP addresses separated by a comma or space and the domain as ```cloudsimple.io```. Select **Ignore DNS settings sent by VPN server**.
+7. Click the **Networking** tab and enter the AVS Private Cloud DNS server IP addresses separated by a comma or space and the domain as ```az.cloudsimple.io```. Select **Ignore DNS settings sent by VPN server**.
 
     ![VPN Networking](media/viscosity-edit-connection-networking.png)
 
