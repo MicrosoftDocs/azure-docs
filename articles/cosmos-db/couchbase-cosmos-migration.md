@@ -28,9 +28,11 @@ The following are the key features that work differently in Azure Cosmos DB when
 2. Azure Cosmos DB scales by using the partitioning/sharding technique, which means it will split the data into multiple shards/partitions. These partitions/shards are created based on the partition key property you provide. You can select the partition key to optimize read as well write operations or read/write optimized too. To learn more, see the [partitioning](./partition-data.md).
 3. In Azure Cosmos DB, it is not required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure much simpler. LThe following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
 
-![Data Model Comparison Table](./media/couchbase-cosmos-migration/DataModelComparisonTable.png)
-
-
+| Couchbase | Azure Cosmos DB |
+|-----------|-----------------|
+|Document Id =  "99FF4444",| Refer “id” inside document below|
+|{ <br>&nbsp;&nbsp;"TravelDocument":<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp; “Country”:”India”,<br>&nbsp;&nbsp;"Validity" : "2022-09-01",<br>&nbsp;&nbsp;&nbsp;&nbsp;"Person":<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Name": "Manish",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Address": "AB Road, City-z"<br>&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;"Visas":<br>&nbsp;&nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Country":"India",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“Type”:”Multi-Entry”,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Validity":"2022-09-01"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Country":"US",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“Type”:”Single-Entry”,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Validity":"2022-08-01"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>} |{<br>&nbsp;&nbsp;"id" : "99FF4444",<br><br>&nbsp;&nbsp;“Country”:”India”,<br>&nbsp;&nbsp; "Validity" : "2022-09-01",<br>&nbsp;&nbsp;&nbsp;&nbsp;"Person":<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Name": "Manish",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Address": "AB Road, City-z"<br>&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;"Visas":<br>&nbsp;&nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Country":"India",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“Type”:”Multi-Entry”,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Validity":"2022-09-01"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Country":"US",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“Type”:”Single-Entry”,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Validity":"2022-08-01"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br><br>&nbsp;&nbsp;} |
+              
 ## SDK for Java Support
 Azure Cosmos DB has following SDKs to support different Java frameworks:
 1. Async SDK
@@ -94,7 +96,8 @@ Complete code sample is available in the [CouchbaseToCosmosDB-SpringCosmos](http
 ## Couchbase as a Document repository & using N1QL queries
 
 N1QL queries is the way to define queries in the Couchbase.
-|N1QL Query	Azure CosmosDB Query|
+
+|N1QL Query | Azure CosmosDB Query|
 |-------------------|-------------------|
 |SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0	| SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
@@ -319,6 +322,6 @@ There are two ways to migrate data.
 2. Use the Azure Cosmos DB data import tool: This option is recommended to migrate using VMs with less amount of data. For detailed steps, see the [Data importer](./import-data.md) article.
 
 ## Next Steps
-1. To do performance testing, see [Performance and scale testing with Azure Cosmos DB] (./performance-testing.md) article.
-2. To optimize the code, see [Performance tips for Azure Cosmos DB] (./performance-tips-async-java.md) article.
-3. Explore Java Async SDK V3, [SDK reference] (https://github.com/Azure/azure-cosmosdb-java/tree/v3) github repo.	
+1. To do performance testing, see [Performance and scale testing with Azure Cosmos DB](./performance-testing.md) article.
+2. To optimize the code, see [Performance tips for Azure Cosmos DB](./performance-tips-async-java.md) article.
+3. Explore Java Async SDK V3, [SDK reference](https://github.com/Azure/azure-cosmosdb-java/tree/v3) github repo.	
