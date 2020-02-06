@@ -118,7 +118,15 @@ When you set up the replication appliance using the OVA template provided in the
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware.
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about [URLs](migrate-replication-appliance.md#url-access) the replication appliance needs to access.
+- Learn about [URLs](migrate-replication-appliance.md#url-access) and [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+
+## Agent-based-ports
+
+**Device** | **Connection**
+--- | ---
+VMs | The Mobility service running on VMs communicates with the on-premises replication appliance (configuration server) on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+Replication appliance | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
+Process server | The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.<br/> By default the process server runs on the replication appliance.
 
 ## Azure VM requirements
 

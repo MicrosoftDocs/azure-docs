@@ -345,8 +345,8 @@
     items:
     - name: Search 2019-05-06
       href: /rest/api/searchservice
-    - name: Reset Skills (api-version=2019-05-06-Preview)
-      href: preview-api-resetskills.md
+    - name: Search 2019-05-06-Preview
+      href: /rest/api/searchservice/index-2019-05-06-preview
     - name: Management 2015-08-15
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
@@ -389,6 +389,8 @@
         href: cognitive-search-predefined-skills.md
       - name: Conditional
         href: cognitive-search-skill-conditional.md
+      - name: Custom Entity Lookup
+        href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
       - name: Entity Recognition

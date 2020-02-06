@@ -196,49 +196,14 @@ This section only applies to the standard file shares. All premium file shares a
 
 ### Regional availability
 
-Standard file shares are available in all regions up to 5 TiB. In certain regions, they are available with a 100 TiB limit, those regions are listed in the following table:
+Standard file shares with 100 TiB capacity limit are available globally in all Azure regions -
 
-|Region |Supported redundancy |
-|-------|---------|
-|Australia Central    |LRS     |
-|Australia Central 2    |LRS     |
-|Australia East |LRS     |
-|Australia Southeast|LRS |
-|Brazil South    |LRS     |
-|Canada Central  |LRS     |
-|Canada East     |LRS     |
-|Central India  |LRS     |
-|Central US*   |LRS, ZRS    |
-|East Asia      |LRS     |
-|East US*        |LRS,ZRS|
-|East US 2*      |LRS, ZRS     |
-|France Central |LRS, ZRS|
-|France South   |LRS     |
-|Japan East     |LRS     |
-|Japan West     |LRS     |
-|Korea Central  |LRS     |
-|Korea South    |LRS     |
-|North Central US |LRS   |
-|North Europe   |LRS     |
-|South India    |LRS     |
-|South Central US |LRS     |
-|Southeast Asia |LRS, ZRS|
-|Switzerland North    |LRS     |
-|Switzerland West    |LRS     |
-|UAE Central    |LRS     |
-|UAE North    |LRS     |
-|UK North   |LRS, ZRS    |
-|UK South    |LRS     |
-|UK West    |LRS     |
-|West Central US|LRS     |
-|West Europe*    |LRS, ZRS|
-|West India   |LRS     |
-|West US        |LRS     |
-|West US 2      |LRS, ZRS|
+- LRS: All regions, except for South Africa North and South Africa West.
+   - National clouds (Government, Germany, China) are supported via PowerShell and Azure Command Line Interface (CLI). No portal support. 
+   - East US, East US2, West Europe: All new accounts are supported. A small number of existing accounts have not completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
-\* Supported for new accounts, not all existing accounts have completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
-
-To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
+- ZRS: All regions, except for Japan East, North Europe, South Africa North.
+- GRS/GZRS: Not supported.
 
 ### Enable and create larger file shares
 
