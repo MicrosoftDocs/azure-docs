@@ -29,9 +29,12 @@ The set of distinct states that can be overridden encompasses the following fixe
 ![Color Tint](./media/color-tint.png)
 * **See-through**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red chock:
 ![See-Through](./media/see-through.png)
+> [!NOTE]
+> The see-through effect only works when the renderer has been initialized in **TileBasedComposition** mode as described in the [rendering modes](../../concepts/rendering-modes.md) chapter.
+
 * **Selected**: The geometry is rendered with a selection outline. The rendering properties for outlines are global rather than per-object. For details, refer to chapter [Global outlines properties](outlines.md).
 ![Selection Outline](./media/selection-outline.png)
-* **DisableCollision**: The geometry is made invisible to [physics ray casts](spatial-queries.md). Note that the **Hidden** flag by default does not turn off collision, so these two flags often come in pair.
+* **DisableCollision**: The geometry is made invisible to [physics ray casts](spatial-queries.md). The **Hidden** flag by default does not turn off collision, so these two flags often come in pair.
 
 ## Hierarchical property updates
 
@@ -65,9 +68,10 @@ To turn off states on a hierarchy level, the flags on the ```HierarchicalStateOv
 ## Performance considerations
 
 An instance of ```HierarchicalStateOverrideComponent``` itself does not add much runtime overhead. However it is always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it is recommended to delete the component again when the selection is removed as opposed to keeping the components around with neutral features (that is, inherited from parent).
-Transparent ('see-through') rendering puts more workload to the server's GPUs than standard rendering. Accordingly, if large parts of the scene graph are switched to see-through mode with many layers of geometry being visible this may become a performance bottleneck and thus compromise stable frame rates. The same is valid for objects with selection outline, but not to the same extent as see-through.
+Transparent ('see-through') rendering puts more workload to the server's GPUs than standard rendering. Accordingly, if large parts of the scene graph are switched to see-through mode with many layers of geometry being visible, see-through may become a performance bottleneck, and thus compromise stable frame rates. The same is valid for objects with selection outline, as described in the [global outline properties](../../overview/features/outlines.md#performance) chapter.
 
 ## Next steps
 
-* [Outlines](outlines.md)
-* [Spatial Queries](spatial-queries.md)
+* [Global outline properties](../../overview/features/outlines.md)
+* [Rendering modes](../../concepts/rendering-modes.md)
+* [Spatial Queries](../../overview/features/spatial-queries.md)

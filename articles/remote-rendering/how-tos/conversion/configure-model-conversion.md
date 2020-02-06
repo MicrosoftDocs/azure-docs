@@ -155,7 +155,7 @@ The following `vertex` section in the `.json` file is optional. For each portion
         ...
 ```
 
-By forcing a component to `NONE`, it is guaranteed that the output mesh does not have the respective stream. Conversely, if the input model does not have a stream but it is defined by user settings, the conversion will create this stream and fill it with meaningful data.
+By forcing a component to `NONE`, it is guaranteed that the output mesh does not have the respective stream.
 
 #### Component formats per vertex stream
 

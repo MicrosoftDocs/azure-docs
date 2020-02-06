@@ -49,7 +49,7 @@ These properties are common to both PBR and Basic Color materials.
 > If both `albedoMap` and `albedoColor` are defined, then the final color is a product of both values (per-pixel).
 
 `alphaClipEnabled` is a `bool` and enables a special rendering mode where parts of a surface where the Alpha channel is lower than the `alphaClipThreshold` value will not be drawn. The default is `false`. 
-This mode can be used even without enabling transparency and in this case it will perform much faster, almost the same as opaque mode.
+Alpha clipping can be used even without enabling transparency and in this case it will perform much faster, almost the same as opaque mode.
 
 `alphaClipThreshold` is a `float` and defines the threshold of visibility used by `alphaClipEnabled`. 
 All pixels with alpha value less than the threshold are not visible and they do not contribute to the final image. The default is `0.5f`.
@@ -58,7 +58,7 @@ All pixels with alpha value less than the threshold are not visible and they do 
 
 `textureCoordinateOffset` is a `Vec2`. The two values are applied as offsets to the UV texture coordinates **of the whole material**. The default is `Vec2{0.f, 0.f}`.
 
-`useVertexColor` is a `bool` that enables/disables the use of vertex colors, if present in the mesh, with the current material. If true, this combines the color of vertices with `albedoColor` and `albedoMap` to give the final color. The default is `false`.
+`useVertexColor` is a `bool` that enables/disables the use of vertex colors, if present in the mesh, with the current material. If true, the vertex color is combined with `albedoColor` and `albedoMap` to give the final color. The default is `false`.
 
 `isDoubleSided` is a `bool`. It enables/disables double-sidedness of this material. The default is `false`.
 
@@ -80,7 +80,7 @@ The options are as follows:
 1. `Opaque` mode is the default, and means that surfaces using this material will be opaque. Alpha values in albedo value, albedo maps and vertex colors are not used for transparency, but they can still contribute to the result if `alphaClipEnabled` is true (see above) or if they have been pre-multiplied.
 2. `AlphaBlended` mode is the slowest mode. It combines the already rendered pixels on the screen with the current surface.
 The formula used is: `NewPixel = Pixel * (1 - Alpha) + Surface * Alpha`, where `Pixel` is pixel on the screen, which was filled up by previous surfaces, `Surface` is a color of current surface and `Alpha` is value of Alpha channel of current surface. 
-(Note that the renderer can optimize this calculation, by pre-multiplying the alpha values by the surface colors.)
+(The renderer can optimize this calculation, by pre-multiplying the alpha values by the surface colors.)
 
    AlphaBlended mode requires transparent surfaces to be drawn on the screen in a particular order. Fortunately, Azure Remote Rendering has additional feature as `Order Independent Transparency`, which makes possible to render complex semi-transparent object without sorting them.
 
@@ -88,11 +88,11 @@ The formula used is: `NewPixel = Pixel * (1 - Alpha) + Surface * Alpha`, where `
 
 ## <span id="pbr-material">Physically based rendering material (also known as PBR)
 
-As the name suggests, this material type uses a close-to-real-world model of lights and on-surface light distribution.  
+As the name suggests, this material type uses a close-to-real-world model of light and on-surface light distribution.  
 Physically based rendering materials work equally well in all lighting environments, so values of properties can be set up independently from any environment/conditions and lighting. Additionally, a PBR material's properties are mostly independent, providing an intuitive way to define a surface's properties.
 Many modern game engines and content creation tools support PBR materials because they are considered the best approximation of real world scenarios for real-time use-cases.
 
-The core idea is to use `BaseColor`, `Metalness` and `Roughness` properties to emulate a wide range of real-world materials.
+The core idea is to use `BaseColor`, `Metalness`, and `Roughness` properties to emulate a wide range of real-world materials.
 
 > [!NOTE]
 > PBR materials are not universal solution. For instance, there are materials that reflect different color depends on the viewing angle. For example, some fabrics or car paints. These kinds of materials are not handled by the standard PBR model, and are not supported by Azure Remote Rendering. (This includes PBR extensions, for example, Thin-Film (multi-layered surface) and Clear-Coat (for car paint).)
@@ -116,7 +116,7 @@ For instance, if you light up white wall by green light the diffuse color of the
 > [!NOTE]
 > Since Albedo is a shared property between different types of materials, we use the term Albedo and not Base color.
 
-Albedo color, texture and other related properties are set up in the shared part (see above section)
+Albedo color, texture, and other related properties are set up in the shared part (see above section)
 
 ### Roughness
 
@@ -133,10 +133,10 @@ In physics, this property corresponds to whether a surface is Conductive or Diel
 
 - `metalness` is a `float` with default value `0.0`.
 - `metalnessMap` is a `Texture2D`. The default is `None`.
-- If both values are defined then final `metalness` will be a product of those values.
+- If both values are defined, then final `metalness` will be a product of those values.
 
 ![metalness and roughness](./media/metalness-roughness.png)
-As you can see on the picture, bottom-right corner looks like a material that is fully metal, bottom-left is ceramic/plastic material. An albedo color here is changing as well to follow physical properties. With increasing Roughness the material loses reflection sharpness.
+As you can see on the picture, bottom-right corner looks like a material that is fully metal, bottom-left is ceramic/plastic material. An albedo color here is changing as well to follow physical properties. With increasing roughness the material loses reflection sharpness.
 
 ### Normal Map
 
@@ -154,19 +154,22 @@ The normal of the surface within a triangle can be varied, by referencing a text
 Imagine a car staying in the garage, the floor under the car will always be occluded from lights and will be darker than walls and the car itself. This part of the floor is mostly `occluded` from light and human eyes catch this effect immediately, informing our understanding of relative objects positions. This also possible on the micro-level, where surfaces can have cracks from which light is occluded. Occlusion can make surface looks more realistic. The Value range is from `0.0` to `1.0`, where `0.0` means darkness (occluded) and `1.0` means no occlusions (the default value).
 
 - `occlusionMap` is a `Texture2D`. The default is `None`.
-- `aoScale` is a `float` with default value `1.0` which is multiplier for occlusion map.
-- If map is not defined then occlusion is not enabled.
+- `aoScale` is a `float` with default value `1.0`, which is multiplier for occlusion map.
+- If map is not defined, then occlusion is not enabled.
 
 ![Occlusion Map](./media/boom-box-ao2.gif)
 
 ### Transparency
 
-- `transparent` is a `bool` with default value `false`. This property enables a more complex pipeline for the material that makes it possible to draw semi-transparent (see-through) surfaces. This is typically used for windows/glasses or similar materials. The final (combined) value of the Alpha channel of the albedo color will indicate how transparent the surface is. `0.0` means fully transparent but reflect bright environments, and `1.0` means fully opaque. Setting `transparent` to `true` means with Alpha values of 1.0 just means that performance is lost.
+- `transparent` is a `bool` with default value `false`. When enabled, a more complex pipeline for the material is invoked to draw semi-transparent (see-through) surfaces. Transparency is typically used for windows/glasses or similar materials. The final (combined) value of the Alpha channel of the albedo color will indicate how transparent the surface is. `0.0` means fully transparent but reflect bright environments, and `1.0` means fully opaque. Setting `transparent` to `true` means with Alpha values of 1.0 just means that performance is lost.
 
 Transparent geometry is expensive for the renderer and it is important to minimize the usage to the minimum possible. For instance, if you only need holes in the surface it would be better to use `alphaClipEnable` with `alphaClipThreshold` properties, which are not that expensive and provide "cutting-holes" functionality. Alpha clipping works well for leaves of trees, for instance.
 
- ![Occlusion Map](./media/transparency.png)
+ ![Transparency](./media/transparency.png)
  Notice here the right-most sphere is fully transparent but the reflection is still visible.
+
+> [!NOTE]
+> If any material is supposed to be switched from opaque to transparent during runtime, the renderer must be initialized in **TileBasedComposition** mode as described in the [rendering modes](../../concepts/rendering-modes.md) chapter. This limitation does not apply to materials that are converted as transparent materials from source data.
 
 ## Projections from other well-known formats
 
@@ -292,7 +295,7 @@ Metalness = clamp(value, 0.0, 1.0);
 `Albedo` is computed from `Diffuse`, `Specular` and `Metalness`.
 
 As described in the Metalness section, dielectric surfaces reflect around 4% of light.  
-The idea here is to linearly interpolate between `Dielectric` and `Metal` colors using `Metalness` value as a factor. If metalness is `0.0` then depending on specular it will be either dark color (if specular is high) or diffuse will not change (if no specular present). If metalness is a large value, then the diffuse color will disappear in favor of specular color.
+The idea here is to linearly interpolate between `Dielectric` and `Metal` colors using `Metalness` value as a factor. If metalness is `0.0`, then depending on specular it will be either dark color (if specular is high) or diffuse will not change (if no specular present). If metalness is a large value, then the diffuse color will disappear in favor of specular color.
 ```Cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
