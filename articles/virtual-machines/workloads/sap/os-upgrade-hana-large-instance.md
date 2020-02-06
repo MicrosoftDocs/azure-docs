@@ -93,7 +93,7 @@ sed -i '/\/disk\/by-uuid/c '"$device_mapper"'' /etc/default/grub_installdevice
 ```
 
 #### Disable EDAC:
-   The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HNA on Azure Large Instances (Type I) is already preforming the same function. Having the same feature enabled at the hardware and Operating Ssystem (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
+   The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HNA on Azure Large Instances (Type I) is already preforming the same function. Having the same feature enabled at the hardware and Operating system (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
 
 ##### Steps to perform
 ```
