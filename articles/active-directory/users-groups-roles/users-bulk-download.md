@@ -35,7 +35,7 @@ To download the list of users from the Azure AD admin center, you must be signed
 
    The download file will contain the filtered list of users.
 
-   The following user attributes will be included: 
+   The following user attributes are included:
 
    - userPrincipalName
    - displayName
@@ -46,7 +46,6 @@ To download the list of users from the Azure AD admin center, you must be signed
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress
