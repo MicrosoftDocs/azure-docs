@@ -85,7 +85,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Deploy Azure Databricks in your virtual network
-            url: vnet-injection.md
+            url: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
       - linkListType: tutorial
         links:
           - text: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook
@@ -93,7 +93,7 @@ landingContent:
   - title: Stream data
     linkLists:
       - linkListType: learn
-        links: 
+        links:
           - text: Work with streaming data in Azure Databricks
             url: https://docs.microsoft.com/learn/modules/streaming-in-azure-databricks/
       - linkListType: tutorial

@@ -7,8 +7,8 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 08/19/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
 ---
 

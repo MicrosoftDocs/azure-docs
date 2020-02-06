@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Airtable SSO
 
-To configure single sign-on on **Airtable** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Airtable support team](mailto:azure-ad-marketplace@airtable.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow the instructions given in the [link](https://support.airtable.com/hc/articles/360037475234) to configure single sign-on on **Airtable** side.
 
 ### Create Airtable test user
 

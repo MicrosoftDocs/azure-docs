@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/02/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -46,6 +45,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 * DocuSign supports *just-in-time* user provisioning.
 
 * DocuSign supports [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* Once you configure DocuSign you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding DocuSign from the gallery
 
@@ -69,7 +69,7 @@ To configure and test Azure AD SSO with DocuSign, complete the following buildin
     1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
     1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
 1. [Configure DocuSign SSO](#configure-docusign-sso) to configure the single sign-on settings on the application side.
-1. [Create a DocuSign test user](#create-docusign-test-user) to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
+    1. [Create a DocuSign test user](#create-docusign-test-user) to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
 1. [Test SSO](#test-sso) to verify that the configuration works.
 
 ## Configure Azure AD SSO
@@ -235,6 +235,8 @@ When you select the DocuSign tile in the Access Panel, you should be automatical
 - [What is Conditional Access in Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try DocuSign with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

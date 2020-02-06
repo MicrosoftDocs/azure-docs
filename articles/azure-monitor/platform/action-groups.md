@@ -2,8 +2,6 @@
 title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
@@ -58,7 +56,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Manage your action groups
 
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
+After you create an action group, you can view **Action groups** by selecting **Manage actions** from the **Alerts** landing page in **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
@@ -66,10 +64,10 @@ After you create an action group, it's visible in the **Action groups** section 
 ## Action specific information
 
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
 ### Automation Runbook
-Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads.
+Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads.
 
 You may have a limited number of Runbook actions in an Action Group. 
 
@@ -90,7 +88,7 @@ Send email to the members of the subscription's role.
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### Function
-The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”. For more information, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 You may have a limited number of Function actions in an Action Group.
 

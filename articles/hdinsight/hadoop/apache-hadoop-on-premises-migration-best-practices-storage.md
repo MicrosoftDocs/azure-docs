@@ -34,7 +34,7 @@ One of the following formats can be used to access data that is stored in Azure 
 |`wasbs:///`|Access default storage using encrypted communication.|
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Used when communicating with a non-default storage account. |
 
-[Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) lists the current limits on Azure Storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
+[Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md) lists the current limits on Azure Storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
 
 [Azure Storage Analytics](../../storage/storage-analytics.md) provides metrics for all storage services and Azure portal can be configured collect metrics to be visualized through charts. Alerts can be created to notify when thresholds have been reached for storage resource metrics.
 
@@ -68,7 +68,8 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 For more information, see the following articles:
 
 - [Use Azure Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md)
+- [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
+- [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/common/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitor a storage account in the Azure portal](../../storage/common/storage-monitor-storage-account.md)

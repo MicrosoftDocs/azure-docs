@@ -8,13 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 12/10/2019
 ms.author: wolfma
 ---
 
 # About the Speech SDK
 
-The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework’s Direct Line Speech channel**. A general overview about the capabilities and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
+The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework’s Direct Line Speech channel**.
+
+You can easily capture audio from a microphone, read from a stream, or access audio files from storage with the Speech SDK. The Speech SDK supports WAV/PCM 16-bit, 16 kHz/8 kHz, single-channel audio for speech recognition. Additional audio formats are supported using the [speech-to-text REST endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) or the [batch transcription service](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+
+A general overview about the capabilities and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -23,6 +27,9 @@ The Speech Software Development Kit (SDK) gives your applications access to the 
 ## Get the SDK
 
 ### Windows
+
+> [!WARNING]
+> The Speech SDK supports Windows 10 or later versions. Earlier Windows versions are **not supported**.
 
 For Windows, we support the following languages:
 
@@ -35,7 +42,7 @@ For Windows, we support the following languages:
 ### Linux
 
 > [!NOTE]
-> Currently, we support only Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on the following target architectures:
+> Currently, we only support Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on the following target architectures:
 > - x86, x64, and ARM64 for C++ development
 > - x64 and ARM64 for Java
 > - x64 for .NET Core and Python

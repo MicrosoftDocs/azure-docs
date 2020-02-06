@@ -56,7 +56,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **CosmosDb**. | Yes |
-| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
+| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/> You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If this property isn't specified, the default Azure Integration Runtime is used. |No |
 
 **Example**
@@ -67,10 +67,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
     "properties": {
         "type": "CosmosDb",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-            }
+            "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -88,10 +85,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
     "properties": {
         "type": "CosmosDb",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "AccountEndpoint=<EndpointUrl>;Database=<Database>"
-            },
+            "connectionString": "AccountEndpoint=<EndpointUrl>;Database=<Database>",
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -270,6 +264,18 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
+#### JSON Settings
+
+**Single document:** Select this option if ADF is to treat the entire file as a single JSON doc.
+
+**Unquoted column names:** Select this option if column names in the JSON as not quoted.
+
+**Has comments:** Use this selection if your JSON documents have comments in the data.
+
+**Single quoted:** This should be selected if the columns and values in your document are quoted with single quotes.
+
+**Backslash escaped:** If using backslashes to escape characters in your JSON, choose this option.
+
 ### Sink transformation
 
 Settings specific to Azure Cosmos DB are available in the **Settings** tab of the sink transformation.
@@ -311,4 +317,4 @@ When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, co
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

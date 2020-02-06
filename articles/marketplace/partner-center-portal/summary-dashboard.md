@@ -14,7 +14,7 @@ ms.date: 12/11/2019
 
 This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
-To access the Summary dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+To access the Summary dashboard, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
@@ -45,14 +45,14 @@ You can find a date range selection at the top-right corner of each page. Custom
 
 The Summary section displays a count of all orders created, customers acquired, and usage reported during the selected date range. Partial current month will be excluded from the computation of these metrics. For example: If you have selected the 6M time frame, the usage hours are computed for the six months prior to the current month. If a custom date range is selected, a partial amount from the current month will be excluded from the computation.
 
-![Growth trends in Summary dashboard](./media/summary-growth-trends.png)
+![Growth trends in Summary dashboard](./media/summary-summary-section.png)
 
 #### Reading the summary section
 
 - **Orders**: Count of all orders purchased (excludes canceled orders) for offers you've published so far.
 - **Customers**: Count of all customers who purchased your offers and have at least one non canceled order.
 - **Normalized usage hours**: Defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as “SHAREDCORE” use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
-- **Raw usage hours**: The amount of time VMs have been running in terms of hours. The percentage value next to total orders, total customers, normalized usage hours, and raw usage hours represent the amount of usage growth for the selected date range ([last month usage – first month usage])/ first month usage). As described above, a partial amount of the current month will be excluded from this metric.
+- **Raw usage hours**: The amount of time VMs have been running in terms of hours. The percentage value next to **total orders**, **total customers**, **normalized usage hours**, **raw usage hours**, **page visits**, and **call to actions** represent the amount of usage growth for the selected date range ([last month usage – first month usage])/ first month usage). As described above, a partial amount of the current month will be excluded from this metric.
 - **Growth trends**: If you hover over the columns of the chart, bar graphs display the value for each month.
 - **Green triangle pointing upward**: Indicates a positive growth trend.
 - **Red triangle pointing downward**: Indicates a negative growth trend relative to the previous month.
@@ -60,6 +60,8 @@ The Summary section displays a count of all orders created, customers acquired, 
 ### Customers by geography
 
 The **Customers by geography** heatmap displays a customer count on a world map.
+
+![Customers by geography in Summary dashboard](./media/summary-customers-by-geography.png)
 
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
@@ -69,7 +71,11 @@ The **Customers by geography** heatmap displays a customer count on a world map.
 
 ### Growth trend charts
 
-You can view trends based on the growth of your **orders purchased** (includes canceled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, or **customer** pages.
+You can view trends based on the growth of your **orders purchased** (includes canceled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, **customer**, or **Marketplace Insights** pages.
+
+The Marketplace offer **Page visits and call to action** trend charts are displayed for Azure marketplace and AppSource on two tabs.
+
+![Page visits and call to actions trend charts in Summary dashboard](./media/summary-page-visits-and-cta.png)
 
 The **orders by offers** chart organizes your orders according to the Offer name.
 

@@ -2,19 +2,14 @@
 title: Detach a data disk from a Windows VM - Azure
 description: Detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-service-management
-
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
+
 
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
 
@@ -37,22 +32,29 @@ You can *hot* remove a data disk using PowerShell, but make sure nothing is acti
 In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet, to complete the process of removing the data disk.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVM"
+Remove-AzVMDataDisk `
+   -VM $VirtualMachine `
+   -Name "myDisk"
+Update-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -VM $VirtualMachine
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.
 
 ## Detach a data disk using the portal
 
+You can *hot* remove a data disk, but make sure nothing is actively using the disk before detaching it from the VM.
+
 1. In the left menu, select **Virtual Machines**.
-2. Select the virtual machine that has the data disk you want to detach and click **Stop** to de-allocate the VM.
-3. In the virtual machine pane, select **Disks**.
-4. At the top of the **Disks** pane, select **Edit**.
-5. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
-5. After the disk has been removed, click **Save** on the top of the pane.
-6. In the virtual machine pane, click **Overview** and then click the **Start** button at the top of the pane to restart the VM.
+1. Select the virtual machine that has the data disk you want to detach.
+1. Under **Settings**, select **Disks**.
+1. At the top of the **Disks** pane, select **Edit**.
+1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select **Detach**.
+1. Select **Save** on the top of the page to save your changes.
 
 The disk stays in storage but is no longer attached to a virtual machine.
 

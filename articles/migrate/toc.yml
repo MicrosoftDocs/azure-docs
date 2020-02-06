@@ -6,6 +6,14 @@
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
+  - name: Common questions
+    items:
+    - name: Questions about Azure Migrate
+      href: resources-faq.md
+    - name: Questions about Azure Migrate appliance
+      href: common-questions-appliance.md
+    - name: Questions about discovery, assessment/dependency visualization
+      href: common-questions-discovery-assessment.md
 - name: Tutorials
   items:
   - name: Assess and migrate VMware VMs
@@ -44,26 +52,31 @@
       href: tutorial-assess-import.md
 - name: Concepts
   items:
-  - name: Common questions
-    href: resources-faq.md
   - name: Support matrices
     items:
-    - name: Support matrix for Azure Migrate
+    - name: General support 
       href: migrate-support-matrix.md
-    - name: Support matrix for VMware assessment and migration
+    - name: VMware assessment support
       href: migrate-support-matrix-vmware.md
-    - name: Support matrix for Hyper-V assessment and migration
+    - name: VMware migration support
+      href: migrate-support-matrix-vmware-migration.md
+    - name: Hyper-V assessment support
       href: migrate-support-matrix-hyper-v.md
-    - name: Support matrix for physical server assessment and migration
+    - name: Hyper-V migration support
+      href: migrate-support-matrix-hyper-v-migration.md
+    - name: Physical server assessment support
       href: migrate-support-matrix-physical.md
+    - name: Physical server migration support
+      href: migrate-support-matrix-physical-migration.md
+    - name: Azure Migrate appliance requirements
+      href: migrate-appliance.md
+    - name: Replication appliance requirements
+      href: migrate-replication-appliance.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
   - name: Agent-based migration architecture
     href: agent-based-migration-architecture.md
-  - name: Azure Migrate appliance
-    href: migrate-appliance.md
-  - name: Azure Migrate replication appliance
-    href: migrate-replication-appliance.md
+ 
   - name: Best practices for assessments
     href: best-practices-assessment.md
   - name: Assessments overview
@@ -74,6 +87,8 @@
   items:
   - name: Work with previous version
     href: migrate-v1.md
+  - name: Create and manage Azure Migrate projects
+    href: create-manage-projects.md
   - name: Deploy a VMware appliance
     href: how-to-set-up-appliance-vmware.md
   - name: Deploy a Hyper-V appliance
@@ -104,20 +119,28 @@
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project
     href: how-to-delete-project.md
-- name: Scale assessment and migration
-  items:
-  - name: Assess large numbers of VMware VMs
-    href: scale-vmware-assessment.md
-  - name: Assess large numbers of Hyper-V VMs
-    href: scale-hyper-v-assessment.md
-  - name: Automate migration of large number of VMs
-    href: how-to-migrate-at-scale.md
-  - name: Migration examples (Contoso series)
-    href: contoso-migration-overview.md
+  - name: Scale assessment and migration
+    items:
+    - name: Assess large numbers of VMware VMs
+      href: scale-vmware-assessment.md
+    - name: Assess large numbers of Hyper-V VMs
+      href: scale-hyper-v-assessment.md
+    - name: Assess large numbers of physical servers
+      href: scale-physical-assessment.md
+    - name: Automate migration of large number of VMs
+      href: how-to-migrate-at-scale.md
+    - name: Migration examples (Contoso series)
+      href: contoso-migration-overview.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot Azure Migrate
-    href: troubleshooting-general.md
+    href: troubleshoot-general.md
+  - name: Troubleshoot Azure Migrate projects
+    href: troubleshoot-project.md
+  - name: Troubleshoot Azure Migrate appliance/discovery
+    href: troubleshoot-appliance-discovery.md
+  - name: Troubleshoot assessment/dependency visualization
+    href: troubleshoot-assessment.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
+  - name: 10 - Manage VMs
     href: tutorial-govern-resources.md
   - name: 11 - Track and update VMs
     href: tutorial-config-management.md
@@ -41,10 +41,14 @@
     href: tutorial-monitor.md
   - name: 13 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 14 - Deploy Jenkins
+  - name: 14a - Build with Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 15 - CI/CD with Azure Pipelines
+  - name: 14b - Integrate Jenkins with Azure DevOps
     href: tutorial-build-deploy-jenkins.md
+  - name: 15a - DevOps for IaaS and PaaS on Azure
+    href: tutorial-devops-azure-pipelines-classic.md
+  - name: 15b - CI/CD with Azure Pipelines(YAML)
+    href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
   - name: 16b - Create LEMP stack
@@ -62,7 +66,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -146,6 +150,8 @@
       href: disks-types.md
     - name: Encryption
       href: disk-encryption.md
+    - name: Disk Storage reservations
+      href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Designing for high performance
       href: premium-storage-performance.md
     - name: Disk bursting
@@ -417,6 +423,8 @@
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: High availability
       href: manage-availability.md
+    - name: Change availability set
+      href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Create a proximity placement group
       items: 
       - name: CLI
@@ -551,6 +559,8 @@
       href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
     - name: Create an incremental snapshot
       href: disks-incremental-snapshots.md
     - name: Back up unmanaged disks

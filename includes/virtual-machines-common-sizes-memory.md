@@ -220,7 +220,7 @@ DSv2-series sizes run on the Intel® Xeon® 8171M 2.1 GHz (Skylake) or the Intel
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80000 / 640 (720) |64000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](../articles/virtual-machines/windows/premium-storage-performance.md).  
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.  
+<sup>2</sup> Instance is isolated to the Intel Haswell based hardware and dedicated to a single customer.  
 <sup>3</sup> Constrained core sizes available.  
 <sup>4</sup> 25000 Mbps with Accelerated Networking. 
 

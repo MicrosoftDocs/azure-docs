@@ -5,11 +5,10 @@ description: Prerequisites and instructions for getting started with an Android 
 services: cognitive-services
 author: erhopf
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 

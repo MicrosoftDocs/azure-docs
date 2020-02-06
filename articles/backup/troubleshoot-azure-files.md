@@ -2,7 +2,7 @@
 title: Troubleshoot Azure File Shares Backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 ms.date: 08/20/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot problems backing up Azure File Shares
@@ -64,5 +64,5 @@ The following table is for configuring the backup:
 
 For more information about backing up Azure file shares, see:
 
-- [Back up Azure file shares](backup-azure-files.md)
+- [Back up Azure file shares](backup-afs.md)
 - [Back up Azure file share FAQ](backup-azure-files-faq.md)

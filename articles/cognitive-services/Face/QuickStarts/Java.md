@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
 - Any Java IDE of your choice.
 
 ## Create the Java project
@@ -245,7 +245,7 @@ Compile the code and run it. A successful response will display Face data in eas
 
 ## Next steps
 
-In this quickstart, you created a simple Java console application that uses REST calls with the Azure Face API to detect faces in an image and return their attributes. Next, learn how to do more with this functionality in an Android application.
+In this quickstart, you created a simple Java console application that uses REST calls to the Azure Face API to detect faces in an image and return their attributes. Next, learn how to do more with this functionality in an Android application.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create an Android app to detect and frame faces](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

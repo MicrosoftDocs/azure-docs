@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with productboard, complete the following bui
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure productboard SSO](#configure-productboard-sso)** - to configure the single sign-on settings on application side.
-    * **[Create productboard test user](#create-productboard-test-user)** - to have a counterpart of B.Simon in EZOfficeInventory that is linked to the Azure AD representation of user.
+    * **[Create productboard test user](#create-productboard-test-user)** - to have a counterpart of B.Simon in productboard that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO

@@ -1,5 +1,6 @@
 ---
-title: Understanding a world without passwords with Azure Active Directory | Microsoft Docs
+title: Passwordless authentication with Azure AD
+titleSuffix: Active Directory
 description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing a passwordless authentication method for their Azure Active Directory implementation.
 keywords: passwordless, azuread
 author: martincoetzer
@@ -305,7 +306,7 @@ Passwordless authentication is the wave of the future and the path to a more sec
 
 * Deploy Microsoft Authenticator App for mobility.
 
-* Deploy Windows Hello for Business (1903: stay current).
+* Deploy Windows Hello for Business (1909: stay current).
 
 * Deploy FIDO2 devices for users who can't use phones.
 

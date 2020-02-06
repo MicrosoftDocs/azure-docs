@@ -21,6 +21,8 @@ Today, Azure Backup provides a built-in policy (using Azure Policy) that can be 
 
 * Management Group scope is currently unsupported.
 
+* The built-in policy is currently not available in national clouds.
+
 ## Using the built-in policy
 
 To assign the policy to the required scope, please follow the below steps:

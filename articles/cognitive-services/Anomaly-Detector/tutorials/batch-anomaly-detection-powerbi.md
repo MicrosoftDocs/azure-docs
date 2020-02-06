@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Visualize anomalies using batch detection and Power BI"
 titleSuffix: Azure Cognitive Services
-description: This tutorial shows how to use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
+description: Learn how to use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
 ---
 

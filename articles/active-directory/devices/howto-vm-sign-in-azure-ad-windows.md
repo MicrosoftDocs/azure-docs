@@ -46,6 +46,9 @@ The following Windows distributions are currently supported during the preview o
 - Windows Server 2019 Datacenter
 - Windows 10 1809 and later
 
+> [!IMPORTANT]
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
+
 The following Azure regions are currently supported during the preview of this feature:
 
 - All Azure global regions
@@ -57,10 +60,10 @@ The following Azure regions are currently supported during the preview of this f
 
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- https:\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- https:\//device.login.microsoftonline.com
+- https:\//pas.windows.net
 
 ## Enabling Azure AD login in for Windows VM in Azure
 
@@ -201,7 +204,7 @@ require multi-factor authentication as a grant access control.
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login.
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login. At this time, Azure Bastion cannot be used to login using Azure Active Directory authentication with the AADLoginForWindows extension. Only direct RDP is supported.
 
 To login in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -234,24 +237,24 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
    | Command to run | Expected output |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Correct information about the Azure VM |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Valid Tenant ID associated with the Azure Subscription |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > The access token can be decoded using a tool like [http://calebb.net/](http://calebb.net/). Verify the "appid" in the access token matches the managed identity assigned to the VM.
 
 1. Ensure the required endpoints are accessible from the VM using the command line:
    
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>`/ -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
 
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
@@ -278,15 +281,15 @@ This Exit code translates to DSREG_AUTOJOIN_DISC_FAILED because the extension is
 
 1. Verify the required endpoints are accessible from the VM using the command line:
 
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>`/ -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
    
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select Azure Active Directory > Properties > Directory ID in the Azure portal.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    
