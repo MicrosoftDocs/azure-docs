@@ -37,7 +37,7 @@ This import method is only available for [supported HSMs](#supported-hsms).
 * Transfer KEK public key to your offline workstation connected to your on-premise HSM.
 * From your offline workstation, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
 * The target key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it is transferred to the Azure Key Vault HSMs. Only the encrypted version of your key leaves the on-premise HSM.
-* * The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. 
+* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the Key Vault HSMs. 
 * The KEK must be in the same key vault where the target key is to be imported.
 
 ## Prerequisites
