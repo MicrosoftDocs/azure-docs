@@ -43,7 +43,7 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
 | Dav4, Dasv4 | None - not yet available |
-| Ev3, Esv3 | All sizes |
+| Ev3, Esv3 | All sizes, except for E64is_v3 and E64i_v3 |
 | Eav4, Easv4 | None - not yet available |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
@@ -54,7 +54,7 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | HC<sup>1</sup> | All sizes |
 | Ls | All sizes |
 | Lsv2 | None - not yet available |
-| M<sup>1</sup> | All sizes |
+| M<sup>1</sup> | All sizes, except for M64, M64m, M128, M128m |
 | Mv2 | None - not yet available |
 | NC | All sizes |
 | NCv2<sup>1</sup> | All sizes |
