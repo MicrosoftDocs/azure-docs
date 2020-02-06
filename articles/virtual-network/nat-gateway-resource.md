@@ -19,7 +19,7 @@ ms.author: allensu
 
 # Designing virtual networks with NAT gateway resources
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation for a subnet.  NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses come from individual public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
+NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses come from individual public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
 ## How to deploy NAT
 
@@ -39,7 +39,7 @@ User-defined routes aren't necessary.
 
 The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  This template-like format is shown here to illustrate the concepts and structure.  Modify the example for your needs.  This document isn't intended as a tutorial.
 
-NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound SNAT](../load-balancer/load-balancer-outbound-connections.md).
+NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md).
 
 The following example would create a NAT gateway resource called _myNATGateway_ is created in region _East US 2, AZ 1_ with a _4-minutes_ idle timeout. The outbound IP addresses provided are:
 - A set of public IP address resources _myIP1_ and _myIP2_ and 
@@ -160,13 +160,13 @@ SNAT provided by NAT is very different from [Load Balancer](../load-balancer/loa
 
 ### On-demand
 
-NAT allocates SNAT ports on-demand at the time the flow is created.  And all available SNAT ports in inventory can be used by any virtual machine on subnets configured with NAT.  Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.
+NAT provides SNAT ports for new outbound to Internet flows on-demand at the time the flow is created.  All available SNAT ports in inventory can be used by any virtual machine on subnets configured with NAT.  Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.
 
 Once a SNAT port is released, it becomes available for use for any virtual machine on subnets configured with NAT as needed.  This allows dynamic and divergent workloads on subnet(s) to use SNAT ports as they need.  As long as there is SNAT port inventory available, SNAT flows will succeed. Any intermittent SNAT port hot spots in your deployment can benefit from the larger inventory instead of leaving SNAT ports unused for virtual machines not actively needing them.
 
 ### Scaling
 
-NAT needs sufficient SNAT port inventory for the scenario. Scaling NAT is primarily a function of managing the shared, available SNAT ports.  Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.
+NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory.  Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.
 
 SNAT can map multiple private addresses map to one public IP address.  Additionally you can have multiple public addresses for scaling PAT. 
 
