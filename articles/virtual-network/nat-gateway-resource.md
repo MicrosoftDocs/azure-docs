@@ -37,7 +37,7 @@ User-defined routes aren't necessary.
 
 ## Resource
 
-The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  It is shown here to illustrate the concepts and structure.  You need to modify this to your needs.  This document is not intended as a tutorial.
+The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  It is shown here to illustrate the concepts and structure.  You need to modify the example for your needs.  This document is not intended as a tutorial.
 
 The following example would create a NAT gateway resource called _myNATGateway_ is created in region _East US 2, AZ 1_ with a _4-minutes_ idle timeout. The outbound IP addresses provided are:
 - A set of public IP address resources _myIP1_ and _myIP2_ and 
@@ -113,13 +113,13 @@ All flows created by virtual machines on subnet _mySubnet1_ of virtual network _
 
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures.
 
-When availability zones are part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations and data plane is constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
+When availability zones are part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
 
 When you create a zone-isolated NAT gateway, you must also use zonal IP addresses that match the zone of the NAT gateway resource.  NAT gateway resources don't allow IP addresses from a different zone or without zone to be attached.
 
 Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource.  If you cross zones, a zonal promise can't exist.
 
-If you deploy virtual machine scale sets, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT will not provide a zonal promise.  NAT doesn't support zone-redundancy.
+When you deploy virtual machine scale sets to use with NAT, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT will not provide a zonal promise.  NAT doesn't support zone-redundancy.
 
 The zone property isn't mutable.  Redeploy NAT gateway resource with the desired zone preference.
 
