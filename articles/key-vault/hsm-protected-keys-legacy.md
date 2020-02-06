@@ -12,7 +12,7 @@ ms.date: 02/12/2019
 ms.author: mbaldwin
 
 ---
-# How to generate and transfer HSM-protected keys for Azure Key Vault
+# Import HSM-protected keys for Azure Key Vault (legacy)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
