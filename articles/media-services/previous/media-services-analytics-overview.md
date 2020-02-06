@@ -22,7 +22,7 @@ ms.reviewer: milanga; johndeu
 ## Retirement plans
 
 > [!IMPORTANT]
-> Some media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. > Also, see [Migrate to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> Some media processors are being retired. For the retirement dates and more information, see the [legacy components](legacy-components.md) topic. 
 
 ## Overview
 
