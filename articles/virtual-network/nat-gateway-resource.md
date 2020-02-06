@@ -75,6 +75,9 @@ The total number of IP addresses provided by all four IP address resources can't
 
 Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual networks.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
 
+Scenarios which don't use Availability Zones can use regional (no zone specified).  If you are using Availability Zones, you can specify a zone force NAT to be isolated to a specific zone. 
+
+
 ```json
 {
    "name": "myVNet",
@@ -103,6 +106,20 @@ Once this NAT gateway resource has been created, it can be used on one or more s
 ```
 
 All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now begin using the IP addresses associated with _myNatGateway_ as the source.
+
+## Availability Zones
+
+When Availability Zones is part of your scenario, you can specify a zone to force NAT to be isolated to a specific zone.  The control plane operations as well as the data plane is constrained to the specified zone.  The zone property is not mutable.  Redeploy NAT gateway resource with the desired zone preference.
+
+When you create a zone-isolated NAT gateway, you must also use zonal IP addresses which match the zone of the NAT gateway resource.
+
+Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource.  If you cross zones, there is no zonal promise.  
+
+If you deploy virtual machine scale sets, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT will not provide a zonal promise.  NAT doesn't support zone-redundancy.
+
+>!NOTE
+>IP addresses by themselves are not zone-redundant if no zone is specified.  The frontend of a Standard Load Balancer is zone-redundant if an IP address is not created in a specific zone.  This does not apply to NAT.
+
 
 ## Limitations
 
