@@ -15,7 +15,7 @@ ms.service: azure-remote-rendering
 
 Selected objects can be highlighted visually by adding outline rendering via the [Hierarchical state override component](../../overview/features/override-hierarchical-state.md). This chapter explains how global parameters for outline rendering are changed through the client API.
 
-Outline properties are global settings that affect every object with outline rendering likewise. It is not possible to use a per-object outline color.
+Outline properties are a global setting. All objects that use outline rendering will use the same setting - it is not possible to use a per-object outline color.
 
 ## Parameters for `OutlineSettings`
 
@@ -52,7 +52,7 @@ public void ExampleOutlineParameters(AzureSession session)
 
 ## Performance
 
-Outline rendering has a significant impact on rendering performance. This impact scales with the number of outline objects and also depends on the scene's depth complexity: Since the object's outline should be visible for occluded objects, the renderer needs to render those objects regardless of whether occluded or not. Bypassing the occlusion test makes the rendering less efficient.
+Outline rendering has a significant impact on rendering performance. This impact scales with the number of outline objects and also depends on the scene's depth complexity: Since the object's outline should be visible for occluded objects, the renderer needs to render those objects regardless of whether they are occluded or not. Bypassing the occlusion test makes rendering less efficient.
 
 ## Next steps
 

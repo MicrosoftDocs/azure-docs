@@ -29,7 +29,7 @@ Furthermore, in this mode each part can be switched to a transparent material or
 
 ### 'DepthBasedComposition' mode
 
-In **DepthBasedComposition** mode, every involved GPU renders at full screen resolution but only a subset of meshes. Final image composition on the main GPU takes care that parts are properly merged according to their depth information. Naturally, memory payload is distributed across the GPUs, thus allowing for rendering models that would not fit into a single GPU's memory.
+In **DepthBasedComposition** mode, every involved GPU renders at full screen resolution but only a subset of meshes. The final image composition on the main GPU takes care that parts are properly merged according to their depth information. Naturally, memory payload is distributed across the GPUs, thus allowing for rendering models that would not fit into a single GPU's memory.
 
 Every single GPU uses MSAA to antialias local content. However, there might be inherent aliasing between edges from distinct GPUs. This effect is mitigated by postprocessing the final image, but MSAA quality is still worse than in **TileBasedComposition** mode.
 
@@ -38,14 +38,14 @@ MSAA artifacts are illustrated in the following image:
 
 Antialiasing works properly between the sculpture and the curtain, because both parts are rendered on the same GPU. On the other hand, the edge between curtain and wall shows some aliasing because these two parts are composed from distinct GPUs.
 
-The biggest limitation of this mode is, that geometry parts cannot be switched to transparent materials dynamically nor does the **see-through** mode work for [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Other state override features (outline, color tint, ...) do work, though. Also materials that were marked at transparent at conversion time do work properly in this mode.
+The biggest limitation of this mode is, that geometry parts cannot be switched to transparent materials dynamically nor does the **see-through** mode work for the [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Other state override features (outline, color tint, ...) do work, though. Also materials that were marked as transparent at conversion time do work properly in this mode.
 
 ### Performance
 The performance characteristics for both modes do vary based on the use case, and it is hard to reason or provide general recommendations. If you are not constrained by the limitations mentioned above (memory or transparency/see-through), it is recommended to try out both modes and monitor the performance using various camera positions.
 
 ## Setting the render mode
 
-The render mode used on a Remote Rendering VM is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`. A single VM can have multiple rendering modes during different connections.
+The render mode used on a Remote Rendering VM is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`.
 
 ```cs
 async void ExampleConnect(AzureSession session)
