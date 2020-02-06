@@ -8,9 +8,7 @@ ms.author: dpwatrous
 
 # Theming the CycleCloud User Interface
 
-CycleCloud may be customized to better match your organization's
-look and feel, using themes. In order to create a theme, some knowledge of [Cascading Style Sheets (CSS)](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works)
-is required.
+CycleCloud's theme may be customized to better match your organization's look and feel. In order to create a theme, some knowledge of [Cascading Style Sheets (CSS)](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works) is required.
 
 ## Creating a Theme
 
@@ -58,6 +56,7 @@ To disable a theme:
 ```
 
 ## Modifying the Brand
+
 To change the brand (Azure CycleCloud) that appears in the header, log in to
 the user interface as a super user and navigate to the **Settings** page. Open
 the **Theme** settings and modify the brand text. Note that you must refresh your
