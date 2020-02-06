@@ -50,7 +50,7 @@ A private link resource is the destination target of a given private endpoint. T
 |---------|---------|---------|
 |**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts	| Sql, MongoDB, Cassandra, Gremlin, Table|
