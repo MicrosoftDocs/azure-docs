@@ -162,7 +162,7 @@ SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-bal
 
 NAT provides SNAT ports for new outbound to Internet flows on-demand at the time the flow is created.  All available SNAT ports in inventory can be used by any virtual machine on subnets configured with NAT.  Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.
 
-Once a SNAT port is released, it becomes available for use for any virtual machine on subnets configured with NAT as needed.  This allows dynamic and divergent workloads on subnet(s) to use SNAT ports as they need.  As long as there is SNAT port inventory available, SNAT flows will succeed. Any intermittent SNAT port hot spots in your deployment can benefit from the larger inventory instead of leaving SNAT ports unused for virtual machines not actively needing them.
+Once a SNAT port is released, it becomes available for use for any virtual machine on subnets configured with NAT as needed.  On-demand allocation allows dynamic and divergent workloads on subnet(s) to use SNAT ports as they need.  As long as there's SNAT port inventory available, SNAT flows will succeed. Any intermittent SNAT port hot spots in your deployment can benefit from the larger inventory instead of leaving SNAT ports unused for virtual machines not actively needing them.
 
 ### Scaling
 
