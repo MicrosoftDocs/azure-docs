@@ -15,7 +15,7 @@ ms.date: 01/13/2020
 
 Azure Database for MySQL data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
-For Azure Database for MySQL, you set data encryption at the server-level. With this form of data encryption, you use the key in the encryption of the data encryption key (DEK). The DEK is a customer-managed, asymmetric key, stored in a customer-owned and customer-managed [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md). DEK is described in more detail later in this article.
+For Azure Database for MySQL, you set data encryption at the server-level. With this form of data encryption, you use the key in the encryption of the data encryption key (DEK). The DEK is a customer-managed, asymmetric key, stored in a customer-owned and customer-managed [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instance. DEK is described in more detail later in this article.
 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../key-vault/key-Vault-hsm-protected-keys.md).
 
@@ -38,7 +38,7 @@ Data encryption for Azure Database for MySQL provides the following benefits:
 
 **Key encryption key (KEK)**: An encryption key used to encrypt the DEKs. A KEK that never leaves Key Vault allows the DEKs themselves to be encrypted and controlled. The entity that has access to the KEK might be different than the entity that requires the DEK. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEKs can be effectively deleted by deletion of the KEK.
 
-The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [security in encryption at rest](../security/fundamentals/encryption-atrest.md).
+The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at rest](../security/fundamentals/encryption-atrest.md).
 
 ## How data encryption with a customer-managed key works
 
