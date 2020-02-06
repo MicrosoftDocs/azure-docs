@@ -86,7 +86,7 @@ In line with the Virtual Data Center (VDC) approach, the customer-managed hub vi
 - Shared services (any common function required by multiple spokes). Example: Contoso uses Windows Server domain controllers on Infrastructure-as-a-service (IaaS) virtual machines.
 - IP/Routing firewall services are provided by a third-party network virtual appliance, enabling spoke-to-spoke layer-3 IP routing.
 - Internet ingress/egress services including Azure Application Gateway for inbound HTTPS requests and third-party proxy services running on virtual machines for filtered outbound access to internet resources.
-- ExpressRoute and VPN Virtual Network Gateway for connectivity to on-premises networks.
+- ExpressRoute and VPN virtual network gateway for connectivity to on-premises networks.
 
 ### Step 2: Deploy Virtual WAN hubs
 
