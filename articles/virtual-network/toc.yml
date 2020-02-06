@@ -95,7 +95,7 @@
     href: https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides
   items:
- - name: Configure
+  - name: Configure
     items:
     - name: Name resolution for VMs and cloud services
       href: virtual-networks-name-resolution-for-vms-and-role-instances.md
