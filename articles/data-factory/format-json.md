@@ -182,7 +182,7 @@ Copy activity can automatically detect and parse the following patterns of JSON 
 
 JSON file types can be used as both a sink and a source in mapping data flow.
 
-### Creating JSON structures in a derived colum
+### Creating JSON structures in a derived column
 
 You can add a complex column to your data flow via the derived column expression builder. In the derived column transformation, add a new column and open the expression builder by clicking on the blue box. To make a column complex, you can enter the JSON structure manually or use the UX to add subcolumns interactively.
 
