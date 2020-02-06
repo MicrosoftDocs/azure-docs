@@ -156,10 +156,10 @@ And the corresponding JSON:
         "action": "Allow",
         "matchConditions": [
           {
-            "matchVariable": "RequestHeaders",
-            "operator": "User-Agent",
+            "matchVariable": "RemoteAddr",
+            "operator": "GeoMatch",
             "matchValues": [
-              "evilbot"
+              "US"
             ]
           }
         ]

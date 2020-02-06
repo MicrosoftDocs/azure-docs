@@ -31,9 +31,9 @@ The following service APIs aren't currently available in Azure Maps:
 
 - Elevation
 - Geolocation
-- Places details and photos. Phone numbers and website URL available in the Azure Maps search API.
+- Place Details and Place Photos. Phone numbers and website URL are available in the Azure Maps search API.
 - Map URLs
-- Roads – Speed limit data is available through the route and reverse geocoding APIs in Azure Maps.
+- Roads. Speed limit data is available through the route and reverse geocoding APIs in Azure Maps.
 - Static street view
 
 Azure Maps has several additional REST web services that may be of interest:
@@ -64,19 +64,18 @@ The following table cross-references the Google Maps API parameters with the com
 | `language`                  | `language` – See [supported languages](supported-languages.md) documentation.  |
 | `region`                    | `countrySet`                       |
 
-An example of how to use the search service is documented [here](how-to-search-for-address.md). Be sure to review the [best practices for search](how-to-use-best-practices-for-search.md)
-documentation.
+An example of how to use the search service is documented [here](how-to-search-for-address.md). Be sure to review [best practices for search](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> The free-form address geocoding and fuzzy search APIs can be used in autocomplete mode by adding `&amp;typeahead=true` to the request URL. This will tell the server that the input text is likely partial and will go into predictive mode.
+> The free-form address geocoding and fuzzy search APIs can be used in autocomplete mode by adding `&amp;typeahead=true` to the request URL. This will tell the server that the input text is likely partial, and the search will go into predictive mode.
 
 ## Reverse geocode a coordinate
 
-Reverse geocoding is the process of converting geographic coordinates (like longitude: -122.1298, latitude: 47.64005) into its approximate address (like "1 Microsoft way, Redmond, WA").
+Reverse geocoding is the process of converting geographic coordinates into an approximate address. Coordinates with "longitude: -122.1298, latitude: 47.64005" convert to "1 Microsoft way, Redmond, WA".
 
 Azure Maps provides several reverse geocoding methods:
 
-- [**Address reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse): Specify a single geographic coordinate to get its approximate address and process the request immediately.
+- [**Address reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse): Specify a single geographic coordinate to get the approximate address corresponding to this coordinate. Processes the request near real time.
 - [**Cross street reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet): Specify a single geographic coordinate to get nearby cross street information and process the request immediately. For example, you may receive the following cross streets 1st Ave and Main St.
 - [**Batch address reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatchpreview): Create a request containing up to 10,000 coordinates and have them processed over a period of time. All data will be processed in parallel on the server. When the request completes, you can download the full set of results.
 
@@ -90,21 +89,21 @@ This table cross-references the Google Maps API parameters with the comparable A
 | `location_type`             | *N/A*     |
 | `result_type`               | `entityType`    |
 
-Review the [best practices for search](how-to-use-best-practices-for-search.md) documentation.
+Review [best practices for search](how-to-use-best-practices-for-search.md).
 
-The Azure Maps reverse geocoding API has additional features that aren't available in Google Maps. You might find it useful to integrate these additional features when migrating your app:
+The Azure Maps reverse geocoding API has some additional features, which aren't available in Google Maps. These features might be useful to integrate with your application, as you migrate your app:
 
-- Retrieve speed limit data.
-- Retrieve road use information: local road, arterial, limited access, ramp, and so on.
-- The side of street the coordinate falls on.
+- Retrieve speed limit data
+- Retrieve road use information: local road, arterial, limited access, ramp, and so on
+- Retrieve the side of street at which a coordinate is located
 
 ## Search for points of interest
 
-Point of interest data can be searched in Google Maps by using its Places Search API. This API provides three different ways to search for points of interest:
+Point of interest data can be searched in Google Maps using the Places Search API. This API provides three different ways to search for points of interest:
 
 - **Find place from text:** Searches for a point of interest based on its name, address, or phone number.
 - **Nearby Search**: Searches for points of interests that are within a certain distance of a location.
-- **Text Search:** Searches for places using a free-form text that includes point of interest and location information. For example, "pizza in New York" or "restaurants near main st".
+- **Text Search:** Searches for places using a free-form text, which includes point of interest and location information. For example, "pizza in New York" or "restaurants near main st".
 
 Azure Maps provides several search APIs for points of interest:
 
@@ -161,11 +160,11 @@ The table shows the Google Maps API parameters with the comparable Azure Maps AP
 
 ## Calculate routes and directions
 
-Azure Maps can be used to calculate routes and directions. Azure Maps has many of the same functionalities as the Google Maps routing service, such as:
+Calculate routes and directions using Azure Maps. Azure Maps has many of the same functionalities as the Google Maps routing service, such as:
 
-- arrival and departure times.
-- real-time and predictive based traffic routes.
-- different modes of transportation; driving, walking, bicycling.
+- Arrival and departure times.
+- Real-time and predictive based traffic routes.
+- Different modes of transportation. Such as, driving, walking, bicycling.
 
 > [!NOTE]
 > Azure Maps requires all waypoints to be coordinates. Addresses must be geocoded first.
@@ -190,7 +189,7 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *N/A* – This is a geocoding related feature. Use the *countrySet* parameter when using the Azure Maps geocoding API.  |
+| `region`                       | *N/A* – This feature is geocoding related. Use the *countrySet* parameter when using the Azure Maps geocoding API.  |
 | `traffic_model`               | *N/A* – Can only specify if traffic data should be used with the *traffic* parameter. |
 | `transit_mode`                | See [mobility services documentation](https://docs.microsoft.com/rest/api/maps/mobility) |
 | `transit_routing_preference` | See [mobility services documentation](https://docs.microsoft.com/rest/api/maps/mobility) |
@@ -208,16 +207,16 @@ Azure Maps routing API has additional features, that aren't available in Google 
 - Compute multiple travel times in a single request; historic traffic, live traffic, no traffic.
 - Avoid additional road types: carpool roads, unpaved roads, already used roads.
 - Specify custom areas to avoid.
-- Limit the elevation in that the route can ascend to.
-- Engine specification-based routing. Calculate routes for combustion or electric vehicles based on their remaining fuel/charge and engine specifications.
-- Commercial vehicle route parameter support; vehicle dimensions, weight, number of axels, and cargo type.
+- Limit the elevation, which the route may ascend.
+- Route based on engine specifications. Calculate routes for combustion or electric vehicles based on engine specifications, and the remaining fuel or charge.
+- Support commercial vehicle route parameters. Such as, vehicle dimensions, weight, number of axels, and cargo type.
 - Specify maximum vehicle speed.
 
 In addition to this, the route service in Azure Maps supports [calculating routable ranges](https://docs.microsoft.com/rest/api/maps/route/getrouterange). Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
 
 ## Retrieve a map image
 
-Azure Maps provides an API for rendering the static map images with data overlaid. The Azure Maps [Map image render](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile) API is comparable to the static map API in Google Maps.
+Azure Maps provides an API for rendering the static map images with data overlaid. The [Map image render](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile) API in Azure Maps is comparable to the static map API in Google Maps.
 
 > [!NOTE]
 > Azure Maps requires the center, all the marker, and the path locations to be coordinates in "longitude,latitude" format. Whereas, Google Maps uses the "latitude,longitude" format. Addresses will need to be geocoded first.
@@ -241,7 +240,7 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
-> In the Azure Maps tile system,tiles are twice the size of map tiles used in Google Maps. As such the zoom level value in Azure Maps will appear one zoom level closer in Azure Maps compared to Google Maps. To compensate for this difference, decrement the zoom level in the requests you are migrating.
+> In the Azure Maps tile system, tiles are twice the size of map tiles used in Google Maps. As such the zoom level value in Azure Maps will appear one zoom level closer in Azure Maps compared to Google Maps. To compensate for this difference, decrement the zoom level in the requests you are migrating.
 
 For more information, see the [How-to guide on the map image render API](how-to-render-custom-data.md).
 
@@ -297,11 +296,11 @@ Add markers to a static map image by specifying the `pins` parameter in the URL.
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
-Additional styles can be used by adding additional `pins` parameters to the URL with a different style and set of locations.
+To use additional styles, add additional `pins` parameters to the URL with a different style and set of locations.
 
-When it comes to pin locations, Azure Maps requires the coordinates to be in "longitude latitude" format whereas Google Maps uses "latitude,longitude" format. Also note that there is a space, not a comma separating longitude and latitude in Azure Maps.
+For the pin location, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format.
 
-The `iconType` value specifies the type of pin to create and can have the following values:
+The `iconType` specifies the type of pin to create. It can have the following values:
 
 - `default` – The default pin icon.
 - `none` – No icon is displayed, only labels will be rendered.
@@ -309,20 +308,20 @@ The `iconType` value specifies the type of pin to create and can have the follow
 - `{udid}` – A Unique Data ID (UDID) for an icon stored in the Azure
     Maps Data Storage platform.
 
-Pin styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (\|) characters like this `iconType|optionName1Value1|optionName2Value2`. Note the option names and values are not separated. The following style option names can be used to style markers in Azure Maps:
+Add pin styles in Azure Maps with the `optionNameValue` format. Separate multiple styles with the pipe (\|) characters. For example: `iconType|optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style markers in Azure Maps:
 
-- `al` – Specifies the opacity (alpha) of the marker. Can be a number between 0 and 1.
+- `al` – Specifies the opacity (alpha) of the marker. Choose a number between 0 and 1.
 - `an` – Specifies the pin anchor. X and y pixel values specified in the format "x y".
 - `co` – The color of the pin. Must be a 24-bit hex color: `000000` to `FFFFFF`.
 - `la` – Specifies the label anchor. X and y pixel values specified in the format "x y".
-- `lc` – The color of the label. Must be a 24-but hex color: `000000` to `FFFFFF`.
-- `ls` – The size of the label in pixels. Can be a number greater than 0.
-- `ro` – A value in degrees to rotate the icon. Can be a number between -360 and 360.
-- `sc` – A scale value for the pin icon. Can be a number greater than 0.
+- `lc` – The color of the label. Must be a 24-bit hex color: `000000` to `FFFFFF`.
+- `ls` – The size of the label in pixels. Choose a number greater than 0.
+- `ro` – A value in degrees to rotate the icon. Choose a number between -360 and 360.
+- `sc` – A scale value for the pin icon. Choose a number greater than 0.
 
-Label values are specified for each pin location rather than having a single label value that applies to all markers in the list of locations. The label value can be string of multiple characters and be wrapped with single quotes to ensure that it isn’t mistaken as a style or location value.
+Label values are specified for each pin location. This approach is more efficient than applying a single label value to all markers in the list of locations. The label value can be a string of multiple characters. Wrap the string with single quotes to ensure that it isn’t mistaken as a style or location value.
 
-For example, in Azure Maps, adding a red (`FF0000`) default icon with the label "Space Needle" positioned below (15 50) the icon at coordinates (longitude: -122.349300, latitude: 47.620180) can be done with the following URL parameter:
+For example, in Azure Maps, adding a red (`FF0000`) default icon, with the label "Space Needle", positioned below (15 50), with icon at coordinates (longitude: -122.349300, latitude: 47.620180) is done with the following URL parameter:
 
 ```
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
@@ -340,13 +339,13 @@ The following example adds three pins with the label values '1', '2', and '3':
 
 <center>
 
-![Azure Maps multiple marker](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
 
 ### Path URL parameter format comparison
 
 **Before: Google Maps**
 
-In Google Maps lines and polygons can be added to a static map image by using the `path` parameter in the URL. The `path` parameter takes in a style and a list of locations to be rendered on the map with that style as shown below:
+In Google Maps, lines and polygons can be added to a static map image using the `path` parameter in the URL. The `path` parameter takes in a style and a list of locations to be rendered on the map, as shown below:
 
 ```
 &path=pathStyles|pathLocation1|pathLocation2|...
@@ -356,14 +355,14 @@ Additional styles can be used by adding additional `path` parameters to the URL 
 
 Path locations in Google Maps are specified with the format `latitude1,longitude1|latitude2,longitude2|…`. Paths can be encoded or contain addresses for points.
 
-Path styles in Google Maps are added with the format `optionName:value`, with multiple styles separated by pipe (\|) characters like this `optionName1:value1|optionName2:value2`. Note the option names and values are separated with a colon (:). The following style option names can be used to style paths in Google Maps:
+Path styles in Google Maps are added with the format `optionName:value`, with multiple styles separated by pipe (\|) characters. Like this: `optionName1:value1|optionName2:value2`. Note the option names and values are separated with a colon (:). The following style option names can be used to style paths in Google Maps:
 
-- `color` – The color of the path or polygon outline. Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values; black, brown, green, purple, yellow, blue, gray, orange, red, white.
-- `fillColor` – The color to fill the path area with (polygon). Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values; black, brown, green, purple, yellow, blue, gray, orange, red, white.
+- `color` – The color of the path or polygon outline. Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values: black, brown, green, purple, yellow, blue, gray, orange, red, white.
+- `fillColor` – The color to fill the path area with (polygon). Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values: black, brown, green, purple, yellow, blue, gray, orange, red, white.
 - `geodesic` – Indicates if the path should be a line that follows the curvature of the earth.
 - `weight` – The thickness of the path line in pixels.
 
-For example, in Google Maps, a red line with 50% opacity and a thickness of 4 pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
+In Google Maps, a red line opacity and pixel thickness can be added to the map between the coordinates, in the URL parameter. For the example below, the line has a 50% opacity and a thickness of four pixels. The coordinates are longitude: -110, latitude: 45 and longitude: -100, latitude: 50.
 
 ```
 &path=color:0xFF000088|weight:4|45,-110|50,-100
@@ -375,24 +374,24 @@ For example, in Google Maps, a red line with 50% opacity and a thickness of 4 pi
 
 **After: Azure Maps**
 
-In Azure Maps lines and polygons can also be added to a static map image by specifying the `path` parameter in the URL. Like Google Maps, a style and a list of locations can be specified in this parameter, and the `path` parameter can be specified multiple times to render multiple circles, lines and polygons with different styles.
+In Azure Maps, add lines and polygons to a static map image by specifying the `path` parameter in the URL. Like Google Maps, specify a style and a list of locations in this parameter. Specify the `path` parameter multiple times to render multiple circles, lines, and polygons with different styles.
 
 ```
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format whereas Google Maps uses "latitude,longitude" format. Also note that there is a space, not a comma separating longitude and latitude in Azure Maps. Azure Maps does not support encoded paths or addresses for points. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
-Path styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (\|) characters like this `optionName1Value1|optionName2Value2`. Note the option names and values are not separated. The following style option names can be used to style paths in Azure Maps:
+In Azure Maps, add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
 
-- `fa` - The fill color opacity (alpha) used when rendering polygons. Can be a number between 0 and 1.
+- `fa` - The fill color opacity (alpha) used when rendering polygons. Choose a number between 0 and 1.
 - `fc` - The fill color used to render the area of a polygon.
-- `la` – The line color opacity (alpha) used when rendering lines and the outline of polygons. Can be a number between 0 and 1.
+- `la` – The line color opacity (alpha) used when rendering lines and the outline of polygons. Choose a number between 0 and 1.
 - `lc` – The line color used to render lines and the outline of polygons.
 - `lw` – The width of the line in pixels.
 - `ra` – Specifies a circles radius in meters.
 
-For example, in Azure Maps, a red line with 50% opacity and a thickness of 4 pixels can be added to the map between coordinates (longitude: -110, latitude: 45 and longitude: -100, latitude: 50) with the following URL parameter:
+In Azure Maps, add a red line opacity and pixel thickness between the coordinates, in the URL parameter. For the example below, the line has 50% opacity and a thickness of four pixels. The coordinates have the following values: longitude: -110, latitude: 45 and longitude: -100, latitude: 50.
 
 ```
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
@@ -404,14 +403,14 @@ For example, in Azure Maps, a red line with 50% opacity and a thickness of 4 pix
 
 ## Calculate a distance matrix
 
-Azure Maps provides an API for calculating the travel times and distances between a set of locations as a distance matrix. The Azure Maps distance matrix API is comparable to the distance matrix API in Google Maps;
+Azure Maps provides the distance matrix API. Use this API to calculate the travel times and the distances between a set of locations, with a distance matrix. It's comparable to the distance matrix API in Google Maps.
 
-- [**Route matrix**](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): Asynchronously calculates travel times and distances for a set of origins and destinations. Up to 700 cells per request is supported (the number of origins multiplied by the number of destinations). With that constraint in mind, examples of possible matrix dimensions are: 700x1, 50x10, 10x10, 28x25, 10x70.
+- [**Route matrix**](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): Asynchronously calculates travel times and distances for a set of origins and destinations. Supports up to 700 cells per request (the number of origins multiplied by the number of destinations. With that constraint in mind, examples of possible matrix dimensions are: 700x1, 50x10, 10x10, 28x25, 10x70.
 
 > [!NOTE]
 > A request to the distance matrix API can only be made using a POST request with the origin and destination information in the body of the request. Additionally, Azure Maps requires all origins and destinations to be coordinates. Addresses will need to be geocoded first.
 
-The following table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
+The following table cross-references the Google Maps API parameters with the comparable Azure Maps API parameters.
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
@@ -423,20 +422,20 @@ The following table cross-references the Google Maps API parameters with the com
 | `language`                     | `language` – See [supported languages](supported-languages.md) documentation.  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins` – specify in the POST request body as GeoJSON.  |
-| `region`                       | *N/A* – This is a geocoding related feature. Use the `countrySet` parameter when using the Azure Maps geocoding API. |
+| `region`                       | *N/A* – This feature is geocoding related. Use the `countrySet` parameter when using the Azure Maps geocoding API. |
 | `traffic_model`                | *N/A* – Can only specify if traffic data should be used with the `traffic` parameter. |
-| `transit_mode`                 | *N/A* - Transit based distance matrices are not currently supported.  |
-| `transit_routing_preference`   | *N/A* - Transit based distance matrices are not currently supported.  |
+| `transit_mode`                 | *N/A* - Transit-based distance matrices aren't currently supported.  |
+| `transit_routing_preference`   | *N/A* - Transit-based distance matrices aren't currently supported.  |
 | `units`                        | *N/A* – Azure Maps only uses the metric system. |
 
 > [!TIP]
-> All the advanced routing options available in the Azure Maps routing API (truck routing, engine specifications, avoid…) is support in the Azure Maps distance matrix API.
+> All the advanced routing options available in the Azure Maps routing API are supported in the Azure Maps distance matrix API. Advanced routing options include: ruck routing, engine specifications, and so on.
 
 ## Get a time zone
 
-Azure Maps provides an API for retrieving the time zone a coordinate is in. The Azure Maps time zone API is comparable to the time zone API in Google Maps:
+Azure Maps provides an API for retrieving the time zone of a coordinate. The Azure Maps time zone API is comparable to the time zone API in Google Maps:
 
-- [**Time zone by coordinate**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebycoordinates): Specify a coordinate and get the details for the time zone it falls in.
+- [**Time zone by coordinate**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebycoordinates): Specify a coordinate and receive the time zone details of the coordinate.
 
 The following table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -447,7 +446,7 @@ The following table cross-references the Google Maps API parameters with the com
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-In addition to this the Azure Maps platform also provides a number of additional time zone APIs to help with conversions with time zone names and IDs:
+In addition to this API, the Azure Maps platform provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
 
 - [**Time zone by ID**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebyid): Returns current, historical, and future time zone information for the specified IANA time zone ID.
 - [**Time zone Enum IANA**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumiana): Returns a full list of IANA time zone IDs. Updates to the IANA service are reflected in the system within one day.
@@ -461,13 +460,13 @@ Azure Maps provides client libraries for the following programming languages:
 
 - JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
 
-Open source client libraries for other programming languages:
+Open-source client libraries for other programming languages:
 
 - .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
 ## Additional resources
 
-The following are some additional documentation and resources on the Azure Maps REST services.
+The following are some additional documentation and resources for the Azure Maps REST services.
 
 - [Best practices for search](how-to-use-best-practices-for-search.md)
 - [Search for an address](how-to-search-for-address.md)
