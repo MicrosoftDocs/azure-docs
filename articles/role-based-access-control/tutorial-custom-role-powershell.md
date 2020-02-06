@@ -1,5 +1,4 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure PowerShell
 title: "Tutorial: Use Azure PowerShell to create a custom role for Azure resources"
 description: Get started creating a custom role for Azure resources using Azure PowerShell in this tutorial.
 services: active-directory
