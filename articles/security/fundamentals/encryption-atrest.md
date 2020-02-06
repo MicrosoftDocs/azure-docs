@@ -263,7 +263,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
 | Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | Yes                | -                  |
+| Azure Stream Analytics           | Yes                | -                  | -                  |
 | Event Hubs                       | Yes                | Yes, all RSA Lengths. | -                  |
 | Functions                        | Yes                | Yes, all RSA Lengths. | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
