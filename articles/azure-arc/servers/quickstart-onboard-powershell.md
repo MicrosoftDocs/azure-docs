@@ -69,17 +69,17 @@ The values from the following properties are used with parameters passed to the 
 
 ## Install the agent and connect to Azure
 
-Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can install the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process. In this section to configure 
+Installing the Connected Machine agent can be performed by following the steps outlined in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. While you can install the Windows or Linux agent manually, using a service principal with the script template we provide allows you to automate the entire process.
 
-Parameters:
+The following are the settings that you configure to use the service principal with the `acmagent` command to connect the machine to Auzre Arc.
 
-* `tenant-id` : The Tenant GUID. You can find it in Azure portal by selecting **Azure Active directory** -> **properties** -> **Directory ID**.
-* `subscription-id` : The GUID of the subscription, in Azure, where you want to connect your machine.
-* `resource-group` : The resource group where you want your machine connected.
-* `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2**, **SouthEast Asia**, and **West Europe**.
+* `tenant-id` : The ID (GUID) that represents your dedicated instance of Azure AD.
+* `subscription-id` : The subscription ID (GUID) of your Azure subscription that you want the machines in.
+* `resource-group` : The resource group name where you want your connected machines to belong to.
+* `location` : See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.
 * `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
 
-You can learn more about the `azcmagent' command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
+You can learn more about the `azcmagent` command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
 
 ### Windows installion script
 
