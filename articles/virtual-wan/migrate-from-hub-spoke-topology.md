@@ -16,7 +16,7 @@ Azure Virtual WAN lets companies simplify their global connectivity in order to 
 
 For information about the benefits that Azure Virtual WAN enables for enterprises adopting a cloud-centric modern enterprise global network, see [Global transit network architecture and Virtual WAN](virtual-wan-global-transit-network-architecture.md).
 
-![hub and spoke](./media/migrate-from-hub-spoke-topology/figure1.png)
+![hub and spoke](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
 **Figure: Azure Virtual WAN**
 
 The Azure Virtual Datacenter (VDC) hub-and-spoke connectivity model has been adopted by thousands of our customers to leverage the default transitive routing behavior of Azure Networking in order to build simple and scalable cloud networks. Azure Virtual WAN builds on these concepts and introduces new capabilities that allow global connectivity topologies, not only between on-premises locations and Azure, but also allowing customers to leverage the scale of the Microsoft network to augment their existing global networks.
@@ -29,7 +29,7 @@ Contoso is a global financial organization with offices in both Europe and Asia.
 
 The following figure shows a high-level view of the existing global network including connectivity to multiple Azure regions.
 
-![Contoso existing network topology](./media/migrate-from-hub-spoke-topology/figure2.png)
+![Contoso existing network topology](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
 **Figure: Contoso existing network topology**
 
 The following points can be understood from the existing network topology:
@@ -43,7 +43,7 @@ The following points can be understood from the existing network topology:
 The networking team have been tasked with delivering a global network model that can support the Contoso migration to the cloud and must optimize in the areas of cost, scale, and performance. In summary, the following requirements are to be met:
 
 - Provide both head quarter (HQ) and branch offices with optimized path to cloud hosted applications.
-- Remove the reliance on existing on-premises data centers (DC) for VPN termination whilst retaining the following connectivity paths:
+- Remove the reliance on existing on-premises data centers (DC) for VPN termination while retaining the following connectivity paths:
   - **Branch -to- VNet**: VPN connected offices must be able to access applications migrated to the cloud in the local Azure region.
   - **Branch -to- Hub -to- Hub -to- VNet**: VPN connected offices must be able to access applications migrated to the cloud in the remote Azure region.
   - **Branch -to- branch**: Regional VPN connected offices must be able to communicate with each other and ExpressRoute connected HQ/DC sites.
@@ -51,13 +51,13 @@ The networking team have been tasked with delivering a global network model that
   - **Branch -to- Internet**: Connected sites must be able to communicate with the Internet. This traffic must be filtered and logged.
   - **VNet -to- VNet**: Spoke virtual networks in the same region must be able to communicate with each other.
   - **VNet -to- Hub -to- Hub -to- VNet**: Spoke virtual networks in the different regions must be able to communicate with each other.
-- Provide the ability for Contoso roaming users (laptop and phone) to access company resources whilst not on the corporate network.
+- Provide the ability for Contoso roaming users (laptop and phone) to access company resources while not on the corporate network.
 
 ## <a name="architecture"></a>Azure Virtual WAN architecture
 
 The following figure shows a high-level view of the updated target topology using Azure Virtual WAN to meet the requirements detailed in the previous section.
 
-![Contoso virtual WAN architecture](./media/migrate-from-hub-spoke-topology/figure3.png)
+![Contoso virtual WAN architecture](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
 **Figure: Azure Virtual WAN architecture**
 
 Summary:
@@ -78,8 +78,8 @@ This section shows the various steps for migrating to Azure Virtual WAN.
 
 Review the architecture. The following figure shows a single region topology for Contoso prior to the rollout of Azure Virtual WAN:
 
-![Deploy Virtual WAN hubs](./media/migrate-from-hub-spoke-topology/figure4.png)
-**Figure 1: VDC Hub-and-spoke single region – Step 1**
+![Single region topology](./media/migrate-from-hub-spoke-topology/figure1.png)
+**Figure 1: VDC Hub-and-spoke single region**
 
 In line with the Virtual Data Center (VDC) approach, the customer-managed hub virtual network contains several function blocks:
 
@@ -98,8 +98,8 @@ Deploy a Virtual WAN hub in each region. Set up the Virtual WAN hub with VPN Gat
 > [!NOTE]
 > Azure Virtual WAN must be using the Standard SKU to enable some of the traffic paths shown in this article.
 
-![Deploy Virtual WAN hubs](./media/migrate-from-hub-spoke-topology/figure5.png)
-**Figure 2: VDC hub-and-spoke to Virtual WAN migration – Step 2**
+![Deploy Virtual WAN hubs](./media/migrate-from-hub-spoke-topology/figure2.png)
+**Figure 2: VDC hub-and-spoke to Virtual WAN migration**
 
 ### Step 3: Connect remote sites (ExpressRoute and VPN) to Virtual WAN
 
@@ -108,8 +108,8 @@ Connect the Virtual WAN hub to the existing ExpressRoute circuits and set up Sit
 > [!NOTE]
 > Express Routes Circuits must be upgraded to Premium SKU type to connect to Virtual WAN hub.
 
-![Connect remote sites to Virtual WAN](./media/migrate-from-hub-spoke-topology/figure6.png)
-**Figure 3: VDC hub-and-spoke to Virtual WAN migration – Step 3**
+![Connect remote sites to Virtual WAN](./media/migrate-from-hub-spoke-topology/figure3.png)
+**Figure 3: VDC hub-and-spoke to Virtual WAN migration**
 
 At this point, on-premises network equipment will begin to receive routes reflecting the IP address space assigned to the Virtual WAN-managed hub VNet. Remote VPN-connected branches at this stage will see two paths to any existing applications in the spoke virtual networks. These devices should be configured to continue to use the tunnel to the VDC hub to ensure symmetrical routing during the transition phase.
 
@@ -117,13 +117,13 @@ At this point, on-premises network equipment will begin to receive routes reflec
 
 Prior to using the managed Virtual WAN hub for production connectivity, we recommend that you set up a test spoke virtual network and Virtual WAN VNet connection. Validate that connections to this test environment work via ExpressRoute and Site to Site VPN before continuing with the next steps.
 
-![Test hybrid connectivity via Virtual WAN](./media/migrate-from-hub-spoke-topology/figure7.png)
-**Figure 4: VDC Hub-and-spoke to Virtual WAN migration – Step 4**
+![Test hybrid connectivity via Virtual WAN](./media/migrate-from-hub-spoke-topology/figure4.png)
+**Figure 4: VDC Hub-and-spoke to Virtual WAN migration**
 
 ### Step 5: Transition connectivity to virtual WAN hub
 
-![Transition connectivity to Virtual WAN hub](./media/migrate-from-hub-spoke-topology/figure8.png)
-**Figure 5: VDC hub-and-spoke to Virtual WAN migration – Step 5**
+![Transition connectivity to Virtual WAN hub](./media/migrate-from-hub-spoke-topology/figure5.png)
+**Figure 5: VDC hub-and-spoke to Virtual WAN migration**
 
 **a**. Delete the existing peering connections from Spoke virtual networks to the old VDC Hub. Access to applications in spoke virtual networks is unavailable until steps a-c are complete.
 
@@ -139,8 +139,8 @@ Prior to using the managed Virtual WAN hub for production connectivity, we recom
 
 We have now redesigned our Azure network to make the Virtual WAN hub the central point in our new topology.
 
-![Old hub becomes Shared Services spoke](./media/migrate-from-hub-spoke-topology/figure9.png)
-**Figure 6: VDC hub-and-spoke to Virtual WAN migration – Step 6**
+![Old hub becomes Shared Services spoke](./media/migrate-from-hub-spoke-topology/figure6.png)
+**Figure 6: VDC hub-and-spoke to Virtual WAN migration**
 
 Because the Virtual WAN hub is a managed entity and does not allow deployment of custom resources such as virtual machines, the shared services block now exists as a spoke virtual network and hosts functions such as internet ingress via Azure Application Gateway or network virtualized appliance. Traffic between the shared services environment and backend virtual machines now transits the Virtual WAN-managed hub.
 
@@ -148,8 +148,8 @@ Because the Virtual WAN hub is a managed entity and does not allow deployment of
 
 At this stage, Contoso has mostly completed their migrations of business applications in into the Microsoft Cloud, with only a few legacy applications remaining within the on-premises DC.
 
-![Optimize on-premises connectivity to fully utilize Virtual WAN](./media/migrate-from-hub-spoke-topology/figure10.png)
-**Figure 7: VDC hub-and-spoke to Virtual WAN migration – Step 7**
+![Optimize on-premises connectivity to fully utilize Virtual WAN](./media/migrate-from-hub-spoke-topology/figure7.png)
+**Figure 7: VDC hub-and-spoke to Virtual WAN migration**
 
 To leverage the full functionality of Azure Virtual WAN, Contoso decides to decommission their legacy on-premises VPN connections. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure Virtual WAN.
 
@@ -158,7 +158,7 @@ To leverage the full functionality of Azure Virtual WAN, Contoso decides to deco
 
 ## End-state architecture and traffic paths
 
-![End-state architecture and traffic paths](./media/migrate-from-hub-spoke-topology/figure11.png)
+![End-state architecture and traffic paths](./media/migrate-from-hub-spoke-topology/figure8.png)
 **Figure: Dual region Virtual WAN**
 
 This section provides a summary of how this topology meets the original requirements by looking at some example traffic flows.
@@ -227,7 +227,7 @@ The traffic is routed as follows:
 
 Contoso has now validated connectivity between all branches and VNets in line with the requirements discussed earlier in this article. To meet their requirements for security control and network isolation, they need to continue to separate and log traffic via the Hub network. Previously this function was performed by a network virtual appliance (NVA). Contoso also wants to decommission their existing proxy services and utilize native Azure services for outbound Internet filtering.
 
-![Security and policy control via Azure Firewall](./media/migrate-from-hub-spoke-topology/figure12.png)
+![Security and policy control via Azure Firewall](./media/migrate-from-hub-spoke-topology/security-policy.png)
 **Figure: Azure Firewall in Virtual WAN (Secured Virtual Hub)**
 
 The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. For more information about this process and the concept of Secure Virtual Hubs, see [Azure Firewall Manager](../firewall-manager/index.yml).
