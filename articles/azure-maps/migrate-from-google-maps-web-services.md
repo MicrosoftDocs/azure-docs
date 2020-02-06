@@ -298,7 +298,7 @@ Add markers to a static map image by specifying the `pins` parameter in the URL.
 
 To use additional styles, add additional `pins` parameters to the URL with a different style and set of locations.
 
-For the pin location, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format.
+In Azure Maps, the pin location needs to be in the "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format.
 
 The `iconType` specifies the type of pin to create. It can have the following values:
 
@@ -308,20 +308,20 @@ The `iconType` specifies the type of pin to create. It can have the following va
 - `{udid}` – A Unique Data ID (UDID) for an icon stored in the Azure
     Maps Data Storage platform.
 
-Add pin styles in Azure Maps with the `optionNameValue` format. Separate multiple styles with the pipe (\|) characters. For example: `iconType|optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style markers in Azure Maps:
+Add pin styles with the `optionNameValue` format. Separate multiple styles with the pipe (\|) characters. For example: `iconType|optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style markers:
 
 - `al` – Specifies the opacity (alpha) of the marker. Choose a number between 0 and 1.
-- `an` – Specifies the pin anchor. X and y pixel values specified in the format "x y".
-- `co` – The color of the pin. Must be a 24-bit hex color: `000000` to `FFFFFF`.
-- `la` – Specifies the label anchor. X and y pixel values specified in the format "x y".
-- `lc` – The color of the label. Must be a 24-bit hex color: `000000` to `FFFFFF`.
+- `an` – Specifies the pin anchor. Specify X and y pixel values in the "x y" format.
+- `co` – The color of the pin. Specify a 24-bit hex color: `000000` to `FFFFFF`.
+- `la` – Specifies the label anchor. Specify X and y pixel values in the "x y" format.
+- `lc` – The color of the label. Specify a 24-bit hex color: `000000` to `FFFFFF`.
 - `ls` – The size of the label in pixels. Choose a number greater than 0.
 - `ro` – A value in degrees to rotate the icon. Choose a number between -360 and 360.
 - `sc` – A scale value for the pin icon. Choose a number greater than 0.
 
-Label values are specified for each pin location. This approach is more efficient than applying a single label value to all markers in the list of locations. The label value can be a string of multiple characters. Wrap the string with single quotes to ensure that it isn’t mistaken as a style or location value.
+Specify label values for each pin location. This approach is more efficient than applying a single label value to all markers in the list of locations. The label value can be a string of multiple characters. Wrap the string with single quotes to ensure that it isn’t mistaken as a style or location value.
 
-For example, in Azure Maps, adding a red (`FF0000`) default icon, with the label "Space Needle", positioned below (15 50), with icon at coordinates (longitude: -122.349300, latitude: 47.620180) is done with the following URL parameter:
+Let's add a red (`FF0000`) default icon, with the label "Space Needle", positioned below (15 50). The icon is at longitude: -122.349300, latitude: 47.620180:
 
 ```
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
@@ -331,7 +331,7 @@ For example, in Azure Maps, adding a red (`FF0000`) default icon, with the label
 
 ![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
 
-The following example adds three pins with the label values '1', '2', and '3':
+Add three pins with the label values '1', '2', and '3':
 
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
@@ -345,24 +345,24 @@ The following example adds three pins with the label values '1', '2', and '3':
 
 **Before: Google Maps**
 
-In Google Maps, lines and polygons can be added to a static map image using the `path` parameter in the URL. The `path` parameter takes in a style and a list of locations to be rendered on the map, as shown below:
+Add lines and polygon to a static map image using the `path` parameter in the URL. The `path` parameter takes in a style and a list of locations to be rendered on the map, as shown below:
 
 ```
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
-Additional styles can be used by adding additional `path` parameters to the URL with a different style and set of locations.
+Use additional styles by adding additional `path` parameters to the URL with a different style and set of locations.
 
-Path locations in Google Maps are specified with the format `latitude1,longitude1|latitude2,longitude2|…`. Paths can be encoded or contain addresses for points.
+Path locations are specified with the `latitude1,longitude1|latitude2,longitude2|…` format. Paths can be encoded or contain addresses for points.
 
-Path styles in Google Maps are added with the format `optionName:value`, with multiple styles separated by pipe (\|) characters. Like this: `optionName1:value1|optionName2:value2`. Note the option names and values are separated with a colon (:). The following style option names can be used to style paths in Google Maps:
+Add path styles with the `optionName:value` format, separate multiple styles by the pipe (\|) characters. And, separate option names and values with a colon (:). Like this: `optionName1:value1|optionName2:value2`. The following style option names can be used to style paths in Google Maps:
 
 - `color` – The color of the path or polygon outline. Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values: black, brown, green, purple, yellow, blue, gray, orange, red, white.
 - `fillColor` – The color to fill the path area with (polygon). Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values: black, brown, green, purple, yellow, blue, gray, orange, red, white.
 - `geodesic` – Indicates if the path should be a line that follows the curvature of the earth.
 - `weight` – The thickness of the path line in pixels.
 
-In Google Maps, a red line opacity and pixel thickness can be added to the map between the coordinates, in the URL parameter. For the example below, the line has a 50% opacity and a thickness of four pixels. The coordinates are longitude: -110, latitude: 45 and longitude: -100, latitude: 50.
+Add a red line opacity and pixel thickness to the map between the coordinates, in the URL parameter. For the example below, the line has a 50% opacity and a thickness of four pixels. The coordinates are longitude: -110, latitude: 45 and longitude: -100, latitude: 50.
 
 ```
 &path=color:0xFF000088|weight:4|45,-110|50,-100
@@ -374,15 +374,15 @@ In Google Maps, a red line opacity and pixel thickness can be added to the map b
 
 **After: Azure Maps**
 
-In Azure Maps, add lines and polygons to a static map image by specifying the `path` parameter in the URL. Like Google Maps, specify a style and a list of locations in this parameter. Specify the `path` parameter multiple times to render multiple circles, lines, and polygons with different styles.
+Add lines and polygons to a static map image by specifying the `path` parameter in the URL. Like Google Maps, specify a style and a list of locations in this parameter. Specify the `path` parameter multiple times to render multiple circles, lines, and polygons with different styles.
 
 ```
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON file into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
-In Azure Maps, add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
+Add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters, like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
 
 - `fa` - The fill color opacity (alpha) used when rendering polygons. Choose a number between 0 and 1.
 - `fc` - The fill color used to render the area of a polygon.
@@ -391,7 +391,7 @@ In Azure Maps, add path styles with the `optionNameValue` format. Separate multi
 - `lw` – The width of the line in pixels.
 - `ra` – Specifies a circles radius in meters.
 
-In Azure Maps, add a red line opacity and pixel thickness between the coordinates, in the URL parameter. For the example below, the line has 50% opacity and a thickness of four pixels. The coordinates have the following values: longitude: -110, latitude: 45 and longitude: -100, latitude: 50.
+Add a red line opacity and pixel thickness between the coordinates, in the URL parameter. For the example below, the line has 50% opacity and a thickness of four pixels. The coordinates have the following values: longitude: -110, latitude: 45 and longitude: -100, latitude: 50.
 
 ```
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
@@ -405,12 +405,12 @@ In Azure Maps, add a red line opacity and pixel thickness between the coordinate
 
 Azure Maps provides the distance matrix API. Use this API to calculate the travel times and the distances between a set of locations, with a distance matrix. It's comparable to the distance matrix API in Google Maps.
 
-- [**Route matrix**](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): Asynchronously calculates travel times and distances for a set of origins and destinations. Supports up to 700 cells per request (the number of origins multiplied by the number of destinations. With that constraint in mind, examples of possible matrix dimensions are: 700x1, 50x10, 10x10, 28x25, 10x70.
+- [**Route matrix**](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): Asynchronously calculates travel times and distances for a set of origins and destinations. Supports up to 700 cells per request. That's the number of origins multiplied by the number of destinations. With that constraint in mind, examples of possible matrix dimensions are: 700x1, 50x10, 10x10, 28x25, 10x70.
 
 > [!NOTE]
 > A request to the distance matrix API can only be made using a POST request with the origin and destination information in the body of the request. Additionally, Azure Maps requires all origins and destinations to be coordinates. Addresses will need to be geocoded first.
 
-The following table cross-references the Google Maps API parameters with the comparable Azure Maps API parameters.
+This table cross-references the Google Maps API parameters with the comparable Azure Maps API parameters.
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
@@ -429,7 +429,7 @@ The following table cross-references the Google Maps API parameters with the com
 | `units`                        | *N/A* – Azure Maps only uses the metric system. |
 
 > [!TIP]
-> All the advanced routing options available in the Azure Maps routing API are supported in the Azure Maps distance matrix API. Advanced routing options include: ruck routing, engine specifications, and so on.
+> All the advanced routing options available in the Azure Maps routing API are supported in the Azure Maps distance matrix API. Advanced routing options include: truck routing, engine specifications, and so on.
 
 ## Get a time zone
 
@@ -437,7 +437,7 @@ Azure Maps provides an API for retrieving the time zone of a coordinate. The Azu
 
 - [**Time zone by coordinate**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebycoordinates): Specify a coordinate and receive the time zone details of the coordinate.
 
-The following table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
+This table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
 | Google Maps API parameter | Comparable Azure Maps API parameter   |
 |---------------------------|---------------------------------------|
@@ -446,7 +446,7 @@ The following table cross-references the Google Maps API parameters with the com
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-In addition to this API, the Azure Maps platform provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
+In addition to this Time zone by coordinate API, Azure Maps provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
 
 - [**Time zone by ID**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebyid): Returns current, historical, and future time zone information for the specified IANA time zone ID.
 - [**Time zone Enum IANA**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumiana): Returns a full list of IANA time zone IDs. Updates to the IANA service are reflected in the system within one day.
@@ -460,13 +460,13 @@ Azure Maps provides client libraries for the following programming languages:
 
 - JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
 
-Open-source client libraries for other programming languages:
+These are Open-source client libraries for other programming languages:
 
 - .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
 ## Additional resources
 
-The following are some additional documentation and resources for the Azure Maps REST services.
+The following are additional documentation and resources for the Azure Maps REST services.
 
 - [Best practices for search](how-to-use-best-practices-for-search.md)
 - [Search for an address](how-to-search-for-address.md)
