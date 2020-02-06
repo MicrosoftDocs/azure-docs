@@ -56,7 +56,7 @@ landingContent:
           url: quickstart-aspnet-core-app.md
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
-        - text: Code a Java Spring app
+        - text: Code a Spring Boot app
           url: quickstart-java-spring-app.md
       - linkListType: tutorial
         links:  
@@ -76,7 +76,7 @@ landingContent:
         links:  
         - text: Use Key Vault references in an ASP.NET Core app
           url: use-key-vault-references-dotnet-core.md
-        - text: Use Key Vault references in a Java Spring app
+        - text: Use Key Vault references in a Spring Boot app
           url: use-key-vault-references-spring-boot.md
       - linkListType: sample
         links:
@@ -96,7 +96,7 @@ landingContent:
           url: quickstart-feature-flag-aspnet-core.md
         - text: .NET Framework app
           url: quickstart-feature-flag-dotnet.md
-        - text: Java Spring app
+        - text: Spring Boot app
           url: quickstart-feature-flag-spring-boot.md
       - linkListType: tutorial
         links: 
@@ -125,7 +125,7 @@ landingContent:
           url: https://go.microsoft.com/fwlink/?linkid=2074663
         - text: Azure SDK for .Net
           url: https://go.microsoft.com/fwlink/?linkid=2092056
-        - text: Java Spring provider
+        - text: Spring Boot provider
           url: https://go.microsoft.com/fwlink/?linkid=2074659
         - text: Azure SDK for Java
           url: https://go.microsoft.com/fwlink/?linkid=2098196
