@@ -38,8 +38,10 @@ To register to use the account encryption key with Queue or Table storage, use P
 To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
 
 ```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowAccountEncryptionKeyForTables
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -47,8 +49,10 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName All
 To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
 
 ```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
 # [Template](#tab/template)
@@ -66,8 +70,10 @@ To check the status of your registration for Queue or Table storage, use PowerSh
 To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
 
 ```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowAccountEncryptionKeyForTables
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -75,8 +81,10 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowAcc
 To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
 # [Template](#tab/template)
@@ -133,13 +141,13 @@ The following example shows how to create a general-purpose v2 storage account t
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName <resource_group> `
-  -AccountName <storage-account> `
-  -Location <location> `
-  -SkuName "Standard_RAGRS" `
-  -Kind StorageV2 `
-  -EncryptionKeyTypeForTable Account `
-  -EncryptionKeyTypeForQueue Account
-```
+    -AccountName <storage-account> `
+    -Location <location> `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -EncryptionKeyTypeForTable Account `
+    -EncryptionKeyTypeForQueue Account
+    ```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -217,7 +225,8 @@ To verify that a service in a storage account is using the account encryption ke
 To verify that a service in a storage account is using the account encryption key, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Look for the `KeyType` field for each service within the `Encryption` property and verify that it is set to `Account`.
 
 ```powershell
-$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -StorageAccountName <storage-account>
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
 $account.Encryption.Services.Queue
 $account.Encryption.Services.Table
 ```
