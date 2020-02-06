@@ -12,9 +12,10 @@ ms.author: mlearned
 #Customer intent: As a cluster operator, I want to define my own egress paths with user defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
-# Cluster egress with a User Defined Route (Preview)
+# Limit cluster egress with a User Defined Route (Preview)
 
 Egress from an AKS cluster can be customized to fit specific scenarios. By default, AKS will provision a Standard SKU Load Balancer to be setup and used for egress. The setup of the load balancer is done on behalf of the user for the following reasons.
+
 1. A public IP address is required for the Standard SKU load balancer for egress, so AKS automatically assigns a public IP to the load balancer as egress setup is not provided by default. This behavior changes between the Basic SKU load balancers. 
 1. AKS [requires outbound connectivity](limit-egress-traffic.md) to function properly and issue common operations such as pulling system-pod images or security patches. To learn more about why clusters require external connectivity and the required endpoints that clusters must be able to access, read about [controlling egress traffic for cluster nodes](limit-egress-traffic.md).
 
@@ -53,11 +54,12 @@ az extension update --name aks-preview
 
 ## Overview of outbound types in AKS
 
-An AKS cluster can be customized with a unique `outboundType`. Options include
+An AKS cluster can be customized with a unique `outboundType`. There are two options.
 1. `loadBalancer`
-1. `userDefinedRoute`. 
+1. `userDefinedRoute`
 
-This impacts only the egress traffic of your cluster, to learn about ingress read documentation on setting up [ingress controllers](ingress-basic.md).
+> [!IMPORTANT]
+> This impacts only the egress traffic of your cluster. To learn about ingress visit [setting up ingress controllers](ingress-basic.md).
 
 ### Outbound type of loadBalancer
 
@@ -65,12 +67,16 @@ This impacts only the egress traffic of your cluster, to learn about ingress rea
    * A public IP address is provisioned for cluster egress.
    * The public IP address is assigned to the load balancer resource.
    * Backend pools for the load balancer are setup for agent nodes in the cluster.
+   * Traffic out of an AKS cluster to the control plane held in Azure is encrypted in transit
 
 Below is a network topology deployed in AKS clusters by default, which use an `outboundType` of `loadBalancer`.
 
 ![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
 
 ### Outbound type of userDefinedRoute
+
+> [!NOTE]
+> This is an advanced networking scenario and requires proper network configuration to have running clusters.
 
 * If `userDefinedRoute` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
    * A valid user defined route (UDR) must exist on the subnet the cluster is deployed into.
@@ -91,58 +97,83 @@ Azure resources are isolated in dedicated subnets and route inbound traffic from
 To begin, define a set of environment variables to be used in resource creations.
 
 ```bash
-export PREFIX="yourPrefix"
-export RG="${PREFIX}-rg"
-export LOC="canadacentral"
-export AKSNAME="${PREFIX}"
-export AKSSUBNET_NAME="${PREFIX}akssubnet"
-export VNET_NAME="${PREFIX}vnet"
+PREFIX="contosofin"
+RG="${PREFIX}-rg"
+LOC="eastus"
+NAME="${PREFIX}outboundudr"
+ACR_NAME="${NAME}acr"
+VNET_NAME="${PREFIX}vnet"
+AKSSUBNET_NAME="${PREFIX}akssubnet"
+SVCSUBNET_NAME="contosofinsvcsubnet"
 # DO NOT CHANGE FWSUBNET_NAME - This is currently a requirement for Azure Firewall.
-export FWSUBNET_NAME="AzureFirewallSubnet"
-export FWNAME="${PREFIX}fw"
-export FWPUBLICIP_NAME="${PREFIX}fwpublicip"
-export FWIPCONFIG_NAME="${PREFIX}fwconfig"
-export FWROUTE_TABLE_NAME="${PREFIX}fwrt"
-export FWROUTE_NAME="${PREFIX}fwrn"
-export FWROUTE_NAME_INTERNET="${PREFIX}fwrninternet"
-export PLUGIN="azure"
-export APPID="enter service principal id"
-export PASSWORD="enter service principal secret"
-export BASE_ADDRESS=10.42
+FWSUBNET_NAME="AzureFirewallSubnet"
+FWNAME="${PREFIX}fw"
+FWPUBLICIP_NAME="${PREFIX}fwpublicip"
+FWIPCONFIG_NAME="${PREFIX}fwconfig"
+FWROUTE_TABLE_NAME="${PREFIX}fwrt"
+FWROUTE_NAME="${PREFIX}fwrn"
+```
+
+Next, set subscription IDs.
+
+```azure-cli
+# Get ARM Access Token and Subscription ID - This will be used for AuthN later.
+ACCESS_TOKEN=$(az account get-access-token -o tsv --query 'accessToken')
+
+# NOTE: Update Subscription Name
+# Set Default Azure Subscription to be Used via Subscription ID
+az account set -s <SUBSCRIPTION_ID_GOES_HERE>
+
+# NOTE: Update Subscription Name for setting SUBID
+SUBID=$(az account show -s '<SUBSCRIPTION_NAME_GOES_HERE>' -o tsv --query 'id')
 ```
 
 ## Create virtual networks and subnets
+To begin we will provision a virtual network with two separate subnets.
 
-Now, create a resource group to hold all of the resources in this scenario.
+![Empty network topology](media/egress-outboundtype/empty-network.png)
 
-```
+First, create a resource group to hold all of the resources in this scenario.
+
+```azure-cli
+# Create Resource Group
 az group create --name $RG --location $LOC
 ```
 
-Create a virtual network to host the AKS cluster and Azure Firewall.
+Create a two virtual networks to host the AKS cluster and the Azure Firewall. Each will have their own subnet. Let's start with the AKS network.
 
 ```
+# Dedicated virtual network for AKS cluster
 az network vnet create \
     --resource-group $RG \
     --name $VNET_NAME \
-    --address-prefixes $BASE_ADDRESS.0.0/16 \
+    --address-prefixes 100.64.0.0/16 \
     --subnet-name $AKSSUBNET_NAME \
-    --subnet-prefix $BASE_ADDRESS.1.0/24
+    --subnet-prefix 100.64.1.0/24
+
+# Dedicated subnet for K8s services
+az network vnet subnet create \
+    --resource-group $RG \
+    --vnet-name $VNET_NAME \
+    --name $SVCSUBNET_NAME \
+    --address-prefix 100.64.2.0/24
 ```
 
-Now we can create a subnet within this virtual network to be dedicated to the Azure Firewall resource.
-
+Now let's create the Firewall network.
 ```
+# Dedicated subnet for Azure Firewall (Firewall name cannot be changed)
 az network vnet subnet create \
     --resource-group $RG \
     --vnet-name $VNET_NAME \
     --name $FWSUBNET_NAME \
-    --address-prefix $BASE_ADDRESS.4.0/24
+    --address-prefix 100.64.3.0/24
 ```
 
 ## Create an Azure Firewall with a public endpoint
 
-Azure Firewall acts as the ingress point for incoming traffic so firewall filters can be applied. On egress, the AKS cluster will rely on a UDR to make the next hop to the Azure Firewall for exit from the virtual network.
+![Firewall and UDR](media/egress-outboundtype/firewall-udr.png)
+
+This section walks through setting up Azure Firewall inbound and outbound rules. The main purpose of the firewall is to enable organizations to set up ingress and egress traffic rules for the AKS Cluster.
 
 Create a standard SKU public IP resource which will be used as the Azure Firewall frontend address.
 
@@ -152,41 +183,39 @@ az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 
 Register the preview cli-extension to create an Azure Firewall.
 ```azure-cli
+# Install Azure Firewall preview CLI extension
 az extension add --name azure-firewall
+
+# Deploy Azure Firewall
 az network firewall create -g $RG -n $FWNAME -l $LOC
 ```
 
 The IP address created earlier can now be assigned to the firewall frontend.
+> [!NOTE]
+> Setup of the public IP address to the Azure Firewall may take a few minutes.
+
 ```azure-cli
 ## Configure Firewall IP Config
-## This command will take a few minutes.
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
 ```
 
-Save the firewall frontend IP address for configuration later.
+When the previous command has succeeded, save the firewall frontend IP address for configuration later.
+
 ```bash
 ## Capture Firewall IP Address for Later Use
-export FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-export FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
+FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
+FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
-### Add network firewall rules
+Now we can create a UDR and route table for the Azure Firewall.
 
-When configuring firewall rules, read the [required egress endpoints](egress.md) AKS needs to operate. All of these must be accounted for in addition to any specific egress needs for workloads running on the cluster. In this example we will only add one as an example.
-
-```
-# Add Network FW Rules
-
-az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'netrules' --protocols 'Any' --source-addresses '*' --destination-addresses '*' --destination-ports '*' --action allow --priority 100
-
-# Add Application FW Rules
-# IMPORTANT: Add AKS required egress endpoints
-az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --target-fqdns '*' --action allow --priority 100
+```azure-cli
+# Create UDR & Routing Table for Azure Firewall
+az network route-table create -g $RG --name $FWROUTE_TABLE_NAME
+az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 ```
 
-To learn more about Azure Firewall rules, visit the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/overview).
-
-## Create a UDR for egress
+### Create a UDR for AKS to hop to Azure Firewall
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
 
@@ -207,7 +236,26 @@ az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route
 
 To learn more about how to create custom, or user-defined, routes read [virtual network documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
 
-## Associate the cluster subnet to the Azure Firewall
+## Examples of adding network firewall rules
+
+> [!IMPORTANT]
+> All egress endpoints must be enabled for access, defined in the [required egress endpoints](egress.md) for AKS. Read this document carefully and add all necessary endpoints for your cluster. Without these endpoints enabled, your cluster cannot operate.
+
+To show an example rule, a firewall can be added to enable access to Miccrosoft Container Registry (MCR).
+
+```
+# Add Network FW Rules
+
+az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'netrules' --protocols 'Any' --source-addresses '*' --destination-addresses '*' --destination-ports '*' --action allow --priority 100
+
+# Add Application FW Rules
+# IMPORTANT: Add AKS required egress endpoints
+az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --target-fqdns '*' --action allow --priority 100
+```
+
+To learn more about Azure Firewall rules, visit the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/overview).
+
+## Associate the AKS subnet to Azure Firewall
 
 To connect egress from the cluster, the dedicated subnet for the AKS cluster must be associated with the Azure Firewall. This can be done by issuing a command to the virtual network holding both the cluster and firewall to update the route table of the cluster's subnet.
 
@@ -216,15 +264,40 @@ To connect egress from the cluster, the dedicated subnet for the AKS cluster mus
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
-Permissions must also be granted to the service principal passed to the AKS cluster to enable permission to be deployed into the network.
+## Deploy AKS with outbound type of UDR to the existing network
+
+![aks-deploy](media/egress-outboundtype/aks-deployed.png)
+
+### Create a service principal with access to provision inside the existing virtual network
+
+This section walks through creating a Service Principal which will be used by AKS to create the cluster resources. It is this Service Principal which creates underlying AKS resources such as VMs, Storage, and Load Balancers used by AKS. If you grant too few permissions, it will not be able to provision an AKS Cluster.
 
 ```azure-cli
+# Create SP and Assign Permission to Virtual Network
+az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
+
+# ********************************************************************************
+# Take the SP Creation output from above command and fill in Variables accordingly
+# ********************************************************************************
+
+APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
+PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
+VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
+
+# Assign SP Permission to VNET
 az role assignment create --assignee $APPID --scope $VNETID --role Contributor
+
+# View Role Assignment
+az role assignment list --assignee $APPID --all -o table
 ```
 
-## Deploy a cluster with outbound type of UDR to an existing subnet
+### Deploy AKS
 
-Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balancer which can now be strictly internal.
+Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`.
+
+We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balancer which can now be strictly internal.
+
+We will also add the AKS feature for [API server authorized IP ranges](api-server-authorized-ip-ranges.md) to limit API server access to only the firewall's public endpoint. This is denoted in the diagram as the NSG which must be passed to access the control plane. When enabling this feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
 ```azure-cli
 az aks create -g $RG -n $AKSNAME -l $LOC \
@@ -239,9 +312,18 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --client-secret $PASSWORD \
   --load-balancer-sku standard \
   --outbound-type userDefinedRouting
+  --api-server-authorized-ip-ranges <INSERT FIREWALL IP RANGE> \
   ```
 
-## Create and configure additional Kubernetes services
+## Additional considerations
+
+![Locked down topology](media/egress-outboundtype/outboundtype-udr-acr.png)
+
+To complete the original scenario diagram, additional resources need to be configured. Consider the additional documents below to meet scenario requirements.
+
+### Authorize and connect an Azure Container Registry
+
+### Create and configure additional Kubernetes services
 
 When adding additional Kubernetes services into a cluster with outbound type customized with UDR, an additional destination network address translation (DNAT) rule may be required. This is a hard requirement in the firewall scenario described above. This requires a new public IP to be available on the Azure Firewall and a dedicated DNAT rule for each subsequent service.
 

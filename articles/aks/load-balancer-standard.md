@@ -55,11 +55,10 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## Use the *Standard* SKU load balancer
 
-When you create an AKS cluster, by default, the *Standard* SKU load balancer is used when you run services in that cluster. For example, [the quickstart using the Azure CLI][aks-quickstart-cli] deploys a sample application that uses the *Standard* SKU load balancer. 
+When you create an AKS cluster, by default, the *Standard* SKU load balancer is used when you run services in that cluster. For example, [the quickstart using the Azure CLI][aks-quickstart-cli] deploys a sample application that uses the *Standard* SKU load balancer.
 
-## Skip public IP provisioning for *Standard* SKU load balancer in AKS
-
-Due to requirements for AKS to have outbound connectivity and Standard SKU Load Balancers to have configured IP addresses for egress from the load balancer resource, users may wish to setup an alternative path for outbound connections. This can be achieved by [setting `outboundType` to a value of 'UDR'](egress-outboundtype.md).
+> [!IMPORTANT]
+> **If public IP addresses are disallowed**, cluster egress can be customized through a user defined route (UDR). This will skip IP provisioning and backend pool setups for the Azure load balancer. To learn how to set this, follow documentation on [setting a cluster's `outboundType` to 'userDefinedRouting'](egress-outboundtype.md).
 
 ## Configure the load balancer to be internal
 
