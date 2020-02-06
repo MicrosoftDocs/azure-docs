@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute CrossConnnections API Development and Integration'
+title: 'Azure ExpressRoute CrossConnnections API development and integration'
 description: This article provides a detailed overview for ExpressRoute partners about the expressRouteCrossConnections resource type.
 services: expressroute
 author: mialdrid
@@ -12,7 +12,7 @@ ms.author: mialdrid
 ---
 
 
-# ExpressRoute CrossConnnections API Development and Integration
+# ExpressRoute CrossConnnections API development and integration
 
 The ExpressRoute Partner Resource Manager API allows ExpressRoute partners to manage the layer-2 and layer-3 configuration of customer ExpressRoute circuits. The ExpressRoute Partner Resource Manager API introduces a new resource type, **expressRouteCrossConnections**. Partners use this resource to manage customer ExpressRoute circuits.
 
@@ -78,7 +78,7 @@ Develop against the [expressRouteCrossConnections API](https://docs.microsoft.co
 
 ## REST API
 
-See [ExpressRoute Cross Connections REST API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
+See [ExpressRoute CrossConnections REST API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
 
 ## Next steps
 
