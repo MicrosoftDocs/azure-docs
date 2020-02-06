@@ -77,6 +77,8 @@ The Device Provisioning Service has many features, making it ideal for provision
 * **Monitoring and diagnostics logging** to make sure everything is working properly.
 * **Multi-hub support** allows the Device Provisioning Service to assign devices to more than one IoT hub. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
 * **Cross-region support** allows the Device Provisioning Service to assign devices to IoT hubs in other regions.
+* **Encryption for data at rest** allows data in Device Provisioning Service to be encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
+
 
 You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
 
