@@ -33,8 +33,10 @@ Trigger the run of your Azure Machine Learning Pipeline when new data appears. F
 
 ## Create a Logic App
 
-Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. Once your Logic App has been provisioned, use these steps to configure it:
+Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. [Use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment) and [set up a customer-managed key](../logic-apps/customer-managed-keys-integration-service-environment) for use by your LogicApp.
 
+Once your Logic App has been provisioned, use these steps to configure it:
+and 
 1. [Create a system-assigned managed identity](../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace.
 
 1. Navigate to the LogicApp Designer view and select the Blank Logic App template. 
