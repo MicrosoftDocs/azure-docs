@@ -1,116 +1,199 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Virtual Machines Documentation
+### YamlMime:Hub
+
+title: Virtual Machines Documentation # < 60 chars
+summary: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure.  < 160 chars
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
 metadata:
-  title: Azure Virtual Machine Documentation - Tutorials, API Reference
-  meta.description: Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.
+  title: Azure Virtual Machines # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. < 160 chars.
   services: virtual-machines
-  author: georgewallace
-  manager: gwallace
-  ms.service: virtual-machines
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: gwallace
-  description: Learn how to create and deploy Windows and Linux virtual machines in Azure.
-sections:
-- title: 
+  ms.service: virtual-machines #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: hub-page # Required
+  author: cynthn #Required; your GitHub user alias, with correct capitalization.
+  ms.author: cynthn #Required; microsoft alias of author; optional team alias.
+  ms.date: 02/07/2020 #Required; mm/dd/yyyy format.
+
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title:  Get started with Windows Virtual Machines
-      href: /azure/virtual-machines/windows
-      image: 
-        src: media/index/virtual-machines.svg
-        href: /azure/virtual-machines/windows
-    - title:  Get started with Linux Virtual Machines
-      href: /azure/virtual-machines/linux
-      image: 
-        src: media/index/get-started.svg
-        href: /azure/virtual-machines/linux
-- title: 5-Minute Linux quickstarts
+    # Card
+    - title: Linux virtual machines
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    # Card
+    - title: Windows virtual machines
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    # Card
+    - title: Virtual machine scale sets
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
+
+# productDirectory section (optional)
+productDirectory:
+  title: RedHat # < 60 chars (optional)
+  summary: Learn about deploying RedHat virtual machines in Azure # < 160 chars (optional)
   items:
-  - type: paragraph
-    text: 'Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure portal
-      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-- title: 5-Minute Windows quickstarts
-  items: 
-  - type: paragraph
-    text: 'Learn how to deploy an IIS web-server within a virtual machine running Windows Server 2016:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=/azure/virtual-machines/windows/toc.json
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/portal.svg
-      text: Azure portal
-      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=/azure/virtual-machines/windows/toc.json
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
-- title: Build your skills with Microsoft Learn
+    # Card
+    - title: cardtitle1
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      links:
+        - url: file1a.md OR https://docs.microsoft.com/file1a
+          text: linktext1a
+        - url: file1b.md OR https://docs.microsoft.com/file1b
+          text: linktext1b
+    # Card
+    - title: cardtitle2
+      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      links:
+        - url: file2a.md OR https://docs.microsoft.com/file2a
+          text: linktext2a
+        - url: file2b.md OR https://docs.microsoft.com/file2b
+          text: linktext2b
+    # Card
+    - title: cardtitle3
+      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      links:
+        - url: file3a.md OR https://docs.microsoft.com/file3a
+          text: linktext3a
+        - url: file3b.md OR https://docs.microsoft.com/file3b
+          text: linktext3b
+
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
   items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Introduction to Azure compute
-      href: /learn/modules/intro-to-azure-compute/
-      image: 
-        src: /learn/achievements/intro-to-azure-compute.svg
-        href: /learn/modules/intro-to-azure-compute/
-    - title: Introduction to Azure Virtual Machines
-      href: /learn/modules/intro-to-azure-virtual-machines/
-      image: 
-        src: /learn/achievements/intro-to-azure-virtual-machines.svg
-        href: /learn/modules/intro-to-azure-virtual-machines/
-    - title:  Add and size disks in Azure Virtual Machines
-      href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
-      image: 
-        src: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
-        href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
-- title: Free Pluralsight Video Training
+    # Card
+    - title: cardtitle1
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+    # Card
+    - title: cardtitle2
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+    # Card
+    - title: cardtitle3
+      links:
+        - url: file1.md OR https://docs.microsoft.com/file1
+          itemType: itemType
+          text: linktext1
+        - url: file2.md OR https://docs.microsoft.com/file2
+          itemType: itemType
+          text: linktext2
+        - url: file3.md OR https://docs.microsoft.com/file3
+          itemType: itemType
+          text: linktext3
+      # footerLink (optional)
+      footerLink:
+        url: filefooter.md OR https://docs.microsoft.com/filefooter
+        text: See more
+
+# tools section (optional)
+tools:
+  title: sectiontitle # < 60 chars (optional)
+  summary: sectionsummary # < 160 chars (optional)
   items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Administrator
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/compute">REST API Reference</a></p>
+    # Card
+    - title: cardtitle1
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
+      url: file1.md
+    # Card
+    - title: cardtitle2
+      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
+      url: file2.md
+    # Card
+    - title: cardtitle3
+      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
+      url: file3.md
+
+# additionalContent section (optional)
+# Card with summary style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: sectiontitle # < 60 chars (optional)
+      summary: sectionsummary # < 160 chars (optional)
+      items:
+        # Card
+        - title: cardtitle1
+          summary: cardsummary1
+          url: file1.md OR https://docs.microsoft.com/file1
+        # Card
+        - title: cardtitle2
+          summary: cardsummary2
+          url: file1.md OR https://docs.microsoft.com/file2
+        # Card
+        - title: cardtitle3
+          summary: cardsummary3
+          url: file1.md OR https://docs.microsoft.com/file3
+  # footer (optional)
+  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: sectiontitle # < 60 chars (optional)
+      summary: sectionsummary # < 160 chars (optional)
+      items:
+        # Card
+        - title: cardtitle1
+          links:
+            - text: link1a
+              url: file1a.md OR https://docs.microsoft.com/file1a
+            - text: link1b
+              url: file1b.md OR https://docs.microsoft.com/file1b
+        # Card
+        - title: cardtitle2
+          links:
+            - text: link2a
+              url: file2a.md OR https://docs.microsoft.com/file2a
+            - text: link2b
+              url: file2b.md OR https://docs.microsoft.com/file2b
+        # Card
+        - title: cardtitle3
+          links:
+            - text: link3a
+              url: file3a.md OR https://docs.microsoft.com/file3a
+            - text: link3b
+              url: file3b.md OR https://docs.microsoft.com/file3b
+  # footer (optional)
+  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
+
+
+
+
+
