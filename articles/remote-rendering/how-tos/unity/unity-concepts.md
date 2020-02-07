@@ -41,7 +41,7 @@ RemoteManagerUnity.InitializeManager(clientInit);
 // Create a frontend
 AzureFrontend frontend = createFrontendForMyAccount();
 
-AzureSession session = await frontend.CreateNewRenderingSessionAsync(new CreateRenderingSessionParams(RenderingSessionVmSize.Small, 0, 30)).AsTask();
+AzureSession session = await frontend.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Small, 0, 30)).AsTask();
 
 RemoteManagerUnity.CurrentSession = session;
 
@@ -100,9 +100,9 @@ Using Unity coroutines:
 
 ```cs
 LoadModelAsync _pendingLoadTask = null;
-IEnumerator SampleLoadModel(string modelId)
+IEnumerator SampleLoadModel(string modelUrl)
 {
-    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync(modelId);
+    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync(modelUrl);
     while (!_pendingLoadTask.IsCompleted)
     {
         int percentage = (int)(loadTask.Progress * 100.0f);
@@ -120,9 +120,9 @@ IEnumerator SampleLoadModel(string modelId)
 Using the await pattern:
 
 ```cs
-void async SampleLoadModel(string modelId)
+void async SampleLoadModel(string modelUrl)
 {
-    IAsync<ObjectId> loadTask = RemoteManager.LoadModelAsync(modelId);
+    IAsync<ObjectId> loadTask = RemoteManager.LoadModelAsync(modelUrl);
     ObjectId id = await loadTask.AsTask();
     var gameObject = RemoteManager.GetEntity(id)?.GetOrCreateGameObject();
 }

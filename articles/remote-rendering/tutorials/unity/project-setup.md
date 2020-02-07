@@ -211,7 +211,7 @@ public class RemoteRendering : MonoBehaviour
         CreateFrontend();
 
         // StartSession will call ARRService_OnSessionStarted once the session becomes available
-        arrService.StartSession(new CreateRenderingSessionParams(VMSize, MaxLeaseTimeHours, MaxLeaseTimeMinutes));
+        arrService.StartSession(new RenderingSessionCreationParams(VMSize, MaxLeaseTimeHours, MaxLeaseTimeMinutes));
     }
 
     public void StopSession()
@@ -585,7 +585,7 @@ Insert the following code into the *RemoteRendering* script and remove the old v
         // load a model that will be parented to the entity
         var loadModelParams = new LoadModelParams(ModelName, modelEntity);
         var async = arrService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
-        async.OnProgress += (float progress) =>
+        async.ProgressUpdated += (float progress) =>
         {
             Debug.Log($"Loading: {progress * 100.0f}%");
         };

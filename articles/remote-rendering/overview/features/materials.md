@@ -20,7 +20,7 @@ Azure Remote Rendering works with two types of materials:
 - `Physically Based Rendering` material (also known as `PBR`)
 - `Basic Color` material (also known as `Unlit` material)
 Both materials share a common set of properties called `Shared`.
-Below you will find them explained in separate sections. Subsequent sections will provide the formulas and projections used in the ingestion pipeline when converting FBX and glTF materials. 
+Below you will find them explained in separate sections. Subsequent sections will provide the formulas and projections used in the conversion pipeline when converting FBX and glTF materials. 
 Properties either have values of build-in types such as `bool`, `int`, `float`, or have values of compound types, which are described in the following section.
 
 ---
@@ -31,7 +31,7 @@ Properties either have values of build-in types such as `bool`, `int`, `float`, 
 - `Vec` is a short for `Vector` and consist of multiple float values grouped together. For example, `Vec` could be `Vec2` for two values, `Vec3` and `Vec4` etc.
 - `Texture` is a filename of a texture file. If it is `Texture2D` that means the file should be 2D texture file, or `TextureCube`, which means the file should be an environment type of texture. Each texture has a subproperty of type `int`, which defines the UV Channel used for it.
     > [!NOTE]
-    > The renderer requires all texture files to be encoded in `DDS v10` format or higher. The ingestion pipeline will convert most common image formats to the required format.
+    > The renderer requires all texture files to be encoded in `DDS v10` format or higher. The conversion pipeline will convert most common image formats to the required format.
 - `enum` is a one of a set of predefined named values, for instance `two` from the set of values `{one, two, three}`.
 
 ## Shared part of properties

@@ -46,7 +46,7 @@ void ChangeEnvironmentMap(AzureSession session)
             {
                 try
                 {
-                    session.Actions.GetSkyReflectionSettings().SkyReflectionTexture = res.Result;
+                    session.Actions.SkyReflectionSettings.SkyReflectionTexture = res.Result;
                 }
                 catch (RRException exception)
                 {

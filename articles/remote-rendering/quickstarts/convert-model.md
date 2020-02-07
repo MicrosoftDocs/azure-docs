@@ -113,7 +113,7 @@ As you can see, the tool displays all the information needed via the properties 
 
 ## Conversion settings
 
-To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Ingestion.ps1**. The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
+To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**. The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
 
 ```json
 {
@@ -166,11 +166,11 @@ PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
 Change to the `arrClient\Scripts` directory and run the conversion script:
 
 ```powershell
-PS> .\Ingestion.ps1
+PS> .\Conversion.ps1
 ```
 
 You should see something like this:
-![Ingestion.ps1](./media/successful-ingestion.png)
+![Conversion.ps1](./media/successful-conversion.png)
 
 The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](render-model.md)) to have it render your custom model!
 

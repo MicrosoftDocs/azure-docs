@@ -14,11 +14,11 @@ ms.service: azure-remote-rendering
 
 To be able to use Azure Remote Rendering in a custom application, it needs to be integrated into the application's rendering pipeline. This integration is the responsibility of the graphics binding.
 
-Once set up, the graphics binding gives access to various functions that affect the rendered image. These functions can be separated into two categories: general functions that are always available and specific functions that are only relevant for the selected `Microsoft.Azure.RemoteRendering.GraphicsApi`.
+Once set up, the graphics binding gives access to various functions that affect the rendered image. These functions can be separated into two categories: general functions that are always available and specific functions that are only relevant for the selected `Microsoft.Azure.RemoteRendering.GraphicsApiType`.
 
 ## Graphics binding in Unity
 
-In Unity, the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `graphicsApi` field has to be set to the chosen binding. The field will be automatically populated depending on an XRDevice is present, but may be manually overridden with the following behaviors:
+In Unity, the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `GraphicsApiType` field has to be set to the chosen binding. The field will be automatically populated depending on an XRDevice is present, but may be manually overridden with the following behaviors:
 
 * **HoloLens 2**: the [Windows Mixed Reality](#windows-mixed-reality) graphics binding is always used.
 * **Flat UWP desktop app**: [Simulation](#simulation) is always used. To use this mode, make sure to follow the steps in [Creating a new Unity project](../how-tos/unity/create-new-unity-project.md).
@@ -31,8 +31,8 @@ The only other relevant part for Unity is accessing the [basic binding](#access)
 To select a graphics binding, take the following two steps: First, the graphics binding has to be statically initialized when the program is initialized:
 
 ``` cs
-ClientInit managerInit = new ClientInit;
-managerInit.graphicsApi = GraphicsApi.WmrD3D11;
+RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
+managerInit.graphicsApi = GraphicsApiType.WmrD3D11;
 managerInit.connectionType = ConnectionType.General;
 managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
@@ -56,11 +56,11 @@ There are currently two graphics APIs that can be selected, `SimD3D11` and `WmrD
 
 ### Simulation
 
-`GraphicsApi.SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding. This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
+`GraphicsApiType.SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding. This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
 
 ### Windows Mixed Reality
 
-`GraphicsApi.WmrD3D11` is the default binding to run on HoloLens 2. It will create the `GraphicsBindingWmrD3d11` binding. In this mode Azure Remote Rendering hooks directly into the holographic APIs.
+`GraphicsApiType.WmrD3D11` is the default binding to run on HoloLens 2. It will create the `GraphicsBindingWmrD3d11` binding. In this mode Azure Remote Rendering hooks directly into the holographic APIs.
 
 To access the derived graphics binding for each of these, the base `GraphicsBinding` has to be cast.
 

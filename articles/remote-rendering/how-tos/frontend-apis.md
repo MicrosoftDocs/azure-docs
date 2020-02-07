@@ -42,7 +42,7 @@ The important fields are:
 
 ## Azure Frontend
 
-The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset ingestion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
+The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset conversion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
 
 Each opened/created ```AzureSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
 
@@ -61,14 +61,14 @@ See [the model conversion REST API](conversion/conversion-rest-api.md) for more 
 #### Start asset conversion
 
 ``` cs
-private StartIngestionAsync _pendingAsync = null;
+private StartConversionAsync _pendingAsync = null;
 
-void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelUrl, string assetContainerUrl)
+void StartAssetConversion(AzureFrontend frontend, string modelName, string modelUrl, string assetContainerUrl)
 {
-    _pendingAsync = frontend.StartIngestionAsync(
-        new IngestAssetParams(modelName, modelUrl, assetContainerUrl));
+    _pendingAsync = frontend.StartConversionAsync(
+        new AssetConversionParams(modelName, modelUrl, assetContainerUrl));
     _pendingAsync.Completed +=
-        (StartIngestionAsync res) =>
+        (StartConversionAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -76,7 +76,7 @@ void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelU
             }
             else
             {
-                Console.WriteLine("Failed to start asset ingestion!");
+                Console.WriteLine("Failed to start asset conversion!");
             }
         };
 
@@ -84,15 +84,15 @@ void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelU
 }
 ```
 
-#### Get ingestion status
+#### Get conversion status
 
 ``` cs
-private IngestionStatusAsync _pendingAsync = null
-void GetIngestionStatus(AzureFrontend frontend, string assetId)
+private ConversionStatusAsync _pendingAsync = null
+void GetConversionStatus(AzureFrontend frontend, string assetId)
 {
-    _pendingAsync = frontend.GetIngestionStatusAsync(assetId);
+    _pendingAsync = frontend.GetConversionStatusAsync(assetId);
     _pendingAsync.Completed +=
-        (IngestionStatusAsync res) =>
+        (ConversionStatusAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
@@ -100,7 +100,7 @@ void GetIngestionStatus(AzureFrontend frontend, string assetId)
             }
             else
             {
-                Console.WriteLine("Failed to get status of asset ingestion!");
+                Console.WriteLine("Failed to get status of asset conversion!");
             }
 
             _pendingAsync = null;
@@ -121,7 +121,7 @@ private CreateSessionAsync _pendingAsync = null;
 void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
 {
     _pendingAsync = frontend.CreateNewRenderingSessionAsync(
-        new CreateRenderingSessionParams(vmSize, maxLease));
+        new RenderingSessionCreationParams(vmSize, maxLease));
 
     _pendingAsync.Completed +=
         (CreateSessionAsync res) =>
@@ -206,7 +206,7 @@ private SessionAsync _pendingAsync;
 void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 {
     _pendingAsync = session.RenewAsync(
-        new UpdateRenderingSessionParams(updatedLease));
+        new RenderingSessionUpdateParams(updatedLease));
     _pendingAsync.Completed +=
         (SessionAsync res) =>
         {
