@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 2/7/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
@@ -20,7 +20,7 @@ ms.custom: aaddev;it-pro;seohack1
 
 ms.collection: M365-identity-device-management
 ---
-# Build a SCIM endpoint and configure user provisioning with Azure Active Directory (Azure AD)
+# Develop a SCIM endpoint and configure user provisioning with Azure Active Directory (Azure AD)
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
@@ -724,6 +724,34 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 *HTTP/1.1 204 No Content*
 
+### Security requirements
+**TLS Protocol Versions**
+
+The only acceptable TLS protocol versions are TLS 1.2 and TLS 1.3. No other versions of TLS are permitted. No version of SSL is permitted. 
+- RSA keys must be at least 2,048 bits.
+- ECC keys must be at least 256 bits, generated using an approved elliptic curve
+
+
+**Key Lengths**
+
+All services must use X.509 certificates generated using cryptographic keys of sufficient length, meaning:
+
+**Cipher Suites**
+
+All services must be configured to use the following cipher suites, in the exact order specified below. Note that if you only have an RSA certificate, installed the ECDSA cipher suites do not have any effect. </br>
+
+TLS 1.2 Cipher Suites minimum bar:
+
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+
 ## Step 3: Build a SCIM endpoint
 
 By creating a SCIM web service that interfaces with Azure Active Directory, you can enable automatic user provisioning for virtually any application or identity store.
@@ -816,10 +844,6 @@ Developers using the CLI libraries can host their services within any executable
 ```csharp
  private static void Main(string[] arguments)
  {
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
    new DevelopersMonitor();
@@ -909,10 +933,6 @@ To host the service within Internet Information Services, a developer would buil
 ```csharp
  public class Startup
  {
- // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
 
