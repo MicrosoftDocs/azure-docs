@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 
@@ -46,7 +46,7 @@ Resource audit gives you a view of all activity associated with your Azure AD ro
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Resource audit list with filters](media/pim-how-to-use-audit-log/resource-audit.png)
 
 ## View my audit
 
@@ -62,7 +62,7 @@ My audit enables you to view your personal role activity.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Audit list for the current user](media/pim-how-to-use-audit-log/audit-time-span.png)
 
 # [Previous version](#tab/previous)
 

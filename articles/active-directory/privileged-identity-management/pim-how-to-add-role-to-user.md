@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/05/2020
+ms.date: 02/07/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -70,11 +70,11 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes. When finished, select **Done**.
 
-    ![Memberships settings - date and time](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+    ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
 1. To create the new role assignment, select **Add**. A notification of the status is displayed.
 
-    ![New assignment - Notification](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+    ![New assignment - Notification](./media/pim-resource-roles-assign-roles/assignment-notification.png)
 
 ## Update or remove an existing role assignment
 
@@ -82,21 +82,17 @@ Follow these steps to update or remove an existing role assignment.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure resources**.
+1. Select **Azure AD roles**.
 
-1. Select the resource you want to manage, such as a subscription or management group.
-
-1. Under Manage, select **Roles** to see the list of roles for Azure resources.
+1. Select **Roles** to see the list of roles for Azure AD.
 
 1. Select the role that you want to update or remove.
 
 1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
 
-    ![Update or remove role assignment](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+    ![Update or remove role assignment](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
-
-    For information about extending a role assignment, see [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md).
 
 # [Previous version](#tab/previous)
 
