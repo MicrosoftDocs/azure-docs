@@ -54,7 +54,7 @@ Below is the list of supported data types.
 |---|---|
 | **bool** | A data type having one of two states: `true` or `false`. |
 | **dateTime** | Represents an instant in time, typically expressed as a date and time of day. Expressed in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. |
-| **double** | A double-precision 64-bit [IEEE 754](https://ieeexplore.ieee.org/document/8766229) floating point |
+| **double** | A double-precision 64-bit [IEEE 754](https://ieeexplore.ieee.org/document/8766229) floating point. |
 | **string** | Text values, comprised of Unicode characters.          |
 
 #### Objects and arrays
@@ -111,7 +111,7 @@ When planning your Time Series Insights environment, it's important to consider 
 
 A *partition* is an ordered sequence of events held in a hub. The partition count is set during the hub creation phase and cannot be changed. 
 
-For Event Hubs partitioning best practices, review [How many partitions do I need?](../event-hubs/event-hubs-faq#how-many-partitions-do-i-need).
+For Event Hubs partitioning best practices, review [How many partitions do I need?](../event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
 > [!NOTE]
 > Most IoT Hubs used with Azure Time Series Insights only need four partitions.
@@ -134,8 +134,8 @@ When messages from multiple devices are forwarded to the hub using the same gate
 
 We recommend the following: 
 
-* Calculate your per environment and per partition ingestion rate before deploying your solution
-* Ensure that your IoT Hub devices (and thus partitions) are load-balanced to the furthest extend possible
+* Calculate your per environment and per partition ingestion rate before deploying your solution.
+* Ensure that your IoT Hub devices (and thus partitions) are load-balanced to the furthest extend possible.
 
 > [!IMPORTANT]
 > For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub devices in use to be sure that the rate falls below the 0.5 MBps per partition limitation in preview.
@@ -151,7 +151,7 @@ Refer to the following resources to learn more about optimizing hub throughput a
 
 ### Data storage
 
-When you create a Time Series Insights Preview pay-as-you-go SKU environment, you create two Azure resources:
+When you create a Time Series Insights Preview *pay-as-you-go* (PAYG) SKU environment, you create two Azure resources:
 
 * An Azure Time Series Insights Preview environment that can be configured for warm storage.
 * An Azure Storage general-purpose V1 blob account for cold data storage.
@@ -178,7 +178,7 @@ For a thorough description of Azure Blob storage, read the [Storage blobs introd
 
 ### Your storage account
 
-When you create an Azure Time Series Insights Preview *pay-as-you-go* (PAYG) environment, an Azure Storage general-purpose V1 blob account is created as your long-term cold store.  
+When you create an Azure Time Series Insights Preview PAYG environment, an Azure Storage general-purpose V1 blob account is created as your long-term cold store.  
 
 Azure Time Series Insights Preview publishes up to two copies of each event in your Azure Storage account. The initial copy has events ordered by ingestion time. That event order is **always preserved** so other services can access your events without sequencing issues. 
 
