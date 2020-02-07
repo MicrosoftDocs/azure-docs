@@ -47,7 +47,9 @@ Organizations must also meet the following software requirements.
 
 - Devices must be running Windows 10 Insider Build 18945 or newer.
 - You must have upgraded to or installed the latest version of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-- Your Windows Server 2016/2019 Domain Controllers (DCs) must be fully patched and up-to-date to handle the on-premises authentication request load.
+- Your Windows Server domain controllers must have the following patches installed:
+    - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
+	- For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### Supported scenarios
 

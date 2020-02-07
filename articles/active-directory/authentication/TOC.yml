@@ -135,13 +135,13 @@
     items: 
       - name: Deploying passwordless
         href: howto-authentication-passwordless-deployment.md
-      - name: Passwordless security keys
-        href: howto-authentication-passwordless-security-key.md
-      - name: Passwordless Windows 10
+      - name: Passwordless FIDO2 security keys
         items:
-          - name: Azure AD joined devices
+          - name: Enable FIDO2 security keys for your tenant
+            href: howto-authentication-passwordless-security-key.md
+          - name: Sign in to Windows 10 devices
             href: howto-authentication-passwordless-security-key-windows.md
-          - name: Hybrid Azure AD joined devices
+          - name: SSO to on-premises resources
             href: howto-authentication-passwordless-security-key-on-premises.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
