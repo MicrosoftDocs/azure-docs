@@ -40,6 +40,13 @@ Set up PowerShell as follows:
 
 1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.0.0.
 
+> [!WARNING]
+> The minimum version of PS required for preview was 'Az 1.0.0'. Due to upcoming changes for GA, the minimum PS version required will be 'Az.RecoveryServices 2.6.0'. It is very important to upgrade all existing PS versions to this version. Otherwise, the existing scripts will break after GA. Install the minimum version with the following PS commands
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 2. Find the Azure Backup PowerShell cmdlets with this command:
 
     ```powershell
@@ -236,19 +243,32 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+## Important notice - Backup item identification for AFS backups
+
+This section outlines the changes in the Backup item retrieval for AFS backups from preview to GA.
+
+While enabling the backup for AFS, user supplies the customer friendly File share name as the entity name and a backup item is created. The backup item's 'name' is a unique identifier created by Azure Backup service. Usually the identifier involves user friendly name. But there has been a change in the way Azure services internally identify an azure file share uniquely. This means that the unique-name of the backup item for AFS backup will be a GUID and will not have any relation to the customer friendly name. In order to know the unique name of each item, just run the ```Get-AzRecoveryServicesBackupItem``` command with the relevant filters for backupManagementType and WorkloadType to get all the relevant items and then observe the name field in the returned PS object/response. It is always recommended to list items and then retrieve their unique name from 'name' field in response. Use this value to filter the items with the 'Name' parameter. Otherwise use the FriendlyName parameter to retrieve the item with it's customer friendly name/identifier.
+
+> [!WARNING]
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. With this version, the 'friendlyName' filter is available for ```Get-AzRecoveryServicesBackupItem``` command. Pass the azure file share name to friendlyName parameter. If you pass the azure file share name to the 'Name' parameter, this version throws a warning to pass this friendly name to the friendly name parameter. Not installing this minimum version might result in failure of existing scripts. Install the minimum version of PS with the following command.
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 ## Trigger an on-demand backup
 
 Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) to run an on-demand backup for a protected Azure file share.
 
-1. Retrieve the storage account and file share from the container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Retrieve the storage account from the container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. To start a backup job, you obtain information about the Azure file share with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Run an on-demand backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Run the on-demand backup as follows:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
+$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
@@ -267,6 +287,9 @@ Azure file share snapshots are used while the backups are taken, so usually the 
 On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
 
 If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
+
+> [!WARNING]
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups in your automation runbooks. You will have to replace the old 'AzureRM' module with 'Az' module. With this version, the 'friendlyName' filter is available for ```Get-AzRecoveryServicesBackupItem``` command. Pass the azure file share name to friendlyName parameter. If you pass the azure file share name to the 'Name' parameter, this version throws a warning to pass this friendly name to the friendly name parameter.
 
 ## Next steps
 
