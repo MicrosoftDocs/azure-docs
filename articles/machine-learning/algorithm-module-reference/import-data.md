@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Import Data module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to load data into a machine learning pipeline from existing cloud data services. 
 

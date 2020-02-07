@@ -1,5 +1,5 @@
 ---
-title: Monitor metrics and diagnostic logs via Azure Monitor
+title: Media Services metrics and diagnostic logs with Azure Monitor
 titleSuffix: Azure Media Services
 description: Learn how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services

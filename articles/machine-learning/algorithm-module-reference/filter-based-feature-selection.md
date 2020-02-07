@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Filter Based Feature Selection
 
-This article describes how to use the Filter Based Feature Selection module in Azure Machine Learning designer. This module helps you identify the columns in your input dataset that have the greatest predictive power. 
+This article describes how to use the Filter Based Feature Selection module in Azure Machine Learning designer (preview). This module helps you identify the columns in your input dataset that have the greatest predictive power. 
 
 In general, *feature selection* refers to the process of applying statistical tests to inputs, given a specified output. The goal is to determine which columns are more predictive of the output. The Filter Based Feature Selection module provides multiple feature selection algorithms to choose from. The module includes correlation methods such as Pearson correlation and chi-squared values. 
 

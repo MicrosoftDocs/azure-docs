@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/14/2019
+ms.date: 1/14/2020
 ms.author: allensu
 
 ---
 
 # What is Azure Load Balancer?
 
-*Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. Azure offers a [variety of load balancing options](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that you can choose from based on your need. This document covers the Azure Load Balancer.
+*Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. 
 
 Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
@@ -34,6 +34,11 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
+
+>[!NOTE]
+> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you need high-performance, low-latency, Layer-4 load balancing, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
+>
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Why use Azure Load Balancer?
 With Standard Load Balancer, you can scale your applications and create highly available services. 

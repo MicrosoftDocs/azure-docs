@@ -76,7 +76,6 @@ Key applications that are included in the Office 365 (preview) client app:
 
    - Microsoft Flow
    - Microsoft Forms
-   - Microsoft Office 365 Portal
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
@@ -86,6 +85,7 @@ Key applications that are included in the Office 365 (preview) client app:
    - Office 365 Yammer
    - Office Delve
    - Office Online
+   - Office.com
    - OneDrive
    - PowerApps
    - Skype for Business Online

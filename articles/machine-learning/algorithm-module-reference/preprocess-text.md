@@ -13,7 +13,7 @@ ms.date: 09/01/2019
 ---
 # Preprocess Text
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use the **Preprocess Text** module to clean and simplify text. It supports these common text processing operations:
 

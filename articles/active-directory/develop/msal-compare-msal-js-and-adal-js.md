@@ -15,7 +15,6 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.js and MSAL.js libraries so I can migrate my applications to MSAL.js.
-ms.collection: M365-identity-device-management
 ---
 
 # Differences between MSAL JS and ADAL JS

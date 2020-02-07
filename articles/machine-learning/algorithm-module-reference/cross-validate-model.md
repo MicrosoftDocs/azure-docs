@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Cross Validate Model
 
-This article describes how to use the Cross Validate Model module in Azure Machine Learning designer. *Cross-validation* is a technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained through that data.  
+This article describes how to use the Cross Validate Model module in Azure Machine Learning designer (preview). *Cross-validation* is a technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained through that data.  
 
 The Cross Validate Model module takes as input a labeled dataset, together with an untrained classification or regression model. It divides the dataset into some number of subsets (*folds*), builds a model on each fold, and then returns a set of accuracy statistics for each fold. By comparing the accuracy statistics for all the folds, you can interpret the quality of the data set. You can then understand whether the model is susceptible to variations in the data.  
 

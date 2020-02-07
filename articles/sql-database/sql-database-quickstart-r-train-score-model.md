@@ -15,26 +15,26 @@ manager: cgronlun
 ms.date: 04/11/2019
 ---
 
-# Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+# Quickstart: Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this quickstart, you'll create and train a predictive model using R, save the model to a table in your SQL database, then use the model to predict values from new data using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). 
-
-The model you'll use in this quickstart is a simple regression model that predicts the stopping distance of a car based on speed. You'll use the **cars** dataset included with R, because it's small and easy to understand.
-
-> [!TIP]
-> Many datasets, small and large, are included with the R runtime. To get a list of datasets installed with R, type `library(help="datasets")` from an R command prompt.
+In this quickstart, you create and train a predictive model using R, save the model to a table in your database, then use the model to predict values from new data using Machine Learning Services (with R) in Azure SQL Database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
-- To run the example code in these exercises, you must first have an Azure SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+> [!NOTE]
+> During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database.
 
-- Make sure you've installed the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run the R scripts using other database management or query tools, but in this quickstart you'll use SSMS.
+This example uses a simple regression model to predict the stopping distance of a car based on speed using the **cars** dataset included with R.
 
-- This quickstart requires that you configure a server-level firewall rule. For information on how to do this, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
+> [!TIP]
+> Many datasets are included with the R runtime, to get a list of installed datasets, type `library(help="datasets")` from the R command prompt.
 
 ## Create and train a predictive model
 
