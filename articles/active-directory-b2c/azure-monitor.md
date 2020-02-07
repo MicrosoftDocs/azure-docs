@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/05/2020
+ms.date: 02/07/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -42,7 +42,7 @@ You authorize a user in your Azure AD B2C directory (the **Service Provider**) t
 
 ## Create a resource group
 
-In the Azure Active Directory (Azure AD) tenant that contains your Azure subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
+In the Azure Active Directory (Azure AD) tenant that contains your Azure subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). This resource group will contain your [Azure storage account](../storage/blobs/storage-blobs-introduction.md), [event hub](../event-hubs/event-hubs-about.md), or [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) where you want to archive the sign-in and auditing logs. Alternatively use an existing resource group, where you have your Azure storage account, event hub, or Log Analytics workspace. To create a new resource group, use the following values:
 
 * **Subscription**: Select your Azure subscription.
 * **Resource group**: Enter name for the resource group. For example, *azure-ad-b2c-monitor*.
@@ -203,6 +203,14 @@ Once you've deployed the template and have waited a few minutes for the resource
 
     ![All directories selected in Directory & Subscription filter](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
 
+
+## Choose the destinations 
+Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
+
+- [Log Analytics workspace](../platform/resource-logs-collect-workspace.md) which allows you to analyze data with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as log alerts and visualizations. 
+- [Event hubs](../platform/resource-logs-stream-event-hubs.md) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
+- [Azure storage account](../platform/resource-logs-collect-storage.md) which is useful for audit, static analysis, or backup.
+
 ## Configure diagnostic settings
 
 After you've delegated resource management and have selected your subscription, you're ready to [Create diagnostic settings](../active-directory/reports-monitoring/overview-monitoring.md) in the Azure portal.
@@ -213,12 +221,25 @@ To configure monitoring settings for Azure AD B2C activity logs:
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
-1. Select **+ Add diagnostic setting**.
+1. If there are existing settings on the resource, you will see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit** setting to edit an existing one. Each setting can have no more than one of each of the destination types..
 
     ![Diagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
+1. Give your setting a name if it doesn't already have one.
+1. Check the box for each destination to send the logs. Click **Configure** to specify their settings as described in the following table.
+
+    | Setting | Description |
+    |:---|:---|
+    | Archive to a storage account | Name of storage account. |
+    | Stream to an event hub | The namespace where the event hub is created (if this is your first time streaming logs) or streamed to (if there are already resources that are streaming that log category to this namespace).
+    | Send to Log Analytics | Name of workspace. |
+    
+ 1. Select the **AuditLogs** and **SignInLogs**.
+ 1. Select **Save** to save your settings.
+    
 ## Next steps
 
 For more information about adding and configuring diagnostic settings in Azure Monitor, see this tutorial in the Azure Monitor documentation:
-
-[Tutorial: Collect and analyze resource logs from an Azure resource](/azure-monitor/learn/tutorial-resource-logs.md)
+ 
+- [Tutorial: Stream Azure Active Directory logs to an Azure event hub](./active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](./azure-monitor/insights/monitor-azure-resource.md)
