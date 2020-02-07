@@ -163,7 +163,7 @@ Important things to note about persisting events:
 
 * Persisting events is enabled on a per Event Subscription basis and is opt-in once a volume or directory has been mounted.
 * Event persistence is configured on an Event Subscription at creation time and cannot be modified once the Event Subscription is created. To toggle event persistence, you must delete and re-create the Event Subscription.
-* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependent on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but generally only becomes a noticible at large scale.
+* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependent on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but generally only becomes a noticeable at large scale.
 
 To enable event persistence on an Event Subscription, set `persistencePolicy` to `true`:
 
