@@ -15,7 +15,7 @@ ms.author: rambala
 
 In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for backup connectivity solution for an ExpressRoute private peering connectivity and how to use geo-redundant ExpressRoute circuits for the purpose. In this article, let us consider how to leverage and maintain site-to-site (S2S) VPN as a back for ExpressRoute private peering. 
 
-Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN disaster recover combination only in active-passive mode. A major challenge of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection. The common reason for the backup failure is lack of active maintenance of the passive connection. Therefore, in this article let's focus on how to verify and actively maintain S2S VPN connectivity that is backing up an ExpressRoute private peering.
+Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN disaster recovery combination only in active-passive mode. A major challenge of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection. The common reason for the failures of the passive connection is lack of active maintenance. Therefore, in this article let's focus on how to verify and actively maintain S2S VPN connectivity that is backing up an ExpressRoute private peering.
 
 >[!NOTE] 
 >When a given route is advertised via both ExpressRoute and VPN, Azure would prefer routing over ExpressRoute.  
@@ -37,14 +37,14 @@ The following table lists the key IP prefixes of the topology:
 | --- | --- |
 | On-premises LAN | 10.1.11.0/25 |
 | Azure Hub VNet | 10.17.11.0/25 |
-| Azure spoke VNet | 10.17.11.128/25 |
-| On-premises test server | 10.1.11.10/32 |
-| Spoke VNet test server | 10.17.11.132/32 |
+| Azure spoke VNet | 10.17.11.128/26 |
+| On-premises test server | 10.1.11.10 |
+| Spoke VNet test VM | 10.17.11.132 |
 | ExpressRoute primary connection p2p subnet | 192.168.11.16/30 |
 | ExpressRoute secondary connection p2p subnet | 192.168.11.20/30 |
-| VPN gateway primary BGP peer IP | 10.17.11.76/32 |
-| VPN gateway secondary BGP peer IP | 10.17.11.77/32 |
-| On-premises firewall VPN BGP peer IP | 192.168.11.88/32 |
+| VPN gateway primary BGP peer IP | 10.17.11.76 |
+| VPN gateway secondary BGP peer IP | 10.17.11.77 |
+| On-premises firewall VPN BGP peer IP | 192.168.11.88 |
 | Primary CE router i/f towards firewall IP | 192.168.11.0/31 |
 | Firewall i/f towards primary CE router IP | 192.168.11.1/31 |
 | Secondary CE router i/f towards firewall IP | 192.168.11.2/31 |
@@ -231,10 +231,10 @@ Failure to see route exchanges indicate connection failure. See [Troubleshooting
 Now that we have confirmed successful route exchanges over the VPN connection (control plane), we are set to switch traffic (data plane) from the ExpressRoute connectivity to the VPN connectivity. 
 
 >[!NOTE] 
->In production environments failover testing has to be done during well notified network maintenance work-windows as they can be service disruptive.
+>In production environments failover testing has to be done during scheduled network maintenance work-window as it can be service disruptive.
 >
 
-Prior to do the traffic switch, let's trace route the current path in our setup from an on-premises server and a VM in the spoke VNet.
+Prior to do the traffic switch, let's trace route the current path in our setup from the on-premises test server to the test VM in the spoke VNet.
 
     C:\Users\PathLabUser>tracert 10.17.11.132
 
@@ -268,7 +268,7 @@ The failover switch time depends on the BGP convergence time. In our setup, the 
 
     Trace complete.
 
-The traceroute result confirms that the backup connection via S2S VPN is active and can provide service continuity if both the primary and secondary ExpressRoute connections fail. To complete the failover testing, let's enable the ExpressRoute connections back and normalize, using the following set of commands.
+The traceroute result confirms that the backup connection via S2S VPN is active and can provide service continuity if both the primary and secondary ExpressRoute connections fail. To complete the failover testing, let's enable the ExpressRoute connections back and normalize the traffic flow, using the following set of commands.
 
     $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
     $ckt.Peerings[0].State = "Enabled"
