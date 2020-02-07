@@ -74,7 +74,7 @@ $ctx = $storageAccount.Context
 
 ## Create a queue
 
-The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet to create a queue named 'queuename'.
+The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet to create a queue named 'howtoqueue'.
 
 ```powershell
 $queueName = "howtoqueue"
