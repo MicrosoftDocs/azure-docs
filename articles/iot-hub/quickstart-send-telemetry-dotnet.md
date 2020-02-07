@@ -43,7 +43,7 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 az extension add --name azure-cli-iot-ext
 ```
 
-Download the Azure IoT C# samples from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
+Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
 
 ## Create an IoT hub
 
