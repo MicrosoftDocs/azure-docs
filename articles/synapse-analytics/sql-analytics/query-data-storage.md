@@ -67,7 +67,7 @@ You must create credentials before you can run queries. This credential will be 
 > [!NOTE]
 > In order to successfully run quickstarts in this section you have to use SAS token.
 >
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](development-storage-files-storage-access-control.md#disable-forcing-aad-pass-through).
+> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](development-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
 > SQL on-demand by default always uses AAD pass-through.
 
