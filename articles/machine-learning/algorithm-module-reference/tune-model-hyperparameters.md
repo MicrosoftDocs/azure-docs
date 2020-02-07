@@ -13,7 +13,7 @@ ms.date: 10/16/2019
 ---
 # Tune Model Hyperparameters
 
-This article describes how to use the Tune Model Hyperparameters module in Azure Machine Learning designer (preview). The goal is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
+This article describes how to use the Tune Model Hyperparameters module in Azure Machine Learning designer. The goal is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
 
 The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the properties pane. Basically, this module performs a *parameter sweep* over the specified parameter settings. It learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
 
@@ -76,11 +76,11 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 When training is complete:
 
-+ To view a set of accuracy metrics for the best model, right-click the module, select **Sweep results**, and then select **Visualize**.
++ To view a set of accuracy metrics for the best model, right-click the module, and then select **Visualize**.
 
     The output includes all accuracy metrics that apply to the model type, but the metric that you selected for ranking determines which model is considered "best."
 
-+ To use the model for scoring in other pipelines without having to repeat the tuning process, right-click the model output and select **Save as Trained Model**. 
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 
 ## Technical notes

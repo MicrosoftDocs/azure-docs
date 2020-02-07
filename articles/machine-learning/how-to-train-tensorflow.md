@@ -59,6 +59,7 @@ from azureml.core import Workspace, Run
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
+from azureml.train.dnn import TensorFlow
 ```
 
 ### Initialize a workspace
@@ -154,7 +155,7 @@ est = TensorFlow(source_directory=script_folder,
                  script_params=script_params,
                  compute_target=compute_target,
                  use_gpu=True,
-                 pip_packages=['azureml-dataprep[pandas,fuse]')
+                 pip_packages=['azureml-dataprep[pandas,fuse]'])
 ```
 
 > [!TIP]
@@ -238,7 +239,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       distributed_training=MpiConfiguration(),
                       framework_version='1.13',
                       use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
+                      pip_packages=['azureml-dataprep[pandas,fuse]'])
 ```
 
 ### Parameter server
@@ -262,7 +263,7 @@ estimator= TensorFlow(source_directory=project_folder,
                       process_count_per_node=1,
                       distributed_training=distributed_training,
                       use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
+                      pip_packages=['azureml-dataprep[pandas,fuse]'])
 
 # submit the TensorFlow job
 run = exp.submit(tf_est)

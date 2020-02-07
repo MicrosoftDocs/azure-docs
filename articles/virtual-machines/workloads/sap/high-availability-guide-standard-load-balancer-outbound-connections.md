@@ -32,7 +32,7 @@ When implementing high availability for SAP solutions via clustering, one of the
 
 Standard Azure load balancer offers some advantages over the Basic load balancer. For instance, it works across Azure Availability zones, it has better monitoring and logging capabilities for easier troubleshooting, reduced latency. The “HA ports” feature covers all ports, that is, it is no longer necessary to list all individual ports.  
 
-There are some important differences between the basic and the standard SKU of Azure load balancer. One of them is the handling of outbound traffic to public end point. For full Basic versus Standard SKU load balancer comparison, see [Load Balancer SKU comparison](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+There are some important differences between the basic and the standard SKU of Azure load balancer. One of them is the handling of outbound traffic to public end point. For full Basic versus Standard SKU load balancer comparison, see [Load Balancer SKU comparison](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there is no outbound connectivity to public end points, unless additional configuration is done.  
 

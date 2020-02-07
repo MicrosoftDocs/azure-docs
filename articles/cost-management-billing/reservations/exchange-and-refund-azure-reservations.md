@@ -8,13 +8,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2019
+ms.date: 01/21/2020
 ms.author: banders
 ---
 
 # Self-service exchanges and refunds for Azure Reservations
 
-Azure Reservations provide flexibility to help meet your evolving needs. You can exchange a reservation for another reservation of the same type. You can also refund a reservation, up to $50,000 USD per year, if you no longer need it.
+Azure Reservations provide flexibility to help meet your evolving needs. You can exchange a reservation for another reservation of the same type. You can also refund a reservation, up to $50,000 USD per year, if you no longer need it. The maximum limit of the refund applies to all reservations in the scope of your agreement with Microsoft.
 
 Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and CSP are supported.
 

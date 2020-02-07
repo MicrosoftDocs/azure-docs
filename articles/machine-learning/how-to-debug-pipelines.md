@@ -14,7 +14,7 @@ ms.date: 12/12/2019
 # Debug and troubleshoot machine learning pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer).
 
 
 ## Debug and troubleshoot in the Azure Machine Learning SDK
@@ -76,7 +76,7 @@ The following table contains common problems during pipeline development, with p
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
 
-## Debug and troubleshoot in Azure Machine Learning designer (preview)
+## Debug and troubleshoot in Azure Machine Learning designer
 
 This section provides an overview of how to troubleshoot  pipelines in the designer.
 For pipelines created in the designer, you can find the **log files** on either the authoring page, or in the pipeline run detail page.

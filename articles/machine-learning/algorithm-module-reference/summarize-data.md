@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Summarize Data
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Use the Summarize Data module to create a set of standard statistical measures that describe each column in the input table.
 
@@ -36,7 +36,7 @@ The module calculates the important scores for each column, and returns a row of
 
 1. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
 
-1. Run the pipeline, or right-click the module, and select **Run selected**.
+1. Run the pipeline.
 
 ## Results
 

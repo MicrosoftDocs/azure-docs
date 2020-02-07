@@ -178,6 +178,7 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 
 - Learn more about [advanced data security](sql-database-advanced-data-security.md).
 - Consider configuring [Azure SQL Database Auditing](sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
+- For a YouTube presentation that includes Data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).
 
 <!--Anchors-->
 [What is data discovery & classification]: #subheading-1

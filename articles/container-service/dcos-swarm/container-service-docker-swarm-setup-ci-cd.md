@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) CI/CD with Azure Container Service and Swarm
 description: Use Azure Container Service with Docker Swarm, an Azure Container Registry, and Azure DevOps to deliver continuously a multi-container .NET Core application
-services: container-service
 author: jcorioland
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
@@ -18,7 +15,6 @@ ms.custom: mvc
 
 One of the biggest challenges when developing modern applications for the cloud is being able to deliver these applications continuously. In this article, you learn how to implement a full continuous integration and deployment (CI/CD) pipeline using Azure Container Service with Docker Swarm, Azure Container Registry, and Azure Pipelines management.
 
-This article is based on a simple application, available on [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs), developed with ASP.NET Core. The application is composed of four different services: three web APIs and one web front end:
 
 ![MyShop sample application](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 

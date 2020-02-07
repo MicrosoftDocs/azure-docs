@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/15/2020
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -39,7 +38,11 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Cisco Webex supports **SP** initiated SSO and supports **Automated** user provisioning.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* Cisco Webex supports **SP** initiated SSO.
+* Cisco Webex supports **Automated** user provisioning.
+* Once you configure the Cisco Webex you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Cisco Webex from the gallery
 
@@ -88,33 +91,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	In the **Sign on URL** textbox, paste the value of **Reply URL**, which gets autofilled by SP metadata file upload.
 
-5. Cisco Webex  application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+1. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
-6. In addition to above, Cisco Webex application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
-    
+1. In addition to above, Cisco Webex application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+  
 	| Name |  Source Attribute|
 	| ---------------|--------- |
 	| uid | user.userprincipalname |
-
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -218,3 +203,7 @@ When you select the Cisco Webex tile in the Access Panel, you should be automati
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Cisco Webex with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-webex)
+
+- [How to protect Cisco Webex with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

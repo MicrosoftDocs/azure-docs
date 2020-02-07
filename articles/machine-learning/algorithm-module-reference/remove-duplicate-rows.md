@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Remove Duplicate Rows module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to remove potential duplicates from a dataset.
 
@@ -66,7 +66,7 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
 
 5. Run the pipeline.
 
-6. To review the results, right-click the module, select **Results dataset**, and click **Visualize**. 
+6. To review the results, right-click the module, and select **Visualize**. 
 
 > [!TIP]
 > If the results are difficult to understand, or if you want to exclude some columns from consideration, you can remove columns by using the [Select Columns in Dataset](./select-columns-in-dataset.md) module.

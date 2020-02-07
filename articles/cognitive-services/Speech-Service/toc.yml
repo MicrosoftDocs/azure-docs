@@ -33,7 +33,7 @@
       href: how-to-custom-speech.md
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
-    - name: Improve accuracy with Tenant Models
+    - name: Improve accuracy with tenant models
       href: tutorial-tenant-model.md
     - name: Select a specific microphone input device
       href: how-to-select-audio-input-devices.md
@@ -180,9 +180,9 @@
       - name: Release notes
         href: releasenotes.md
         displayName: "release notes,updates,what's new,what is new,changes"
-    - name: LUIS Service
+    - name: LUIS service
       items:
-      - name: LUIS Developer Resources
+      - name: LUIS developer resources
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
   expanded: false
@@ -201,7 +201,7 @@
       href: quickstarts/translate-speech-to-speech.md
   - name: Tutorials
     items:
-    - name: Build a Flask app to translate and synthesize text, REST
+    - name: Build a Flask app to translate and synthesize text with REST APIs
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
   - name: Reference
     items:
@@ -303,35 +303,35 @@
       href: voice-assistants.md
   - name: Building your assistant
     items:
-    - name: Custom Commands (Preview)
+    - name: Custom Commands (preview)
       href: custom-commands.md
     - name: Direct Line Speech
       href: direct-line-speech.md
   - name: Quickstarts
     items:
-    - name: 'C# (UWP)'
+    - name: C# (UWP)
       href: quickstart-voice-assistant-csharp-uwp.md
-    - name: 'Java (Windows, macOS, Linux)'
+    - name: Java (Windows, macOS, Linux)
       href: quickstart-voice-assistant-java-jre.md
-    - name: 'Java (Android)'
+    - name: Java (Android)
       href: quickstart-voice-assistant-java-android.md
-    - name: 'Create a Custom Command (Preview)'
+    - name: Create a Custom Command (preview)
       href: quickstart-custom-speech-commands-create-new.md
-    - name: 'Create a Custom Command with parameters (Preview)'
+    - name: Create a Custom Command with parameters (preview)
       href: quickstart-custom-speech-commands-create-parameters.md
-    - name: 'Use Custom Commands with Custom Voice (Preview)'
+    - name: Use Custom Commands with Custom Voice (preview)
       href: quickstart-custom-speech-commands-select-custom-voice.md
-    - name: 'Use Custom Commands with the Speech SDK (Preview)'
+    - name: Use Custom Commands with the Speech SDK (preview)
       href: quickstart-custom-speech-commands-speech-sdk.md
   - name: How-to guides
     items:
-    - name: 'Fulfill Custom Commands with the Speech SDK'
+    - name: Fulfill Custom Commands with the Speech SDK
       href: how-to-custom-speech-commands-fulfill-sdk.md
-    - name: 'Add parameter validation to Custom Commands'
+    - name: Add parameter validation to a Custom Command
       href: how-to-custom-speech-commands-validations.md
-    - name: 'Add a confirmation to a Custom Command'
+    - name: Add a confirmation to a Custom Command
       href: how-to-custom-speech-commands-confirmations.md
-    - name: 'Add a one-step correction to a Custom Command'
+    - name: Add a one-step correction to a Custom Command
       href: how-to-custom-speech-commands-one-step-correction.md
   - name: Tutorials
     items:
@@ -360,9 +360,9 @@
         href: how-to-custom-speech-train-model.md
       - name: Deploy a custom model
         href: how-to-custom-speech-deploy-model.md
-      - name: "Guide Create human-labeled transcriptions"
+      - name: Create human-labeled transcriptions
         href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: 'Tenant Models'
+    - name: Tenant models
       items:
       - name: Create, publish, and use a model
         href: tutorial-tenant-model.md
@@ -380,7 +380,7 @@
         href: concepts-disclosure-guidelines.md
       - name: Disclosure design patterns
         href: concepts-disclosure-patterns.md
-      - name: Code of Conduct
+      - name: Code of conduct
         href: https://aka.ms/custom-neural-code-of-conduct
     - name: Custom Voice portal
       items:
@@ -395,13 +395,13 @@
         href: record-custom-voice-samples.md
     - name: Audio Content Creation
       items:
-      - name: "How-to: Audio Content Creation"
+      - name: Audio Content Creation
         href: how-to-audio-content-creation.md
   - name: Custom keyword naming guidelines
     href: speech-devices-sdk-kws-guidelines.md
   - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
-- name: Speech Service
+- name: Speech service
   expanded: false
   items:
   - name: Scenarios
@@ -411,9 +411,9 @@
       displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
   - name: How-to guides
     items:
-    - name: Try Speech Service for free
+    - name: Try Speech service for free
       href: get-started.md
-    - name: Create Speech Service Resource
+    - name: Create Speech service resource
       href: get-started.md#create-a-speech-resource-in-azure
     - name: Containers
       expanded: false
@@ -440,9 +440,9 @@
     items:
     - name: REST APIs
       items:
-      - name: Batch transcription & customization REST API
+      - name: Batch transcription and customization REST API
         href: https://westus.cris.ai/swagger/ui/index
-      - name: Conversation Transcription REST API
+      - name: Conversation transcription REST API
         href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - name: Speech-to-text REST API
         href: rest-speech-to-text.md
@@ -468,18 +468,18 @@
       displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
   - name: How-to guides
     items:
-    - name: How to enable logging
+    - name: Enable logging
       href: how-to-use-logging.md
-    - name: How to track memory usage
+    - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
-    - name: How to configure OpenSSL for Linux
+    - name: Configure OpenSSL for Linux
       href: how-to-configure-openssl-linux.md
       displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
   - name: Samples
     items:
-    - name: Speech SDK Samples (GitHub)
+    - name: Speech SDK samples (GitHub)
       href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-    - name: Speech Device SDK Samples (GitHub)
+    - name: Speech Devices SDK samples (GitHub)
       href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
   - name: Reference
     items:
@@ -526,7 +526,7 @@
       href: speech-devices-sdk-troubleshooting.md
   - name: Reference
     items:
-    - name: Speech Devices SDK Release notes
+    - name: Speech Devices SDK release notes
       href: devices-sdk-release-notes.md
 - name: Migration
   expanded: false
@@ -552,7 +552,7 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Privacy & cookies
+  - name: Privacy and cookies
     href: https://privacy.microsoft.com/privacystatement

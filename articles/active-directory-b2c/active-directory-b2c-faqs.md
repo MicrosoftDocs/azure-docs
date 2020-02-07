@@ -23,7 +23,7 @@ There are two common reasons for why the Azure AD extension is not working for y
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 
-Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. With custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
 ### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
 

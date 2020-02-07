@@ -164,6 +164,11 @@ In all these cases, refer to [Supported Data types](https://docs.microsoft.com/r
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
 
+## Error: Integrated change tracking policy cannot be used because table has a composite primary key
+
+This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
+
+
 ## Error: Could not process document within indexer max run time
 
 This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.

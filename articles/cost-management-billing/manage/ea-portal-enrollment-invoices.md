@@ -4,7 +4,7 @@ description: This article explains how to manage and act on your Azure Enterpris
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -581,7 +581,7 @@ To sign up for the free trial, go to the gear icon and selecting **Manage person
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Click **Sign In**.
 1. The import process will begin automatically. When complete, a new dashboard, report, and model will appear in the navigation pane. Click the dashboard to view your imported data.
 
-For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information on the new content pack, please download the [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) document.
+For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information about the new content pack, see [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### To access the legacy Power BI EA content pack:
 

@@ -171,7 +171,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles, and features, and for visualizing dependencies of the VMs, you can provide VM credentials that have access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the necessary access permissions.
+For discovery of applications, roles, and features, and for visualizing dependencies of the VMs, you can provide VM credentials that have access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) about the necessary access permissions.
 
 > [!NOTE]
 > This input is optional, but you need it if you want to enable application discovery and agentless dependency visualization.
@@ -205,7 +205,7 @@ This procedure is required for agentless server migration.
 1.	Select your vCenter Server instance from the drop-down menu.
 1.	Select **Create role**.
 1.	Enter a name for the new role (such as <em>Azure_Migrate</em>).
-1.	Assign [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the newly defined role.
+1.	Assign [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) to the newly defined role.
 1.	Select **OK**.
 
 #### 3. Assign permissions on vCenter objects
@@ -214,7 +214,7 @@ There are two approaches for assigning permissions on inventory objects in vCent
 
 For Server Assessment, you must apply the **Read-only** role to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects will be included: host, folder of hosts, cluster, and folder of clusters in the hierarchy up to the datacenter. These permissions will be propagated to child objects in the hierarchy.
 
-Similarly for Server Migration, you must apply a user-defined role with [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the vCenter user account for all the parent objects where the VMs to be migrated are hosted. This role can be named <em> Azure _Migrate</em>.
+Similarly for Server Migration, you must apply a user-defined role with [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) to the vCenter user account for all the parent objects where the VMs to be migrated are hosted. This role can be named <em> Azure _Migrate</em>.
 
 ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
 

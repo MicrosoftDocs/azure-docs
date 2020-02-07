@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Export Data module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to save results, intermediate data, and working data from your pipelines into cloud storage destinations outside Azure Machine Learning. 
 

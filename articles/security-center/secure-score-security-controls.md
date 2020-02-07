@@ -18,7 +18,7 @@ ms.author: memildin
 
 # The enhanced Secure Score (Preview) 
 
-This article introduces the enhanced Secure Score (currently in preview), the accompanying Security Controls, and the advantages they bring.
+This article introduces the enhanced Secure Score (currently in preview), the accompanying Security Controls, and the advantages they bring. It also explains how your score is calculated.
 
 ## Introduction to Secure Score
 
@@ -28,11 +28,11 @@ Security Center continually assesses your resources, subscriptions, and organiza
 
 The *enhanced* Secure Score (currently in preview) is **attack surface focused** and brings three benefits:
 
-- Security Controls - Security recommendations are now grouped into logical sets that better reflect your vulnerable attack surfaces. For more information, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
+- **Security Controls** - Security recommendations are now grouped into logical sets that better reflect your vulnerable attack surfaces. For more information, see [How the Secure Score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below.
 
-- Overall score better reflects the overall posture - Points were awarded at the recommendation level. With this enhancement, your score will only improve when you remediate *all* of the recommendations for a single resource within a control. That means that your score only improves when the security of a resource improves. 
+- **Overall score better reflects the overall posture** - Points were awarded at the recommendation level. With this enhancement, your score will only improve when you remediate *all* of the recommendations for a single resource within a control. That means that your score only improves when the security of a resource improves. 
 
-- Security status of individual attack surfaces is more visible - By showing the score per Security Control, the Secure Score page becomes the place where you can get a granular view of how well your organization is securing each individual attack surface.
+- **Security status of individual attack surfaces is more visible** - By showing the score per Security Control, the Secure Score page becomes the place where you can get a granular view of how well your organization is securing each individual attack surface.
 
 The enhanced Secure Score is shown as a percentage, as shown in the following screenshot:
 
@@ -59,7 +59,7 @@ For example, the Security Control called "Apply system updates" has a maximum sc
 
 [![The Security Control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
-The value for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (which in this case is one point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
+The potential for the Security Control "Apply system updates" in the screenshot above shows "2% (1 Point)". That means that if you remediate all the recommendations in this control, your score will increase by 2% (in this case, one point). For simplicity, values in the recommendations list's "Potential increase" column are rounded to whole numbers. The tooltips show the precise values:
 
 * **Potential increase** - The remaining points available to you within the control. To get these points  added to your Secure Score, remediate all of the control's recommendations. In the example above, the one point shown for the control is actually 0.96 points.
 * **Current score** - The current score for this control. Each control contributes towards the total score. In this example, the control is contributing 5.04 points to the total. 

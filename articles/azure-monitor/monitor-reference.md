@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/09/2020
+ms.date: 01/17/2020
 
 ---
 
@@ -177,7 +177,7 @@ The services and solutions in the following table store their data in a Log Anal
 | [Azure Sentinel](/azure/sentinel/) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](/azure/sentinel/connect-data-sources). |
 | [Key Vault Analytics](insights/azure-key-vault.md) | Analyze Azure Key Vault AuditEvent logs. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, event hubs, or log analytics in Intune (preview)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Network  | [DNS Analytics](insights/dns-analytics.md) - Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers.<br>[Network Performance Monitor](insights/network-performance-monitor.md) - Monitor network connectivity and performance to service and application endpoints.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analyze logs and metrics from Azure Application Gateway.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. |
+| Network  | [Network Performance Monitor](insights/network-performance-monitor.md) - Monitor network connectivity and performance to service and application endpoints.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analyze logs and metrics from Azure Application Gateway.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. |
 | [Office 365](insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Azure Sentinel. |
 | [SQL Analytics](insights/azure-sql.md) | Monitor performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. |
 | [Surface Hub](insights/surface-hubs.md) | Track the health and usage of Surface Hub devices. |
@@ -196,6 +196,7 @@ Other solutions are available for monitoring different applications and services
 | [Active Directory assessment](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
 | [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
 | [Activity log analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
+| [DNS Analytics (preview)](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collect, view, and analyze your Cloud Foundry system health and performance metrics, across multiple deployments. |
 | [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
 | [On-Demand Assessments](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments. |

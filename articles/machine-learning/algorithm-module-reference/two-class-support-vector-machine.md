@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 
 # Two-Class Support Vector Machine module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a model that is based on the support vector machine algorithm. 
 
@@ -62,16 +62,15 @@ For this model type, it is recommended that you normalize the dataset before usi
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
   
-
 10. Run the pipeline.
 
 ## Results
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md), and select **Visualize**.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
-+ To use the trained models to make predictions, connect the trained model to the [Score Model](score-model.md) module.
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps

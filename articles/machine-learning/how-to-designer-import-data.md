@@ -12,7 +12,7 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ---
 
-# Import your data into Azure Machine Learning designer (preview)
+# Import your data into Azure Machine Learning designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 

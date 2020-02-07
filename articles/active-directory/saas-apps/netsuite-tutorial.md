@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -45,6 +45,7 @@ NetSuite supports:
 * IDP-initiated SSO.
 * JIT (just-in-time) user provisioning.
 * [Automated user provisioning](NetSuite-provisioning-tutorial.md).
+* Once you configure the NetSuite you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
@@ -262,3 +263,6 @@ When you select the NetSuite tile in the Access Panel, you should be automatical
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Try NetSuite with Azure AD](https://aad.portal.azure.com/)
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect NetSuite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

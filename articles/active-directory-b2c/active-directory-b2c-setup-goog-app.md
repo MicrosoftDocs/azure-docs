@@ -18,11 +18,14 @@ ms.subservice: B2C
 
 ## Create a Google application
 
-To use a Google account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+To use a Google account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Google Developers Console. If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 1. In the upper-left corner of the page, select the project list, and then select **New Project**.
-1. Enter a **Project Name**, click **Create**, and then make sure you are using the new project.
+1. Enter a **Project Name**, select **Create**.
+1. Make sure you are using the new project by selecting the project drop-down in the top-left of the screen, select your project by name, then select **Open**.
+1. Select **OAuth consent screen** in the left menu, select **External**, and then select **Create**.
+Enter a **Name** for your application. Enter *b2clogin.com* in the **Authorized domains** section and select **Save**.
 1. Select **Credentials** in the left menu, and then select **Create credentials** > **Oauth client ID**.
 1. Under **Application type**, select **Web application**.
 1. Enter a **Name** for your application, enter `https://your-tenant-name.b2clogin.com` in **Authorized JavaScript origins**, and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorized redirect URIs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.

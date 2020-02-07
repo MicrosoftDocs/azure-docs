@@ -3,7 +3,7 @@ title: Safelist the Azure portal URLs | Microsoft Docs
 description: Add these URLs to proxy server bypass to communicate with the Azure portal and its services
 services: azure-portal
 keywords:
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual

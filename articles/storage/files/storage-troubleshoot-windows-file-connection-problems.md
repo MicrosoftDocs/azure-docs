@@ -133,28 +133,31 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
 > [!Note]  
 > The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-<a id="authorizationfailureportal"></a>
-## Error “Authorization failure” when browsing to an Azure file share in the portal
+<a id="noaaccessfailureportal"></a>
+## Error “No access” when browsing to an Azure file share in the portal
 
 When you browse to an Azure file share in the portal, you may receive the following error:
 
-Authorization failure  
-You do not have access 
+No access  
+Error code: 403 
 
-### Cause 1: Your user account does not have access to the storage account
+### Cause 1: Virtual network or firewall rules are enabled on the storage account
 
 ### Solution for cause 1
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-### Cause 2: Virtual network or firewall rules are enabled on the storage account
+### Cause 2: Your user account does not have access to the storage account
 
 ### Solution for cause 2
 
-Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
+When you try to delete a file, you may receive the following error:
+
+The specified resource is marked for deletion by an SMB client.
 
 ### Cause
 This issue typically occurs if the file or directory has an open handle. 

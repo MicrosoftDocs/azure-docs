@@ -79,6 +79,8 @@
      href: system-requirements.md
    - name: Hardware specification
      href: hardware-specification.md
+   - name: Multi-camera synchronization
+     href: multi-camera-sync.md   
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
    - name: Azure Kinect support
@@ -92,4 +94,4 @@
    - name: Body tracking API
      href: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/index.html
    - name: Record file format
-     href: record-file-format.md 
+     href: record-file-format.md

@@ -151,6 +151,28 @@ The following Java function uses the `@ServiceBusQueueTrigger` annotation from t
  }
 ```
 
+The following Java function shows retrieval of metadata defined in _User Properties_ of a Service Bus message: 
+```java
+public class ServiceBusQueueTriggerJava {
+    @FunctionName("ServiceBusQueueTriggerJava")
+    public void run(
+            @ServiceBusQueueTrigger(name = "message", queueName = "myqueue", connection = "AzureWebJobsStorage") String message,
+            @BindingName("UserProperties") UserProperties userProperties,
+            final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Service Bus Queue trigger function executed.");
+        context.getLogger().info(message);
+        context.getLogger().info(userProperties.key1);
+        context.getLogger().info(userProperties.key2);
+    }
+}
+
+public class UserProperties {
+    public String key1;
+    public String key2;
+}
+```
+
 Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
 
 ```java

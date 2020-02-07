@@ -19,7 +19,7 @@ ms.date: 10/22/2019
   
 ## Module overview  
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model using a customizable neural network algorithm.
   
@@ -86,10 +86,7 @@ Neural networks can be extensively customized. This section describes how to cre
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md), and select **Visualize**.  
-
-+ To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
-
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 ## Next steps
 

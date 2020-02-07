@@ -13,7 +13,7 @@ ms.date: 11/19/2019
 ---
 # Evaluate Model module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
@@ -56,14 +56,11 @@ This feature is useful because you can easily compare results from two different
 
 1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
 2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
-3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
+3. Run the pipeline.
 
 ## Results
 
-After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. You can:
-
-+ Save the results as a dataset, for easier analysis with other tools
-+ Generate a visualization in the designer
+After you run **Evaluate Model**, right-click the module and select **Visualize Evaluation results** to see the results.
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  

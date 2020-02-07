@@ -95,7 +95,9 @@
     displayName: studio
     href: concept-designer.md
   - name: Algorithm cheat sheet
-    href: /azure/machine-learning/algorithm-cheat-sheet   
+    href: /azure/machine-learning/algorithm-cheat-sheet
+  - name: How to select algorithms
+    href: /azure/machine-learning/how-to-select-algorithms       
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md

@@ -1,5 +1,5 @@
 ---
-title: Introduction to the built-in Jupyter notebooks support in Azure Cosmos DB
+title: Introduction to the built-in Jupyter notebooks support in Azure Cosmos DB (Preview)
 description: Learn how you can use the built-in Jupyter notebooks support in Azure Cosmos DB to interactively run queries.
 ms.service: cosmos-db
 ms.topic: overview 

@@ -110,7 +110,7 @@ For more information, see the [az ml computetarget create aks](https://docs.micr
 
 **Time estimate:** Approximately 5 minutes.
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.16 or lower, you can use it to deploy your image.
+If you already have AKS cluster in your Azure subscription, and it is version 1.17 or lower, you can use it to deploy your image.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
@@ -246,9 +246,9 @@ endpoint_name = "mynewendpoint",
 version_name= "versiona",
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = true,
+                                                              enable_app_insights = True,
                                                               tags = {'sckitlearn':'demo'},
-                                                              decription = testing versions,
+                                                              description = "testing versions",
                                                               version_name = version_name,
                                                               traffic_percentile = 20)
  # deploy the model and endpoint

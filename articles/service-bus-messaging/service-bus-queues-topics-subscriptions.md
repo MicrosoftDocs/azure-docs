@@ -9,7 +9,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/16/2020
 ms.author: aschhab
 
 ---

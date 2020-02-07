@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Score SVD Recommender
 
-This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer (preview). Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
+This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer. Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
 
 The SVD recommender can generate two different kinds of predictions:
 

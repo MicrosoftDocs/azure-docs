@@ -48,7 +48,7 @@ You can get to the **My Account** portal (https://myprofile.microsoft.com), from
 
 - [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
-- [Go to the Office **My Account** page](https://portal.office.com/account/#home)
+- [Go to the Office **My Account** page](https://portal.office.com/account/)
 
 - [Go to the Office **My installs** page](https://portal.office.com/account/#installs)
 

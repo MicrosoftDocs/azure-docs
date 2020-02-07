@@ -50,7 +50,7 @@ Datastores currently support storing connection information to the storage servi
 | Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;File&nbsp;Share]((https://docs.microsoft.com/azure/storage/files/storage-files-introduction))| Account key <br> SAS token | ✓ | ✓ | ✓ |✓
+[Azure&nbsp;File&nbsp;Share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Service principal| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Service principal| ✓ | ✓ | ✓ |✓
 Azure&nbsp;SQL&nbsp;Database| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓
@@ -269,7 +269,7 @@ For situations where the SDK doesn't provide access to datastores, you might be 
 
 ## Move data to supported Azure Storage solutions
 
-Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure Storage solutions by using [Azure Data Factory and these steps]((https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool)). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
+Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure Storage solutions by using [Azure Data Factory and these steps](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
 
 Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no additional cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery.
 

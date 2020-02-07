@@ -21,8 +21,7 @@ ms.author: allensu
 
 *Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. Azure offers a [variety of load balancing options](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that you can choose from based on your need. This document covers the Azure Load Balancer.
 
-Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes new inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load-balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
-
+Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
 A **[public load balancer](./concepts-limitations.md#publicloadbalancer)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
 
@@ -36,15 +35,11 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
->[!NOTE]
-> Microsoft recommends [Standard Load Balancer](./load-balancer-standard-overview.md).
-Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
-
 ## Why use Azure Load Balancer?
-With Azure Load Balancer, you can scale your applications and create highly available services. 
+With Standard Load Balancer, you can scale your applications and create highly available services. 
 Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
-Key scenarios that you can accomplish using Azure Load Balancer include:
+Key scenarios that you can accomplish using Standard Load Balancer include:
 
 - Load balance **[internal](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** and **[external](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** traffic to Azure virtual machines.
 
@@ -58,7 +53,7 @@ Key scenarios that you can accomplish using Azure Load Balancer include:
 
 - Enable support for **[load-balancing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** of **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)**.
 
-- Take advantage of **[metrics and diagnostics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)** for Azure Load Balancer with **[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)**.
+- Standard Load Balancer provides multi-dimensional metrics through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service.  Resource Health is also supported. Review **[Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md)** for more details.
 
 - Load balance services on **[multiple ports, multiple IP addresses, or both](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)**.
 
@@ -66,20 +61,17 @@ Key scenarios that you can accomplish using Azure Load Balancer include:
 
 - Load balance TCP and UDP flow on all ports simultaneously using **[HA ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**.
 
-## Pricing
+### <a name="securebydefault"></a>Secure by default
 
-Standard Load Balancer usage is charged.
+Standard Load Balancer is built on the zero trust network security model at its core. Standard Load Balancer secure by default and is part of your virtual network. The virtual network is a private and isolated network.  This means Standard Load Balancers and Standard Public IP addresses are closed to inbound flows unless opened by Network Security Groups. NSGs are used to explicitly permit and whitelist allowed traffic.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
+Basic Load Balancer is open to the internet by default.
 
-* Number of configured load-balancing and outbound rules. Inbound NAT rules don't count in the total number of rules.
-* Amount of data processed inbound and outbound independent of rules.
+
+## Pricing and SLA
 
 For Standard Load Balancer pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
-
 Basic Load Balancer is offered at no charge.
-
-## SLA
-
-For information about the Standard Load Balancer SLA, see [SLA for Load Balancer](https://aka.ms/lbsla).
+See [SLA for Load Balancer](https://aka.ms/lbsla). Basic Load Balancer has no SLA.
 
 ## Next steps
 
