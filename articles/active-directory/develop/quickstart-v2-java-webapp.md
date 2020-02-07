@@ -87,7 +87,6 @@ To run this sample you will need:
 
  1. Extract the zip file to a local folder.
  1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
-
  1. Open the application.properties file, which can be found in src/main/resources/ folder and replace the value of the fields *aad.clientId*, *aad.authority* and *aad.secretKey* with the respective values of **Application Id**, **Tenant Id** and **Client Secret** as the following:
 
     ```file
@@ -98,15 +97,14 @@ To run this sample you will need:
     aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
     ```
 
-> [!div renderon="docs"]
-> Where:
->
-> - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
+    > [!div renderon="docs"]
+    > Where:
+    >
+    > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
+    > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
+    > - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
- 4. In order to use https with localhost fill in server.ssl.key properties.  
- Use keytool utility (included in JRE) if you want to generate self-signed certificate.
+ 1. To use https with localhost, fill in the server.ssl.key properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 
    ```
    Example: 
@@ -117,7 +115,8 @@ To run this sample you will need:
    server.ssl.key-store-password=password  
    server.ssl.key-alias=testCert 
    ```
-   Put generated keystore file to "resources" folder.
+
+   Put the generated keystore file in the "resources" folder.
 
 #### Step 4: Run the code sample
 
@@ -127,7 +126,7 @@ Run it directly from your IDE by using the embedded spring boot server or packag
 
 ##### Running from IDE
 
-If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8080
+If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8080.
 
 1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
 
