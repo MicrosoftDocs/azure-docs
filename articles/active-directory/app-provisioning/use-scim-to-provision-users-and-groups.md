@@ -739,9 +739,8 @@ All services must use X.509 certificates generated using cryptographic keys of s
 **Cipher Suites**
 
 All services must be configured to use the following cipher suites, in the exact order specified below. Note that if you only have an RSA certificate, installed the ECDSA cipher suites do not have any effect. </br>
-TLS 1.2 Cipher Suites
 
-Minimum Bar
+TLS 1.2 Cipher Suites minimum bar:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
