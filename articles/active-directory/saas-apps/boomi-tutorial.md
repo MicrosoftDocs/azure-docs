@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. In the **Identity Provider Login URL** textbox, put the value of **Login URL** from Azure AD application configuration window.
 
-	d. As **Federation Id Location**, select **Federation Id is in FEDERATION_ID Attribute element** radio button.
+	d. For **Federation Id Location**, select the **Federation Id is in FEDERATION_ID Attribute element** radio button.
 
 	e. Copy the **AtomSphere MetaData URL**, go to the **MetaData URL** via the browser of your choice, and save the output to a file. Upload the **MetaData URL** in the **Basic SAML Configuration** section in the Azure portal.
 
