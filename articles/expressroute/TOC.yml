@@ -70,8 +70,8 @@
     items:
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
-    - name: Maintaining VPN Backup
-      href: active-validation-of-s2s-vpn-to-backup-expressroute-privatepeering.md      
+    - name: Using VPN as a Backup
+      href: using-s2s-vpn-as-a-backup-for-expressroute-privatepeering.md      
 - name: How-to guides
   items:
   - name: Create and modify a circuit
