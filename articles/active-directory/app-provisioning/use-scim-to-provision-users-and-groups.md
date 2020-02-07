@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 2/7/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
@@ -20,7 +20,7 @@ ms.custom: aaddev;it-pro;seohack1
 
 ms.collection: M365-identity-device-management
 ---
-# Build a SCIM endpoint and configure user provisioning with Azure Active Directory (Azure AD)
+# Develop a SCIM endpoint and configure user provisioning with Azure Active Directory (Azure AD)
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
