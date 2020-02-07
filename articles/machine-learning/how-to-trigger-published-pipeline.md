@@ -63,8 +63,8 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
   | URI |the endpoint that you found at the beginning of this article |
   | Authentication mode | Managed Identity |
 
-    > [!div class="mx-imgBorder"]
-    > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
+  > [!div class="mx-imgBorder"]
+  > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
 
 1. Set up your schedule to set the value of any [DataPath PipelineParameters](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) you may have:
 
