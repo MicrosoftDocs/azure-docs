@@ -23,7 +23,7 @@ In this guide, we'll explore how to use [Azure classic CLI](../../cli-install-no
 This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the classic CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
 > [!NOTE]
-> The guide provides the Azure classic CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure classic CLI commands for Resource Manager storage accounts.
+> The guide provides the Azure classic CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#storage-objects) for Azure classic CLI commands for Resource Manager storage accounts.
 >
 >
 
