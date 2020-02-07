@@ -161,6 +161,8 @@
     - name: Deploy - REST API
       displayName: deployment
       href: deploy-rest.md
+    - name: Deploy from GitHub
+      href: deploy-to-azure-button.md
     - name: What-if deployment
       href: template-deploy-what-if.md
     - name: Redeploy on error

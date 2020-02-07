@@ -91,10 +91,10 @@ This option is currently in preview. [Learn more](how-to-create-group-machine-de
 **VM support** | Currently supported for VMware VMs only.
 **Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit)
 **Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Windows account** |  Visualization needs a user account with Guest access.
+**Windows account** |  Visualization needs a local or a domain Administrator account.
 **Linux account** | Visualization needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **VM agents** | No agent needed on the VMs.
-**VMware tools** | VMware tools must be installed and running on VMs you want to analyze.
+**VMware tools** | VMware tools must be installed and running on VMs you want to analyze. <br/> If your VMware tools version is between 9.10 - 10.2.0, please ensure you upgrade it to beyond 10.2.0.
 **vCenter credentials** | A vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 

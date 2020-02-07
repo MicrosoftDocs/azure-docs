@@ -9,7 +9,7 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: anzaman
 ---
 
@@ -101,9 +101,8 @@ The response provides metadata on the newly trained Language model along with me
 }
 ```
 
-You should use the returned **id** value of the language model for the **linguisticModelId** parameter when [uploading a video to index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) and for the **languageModelId** parameter when [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+The returned **id** is a unique id used to distinguish between language models, while **languageModelId** is used both for [uploading a video to index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) and [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) APIs (also known as **linguisticModelId** in Video Indexer upload/re-index APIs).
 
- 
 ## Delete a Language model
 
 The [delete a language model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model will keep the same index until you re-index the video. If you re-index the video, you can assign a new Language model to the video. Otherwise, Video Indexer will use its default model to re-index the video.
