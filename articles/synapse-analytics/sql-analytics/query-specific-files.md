@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Using file metadata in queries
 
-The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple CSV files](query-folders-multiple-csv-files.md) article. In this quickstart, you'll learn how to query a specific file.
+The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this quickstart, you'll learn how to use metadata information about file and folder names in the queries.
 
 Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
 
@@ -57,31 +57,10 @@ SELECT
 	r.filename() AS [filename]
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-		FORMAT = 'CSV',
-		FIRSTROW = 2
-	)
-WITH (
-    vendor_id INT, 
-    pickup_datetime DATETIME2, 
-    dropoff_datetime DATETIME2,
-    passenger_count SMALLINT,
-    trip_distance FLOAT,
-    rate_code SMALLINT,
-    store_and_fwd_flag SMALLINT,
-    pickup_location_id INT,
-    dropoff_location_id INT,
-    payment_type SMALLINT,
-    fare_amount FLOAT,
-    extra FLOAT,
-    mta_tax FLOAT,
-    tip_amount FLOAT,
-    tolls_amount FLOAT,
-    improvement_surcharge FLOAT,
-    total_amount FLOAT
-) AS [r]
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+	FORMAT='PARQUET') AS [r]
 WHERE
-	r.filename() IN ('yellow_tripdata_2017-10.csv', 'yellow_tripdata_2017-11.csv', 'yellow_tripdata_2017-12.csv')
+	r.filename() IN ('yellow_tripdata_2017-10.parquet', 'yellow_tripdata_2017-11.parquet', 'yellow_tripdata_2017-12.parquet')
 GROUP BY
 	r.filename()
 ORDER BY
