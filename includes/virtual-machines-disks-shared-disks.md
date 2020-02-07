@@ -16,7 +16,7 @@ VMs in the cluster can read or write to your attached disk based on the reservat
 
 ## How it works
 
-Managed disks with shared disks enabled offer shared block storage that can be accessed by multiple VMs, this is exposed as Logical Unit Numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
+Managed disks with shared disks enabled offer shared block storage that can be accessed by multiple VMs, this is exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
 
 Managed disks with shared disks enabled do not natively offer a fully-managed file system that can be accessed using SMB. You will need to use a clustered manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication as well as write locking.
 
