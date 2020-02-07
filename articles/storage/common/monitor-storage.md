@@ -40,13 +40,11 @@ Azure Storage collects the same kinds of monitoring data as other Azure resource
 
 Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-You can continue using classic metrics and logs if you want to. In fact, classic metrics and logs are available in parallel with metrics and logs in Azure Monitor. The support remains in place until Azure Storage ends the service on legacy metrics and logs. If you want to understand how classic metrics map to metrics in Azure Monitor, see [Azure Storage metrics migration](./storage-metrics-migration.md) for a detailed mapping. 
+You can continue using classic metrics and logs if you want to. In fact, classic metrics and logs are available in parallel with metrics and logs in Azure Monitor. The support remains in place until Azure Storage ends the service on legacy metrics and logs. 
 
 ### Logs in Azure Monitor
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs pertaining to the blob service will be created.
-
-Azure Monitor logs for Storage doesn't support classic storage accounts. You need to migrate them to Azure Resource Manager Storage account to use new logs. See Migrate to Azure Resource Manager.
 
 #### Logging authenticated requests
 
@@ -302,7 +300,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ---
 
-## Analyzing log data by using Azure Storage Log Analytics
+## Analyzing log data
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com).  This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
