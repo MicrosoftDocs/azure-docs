@@ -4,7 +4,7 @@ description: 'This tutorial shows how you can use your development machine as a 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 2/7/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -15,7 +15,7 @@ services: iot-edge
 > [!NOTE]
 > This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-In this article, we once again use the development machine as a simulated device, but instead of sending data directly to the IoT Hub the device sends data to the IoT Edge device configured as a transparent gateway.
+In this article, we once again use the development VM as a simulated device. However Instead of sending data directly to the IoT Hub, the device sends data to the IoT Edge device configured as a transparent gateway.
 
 We monitor the operation of the IoT Edge device while the simulated device is sending data. Once the device is finished running, we look at the data in our storage account to validate everything worked as expected.
 
@@ -25,7 +25,7 @@ This step is typically performed by a cloud or device developer.
 
 Reuse the [DeviceHarness project](tutorial-machine-learning-edge-03-generate-data.md) to simulate the downstream (or leaf) device. Connecting to the transparent gateway requires two additional things:
 
-* Register the certificate to make the downstream device (in this case our development machine) trust the certificate authority being used by the IoT Edge runtime.
+* Register the certificate to make the downstream IoT device trust the certificate authority being used by the IoT Edge runtime. In our case, downstream device is the development VM.
 * Add the edge gateway fully qualified domain name (FQDN) to the device connection string.
 
 Look at the code to see how these two items are implemented.
@@ -40,7 +40,7 @@ Look at the code to see how these two items are implemented.
 
 5. Now look at the GetIotHubDevice method on the TurbofanDevice class.
 
-6. When the user specifies the FQDN of the gateway using the “-g” option, that value is passed to this method as gatewayFqdn, which gets appended to the device connection string.
+6. When the user specifies the FQDN of the gateway using the “-g” option, that value is passed to the `gatewayFqdn` method and then appended to the device connection string.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
@@ -48,11 +48,11 @@ Look at the code to see how these two items are implemented.
 
 ## Build and run leaf device
 
-1. With the DeviceHarness project still open in Visual Studio Code, build the project (Ctrl + Shift + B or **Terminal** > **Run Build Task...**) and select **Build** from the dialog.
+1. With the DeviceHarness project still open in Visual Studio Code, build the project. From the **Terminal** menu, select **Run Build Task** and select **Build**.
 
-2. Find the fully qualified domain name (FQDN) for your edge gateway by navigating to your IoT Edge device virtual machine in the portal and copying the value for **DNS name** from the overview.
+2. Find the fully qualified domain name (FQDN) for your edge gateway by navigating to your development VM (your IoT Edge device) VM in the portal and copying the value for **DNS name** from the overview page.
 
-3. Open the Visual Studio Code terminal (**Terminal** > **New terminal**) and run the following command, replacing `<edge_device_fqdn>` with the DNS name that you copied from the virtual machine:
+3. Open the Visual Studio Code terminal. From the **Terminal** menu, select **New Terminal** and run the following command, replacing `<edge_device_fqdn>` with the DNS name that you copied from the development VM:
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
@@ -60,7 +60,7 @@ Look at the code to see how these two items are implemented.
 
 4. The application attempts to install the certificate onto your development machine. When it does, accept the security warning.
 
-5. When prompted for the IoT Hub connection string click the ellipsis (**...**) on the Azure IoT Hub devices panel and select **Copy IoT Hub Connection String**. Paste the value into the terminal.
+5. When prompted for the IoT Hub connection string, click the ellipsis (**...**) on the Azure IoT Hub devices panel and select **Copy IoT Hub Connection String**. Paste the value into the terminal.
 
 6. You will see output like:
 
@@ -102,7 +102,7 @@ The output from the avroFileWriter module can be readily observed by looking at 
 
 5. Once the 10 minutes have elapsed, the module should upload the files. If the upload is successful, it deletes the files from disk.
 
-### Azure storage
+### Azure Storage
 
 We can observe the results of our leaf device sending data by looking at the storage accounts where we expect data to be routed.
 
@@ -214,9 +214,9 @@ We included a simple command-line utility for reading an Avro file and returning
 
 ## Clean up resources
 
-If you plan to explore the resources used by this end-to-end tutorial, wait until you are done to clean up the resources that you created. If you do not plan to continue, use the following steps to delete them:
+If you plan to explore the resources used by this end-to-end tutorial, wait until you are done to clean up the resources that you created. Otherwise, use the following steps to delete them:
 
-1. Delete the resource group(s) created to hold the Dev VM, IoT Edge VM, IoT Hub, storage account, machine learning workspace service (and created resources: container registry, application insights, key vault, storage account).
+1. Delete the resource group(s) created to hold the Dev VM, IoT Edge VM, IoT Hub, storage account, machine learning workspace service (and created resources: container registry, Application Insights, key vault, storage account).
 
 2. Delete the machine learning project in [Azure notebooks](https://notebooks.azure.com).
 
@@ -226,7 +226,7 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 ## Next steps
 
-In this article, we used our development machine to simulate a leaf device sending sensor and operational data to our edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data first by examining the real-time operation of the edge device and then by looking at the files uploaded to the storage account.
+In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
 
 More information can be found at the following pages:
 
