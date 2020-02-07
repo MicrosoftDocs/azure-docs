@@ -105,7 +105,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
     * The per partition rate would be 1 MBps.
     * Contoso Fleet Analytics would need to submit a request to Time Series Insights via the Azure portal for a dedicated environment to achieve this scale.
 
-#### Hub Partitions and Per Partition Limits
+#### Hub partitions and per partition limits
 
 When planning your Time Series Insights environment, it's important to consider the configuration of the event source(s) that you'll be connecting to Time Series Insights. Both Azure IoT Hub and Event Hubs utilize partitions to enable horizontal scale for event processing. 
 
