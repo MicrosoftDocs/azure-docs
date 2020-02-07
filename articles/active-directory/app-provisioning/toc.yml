@@ -1,4 +1,4 @@
-  - name: Application provisioning documentation
+  - name: Application and HR provisioning documentation
     href: index.yml
   - name: Overview
     expanded: true
@@ -6,7 +6,6 @@
      - name: What is application provisioning?
        href: user-provisioning.md
   - name: Tutorials
-    expanded: true
     items:
     - name: G Suite
       href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
@@ -54,8 +53,6 @@
         href: check-status-user-account-provisioning.md
       - name: Export and import your configuration
         href: export-import-provisioning-configuration.md  
-    - name: Build a SCIM endpoint and configure provisioning
-      href: use-scim-to-provision-users-and-groups.md
     - name: Troubleshoot application provisioning
       items:
       - name: Troubleshoot app provisioning
@@ -74,6 +71,8 @@
         href: application-provisioning-when-will-provisioning-finish.md
       - name: Provisioning logs
         href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Build a SCIM endpoint and configure provisioning
+      href: use-scim-to-provision-users-and-groups.md
     - name: Automate configuration using MS Graph
       href: application-provisioning-configure-api.md
   - name: Reference
