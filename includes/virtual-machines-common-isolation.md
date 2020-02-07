@@ -25,7 +25,7 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 You can learn more about each available isolated size [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## Retiring D15_v2/DS15_v2 isolation on May 15, 2020
-**Update on 02/04/2020: The "isolation" retirement timeline has been extended to May 15, 2020"**
+**Update on February 10, 2020: The "isolation" retirement timeline has been extended to May 15, 2020"**
 
 Azure Dedicated Host is now GA, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **May 15, 2020** the D15_v2/DS15_v2 Azure VMs will no longer be hardware isolated.
 
@@ -56,22 +56,22 @@ For details see below:
 
 ## FAQ
 ### Q: Is the size D/DS15_v2 going to get retired?
-**A**: No, only "isolation" feature is going to get retired. If you do not need isolation you do not need to take any action.
+**A**: No, only "isolation" feature is going to get retired. If you do not need isolation, you do not need to take any action.
 
 ### Q: Is the size D/DS15i_v2 going to get retired?
-**A**: Yes, the size is only available till May 15,2021. For customers who have bought 3-year RIs on D/DS15_v2 before November 18, 2019 will have access to D/DS15i_v2 till November 17, 2022.
+**A**: Yes, the size is only available untill May 15,2021. For customers who have bought 3-year RIs on D/DS15_v2 before November 18, 2019 will have access to D/DS15i_v2 untill November 17, 2022.
 
 ### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
-**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
 ### Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
-**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUNU1XUkhZWkNXQUFMNEJWUk9VWkRRVUJPMy4u)
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUNU1XUkhZWkNXQUFMNEJWUk9VWkRRVUJPMy4u)
 
 ### Q: When are the other isolated sizes going to retire?
 **A**: We will provide reminders 12 months in advance of the official decommissioning of the sizes.
 
 ### Q: Is there a downtime when my vm lands on a non-isolated hardware?
-**A**: If you do not need isolation you do not need to take any action and you would not see any downtime.
+**A**: If you do not need isolation, you do not need to take any action and you would not see any downtime.
 
 ### Q: Are there any cost changes for moving to a non-isolated virtual machine?
 **A**: No 
@@ -105,7 +105,7 @@ Likewise, for Dsv2 series.
 **A**: Unfortunately no, only 1-year RI is available for new purchase.
  
 ### Q: Can I move my existing D15_v2/DS15_v2 Reserve Instance to an isolated size Reserved Instance?
-**A**: This is not necessary since the benefit will apply to both isolated and non-isolated sizes. But Azure will support changing existing D15_v2/DS15_v2 Reserved Instances to D15i_v2/DS15i_v2. For all other Dv2/Dsv2 Reserved Instances, use the existing Reserved Instance or buy new Reserved Instances for the isolated sizes.
+**A**: This action is not necessary since the benefit will apply to both isolated and non-isolated sizes. But Azure will support changing existing D15_v2/DS15_v2 Reserved Instances to D15i_v2/DS15i_v2. For all other Dv2/Dsv2 Reserved Instances, use the existing Reserved Instance or buy new Reserved Instances for the isolated sizes.
 
-### Q: I'm a Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
+### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
 **A**: No. The guarantees provided by Service Fabric's [Durability Tiers](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
