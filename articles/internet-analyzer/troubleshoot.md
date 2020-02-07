@@ -14,7 +14,7 @@ ms.author: dibotero
 This article contains troubleshooting steps for common Internet Analyzer issues.
 
 ## Azure Portal
-**"A scorecard hasn't been generated for the selected End Date" in the Scorecards section**
+**"A scorecard hasn't been generated for the selected filter combination" in the Scorecards section**
 
 Note that:
 - Scorecards are generated on a daily basis (at the end of every day, UTC time).
