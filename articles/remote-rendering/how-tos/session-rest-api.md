@@ -71,7 +71,7 @@ Creates a session by allocating a VM. Returns the ID of the session created.
 
 - maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
 - models (array): asset containers URLs to preload
-- size (string): the VM size (for example "small", "big")
+- size (string): the VM size (for example "standard", "premium")
 
 ### Responses
 
@@ -82,7 +82,7 @@ Creates a session by allocating a VM. Returns the ID of the session created.
 ### Examples
 
 ```powershell
-PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'small' }" -Headers @{ Authorization = "Bearer $token" }
+PS> Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'standard' }" -Headers @{ Authorization = "Bearer $token" }
 
 
 StatusCode        : 202

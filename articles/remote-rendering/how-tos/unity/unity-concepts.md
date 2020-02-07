@@ -41,7 +41,7 @@ RemoteManagerUnity.InitializeManager(clientInit);
 // Create a frontend
 AzureFrontend frontend = createFrontendForMyAccount();
 
-AzureSession session = await frontend.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Small, 0, 30)).AsTask();
+AzureSession session = await frontend.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Standard, 0, 30)).AsTask();
 
 RemoteManagerUnity.CurrentSession = session;
 

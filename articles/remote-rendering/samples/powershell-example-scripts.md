@@ -67,7 +67,7 @@ accountSettings contains values needed for Conversion.ps1 and RenderingSession.p
 - accountSettings.region:  The region of ARR service you will use. At the moment, we provide "westus2" and "westeurope". Pick one.
 
 renderingSessionSettings will be used by the RenderingSession.ps1 script
-- renderingSessionSettings.vmSize: Selects the size of the VM. Select "small" or "big". Be mindful of our resources and shut down rendering sessions when you do not need them anymore
+- renderingSessionSettings.vmSize: Selects the size of the VM. Select "standard" or "premium". Be mindful of our resources and shut down rendering sessions when you do not need them anymore
 - renderingSessionSettings.maxLeaseTime: the time for which you lease the rendering VM. The VM will be shut down after this time runs out. See the Description of RenderingSession.ps1 how to extend an already running session. 
 
 azureStorageSettings contain values used by the Conversion.ps1 script. Fill it out if you want to upload a model to azure blob storage and convert it by using our model conversion service.
@@ -103,11 +103,11 @@ PS> .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 
 You can override individual settings from the config file like:
 ```powershell
-PS> .\RenderingSession.ps1 -Region <westeurope or westus2> -VmSize <small or big> -MaxLeaseTime <hh:mm:ss>
+PS> .\RenderingSession.ps1 -Region <westeurope or westus2> -VmSize <standard or premium> -MaxLeaseTime <hh:mm:ss>
 ```
 For example: this will override the renderingSessionSettings.vmSize setting in arrconfig.json
 ```powershell
-PS> .\RenderingSession.ps1 -VmSize small
+PS> .\RenderingSession.ps1 -VmSize standard
 ```
 or any combinations of these parameters. 
 

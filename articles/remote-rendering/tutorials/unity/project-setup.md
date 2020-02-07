@@ -162,7 +162,7 @@ public class RemoteRendering : MonoBehaviour
 
     public uint MaxLeaseTimeHours = 0;
     public uint MaxLeaseTimeMinutes = 10;
-    public RenderingSessionVmSize VMSize = RenderingSessionVmSize.Small;
+    public RenderingSessionVmSize VMSize = RenderingSessionVmSize.Standard;
 
     private ARRServiceUnity arrService = null;
 

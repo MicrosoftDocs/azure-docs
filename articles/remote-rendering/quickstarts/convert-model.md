@@ -123,7 +123,7 @@ To make it easier to run the model conversion service, we provide a utility scri
         "region": "westus2"
     },
     "renderingSessionSettings": {
-        "vmSize": "small",
+        "vmSize": "standard",
         "maxLeaseTime": "1:00:00"
     },
     "azureStorageSettings": {
