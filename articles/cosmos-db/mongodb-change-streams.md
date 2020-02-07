@@ -49,6 +49,9 @@ var cursor = db.coll.watch(
 
 ```
 
+> __NOTE__ Ensure your Cosmos DB instance is provisioned with at least version 3.6 of Cosmos DB’s API for MongoDB. If you run the example against an earlier version, you may see the error `Unrecognized pipeline stage name: $changeStream`
+
+
 ## Current limitations
 
 The following limitations are applicable when using change streams:
