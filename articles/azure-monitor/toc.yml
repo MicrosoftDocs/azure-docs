@@ -8,6 +8,8 @@
     href: terminology.md
   - name: FAQ
     href: faq.md
+  - name: What's new?
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
