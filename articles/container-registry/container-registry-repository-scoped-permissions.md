@@ -142,7 +142,7 @@ You can also use the portal to create access tokens and scope maps. As with the 
 The following example creates a token to access the `samples/hello-world` repository, and creates a scope map with the following permissions: `content/write` and `content/read`.
 
 1. In the portal, navigate to your container registry.
-1. Under **Services**, select **Tokens (preview) > +Add**.
+1. Under **Services**, select **Tokens (Preview) > +Add**.
 1. Enter a token name.
 1. Under **Scope map**, select **Create new**.
    ![Create token in portal](media/container-registry-repository-scoped-permissions/portal-token-add.png)
@@ -163,7 +163,7 @@ Generate a password after you create a token. To authenticate with the registry,
 You can generate one or two passwords, and set an expiration date for each one. It's recommended to save generated passwords in a safe place to use later for authentication. The passwords can't be retrieved again but new ones can be generated.
 
 1. In the portal, navigate to your container registry.
-1. Under **Services**, select **Tokens (preview)**, and select a token.
+1. Under **Services**, select **Tokens (Preview)**, and select a token.
 1. In the token details, select **password1** or **password2**, and select the Generate icon.
 1. In the password screen, optionally set and expiration date and time for the password, and select **Generate**.
 1. After the password is generated, copy and save it to a safe location before closing the screen. You can't retrieve the generated password after closing the screen.
@@ -190,7 +190,7 @@ The following examples use the token created earlier in this article. The token 
 
 As examples, pull the `hello-world` and `alpine` images from Docker Hub, and tag them for your registry and repository.
 
-```console
+```bash
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
@@ -218,29 +218,81 @@ Login Succeeded
 
 ### Push images to registry
 
-After successful login, attempt to push the tagged images to the registry:
+After successful login, attempt to push the tagged images to the registry. Because the token has permissions to push images to the `samples/hello-world` repository, the following push succeeds:
 
+```bash
+docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-### Verify scoped access
+The token doesn't have permissions to the `samples/alpine` repo, so the following push attempt fails with an error similar to `requested access to the resource is denied`:
 
-You can verify that the token provides scoped permissions to the repositories in the registry. In this example, the following `docker pull` commands complete successfully to pull images available in the `samples/hello-world` and `samples/nginx` repositories:
+```bash
+docker push myregistry.azurecr.io/samples/alpine:v1
+```
+
+### Update token permissions
+
+To update the permissions of a token, update the permissions in the associated scope map. The updated scope map is applied to all associated tokens. 
+
+For example,  update `MyToken-scope-map` with `content-write` and `content-read` actions on the `samples/alpine` repository, and remove these actions on the `samples/hello-world` repository.  
+
+If you use the Azure CLI, run [az acr scope-map update][az-acr-scope-map-update] to update the scope map:
+
+```azurecli
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/alpine content/write content/read \
+  --remove samples/hello-world content/write content/read 
+```
+
+In the Azure portal:
+
+1. Navigate to your container registry.
+1. Under **Services**, select **Scope maps (Preview)**, and select the scope map to update update.
+1. Delete the actions for the `samples/hello-world` repository.
+1. Under **Repositories**, enter `samples/alpine`, and under **Permissions**, select  `content/read` and `content/write`. Then select **+Add**.
+
+After updating the scope map, the following push succeeds:
+
+```bash
+docker push myregistry.azurecr.io/samples/alpine:v1
+```
+
+However, another push to the `samples/hello-world` repository fails:
+
+```bash
+docker push myregistry.azurecr.io/samples/hello-world:v1
+```
+
+### Add metadata/read permissions to token
+
+Update the token permissions by adding the `metadata/read` action to the `hello-world` repository. This action allows showing manifest and tag data in the repository.
+
+For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update] command to update the scope map:
+
+```azurecli
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/hello-world metadata/read 
+```  
+
+For steps to update the scope map using the portal, see the preceding section.
+
+To read tags and manifest data in the `samples/hello-world` repository, run the `az acr repository show-manifests` and `az acr repository show-tags` commands. Pass the token name and password to each command using the environment variables used earlier in the article. For example:
+
+```bash
+az acr repository show-tags --name myregistry --repository samples/hello-world  --username $TOKEN_NAME --password $TOKEN_PWD
+```
+
+Sample output:
 
 ```console
-docker pull myregistry.azurecr.io/samples/hello-world:v1
-docker pull myregistry.azurecr.io/samples/nginx:v1
+[
+  "v1"
+]
 ```
-
-Because the example token allows the `content/write` action only on the `samples/hello-world` repository, `docker push` succeeds to that repository but fails for `samples/nginx`:
-
-```console
-# docker push succeeds
-docker pull myregistry.azurecr.io/samples/hello-world:v1
-
-# docker push fails
-docker pull myregistry.azurecr.io/samples/nginx:v1
-```
-
 ## Manage tokens and scope maps - CLI
 
 ### List scope maps
@@ -317,6 +369,7 @@ After updating a token, you might want to generate new passwords to access the r
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-repository]: /cli/azure/acr/repository/
 [az-acr-repository-show-tags]: /cli/azure/acr/repository/#az-acr-repository-show-tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository/#az-acr-repository-show-manifests
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az-acr-scope-map-create
 [az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-show
