@@ -111,7 +111,7 @@ When planning your Time Series Insights environment, it's important to consider 
 
 A *partition* is an ordered sequence of events held in a hub. The partition count is set during the hub creation phase and cannot be changed. 
 
-For Event Hubs partitioning best practices, review [How many partitions do I need?](../event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+For Event Hubs partitioning best practices, review [How many partitions do I need?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
 > [!NOTE]
 > Most IoT Hubs used with Azure Time Series Insights only need four partitions.
@@ -145,9 +145,9 @@ We recommend the following:
 
 Refer to the following resources to learn more about optimizing hub throughput and partitions:
 
-* [IoT Hub Scale](../iot-hub/iot-hub-scaling)
-* [Event Hub Scale](../event-hubs/event-hubs-scalability#throughput-units)
-* [Event Hub Partitions](../event-hubs/event-hubs-features#partitions)
+* [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Event Hub Partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### Data storage
 
