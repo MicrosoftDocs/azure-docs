@@ -133,8 +133,8 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 |InProgress | Review has started. If email notifications are enabled emails have been sent to reviewers. Reviewers can submit decisions until the due date. |
 |Completing | Review is being completed and emails are being sent to the review owner. |
 |AutoReviewing | Review is in a system reviewing stage. The system is recording decisions for users who were not reviewed based on recommendations or pre-configured decisions. |
-|AutoReviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled |
-|Applying | There will be no change in access for users who were approved |
+|AutoReviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled. |
+|Applying | There will be no change in access for users who were approved. |
 |Applied | Denied users, if any, have been removed from the resource or directory. |
 
 ## Create reviews via APIs
