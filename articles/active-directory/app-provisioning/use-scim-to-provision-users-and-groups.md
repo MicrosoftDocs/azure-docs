@@ -1,6 +1,6 @@
 ---
-title: Build a SCIM endpoint for user provisioning to apps from Azure AD
-description: Learn to build a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
+title: Develop a SCIM endpoint for user provisioning to apps from Azure AD
+description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 2/7/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
@@ -46,15 +46,53 @@ Automating provisioning to an application requires building and integrating a SC
 
 ## Step 1: Design your user and group schema
 
-Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users, groups) and attributes (name, manager, job title, etc.) that your application requires. You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. Note that you can [customize](customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. 
+Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users, groups) and attributes (name, manager, job title, etc.) that your application requires. The SCIM standard defines a schema for managing users and groups. The core user schema only requires three attributes: **id** (service provider defined identifier), **externalId** (client defined identifier), and **meta** (read-only metadata maintained by the service provider). All other attributes are optional. In addition to the core user schema, the SCIM standard defines an enterprise user extension and a model for extending the user schema to meet your application’s needs. If, for example, your application requires a user’s manager, you can use the enterprise user schema to collect the user’s manager and the core schema to collect the user’s email. To design your schema, follow the steps below:
+  1. List the attributes your application requires. It can be helpful to break down your requirements into the attributes needed for authentication (e.g. loginName and email), attributes needed to manage the lifecycle of the user (e.g. status / active), and other attributes needed for your particular application to work (e.g. manager, tag).
+  2. Check whether those attributes are already defined in the core user schema or enterprise user schema. If any attributes that you need and aren’t covered in the core or enterprise user schemas, you will need to define an extension to the user schema that covers the attributes you need. In the example below, we’ve added an extension to the user to allow provisioning a “tag” on a user. It is best to start with just the core and enterprise user schemas and expand out to additional custom schemas later.  
+  3. Map the SCIM attributes to the user attributes in Azure AD. If one of the attributes you have defined in your SCIM endpoint does not have a clear counterpart on the Azure AD user schema, there is a good chance the data isn’t stored on the user object at all on most tenants. Consider whether this attribute can be optional for creating a user. If the attribute is critical for your application to work, guide the tenant administrator to extend their schema or use an extension attribute as shown below for the “tags” property.
 
-User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: https://tools.ietf.org/html/rfc7643.  The default mapping of the attributes of users in Azure AD to the attributes of user resources is provided in Table 1.  
+### Table 1: Outline the attributes that you need 
+| Step 1: Determine attributes your app requires| Step 2: Map app requirements to SCIM standard| Step 3: Map SCIM attributes to the Azure AD attributes|
+|--|--|--|
+|loginName|userName|userPrincipalName|
+|firstName|name.givenName|givenName|
+|lastName|name.lastName|lastName|
+|workMail|Emails[type eq “work”].value|Mail|
+|manager|manager|manager|
+|tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
+|status|active|isSoftDeleted (computed value not stored on user)|
 
-Group resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:core:2.0:Group`. Table 2 shows the default mapping of the attributes of groups in Azure AD to the attributes of group resources.
+The schema defined above would be represented using the Json payload below. Note that in addition to the attributes required for the application, the JSON representation includes the required “id,” “externalId,” and “meta” attributes.
 
-Note that you don't need to support both users and groups or all the attributes shown below. They are a reference for how attributes in Azure AD are often mapped to properties in the SCIM protocol.  
+```json
+{
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "Manager": "123456"
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "tag": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ ```
 
-### Table 1: Default user attribute mapping
+### Table 2: Default user attribute mapping
+You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. You can [customize](customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. Note that you don't need to support both users and groups or all the attributes shown below. They are a reference for how attributes in Azure AD are often mapped to properties in the SCIM protocol. 
 
 | Azure Active Directory user | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -78,7 +116,7 @@ Note that you don't need to support both users and groups or all the attributes 
 | user-PrincipalName |userName |
 
 
-### Table 2: Default group attribute mapping
+### Table 3: Default group attribute mapping
 
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
@@ -88,6 +126,20 @@ Note that you don't need to support both users and groups or all the attributes 
 | members |members |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
+
+There are several endpoints defined in the SCIM RFC. You can get started with the /User endpoint and then expand from there. The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up-to-date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard. 
+ The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up to date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard. 
+ 
+### Table 4: Determine the endpoints that you would like to develop
+|ENDPOINT|DESCRIPTION|
+|--|--|
+|/User|Perform CRUD operations on a user object.|
+|/Group|Perform CRUD operations on a group object.|
+|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
+|/ResourceTypes|Specifies metadata about each resource|
+|/Schemas|The set of attributes supported by each client and service provider can vary. While one service provider might include “name,” “title,” and “emails,” while another service provider uses “name,” “title,” and “phoneNumbers.” The schemas endpoint allows for discovery of the attributes supported.|
+|/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
+
 
 ## Step 2: Understand the Azure AD SCIM implementation
 > [!IMPORTANT]
@@ -1370,6 +1422,13 @@ If you're building an application that will be used by more than one tenant, you
 
 ### Authorization for provisioning connectors in the application gallery
 The SCIM spec does not define a SCIM-specific scheme for authentication and authorization. It relies on the use of existing industry standards. The Azure AD provisioning client supports two authorization methods for applications in the gallery. 
+
+|Authorization method|Pros|Cons|Support|
+|--|--|--|--|
+|Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Supported on a case-by-case basis for gallery apps. Not supported for non-gallery apps.|
+|Long-lived bearer token (supported by Azure AD currently)|Long-lived tokens do not require a user to be present. They are easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
+|OAuth authorization code grant (supported by Azure AD currently)|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps. Support for non-gallery apps is underway.|
+|OAuth client credentials grant (not supported, on our roadmap)|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be completely automated, and new tokens can be silently requested without user interaction. ||Not supported for gallery and non-gallery apps. Support is in our backlog.|
 
 **OAuth authorization code grant flow:** The provisioning service supports the [authorization code grant](https://tools.ietf.org/html/rfc6749#page-24). After submitting your request for publishing your app in the gallery, our team will work with you to collect the following information:
 *  Authorization URL: A URL by the client to obtain authorization from the resource owner via user-agent redirection. The user is redirected to this URL to authorize access. 
