@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: 
   ms.author: 
-  ms.date: 02/04/2020
+  ms.date: 02/06/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
@@ -661,7 +661,7 @@ productDirectory:
     # Card
     - title: Azure Database for MariaDB
       summary: Managed MariaDB database service for app developers
-      imageSrc: https://static.docs.com/ui/media/product/azure/database-mariadb.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/database-mariadb-server.svg
       azureCategories:
         - databases
       url: mariadb/index.yml
