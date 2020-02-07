@@ -71,7 +71,7 @@ The **Azure Connected Machine Onboarding** role contains only the permissions re
 
 ## Install the agent and connect to Azure
 
-The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs the same steps described in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. But, the final step establishing the connection to Azure Arc using the `azcmagent` command uses the service principal.
+The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md#) article. The difference is the final step to establish the connection to Azure Arc using the `azcmagent` command uses the service principal.
 
 The following are the settings that you configure to use the service principal with the `acmagent` command to connect the machine to Auzre Arc.
 
