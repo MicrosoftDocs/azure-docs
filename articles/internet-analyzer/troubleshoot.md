@@ -19,8 +19,6 @@ This article contains troubleshooting steps for common Internet Analyzer issues.
 
 ## Azure Portal
 **"A scorecard hasn't been generated for the selected filter combination" in the Scorecards section**
-
-Note that:
 - Scorecards are generated on a daily basis (at the end of every day, UTC time).
 - Scorecards are only generated if more than 100 measurements were collected for the selected filter combination (Test, Time Period, Country, etc.).
 
