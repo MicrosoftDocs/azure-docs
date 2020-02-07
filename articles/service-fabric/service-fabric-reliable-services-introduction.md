@@ -100,6 +100,6 @@ Consider Reliable Services APIs if:
 
 ## Next steps
 
-* [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
 * [Reliable collections](service-fabric-reliable-services-reliable-collections.md)
 * [The Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)
