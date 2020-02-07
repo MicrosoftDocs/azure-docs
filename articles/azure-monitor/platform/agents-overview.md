@@ -59,7 +59,7 @@ Scenarios supported by the Azure Diagnostics extension include the following:
 ## Log Analytics agent
 The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises. It collects data into a Log Analytics workspace.
 
-The Log Analytics agent is the same agent used by System Center Operations Manager, and you multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain solutions in Azure Monitor.
+The Log Analytics agent is the same agent used by System Center Operations Manager, and multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain solutions in Azure Monitor.
 
 The Log Analytics agent for Windows is often referred to as Microsoft Management Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
 
