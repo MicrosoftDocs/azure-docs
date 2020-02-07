@@ -12,6 +12,8 @@ This article answers common questions about discovery, assessment, and dependenc
 
 - [General questions](resources-faq.md) about Azure Migrate.
 - [Questions](common-questions-appliance.md) about the Azure Migrate appliance.
+- [Questions](common-questions-server-migration.md) about server migration.
+
 
 
 ## How many VMs can I discover with an appliance?
