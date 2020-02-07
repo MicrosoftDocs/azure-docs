@@ -14,6 +14,7 @@ ms.custom: seoapril2019
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+<br>
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
 
@@ -67,11 +68,11 @@ For more information on templates, see the following articles:
 
 ### Advanced template
 
-The following example template demonstrates how you to create a workspace with the following settings:
+The following example template demonstrates how to create a workspace with three settings:
 
 * Enable high confidentiality settings for the workspace
 * Enable encryption for the workspace
-* Uses an existing Azure KeyVault
+* Uses an existing Azure Key Vault
 
 ```json
 {
@@ -108,7 +109,7 @@ The following example template demonstrates how you to create a workspace with t
         "enterprise"
       ],
       "metadata": {
-        "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
+        "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
 	},
 	"hbi_workspace":{
@@ -130,19 +131,19 @@ The following example template demonstrates how you to create a workspace with t
         "Disabled"
       ],
       "metadata": {
-        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with customer managed key."
+        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with the customer managed key."
       }
 	},
 	"cmk_keyvault":{
 	  "type": "string",
 	  "metadata": {
-        "description": "Specifies the customer managed keyVault arm id."
+        "description": "Specifies the customer managed keyvault Resource Manager ID."
       }
 	},
 	"resource_cmk_uri":{
 	  "type": "string",
 	  "metadata": {
-        "description": "Specifies if the customer managed keyvault key uri."
+        "description": "Specifies the customer managed keyvault key uri."
       }
 	}
   },
@@ -293,7 +294,7 @@ new-azresourcegroupdeployment -name exampledeployment `
 
 For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## Use Azure CLI
+## Use the Azure CLI
 
 This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
 
