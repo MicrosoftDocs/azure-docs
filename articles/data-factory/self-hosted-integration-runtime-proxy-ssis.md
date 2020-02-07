@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 12/23/2019
+ms.date: 02/06/2020
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
@@ -160,7 +160,7 @@ The second staging tasks that run on your Azure-SSIS IR are not be billed separa
 
 ## Current limitations
 
-- Only data flow tasks with Open Database Connectivity (ODBC), OLEDB, or Flat File connection managers and ODBC, OLEDB, and Flat File Sources are currently supported. 
+- Only data flow tasks with Open Database Connectivity (ODBC), OLEDB, or Flat File connection managers and ODBC, OLEDB, and Flat File Sources or OLEDB Destination are currently supported. 
 - Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
 
 ## Next steps

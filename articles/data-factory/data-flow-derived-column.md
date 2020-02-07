@@ -29,7 +29,7 @@ The columns you're modifying and adding to your schema are listed in the Output 
 
 ![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
 
-For more information on handling complex types in data flow, see [JSON handling in mapping data flow](concepts-data-flow-json.md)
+For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
 
 ![Add complex column](media/data-flow/complexcolumn.png "Add columns")
 
