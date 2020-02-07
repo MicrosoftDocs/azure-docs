@@ -43,7 +43,7 @@ Changing the single sided rendering settings can be done as follows:
 ``` cs
 public void exampleSingleSidedRendering(AzureSession session)
 {
-    SingleSidedSettings settings = session.Actions.GetSingleSidedSettings();
+    SingleSidedSettings settings = session.Actions.SingleSidedSettings;
 
     // Single sided geometry is rendered as is
     settings.Mode = SingleSidedMode.Normal;

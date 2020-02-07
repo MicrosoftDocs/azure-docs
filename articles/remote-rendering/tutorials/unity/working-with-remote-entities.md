@@ -463,7 +463,7 @@ public class RemoteCutPlane : MonoBehaviour
 
         localCutPlaneComponent.RemoteComponent.Normal = Axis.X;
         localCutPlaneComponent.RemoteComponent.FadeLength = 0.025f;
-        localCutPlaneComponent.RemoteComponent.FadeColor = new ColorUb(255, 128, 0, 255);
+        localCutPlaneComponent.RemoteComponent.FadeColor = new Color4Ub(255, 128, 0, 255);
         localCutPlaneComponent.RemoteComponent.Enabled = true;
     }
 

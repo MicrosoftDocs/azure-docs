@@ -37,7 +37,7 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 
     var async = session.Actions.LoadModelAsync(modelParams);
 
-    async.OnProgress += (float progress) =>
+    async.ProgressUpdated += (float progress) =>
     {
         Debug.Log($"Loading: {progress * 100.0f}%");
     };

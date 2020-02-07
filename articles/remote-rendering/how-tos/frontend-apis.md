@@ -66,7 +66,7 @@ private StartConversionAsync _pendingAsync = null;
 void StartAssetConversion(AzureFrontend frontend, string modelName, string modelUrl, string assetContainerUrl)
 {
     _pendingAsync = frontend.StartConversionAsync(
-        new IngestAssetParams(modelName, modelUrl, assetContainerUrl));
+        new AssetConversionParams(modelName, modelUrl, assetContainerUrl));
     _pendingAsync.Completed +=
         (StartConversionAsync res) =>
         {
@@ -121,7 +121,7 @@ private CreateSessionAsync _pendingAsync = null;
 void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSize, ARRTimeSpan maxLease)
 {
     _pendingAsync = frontend.CreateNewRenderingSessionAsync(
-        new CreateRenderingSessionParams(vmSize, maxLease));
+        new RenderingSessionCreationParams(vmSize, maxLease));
 
     _pendingAsync.Completed +=
         (CreateSessionAsync res) =>
@@ -206,7 +206,7 @@ private SessionAsync _pendingAsync;
 void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 {
     _pendingAsync = session.RenewAsync(
-        new UpdateRenderingSessionParams(updatedLease));
+        new RenderingSessionUpdateParams(updatedLease));
     _pendingAsync.Completed +=
         (SessionAsync res) =>
         {

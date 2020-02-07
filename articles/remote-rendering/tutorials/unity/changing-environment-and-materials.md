@@ -73,7 +73,7 @@ public class RemoteSky : MonoBehaviour
 
         Debug.Log($"Switching sky to: {builtIns[skyIndex].TextureId}");
 
-        var settings = RemoteManagerUnity.CurrentSession.Actions.GetSkyReflectionSettings();
+        var settings = RemoteManagerUnity.CurrentSession.Actions.SkyReflectionSettings;
 
         settings.SkyReflectionTexture = texture;
     }

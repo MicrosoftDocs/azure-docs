@@ -13,9 +13,9 @@ This chapter explains some high-level concepts of the Remote Rendering API.
 
 ## System initialization
 
-Before any action can be performed in Azure Remote Rendering, the system must be initialized. ```RemoteManagerStatic.StartupRemoteRendering``` will start the system. When `StartupRemoteRendering` initializes Azure Remote Rendering, the rendering mode, the coordinate system for the host engine, and a string identifying the host engine must be provided via the `ClientInit` structure. Call `RemoteManagerStatic.StartupRemoteRendering` before any holographic APIs are called.
+Before any action can be performed in Azure Remote Rendering, the system must be initialized. ```RemoteManagerStatic.StartupRemoteRendering``` will start the system. When `StartupRemoteRendering` initializes Azure Remote Rendering, the rendering mode, the coordinate system for the host engine, and a string identifying the host engine must be provided via the `RemoteRenderingInitialization` structure. Call `RemoteManagerStatic.StartupRemoteRendering` before any holographic APIs are called.
 
-In its initialization, coordinate system conventions for the forward, right, and up vector must be set via ```ClientInit.up, forward, right```. The up/forward/right convention informs the Remote Rendering service of the host engine's expected 3d convention. Hosts should always work in their native coordinate space. Azure Remote Rendering converts user input to its internal convention inside the SDK.
+In its initialization, coordinate system conventions for the forward, right, and up vector must be set via ```RemoteRenderingInitialization.up, forward, right```. The up/forward/right convention informs the Remote Rendering service of the host engine's expected 3d convention. Hosts should always work in their native coordinate space. Azure Remote Rendering converts user input to its internal convention inside the SDK.
 
 When remote rendering is no longer needed by an application, ```RemoteManagerStatic.ShutdownRemoteRendering``` should be called to deinitialize the system. ```RemoteManagerStatic.ShutdownRemoteRendering``` will invalidate any outstanding RemoteRendering objects.
 
@@ -28,17 +28,17 @@ A session is composed on an ```AzureFrontend``` class which contains the credent
 This VM will transition from the ```Starting``` state to the ```Ready``` state over a number of minutes. Once the VM is in the ```Ready``` state,  ```AzureSession.ConnectToRuntime``` can be called to connect to the ARR runtime:
 
 ``` cs
-ClientInit clientInit = new ClientInit();
-// fill out clientInit parameters...
+RemoteRenderingInitialization init = new RemoteRenderingInitialization();
+// fill out RemoteRenderingInitialization parameters...
 
-RemoteManagerStatic.StartupRemoteRendering(clientInit);
+RemoteManagerStatic.StartupRemoteRendering(init);
 
 AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
 // fill out accountInfo details...
 
 AzureFrontend frontend = new AzureFrontend(accountInfo);
 
-CreateRenderingSessionParams sessionCreationParams = new CreateRenderingSessionParams();
+RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
 // fill out sessionCreationParams...
 
 AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
@@ -112,11 +112,11 @@ Data can be loaded through asynchronous APIs. Models that have been [converted](
 ```cs
 LoadModelAsync _pendingLoadTask = null;
 
-void LoadModel(string modelId, Entity parent = null)
+void LoadModel(string modelUrl, Entity parent = null)
 {
     AzureSession session = GetConnectedSession();
 
-    _pendingLoadTask = session.Actions.LoadModelAsync(new LoadModelParams(modelId, parent));
+    _pendingLoadTask = session.Actions.LoadModelAsync(new LoadModelParams(modelUrl, parent));
     _pendingLoadTask.Completed += (LoadModelAsync res) =>
     {
         if (res.IsRanToCompletion)
@@ -136,11 +136,11 @@ Asynchronous operations return an asynchronous object where *Completed* and *Pro
 Sample code using ```await```:
 
 ```cs
-async void LoadModel(string modelId, Entity parent = null)
+async void LoadModel(string modelUrl, Entity parent = null)
 {
     AzureSession session = GetConnectedSession();
 
-    LoadModelResult result = await session.Actions.LoadModelAsync(new LoadModelParams(modelId, parent)).AsTask();
+    LoadModelResult result = await session.Actions.LoadModelAsync(new LoadModelParams(modelUrl, parent)).AsTask();
 
     Entity root = result.Root;
 }

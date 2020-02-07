@@ -24,7 +24,7 @@ You can easily add, remove, and manipulate components programmatically:
 AzureSession session = GetCurrentlyConnectedSession();
 PointLightComponent lightComponent = session.Actions.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
 
-lightComponent.Color = new ColorUb(255, 150, 20, 255);
+lightComponent.Color = new Color4Ub(255, 150, 20, 255);
 lightComponent.Intensity = 11;
 
 // ...
