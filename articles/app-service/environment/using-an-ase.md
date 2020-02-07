@@ -18,11 +18,11 @@ Azure App Service Environment is a deployment of Azure App Service into a subnet
 - **Database**: The database holds information that defines the environment.
 - **Storage**: The storage is used to host the customer-published apps.
 
-You can deploy an ASE (ASEv1 and ASEv2) with an external or internal VIP for app access. The deployment with an external VIP is commonly called an External ASE. The internal version is called the ILB ASE because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
+You can deploy an ASE with an external or internal VIP for app access. The deployment with an external VIP is commonly called an External ASE. The internal version is called the ILB ASE because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## Create an app in an ASE ##
 
-To create an app in an ASE, you use the same process as when you create it normally, but with a few small differences. When you create a new App Service plan:
+To create an app in an ASE, you use the same process as when you create it normally, but with a few small differences. When you create a new App Service plan (ASP):
 
 - Instead of choosing a geographic location in which to deploy your app, you choose an ASE as your location.
 - All App Service plans created in an ASE can only be in an Isolated pricing tier.
@@ -75,11 +75,11 @@ To create an app in an ASE:
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you scale the App Service plan and thus scale all the apps in the same plan.
 
-When you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. In ASEv1, the needed infrastructure must be added before you can create or scale out your App Service plan. 
+When you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. If you perform several scale operations in sequence, the first infrastructure scale request is acted on and the others queue up. When the first scale operation completes, the other infrastructure requests all operate together. When the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation as it requests additional hardware. 
 
 In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there is no such buffer, and resources are allocated upon need.
 
-In an ASE, you can scale an App Service plan up to 100 instances. An ASE can have up to 200 total instances across all of the ASPs that are in the ASE. 
+In an ASE, you can scale an App Service plan up to 100 instances. An ASE can have up to 201 total instances across all of the App Service plans that are in the ASE. 
 
 ## IP addresses ##
 
@@ -91,7 +91,7 @@ With an external ASE, you can configure IP-based SSL for your app in the same ma
 
 When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. The front ends automatically scale out at a rate of one front end for every total 15 instances in your App Service plans. For example, if you have three App Service plans of five instances each, you would have a total of 15 instances and three front ends. If you scale to a total of 30 instances, then you have four front ends, and so on. 
 
-The number of front ends that are allocated by default should be enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change that in the portal to two or four core instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing].
+The number of front ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change that in the portal to two or four core instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to 2 core front ends before adjusting the scale ratio. Changing the core size of your front ends will cause an upgrade of your ASE and should be performed outside of regular business hours.
 
 Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
