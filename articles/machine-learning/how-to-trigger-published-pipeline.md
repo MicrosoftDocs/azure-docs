@@ -25,7 +25,7 @@ Trigger the run of your Azure Machine Learning Pipeline when new data appears. F
      ```
     # You can find the pipeline ID in Azure Machine Learning studio
     
-    published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here")
+    published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here>")
     published_pipeline.endpoint 
     ```
 * [Azure blob storage](../storage/blobs/storage-blobs-overview.md) to store your data.
