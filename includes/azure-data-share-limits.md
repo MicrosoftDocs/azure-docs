@@ -11,7 +11,7 @@
 ---
 Azure Data Share enables organizations to simply and securely share data with their customers and partners.
 
-| **Resource** | **limit** |
+| **Resource** | **Limit** |
 | --- | --- |
 | Maximum number of Data Share resource per Azure subscription |50 |
 | Maximum number of sent shares per Data Share resource |100 |
