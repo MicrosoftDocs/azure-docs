@@ -1,5 +1,5 @@
 ---
-title: Trigger the run of an Azure Machine Learning pipeline 
+title: Trigger the run of an ML pipeline from a Logic App
 titleSuffix: Azure Machine Learning
 description: Learn how to trigger the run of an ML pipeline by using Azure Logic Apps.
 services: machine-learning
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 
 ---
-# Trigger a run of a Machine Learning pipeline
+# Trigger a run of a Machine Learning pipeline from a Logic App
 
 Trigger the run of your Azure Machine Learning Pipeline when new data appears. For example, you may want to trigger the pipeline to train a new model when new data appears the blob storage account.
 
 You'll use:
 * [A published Machine Learning pipeline](concept-ml-pipelines.md).
-* [Azure blob storage](../storage/blobs/storage-blobs-overview) to store your data.
-* [Azure Logic Apps](../logic-apps/logic-apps-overview).
+* [Azure blob storage](../storage/blobs/storage-blobs-overview.md) to store your data.
+* [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## Create and publish the pipeline
 
@@ -32,9 +32,9 @@ published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here")
 published_pipeline.endpoint 
 ```
 
-## Set up a datastore
+### Set up a datastore
 
-In your Machine Learning workspace, define a datastore with the details from your blob storage account.
+In your Machine Learning workspace, [define a datastore](how-to-access-data.md) with the details from your blob storage account.
 
 ## Create a Logic App
 
@@ -55,6 +55,7 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
     Choose the **Interval** and **Frequency** to poll for updates that work for you.  
 
 1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action. Use the following settings.
+
     | Setting | Value | 
     |---|---|
     | HTTP action | POST |
