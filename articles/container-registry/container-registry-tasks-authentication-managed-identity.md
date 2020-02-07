@@ -92,7 +92,7 @@ The following example assigns a managed identity the permissions to pull from a 
 
 ```azurecli
 az role assignment create \
-  --assignee <orincipalID> \
+  --assignee <principalID> \
   --scope <registryID> \
   --role acrpull
 ```
