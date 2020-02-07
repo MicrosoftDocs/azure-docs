@@ -33,7 +33,7 @@ Trigger the run of your Azure Machine Learning Pipeline when new data appears. F
 
 ## Create a Logic App
 
-Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. [Use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) and [set up a customer-managed key](../logic-apps/customer-managed-keys-integration-service-environment.md) for use by your LogicApp.
+Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. If you wish, [use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) and [set up a customer-managed key](../logic-apps/customer-managed-keys-integration-service-environment.md) for use by your LogicApp.
 
 Once your Logic App has been provisioned, use these steps to configure a trigger for your pipeline:
 
