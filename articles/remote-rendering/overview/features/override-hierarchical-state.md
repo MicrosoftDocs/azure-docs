@@ -43,13 +43,13 @@ Each feature can be considered a binary on/off state. However, to work properly 
 ``` cs
 component.HiddenState = HierarchicalEnableState.ForceOn;
 // or:
-component.SetState(HierarchicalStateFlags.Hidden, HierarchicalEnableState.ForceOn);
+component.SetState(HierarchicalStates.Hidden, HierarchicalEnableState.ForceOn);
 ```
 
 The second alternative above has the advantage that a state can be assigned to multiple features simultaneously:
 
 ``` cs
-HierarchicalStateFlags combinedFeatures = HierarchicalStateFlags.Hidden | HierarchicalStateFlags.SeeThrough | HierarchicalStateFlags.DisableCollision;
+HierarchicalStates combinedFeatures = HierarchicalStates.Hidden | HierarchicalStates.SeeThrough | HierarchicalStates.DisableCollision;
 component.SetState(combinedFeatures, HierarchicalEnableState.ForceOn);
 
 ```

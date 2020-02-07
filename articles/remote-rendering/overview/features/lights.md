@@ -28,7 +28,7 @@ There are three distinct types of dynamic lights, represented by dedicated compo
 
 | Property      | Type    | Default | Description                                             |
 |---------------|---------|---------|---------------------------------------------------------|
-| `Color`       | ColorUb | white   | The color of the light in linear color space. The alpha portion is ignored    |
+| `Color`       | Color4Ub | white   | The color of the light in linear color space. The alpha portion is ignored    |
 | `Intensity`   | float   | 10.0    | The intensity of the light. This value has no physical measure however it can be considered to be proportional to the physical power of the light source. If the light has a fall-off (point and spotlight), this value also defines the maximum range of light influence. An intensity of 1000 roughly has a range of 100 world units, but note this does not scale linearly. |
 
 ### Point light
@@ -67,7 +67,7 @@ Directional lights are represented by component `DirectionalLightComponent`. A d
 
 ## Performance considerations
 
-Light sources have a significant implication on rendering performance so they should be used carefully and only if required by the application. Note that any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](sky.md#api-usage) with no additional rendering cost associated.
+Light sources have a significant implication on rendering performance so they should be used carefully and only if required by the application. Note that any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](sky.md) with no additional rendering cost associated.
 
 ## Next steps
 

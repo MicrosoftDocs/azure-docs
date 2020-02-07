@@ -1,106 +1,110 @@
 ---
-title: Sky
-description: Sky rendering
+title: Sky reflections
+description: Describes how to set up environment maps for sky reflections
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+ms.date: 02/07/2020
+ms.topic: article
 ---
 
-# Sky
+# Sky reflections
 
-Currently, the scene is exclusively lit by a global sky environment map. This environment map is identical to a typical sky box and differs only in so far as it not being visible to the observer directly (that is, as a virtual sky) but indirectly via diffuse, glossy and highly specular reflections on rendered objects. Using such a sky environment allows for smoothly varying lighting to give the scene a natural and realistic look compared to other typically more constricted light sources like point or directional lights. Examples of sky lighting results on rendered geometry can be found as follows:
+In Azure Remote Rendering, a sky texture is used to light objects realistically. For augmented reality applications, this texture should resemble your real-world surroundings, to make objects appear convincing. This article describes how to change the sky texture.
 
-| Roughness | 0 | 0.25 | 0.5 | 0.75 | 1 |
-|:---------:|:-:|:----:|:---:|:----:|:-:|
-| Non-Metal | ![Dielectric0](media/dielectric-0.png) | ![GreenPointPark](media/dielectric-0.25.png) | ![GreenPointPark](media/dielectric-0.5.png) |![GreenPointPark](media/dielectric-0.75.png) | ![GreenPointPark](media/dielectric-1.png) |
-| Metal     | ![GreenPointPark](media/metallic-0.png) | ![GreenPointPark](media/metallic-0.25.png) | ![GreenPointPark](media/metallic-0.5.png) |![GreenPointPark](media/metallic-0.75.png) | ![GreenPointPark](media/metallic-1.png) |
+> [!NOTE]
+> The sky texture is also referred to as an *environment map*. These terms are used interchangeably.
 
-The lighting received from a rendered object is dependent on its [material's](../../concepts/materials.md) properties. Azure Remote Rendering uses a physically based lighting model. With this, the rougher the surface material gets the more smeared out reflective specular lighting appears and the more visible diffuse ambient light will be. Also, material behavior is modeled differently for metallic than for non-metallic (that is, dielectric) materials to obtain a physically plausible behavior. For more information, please refer to the [materials](../../concepts/materials.md) chapter.
+## Object lighting
 
-## API usage
+Azure Remote Rendering employs *physically based rendering* (PBR) for realistic lighting computations. Although you can add [light sources](lights.md) to your scene, using a good sky texture has the greatest impact.
 
-The global environment map may be changed via the client API through SkyReflectionSettings state and specifying the texture object ID of the desired environment map. Regarding specific details for obtaining a texture object from a texture file, refer to the [textures](../../concepts/textures.md) chapter. The call itself will be executing client-side checks for texture validity and applicability and will signal the server to change the sky reflection environment map to the one provided.
+The images below show results of lighting different surfaces only with a sky texture:
 
-### Example calls
+| Roughness  | 0                                        | 0.25                                          | 0.5                                          | 0.75                                          | 1                                          |
+|:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
+| Non-Metal  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
+| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+
+For more information on the lighting model, see the [materials](../../concepts/materials.md) chapter.
+
+> [!IMPORTANT]
+> Azure Remote Rendering uses the sky texture only for lighting models. It does not render the sky as a background, since Augmented Reality applications already have a proper background - the real world.
+
+## Changing the sky texture
+
+To change the environment map, all you need to do is [load a texture](../../concepts/textures.md) and change the session's `SkyReflectionSettings`:
 
 ``` cs
-private LoadTextureAsync _pendingTexture = null;
-public void ExampleSkyEnvironment(AzureSession session)
+LoadTextureAsync _skyTextureLoad = null;
+void ChangeEnvironmentMap(AzureSession session)
 {
-    _pendingTexture .LoadTextureAsync(new TextureLoadParams("builtin://SnowyForestPath", Texture.TextureType.CubeMap));
-    _pendingTexture.Completed +=
-        (LoadTextureAsync res) =>
+    _skyTextureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap));
+
+    _skyTextureLoad.Completed += (LoadTextureAsync res) =>
         {
             if (res.IsRanToCompletion)
             {
                 try
                 {
-                    session.Actions.GetSkyReflectionSettings().SkyReflectionTexture = res.Result;
+                    session.Actions.SkyReflectionSettings.SkyReflectionTexture = res.Result;
                 }
                 catch (RRException exception)
                 {
-                    Console.WriteLine("Setting sky reflection failed!");
+                    System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
                 }
             }
             else
             {
-                Console.WriteLine("Texture loading failed!");
+                System.Console.WriteLine("Texture loading failed!");
             }
         };
 }
 ```
 
-Naturally, the textures can be loaded separately and the respectively received texture objects used at a later point in time for modifying `SkyReflectionSettings`.
+Here we use a *built-in* texture, but typically you would pass a SAS URI into `LoadTextureParams`, which points to your custom sky texture.
 
-### Built-in and external skies
+## Sky texture types
 
-Azure Remote Rendering contains a few built-in sky environments that can be loaded by prepending their respective identifier with `builtin://` during the call to `RemoteRenderingClient.LoadTextureAsync()`. For reference, these skies are listed below:
+You can use both *[cubemaps](https://en.wikipedia.org/wiki/Cube_mapping)* and *2D textures* as environment maps.
 
-|Identifier               | Type    | Description                                             | Illustration                                                      |
-|-------------------------|:-------:|:-------------------------------------------------------|:-----------------------------------------------------------------:|
-|GreenPointPark           | Cubemap | Sunny day with slowly varying surfaces                  | ![GreenPointPark](media/green-point-park.png)
-|SataraNight              | Cubemap | Dark night sky and ground with many surrounding lights  | ![SataraNight](media/satara-night.png)
-|SnowyForestPath          | Cubemap | Mostly uniformly distributed white-blue light           | ![SnowyForestPath](media/snowy-forest-path.png)
-|SunnyVondelpark          | Cubemap | Bright sunlight and shadow contrast                     | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|Syferfontein             | Cubemap | Clear sky light with moderate ground lighting           | ![Syferfontein](media/syferfontein.png)
-|TearsOfSteelBridge       | Cubemap | Moderately varying sun and shade                        | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|VeniceSunset             | Cubemap | Evening sunset light approaching dusk                  | ![VeniceSunset](media/venice-sunset.png)
-|WhippleCreekRegionalPark | Cubemap | Bright, lush-green and white light tones, dimmed ground | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|WinterEvening            | Cubemap | Localized Gray, yellow, pink light sources              | ![WinterEvening](media/winter-evening.png)
-|WinterRiver              | Cubemap | Daytime with bright ambient ground light                | ![WinterRiver](media/winter-river.png)
-|DefaultSky               | Cubemap | Same as TearsOfSteelBridge                              | ![DefaultSky](media/tears-of-steel-bridge.png)
-
-Besides these built-in skies, the user may also use textures from external storage by specifying the respective web URI as the identifier. This way, textures can be downloaded from Azure blob storages and other http-accessible locations.
-
-## Sky types
-
-Azure Remote Rendering supports two distinct types of sky environment maps, the commonly used cube maps and the less frequently encountered but equally viable 2D sphere maps.  The following section will distinguish these types in more detail.
+All textures have to be in a [supported texture format](../../concepts/textures.md#supported-texture-formats). You don't need to provide mipmaps for sky textures.
 
 ### Cube environment maps
 
-![Cubemap](media/Cubemap-example.png)
+For reference, here is an unwrapped cubemap:
 
-Typically, sky boxes or environment maps are provided as a cube map (see [Textures](../../concepts/textures.md)). That is, the sphere of all possible directions is approximated as six 2D-Textures placed on a virtual cube around the observer. Such a sky environment cube is shown in the [cubemap example](#cube-environment-maps) above. If a texture file containing a cube map should be used, it has to be loaded accordingly by specifying cube map usage during the call to `AzureSession.Actions.LoadTextureAsync()`.
+![An unwrapped cubemap](media/Cubemap-example.png)
 
-> [!CAUTION]
-> The cube map orientation scheme used by Azure Remote Rendering is shown with the axis directions in the [cubemap example](#cube-environment-maps). Please note that some game engines and other respective computer graphics related software might use a different scheme for cube maps.
+Use `AzureSession.Actions.LoadTextureAsync` with `TextureType.CubeMap` to load cubemap textures.
 
 ### Sphere environment maps
 
-![Sphere map](media/spheremap-example.png)
+When using a 2D texture as an environment map, the image has to be in [spherical coordinate space](https://en.wikipedia.org/wiki/Spherical_coordinate_system).
 
-Additionally, Azure Remote Rendering also has built-in support for 2D sphere environment maps. In contrast to environment cube maps, they consist of only one 2D texture of which the texture coordinates represent the [spherical coordinate space](https://en.wikipedia.org/wiki/Spherical_coordinate_system) defined by azimuthal angle φ and polar angle θ (see above [sphere map example](#sphere-environment-maps))). To correctly load a 2D sphere map texture, specify the 2D usage during the call to `AzureSession.Actions.LoadTextureAsync()`. No distinction is necessary when specifying the texture object when setting `SkyReflectionSettings.SkyReflectionTexture`.
+![A sky image in spherical coordinates](media/spheremap-example.png)
 
-## Miscellaneous
+Use `AzureSession.Actions.LoadTextureAsync` with `TextureType.Texture2D` to load spherical environment maps.
 
-Mipmaps do not need to be provided. The textures are processed internally to allow optimal interaction with the rendering engine and do not need additional processing by the user. However, the cube and sphere environment maps have to be in DDS file format to be correctly loaded during `AzureSession.Actions.LoadTextureAsync()`.
+## Built-in environment maps
+
+Azure Remote Rendering provides a few built-in environment maps that are always available. All built-in environment maps are cubemaps.
+
+|Identifier                         | Description                                             | Illustration                                                      |
+|-----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------:|
+|builtin://GreenPointPark           | Sunny day with slowly varying surfaces                  | ![GreenPointPark](media/green-point-park.png)
+|builtin://SataraNight              | Dark night sky and ground with many surrounding lights  | ![SataraNight](media/satara-night.png)
+|builtin://SnowyForestPath          | Mostly uniformly distributed white-blue light           | ![SnowyForestPath](media/snowy-forest-path.png)
+|builtin://SunnyVondelpark          | Bright sunlight and shadow contrast                     | ![SunnyVondelpark](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Clear sky light with moderate ground lighting           | ![Syferfontein](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Moderately varying sun and shade                        | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Evening sunset light approaching dusk                   | ![VeniceSunset](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Bright, lush-green, and white light tones, dimmed ground | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
+|builtin://WinterEvening            | Localized Gray, yellow, pink light sources              | ![WinterEvening](media/winter-evening.png)
+|builtin://WinterRiver              | Daytime with bright ambient ground light                | ![WinterRiver](media/winter-river.png)
+|builtin://DefaultSky               | Same as TearsOfSteelBridge                              | ![DefaultSky](media/tears-of-steel-bridge.png)
 
 ## Next steps
 
 * [Materials](../../concepts/materials.md)
 * [Textures](../../concepts/textures.md)
+* [The TexConv command-line tool](../../resources/tools/tex-conv.md)

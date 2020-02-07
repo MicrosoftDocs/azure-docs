@@ -23,7 +23,7 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 
 | Parameter      | Type    | Description                                             |
 |----------------|---------|---------------------------------------------------------|
-| `Color`          | ColorUb | The color that is used for drawing the outline. The alpha portion is ignored.         |
+| `Color`          | Color4Ub | The color that is used for drawing the outline. The alpha portion is ignored.         |
 | `PulseRateHz`    | float   | The rate at which the outline oscillates per second|
 | `PulseIntensity` | float   | The intensity of the outline pulse effect. Must be between 0.0 for no pulsing and 1.0 for full pulsing. Intensity implicitly sets the minimum opacity of the outline as `MinOpacity = 1.0 - PulseIntensity`. |
 
@@ -34,19 +34,12 @@ Class `OutlineSettings` holds the settings related to global outline properties.
 The following code shows an example for setting outline parameters via the API:
 
 ``` cs
-public void ExampleOutlineParameters(AzureSession session)
+void SetOutlineParameters(AzureSession session)
 {
-    OutlineSettings outlineSettings = session.Actions.GetOutlineSettings();
-    try
-    {
-        outlineSettings.Color = new ColorUb(255, 255, 0, 255);
-        outlineSettings.PulseRateHz = 2.0f;
-        outlineSettings.PulseIntensity = 0.5f;
-    }
-    catch(RRException)
-    {
-        System.Console.WriteLine("Setting outline parameters failed!");
-    }
+    OutlineSettings outlineSettings = session.Actions.OutlineSettings;
+    outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
+    outlineSettings.PulseRateHz = 2.0f;
+    outlineSettings.PulseIntensity = 0.5f;
 }
 ```
 

@@ -9,7 +9,7 @@ ms.date: 01/24/2020
 
 # Azure Remote Rendering Documentation
 
-:::image type="content" source="media/arr.jpg" alt-text="Azure Remote Rendering image":::
+![Engine model rendered with Azure Remote Rendering](media/arr-engine.png)
 
 Azure Remote Rendering (ARR) enables you to render highly complex 3D models in real time on devices such as HoloLens 2.
 

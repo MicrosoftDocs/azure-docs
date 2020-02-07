@@ -24,7 +24,7 @@ The following code enables z-fighting mitigation:
 ``` cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
-    ZFightingMitigationSettings settings = session.Actions.GetZFightingMitigationSettings();
+    ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
 
     // enabling z-fighting mitigation
     settings.Enabled = true;

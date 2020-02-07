@@ -33,7 +33,7 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 {
     CutPlaneComponent cutPlane = (CutPlaneComponent)session.Actions.CreateComponent(ObjectType.CutPlaneComponent, ownerEntity);
     cutPlane.Normal = Axis.X; // normal points along the positive x-axis of the owner object's orientation
-    cutPlane.FadeColor = new ColorUb(255, 0, 0, 128); // fade to 50% red
+    cutPlane.FadeColor = new Color4Ub(255, 0, 0, 128); // fade to 50% red
     cutPlane.FadeLength = 0.05f; // gradient width: 5cm
 }
 ```
