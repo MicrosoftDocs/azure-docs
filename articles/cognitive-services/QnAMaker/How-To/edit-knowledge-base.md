@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 11/21/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -34,7 +34,7 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
     |--|--|
     |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
     |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
-    |Refresh URL content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content.|
+    |Refresh content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content once. This is not setting a regular schedule of updates.|
     |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
     |Import|You can also import any existing knowledge base by selecting **Ímport Knowledge base** button. |
     |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if required.

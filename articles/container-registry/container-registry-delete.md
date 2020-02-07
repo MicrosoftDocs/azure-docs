@@ -1,14 +1,8 @@
 ---
-title: Delete image resources in Azure Container Registry
+title: Delete image resources
 description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: danlep
 ---
 
 # Delete container images in Azure Container Registry using the Azure CLI
@@ -255,9 +249,12 @@ if ($enableDelete) {
 }
 ```
 
+
 ## Automatically purge tags and manifests (preview)
 
 As an alternative to scripting Azure CLI commands, run an on-demand or scheduled ACR task to delete all tags that are older than a certain duration or match a specified name filter. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
+
+Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When you enable a retention policy, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a set period.
 
 ## Next steps
 

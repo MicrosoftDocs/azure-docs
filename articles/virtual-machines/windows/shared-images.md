@@ -1,5 +1,5 @@
 ---
-title: Create shared VM images with Azure PowerShell | Microsoft Docs
+title: Create shared VM images with Azure PowerShell 
 description: Learn how to use Azure PowerShell to create a shared virtual machine image in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -38,7 +38,7 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 | **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. For more information, see [Scaling](/azure/virtual-machines/windows/shared-image-galleries#scaling).
 
 ## Before you begin
 

@@ -14,7 +14,10 @@ ms.topic: sample
 
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
-## Blob samples
+> [!NOTE]
+> These samples use the Azure Storage Java v11 library. For v12 code, see [samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob) in the GitHub repository.
+
+## Blob samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -35,7 +38,7 @@ The following table provides an overview of our samples repository and the scena
 | Service Properties | [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
 | Snapshot Blob | [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 
-## File samples
+## File samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -49,7 +52,7 @@ The following table provides an overview of our samples repository and the scena
 | List Shares | [Getting Started with Azure File Service in Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | Share Properties/Metadata/Stats | [Getting Started with Azure File Service in Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
 
-## Queue samples
+## Queue samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -62,7 +65,7 @@ The following table provides an overview of our samples repository and the scena
 | Queue Service Properties | [Getting Started with Azure Queue Service in Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
 | Update Message | [Getting Started with Azure Queue Service in Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
 |
-## Table samples
+## Table samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -93,5 +96,6 @@ Check out the following guides if you are looking for instructions on how to ins
 For information on samples for other languages:
 
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
+* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

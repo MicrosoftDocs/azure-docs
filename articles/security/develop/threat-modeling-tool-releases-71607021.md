@@ -1,22 +1,12 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool release 7/2/2019 - Azure
 description: Documenting the release notes for the threat modeling tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: jegeib
-
 ---
 
 # Threat Modeling Tool update release 7.1.60702.1 - 7/2/2019
@@ -40,7 +30,7 @@ A stencil set for modeling medical devices has been contributed by the open-sour
 - Supported Operating Systems
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
 - .NET Version Required
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) or later
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool as well as templates.
 

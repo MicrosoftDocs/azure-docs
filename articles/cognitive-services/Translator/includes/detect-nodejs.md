@@ -47,9 +47,6 @@ var endpoint = process.env[endpoint_var];
 
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
 
->[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
-
 ```javascript
 let options = {
     method: 'POST',
@@ -99,7 +96,10 @@ node detect.js
 
 ## Sample response
 
-Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+After you run the sample, you should see the following printed to terminal:
+
+> [!NOTE]
+> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

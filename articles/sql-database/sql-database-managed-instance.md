@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance overview | Microsoft Docs
+title: SQL managed instance overview
 description: This article describes Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 08/05/2019
+ms.date: 01/21/2020
 ---
 # What is Azure SQL Database managed instance?
 
@@ -23,7 +23,7 @@ The following diagram outlines key features of managed instances:
 
 ![key features](./media/sql-database-managed-instance/key-features.png)
 
-The managed instance deployment model is designed for customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided environment to fully managed PaaS cloud environment, with as low migration effort as possible. Using the fully automated [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, customers can lift and shift their on-premises SQL Server to a managed instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNet support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a managed instance using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  A managed instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface.
+The managed instance deployment model is designed for customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided environment to fully managed PaaS cloud environment, with as low migration effort as possible. Using the fully automated [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, customers can lift and shift their on-premises SQL Server to a managed instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNet support.  With Software Assurance, you can exchange your existing licenses for discounted rates on a managed instance using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  A managed instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface.
 
 The managed instance deployment option aims delivers close to 100% surface area compatibility with the latest on-premises SQL Server version through a staged release plan.
 
@@ -40,7 +40,7 @@ Managed instance combines the best features that are available both in Azure SQL
 | --- | --- |
 |No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
-|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
+|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a>  <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
 > [!IMPORTANT]
 > Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
@@ -66,12 +66,12 @@ The key features of managed instances are shown in the following table:
 
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for managed instances gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for managed instances gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 In vCore model, you can choose between generations of hardware.
 
 - **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -125,7 +125,7 @@ Subsequent operations on deployed managed instances might also have effects on i
 All management operations can be categorized as follows:
 
 - Instance deployment (new instance creation). 
-- Instance update (changing instance properties, such as vCores, reserved storage, etc).
+- Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters vary – below are the values that you can typically expect, based on existing service telemetry data:
@@ -148,12 +148,12 @@ The following table summarizes operations and typical overall durations:
 |Deployment |First instance creation of 4 vCores, in an empty or non-empty subnet|Virtual cluster creation**|90% of operations finish in 4 hours|
 |Deployment |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours|
 |**Update** |Instance property change (admin password, AAD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute|
-|Update |Instance storage scaling up/down (General Purpose service tier)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours|
+|Update |Instance storage scaling up/down (General Purpose service tier)|Attaching database files|90% of operations finish in 5 minutes|
 |Update |Instance storage scaling up/down (Business Critical service tier)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
 |Update |Instance compute (vCores) scaling up and down (General Purpose)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours|
 |Update |Instance compute (vCores) scaling up and down (Business Critical)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
 |Update |Instance scale down to 4 vCores (General Purpose)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Attaching database files|90% of operations finish in 4 h 5 min**|
-|Update |Instance scale down to 4 vCores (General Purpose)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Always On availability group seeding|90% of operations finish in 4 hours + time to seed all databases (220 GB / hour)|
+|Update |Instance scale down to 4 vCores (Business Critical)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Always On availability group seeding|90% of operations finish in 4 hours + time to seed all databases (220 GB / hour)|
 |Update |Instance service tier change (General Purpose to Business Critical and vice versa)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
 |**Deletion**|Instance deletion|Log tail backup for all databases|90% operations finish in up to 1 minute.<br>Note: if last instance in the subnet is deleted, this operation will schedule virtual cluster deletion after 12 hours***|
 |Deletion|Virtual cluster deletion (as user-initiated operation)|Virtual cluster deletion|90% of operations finish in up to 1.5 hours|
@@ -168,14 +168,45 @@ The following table summarizes operations and typical overall durations:
 
 Managed instances are not available to client applications during deployment and deletion operations.
 
-Managed instances are available during update operations but there is a short downtime caused by the failover that happens at the end of updates that typically lasts up to 10 seconds.
+Managed instances are available during update operations but there is a short downtime caused by the failover that happens at the end of updates that typically lasts up to 10 seconds. The exception to this is update of the reserved storage space in General Purpose service tier which does not incur failover nor affect instance availability.
 
 > [!IMPORTANT]
 > Duration of a failover can vary significantly in case of long-running transactions that happen on the databases due to [prolonged recovery time](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Hence it’s not recommended to scale compute or storage of Azure SQL Database managed instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel ongoing transactions and result in prolonged recovery time.
 
+> [!TIP]
+> Update of the reserved storage space in General Purpose service tier does not incur failover nor affect instance availability.
+
 [Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Database managed instances. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
 
+### Canceling management operations
 
+The following table summarizes ability to cancel specific management operations and typical overall durations:
+
+Category  |Operation  |Cancelable  |Estimated cancel duration  |
+|---------|---------|---------|---------|
+|Deployment |Instance creation |No |  |
+|Update |Instance storage scaling up/down (General Purpose) |No |  |
+|Update |Instance storage scaling up/down (Business Critical) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance compute (vCores) scaling up and down (General Purpose) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance compute (vCores) scaling up and down (Business Critical) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance service tier change (General Purpose to Business Critical and vice versa) |Yes |90% of operations finish in 5 minutes |
+|Delete |Instance deletion |No |  |
+|Delete |Virtual cluster deletion (as user-initiated operation) |No |  |
+
+In order to cancel the management operation, go to the overview blade and click on notification box of ongoing operation. From the right side, a screen with ongoing operation will appear and there will be button for canceling operation. After first click, you will be asked to click again and confirm that you want to cancel the operation.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not. 
+
+In case of cancel success, management operation will be canceled in couple of minutes resulting with a failure.
+
+![canceling operation result](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+If cancel request fails or cancel button is not active, that means that management operation has entered not cancelable state and that it will finish in couple of minutes. Management operation will continue its execution until it is completed.
+
+> [!IMPORTANT]
+> Canceling operation is currently supported only in Portal.
 
 ## Advanced security and compliance
 
@@ -215,7 +246,7 @@ Migration of an encrypted database to a managed instance is supported via the Az
 
 The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
-A new syntax is introduced to create Azure AD server principals (logins) (**public preview**), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
+A new syntax is introduced to create Azure AD server principals (logins), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
 
 ### Azure Active Directory integration and multi-factor authentication
 
@@ -244,7 +275,7 @@ The managed instance deployment option targets user scenarios with mass database
 
 The migration approach leverages SQL backups to Azure Blob storage. Backups stored in Azure storage blob can be directly restored into a managed instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
+- For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blob storage and secure it using a Shared access signature (SAS) key.
 - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
@@ -266,14 +297,14 @@ The following diagram outlines surface area compatibility in managed instance:
 
 ### Key differences between SQL Server on-premises and in a managed instance
 
-The managed instance deployment option benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that service is not running in an environment you do not fully control:
+The managed instance deployment option benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that the service is running in an environment you do not fully control:
 
 - High-availability is built in and pre-configured using technology similar to [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automated backups and point in time restore. Customer can initiate `copy-only` backups that do not interfere with automatic backup chain.
 - Managed instance does not allow specifying full physical paths so all corresponding scenarios have to be supported differently: RESTORE DB does not support WITH MOVE, CREATE DB doesn’t allow physical paths, BULK INSERT works with Azure Blobs only, etc.
 - Managed instance supports [Azure AD authentication](sql-database-aad-authentication.md) as cloud alternative to Windows authentication.
 - Managed instance automatically manages XTP filegroup and files for databases containing In-Memory OLTP objects
-- Managed instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database, see [Compare Azure SQL Database single databases/elastic pools and managed instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
+- Managed instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database, see [Compare an Azure SQL Database single database, elastic pool, and managed instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
 
 ### Managed instance administration features
 
@@ -288,7 +319,7 @@ The following table shows several properties, accessible through Transact SQL, t
 
 |Property|Value|Comment|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database. This **does not** indicate SQL engine version 12 (SQL Server 2014). Managed instance always runs the latest stable SQL engine version, which is equal to or higher than latest available RTM version of SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|This value is same as in SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|This value uniquely identifies a managed instance.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:`<instanceName>`.`<dnsPrefix>`.database.windows.net, where `<instanceName>` is name provided by the customer, while `<dnsPrefix>` is autogenerated part of the name guaranteeing global DNS name uniqueness ("wcus17662feb9ce98", for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|

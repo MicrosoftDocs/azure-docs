@@ -2,32 +2,26 @@
 title: How to use the Azure AD Graph API
 description: The Azure Active Directory (Azure AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use Azure AD Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.
 services: active-directory
-documentationcenter: n/a
 author: rwike77
 manager: CelesteDG
-editor: ''
-tags: ''
 
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the Azure AD Graph API
 
 > [!IMPORTANT]
-> We strongly recommend that you use [Microsoft Graph](https://developer.microsoft.com/graph) instead of Azure AD Graph API to access Azure Active Directory resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post and [Migrate Azure AD Graph apps to Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> We strongly recommend that you use [Microsoft Graph](https://developer.microsoft.com/graph) instead of Azure AD Graph API to access Azure Active Directory (Azure AD) resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post and [Migrate Azure AD Graph apps to Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
 
-The Azure Active Directory (Azure AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use Azure AD Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use Azure AD Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable, or delete the user. For more information on Azure AD Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API prerequisites](https://msdn.microsoft.com/library/hh974476.aspx). Azure AD Graph API only works with work or school/organization accounts.
+The Azure AD Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use Azure AD Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use Azure AD Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable, or delete the user. For more information on Azure AD Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API prerequisites](https://msdn.microsoft.com/library/hh974476.aspx). Azure AD Graph API only works with work or school/organization accounts.
 
 This article applies to Azure AD Graph API. For similar info related to Microsoft Graph API, see [Use the Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
 
@@ -83,7 +77,7 @@ For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger 
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 
-**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication scenarios for Azure AD](authentication-scenarios.md).
+**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication scenarios for Azure AD](v1-authentication-scenarios.md).
 
 **Compose and run a query**: Complete the following steps:
 

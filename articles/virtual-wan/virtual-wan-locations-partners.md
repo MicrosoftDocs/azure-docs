@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
 ---
@@ -35,7 +35,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-The following partners are slated on our roadmap for the near future: Arista, F5 Networks, Fortinet, Silver-Peak, Velocloud, Nuage Nokia.
+The following partners are slated on our roadmap for the near future: Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle Talari, SharpLink and VMWare Velocloud.
 
 ## <a name="locations"></a>Locations
 

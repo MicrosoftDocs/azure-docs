@@ -23,7 +23,7 @@ This article explains how to resolve a problem in which you cannot connect to an
 
 > [!NOTE] 
 > Azure has two deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). We recommend that you use the Resource Manager deployment model instead of the classic deployment model for new deployments. 
+[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). We recommend that you use the Resource Manager deployment model instead of the classic deployment model for new deployments. 
 
 ## Symptom
 
@@ -40,9 +40,8 @@ To enable the RDP port in an NSG, follow these steps:
 4. In **Inbound port rules**, check whether the port for RDP is set correctly. The following is an example of the configuration: 
 
     **Priority**: 300 </br>
-    **Port**: 3389 </br>
     **Name**: Port_3389 </br>
-    **Port**: 3389 </br>
+    **Port(Destination)**: 3389 </br>
     **Protocol**: TCP </br>
     **Source**: Any </br>
     **Destinations**: Any </br>

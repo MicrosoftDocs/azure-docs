@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 08/02/2019
+ms.date: 01/14/2020
 ms.author: dylankil
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Git](https://git-scm.com/)
 * [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) and [pip](https://docs.python.org/3/installing/index.html). Starting with Python 3.4, pip is included by default with the Python binary installers.
@@ -37,20 +37,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * [requests module](https://pypi.org/project/requests/2.7.0/)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
-## Acquire an Azure AD authentication token
+## Configure authentication credentials
 
-Write a backend API to retrieve an Azure AD authentication token.
-
-You need some values from the Azure AD auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Once you have these values, create a new file called _.env_, and paste the following code into it, supplying your custom property values from above. Replace the _.env._ file in the sample app with the newly created file.
+Create a new file called _.env_, and paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -110,7 +99,7 @@ pip install jinja2
 Install virtualenv. A tool to create isolated Python environments.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 Install virtualenvwrapper-win. The idea behind virtualenvwrapper is to ease usage of virtualenv.
@@ -123,6 +112,12 @@ Install the requests module. Requests is an Apache2 Licensed HTTP library, writt
 
 ```cmd
 pip install requests
+```
+
+Install the python-dotenv module. This module reads the key-value pair from .env file and adds them to environment variable.
+
+```cmd
+pip install python-dotenv
 ```
 
 Make a virtual environment
@@ -248,6 +243,12 @@ Install the requests module. Requests is an Apache2 Licensed HTTP library, writt
 
 ```bash
 pip install requests --user
+```
+
+Install the python-dotenv module. This module reads the key-value pair from .env file and adds them to environment variable.
+
+```bash
+pip install python-dotenv --user
 ```
 
 Choose a folder where you would like to keep your virtual environments and run this command

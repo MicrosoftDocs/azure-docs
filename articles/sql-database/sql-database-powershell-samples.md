@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script examples for SQL Database | Microsoft Docs
+title: Azure PowerShell script examples
 description: Azure PowerShell script examples to help you create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 ms.service: sql-database
@@ -36,6 +36,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for an Azure SQL database in a SQL elastic pool, and fails it over to the secondary replica. |
 |**Configure a failover group**||
 | [Configure a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a database, and a failover group, adds the database to the failover group and tests failover to the secondary server. | 
+| [Configure a failover group for an elastic pool](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a database, adds it to an elastic pool, adds the elastic pool to the failover group  and tests failover to the secondary server. | 
 |**Scale a single database and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an Azure SQL database, scales it to a higher compute size and creates an alert rule on one of the performance metrics. |
 | [Scale an elastic pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an Azure SQL Database elastic pool, scales it to a higher compute size, and creates an alert rule on one of the performance metrics. |
@@ -65,6 +66,8 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Restore database to a Managed Instance in another Geo-region](scripts/sql-managed-instance-restore-geo-backup.md) | This PowerShell script is taking a backup of one database and restore it to another region. This is known as Geo-Restore disaster recovery scenario. |
 | **Configure Transparent Data Encryption (TDE)**||
 | [Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|
+|**Configure a failover group**||
+| [Configure a failover group for a managed instance](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. | 
 |||
 
 Learn more about the [Managed Instance Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).

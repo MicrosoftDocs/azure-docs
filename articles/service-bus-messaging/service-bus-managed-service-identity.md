@@ -1,6 +1,6 @@
 ---
-title: Managed identities for Azure resources with Azure Service Bus | Microsoft Docs
-description: Use managed identities for Azure resources with Azure Service Bus
+title: Managed identities for Azure resources with Service Bus
+description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -28,7 +28,7 @@ When a security principal (a user, group, or application) attempts to access a S
  1. First, the security principal’s identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is `https://servicebus.azure.net`.
  1. Next, the token is passed as part of a request to the Service Bus service to authorize access to the specified resource.
 
-The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a virtual machine scale set, or an Azure Function app, it can use a managed identity to access the resources. To learn how to authenticate requests made by a managed identity to Service Bus service, see [Authenticate access to Azure Service Bus resources with Azure Active Directory and managed identities for Azure Resources](service-bus-managed-service-identity.md). 
+The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a virtual machine scale set, or an Azure Function app, it can use a managed identity to access the resources. 
 
 The authorization step requires that one or more RBAC roles be assigned to the security principal. Azure Service Bus provides RBAC roles that encompass sets of permissions for Service Bus resources. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning RBAC roles to Azure Service Bus, see [Built-in RBAC roles for Azure Service Bus](#built-in-rbac-roles-for-azure-service-bus). 
 
@@ -52,7 +52,14 @@ Before you assign an RBAC role to a security principal, determine the scope of a
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus RBAC roles at the subscription level. 
+- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus RBAC roles at the subscription level. Here's an example of using the Azure CLI command: [az-role-assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) to assign an identity to a Service Bus RBAC role: 
+
+    ```azurecli
+    az role assignment create \
+        --role $service_bus_role \
+        --assignee $assignee_id \
+        --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
+    ```
 - **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the consumer group associated with it.
 - **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
 - **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.

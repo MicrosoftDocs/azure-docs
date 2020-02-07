@@ -1,14 +1,9 @@
 ---
 title: Azure Monitor for containers region mappings
 description: This article describes the region mappings supported between Azure Monitor for containers, Log Analytics Workspace, and custom metrics.
-services: azure-monitor
-ms.service: azure-monitor
-ms.workload: infrastructure-services
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/26/2019
 ms.topic: conceptual
-manager: carmonm 
+ms.date: 06/26/2019
+
 ---
 
 # Region mappings supported by Azure Monitor for containers
@@ -61,6 +56,7 @@ The AKS cluster resources or Log Analytics workspace can reside in other regions
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|US Gov Virginia |US Gov Virginia |
 
 <sup>1</sup> Due to capacity restraints, the region isn't available when creating new resources. This includes a Log Analytics workspace. However, preexisting linked resources in the region should continue to work.
 

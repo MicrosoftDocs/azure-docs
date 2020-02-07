@@ -2,9 +2,10 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/20/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ---
+
 | Resource | Target        |
 |----------|---------------|
 | Maximum size of single blob container | Same as maximum storage account capacity |
@@ -15,6 +16,8 @@ ms.author: tamram
 | Maximum size of an append blob | 50,000 x 4 MiB (approximately 195 GiB) |
 | Maximum size of a page blob | 8 TiB |
 | Maximum number of stored access policies per blob container | 5 |
-|Target throughput for single blob |Up to storage account ingress/egress limits<sup>1</sup> |
+|Target request rate for a single blob | Up to 500 requests per second |
+|Target throughput for a single page blob | Up to 60 MiB per second |
+|Target throughput for a single block blob |Up to storage account ingress/egress limits<sup>1</sup> |
 
-<sup>1</sup> Single object throughput depends on several factors, including, but not limited to: concurrency, request size, performance tier, speed of source for uploads, and destination for downloads. To take advantage of [high-throughput block blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) performance enhancements, use a Put Blob or Put Block request size of > 4 MiB (> 256 KiB for premium-performance block blob storage or for Data Lake Storage Gen2).
+<sup>1</sup> Throughput for a single blob depends on several factors, including, but not limited to: concurrency, request size, performance tier, speed of source for uploads, and destination for downloads. To take advantage of the performance enhancements of [high-throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), upload larger blobs or blocks. Specifically, call the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block](/rest/api/storageservices/put-block) operation with a blob or block size that is greater than 4 MiB for standard storage accounts. For premium block blob or for Data Lake Storage Gen2 storage accounts, use a block or blob size that is greater than 256 KiB.

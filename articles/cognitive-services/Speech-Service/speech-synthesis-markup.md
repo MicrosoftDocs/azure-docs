@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) - Speech Service
+title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: erhopf
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
-The Speech Services implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
+The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
 
 > [!IMPORTANT]
 > Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -115,7 +115,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 > [!IMPORTANT]
 > This feature will only work with neural voices.
 
-By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to Azure Speech Services.
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to the Speech service.
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-JessaNeural`
@@ -142,6 +142,8 @@ Use this table to determine which speaking styles are supported for each neural 
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
 | | type=`chat` | Speak in a casual, relaxed tone |
+| | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
+| | type=`customerservice` | Speak in a friendly and patient way as customer service |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
 | | type=`sentiment` | Conveys a touching message or a story |
 
@@ -354,6 +356,58 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
     </voice>
 </speak>
 ```
+## say-as element  
+
+`say-as` is an optional element that indicates the content type (such as number or date) of the element's text. This provides guidance to the speech synthesis engine about how to pronounce the text. 
+
+**Syntax**
+
+```XML
+<say-as interpret-as="string" format="digit string" detail="string"> <say-as>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| interpret-as | Indicates the content type of element's text. For a list of types, see the table below. | Required |
+| format | Provides additional information about the precise formatting of the element's text for content types that may have ambiguous formats. SSML defines formats for content types that use them (see table below). | Optional |
+| detail | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
+
+<!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
+
+The following are the supported content types for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
+
+| interpret-as | format | Interpretation |
+|--------------|--------|----------------|
+| address | | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As  "I'm at 150th court north east redmond washington." |
+| cardinal, number | | The text is spoken as a cardinal number. The speech synthesis engine pronounces:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />As "There are three alternatives." |
+| characters, spell-out | | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
+| date  | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | The text is spoken as a date. The `format` attribute specifies the date's format (*d=day, m=month, and y=year*). The speech synthesis engine pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />As "Today is October nineteenth two thousand sixteen." |
+| digits, number_digit | | The text is spoken as a sequence of individual digits. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />As "1 2 3 4 5 6 7 8 9." |
+| fraction | | The text is spoken as a fractional number. The speech synthesis engine pronounces:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />As "three eighths of an inch." |
+| ordinal  | | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option". |
+| telephone  | | The text is spoken as a telephone number. The `format` attribute may contain digits that represent a country code. For example, "1" for the United States or "39" for Italy. The speech synthesis engine may use this information to guide its pronunciation of a phone number. The phone number may also include the country code, and if so, takes precedence over the country code in the `format`. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
+| time | hms12, hms24 | The text is spoken as a time. The `format` attribute specifies whether the time is specified using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. The following are valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
+
+**Usage**
+
+The `say-as` element may contain only text.
+
+**Example**
+
+The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five P M."
+ 
+```XML
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
+    <p>
+    Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
+    on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
+    </p>
+</speak>
+```
+
 
 ## Add recorded audio
 

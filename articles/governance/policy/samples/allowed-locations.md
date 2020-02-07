@@ -1,12 +1,8 @@
 ---
 title: Sample - Allowed locations
-description: This sample policy definition requires that all resources are deployed to the approved locations.
-author: DCtheGeek
-manager: carmonm
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition requires that all resources are deployed to the approved locations defined in a parameter.
 ms.date: 01/26/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Allowed region locations
 

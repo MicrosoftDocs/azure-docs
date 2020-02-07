@@ -1,13 +1,14 @@
 ---
-title: Query Apache Hive with ODBC Driver and PowerShell - Azure HDInsight
+title: Query Apache Hive with ODBC Driver & PowerShell - Azure HDInsight
 description: Use the Microsoft Hive ODBC driver and PowerShell to query Apache Hive clusters on Azure HDInsight.
 keywords: hive,hive odbc,powershell
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.author: hrasheed
+
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
@@ -32,7 +33,7 @@ Before you begin this tutorial, you must have the following items:
 
 ## Install Microsoft Hive ODBC driver
 
-Download and install the [Microsoft Hive ODBC Driver](https://go.microsoft.com/fwlink/?LinkID=286698).
+Download and install the [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## Create Apache Hive ODBC data source
 
@@ -66,7 +67,7 @@ The following steps show you how to create an Apache Hive ODBC data source.
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
    |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned because of loss of precision and truncation. |
 
-    ![Advanced options](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Advanced DSN configuration options")
+    ![Advanced DSN configuration options](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Advanced DSN configuration options")
 
 1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS**.  
 

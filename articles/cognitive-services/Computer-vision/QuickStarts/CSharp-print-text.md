@@ -9,13 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 # Quickstart: Extract printed text (OCR) using the Computer Vision REST API and C#
 
-In this quickstart, you will extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) feature, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+> [!NOTE]
+> If you are extracting English language text, consider using the new [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [C# quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) is available. 
+
+In this quickstart, you will extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) feature, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
@@ -54,9 +57,9 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the OCR method endpoint
-        const string uriBase = endpoint + "vision/v2.0/ocr";
+        static string uriBase = endpoint + "vision/v2.1/ocr";
 
-        static void Main()
+        static async Task Main()
         {
             // Get the path and filename to process from the user.
             Console.WriteLine("Optical Character Recognition:");
@@ -67,7 +70,7 @@ namespace CSHttpClientSample
             {
                 // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
-                MakeOCRRequest(imageFilePath).Wait();
+                await MakeOCRRequest(imageFilePath);
             }
             else
             {

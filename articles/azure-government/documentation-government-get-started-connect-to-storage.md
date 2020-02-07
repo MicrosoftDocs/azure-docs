@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: yujhong
+ms.author: femila
 ---
 
 # Develop with Storage API on Azure Government
@@ -187,7 +187,7 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### PHP
-1. Download the [Azure Storage SDK for PHP](../php-download-sdk.md).
+1. Download the [Azure Storage SDK for PHP](https://github.com/Azure/azure-sdk-for-php).
 2. The code below accesses Azure Table Storage using the Azure Storage API.
    In the `connectionString` variable, you'll notice that there's a `TableEndpoint` parameter. 
    Depending on which service you're using, you must define the parameter and set it to the endpoint for that service:

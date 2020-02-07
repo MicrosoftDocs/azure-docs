@@ -2,18 +2,17 @@
 title: Use SSH tunneling to access Azure HDInsight 
 description: Learn how to use an SSH tunnel to securely browse web resources hosted on your Linux-based HDInsight nodes.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: hrasheed
+ms.date: 10/28/2019
 ---
 
 # Use SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs
 
-HDInsight clusters provide access to the Apache Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Apache Oozie service cannot be accessed over the internet without an SSh tunnel.
+HDInsight clusters provide access to the Apache Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Apache Oozie service can't be accessed over the internet without an SSh tunnel.
 
 ## Why use an SSH tunnel
 
@@ -52,10 +51,10 @@ If you use Script Actions to customize your cluster, any services or utilities t
 
 ## <a name="usessh"></a>Create a tunnel using the SSH command
 
-Use the following command to create an SSH tunnel using the `ssh` command. Replace `sshuser` with an SSH user for your HDInsight cluster, and replace `clustername` with the name of your HDInsight cluster:
+Use the following command to create an SSH tunnel using the `ssh` command. Replace `sshuser` with an SSH user for your HDInsight cluster, and replace `CLUSTERNAME` with the name of your HDInsight cluster:
 
 ```cmd
-ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
 This command creates a connection that routes traffic to local port 9876 to the cluster over SSH. The options are:
@@ -64,43 +63,46 @@ This command creates a connection that routes traffic to local port 9876 to the 
 * **C** - Compress all data, because web traffic is mostly text.
 * **2** - Force SSH to try protocol version 2 only.
 * **q** - Quiet mode.
-* **T** - Disable pseudo-tty allocation, since you are just forwarding a port.
-* **n** - Prevent reading of STDIN, since you are just forwarding a port.
-* **N** - Do not execute a remote command, since you are just forwarding a port.
+* **T** - Disable pseudo-tty allocation, since you're just forwarding a port.
+* **n** - Prevent reading of STDIN, since you're just forwarding a port.
+* **N** - Do not execute a remote command, since you're just forwarding a port.
 * **f** - Run in the background.
 
 Once the command finishes, traffic sent to port 9876 on the local computer is routed to the cluster head node.
 
 ## <a name="useputty"></a>Create a tunnel using PuTTY
 
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you are not familiar with PuTTY, see the [PuTTY documentation](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you aren't familiar with PuTTY, see the [PuTTY documentation](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
 
 ### Create or load a session
 
-1. Open PuTTY and ensure **Session** is selected on the left menu. If you have already saved a session, select the session name from the **Saved Sessions** list and select **Load**.
+1. Open PuTTY and ensure **Session** is selected on the left menu. If you've already saved a session, select the session name from the **Saved Sessions** list and select **Load**.
 
 1. If you don't already have a saved session, enter your connection information:
-    * **Host Name (or IP address)** - The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**
-    * **Port** - 22
-    * **Connection Type** - SSH
+
+    |Property |Value |
+    |---|---|
+    |Host Name (or IP address)|The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.|
+    |Port|22|
+    |Connection Type|SSH|
 
 1. Select **Save**
 
-    ![create SSH session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
+    ![HDInsight create putty session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 1. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
 
 1. Provide the following information on the **Options controlling SSH port forwarding** form:
-   
-   * **Source port** - The port on the client that you wish to forward. For example, **9876**.
 
-   * **Destination** - The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.
+    |Property |Value |
+    |---|---|
+    |Source port|The port on the client that you wish to forward. For example, **9876**.|
+    |Destination|The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.|
+    |Dynamic|Enables dynamic SOCKS proxy routing.|
 
-   * **Dynamic** - Enables dynamic SOCKS proxy routing.
-     
-     ![image of tunneling options](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
+    ![PuTTY Configuration tunneling options](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-1. Select **Add** to add the settings, and then click **Open** to open an SSH connection.
+1. Select **Add** to add the settings, and then select **Open** to open an SSH connection.
 
 1. When prompted, sign in to the server.
 
@@ -110,9 +112,9 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 > The steps in this section use the Mozilla FireFox browser, as it provides the same proxy settings across all platforms. Other modern browsers, such as Google Chrome, may require an extension such as FoxyProxy to work with the tunnel.
 
 1. Configure the browser to use **localhost** and the port you used when creating the tunnel as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
-   
-    ![image of Firefox settings](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
-   
+
+    ![firefox browser proxy settings](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
+
    > [!NOTE]  
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
 
@@ -129,7 +131,7 @@ Once the cluster has been established, use the following steps to verify that yo
 
 2. From the Ambari Web UI, select HDFS from the list on the left of the page.
 
-    ![Image with HDFS selected](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
+    ![Apache Ambari hdfs service selected](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. When the HDFS service information is displayed, select **Quick Links**. A list of the cluster head nodes appears. Select one of the head nodes, and then select **NameNode UI**.
 
@@ -142,13 +144,13 @@ Once the cluster has been established, use the following steps to verify that yo
 
 4. A page similar to the following image is displayed:
 
-    ![Image of the NameNode UI](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
+    ![Image of the Hadoop NameNode UI](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
     > Notice the URL for this page; it should be similar to `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
 
 ## Next steps
 
-Now that you have learned how to create and use an SSH tunnel, see the following document for other ways to use Ambari:
+Now that you've learned how to create and use an SSH tunnel, see the following document for other ways to use Ambari:
 
 * [Manage HDInsight clusters by using Apache Ambari](hdinsight-hadoop-manage-ambari.md)

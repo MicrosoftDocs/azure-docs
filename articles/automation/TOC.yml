@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: Configure authentication with AWS
       href: automation-config-aws-account.md
+    - name: Encryption of secure assets in Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -123,6 +125,8 @@
         href: automation-scenario-source-control-integration-with-VSTS.md
   - name: Troubleshoot
     items:
+    - name: Data to collect when you open a case for Microsoft Azure Automation
+      href: troubleshoot/collect-data-microsoft-azure-automation-case.md
     - name: Troubleshoot Hybrid Runbook Worker
       href: troubleshoot/hybrid-runbook-worker.md
       displayName: troubleshoot, HRW, hybrid worker
@@ -146,6 +150,8 @@
       href: automation-onboard-solutions-from-automation-account.md
   - name: How-to Guides
     items:
+    - name: Manage updates and patches for your Azure Virtual Machines
+      href: automation-tutorial-update-management.md
     - name: Manage updates for multiple VMs
       href: manage-update-multi.md
     - name: Pre and post scripts
@@ -155,6 +161,14 @@
     - name: Integrate SCCM with Update Management
       href: oms-solution-updatemgmt-sccmintegration.md
       displayName: Configuration Manager
+    - name: Configure Windows Update for Update Management
+      href: automation-configure-windows-update.md
+    - name: Use dynamic groups with Update Management
+      href: automation-update-management-groups.md
+    - name: Query Update Management logs
+      href: automation-update-management-query-logs.md
+    - name: View update assessments
+      href: automation-view-update-assessments.md
   - name: Troubleshoot
     items:
     - name: Onboarding
@@ -230,7 +244,7 @@
   - name: Concepts
     items:
       - name: PowerShell DSC
-        href: /powershell/dsc/overview/overview
+        href: /powershell/scripting/dsc/overview/overview
   - name: Quickstarts
     items:
     - name: Getting Started
@@ -298,14 +312,18 @@
       href: automation-connections.md
     - name: Credentials
       href: automation-credentials.md
-    - name: Modules
-      href: automation-integration-modules.md
+    - name: PowerShell modules
+      items: 
+      - name: Modules
+        href: shared-resources/modules.md
+      - name: Using Az modules in Azure Automation
+        href: az-modules.md
+      - name: Update Azure PowerShell modules
+        href: automation-update-azure-modules.md
     - name: Schedules
       href: automation-schedules.md
     - name: Variables
       href: automation-variables.md
-    - name: Update Azure PowerShell modules
-      href: automation-update-azure-modules.md
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Troubleshoot Shared Resources

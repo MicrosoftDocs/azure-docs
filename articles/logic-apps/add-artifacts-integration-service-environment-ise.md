@@ -1,19 +1,16 @@
 ---
-title: Add artifacts to integration service environments (ISEs) in Azure Logic Apps
-description: Add logic apps, custom connectors, and integration accounts to your integration service environment (ISE) to access Azure virtual networks (VNETs), while staying private and isolated from public or "global" Azure
+title: Add artifacts to integration service environment
+description: Add logic apps, integration accounts, and custom connectors to your integration service environment (ISE) to access Azure virtual networks (VNETs)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 01/08/2020
 ---
 
 # Add artifacts to your integration service environment (ISE) in Azure Logic Apps
 
-After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add artifacts such as logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network.
+After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add artifacts such as logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network. For example, managed ISE connectors that become available after you create your ISE don't automatically appear in the Logic App Designer. Before you can use these ISE connectors, you have to manually [add and deploy those connectors to your ISE](#add-ise-connectors-environment) so that they appear in the Logic App Designer.
 
 ## Prerequisites
 
@@ -55,8 +52,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 ## Create integration accounts
 
-Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. Logic apps that exist in an integration service environment (ISE) can reference only integration accounts that exist in the same ISE. So, for an integration account to work with logic apps in an ISE, both the integration account and logic apps must use the *same environment* as their location. For more information about integration accounts and ISEs, see [Integration accounts with ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
-).
+Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. Logic apps that exist in an integration service environment (ISE) can reference only integration accounts that exist in the same ISE. So, for an integration account to work with logic apps in an ISE, both the integration account and logic apps must use the *same environment* as their location. For more information about integration accounts and ISEs, see [Integration accounts with ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment).
 
 To create an integration account that uses an ISE, follow these steps:
 
@@ -84,17 +80,17 @@ To create an integration account that uses an ISE, follow these steps:
 
 ## Add ISE connectors
 
-You can add Microsoft-managed connectors that available to use in your ISE but aren't deployed in your ISE.
+Microsoft-managed connectors that become available after you create your ISE don't automatically appear in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually add and deploy these connectors to your ISE so that they appear in the Logic App Designer.
 
 1. On your ISE menu, under **Settings**, select **Managed connectors**. On the toolbar, select **Add**.
 
    ![View managed connectors](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. On the **Add a new managed connector** pane, open the **Find connector** list. If the connector that you want is available, select that connector, and then select **Create**.
+1. On the **Add a new managed connector** pane, open the **Find connector** list. Select the ISE connector that you want to use but isn't yet deployed in your ISE. Select **Create**.
 
-   The list shows only those connectors that are eligible but aren't deployed in your ISE. Connectors that are already deployed in your ISE appear unavailable for selection.
+   ![Select the ISE connector that you want to deploy in your ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![Select eligible connector](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   Only ISE connectors that are eligible but not yet deployed to your ISE appear available for you to select. Connectors that are already deployed in your ISE appear unavailable for selection.
 
 <a name="create-custom-connectors-environment"></a>
 

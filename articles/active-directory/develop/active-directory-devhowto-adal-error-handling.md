@@ -1,21 +1,17 @@
 ---
-title: Error handling best practices for Azure AD Authentication Library (ADAL) clients
+title: ADAL client app error handling best practices | Azure
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
@@ -51,7 +47,7 @@ Fundamentally, there are two cases of AcquireTokenSilent errors:
 | Case | Description |
 |------|-------------|
 | **Case 1**: Error is resolvable with an interactive sign-in | For errors caused by a lack of valid tokens, an interactive request is necessary. Specifically, cache lookup and an invalid/expired refresh token require an AcquireToken call to resolve.<br><br>In these cases, the end user needs to be prompted to sign in. The application can choose to do an interactive request immediately, after end-user interaction (such as hitting a sign-in button), or later. The choice depends on the desired behavior of the application.<br><br>See the code in the following section for this specific case and the errors that diagnose it.|
-| **Case 2**: Error is not resolvable with an interactive sign-in | For network and transient/temporary errors, or other failures, performing an interactive AcquireToken request does not resolve the issue. Unnecessary interactive sign-in prompts can also frustrate end users. ADAL automatically attempts a single retry for most errors on AcquireTokenSilent failures.<br><br>The client application can also attempt a retry at some later point, but when and how to do it is dependent on the application behavior and desired end-user experience. For example, the application can do an AcquireTokenSilent retry after a few minutes, or in response to some end-user action. An immediate retry will result in the application being throttled, and should not be attempted.<br><br>A subsequent retry failing with the same error does not mean the client should do an interactive request using AcquireToken, as it does not resolve the error.<br><br>See the code in the following section for this specific case and the errors that diagnose it. |
+| **Case 2**: Error is not resolvable with an interactive sign-in | For network and transient/temporary errors, or other failures, performing an interactive AcquireToken request does not resolve the issue. Unnecessary interactive sign-in prompts can also frustrate end users. ADAL automatically attempts a single retry for most errors on AcquireTokenSilent failures.<br><br>The client application can also attempt a retry at some later point, but when and how is dependent on the application behavior and desired end-user experience. For example, the application can do an AcquireTokenSilent retry after a few minutes, or in response to some end-user action. An immediate retry will result in the application being throttled, and should not be attempted.<br><br>A subsequent retry failing with the same error does not mean the client should do an interactive request using AcquireToken, as it does not resolve the error.<br><br>See the code in the following section for this specific case and the errors that diagnose it. |
 
 ### .NET
 
@@ -196,7 +192,7 @@ Error handling in native applications can be defined by two cases:
 
 |  |  |
 |------|-------------|
-| **Case 1**:<br>Non-Retryable Error (most cases) | 1. Do not attempt immediate retry. Present the end-user UI based on the specific error that invokes a retry ("Try to Sign in again", "Download Azure AD broker application", etc). |
+| **Case 1**:<br>Non-Retryable Error (most cases) | 1. Do not attempt immediate retry. Present the end-user UI based on the specific error that invokes a retry (for example, "Try to Sign in again" or "Download Azure AD broker application"). |
 | **Case 2**:<br>Retryable Error | 1. Perform a single retry as the end user may have entered a state that results in a success.<br><br>2. If retry fails, present the end-user UI based on the specific error that invokes a retry ("Try to Sign in again", "Download Azure AD broker app", etc.). |
 
 > [!IMPORTANT]
@@ -208,9 +204,9 @@ Error handling in native applications can be defined by two cases:
 The following guidance provides examples for error handling in conjunction with all non-silent AcquireToken(…) ADAL methods, *except*: 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync(…, ClientCredential, …)
+- AcquireTokenAsync(…, ClientAssertion, …)
+- AcquireTokenAsync(…, UserAssertion,…)   
 
 Your code would be implemented as follows:
 
@@ -478,8 +474,8 @@ We've built a [complete sample](https://github.com/Azure-Samples/active-director
 
 ## Error and logging reference
 
-### Logging Personal Identifiable Information (PII) & Organizational Identifiable Information (OII)
-By default, ADAL logging does not capture or log any PII or OII. The library allows app developers to turn this on through a setter in the Logger class. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+### Logging Personal Identifiable Information & Organizational Identifiable Information 
+By default, ADAL logging does not capture or log any personal identifiable information or organizational identifiable information. The library allows app developers to turn this on through a setter in the Logger class. By logging personal identifiable information or organizational identifiable information, the app takes responsibility for safely handling highly sensitive data and complying with any regulatory requirements.
 
 ### .NET
 
@@ -538,7 +534,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-objc repository](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) is the best error reference.
 
-#### Operating System errors
+#### Operating system errors
 
 iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as SSL errors, timeouts, or network errors:
 
@@ -574,6 +570,7 @@ window.Logging = {
     }
 };
 ```
+
 ## Related content
 
 * [Azure AD Developer's Guide][AAD-Dev-Guide]
@@ -587,7 +584,7 @@ Use the comments section that follows, to provide feedback and help us refine an
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

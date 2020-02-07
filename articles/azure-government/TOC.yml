@@ -15,6 +15,8 @@
     href: documentation-government-get-started-connect-with-cli.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
+  - name: Visual Studio
+    href: documentation-government-connect-vs.md
 - name: Tutorials
   items:
   - name: Deploy App Services
@@ -109,6 +111,14 @@
       href: documentation-government-overview-jps.md
     - name: Department of Defense
       href: documentation-government-overview-dod.md
+- name: Compliance
+  items:
+  - name: Trusted Internet Connection with Azure
+    href: compliance/compliance-tic.md
+  - name: Azure Services by Audit Scope
+    href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Secure Azure Computing Architecture 
+    href: compliance/secure-azure-computing-architecture.md
 - name: Resources
   items:
   - name: Azure Government Website

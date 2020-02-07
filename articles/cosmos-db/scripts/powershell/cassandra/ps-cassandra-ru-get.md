@@ -1,8 +1,9 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Cassandra API
+title: PowerShell script to get Throughput (RU/s) for Azure Cosmos DB Cassandra API resources
 description: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Cassandra API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown

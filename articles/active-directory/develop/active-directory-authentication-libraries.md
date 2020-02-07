@@ -2,23 +2,18 @@
 title: Azure Active Directory Authentication Libraries | Microsoft Docs
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
+ms.custom: aaddev
 ---
 
 # Azure Active Directory Authentication Libraries
@@ -43,7 +38,7 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Single-page app](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Reference](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
-| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js web app](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Reference](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
+| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js web app](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Reference](https://docs.microsoft.com/javascript/api/overview/azure/activedirectory) |
 | Java |ADAL4J |[Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java web app](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[Reference](https://javadoc.io/doc/com.microsoft.azure/adal4j) |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python web app](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[Reference](https://adal-python.readthedocs.io/) |
 
@@ -81,5 +76,5 @@ In this scenario, a developer has a web application running on a server that nee
 ## See Also
 
 - [The Azure Active Directory developer's guide](v1-overview.md)
-- [Authentication scenarios for Azure Active directory](authentication-scenarios.md)
+- [Authentication scenarios for Azure Active directory](v1-authentication-scenarios.md)
 - [Azure Active Directory code samples](sample-v1-code.md)

@@ -8,45 +8,43 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 09/23/2019
 ---
 
 # Migrate Azure Scheduler jobs to Azure Logic Apps
 
 > [!IMPORTANT]
-> Azure Logic Apps is replacing Azure Scheduler, 
-> which is being retired. To schedule jobs, 
-> follow this article for moving to Azure Logic Apps instead.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, 
+> which is [being retired](#retire-date). To continue working with the jobs that you set 
+> up in Scheduler, please move to Azure Logic Apps as soon as possible by following this article. 
 
-This article shows how you can schedule one-time 
-and recurring jobs by creating automated workflows 
-with Azure Logic Apps, rather than with Azure Scheduler. 
-When you create scheduled jobs with Logic Apps, you get these benefits:
+This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 
-* You don't have to worry about the concept of a *job collection* 
-because each logic app is a separate Azure resource.
+* Build your job by using a visual designer and [ready-to-use connectors](../connectors/apis-list.md) from hundreds of services, such as Azure Blob Storage, Azure Service Bus, Office 365 Outlook, and SAP.
 
-* You can run multiple one-time jobs by using a single logic app.
+* Manage each scheduled workflow as a first-class Azure resource. You don't have to worry about the concept of a *job collection* because each logic app is an individual Azure resource.
 
-* The Azure Logic Apps service supports time zone and daylight savings time (DST).
+* Run multiple one-time jobs by using a single logic app.
 
-To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 
-or try creating your first logic app in this quickstart: 
-[Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Set schedules that support time zones and automatically adjust to daylight savings time (DST).
+
+To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) or try creating your first logic app in this quickstart: [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * To trigger your logic app by sending HTTP requests, 
 use a tool such as the [Postman desktop app](https://www.getpostman.com/apps).
 
+## Migrate by using a script
+
+Each Scheduler job is unique, so no one-size-fits-all tool exists for migrating Scheduler jobs to Azure Logic Apps. However, you can [edit this script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) to meet your needs.
+
 ## Schedule one-time jobs
 
 You can run multiple one-time jobs by creating just a single logic app. 
-
-### Create your logic app
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a blank logic app in Logic App Designer. 
@@ -72,14 +70,14 @@ for you to select later in your workflow.
    If you don't have a schema, but you have a sample payload in JSON format, 
    you can generate a schema from that payload.
 
-   1. In the Request trigger, choose **Use sample payload to generate schema**.
+   1. In the Request trigger, select **Use sample payload to generate schema**.
 
    1. Under **Enter or paste a sample JSON payload**, provide your sample payload, 
-   and then choose **Done**, for example:
+   and then select **Done**, for example:
 
       ![Sample payload](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. Under the trigger, choose **Next step**. 
+1. Under the trigger, select **Next step**. 
 
 1. In the search box, enter "delay until" as your filter. 
 Under the actions list, select this action: **Delay until**
@@ -131,12 +129,12 @@ which you might have described earlier by specifying a schema.
 
 For example, using the Postman app, you can create 
 a POST request with the settings similar to this sample, 
-and then choose **Send** to make the request.
+and then select **Send** to make the request.
 
 | Request method | URL | Body | Headers |
-|----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>In the **raw** box, enter the payload you want to send in the request. <p>**Note**: This setting automatically configures the **Headers** values. | **Key**: Content-Type <br>**Value**: application/json
- |||| 
+|----------------|-----|------|---------|
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>In the **raw** box, enter the payload that you want to send in the request. <p>**Note**: This setting automatically configures the **Headers** values. | **Key**: Content-Type <br>**Value**: application/json |
+|||||
 
 ![Send request to manually trigger your logic app](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
@@ -147,7 +145,7 @@ app appears under the **raw** box on the **Body** tab.
 
 > [!IMPORTANT]
 >
-> If you want to cancel the job later, choose the **Headers** tab. 
+> If you want to cancel the job later, select the **Headers** tab. 
 > Find and copy the **x-ms-workflow-run-id** header value in the response. 
 >
 > ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
@@ -161,8 +159,6 @@ in the Logic Apps REST API. When you send a call to the trigger,
 provide the [workflow run ID](#workflow-run-id).
 
 ## Schedule recurring jobs
-
-### Create your logic app
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a blank logic app in Logic App Designer. 
@@ -180,11 +176,9 @@ From the triggers list, select this trigger:
    ![Advanced schedule](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
    For more information about advanced scheduling options, see 
-   [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md)
+   [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md).
 
-1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). 
-Under the trigger, choose **Next step**. 
-Find and select the actions you want.
+1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). Under the trigger, select **Next step**. Find and select the actions you want.
 
    For example, you can include an HTTP 
    action that sends a request to a URL, 
@@ -208,11 +202,11 @@ logic app when intermittent failures happen, you can set the
 [retry policy](../logic-apps/logic-apps-exception-handling.md#retry-policies) 
 in each action's settings, for example:
 
-1. Open the action's (**...**) menu, and select **Settings**.
+1. Open the action's ellipses (**...**) menu, and select **Settings**.
 
    ![Open action settings](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
-1. Select the retry policy you want. For more information about each policy, 
+1. Select the retry policy that you want. For more information about each policy, 
 see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies).
 
    ![Select retry policy](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
@@ -223,9 +217,9 @@ In Azure Scheduler, if the default action fails to run,
 you can run an alterative action that addresses the error condition. 
 In Azure Logic Apps, you can also perform the same task.
 
-1. In Logic App Designer, above the action you want to handle, 
+1. In Logic App Designer, above the action that you want to handle, 
 move your pointer over the arrow between steps, 
-and select and **Add a parallel branch**. 
+and select **Add a parallel branch**. 
 
    ![Add parallel branch](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -233,7 +227,7 @@ and select and **Add a parallel branch**.
 
    ![Add parallel action](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. On the alternative action, open the (**...**) menu, and select **Configure run after**.
+1. On the alternative action, open the ellipses (**...**) menu, and select **Configure run after**.
 
    ![Configure run after](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -242,26 +236,26 @@ and select and **Add a parallel branch**.
 
    ![Set up "run after" properties](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. When you're finished, choose **Done**.
+1. When you're finished, select **Done**.
 
 To learn more about exception handling, see 
-[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 ## FAQ
 
-<a name="retire-date"></a> 
+<a name="retire-date"></a>
 
 **Q**: When is Azure Scheduler retiring? <br>
-**A**: Azure Scheduler is scheduled to retire on September 30, 2019.
+**A**: Azure Scheduler is scheduled to fully retire on December 31, 2019. For important steps to take before this date and a detailed timeline, see [Extending retirement date for Scheduler to December 31, 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). For general updates, see [Azure updates - Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
 
-**Q**: What happens to my Scheduler job collections and jobs after the service retires? <br>
-**A**: All Scheduler job collections and jobs will be deleted from the system.
+**Q**: What happens to my job collections and jobs after the service retires? <br>
+**A**: All Scheduler job collections and jobs stop running and are deleted from the system.
 
 **Q**: Do I have to back up or perform any other tasks before migrating my Scheduler jobs to Logic Apps? <br>
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs. 
 
 **Q**: Is there a tool that can help me migrate my jobs from Scheduler to Logic Apps? <br>
-**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, various scripts will be available for you to modify for your needs. For script availability, check back later.
+**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, based on your needs, you can [edit this script to migrate Azure Scheduler jobs to Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **Q**: Where can I get support for migrating my Scheduler jobs? <br>
 **A**: Here are some ways to get support: 
@@ -272,21 +266,19 @@ If your Azure subscription has a paid support plan, you can
 create a technical support request in the Azure portal. 
 Otherwise, you can select a different support option.
 
-1. On the [Azure portal](https://portal.azure.com) main menu, 
-select **Help + support**.
+1. On the [Azure portal](https://portal.azure.com) main menu, select **Help + support**.
 
-1. Under **Support**, select **New support request**. 
-Provide these details for your request:
+1. From the **Support** menu, select **New support request**. Provide this information about for your request:
 
-   | Setting | Value |
+   | Property | Value |
    |---------|-------|
-   | **Issue type** | **Technical** | 
-   | **Subscription** | <*your-Azure-subscription*> | 
-   | **Service** | Under **Monitoring & Management**, select **Scheduler**. | 
+   | **Issue type** | **Technical** |
+   | **Subscription** | <*your-Azure-subscription*> |
+   | **Service** | Under **Monitoring & Management**, select **Scheduler**. If you can't find **Scheduler**, select **All services** first. |
    ||| 
 
 1. Select the support option you want. If you have a paid support plan, 
-choose **Next**.
+select **Next**.
 
 **Community**
 

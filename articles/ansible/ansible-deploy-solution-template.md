@@ -1,12 +1,8 @@
 ---
-title: Quickstart - Deploy the Ansible solution template for Azure to CentOS | Microsoft Docs
+title: Quickstart - Deploy the Ansible solution template for Azure to CentOS
 description: In this quickstart, learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 
@@ -54,7 +50,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
        - [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage)
        - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
    - **Public IP Address** - Specify this setting if you want to communicate with the virtual machine from outside the virtual machine. The default is a new public IP address that has the name `ansible-pip`. To specify a different IP address, select the arrow specify the attributes - such as name, SKU, and Assignment, of that IP address. 
-   - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
+   - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/resource-naming).
    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Select the information icon next to **Ansible version** to see more information about available versions.
 
      ![Azure portal tab for Ansible additional settings](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)

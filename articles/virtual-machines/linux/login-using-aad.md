@@ -1,9 +1,9 @@
 ---
-title: Log in to a Linux VM with Azure Active Directory credentials | Microsoft Docs
+title: Log in to a Linux VM with Azure Active Directory credentials 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
+ms.author: iainfou
 ---
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
@@ -65,6 +65,19 @@ The following Azure regions are currently supported during the preview of this f
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+## Network requirements
+
+To enable Azure AD authentication for your Linux VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
+
+* https:\//login.microsoftonline.com
+* https:\//device.login.microsoftonline.com
+* https:\//pas.windows.net
+* https:\//management.azure.com
+* https:\//packages.microsoft.com
+
+> [!NOTE]
+> Currently, Azure network security groups can't be configured for VMs enabled with Azure AD authentication.
+
 ## Create a Linux virtual machine
 
 Create a resource group with [az group create](/cli/azure/group#az-group-create), then create a VM with [az vm create](/cli/azure/vm#az-vm-create) using a supported distro and in a supported region. The following example deploys a VM named *myVM* that uses *Ubuntu 16.04 LTS* into a resource group named *myResourceGroup* in the *southcentralus* region. In the following examples, you can provide your own resource group and VM names as needed.
@@ -83,6 +96,9 @@ az vm create \
 It takes a few minutes to create the VM and supporting resources.
 
 ## Install the Azure AD login VM extension
+
+> [!NOTE]
+> If deploying this extension to a previously created VM ensure the machine has at least 1GB of memory allocated else the extension will fail to install
 
 To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory login VM extension. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to install the *AADLoginForLinux* extension on the VM named *myVM* in the *myResourceGroup* resource group:
 
@@ -187,6 +203,10 @@ If you successfully complete the authentication step in a web browser, you may b
 - Verify that the sign-in name you specified at the SSH prompt is correct. A typo in the sign-in name could cause a mismatch between the sign-in name you specified at the SSH prompt and the account you signed in to Azure AD with. For example, you typed *azuresuer\@contoso.onmicrosoft.com* instead of *azureuser\@contoso.onmicrosoft.com*.
 - If you have multiple user accounts, make sure you don't provide a different user account in the browser window when signing in to Azure AD.
 - Linux is a case-sensitive operating system. There is a difference between 'Azureuser@contoso.onmicrosoft.com' and 'azureuser@contoso.onmicrosoft.com', which can cause a mismatch. Make sure that you specify the UPN with the correct case-sensitivity at the SSH prompt.
+
+### Other limitations
+
+Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the [required role assignments](#configure-role-assignments-for-the-vm). For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
 
 ## Preview feedback
 

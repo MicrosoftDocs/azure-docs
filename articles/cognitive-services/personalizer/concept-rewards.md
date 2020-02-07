@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 10/24/2019
 ms.author: diberry
 ---
 
@@ -20,7 +20,7 @@ Personalizer trains its machine learning models by evaluating the rewards.
 
 ## Use Reward API to send reward score to Personalizer
 
-Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). A reward is a number from -1 and 1. Personalizer trains the model to achieve the highest possible sum of rewards over time.
+Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Typically, a reward is a number from 0 and 1. A negative reward, with the value of -1, is possible in certain scenarios and should only be used if you are experienced with reinforcement learning (RL). Personalizer trains the model to achieve the highest possible sum of rewards over time.
 
 Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is configured with the [Reward Wait Time](#reward-wait-time) in the Azure portal.
 
@@ -51,7 +51,7 @@ If no reward is received within the [Reward Wait Time](#reward-wait-time), the d
 
 ## Building up rewards with multiple factors  
 
-For effective personalization, you can build up the reward score (any number from -1 and 1) based on multiple factors. 
+For effective personalization, you can build up the reward score based on multiple factors. 
 
 For example, you could apply these rules for personalizing a list of video content:
 
@@ -66,20 +66,16 @@ You can then send the total reward to the API.
 
 ## Calling the Reward API multiple times
 
-You can also call the Reward API using the same event ID, sending different reward scores. When Personalizer gets those rewards, it determines the final reward for that event by aggregating them as specified in the Personalizer settings.
+You can also call the Reward API using the same event ID, sending different reward scores. When Personalizer gets those rewards, it determines the final reward for that event by aggregating them as specified in the Personalizer configuration.
 
-Aggregation settings:
+Aggregation values:
 
 *  **First**: Takes the first reward score received for the event, and discards the rest.
 * **Sum**: Takes all reward scores collected for the eventId, and adds them together.
 
 All rewards for an event, which are received after the **Reward Wait Time**, are discarded and do not affect the training of models.
 
-By adding up reward scores, your final reward may be higher than 1 or lower than -1. This won't make the service fail.
-
-<!--
-@edjez - is the number ignored if it is outside the acceptable range?
--->
+By adding up reward scores, your final reward may be outside the expected score range. This won't make the service fail.
 
 ## Best Practices for calculating reward score
 
@@ -101,13 +97,11 @@ Personalizer will correlate the information of a Rank call with the rewards sent
 
 If the **Reward Wait Time** expires, and there has been no reward information, a default reward is applied to that event for training. The maximum wait duration is 6 days.
 
-## Best practices for setting reward wait time
+## Best practices for reward wait time
 
 Follow these recommendations for better results.
 
 * Make the Reward Wait Time as short as you can, while leaving enough time to get user feedback. 
-
-<!--@Edjez - storage quota? -->
 
 * Don't choose a duration that is shorter than the time needed to get feedback. For example, if some of your rewards come in after a user has watched 1 minute of a video, the experiment length should be at least double that.
 

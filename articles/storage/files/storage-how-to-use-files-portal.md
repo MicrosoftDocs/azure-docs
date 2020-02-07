@@ -25,7 +25,7 @@ To create an Azure file share:
 2. On the storage account page, in the **Services** section, select **Files**.
 	![A screenshot of the services section of the storage account; select the Files service](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. On the menu at the top of the **File service** page, click **+ File share**. The **New file share** page drops down.
+3. On the menu at the top of the **File service** page, click **File share**. The **New file share** page drops down.
 4. In **Name** type *myshare*.
 5. Click **OK** to create the Azure file share.
 

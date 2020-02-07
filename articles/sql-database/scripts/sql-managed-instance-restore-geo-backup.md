@@ -1,5 +1,5 @@
 ---
-title: PowerShell example Restore Geo-backup - Azure SQL Database | Microsoft Docs
+title: PowerShell example Restore Geo-backup - Azure SQL Database 
 description: Azure PowerShell example script to restore an Azure SQL Managed Instance Database from a geo-redundant backup.
 services: sql-database
 ms.service: sql-database
@@ -47,8 +47,8 @@ $backup = Get-AzSqlInstanceDatabaseGeoBackup `
 -Name $SourceDatabaseName
 
 $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
--TargetInstanceDatabaseName $TargetInstanceName `
--TargetInstanceName $TargetDatabaseName `
+-TargetInstanceDatabaseName $TargetDatabaseName `
+-TargetInstanceName $TargetInstanceName `
 -TargetResourceGroupName $TargetResourceGroupName
 
 ```

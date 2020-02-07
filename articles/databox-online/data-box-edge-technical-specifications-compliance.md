@@ -7,12 +7,31 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge technical specifications
 
 The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
+
+## Compute, memory specifications
+
+The Data Box Edge device has the following specifications for compute and memory:
+
+| Specification           | Value                  |
+|-------------------------|----------------------------|
+| CPU    | 2 X 10 core CPU                     |
+| Memory              | 128 GB RAM                  |
+
+
+## FPGA specifications
+
+A Field Programmable Gate Array (FPGA) is included on every Data Box Edge device that enables Machine Learning (ML) scenarios. 
+
+| Specification           | Value                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+
 
 ## Power supply unit specifications
 

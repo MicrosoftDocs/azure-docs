@@ -1,22 +1,12 @@
 ---
 title: 'Quickstart: Create a Java app on Azure Service Fabric'
 description: In this quickstart, you create a Java application for Azure using a Service Fabric reliable services sample application.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-
 ---
 # Quickstart:  Deploy a Java app to Azure Service Fabric on Linux
 
@@ -24,7 +14,7 @@ This quickstart shows how to deploy your first Java application to Azure Service
 
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers.
 
-![Application Screenshot](./media/service-fabric-quickstart-java/votingapp.png)
+![Azure Service Fabric voting sample](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 In this quickstart, you learn how to:
 
@@ -58,22 +48,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
     The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at **http://localhost:19080**. The five healthy nodes indicate the local cluster is up and running.
 
-    ![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Azure Service Fabric Explorer shows healthy nodes](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Open Eclipse.
 3. Select **File** > **Import** > **Gradle** > **Existing Gradle Project** and follow the wizard.
 4. Select **Directory** and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from GitHub. Select **Finish**.
 
-    ![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Import Gradle project into Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. You now have the `Voting` project in the Package Explorer for Eclipse.
 6. Right-click on the project and select **Publish Application** under the **Service Fabric** dropdown. Choose **PublishProfiles/Local.json** as the Target Profile and select **Publish**.
 
-    ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
+    ![Azure Service Fabric publish local JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
 7. Open your favorite web browser and access the application by accessing `http://localhost:8080`.
 
-    ![Application front-end Local](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Azure Service Fabric local host](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
 
@@ -88,14 +78,14 @@ To scale the web front-end service, do the following:
 1. Open Service Fabric Explorer in your cluster - for example, `https://localhost:19080`.
 2. Select the ellipsis (**...**) next to the **fabric:/Voting/VotingWeb** node in the treeview and select **Scale Service**.
 
-    ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![Scale a service in Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     You can now choose to scale the number of instances of the web front-end service.
 
 3. Change the number to **2** and select **Scale Service**.
 4. Select the **fabric:/Voting/VotingWeb** node in the tree-view and expand the partition node (represented by a GUID).
 
-    ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Scaled service in Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
     You can now see that the service has two instances, and in the tree view you see which nodes the instances run on.
 

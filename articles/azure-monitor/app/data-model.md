@@ -5,11 +5,12 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ---
@@ -43,7 +44,7 @@ Application Insights telemetry model defines a way to [correlate](../../azure-mo
 
 Application Insights data model is a simple and basic yet powerful way to model your application telemetry. We strive to keep the model simple and slim to support essential scenarios and allow to extend the schema for advanced use.
 
-To report data model or schema problems and suggestions use GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) repository.
+To report data model or schema problems and suggestions use GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) repository.
 
 ## Next steps
 

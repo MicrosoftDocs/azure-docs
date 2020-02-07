@@ -1,6 +1,7 @@
 ---
-title: Article about known issues/migration limitations with online migrations to Azure Database for MySQL | Microsoft Docs
-description: Learn about known issues/migration limitations with online migrations to Azure Database for MySQL.
+title: "Known issues: Online migrations from PostgreSQL to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
+description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,18 +9,18 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: [seo-lt-2019, seo-dt-2019]
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 10/27/2019
 ---
 
-# Known issues/migration limitations with online migrations to Azure DB for PostgreSQL
+# Known issues/migration limitations with online migrations from PostgreSQL to Azure DB for PostgreSQL-Single server
 
-Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL are described in the following sections.
+Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server are described in the following sections.
 
 ## Online migration configuration
 
-- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
+- The source PostgreSQL server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
 - Only same version migrations are supported. For example, migrating PostgreSQL 9.5.11 to Azure Database for PostgreSQL 9.6.7 is not supported.
 
     > [!NOTE]
@@ -27,7 +28,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
 - To enable logical replication in the **source PostgreSQL postgresql.conf** file, set the following parameters:
   - **wal_level** = logical
-  - **max_replication_slots** = [max number of databases for migration]; if you want to migrate 4 databases, set the value to 4
+  - **max_replication_slots** = [max number of databases for migration]; if you want to migrate four databases, set the value to 4
   - **max_wal_senders** = [number of databases running concurrently]; the recommended value is 10
 - Add DMS agent IP to the source PostgreSQL pg_hba.conf
   1. Make a note of the DMS IP address after you finish provisioning an instance of DMS.
@@ -38,7 +39,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
 - The user must have the super user permission on the server hosting the source database
 - Aside from having ENUM in the source database schema, the source and target database schemas must match.
-- The schema in the target Azure Database for PostgreSQL must not have foreign keys. Use the following query to drop foreign keys:
+- The schema in the target Azure Database for PostgreSQL-Single server must not have foreign keys. Use the following query to drop foreign keys:
 
     ```
     							SELECT Queries.tablename
@@ -69,7 +70,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
     Run the drop foreign key (which is the second column) in the query result.
 
-- The schema in target Azure Database for PostgreSQL must not have any triggers. Use the following to disable triggers in target database:
+- The schema in target Azure Database for PostgreSQL-Single server must not have any triggers. Use the following to disable triggers in target database:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
@@ -148,6 +149,9 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 -- ALTER USER PG_User SET search_path TO DEFAULT;
 COMMIT;
 ```
+
+  > [!NOTE]
+  > In the preceding script, "PG_User" refers to the username being used to connect to the migration source.
 
 ## Limitations when migrating online from AWS RDS PostgreSQL
 

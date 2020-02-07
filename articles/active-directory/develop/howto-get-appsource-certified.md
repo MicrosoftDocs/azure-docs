@@ -2,23 +2,18 @@
 title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
 description: Details on how to get your application AppSource certified for Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.reviewer: andret
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to get AppSource Certified for Azure Active Directory
@@ -109,7 +104,7 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Next Steps
 
-- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
 - For information on how to list your SaaS application in AppSource, go see [AppSource Partner Information](https://appsource.microsoft.com/partners)
 
 ## Get support
@@ -121,8 +116,8 @@ We highly recommend you ask your questions on Stack Overflow first and browse ex
 Use the following comments section to provide feedback and help us refine and shape our content.
 
 <!--Reference style links -->
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]:v1-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started

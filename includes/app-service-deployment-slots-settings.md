@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 06/18/2019
+ms.date: 09/18/2019
 ms.author: cephalin
 ---
 
@@ -14,7 +14,6 @@ When you clone configuration from another deployment slot, the cloned configurat
 * App settings (can be configured to stick to a slot)
 * Connection strings (can be configured to stick to a slot)
 * Handler mappings
-* Monitoring and diagnostic settings
 * Public certificates
 * WebJobs content
 * Hybrid connections *
@@ -22,19 +21,20 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Service endpoints *
 * Azure Content Delivery Network *
 
-Features marked with an asterisk (*) are planned to be made sticky to the slot. 
+Features marked with an asterisk (*) are planned to be unswapped. 
 
 **Settings that aren't swapped**:
 
 * Publishing endpoints
 * Custom domain names
-* Private certificates and SSL bindings
+* Non-public certificates and TLS/SSL settings
 * Scale settings
 * WebJobs schedulers
 * IP restrictions
 * Always On
-* Protocol settings (HTTPS, TLS version, client certificates)
 * Diagnostic log settings
 * Cross-origin resource sharing (CORS)
 
-<!-- VNET and hybrid connections not yet sticky to slot -->
+> [!NOTE]
+> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic log settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
+>

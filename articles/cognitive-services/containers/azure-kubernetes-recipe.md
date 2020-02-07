@@ -1,5 +1,5 @@
 ---
-title: Run Kubernetes Service
+title: Run Language Detection container in Kubernetes Service
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
 ---
 
-# Deploy the Language detection container to Azure Kubernetes Service
+# Deploy the Text Analytics language detection container to Azure Kubernetes Service
 
 Learn how to deploy the language detection container. This procedure shows you how create the local Docker containers, push the containers to your own private container registry, run the container in a Kubernetes cluster, and test it in a web browser.
 
@@ -31,7 +31,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 ## Running the sample
 
-This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
+This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. We'll push both of these images to the Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
 
 ![Conceptual idea of running sample containers](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 

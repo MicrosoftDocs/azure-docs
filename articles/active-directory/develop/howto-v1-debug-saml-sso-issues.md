@@ -3,20 +3,16 @@ title: Debug SAML-based single sign-on - Azure Active Directory | Microsoft Docs
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
 author: rwike77
-documentationcenter: na
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: luleon, hirsin, smalser
-ms.collection: M365-identity-device-management
+ms.reviewer: luleon, hirsin, paulgarn
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
@@ -101,4 +97,4 @@ To resolve the error, follow these steps:
 
 ## Next steps
 
-Now that single sign-on is working to your application, you could [Automate user provisioning and de-provisioning to SaaS applications](../manage-apps/user-provisioning.md) or [get started with Conditional Access](../conditional-access/app-based-conditional-access.md).
+Now that single sign-on is working to your application, you could [Automate user provisioning and de-provisioning to SaaS applications](../app-provisioning/user-provisioning.md) or [get started with Conditional Access](../conditional-access/app-based-conditional-access.md).

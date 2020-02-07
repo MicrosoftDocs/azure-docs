@@ -1,6 +1,6 @@
 ---
-title: Dynamically create a Disk volume for multiple pods in Azure Kubernetes Service (AKS)
-description: Learn how to dynamically create a persistent volume with Azure disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
+title: Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
+description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
 
@@ -38,7 +38,7 @@ Each AKS cluster includes two pre-created storage classes, both configured to wo
 * The *managed-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     
-These default storage classes don't allow you to update the volume size once created. To enable this ability, add the *allowVolumeExpansion: true* line to one of the default storage classes, or create you own custom storage class. You can edit an existing storage class using the `kubectl edit sc` command. For more information on storage classes and creating youor own, see [Storage options for applications in AKS][storage-class-concepts].
+These default storage classes don't allow you to update the volume size once created. To enable this ability, add the *allowVolumeExpansion: true* line to one of the default storage classes, or create you own custom storage class. You can edit an existing storage class using the `kubectl edit sc` command. For more information on storage classes and creating your own, see [Storage options for applications in AKS][storage-class-concepts].
 
 Use the [kubectl get sc][kubectl-get] command to see the pre-created storage classes. The following example shows the pre-create storage classes available within an AKS cluster:
 

@@ -1,6 +1,6 @@
 ---
-title: Single-page application (sign in) - Microsoft identity platform
-description: Learn how to build a single-page application (Sign in)
+title: Single-page app sign-in & sign-out - Microsoft identity platform | Azure
+description: Learn how to build a single-page application (sign-in)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,33 +17,32 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
 ---
 
-# Single-page application - sign in
+# Single-page application: Sign-in and Sign-out
 
-Learn how to add sign in to the code for your single-page application.
+Learn how to add sign-in to the code for your single-page application.
 
-Before you can get tokens to access APIs in your application, you will need an authenticated user context. You can sign in users to your application in MSAL.js in two ways:
+Before you can get tokens to access APIs in your application, you need an authenticated user context. You can sign in users to your application in MSAL.js in two ways:
 
-* [Sign in with a pop-up window](#sign-in-with-a-pop-up-window) using `loginPopup` method
-* [Sign in with redirect](#sign-in-with-redirect) using `loginRedirect` method
+* [Pop-up window](#sign-in-with-a-pop-up-window), by using the `loginPopup` method
+* [Redirect](#sign-in-with-redirect), by using the `loginRedirect` method
 
-You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of sign in.
+You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of sign-in.
 
 > [!NOTE]
-> If your application already has access to an authenticated user context or id token, you can skip the login step and directly acquire tokens. For more details, see [sso without msal.js login](msal-js-sso.md#sso-without-msaljs-login).
+> If your application already has access to an authenticated user context or ID token, you can skip the login step and directly acquire tokens. For details, see [SSO without MSAL.js login](msal-js-sso.md#sso-without-msaljs-login).
 
 ## Choosing between a pop-up or redirect experience
 
-You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
+You can't use both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow:
 
-* If you don't want the user to navigate away from your main application page during authentication, it's recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
+* If you don't want users to move away from your main application page during authentication, we recommend the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-* There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. Use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
+* If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
-## Sign in with a pop-up window
+## Sign-in with a pop-up window
 
 ### JavaScript
 
@@ -63,7 +62,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### Angular
 
-The MSAL Angular wrapper allows you to secure specific routes in your application by just adding the `MsalGuard` to the route definition. This guard will invoke the method to sign in when that route is accessed.
+The MSAL Angular wrapper allows you to secure specific routes in your application by adding `MsalGuard` to the route definition. This guard will invoke the method to sign in when that route is accessed.
 
 ```javascript
 // In app.routes.ts
@@ -75,7 +74,7 @@ The MSAL Angular wrapper allows you to secure specific routes in your applicatio
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-For a pop-up window experience, enable the `popUp` config option. You can also pass the scopes that require consent as follows:
+For a pop-up window experience, enable the `popUp` configuration option. You can also pass the scopes that require consent as follows:
 
 ```javascript
 //In app.module.ts
@@ -88,11 +87,11 @@ For a pop-up window experience, enable the `popUp` config option. You can also p
          })
 ```
 
-## Sign in with redirect
+## Sign-in with redirect
 
 ### JavaScript
 
-The redirect methods do not return a promise due to the navigation away from the main app. To process and access the returned tokens, you will need to register success and error callbacks before calling the redirect methods.
+The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, you need to register success and error callbacks before you call the redirect methods.
 
 ```javascript
 function authCallback(error, response) {
@@ -110,16 +109,16 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### Angular
 
-The code here is the same as described above under the sign in with a pop-up window section. The default flow is redirect.
+The code here is the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
 
 > [!NOTE]
-> The ID token doesn't contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token which you will acquire in the next step.
+> The ID token doesn't contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token, which you'll acquire in the next step.
 
-## Sign out
+## Sign-out
 
-The MSAL library provides a `logout` method that will clear the cache in the browser storage and sends a sign out request to Azure AD. After sign out, it redirects back to the application start page by default.
+The MSAL library provides a `logout` method that clears the cache in browser storage and sends a sign-out request to Azure Active Directory (Azure AD). After sign-out, the library redirects back to the application start page by default.
 
-You can configure the URI to which it should redirect after sign out by setting the `postLogoutRedirectUri`. This URI should also be registered as the Logout URI in your application registration.
+You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should also be registered as the logout URI in your application registration.
 
 ### JavaScript
 

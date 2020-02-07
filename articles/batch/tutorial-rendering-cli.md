@@ -2,13 +2,13 @@
 title: Render a scene in the cloud - Azure Batch 
 description: Tutorial - How to render an Autodesk 3ds Max scene with Arnold using the Batch Rendering Service and Azure Command-Line Interface
 services: batch
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: mvc
 ---
 
@@ -164,20 +164,20 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. Create the token with the [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) command. This example creates a token to write to any blob container in the account, and the token expires on November 15, 2018:
+To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. Create the token with the [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) command. This example creates a token to write to any blob container in the account, and the token expires on November 15, 2020:
 
 ```azurecli-interactive
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2019-11-15
+    --expiry 2020-11-15
 ```
 
 Take note of the token returned by the command, which looks similar to the following. You use this token in a later step.
 
 ```
-se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## Render a single-frame scene
@@ -213,7 +213,7 @@ Modify the `blobSource` and `containerURL` elements in the JSON file so that the
   "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "httpUrl": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
         "filePath": "MotionBlur-DragonFlying.max"
     }
   ],

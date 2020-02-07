@@ -1,18 +1,15 @@
 ---
-title: Create event-based tasks and workflows in Azure Logic Apps
-description: Trigger, pause, and resume automated tasks, processes, and workflows based on events that happen at an endpoint by using Azure Logic Apps
+title: Wait and respond to events
+description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/10/2019
 tags: connectors
 ---
 
-# Automate event-based tasks and workflows by using HTTP webhooks in Azure Logic Apps
+# Create and run automated event-based workflows by using HTTP webhooks in Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP Webhook connector, you can automate workflows that wait and run based on specific events that happen at an HTTP or HTTPS endpoint by building logic apps. For example, you can create a logic app that monitors a service endpoint by waiting for a specific event before triggering the workflow and running the specified actions, rather than regularly checking or *polling* that endpoint.
 
@@ -32,6 +29,21 @@ An HTTP webhook action is also event-based and *subscribes* to a specific servic
 * Before the logic app times out
 
 For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
+
+> [!NOTE]
+> Logic Apps enforces Transport Layer Security (TLS) 1.2 when 
+> receiving the call back to the HTTP webhook trigger or action. 
+> If you see SSL handshake errors, make sure that you use TLS 1.2. 
+> For incoming calls, here are the supported cipher suites:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 For more information, see these topics:
 
@@ -67,7 +79,7 @@ This built-in trigger registers a callback URL with the specified service and wa
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP Webhook, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
@@ -95,7 +107,7 @@ This built-in action registers a callback URL with the specified service, pauses
 
    This example renames the action to "HTTP Webhook action" so that the step has a more descriptive name.
 
-1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) that you want to use for the subscribe and unsubscribe calls, for example:
+1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) that you want to use for the subscribe and unsubscribe calls, for example:
 
    ![Enter HTTP Webhook action parameters](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -103,13 +115,13 @@ This built-in action registers a callback URL with the specified service, pauses
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP Webhook, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
 
 ## Connector reference
 
-For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### Output details
 

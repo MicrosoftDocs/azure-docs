@@ -1,13 +1,10 @@
 ---
 title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
 description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
-services: container-service
 author: lenadroid
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ---
@@ -39,10 +36,16 @@ Create a resource group for the cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Create the AKS cluster with nodes that are of size `Standard_D3_v2`.
+Create a Service Principal for the cluster. After it is created, you will need the Service Principal appId and password for the next command.
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+Create the AKS cluster with nodes that are of size `Standard_D3_v2`, and values of appId and password passed as service-principal and client-secret parameters.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 Connect to the AKS cluster.
@@ -60,7 +63,7 @@ Before running Spark jobs on an AKS cluster, you need to build the Spark source 
 Clone the Spark project repository to your development system.
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 Change into the directory of the cloned repository and save the path of the Spark source to a variable.
@@ -132,7 +135,7 @@ Run the following commands to add an SBT plugin, which allows packaging the proj
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 Run these commands to copy the sample code into the newly created project and add all necessary dependencies.
@@ -147,7 +150,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -210,6 +213,13 @@ Navigate back to the root of Spark repository.
 cd $sparkdir
 ```
 
+Create a service account that has sufficient permissions for running a job.
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 Submit the job using `spark-submit`.
 
 ```bash
@@ -219,6 +229,7 @@ Submit the job using `spark-submit`.
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
@@ -304,6 +315,7 @@ When running the job, instead of indicating a remote jar URL, the `local://` sch
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
@@ -329,7 +341,7 @@ Check out Spark documentation for more details.
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: https://docs.microsoft.com/azure/aks/
 [azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest

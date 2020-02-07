@@ -36,13 +36,7 @@ To explore the Python samples, download the [Python Storage Client Library](http
 ## Node.js samples
 To explore the Node.js samples, download the [Node.js Storage Client Library](https://github.com/Azure/azure-storage-node).
 
-* [Blob uploader](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Upload and download blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [Continuation token](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [Retry policy](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [Shared access signature](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [Snapshot](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [Table query](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [Azure Storage samples using JavaScript/Node.js](storage-samples-javascript.md)
 
 ## C++ samples
 To explore the C++ samples, download the [C++ Storage Client Library](https://www.nuget.org/packages/wastorage/) from NuGet.
@@ -67,4 +61,5 @@ The following articles index each of the samples by service (blob, file, queue, 
 
 * [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * [Azure Storage samples using Java](storage-samples-java.md)
+* [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * [Azure Storage samples using Python](storage-samples-python.md)

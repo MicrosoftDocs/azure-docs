@@ -1,13 +1,13 @@
 ---
-title: 'Azure Digital Twins public preview service limits | Microsoft Docs'
-description: Understand Azure Digital Twins public preview service limits.
-author: dwalthermsft
-manager: deshner
+title: Public preview service limits - Azure Digital Twins | Microsoft Docs
+description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: dwalther
+ms.date: 01/17/2020
 ---
 
 # Public preview service limits
@@ -65,7 +65,8 @@ The following limits set the total number of all user-defined function calls mad
 
 The following limits cap the total number of all messages your devices can send to your Azure Digital Twins instance:
 
-- 100 messages per second
+- 100 messages per second across all devices
+-	25 messages per second per device
 
 ## Next steps
 

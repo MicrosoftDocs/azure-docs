@@ -76,7 +76,7 @@ You can run the sample app, to see how it interacts with you and with the Comput
 1. Enter your subscription key in **Subscription Key**.
 1. Enter the endpoint URL in **Endpoint**.  
    For example, if you're using the subscription key from the Computer Vision free trial, enter the following endpoint URL:
-   `https://westcentralus.api.cognitive.microsoft.com`
+   `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. If you don't want to enter your subscription key and endpoint URL the next time you run the sample app, choose **Save Setting** to save the subscription key and endpoint URL to your computer. If you want to delete your previously-saved subscription key and endpoint URL, choose **Delete Setting**.
 
@@ -308,4 +308,4 @@ When no longer needed, delete the folder into which you cloned the `Microsoft/Co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Face API](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Get started with Face service](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

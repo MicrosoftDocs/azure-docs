@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-#Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
+
+# Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
+
 ::: zone target="docs"
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure
@@ -89,6 +91,26 @@ Take the following steps if returning the device in US, Canada, or Europe.
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+
+
+::: zone-end
+
 
 ## [In Australia](#tab/in-australia)
 
@@ -99,28 +121,25 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Email Quantium Solutions to request a pickup. Refer to the service reference number specified on the Azure portal. Use the following email template: - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
+5. Book a pick-up online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia will email you a return shipping label.
-7. Print the return label and affix it on the shipping box.
-8. Hand over the package to the courier.
+::: zone target="chromeless"
 
-If needed, you can email Quantium Solution Support at Azure@quantiumsolutions.com or phone.
+## Verify data upload to Azure
 
-For inquiry regarding your order via the phone:
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
-- Send an email for pickup first.
-- Provide your order name on the phone.
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
 
 ## [In Japan](#tab/in-japan) 
 
@@ -152,69 +171,23 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
-::: zone target="docs"
-
-## Verify data upload to Azure
-
-When Microsoft receives and scans the device, order status is updated to **Received**. The device then undergoes physical verification for damage or signs of tampering.
-
-After the verification is complete, the Data Box is connected to the network in the Azure datacenter. The data copy starts automatically. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
-
-Once the copy is complete, order status updates to **Completed**.
-
-Verify that your data is uploaded to Azure before you delete it from the source. Your data can be in:
-
-- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
-
-  - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
-
-    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
-
-- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. 
-
-    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
-
-        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
-
-        Go to the noted resource group and locate your managed disks.
-
-        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
-
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, or Premium SSD. The VHDs are uploaded as page blobs in your staging storage account.
-
-::: zone-end
-
 ::: zone target="chromeless"
 
 ## Verify data upload to Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
-::: zone-end
-
 ## Erasure of data from Data Box
  
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
+::: zone-end
+
 ::: zone target="docs"
 
-## Next steps
-
-In this tutorial, you learned about Azure Data Box topics such as:
-
-> [!div class="checklist"]
-> * Prerequisites
-> * Prepare to ship
-> * Ship Data Box to Microsoft
-> * Verify data upload to Azure
-> * Erasure of data from Data Box
-
-Advance to the following article to learn how to manage Data Box via the local web UI.
-
-> [!div class="nextstepaction"]
-> [Use local web UI to administer Azure Data Box](./data-box-local-web-ui-admin.md)
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
+
 
 

@@ -1,13 +1,13 @@
 ---
 
-title: Tutorial for bulk inviting B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Tutorial for bulk inviting B2B collaboration users - Azure AD
 description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 9/19/2019
 
 ms.author: mimart
 author: msmimart
@@ -19,123 +19,96 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Bulk invite Azure AD B2B collaboration users
+# Tutorial: Bulk invite Azure AD B2B collaboration users (preview)
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use PowerShell to send bulk invitations to external users. Specifically, you do the following:
+|     |
+| --- |
+| This article describes a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
+
+> [!NOTE]
+> As of 12/22/2019, the Bulk invite users (Preview) feature has been temporarily disabled.
+> There is currently no known date for when this feature will be re-enabled. 
+
+If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 
 > [!div class="checklist"]
-> * Prepare a comma-separated value (.csv) file with the user information
-> * Run a PowerShell script to send invitations
+> * Use **Bulk invite users (Preview)** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
+> * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-### Install the latest AzureADPreview module
-Make sure that you install the latest version of the Azure AD PowerShell for Graph module (AzureADPreview). 
-
-First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
- 
-```powershell  
-Get-Module -ListAvailable AzureAD*
-```
-
-Based on the output, do one of the following:
-
-- If no results are returned, run the following command to install the AzureADPreview module:
-  
-   ```powershell  
-   Install-Module AzureADPreview
-   ```
-- If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
-
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
-   ```
-- If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
-
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
-
-You may receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
-
-### Get test email accounts
-
 You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
 
-## Prepare the CSV file
+## Invite guest users in bulk
 
-In Microsoft Excel, create a CSV file with the list of invitee user names and email addresses. Make sure to include the **Name** and **InvitedUserEmailAddress** column headings. 
+1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+2. In the navigation pane, select **Azure Active Directory**.
+3. Under **Manage**, select **Users** > **Bulk invite**.
+4. On the **Bulk invite users (Preview)** page, select **Download** to get a valid .csv file with invitation properties.
 
-For example, create a worksheet in the following format:
+    ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
 
+5. Open the .csv file and add a line for each guest user. Required values are:
 
-![PowerShell output showing pending user acceptance](media/tutorial-bulk-invite/AddUsersExcel.png)
+   * **Email address to invite** - the user who will receive an invitation
 
-Save the file as **C:\BulkInvite\Invitations.csv**. 
+   * **Redirection url** - the URL to which the invited user is forwarded after accepting the invitation
 
-If you don't have Excel, you can create a CSV file in any text editor, such as Notepad. Separate each value with a comma, and each row with a new line. 
+    ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-## Sign in to your tenant
+   > [!NOTE]
+   > Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
 
-Run the following command to connect to the tenant domain:
+6. Save the file.
+7. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
+8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
+9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
+10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section. For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 
-```powershell
-Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
-```
-For example, `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+    ![Example of bulk operation results](media/tutorial-bulk-invite/bulk-operation-results.png)
 
-When prompted, enter your credentials.
+11. When the job completes, you'll see a notification that the bulk operation succeeded.
 
-## Send bulk invitations
+## Verify guest users in the directory
 
-To send the invitations, run the following PowerShell script (where **c:\bulkinvite\invitations.csv** is the path of the CSV file): 
+Check to see that the guest users you added exist in the directory either in the Azure portal or by using PowerShell.
 
-```powershell
-$invitations = import-csv c:\bulkinvite\invitations.csv
-   
-$messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-   
-$messageInfo.customizedMessageBody = "Hello. You are invited to the Contoso organization."
-   
-foreach ($email in $invitations) 
-   {New-AzureADMSInvitation `
-      -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
-      -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.microsoft.com `
-      -InvitedUserMessageInfo $messageInfo `
-      -SendInvitationMessage $true
-   }
-```
-The script sends an invitation to the email addresses in the Invitations.csv file. You should see output similar to the following for each user:
+### View guest users in the Azure portal
 
-![PowerShell output showing pending user acceptance](media/tutorial-bulk-invite/B2BBulkImport.png)
+1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+2. In the navigation pane, select **Azure Active Directory**.
+3. Under **Manage**, select **Users**.
+4. Under **Show**, select **Guest users only** and verify the users you added are listed.
 
-## Verify users exist in the directory
+### View guest users with PowerShell
 
-To verify that the invited users were added to Azure AD, run the following command:
+Run the following command:
+
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
+
 You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
 
-When no longer needed, you can delete the test user accounts in the directory. Run the following command to delete a user account:
+When no longer needed, you can delete the test user accounts in the directory in the Azure portal on the Users page by selecting the checkbox next to the guest user and then selecting **Delete**. 
+
+Or you can run the following PowerShell command to delete a user account:
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
+
 For example: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
-
 ## Next steps
+
 In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works.
 
 > [!div class="nextstepaction"]
 > [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
-

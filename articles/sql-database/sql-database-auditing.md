@@ -1,14 +1,12 @@
 ---
-title: Get started with Azure SQL database auditing | Microsoft Docs
+title: Get started with auditing 
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
-ms.devlang: 
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
 ---
@@ -42,7 +40,8 @@ You can use SQL database auditing to:
 > - All storage replication configurations are supported.
 > - **Premium storage** is currently **not supported**.
 > - **Storage in VNet** is currently **not supported**.
-> - **Storage behind a Firewall** is currently **not supported**
+> - **Storage behind a Firewall** is currently **not supported**.
+> - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
@@ -82,8 +81,11 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][3]
 
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
-
-   > [!WARNING]
+  
+  > [!NOTE]
+   >Customer wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
+  
+  > [!WARNING]
    > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
@@ -91,7 +93,8 @@ The following section describes the configuration of auditing using the Azure po
 6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
 
    > [!IMPORTANT]
-   > The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
+   > - The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
+   > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled)
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -141,12 +144,15 @@ If you chose to write audit logs to Azure Monitor logs:
 
 If you chose to write audit logs to Event Hub:
 
-- To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. For more information, see [Azure Event Hubs Documentation](https://docs.microsoft.com/azure/event-hubs/).
-- Audit logs in Event Hub are captured in the body of [Apache Avro](https://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) or similar tools that process this format.
+- To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. For more information, see [Azure Event Hubs Documentation](../event-hubs/index.yml).
+- Audit logs in Event Hub are captured in the body of [Apache Avro](https://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) or similar tools that process this format.
 
 If you chose to write audit logs to an Azure storage account, there are several methods you can use to view the logs:
 
-- Audit logs are aggregated in the account you chose during setup. You can explore audit logs by using a tool such as [Azure Storage Explorer](https://storageexplorer.com/). In Azure storage, auditing logs are saved as a collection of blob files within a container named **sqldbauditlogs**. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [SQL Database Audit Log Format](https://go.microsoft.com/fwlink/?linkid=829599).
+> [!NOTE] 
+> Auditing on [Read-Only Replicas](sql-database-read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](sql-database-audit-log-format.md). 
+
+- Audit logs are aggregated in the account you chose during setup. You can explore audit logs by using a tool such as [Azure Storage Explorer](https://storageexplorer.com/). In Azure storage, auditing logs are saved as a collection of blob files within a container named **sqldbauditlogs**. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing** page, click **View audit logs**.
 
@@ -234,8 +240,18 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 - When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
 
+- Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
 
-## <a id="subheading-7"></a>Manage SQL database auditing using Azure PowerShell
+- For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
+
+    > [!IMPORTANT]
+    > The allow protected append blobs writes setting under time-based retention is currently available and visible only in the following regions:
+    > - East US
+    > - South Central US
+    > - West US 2
+
+
+## <a id="subheading-7"></a>Manage Azure SQL Server and Database auditing using Azure PowerShell
 
 **PowerShell cmdlets (including WHERE clause support for additional filtering)**:
 
@@ -248,7 +264,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Manage SQL database auditing using REST API
+## <a id="subheading-8"></a>Manage Azure SQL Server and Database auditing using REST API
 
 **REST API**:
 
@@ -264,7 +280,7 @@ Extended policy with WHERE clause support for additional filtering:
 - [Get Database *Extended* Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Manage SQL database auditing using Azure Resource Manager templates
+## <a id="subheading-9"></a>Manage Azure SQL Server and Database auditing using Azure Resource Manager templates
 
 You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
@@ -281,10 +297,9 @@ You can manage Azure SQL database auditing using [Azure Resource Manager](https:
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

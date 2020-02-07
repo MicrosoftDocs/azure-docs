@@ -13,7 +13,8 @@ ms.author: sngun
 # Azure Cosmos DB: Java examples for the SQL API
 
 > [!div class="op_single_selector"]
-> * [.NET Examples](sql-api-dotnet-samples.md)
+> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
 > * [Java Examples](sql-api-java-samples.md)
 > * [Async Java Examples](sql-api-async-java-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)

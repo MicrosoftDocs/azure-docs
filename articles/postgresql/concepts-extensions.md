@@ -1,11 +1,11 @@
 ---
-title: Use PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
-description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL - Single Server.
+title: Extensions - Azure Database for PostgreSQL - Single Server
+description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 12/20/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
@@ -38,7 +38,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -56,6 +56,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -83,7 +84,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -129,7 +130,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | show row-level locking information|
@@ -175,7 +176,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | data types for international product numbering standards|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | data type for hierarchical tree-like structures|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Functions and operators that emulate a subset of functions and packages from commercial RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | provides auditing functionality|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | cryptographic functions|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting Extension|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | show row-level locking information|
@@ -217,13 +218,10 @@ The pgAudit extension provides session and object audit logging. To learn how to
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/)
+[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the open-source version of Timescale. To learn which Timescale features are available in this version, see [the Timescale product comparison](https://www.timescale.com/products/).
 
 ### Installing TimescaleDB
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
-
-> [!NOTE]
-> TimescaleDB can be enabled on Azure Database for PostgreSQL versions 9.6 and 10
 
 Using the [Azure portal](https://portal.azure.com/):
 
@@ -248,6 +246,26 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 > If you see an error, confirm that you [restarted your server](howto-restart-server-portal.md) after saving shared_preload_libraries. 
 
 You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+
+### Restoring a Timescale database
+To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore()` and `timescaledb_post restore()`.
+
+First prepare the destination database:
+
+```SQL
+--create the new database where you'll perform the restore
+CREATE DATABASE tutorial;
+\c tutorial --connect to the database 
+CREATE EXTENSION timescaledb;
+
+SELECT timescaledb_pre_restore();
+```
+
+Now you can run pg_dump on the original database and then do pg_restore. After the restore, be sure to run the following command in the restored database:
+
+```SQL
+SELECT timescaledb_post_restore();
+```
 
 
 ## Next steps

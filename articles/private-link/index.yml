@@ -5,11 +5,11 @@ summary: Azure Private Link enables you to access Azure PaaS Services (for examp
 metadata:
   title: Private Link Documentation - Quickstarts, How to guides, and API references
   description: Learn how to use Azure Private Link service. Quickstarts, tutorials, show you how to deploy a Private Link service.
-  ms.service: virtual-network
+  ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
+  author: malopMSFT
+  ms.author: allensu
   ms.date: 09/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

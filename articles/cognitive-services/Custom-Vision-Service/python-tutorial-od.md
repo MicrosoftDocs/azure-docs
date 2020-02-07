@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision Python SDK
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
+This article shows you how to get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
 
 ## Prerequisites
 
@@ -43,13 +43,15 @@ Create a new file called *sample.py* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) method to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).  
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
+
+See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) method to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
 
-ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
+ENDPOINT = "<your API endpoint>"
 
 # Replace with a valid key
 training_key = "<your training key>"
@@ -81,6 +83,10 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 ### Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
+
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
+
 
 To add the images, tags, and regions to the project, insert the following code after the tag creation. For this tutorial, the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
@@ -134,9 +140,12 @@ scissors_image_regions = {
 
 Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
+> [!NOTE]
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo earlier.
+
 ```Python
 # Update this with the path to where you downloaded the images.
-base_image_url = "<path to the images>"
+base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
 
 # Go through the data table above and create the images
 print ("Adding images...")
@@ -166,7 +175,7 @@ if not upload_result.is_batch_successful:
 
 ### Train the project and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```Python
 import time

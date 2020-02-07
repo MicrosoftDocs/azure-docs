@@ -1,15 +1,15 @@
 ---
-title: Azure Compute - Linux Diagnostic Extension | Microsoft Docs
+title: Azure Compute - Linux Diagnostic Extension 
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
-author: abhijeetgaiha
-manager: sankalpsoni
+author: MicahMcKittrick-MSFT
+manager: gwallace
 
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018 
-ms.author: gwallace
+ms.author: mimckitt
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 
@@ -86,6 +86,85 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 
 The URL for the sample configuration, and its contents, are subject to change. Download a copy of the portal settings JSON file and customize it for your needs. Any templates or automation you construct should use your own copy, rather than downloading that URL each time.
 
+#### PowerShell sample
+
+```Powershell
+// Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
+
+$SASKey = '<SASKeyForDiagStorageAccount>'
+
+$ladCfg = "{
+'diagnosticMonitorConfiguration': {
+'performanceCounters': {
+'sinks': 'WADMetricEventHub,WADMetricJsonBlob',
+'performanceCounterConfiguration': [
+{
+'unit': 'Percent',
+'type': 'builtin',
+'counter': 'PercentProcessorTime',
+'counterSpecifier': '/builtin/Processor/PercentProcessorTime',
+'annotation': [
+{
+'locale': 'en-us',
+'displayName': 'Aggregate CPU %utilization'
+}
+],
+'condition': 'IsAggregate=TRUE',
+'class': 'Processor'
+},
+{
+'unit': 'Bytes',
+'type': 'builtin',
+'counter': 'UsedSpace',
+'counterSpecifier': '/builtin/FileSystem/UsedSpace',
+'annotation': [
+{
+'locale': 'en-us',
+'displayName': 'Used disk space on /'
+}
+],
+'condition': 'Name='/'',
+'class': 'Filesystem'
+}
+]
+},
+'metrics': {
+'metricAggregation': [
+{
+'scheduledTransferPeriod': 'PT1H'
+},
+{
+'scheduledTransferPeriod': 'PT1M'
+}
+],
+'resourceId': '<VMResourceID>'
+},
+'eventVolume': 'Large',
+'syslogEvents': {
+'sinks': 'SyslogJsonBlob,LoggingEventHub',
+'syslogEventConfiguration': {
+'LOG_USER': 'LOG_INFO'
+}
+}
+}
+}"
+$ladCfg = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($ladCfg))
+$perfCfg = "[
+{
+'query': 'SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'',
+'table': 'LinuxCpu',
+'frequency': 60,
+'sinks': 'LinuxCpuJsonBlob'
+}
+]"
+
+// Get the VM Resource
+Get-AzureRmVM -ResourceGroupName <RGName> -VMName <VMName>
+
+// Finally tell Azure to install and enable the extension
+Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -ResourceGroupName <RGName> -VMName <VMName> -Location <Location> -Name LinuxDiagnostic -Settings @{'StorageAccount'='<DiagStorageAccount>'; 'sampleRateInSeconds' = '15' ; 'ladCfg'=$ladCfg; 'perfCfg' = $perfCfg} -ProtectedSettings @{'storageAccountName' = '<DiagStorageAccount>'; 'storageAccountSasToken' = $SASKey } -TypeHandlerVersion 3.0
+```
+
 ### Updating the extension settings
 
 After you've changed your Protected or Public settings, deploy them to the VM by running the same command. If anything changed in the settings, the updated settings are sent to the extension. LAD reloads the configuration and restarts itself.
@@ -130,7 +209,7 @@ storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 sinksConfig | (optional) Details of alternative destinations to which metrics and events can be delivered. The specific details of each data sink supported by the extension are covered in the sections that follow.
 
-To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 You can easily construct the required SAS token through the Azure portal.
 
@@ -192,7 +271,7 @@ If you created a SAS good until midnight UTC on January 1, 2018, the sasURL valu
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-For more information about generating SAS tokens for Event Hubs, see [this web page](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+For more information about generating and retrieving information on SAS tokens for Event Hubs, see [this web page](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### The JsonBlob sink
 
@@ -379,7 +458,7 @@ This optional section controls execution of arbitrary [OMI](https://github.com/M
 
 Element | Value
 ------- | -----
-namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](https://github.com/Microsoft/SCXcore).
 query | The OMI query to be executed.
 table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#protected-settings)).
 frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.
@@ -597,8 +676,8 @@ In each case, data is also uploaded to:
 ```json
 {
   "StorageAccount": "yourdiagstgacct",
-  "sampleRateInSeconds": 15,
   "ladCfg": {
+    "sampleRateInSeconds": 15,
     "diagnosticMonitorConfiguration": {
       "performanceCounters": {
         "sinks": "MyMetricEventHub,MyJsonMetricsBlob",

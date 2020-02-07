@@ -1,15 +1,9 @@
 ---
 title: Connect MetaMask to an Azure Blockchain Service network
 description: Connect to an Azure Blockchain Service network using MetaMask and deploy a smart contract.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 09/12/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
+ms.reviewer: janders
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
@@ -140,4 +134,4 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
+> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)

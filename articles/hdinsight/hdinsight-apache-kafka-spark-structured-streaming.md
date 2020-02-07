@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial Apache Spark Structured Streaming with Apache Kafka - Azure HDInsight'
+title: 'Tutorial: Apache Spark Streaming & Apache Kafka - Azure HDInsight'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter notebook from Spark on HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 05/22/2019
-ms.author: hrasheed
+ms.date: 10/08/2019
+
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
 
@@ -38,8 +38,8 @@ When you are done with the steps in this document, remember to delete the cluste
 
 > [!IMPORTANT]  
 > The steps in this document require an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
-> 
-> For your convenience, this document links to a template that can create all the required Azure resources. 
+>
+> For your convenience, this document links to a template that can create all the required Azure resources.
 >
 > For more information on using HDInsight in a virtual network, see the [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md) document.
 
@@ -91,7 +91,7 @@ In both snippets, data is read from Kafka and written to file. The differences b
 | `write` | `writeStream` |
 | `save` | `start` |
 
-The streaming operation also uses `awaitTermination(30000)`, which stops the stream after 30,000 ms. 
+The streaming operation also uses `awaitTermination(30000)`, which stops the stream after 30,000 ms.
 
 To use Structured Streaming with Kafka, your project must have a dependency on the `org.apache.spark : spark-sql-kafka-0-10_2.11` package. The version of this package should match the version of Spark on HDInsight. For Spark 2.2.0 (available in HDInsight 3.6), you can find the dependency information for different project types at [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
@@ -109,7 +109,7 @@ For the Jupyter Notebook used with this tutorial, the following cell loads this 
 
 ## Create the clusters
 
-Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that uses Kafka must be in the same Azure virtual network. In this tutorial, both the Kafka and Spark clusters are located in the same Azure virtual network. 
+Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that uses Kafka must be in the same Azure virtual network. In this tutorial, both the Kafka and Spark clusters are located in the same Azure virtual network.
 
 The following diagram shows how communication flows between Spark and Kafka:
 
@@ -148,12 +148,12 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
     | Cluster Login Password | The admin user password for the clusters. |
     | SSH User Name | The SSH user to create for the clusters. |
     | SSH Password | The password for the SSH user. |
-   
+
     ![Screenshot of the customized template](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**
+3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-4. Finally, check **Pin to dashboard** and then select **Purchase**. 
+4. Select **Purchase**.
 
 > [!NOTE]  
 > It can take up to 20 minutes to create the clusters.
@@ -181,14 +181,17 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
 
 3. Select **New > Spark** to create a notebook.
 
-4. Load packages used by the Notebook by entering the following information in a Notebook cell. Run the command by using **CTRL + ENTER**.
+4. Spark streaming has microbatching, which means data comes as batches and executers run on the batches of data. If the executor has idle timeout less than the time it takes to process the batch then the executors would be constantly added and removed. If the executors idle timeout is greater than the batch duration, the executor never gets removed. Hence **we recommend that you disable dynamic allocation by setting spark.dynamicAllocation.enabled to false when running streaming applications.**
 
-    ```
+    Load packages used by the Notebook by entering the following information in a Notebook cell. Run the command by using **CTRL + ENTER**.
+
+    ```configuration
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```
@@ -210,10 +213,10 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     // Load the data from the New York City Taxi data REST API for 2016 Green Taxi Trip Data
     val url="https://data.cityofnewyork.us/resource/pqfs-mqru.json"
     val result = scala.io.Source.fromURL(url).mkString
-    
+
     // Create a dataframe from the JSON data
     val taxiDF = spark.read.json(Seq(result).toDS)
-    
+
     // Display the dataframe containing trip data
     taxiDF.show()
     ```
@@ -224,7 +227,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     // The Kafka broker hosts and topic used to write to Kafka
     val kafkaBrokers="YOUR_KAFKA_BROKER_HOSTS"
     val kafkaTopic="tripdata"
-    
+
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
@@ -244,7 +247,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Define a schema for the data
     val schema = (new StructType).add("dropoff_latitude", StringType).add("dropoff_longitude", StringType).add("extra", StringType).add("fare_amount", StringType).add("improvement_surcharge", StringType).add("lpep_dropoff_datetime", StringType).add("lpep_pickup_datetime", StringType).add("mta_tax", StringType).add("passenger_count", StringType).add("payment_type", StringType).add("pickup_latitude", StringType).add("pickup_longitude", StringType).add("ratecodeid", StringType).add("store_and_fwd_flag", StringType).add("tip_amount", StringType).add("tolls_amount", StringType).add("total_amount", StringType).add("trip_distance", StringType).add("trip_type", StringType).add("vendorid", StringType)
     // Reproduced here for readability
@@ -269,7 +272,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     //   .add("trip_distance", StringType)
     //   .add("trip_type", StringType)
     //   .add("vendorid", StringType)
-    
+
     println("Schema declared")
     ```
 
@@ -278,10 +281,10 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     ```scala
     // Read a batch from Kafka
     val kafkaDF = spark.read.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data and write to file
     val query = kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip").write.format("parquet").option("path","/example/batchtripdata").option("checkpointLocation", "/batchcheckpoint").save()
-    
+
     println("Wrote data to file")
     ```
 
@@ -297,7 +300,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
     ```scala
     // Stream from Kafka
     val kafkaStreamDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data from the stream and write to file
     kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip").writeStream.format("parquet").option("path","/example/streamingtripdata").option("checkpointLocation", "/streamcheckpoint").start.awaitTermination(30000)
     println("Wrote data to file")
@@ -322,7 +325,7 @@ To remove the resource group using the Azure portal:
 
 > [!WARNING]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
-> 
+>
 > Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
 
 ## Next steps

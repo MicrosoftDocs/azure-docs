@@ -48,6 +48,6 @@ The following Azure CLI command creates a new Media Services account. You can re
 
 ```azurecli
 az ams account create --name amsaccount \
-  -l westus2 \
-  -g amsResourceGroup --storage-account storageaccountforams
+   -g amsResourceGroup --storage-account storageaccountforams \
+   -l westus2 
 ```

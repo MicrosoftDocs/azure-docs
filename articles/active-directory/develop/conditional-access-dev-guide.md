@@ -1,8 +1,7 @@
 ---
-title: Developer guidance for Azure Active Directory Conditional Access
+title: Azure AD Conditional Access developer guidance
 description: Developer guidance and scenarios for Azure AD Conditional Access
 services: active-directory
-keywords: 
 author: rwike77
 manager: CelesteDG
 
@@ -12,11 +11,8 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.collection: M365-identity-device-management
 ---
 
 # Developer guidance for Azure Active Directory Conditional Access
@@ -31,7 +27,7 @@ For more information on the full capabilities of Conditional Access, see [Condit
 
 For developers building apps for Azure AD, this article shows how you can use Conditional Access and you'll also learn about the impact of accessing resources that you don't have control over that may have Conditional Access policies applied. The article also explores the implications of Conditional Access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
-Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
+Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](v1-authentication-scenarios.md) is assumed.
 
 ## How does Conditional Access impact an app?
 

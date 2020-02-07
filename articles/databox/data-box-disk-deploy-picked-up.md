@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
+
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
 ::: zone target="chromeless"
@@ -85,11 +86,7 @@ Azure datacenters in Australia have an additional security notification. All the
 3. Affix the label on the box. 
 4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### [In Japan, Korea](#tab/in-japan-korea)
-
-Here are the pickup instructions for Japan and Korea.
-
-#### Pick up in Japan
+### [In Japan](#tab/in-japan)
 
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
@@ -116,7 +113,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
-#### Pick up in Korea
+### [In Korea](#tab/in-korea)
 
 1. Make sure to include the return consignment note.
 2. To request pickup when consignment note is present:
@@ -133,19 +130,51 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 ### [In Singapore](#tab/in-singapore)
 
-1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+1. Print the shipping label and attach it to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
     - Affix the label on the device. Make sure that the label is visible.
 
-2. To request pickup:
-    - Call **SingPost** hotline at **6845 6485** during office hours (9am to 5pm, Monday to Friday).  
-    - Quote *Microsoft Azure pickup* and the service request number (tracking number on the return shipping label) to arrange for a collection. 
-    - You will get a verbal confirmation for the pickup schedule. 
-    - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
-3. Hand over to the courier. 
+2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a.	Requestor name
+     b.	Requestor contact number
+     c.	Requestor collection address
+     d.	Preferred collection date
+    ```
+
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+
+   If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
+
+3. Hand over to the courier.
+
+### [In Self-Managed](#tab/in-selfmanaged)
+
+If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+
+1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
+
+2. Send an email to the Azure Data Box Operations team using the following template when you are ready to return the device.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
 ::: zone target="docs"
+
+---
 
 ## Next steps
 

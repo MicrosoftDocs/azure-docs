@@ -1,10 +1,10 @@
 ---
-title: Copy Data tool Azure Data Factory | Microsoft Docs
+title: Copy Data tool Azure Data Factory 
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory

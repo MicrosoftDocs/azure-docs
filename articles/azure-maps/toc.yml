@@ -27,6 +27,20 @@
       href: tutorial-geofence.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
+    - name: EV routing using Azure Notebooks (Python)
+      href: tutorial-ev-routing.md
+    - name: Analyze weather data using Azure Notebooks (Python)
+      href: weather-service-tutorial.md
+  - name: Migrate from Google Maps
+    items:
+    - name: Migrate from Google Maps
+      href: migrate-from-google-maps.md
+    - name: Migrate a web app
+      href: migrate-from-google-maps-web-app.md
+    - name: Migrate an Android app
+      href: migrate-from-google-maps-android-app.md
+    - name: Migrate a web service
+      href: migrate-from-google-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -47,16 +61,18 @@
       href: routing-coverage.md
     - name: Mobility coverage
       href: mobility-coverage.md
+    - name: Weather coverage
+      href: weather-coverage.md  
   - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
     href: supported-map-styles.md
-  - name: Web SDK supported browsers
-    href: supported-browsers.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
   - name: Mobility Service data structure
     href: mobility-service-data-structure.md
+  - name: Weather Service concepts
+    href: weather-services-concepts.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -96,43 +112,49 @@
       - name: Create a data source
         href: create-data-source-web-sdk.md
       - name: Add a symbol layer
-        href: map-add-pin.md    
+        href: map-add-pin.md  
+      - name: Add a popup
+        href: map-add-popup.md      
       - name: Add a bubble layer
         href: map-add-bubble-layer.md
+      - name: Add HTML markers
+        href: map-add-custom-html.md
       - name: Add a line layer
         href: map-add-line-layer.md
       - name: Add a polygon layer
         href: map-add-shape.md
+      - name: Add a polygon extrusion layer
+        href: map-extruded-polygon.md
       - name: Add a heat map layer
-        href: map-add-heat-map-layer.md  
-      - name: Add a popup
-        href: map-add-popup.md   
+        href: map-add-heat-map-layer.md
+      - name: Add an image layer
+        href: map-add-image-layer.md
+      - name: Add tile layers
+        href: map-add-tile-layer.md
+      - name: Show traffic 
+        href: map-show-traffic.md 
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
         href: data-driven-style-expressions-web-sdk.md
       - name: How to use image templates
         href: how-to-use-image-templates-web-sdk.md
-      - name: Add an image layer
-        href: map-add-image-layer.md
-      - name: Add tile layers
-        href: map-add-tile-layer.md
-      - name: HTML markers
-        href: map-add-custom-html.md
-      - name: Show traffic 
-        href: map-show-traffic.md
-      - name: Interacting with mouse events
+      - name: Reacting to events
         href: map-events.md
       - name: Make your app accessible
         href: map-accessibility.md
     - name: Drawing tools
       items:
-      - name: Add drawing toolbar
-        href: map-add-drawing-toolbar.md
-      - name: Set drawing options
+      - name: Use the drawing tools module
         href: set-drawing-options.md
+      - name: Add a drawing toolbar
+        href: map-add-drawing-toolbar.md
       - name: Get shape data
         href: map-get-shape-data.md
+      - name: React to drawing events
+        href: drawing-tools-events.md
+      - name: Interaction types and keyboard shortcuts
+        href: drawing-tools-interactions-keyboard-shortcuts.md
     - name: Services module
       items:
       - name: Use the services module
@@ -143,6 +165,8 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
+    - name: Web SDK supported browsers
+      href: supported-browsers.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control
@@ -181,6 +205,8 @@
       href: https://docs.microsoft.com/rest/api/maps/mobility
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Render service V2
+      href: https://docs.microsoft.com/rest/api/maps/renderv2
     - name: Route service
       href: https://docs.microsoft.com/rest/api/maps/route
     - name: Search service
@@ -191,6 +217,8 @@
       href: https://docs.microsoft.com/rest/api/maps/timezone
     - name: Traffic service
       href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Weather service
+      href: https://docs.microsoft.com/rest/api/maps/weather
     - name: Maps account management
       href: https://docs.microsoft.com/rest/api/maps-management
   - name: JavaScript
@@ -205,6 +233,8 @@
     href: /azure/templates/microsoft.maps/accounts
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -217,6 +247,8 @@
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Azure Maps videos
     href: https://aka.ms/AzureMapsVideos
+  - name: Open source projects
+    href: open-source-projects.md
   - name: Azure Maps case studies
     href: https://aka.ms/AzureMapsCaseStudies
   - name: Azure Maps glossary
@@ -238,7 +270,7 @@
     - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /azure/iot-central/iot-support-help
   - name: Platform services
     items:
     - name: IoT Hub
@@ -253,7 +285,7 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: IoT Edge
       href: /azure/iot-edge

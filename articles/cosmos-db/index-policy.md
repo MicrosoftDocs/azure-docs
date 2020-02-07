@@ -115,7 +115,7 @@ When defining a composite index, you specify:
 - The order (ascending or descending).
 
 > [!NOTE]
-> When adding a composite index, as with other index types, queries may return inconsistent results as the index is being updated.
+> When you add a composite index, the query will utilize existing range indexes until the new composite index addition is complete. Therefore, when you add a composite index, you may not immediately observe performance improvements. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 ### ORDER BY queries on multiple properties:
 
@@ -233,7 +233,7 @@ The following considerations are used when creating composite indexes to optimiz
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 
 > [!NOTE]
-> While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> While adding a range or spatial index, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be canceled by setting the indexing policy's mode to None (which will immediately drop the index).
 

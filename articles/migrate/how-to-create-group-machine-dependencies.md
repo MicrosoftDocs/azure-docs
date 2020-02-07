@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 10/01/2019
 ms.author: hamusa
 ---
 
@@ -34,7 +34,7 @@ Dependency mapping helps you to visualize dependencies across machines you want 
 --- | ---
 Availability | Dependency visualization isn't available in Azure Government.
 Service Map | Dependency visualization uses Service Map solution in Azure Monitor. [Service Map](../azure-monitor/insights/service-map.md) automatically discovers and shows connections between servers.
-Agents | To use dependency visualization, install the following agents on machines you want to map:<br/> - [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) agent (previously referred to as the Microsoft Monitoring Agent (MMA).<br/> - [Service Map Dependency agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> To automate agent installation you can use a deployment tool such as System Center Configuration Manager or a partner tool such as [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that has an agent deployment solution for Azure Migrate.
+Agents | To use dependency visualization, install the following agents on machines you want to map:<br/> - [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) agent (previously referred to as the Microsoft Monitoring Agent (MMA).<br/> - [Service Map Dependency agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> To automate agent installation you can use a deployment tool such as Configuration Manager, that has an agent deployment solution for Azure Migrate.
 Dependency agent | Review [Dependency agent support](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) for Windows and Linux.<br/><br/> [Learn more](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) about using scripts to install the Dependency agent.
 Log Analytics agent (MMA) | [Learn more](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) about MMA installation methods.<br/><br/> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. You can enable the integration using the guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, however, that the Dependency agent will need to installed on these machines.<br/><br/> [Review](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) the Linux operating systems supported by the Log Analytics agent.
 Assessment groups | Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines, split them into smaller groups to visualize dependencies.
@@ -57,7 +57,7 @@ Attach a workspace as follows:
 
     ![Add workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - After you specify a name for a new workspace, it's created in the same geography as the Azure Migrate project.
+    - After you specify a name for a new workspace, you can choose the [region](https://azure.microsoft.com/global-infrastructure/regions/) in which the workspace will be created.
     - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project.
     - You need Reader access to the workspace to be able to attach it.
     - You can't modify the workspace associated with a project after it's attached.
@@ -84,6 +84,10 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
+You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent. The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) about the Windows operating systems supported by MMA.
+
 #### Install the agent on a Linux machine
 
 To install the agent on a Linux machine:
@@ -93,11 +97,18 @@ To install the agent on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) about the list of Linux operating systems support by MMA. 
+
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
 2. To install the Dependency agent on a Linux machine, install as root using the following command:
 
     ```sh InstallDependencyAgent-Linux64.bin```
+
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) about how you can use scripts to install the Dependency agent.
+
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) about the operating systems supported by the Dependency agent.
+
 
 ## Create a group using dependency visualization
 

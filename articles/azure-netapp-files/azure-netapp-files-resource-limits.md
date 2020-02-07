@@ -1,6 +1,6 @@
 ---
 title: Resource limits for Azure NetApp Files | Microsoft Docs
-description: Describes limits for Azure NetApp Files resources, including limits for NetApp accounts, capacity pools, volumes, snapshots, and the delegated subnet.
+description: Describes limits for Azure NetApp Files resources and how to request resource limit increase.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 12/09/2019
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -26,7 +26,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
-|  Number of NetApp accounts per Azure  Subscription   |  10    |  Yes   |
+|  Number of NetApp accounts per Azure region   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
@@ -35,10 +35,27 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
-|  Maximum size of a single volume     |    100 TiB    |    No       |
-|  Maximum number of files (inodes) per volume     |    50 million    |    No    |    
+|  Maximum size of a single volume     |    100 TiB    |    No    |
+|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
+|  Maximum size of a single file     |    16 TiB    |    No    |    
 
-## Request limit increase 
+## Maxfiles limits <a name="maxfiles"></a> 
+
+Azure NetApp Files volumes have a limit called *maxfiles*. The maxfiles limit is the number of files a volume can contain. The maxfiles limit for an Azure NetApp Files volume is indexed based on the size (quota) of the volume. The maxfiles limit for a volume increases or decreases at the rate of 20 million files per TiB of provisioned volume size. 
+
+The service dynamically adjusts the maxfiles limit for a volume based on its provisioned size. For example, a volume configured initially with a size of 1 TiB would have a maxfiles limit of 20 million. Subsequent changes to the size of the volume would result in an automatic readjustment of the maxfiles limit based on the following rules: 
+
+|    Volume size (quota)     |  Automatic readjustment of the maxfiles limit    |
+|----------------------------|-------------------|
+|    < 1 TiB                 |    20 million     |
+|    >= 1 TiB but < 2 TiB    |    40 million     |
+|    >= 2 TiB but < 3 TiB    |    60 million     |
+|    >= 3 TiB but < 4 TiB    |    80 million     |
+|    >= 4 TiB                |    100 million    |
+
+For any volume size, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
+
+## Request limit increase <a name="limit_increase"></a> 
 
 You can create an Azure support request to increase the adjustable limits from the table above. 
 
@@ -59,6 +76,7 @@ From Azure portal navigation plane:
         |  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
         |  Pool    |  *Subscription ID, Account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
         |  Volume  |  *Subscription ID, Account URI, Pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
+        |  Maxfiles  |  *Subscription ID, Account URI, Pool URI, Volume URI*   |  *Requested new maximum **maxfiles** number*     |  *What scenario or use case prompted the request?*  |    
 
     2. Specify the appropriate support method and provide your contract information.
 

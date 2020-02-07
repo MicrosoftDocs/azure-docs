@@ -2,19 +2,15 @@
 title: Run runbooks on Azure Automation Hybrid Runbook Worker
 description: This article provides information about running runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker role.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Running runbooks on a Hybrid Runbook Worker
 
 There's no difference in the structure of runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly. This difference is because runbooks that target a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it's deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. On Linux, this means that you must ensure that the `nxautomation` account has access to the location where you store your modules. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, specify **AllUsers** to the `-Scope` parameter to confirm that the `naxautomation` account has access.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. On Linux, this means that you must ensure that the `nxautomation` account has access to the location where you store your modules. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, specify **AllUsers** to the `-Scope` parameter to confirm that the `nxautomation` account has access.
 
 For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
@@ -35,8 +31,8 @@ Start-AzureRmAutomationRunbook â€“AutomationAccountName "MyAutomationAccount" â€
 
 ## Runbook permissions
 
-Runbooks running on a Hybrid Runbook Worker can't use the same method that is typically used for runbooks authenticating to Azure resources, since they're accessing resources not in Azure. The runbook can either provide its own authentication to local resources, or can configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
-). You can also specify a RunAs account to provide a user context for all runbooks.
+Runbooks running on a Hybrid Runbook Worker can't use the same method that is typically used for runbooks authenticating to Azure resources, since they're accessing resources not in Azure. The runbook can either provide its own authentication to local resources, or can configure authentication using
+[managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). You can also specify a RunAs account to provide a user context for all runbooks.
 
 ### Runbook authentication
 
@@ -85,8 +81,8 @@ To use a managed identity for Azure resources on a Hybrid Runbook worker, you ne
 1. Create an Azure VM
 2. [Configure managed identities for Azure resources on your VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Grant your VM access to a resource group in Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [Get an access token using the VM's system-assigned managed identity](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
-5. [Install the Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) on the virtual machine.
+tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+4. [Install the Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) on the virtual machine.
 
 Once the preceding steps are complete, you can use `Connect-AzureRmAccount -Identity` in the runbook to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and manage the certificate for the Run As account.
 
@@ -97,6 +93,9 @@ Connect-AzureRmAccount -Identity
 # Get all VM names from the subscription
 Get-AzureRmVm | Select Name
 ```
+
+> [!NOTE]
+> `Connect-AzureRMAccount -Identity` works for a Hybrid Runbook Worker using a system assigned identity and a single user assigned identity. If you need to use multiple user assigned identities on the HRW, you must specify the `-AccountId` parameter to select the specific user assigned identity.
 
 ### <a name="runas-script"></a>Automation Run As account
 
@@ -134,7 +133,6 @@ This allows the use of the AzureRunAsConnection to authenticate to Azure and man
 .\Export-RunAsCertificateToHybridWorker
 
 .NOTES
-AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 
@@ -308,4 +306,4 @@ The signed runbook can now be uploaded to Azure Automation, and can be executed 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
 * If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

@@ -3,10 +3,8 @@ title: Azure Security Center Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: ndicola
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -82,20 +80,20 @@ Videos
 
 Articles	
 * [Using Azure Security Center for an incident response](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automate response with security playbook](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [Automate response with Workflow Automation](workflow-automation.md)
 
 ## Advanced cloud defense
 
-Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities include just in time virtual machine (VM) access, and adaptive application controls.
+Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities include just-in-time virtual machine (VM) access, and adaptive application controls.
 
 Use the following resources to learn how to use these capabilities in Security Center.
 
 Videos	
-* [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center – Just-in-time VM Access](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles	
-* [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Adaptive Application Controls in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## Hands-on activities
@@ -112,7 +110,7 @@ Articles
 * [Identity security best practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Network security best practices](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
+* [Compliance](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## Community Resources

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database'
+title: 'Quickstart: Create Azure Data Explorer cluster and database'
 description: 'In this quickstart, you learn how to create an Azure Data Explorer cluster and database, and ingest (load) data.'
 author: orspod
 ms.author: orspodek
@@ -20,7 +20,7 @@ ms.date: 07/22/2019
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM template](create-cluster-database-resource-manager.md)
 
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database.

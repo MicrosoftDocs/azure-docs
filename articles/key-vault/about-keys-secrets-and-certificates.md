@@ -31,10 +31,10 @@ The following sections offer general information applicable across the implement
 
 The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
 
--   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
+-   [JSON Web Encryption (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
+-   [JSON Web Algorithms (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
 
 ### Data types
 
@@ -72,7 +72,7 @@ Where:
 |`keyvault-name`|The name for a key vault in the Microsoft Azure Key Vault service.<br /><br /> Key Vault names are selected by the user and are globally unique.<br /><br /> Key Vault name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
 |`object-type`|The type of the object, either "keys" or "secrets".|  
 |`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used *o address a unique version of an object.|  
+|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
 
 ## Key Vault keys
 
@@ -159,7 +159,7 @@ Key Vault doesn't support EXPORT operations. Once a key is provisioned in the sy
 
 Users may restrict any of the cryptographic operations that Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
 
-For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
 ###  Key attributes
 
@@ -182,7 +182,7 @@ Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for 
 
 For more information on data types, see [Data types](#data-types).
 
-For more information on other possible attributes, see the [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+For more information on other possible attributes, see the [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
 ### Key tags
 
@@ -193,7 +193,7 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ###  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys, is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
 
 The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object.  Granting access to an service principal in key vault is a onetime operation, and it will remain same for all Azure subscriptions. You can use it to deploy as many certificates as you want. 
 
@@ -373,7 +373,7 @@ The following table represents the mapping of x509 key usage policy to effective
 
 A Key Vault certificate object holds a configuration used to communicate with a selected certificate issuer provider to order x509 certificates.  
 
--   Key Vault partners with following certificate issuer providers for SSL certificates
+-   Key Vault partners with following certificate issuer providers for TLS/SSL certificates
 
 |**Provider Name**|**Locations**|
 |----------|--------|
@@ -386,7 +386,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   An organization administrator must on-board their company (ex. Contoso) with at least one CA provider.  
 
-2. Admin creates requester credentials for Key Vault to enroll (and renew) SSL certificates  
+2. Admin creates requester credentials for Key Vault to enroll (and renew) TLS/SSL certificates  
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 

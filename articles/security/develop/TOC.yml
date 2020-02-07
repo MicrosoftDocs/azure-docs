@@ -8,6 +8,8 @@
     items:
     - name: Web app in a Linux container
       href: secure-web-app.md
+    - name: Web app with Azure Active Directory
+      href: secure-aad-app.md
   - name: Industry compliant solutions
     items:
     - name: Payment card industry
@@ -39,6 +41,8 @@
         href: security-code-analysis-customize.md       
       - name: FAQs
         href: security-code-analysis-faq.md
+      - name: YAML Configuration
+        href: yaml-configuration.md
   - name: Microsoft Threat Modeling tool
     displayName: stride
     href: threat-modeling-tool.md
@@ -62,6 +66,8 @@
         href: threat-modeling-tool-releases-71604081.md
       - name: Threat Modeling Tool update release 7.1.60702.1 - 7/02/2019
         href: threat-modeling-tool-releases-71607021.md
+      - name: Threat Modeling Tool update release 7.1.61015.1 - 10/16/2019
+        href: threat-modeling-tool-releases-71610151.md
     - name: Mitigations
       href: threat-modeling-tool-mitigations.md
       items:

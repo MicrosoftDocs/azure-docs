@@ -1,27 +1,26 @@
 ---
-title: Use Java to send data to and from Azure Event Hubs
-description: This article provides a walkthrough of creating a Java application that sends events to Azure Event Hubs.
+title: Send or receive events from Azure Event Hubs using Java (legacy)
+description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the old azure-eventhubs package. 
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.date: 04/15/2019
-ms.author: shvija
+ms.topic: quickstart
+ms.date: 01/15/2020
+ms.author: spelluru
 
 ---
 
-# Use Java to send events to or receive events from Azure Event Hubs
+# Use Java to send events to or receive events from Azure Event Hubs (azure-eventhubs)
 
 This tutorial shows how to create Java applications to send events to or receive events from Azure Event Hubs.
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see Event Hubs overview and Event Hubs features.
 
-> [!NOTE]
-> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
+> [!WARNING]
+> This quickstart uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) your code to use the latest [azure-messaging-eventhubs](get-started-java-send-v2.md) package. 
+
 
 ## Prerequisites
 
@@ -33,6 +32,9 @@ To complete this tutorial, you need the following prerequisites:
 
 ## Send events 
 This section shows you how to create a Java application to send events an event hub. 
+
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ### Add reference to Azure Event Hubs library
 
@@ -178,11 +180,11 @@ To use EventProcessorHost, you must have an [Azure Storage account][Azure Storag
 1. Sign in the [Azure portal](https://portal.azure.com), and select **Create a resource** on the left-hand side of the screen.
 2. Select **Storage**, then select **Storage account**. In the **Create storage account** window, type a name for the storage account. Complete the rest of the fields, select your desired region, and then select **Create**.
    
-    ![Create storage account](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Create a storage account in Azure portal](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. Select the newly created storage account, and then select **Access Keys**:
    
-    ![Get access keys](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Get your access keys in Azure portal](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Copy the key1 value to a temporary location. You use it later in this tutorial.
 
@@ -203,7 +205,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
 </dependency>
 ```
 
-For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository][https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22].  
+For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22).
 
 1. For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. The class is called `ErrorNotificationHandler`.     
    

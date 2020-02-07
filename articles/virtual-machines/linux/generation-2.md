@@ -1,9 +1,9 @@
 ---
-title: Azure support for generation 2 VMs (preview) | Microsoft Docs
+title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-linux
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,26 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 09/10/2019
-ms.author: lahugh
+ms.date: 01/28/2020
+ms.author: jushiman
 ---
 
-# Support for generation 2 VMs (preview) on Azure
+# Support for generation 2 VMs on Azure
 
-> [!IMPORTANT]
-> Azure support for generation 2 VMs is currently in preview.
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Support for generation 2 virtual machines (VMs) is now available on Azure. You can't change a virtual machine's generation after you've created it, so review the considerations on this page before you choose a generation.
 
-Support for generation 2 virtual machines (VMs) is now available in preview in Azure. You can't change a virtual machine's generation after you've created it, so review the considerations on this page before you choose a generation.
-
-Generation 2 VMs support key features that aren't supported in generation 1 VMs. These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs also have some features that aren't supported in Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section.
+Generation 2 VMs support key features that aren't supported in generation 1 VMs. These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section.
 
 Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs might have improved boot and installation times. For an overview of generation 2 VMs and some of the differences between generation 1 and generation 2, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers preview generation 2 support for the following selected VM series:
+Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [DC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
@@ -46,18 +41,21 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers previe
 * [Mv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 * [NCv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) and [NCv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [ND-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [NVv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [NVv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+
+> [!NOTE]
+> The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 
 
 ## Generation 2 VM images in Azure Marketplace
 
 Generation 2 VMs support the following Marketplace images:
 
-* Windows Server 2019 Datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019, 2016, 2012 R2, 2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
+* RHEL 8.0
 
 ## On-premises vs. Azure generation 2 VMs
 
@@ -77,20 +75,21 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 | Feature | Generation 1 | Generation 2 |
 |---------|--------------|--------------|
-| Boot             | PCAT                      | UEFI                               |
-| Disk controllers | IDE                       | SCSI                               |
+| Boot             | PCAT         | UEFI |
+| Disk controllers | IDE          | SCSI |
 | VM sizes         | All VM sizes | Only VMs that support premium storage |
 
 ### Generation 1 vs. generation 2 capabilities
 
 | Capability | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
-| OS disk > 2 TB                    | :x:                        | :heavy_check_mark: |
-| Custom disk/image/swap OS         | :heavy_check_mark:         | :heavy_check_mark: |
-| Virtual machine scale set support | :heavy_check_mark:         | :heavy_check_mark: |
-| ASR/backup                        | :heavy_check_mark:         | :x:                |
-| Shared image gallery              | :heavy_check_mark:         | :x:                |
-| Azure disk encryption             | :heavy_check_mark:         | :x:                |
+| OS disk > 2 TB                    | :x:                | :heavy_check_mark: |
+| Custom disk/image/swap OS         | :heavy_check_mark: | :heavy_check_mark: |
+| Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
+| Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
+| Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure disk encryption             | :heavy_check_mark: | :x:                |
 
 ## Creating a generation 2 VM
 
@@ -98,14 +97,43 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketplace image that supports UEFI boot.
 
-The `windowsserver-gen2preview` offer contains Windows generation 2 images only. This packaging avoids confusion between generation 1 and generation 2 images. To create a generation 2 VM, select **Images** from this offer and follow the standard process to create the VM.
+#### Azure portal
 
-Currently, Marketplace offers the following Windows generation 2 images:
+Generation 2 images for Windows and SLES are included in the same server offer as the Gen1 images. What that means from a flow perspective is that, you select the Offer and the SKU from the Portal for your VM. If the SKU supports both generation 1 and generation 2 images, you can select to create a generation 2 VM from the *Advanced* tab in the VM creation flow.
 
-* 2019-datacenter-gen2
-* 2016-datacenter-gen2
-* 2012-r2-datacenter-gen2
-* 2012-datacenter-gen2
+Currently, the following SKUs support both generation 1 and generation 2 images:
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2019
+
+When you select a Windows Server SKU as the offer, in the **Advanced** tab, there's an option to create either a **Gen 1** (BIOS) or **Gen 2** (UEFI) VM. If you select **Gen 2**, ensure the VM size selected in the **Basics** tab is [supported for generation 2 VMs](#generation-2-vm-sizes).
+
+![Select Gen 1 or Gen 2 VM](./media/generation-2/gen1-gen2-select.png)
+
+#### PowerShell
+
+You can also use PowerShell to create a VM by directly referencing the generation 1 or generation 2 SKU.
+
+For example, use the following PowerShell cmdlet to get a list of the SKUs in the `WindowsServer` offer.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
+
+If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which look like this:
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 See the [Features and capabilities](#features-and-capabilities) section for a current list of supported Marketplace images.
 
@@ -128,7 +156,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 * **I have a .vhd file from my on-premises generation 2 VM. Can I use that .vhd file to create a generation 2 VM in Azure?**
   Yes, you can bring your generation 2 .vhd file to Azure and use that to create a generation 2 VM. Use the following steps to do so:
     1. Upload the .vhd to a storage account in the same region where you'd like to create your VM.
-    1. Create a managed disk from the .vhd file. Set the HyperV Generation property to V2. The following PowerShell commands set HyperV Generation property when creating managed disk.
+    1. Create a managed disk from the .vhd file. Set the Hyper-V Generation property to V2. The following PowerShell commands set Hyper-V Generation property when creating managed disk.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>

@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database and Data Warehouse Network Access Controls | Microsoft Docs
+title: Network Access Controls 
 description: Overview of network access controls for Azure SQL Database and Data Warehouse to manage access, and configure a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -42,25 +43,53 @@ You can also change this setting via the firewall pane after the Azure SQL Serve
 
 When set  to **ON** Azure SQL Server allows communications from all resources inside the Azure boundary, that may or may not be part of your subscription.
 
-In many cases, the **ON** setting is more permissive than what most customers want.They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features:
+In many cases, the **ON** setting is more permissive than what most customers want.They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features that run on VMs in Azure that not part of your VNet and hence connect to Sql Database via an Azure IP address.
 
 ### Import Export Service
+Import Export Service does not work  **Allow Azure services to access server** set to OFF. However you can work around the problem [by manually running sqlpackage.exe from an Azure VM or performing the export](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directly in your code by using the DACFx API.
 
-Azure SQL Database Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your
-database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
-You can work around the problem by running the BACPAC import or export directly in your code by using the DACFx API.
+### Data Sync
+To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
+Add these server level firewall rules to the logical servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
-### SQL Database Query Editor
+Use the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
 
-The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow Azure services to access server**, these VMs will not be able to access your databases.
+> [!TIP]
+> Get-AzNetworkServiceTag returns the global range for Sql Service Tag despite specifying the Location parameter. Be sure to filter it to the region that hosts the Hub database used by your sync group
 
-### Table Auditing
+Note that the output of the PowerShell script is in  Classless Inter-Domain Routing (CIDR) notation and this needs to be converted to a format of Start and End IP address using [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) like this
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
-At present, there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
+Do the following additional steps to convert all the IP addresses from CIDR to Start and End IP address format.
 
-### Impact on Data Sync
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+You can now add these as distinct firewall rules and then set **Allow Azure services to access server**  to OFF.
 
-Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, you will turn off **Allow Azure services to access server** access to your SQL Database server and will break the Data Sync feature.
 
 ## IP firewall rules
 Ip based firewall is a feature of Azure SQL Server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
@@ -69,7 +98,9 @@ Ip based firewall is a feature of Azure SQL Server that prevents all access to y
 ## Virtual Network firewall rules
 
 In addition to IP rules, the Azure SQL Server firewall allows you to define *virtual network rules*.  
-To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) or watch this video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### Azure Networking terminology  
 Be aware of the following Azure Networking terms as you explore Virtual Network firewall rules

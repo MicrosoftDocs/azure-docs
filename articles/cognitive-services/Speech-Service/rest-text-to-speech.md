@@ -1,5 +1,5 @@
 ---
-title: Text-to-speech API reference (REST) - Speech Service
+title: Text-to-speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the text-to-speech REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 ---
 
 # Text-to-speech REST API
 
-The Speech Services allow you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region using a set of REST APIs. Each available endpoint is associated with a region. A subscription key for the endpoint/region you plan to use is required.
+The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region using a set of REST APIs. Each available endpoint is associated with a region. A subscription key for the endpoint/region you plan to use is required.
 
 The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
 
@@ -162,7 +162,7 @@ This table lists required and optional headers for text-to-speech requests.
 
 ### Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech service supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
 
 |||
 |-|-|
@@ -205,8 +205,8 @@ Authorization: Bearer [Base64 access_token]
 
 See our quickstarts for language-specific examples:
 
-* [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
-* [Python](quickstart-python-text-to-speech.md)
+* [.NET Core, C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### HTTP status codes

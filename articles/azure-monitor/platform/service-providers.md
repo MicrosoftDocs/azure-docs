@@ -1,18 +1,13 @@
 ---
 title: Azure Monitor for Service Providers | Microsoft Docs
 description: Azure Monitor can help Managed Service Providers (MSPs), large Enterprises, Independent Software Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
-services: log-analytics
-documentationcenter: ''
-author: MeirMen
-manager: jochan
-editor: ''
-ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2019
+author: MeirMen
 ms.author: meirm
+ms.date: 08/06/2019
+
 ---
 
 # Azure Monitor for Service Providers

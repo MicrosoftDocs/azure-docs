@@ -1,11 +1,11 @@
 ---
 title: Adaptive Network Hardening in Azure Security Center | Microsoft Docs
-description: " Learn how to enable Adaptive Network Hardening in Azure Security Center. "
+description: Learn how to harden, based on actual traffic patterns, your network security groups (NSG) rules and further improve your security posture.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
+
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 # Adaptive Network Hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
@@ -42,9 +42,9 @@ For example, let’s say the existing NSG rule is to allow traffic from 140.20.3
 
      ![unhealthy resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. From the **Unhealthy resources** tab, select a VM to view it’s alerts and the recommended hardening rules to apply.
+2. From the **Unhealthy resources** tab, select a VM to view its alerts and the recommended hardening rules to apply.
 
-    ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![hardening alerts](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## Review and apply Adaptive Network Hardening recommended rules
@@ -78,7 +78,7 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
 * You cannot change “allow” rules to become “deny” rules. 
 
   > [!NOTE]
-  > Creating and modifying “deny” rules is done directly on the NSG For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Creating and modifying “deny” rules is done directly on the NSG. For more information, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * A **Deny all traffic** rule is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, delete it (see [Delete a rule](#delete-rule)).
   > [!NOTE]
@@ -106,11 +106,11 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
 You can add an “allow” rule that was not recommended by Security Center.
 
 > [!NOTE]
-> Only “allow” rules can be added here. If you want to add “deny” rules, you can do so directly on the NSG. For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Only “allow” rules can be added here. If you want to add “deny” rules, you can do so directly on the NSG. For more information, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *To add an Adaptive Network Hardening rule:*
 
-1. Click **Add rule** (located in the top left corner).
+1. Click **Add rule** (located in the top-left corner).
 
    ![add rule](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
@@ -126,9 +126,9 @@ You can add an “allow” rule that was not recommended by Security Center.
 
 ### Delete a rule <a name ="delete-rule"> </a>
 
-When necessary, you can delete a recommended rule. For example, you may determine that applying a suggested rule could block legitimate traffic.
+When necessary, you can delete a recommended rule for the current session. For example, you may determine that applying a suggested rule could block legitimate traffic.
 
-*To delete an Adaptive Network Hardening rule:*
+*To delete an Adaptive Network Hardening rule for your current session:*
 
 1. In the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Delete**.  
 

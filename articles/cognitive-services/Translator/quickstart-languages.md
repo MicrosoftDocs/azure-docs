@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
@@ -16,8 +16,6 @@ zone_pivot_groups: programming-languages-set-one
 # Quickstart: Use the Translator Text API to get a list of supported languages
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

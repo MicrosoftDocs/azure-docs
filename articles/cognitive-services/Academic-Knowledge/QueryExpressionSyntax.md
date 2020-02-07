@@ -24,6 +24,7 @@ Each entity attribute that can be included in a query expression has a specific 
 
 Some of the entity data are stored as composite attributes, as indicated by a dot '.' in the attribute name. For example, Author/Affiliation information is represented as a composite attribute. It contains 4 components: AuN, AuId, AfN, AfId. These components are separate pieces of data that form a single entity attribute value.
 
+Note: All query expressions must be in lowercase and without special characters.
 
 **String Attribute: Single value** (includes matches against synonyms)  
 Ti='indexing by latent semantic analysis'  

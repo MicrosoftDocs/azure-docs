@@ -1,8 +1,8 @@
 ---
-title: Parquet format in Azure Data Factory | Microsoft Docs
+title: Parquet format in Azure Data Factory 
 description: 'This topic describes how to deal with Parquet format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
@@ -78,9 +78,9 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 | type          | The type property of the copy activity source must be set to **ParquetSink**. | Yes      |
 | storeSettings | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
 
-## Mapping Data Flow properties
+## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
 
 ## Data type support
 

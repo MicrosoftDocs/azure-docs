@@ -1,12 +1,8 @@
 ---
-title: Sample - NIST SP 800-53 R4 blueprint - Deploy steps
-description: Deploy steps of the NIST SP 800-53 R4 blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 06/24/2019
+title: Deploy NIST SP 800-53 R4 blueprint sample
+description: Deploy steps for the NIST SP 800-53 R4 blueprint sample including blueprint artifact parameter details.
+ms.date: 11/18/2019
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Deploy the NIST SP 800-53 R4 blueprint sample
 
@@ -150,7 +146,7 @@ the following articles to learn about the blueprint and control mapping:
 > [NIST SP 800-53 R4 blueprint - Overview](./index.md)
 > [NIST SP 800-53 R4 blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

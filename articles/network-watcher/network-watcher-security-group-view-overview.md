@@ -3,27 +3,23 @@ title: Introduction to security group view in Azure Network Watcher | Microsoft 
 description: This page provides an overview of the Network Watcher security view capability
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 04/26/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
-# Introduction to network security group view in Azure Network Watcher
+# Introduction to Effective security rules view in Azure Network Watcher
 
-Network Security groups are associated at a subnet level or at a NIC level. When associated at a subnet level, it applies to all the VM instances in the subnet. Network Security Group view returns all the configured NSGs and rules that are associated at a NIC and subnet level for a virtual machine providing insight into the configuration. In addition, the effective security rules are returned for each of the NICs in a VM. Using Network Security Group view, you can assess a VM for network vulnerabilities such as open ports. You can also validate if your Network Security Group is working as expected based on a [comparison between the configured and the approved security rules](network-watcher-nsg-auditing-powershell.md).
+Network Security groups are associated at a subnet level or at a NIC level. When associated at a subnet level, it applies to all the VM instances in the subnet. Effective security rules view returns all the configured NSGs and rules that are associated at a NIC and subnet level for a virtual machine providing insight into the configuration. In addition, the effective security rules are returned for each of the NICs in a VM. Using Effective security rules view, you can assess a VM for network vulnerabilities such as open ports. You can also validate if your Network Security Group is working as expected based on a [comparison between the configured and the approved security rules](network-watcher-nsg-auditing-powershell.md).
 
 A more extended use case is in security compliance and auditing. You can define a prescriptive set of security rules as a model for security governance in your organization. A periodic compliance audit can be implemented in a programmatic way by comparing the prescriptive rules with the effective rules for each of the VMs in your network.
 
-In the portal rules are divided by Effective, Subnet, Network Interface, and Default. This provides a simple view into the rules applied to a virtual machine. A download button is provided to easily download all the security rules no matter the tab into a CSV file.
+In the portal rules are displayed for each Network Interface and grouped by inbound vs outbound. This provides a simple view into the rules applied to a virtual machine. A download button is provided to easily download all the security rules no matter the tab into a CSV file.
 
 ![security group view][1]
 

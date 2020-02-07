@@ -11,17 +11,18 @@ ms.custom: "include file"
 
 ---
 
-The following table lists quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+The following tables provide quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+
+The following limits are common across basic, standard, and dedicated tiers. 
 
 | Limit | Scope | Notes | Value |
 | --- | --- | --- | --- |
 | Number of Event Hubs namespaces per subscription |Subscription |- |100 |
 | Number of event hubs per namespace |Namespace |Subsequent requests for creation of a new event hub are rejected. |10 |
 | Number of partitions per event hub |Entity |- |32 |
-| Maximum size of Event Hubs event|Entity |- |1 MB |
 | Maximum size of an event hub name |Entity |- |50 characters |
 | Number of non-epoch receivers per consumer group |Entity |- |5 |
-| Maximum throughput units |Namespace |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
+| Maximum throughput units |Namespace |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
 | Number of authorization rules per namespace |Namespace|Subsequent requests for authorization rule creation are rejected.|12 |
 | Number of calls to the GetRuntimeInformation method | Entity | - | 50 per second | 
 | Number of virtual network (VNet) and IP Config rules | Entity | - | 128 | 
@@ -29,9 +30,10 @@ The following table lists quotas and limits specific to [Azure Event Hubs](https
 ### Event Hubs Basic and Standard - quotas and limits
 | Limit | Scope | Notes | Basic | Standard |
 | --- | --- | --- | -- | --- |
-| Number of consumer groups per event hub |Entity | - |1 |20 |
+| Maximum size of Event Hubs event|Entity | &nbsp; | 256 KB | 1 MB |
+| Number of consumer groups per event hub |Entity | &nbsp; |1 |20 |
 | Number of AMQP connections per namespace |Namespace |Subsequent requests for additional connections are rejected, and an exception is received by the calling code. |100 |5,000|
-| Maximum retention period of event data |Entity | - |1 day |1-7 days |
+| Maximum retention period of event data |Entity | &nbsp; |1 day |1-7 days |
 |Apache Kafka enabled namespace|Namespace |Event Hubs namespace streams applications using Kafka protocol |No | Yes |
 |Capture |Entity | When enabled, micro-batches on the same stream |No |Yes |
 
@@ -45,9 +47,9 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Namespaces | 50 per CU |
 | Event Hubs |  1000 per namespace |
 | Ingress events | Included |
-| Message Size | 1 Million Bytes |
+| Message Size | 1 MB |
 | Partitions | 2000 per CU |
 | Consumer groups | No limit per CU, 1000 per event hub |
 | Brokered connections | 100 K included |
-| Message Retention | Up to 7 days (90 day retention coming soon), 10 TB included per CU |
+| Message Retention | 90 days, 10 TB included per CU |
 | Capture | Included |

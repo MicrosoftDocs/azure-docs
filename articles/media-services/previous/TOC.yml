@@ -50,6 +50,7 @@
 - name: How To
   items:
   - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
     href: legacy-components.md
     items:
      - name: Migrate from Azure Media Encoder
@@ -58,6 +59,8 @@
      - name: Migrate from Windows Azure Media Encoder
        href: migrate-windows-azure-media-encoder.md
        displayName: WAME          
+     - name: Migrate from Indexer v1 and v2
+       href: migrate-indexer-v1-v2.md
   - name: Manage
     items:
     - name: Accounts
@@ -264,18 +267,6 @@
       href: media-services-dotnet-long-operations.md
     - name: Fragmented MP4 live ingest specification
       href: ../media-services-fmp4-live-ingest-overview.md
-    - name: Getting started
-      href: media-services-azure-media-clipper-getting-started.md
-    - name: Load videos
-      href: media-services-azure-media-clipper-load-assets.md
-    - name: Configure keyboard shortcuts
-      href: media-services-azure-media-clipper-keyboard-shortcuts.md
-    - name: Configure localization
-      href: media-services-azure-media-clipper-localization.md
-    - name: Submit clipping jobs
-      href: media-services-azure-media-clipper-submit-job.md
-    - name: Azure portal 
-      href: media-services-azure-media-clipper-portal.md
   - name: Protect content
     href: media-services-content-protection-overview.md
     items:
@@ -472,6 +463,9 @@
       href: ../media-services-specifications-live-timed-metadata.md
     - name: Smooth Streaming HEVC
       href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+  - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
+    href: legacy-components.md      
 - name: Resources
   items:
   - name: Azure Media Services community

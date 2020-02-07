@@ -1,7 +1,7 @@
 ---
-title: How to migrate your project to the 3.0 API
+title: How to update your project to the 3.0 API
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate Custom Vision projects from the previous version of the API to the 3.0 API.
+description: Learn how to update Custom Vision projects from the previous version of the API to the 3.0 API.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 04/04/2019
 ms.author: areddish
 ---
 
-# Migrate to the 3.0 API
+# Update to the 3.0 API
 
 Custom Vision has now reached General Availability and has undergone an API update.
 This update includes a few new features and, importantly, a few breaking changes:
@@ -48,13 +48,6 @@ Once an iteration is trained, you can make it available for prediction using the
 > You can also get this information from the [Azure Portal](https://portal.azure.com) by going to the Custom Vision Prediction resource and selecting **Properties**.
 
 Once your iteration is published, apps can use it for prediction by specifying the name in their prediction API call. To make an iteration unavailable for prediction calls, use the **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** API.
-
-## Additional export options
-
-With the 3.0 APIs we are exposing two additional export targets: ARM architecture and Vision AI Developer Kit.
-
-* To use ARM, you just need to pick a Compact domain and then choose DockerFile and then ARM as the export options.
-* For Vision AI Dev Kit, the project must be created with the __General (Compact)__ domain as well as specifying VAIDK in the target export platforms argument.
 
 ## Next steps
 

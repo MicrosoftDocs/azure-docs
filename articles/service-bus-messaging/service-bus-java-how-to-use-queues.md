@@ -1,6 +1,6 @@
 ---
 title: Use Azure Service Bus queues with Java
-description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
+description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,13 +12,14 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
-# Use Azure Service Bus queues with Java to send and receive messages
+# Quickstart: Use Azure Service Bus queues with Java to send and receive messages
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
@@ -38,7 +39,7 @@ In this tutorial, you learn how to create Java applications to send messages to 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![Screenshot of the Libraries tab where you can add libraries](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Add Microsoft Azure Libraries for Java to your Eclipse project](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Add the following `import` statements to the top of the Java file:
 

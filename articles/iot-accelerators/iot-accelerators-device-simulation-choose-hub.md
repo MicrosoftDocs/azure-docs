@@ -1,5 +1,5 @@
 ---
-title: Use an existing IoT hub with the Device Simulation solution - Azure | Microsoft Docs
+title: Use existing IoT hub with Device Simulation solution - Azure | Microsoft Docs
 description: This article describes how to configure the Device Simulation solution accelerator to use an existing IoT Hub.
 author: dominicbetts
 manager: timlt

@@ -1,10 +1,10 @@
 ---
-title: Create and deploy custom modules - Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: Create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.
+title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
+description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -22,7 +22,7 @@ IoT Edge hub facilitates module to module communication. Using the IoT Edge hub 
 We want the IoT Edge device to accomplish four things for us:
 
 * Receive data from the leaf devices
-* Predict RUL for the device that sent the data
+* Predict remaining useful life (RUL) for the device that sent the data
 * Send a message with only the RUL for the device to IoT Hub (this function could be modified to only send data if the RUL drops below some level)
 * Save the leaf device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub via file upload to refine training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
 
@@ -40,7 +40,7 @@ To accomplish these tasks, we use three custom modules:
 
   * Outputs:
     * **classify:** sends messages to "amlInput"
-    * **writeAvro:** sends messages "avroModuleInput"
+    * **writeAvro:** sends messages to "avroModuleInput"
     * **toIotHub:** sends messages to $upstream, which passes the messages to the connected IoT Hub
 
 The diagram below shows the modules, inputs, outputs, and the IoT Edge Hub routes for the full solution:
@@ -51,7 +51,7 @@ The steps in this article are typically performed by a cloud developer.
 
 ## Create a new IoT Edge solution
 
-During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, built in the pieces to make the image deployable as an Azure IoT Edge module. In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
+During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, packaged that model so that the image is deployable as an Azure IoT Edge module. In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
 
 1. Open a remote desktop session to your development machine.
 
@@ -82,7 +82,7 @@ During execution of the second of our two Azure Notebooks, we created and publis
          "<your registry>": {
            "username": "$CONTAINER_REGISTRY_USERNAME_<your registry>",
            "password": "$CONTAINER_REGISTRY_PASSWORD_<your registry>",
-           "address": "<your registry>.azurecr.io”
+           "address": "<your registry>.azurecr.io"
          }
        }
        ```
@@ -167,7 +167,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 4. When prompted for your Docker Image Repository, use the registry from the machine learning workspace (you can find the registry in the registryCredentials node of your *deployment.template.json* file). This value is the fully qualified address to the registry, like **\<your registry\>.azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > In this article, we use the Azure Container Registry created by the Azure Machine Learning service workspace, which we used to train and deploy our classifier. This is purely for convenience. We could have created a new container registry and published our modules there.
+    > In this article, we use the Azure Container Registry created by the Azure Machine Learning  workspace, which we used to train and deploy our classifier. This is purely for convenience. We could have created a new container registry and published our modules there.
 
 5. Open a new terminal window in Visual Studio Code (**View** > **Terminal**) and copy files from the modules directory.
 
@@ -749,7 +749,7 @@ Now that we have made the configuration changes, we are ready to build the image
 
 Once the build successfully completes, we will be able to use the Azure portal to review our published modules.
 
-1. In the Azure portal, navigate to your Azure Machine Learning service workspace and click the hyperlink for **Registry**.
+1. In the Azure portal, navigate to your Azure Machine Learning workspace and click the hyperlink for **Registry**.
 
     ![Navigate to registry from machine learning service workspace](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

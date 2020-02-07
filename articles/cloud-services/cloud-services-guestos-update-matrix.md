@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/4/2019
+ms.date: 1/24/2020
 ms.author: raiye
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -35,6 +35,21 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **January 24, 2020**
+The January Guest OS has released. 
+
+###### **January 8, 2020**
+The December Guest OS has released.
+
+###### **December 5, 2019**
+The November Guest OS has released.
+
+###### **November 1, 2019**
+The October Guest OS has released.
+
+###### **October 7, 2019**
+The September Guest OS has released.
 
 ###### **September 4, 2019**
 The August Guest OS has released.
@@ -97,8 +112,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-6.10_201908-01 |  August 4, 2019  |  Post 6.12  |  
-| WA-GUEST-OS-6.9_201907-01 |July 26, 2019 |Post 6.11 |
+|  WA-GUEST-OS-6.15_202001-01  |  January 24, 2020  |  Post 6.17  |  
+| WA-GUEST-OS-6.14_201912-01 | January 8, 2020 | Post 6.16 |  
+|~~WA-GUEST-OS-6.13_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-6.12_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-6.11_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-6.10_201908-01~~| August 4, 2019 | November 1, 2019  |  
+|~~WA-GUEST-OS-6.9_201907-0~~|July 26, 2019 | October 7, 2019 |
 |~~WA-GUEST-OS-6.8_201906-01~~|July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-6.7_201905-01~~ |June 6, 2019 |July 26, 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |May 7, 2019 |July 8, 2019 |
@@ -120,8 +140,13 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-5.34_201908-01  |  August 4, 2019  |  Post 5.36  |  
-| WA-GUEST-OS-5.33_201907-01 |July 26, 2019 |Post 5.35 |  
+|  WA-GUEST-OS-5.39_202001-01  |  January 24, 2020  |  Post 5.41  |  
+| WA-GUEST-OS-5.38_201912-01 | January 8, 2020 | Post 5.40 |  
+|~~WA-GUEST-OS-5.37_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-5.36_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-5.35_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-5.34_201908-01~~|  August 4, 2019  | November 1, 2019 |  
+|~~WA-GUEST-OS-5.33_201907-01~~| July 26, 2019 | October 7, 2019 |  
 |~~WA-GUEST-OS-5.32_201906-01~~|July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-5.31_201905-01~~ |June 6, 2019 |July 26, 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |May 7, 2019 |July 8, 2019 |
@@ -140,9 +165,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-4.69_201908-01 |  August 4, 2019  |  Post 4.71  |  
-| WA-GUEST-OS-4.68_201907-01 | July 26, 2019  |Post 4.70 |
-|~~WA-GUEST-OS-4.67_201906-01~~|July 8, 2019 |August 4, 2019 |
+|  WA-GUEST-OS-4.74_202001-01  |  January 24, 2020  |  Post 4.76  |  
+| WA-GUEST-OS-4.73_201912-01 | January 8, 2020 | Post 4.75 |  
+|~~WA-GUEST-OS-4.72_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-4.71_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-4.70_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-4.69_201908-01~~| August 4, 2019 | November 1, 2019 |  
+|~~WA-GUEST-OS-4.68_201907-01~~| July 26, 2019  | October 7, 2019 |
+|~~WA-GUEST-OS-4.67_201906-01~~| July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-4.66_201905-01~~ |June 6, 2019 |July 26, 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |May 7, 2019 |July 8, 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |March 26, 2019 |June 6, 2019 |
@@ -160,9 +190,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-3.76_201908-01 |  August 4, 2019  |  Post 3.78  |  
-| WA-GUEST-OS-3.75_201907-01 | July 26, 2019 |Post 3.77 |
-|~~WA-GUEST-OS-3.74_201906-01~~|July 8, 2019 |August 4, 2019 |
+|  WA-GUEST-OS-3.81_202001-01  |  January 24, 2020  |  Post 3.83  |  
+| WA-GUEST-OS-3.80_201912-01 | January 8, 2020 | Post 3.82 |  
+|~~WA-GUEST-OS-3.79_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-3.78_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-3.77_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-3.76_201908-01~~|  August 4, 2019  |  November 1, 2019  |  
+|~~WA-GUEST-OS-3.75_201907-01~~| July 26, 2019 | October 7, 2019 |
+|~~WA-GUEST-OS-3.74_201906-01~~| July 8, 2019 |August 4, 2019 |
 |~~WA-GUEST-OS-3.73_201905-01~~ |June 6, 2019 |July 26, 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |May 7, 2019 |July 8, 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |March 26, 2019 |June 6, 2019 |
@@ -180,9 +215,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.89_201908-01 |  August 4, 2019  |  Post 2.91  |  
-| WA-GUEST-OS-2.88_201907-01 | July 26, 2019 |Post 2.90 |
-|~~WA-GUEST-OS-2.87_201906-01~~|July 8, 2019 |August 4, 2019 |
+|  WA-GUEST-OS-2.94_202001-01  |  January 24, 2020  |  Post 2.96  |  
+| WA-GUEST-OS-2.93_201912-01 | January 8, 2020 | Post 2.95 |  
+|~~WA-GUEST-OS-2.92_201911-01~~| December 5, 2019 | January 24, 2020 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| November 1, 2019 | January 8, 2020 |  
+|~~WA-GUEST-OS-2.90_201909-01~~| October 7, 2019 | December 5, 2019 |  
+|~~WA-GUEST-OS-2.89_201908-01~~| August 4, 2019 | November 1, 2019 |  
+|~~WA-GUEST-OS-2.88_201907-01~~| July 26, 2019 | October 7, 2019 |
+|~~WA-GUEST-OS-2.87_201906-01~~|July 8, 2019 | August 4, 2019 |
 |~~WA-GUEST-OS-2.86_201905-01~~ |June 6, 2019 |July 26, 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |May 7, 2019 |July 8, 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |March 26, 2019 |June 6, 2019 |

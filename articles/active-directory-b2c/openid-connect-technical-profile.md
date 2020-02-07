@@ -1,5 +1,6 @@
 ---
-title: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define an OpenID Connect technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -80,7 +81,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | scope | No | The scope of the request that is defined according to the OpenID Connect Core 1.0 specification. Such as `openid`, `profile`, and `email`. |
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
 | ValidTokenIssuerPrefixes | No | A key that can be used to sign in to each of the tenants when using a multi-tenant identity provider such as Azure Active Directory. |
-| UsePolicyInRedirectUri | No | Indicates whether to use a policy when constructing the redirect URI. When you configure your application in the identity provider, you need to specify the redirect URI. The redirect URI points to Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com may change with your-tenant-name.b2clogin.com).  If you specify `false`, you need to add a redirect URI for each policy you use. For example: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
+| UsePolicyInRedirectUri | No | Indicates whether to use a policy when constructing the redirect URI. When you configure your application in the identity provider, you need to specify the redirect URI. The redirect URI points to Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  If you specify `false`, you need to add a redirect URI for each policy you use. For example: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | No | Indicates whether a request to an external service should be marked as a failure if the Http status code is in the 5xx range. The default is `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token. |
 
@@ -94,28 +95,10 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect Uri
 
-When you configure the redirect URI of your identity provider, enter `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Make sure to replace **tenant** with your tenant's name (for example, contosob2c.onmicrosoft.com) or the tenant's ID. The redirect URI needs to be in all lowercase.
-
-If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
+When you configure the redirect URI of your identity provider, enter `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{your-tenant-name}` with your tenant's name. The redirect URI needs to be in all lowercase.
 
 Examples:
 
-- [Add Microsoft Account (MSA) as an identity provider using custom policies](active-directory-b2c-custom-setup-msa-idp.md)
-- [Sign in by using Azure AD accounts](active-directory-b2c-setup-aad-custom.md)
-- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](active-directory-b2c-setup-commonaad-custom.md)
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account-custom.md)
+- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant-custom.md)
+- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant-custom.md)

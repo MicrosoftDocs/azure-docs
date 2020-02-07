@@ -5,13 +5,13 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/08/2019
+ ms.date: 11/12/2019
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: 9 August 2019 10:00 AM PST.
+**Last document update**: 12 November 2019 10:00 AM PST.
 
 The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -24,17 +24,12 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On May 14, 2019, [Intel disclosed](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
-> - CVE-2019-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
-> - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
-> - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
-> - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
->
-> This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
+> On November 12, 2019, [Intel published](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) a technical advisory around Intel® Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort (TAA) vulnerability that is assigned [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
 >
 > **Customers that are running untrusted code within their VM** need to take action to protect against these vulnerabilities by reading below for additional guidance on all speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
 > Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
+> 
 
 
 
@@ -99,6 +94,7 @@ Windows OS support for kernel VA shadow is enabled: True
 Windows OS support for speculative store bypass disable is enabled system-wide: False
 Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
+Windows OS support for TAA mitigation is enabled: True
 ```
 
 If the output shows `MDS mitigation is enabled: False`, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) for available mitigation options.
@@ -176,6 +172,9 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS)
 - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
 - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
+
+Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort:  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
 
 
 

@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric disaster recovery | Microsoft Docs
+title: Azure Service Fabric disaster recovery 
 description: Azure Service Fabric offers the capabilities necessary to deal with all types of disasters. This article describes the types of disasters that can occur and how to deal with them.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Disaster recovery in Azure Service Fabric
 A critical part of delivering high-availability is ensuring that services can survive all different types of failures. This is especially important for failures that are unplanned and outside of your control. This article describes some common failure modes that could be disasters if not modeled and managed correctly. It also discuss mitigations and actions to take if a disaster happened anyway. The goal is to limit or eliminate the risk of downtime or data loss when they occur failures, planned or otherwise, occur.
@@ -135,7 +125,7 @@ In both standalone Service Fabric clusters and Azure, the "Primary Node Type" is
 ## Next steps
 - Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
-  - [Availability checklist](../best-practices-availability-checklist.md)
+  - [Availability checklist](/azure/architecture/checklist/resiliency-per-service)
   - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 - Learn about [Service Fabric support options](service-fabric-support.md)

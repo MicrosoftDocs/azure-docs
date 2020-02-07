@@ -1,14 +1,13 @@
 ---
 title: Monitor Azure services and applications using Grafana
 description: Route Azure Monitor and Application Insights data so you can view them in Grafana.
-services: azure-monitor
-keywords: 
+ms.service:  azure-monitor
+ms.subservice: ""
+ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 11/06/2017
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ""
+
 ---
 
 # Monitor your Azure services in Grafana

@@ -1,14 +1,8 @@
 ---
-title: Automate building and patching container images with Azure Container Registry Tasks (ACR Tasks)
+title: ACR Tasks overview
 description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build, management, and patching in the cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
-ms.author: danlep
 ---
 
 # Automate container image builds and maintenance with ACR Tasks
@@ -53,7 +47,7 @@ Learn how to use quick tasks in the first ACR Tasks tutorial, [Build container i
 
 ## Trigger task on source code update
 
-Trigger a container image build or multi-step task when code is committed, or a pull request is made or updated, to a Git repository in GitHub or Azure DevOps. For example, configure a build task with the Azure CLI command [az acr task create][az-acr-task-create] by specifying a Git repository and optionally a branch and Dockerfile. When your team updates code in the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo. 
+Trigger a container image build or multi-step task when code is committed, or a pull request is made or updated, to a public or private Git repository in GitHub or Azure DevOps. For example, configure a build task with the Azure CLI command [az acr task create][az-acr-task-create] by specifying a Git repository and optionally a branch and Dockerfile. When your team updates code in the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo. 
 
 ACR Tasks supports the following triggers when you set a Git repo as the task's context:
 
@@ -62,7 +56,10 @@ ACR Tasks supports the following triggers when you set a Git repo as the task's 
 | Commit | Yes |
 | Pull request | No |
 
-To configure the trigger, you provide the task a personal access token (PAT) to set the webhook in the GitHub or Azure DevOps repo.
+To configure a source code update trigger, you need to provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo.
+
+> [!NOTE]
+> Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
 
 Learn how to trigger builds on source code commit in the second ACR Tasks tutorial, [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
@@ -117,10 +114,15 @@ The following table shows a few examples of supported context locations for ACR 
 | Context location | Description | Example |
 | ---------------- | ----------- | ------- |
 | Local filesystem | Files within a directory on the local filesystem. | `/home/user/projects/myapp` |
-| GitHub master branch | Files within the master (or other default) branch of a GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub branch | Specific branch of a GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub subfolder | Files within a subfolder in a GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| GitHub master branch | Files within the master (or other default) branch of a public or private GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub branch | Specific branch of a public or private GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub subfolder | Files within a subfolder in a public or private GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| GitHub commit | Specific commit in a public or private GitHub repo. Example shows combination of a commit hash (SHA) and subfolder specification. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
+| Azure DevOps subfolder | Files within a subfolder in a public or private Azure repo. Example shows combination of branch and subfolder specification. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> When using a private Git repo as a context for a task, you need to provide a personal access token (PAT).
 
 ## Image platforms
 

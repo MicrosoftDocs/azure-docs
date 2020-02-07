@@ -1,25 +1,26 @@
 ---
-title: "Debug and iterate with Visual Studio and .NET Core on AKS with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: "Debug and iterate on Kubernetes: Visual Studio & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 11/13/2019
 ms.topic: quickstart
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
 ---
-# Quickstart: Debug and iterate with Visual Studio and .NET Core on Kubernetes with Azure Dev Spaces
+# Quickstart: Debug and iterate on Kubernetes: Visual Studio & .NET Core - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using Visual Studio.
 - Debug code running in your cluster using Visual Studio.
+
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio Code](quickstart-netcore.md)
 
 ## Prerequisites
 
@@ -41,7 +42,7 @@ You must create an AKS cluster in a [supported region][supported-regions]. To cr
 
 ## Enable Azure Dev Spaces on your AKS cluster
 
-Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change *Enable Dev Spaces* to *Yes* and click *Save*.
+Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change *Use Dev Spaces* to *Yes* and click *Save*.
 
 ![Enable Dev Spaces in the Azure portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
@@ -49,11 +50,11 @@ Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change 
 
 1. Open Visual Studio.
 1. Create a new project.
-1. Choose *ASP.NET Core Web Application* and name your project *webfrontend*.
-1. Click *OK*.
+1. Choose *ASP.NET Core Web Application* and click *Next*.
+1. Name your project *webfrontend* and click *Create*.
 1. When prompted, choose *Web Application (Model-View-Controller)* for the template.
-1. Select *.NET Core* and *ASP.NET Core 2.0* at the top.
-1. Click *OK*.
+1. Select *.NET Core* and *ASP.NET Core 2.1* at the top.
+1. Click *Create*.
 
 ## Connect your project to your dev space
 
@@ -82,12 +83,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-In the above example, the public URL is http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navigate to your service's public URL and interact with the service running in your dev space.
+In the above example, the public URL is http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navigate to your service's public URL and interact with the service running in your dev space.
 
 This process may have disabled public access to your service. To enable public access, you can update the [ingress value in the *values.yaml*][ingress-update].
 
@@ -127,4 +128,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

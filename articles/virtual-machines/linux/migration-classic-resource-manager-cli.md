@@ -1,10 +1,10 @@
 ---
-title: Migrate VMs to Resource Manager using Azure CLI | Microsoft Docs
+title: Migrate VMs to Resource Manager using Azure CLI 
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
@@ -81,7 +81,7 @@ For this step you'll need to switch to `arm` mode. Do this with the following co
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
+You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

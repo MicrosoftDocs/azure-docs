@@ -1,26 +1,36 @@
 ---
-title: Respond to HTTP requests - Azure Logic Apps
-description: Respond to events in real time over HTTP by using Azure Logic Apps
+title: Receive and respond to HTTPS calls
+description: Handle HTTPS requests and events in real time by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.reviewers: klam, logicappspm
+ms.topic: conceptual
+ms.date: 01/14/2020
 tags: connectors
 ---
 
-# Respond to HTTP requests by using Azure Logic Apps
+# Receive and respond to incoming HTTPS calls by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond in real time to HTTP requests. For example, you can have your logic app:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
 
-* Respond to an HTTP request for data in an on-premises database.
+* Receive and respond to an HTTPS request for data in an on-premises database.
 * Trigger a workflow when an external webhook event happens.
-* Call a logic app from within another logic app.
+* Receive and respond to an HTTPS call from another logic app.
+
+> [!NOTE]
+> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. Outgoing calls 
+> continue to support TLS 1.0, 1.1, and 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
+>
+> If you see SSL handshake errors, make sure that you use TLS 1.2. For incoming calls, here are the supported cipher suites:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## Prerequisites
 
@@ -30,15 +40,15 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 <a name="add-request"></a>
 
-## Add a Request trigger
+## Add Request trigger
 
-This built-in trigger creates a manually callable endpoint that can receive an incoming HTTP request. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)
+This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
 1. After Logic App Designer opens, in the search box, enter "http request" as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
 
-   ![Select HTTP request trigger](./media/connectors-native-reqres/select-request-trigger.png)
+   ![Select Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
 
    The Request trigger shows these properties:
 
@@ -47,10 +57,10 @@ This built-in trigger creates a manually callable endpoint that can receive an i
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save the logic app and is used for calling your logic app |
-   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming HTTP request body |
+   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body |
    |||||
 
-1. In the **Request Body JSON Schema** box, optionally enter a JSON schema that describes the HTTP request body in the incoming request, for example:
+1. In the **Request Body JSON Schema** box, optionally enter a JSON schema that describes the body in the incoming request, for example:
 
    ![Example JSON schema](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -185,7 +195,7 @@ Here's more information about the outputs from the Request trigger:
 
 ## Add a Response action
 
-You can use the Response action to respond with a payload (data) to an incoming HTTP request but only in a logic app that's triggered by an HTTP request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+You can use the Response action to respond with a payload (data) to an incoming HTTPS request but only in a logic app that's triggered by an HTTPS request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
@@ -219,7 +229,7 @@ Your logic app keeps the incoming request open only for one minute. Assuming tha
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
-   | **Status Code** | `statusCode` | Yes | The HTTP status code to return in the response |
+   | **Status Code** | `statusCode` | Yes | The status code to return in the response |
    | **Headers** | `headers` | No | A JSON object that describes one or more headers to include in the response |
    | **Body** | `body` | No | The response body |
    |||||

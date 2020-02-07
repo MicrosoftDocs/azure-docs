@@ -58,9 +58,10 @@ For mail-enabled groups and contacts, you can soft-match based on proxyAddresses
 ### Admin role considerations
 To prevent untrusted on-premises users from matching with a cloud user that has any admin role, Azure AD Connect will not match on-premises user objects with objects that have an admin role. This is by default. To workaround this behavior you can do the following:
 
-1.	Remove the directory roles from the cloud-only user object
-2.	Trigger a sync
-3.	Optionally add the directory roles back to the user object in cloud once the matching has occurred.
+1.	Remove the directory roles from the cloud-only user object.
+2.	If there was a failed user sync attempt, hard delete the Quarantined object in the cloud.
+3.	Trigger a sync.
+4.	Optionally add the directory roles back to the user object in cloud once the matching has occurred.
 
 
 

@@ -1,30 +1,20 @@
 ---
-title: Create your first PowerShell function with Azure Functions
+title: Create your first PowerShell function in Azure
 description: Learn how to create your first PowerShell function in Azure using Visual Studio Code.
-services: functions
-keywords:
 author: joeyaiello
-manager: jeconnoc
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
-ms.devlang: powershell
 ---
 
-# Create your first PowerShell function in Azure (preview)
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+# Create your first PowerShell function in Azure
 
 This quickstart article walks you through how to create your first [serverless](https://azure.com/serverless) PowerShell function using Visual Studio Code.
 
 ![Azure Functions code in a Visual Studio Code project](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
 
 You use the [Azure Functions extension for Visual Studio Code] to create a PowerShell function locally and then deployed it to a new function app in Azure. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
-
-> [!NOTE]  
-> PowerShell support for the [Azure Functions extension][Azure Functions extension for Visual Studio Code] is currently disabled by default. Enabling PowerShell support is one of the steps in this article.
 
 The following steps are supported on macOS, Windows, and Linux-based operating systems.
 
@@ -50,7 +40,7 @@ To complete this quickstart:
 
 ## Create a function app project
 
-The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources. 
+The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 1. In Visual Studio Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
 
@@ -61,7 +51,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
     > [!NOTE]
     > This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
 
-1. Select the **Powershell (preview)** as the language for your function app project and then **Azure Functions v2**.
+1. Select the **Powershell** as the language for your function app project and then **Azure Functions v2**.
 
 1. Choose **HTTP Trigger** as the template for your first function, use `HTTPTrigger` as the function name, and choose an authorization level of **Function**.
 
@@ -72,37 +62,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 Visual Studio Code creates the PowerShell function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, which apply to all function in the project. This [PowerShell project](functions-reference-powershell.md#folder-structure) is the same as a function app running in Azure.
 
-## Run the function locally
-
-Azure Functions Core Tools integrates with Visual Studio Code to let you run and debug an Azure Functions project locally.  
-
-1. To debug your function, insert a call to the [`Wait-Debugger`] cmdlet in the function code before you want to attach the debugger, then press F5 to start the function app project and attach the debugger. Output from Core Tools is displayed in the **Terminal** panel.
-
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
-
-    ![Azure local output](./media/functions-create-first-function-powershell/functions-vscode-f5.png)
-
-1. Append the query string `?name=<yourname>` to this URL, and then use `Invoke-RestMethod` to execute the request, as follows:
-
-    ```powershell
-    PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
-    Hello PowerShell
-    ```
-
-    You can also execute the GET request from a browser.
-
-    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a 500 error. When you review the code in run.ps1, you see that this error occurs by design.
-
-1. To stop debugging, press Shift + F5.
-
-After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
-
-> [!NOTE]
-> Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
-
-> [!NOTE]
-> Creating a Function App in Azure will only prompt for Function App name. 
-> Set azureFunctions.advancedCreation to true to be prompted for all other values.
+[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

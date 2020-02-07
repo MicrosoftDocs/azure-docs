@@ -5,6 +5,7 @@ services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchai
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: pabutler

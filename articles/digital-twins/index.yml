@@ -5,7 +5,7 @@ summary: Learn how to use Azure Digital Twins to connect people, places, and thi
 
 metadata:
   title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Use Azure Digital Twins to create smart spatial solutions.
+  description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
   services: digital-twins
   ms.service: digital-twins
   ms.subservice: digital-twins
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: KingdomOfEnds
   ms.author: v-adgera
-  ms.date: 09/03/2019
+  ms.date: 12/12/2019
 
 landingContent:
   - title: About Azure Digital Twins
@@ -45,7 +45,7 @@ landingContent:
             url: tutorial-facilities-udf.md
           - text: Notify with Logic Apps
             url: tutorial-facilities-events.md
-          - text: Visualize events with TSI
+          - text: Visualize events with Time Series Insights
             url: tutorial-facilities-analyze.md
 
   - title: Develop with Azure Digital Twins

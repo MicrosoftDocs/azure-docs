@@ -1,17 +1,11 @@
 ---
-title: Application performance FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about availability, performance, and application issues in the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Application performance FAQs
+description: Get answers to frequently asked questions about availability, performance, and application issues in Azure App Service.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
@@ -88,7 +82,7 @@ To see what is causing the error and to resolve the issue, follow the steps in [
 
 ## Where can I learn more about quotas and limits for various App Service plans?
 
-For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
+For information about quotas and limits, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 ## How do I decrease the response time for the first request after idle time?
 

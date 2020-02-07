@@ -17,7 +17,6 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Single-page applications
@@ -64,4 +63,4 @@ After a successful authentication, Azure AD writes a cookie in the user's browse
 ## Next steps
 
 * Learn more about other [Application types and scenarios](app-types.md)
-* Learn about the Azure AD [authentication basics](authentication-scenarios.md)
+* Learn about the Azure AD [authentication basics](v1-authentication-scenarios.md)

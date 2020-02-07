@@ -1,10 +1,10 @@
 ---
 title: Submit jobs from R Tools for Visual Studio - Azure HDInsight 
 description: Submit R jobs from your local Visual Studio machine to an HDInsight cluster.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
@@ -12,13 +12,13 @@ ms.date: 06/19/2019
 
 # Submit jobs from R Tools for Visual Studio
 
-[R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher. RTVS is not available for [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher. RTVS is not available for [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
 RTVS enhances your R workflow by offering tools such as the [R Interactive window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (code completion), [plot visualization](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) through R libraries such as ggplot2 and ggviz, [R code debugging](https://docs.microsoft.com/visualstudio/rtvs/debugging), and more.
 
 ## Set up your environment
 
-1. Install [R Tools for Visual Studio](https://docs.microsoft.com/visualstudio/rtvs/installation).
+1. Install [R Tools for Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
     ![Installing RTVS in Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
@@ -36,7 +36,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
    2. Go to the **R Tools** menu item, then select **Data Science Settings...**.
 
-       ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Visual Studio Data Science Settings](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
       > Using the approach in step 1, you can also save and restore your personalized data scientist layout, rather than repeating the **Data Science Settings** command.
@@ -51,11 +51,11 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 6. Starting at the top of the file, press Ctrl+Enter to send each line, one at a time, to the R Interactive window. Some lines might take a while as they install packages.
     * Alternatively, you can select all lines in the R file (Ctrl+A), then either execute all (Ctrl+Enter), or select the Execute Interactive icon on the toolbar.
 
-        ![Execute interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        ![Visual Studio execute interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. After running all the lines in the script, you should see an output similar to this:
 
-    ![Workspace](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    ![Visual Studio workspace R tools](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## Submit jobs to an HDInsight ML Services cluster
 
@@ -91,7 +91,7 @@ Using a Microsoft ML Server/Microsoft R Client from a Windows computer equipped 
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![Setting the Spark context](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   ![apache spark setting the context](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Execute the following commands in the R Interactive window:
 
@@ -109,17 +109,17 @@ a
 
     1. From your HDInsight ML Services cluster pane in Azure, select **Storage accounts** from the left-hand menu.
 
-        ![Storage accounts](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        ![Azure HDInsight Storage accounts](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Select the default storage account for your cluster, making note of the container/directory name.
 
     3. Select **Containers** from the left-hand menu on your storage account pane.
 
-        ![Containers](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        ![Azure HDInsight Storage containers](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. Select your cluster's container name, browse to the **user** folder (you might have to click *Load more* at the bottom of the list), then select *RevoShare*, then **newUser**. The `people.json` file should be displayed in the `newUser` folder.
 
-        ![Copied file](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        ![HDInsight copied file folder location](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. After you are finished using the current Apache Spark context, you must stop it. You cannot run multiple contexts at once.
 
@@ -131,4 +131,3 @@ a
 
 * [Compute context options for ML Services on HDInsight](r-server-compute-contexts.md)
 * [Combining ScaleR and SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) provides an example of airline flight delay predictions.
-

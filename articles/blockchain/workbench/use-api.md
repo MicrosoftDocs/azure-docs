@@ -1,16 +1,10 @@
 ---
-title: Using Azure Blockchain Workbench Preview REST API 
+title: Using Azure Blockchain Workbench REST APIs
 description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-#customer intent: As a developer, I want to understand the  Azure Blockchain Workbench REST API to so that I can integrate apps with Blockchain Workbench.
+ms.reviewer: brendal
+#Customer intent: As a developer, I want to understand the  Azure Blockchain Workbench REST API to so that I can integrate apps with Blockchain Workbench.
 ---
 # Using the Azure Blockchain Workbench Preview REST API
 
@@ -23,6 +17,19 @@ Azure Blockchain Workbench Preview REST API provides developers and information 
 * Execute an action for a contract
 
 The example blockchain applications used in the scenarios, can be [downloaded from GitHub](https://github.com/Azure-Samples/blockchain).
+
+## Blockchain Workbench API endpoint
+
+Blockchain Workbench APIs are accessed through an endpoint for your deployment. To get the API endpoint URL for your deployment:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the left-hand navigation pane, select **Resource groups**.
+1. Choose the resource group name your deployed Blockchain Workbench.
+1. Select the **TYPE** column heading to sort the list alphabetically by type.
+1. There are two resources with type **App Service**. Select the resource of type **App Service** *with* the "-api" suffix.
+1. In the App Service **Overview**, copy the **URL** value, which represents the API endpoint URL to your deployed Blockchain Workbench.
+
+    ![App service API endpoint URL](media/use-api/app-service-api.png)
 
 ## List applications
 

@@ -83,4 +83,4 @@ You get a response similar to this:
 
 ## Next steps
 
-[Media Services overview](media-services-overview.md)
+[az ams job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)

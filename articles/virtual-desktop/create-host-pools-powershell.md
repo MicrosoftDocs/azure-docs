@@ -1,6 +1,6 @@
 ---
-title: Create a Windows Virtual Desktop Preview host pool with PowerShell  - Azure
-description: How to create a host pool in Windows Virtual Desktop Preview with PowerShell cmdlets.
+title: Create Windows Virtual Desktop host pool PowerShell - Azure
+description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Create a host pool with PowerShell
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 ## Use your PowerShell client to create a host pool
 
@@ -32,7 +32,7 @@ New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
 Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationHours parameter.
 
 ```powershell
-New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
+New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
 After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
@@ -43,7 +43,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
 
-Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Windows Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
+Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Windows Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
@@ -59,9 +59,12 @@ You can create a virtual machine in multiple ways:
 - [Create a virtual machine from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
+>[!NOTE]
+>If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
+
 After you've created your session host virtual machines, [apply a Windows license to a session host VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license. 
 
-## Prepare the virtual machines for Windows Virtual Desktop Preview agent installations
+## Prepare the virtual machines for Windows Virtual Desktop agent installations
 
 You need to do the following things to prepare your virtual machines before you can install the Windows Virtual Desktop agents and register the virtual machines to your Windows Virtual Desktop host pool:
 
@@ -77,9 +80,9 @@ To successfully domain-join, do the following things on each virtual machine:
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
-## Register the virtual machines to the Windows Virtual Desktop Preview host pool
+## Register the virtual machines to the Windows Virtual Desktop host pool
 
 Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
 

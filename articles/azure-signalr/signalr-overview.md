@@ -1,10 +1,10 @@
 ---
 title: What is Azure SignalR Service?
-description: An overview of the Azure SignalR Service.
+description: Better understand what typical use case scenarios to use Azure SignalR, and learn the key benefits of Azure SignalR.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 06/20/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 
@@ -27,7 +27,7 @@ Azure SignalR Service has been used in a wide variety of industries, for any app
 * **Dashboards and monitoring:** company dashboard, financial market data, instant sales update, multi-player game leader board, and IoT monitoring.
 * **Chat:** live chat room, chat bot, on-line customer support, real-time shopping assistant, messenger, in-game chat, and so on.
 * **Real-time location on map:** logistic tracking, delivery status tracking, transportation status updates, GPS apps.
-* **Real time targeted ads:** personalized read time push ads and offers, interactive ads.
+* **Real time targeted ads:** personalized real time push ads and offers, interactive ads.
 * **Collaborative apps:** coauthoring, whiteboard apps and team meeting software.
 * **Push notifications:** social network, email, game, travel alert.
 * **Real-time broadcasting:** live audio/video broadcasting, live captioning, translating, events/news broadcasting.

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a slow or failing job on a HDInsight cluster - Azure HDInsight
+title: Troubleshoot a slow or failing job on Azure HDInsight cluster
 description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -76,7 +76,7 @@ Each HDInsight cluster relies on various Azure services, and on open-source soft
 Apache Ambari provides management and monitoring of a HDInsight cluster with a web UI and a REST API. 
 Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page.  Select the **HDInsight cluster dashboard** pane to open the Ambari UI, and enter the  cluster login credentials.  
 
-![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
+![Apache Ambari dashboard overview](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 To open a list of service views, select **Ambari Views** on the Azure portal page.  This list depends on which libraries are installed. For example, you may see YARN Queue Manager, Hive View, and Tez View.  Select a  service link to see configuration and service information.
 
@@ -86,8 +86,8 @@ HDInsight relies on several Azure services. It runs virtual servers on Azure HDI
 
 #### Check Azure service usage limits
 
-If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
-You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 #### Check the release version
 
@@ -124,7 +124,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari  displays an alert showing the hosts on which the WebHCat service is down. You can try to bring the WebHCat service back up by restarting the service on its host.
 
-![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
+![Apache Ambari Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 If a WebHCat server still does not come up, then check the  operations log  for failure messages. For more detailed information, check the `stderr` and `stdout` files referenced on the node.
 
@@ -173,7 +173,7 @@ At the YARN level, there are two types of timeouts:
 
     The  following  image shows the joblauncher queue at 714.4% overused. This is acceptable so long as there is still free capacity in the default queue to borrow from. However, when the cluster is fully utilized and the YARN memory is at 100% capacity, new jobs must wait, which eventually causes timeouts.
 
-    ![Joblauncher queue](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
+    ![HDInsight Job launcher queue view](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     There are two ways to resolve this issue: either reduce the speed of new jobs being submitted, or increase the consumption speed of old jobs by scaling up the cluster.
 
@@ -205,7 +205,7 @@ To diagnose these issues:
 
 The Ambari UI **Stack and Version** page provides information about cluster services configuration and service version history.  Incorrect Hadoop service library versions can be a cause of cluster failure.  In the Ambari UI, select the **Admin** menu and then  **Stacks and Versions**.  Select the **Versions** tab on the page to see service version information:
 
-![Stack and Versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
+![Apache Ambari Stack and Versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
 ## Step 5: Examine the log files
 

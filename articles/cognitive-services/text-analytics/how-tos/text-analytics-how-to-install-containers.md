@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
@@ -107,7 +107,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
@@ -147,6 +147,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 ## Troubleshooting
 
 If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

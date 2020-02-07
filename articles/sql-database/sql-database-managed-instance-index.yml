@@ -1,8 +1,7 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure SQL Database managed instance
+title: SQL managed instance
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Managed instance documentation - Tutorials, API Reference
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
@@ -45,6 +44,9 @@ sections:
       - title: VNet Integration
         href: /azure/sql-database/sql-database-managed-instance-connectivity-architecture
         html: <p>Secure service placed in your private Azure VNet with private IP addresses.</p>
+      - href: /azure/sql-database/sql-database-instance-pools
+        html: <p>Cost-effective solution for deploying multiple managed instances that share the resources.</p>
+        title: Instance pools
       - title: Easy Migration
         href: /azure/sql-database/sql-database-managed-instance-get-started-restore
         html: <p>Easily migrate your on-prem databases to Azure cloud using native restore.</p>
@@ -60,9 +62,6 @@ sections:
       - title: Service tiers
         href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
         html: <p>Choose between General Purpose and Business Critical service tiers depending on your business needs.</p>
-      - title: Advanced security
-        href: /azure/sql-database/sql-database-security-index
-        html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -95,6 +94,12 @@ sections:
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: /powershell/module/az.sql/set-azsqlinstance#examples
           - href:
+      - title: Create a new instance pool
+        values:
+          - href:
+          - href:
+          - href: /azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool
+          - href: 
       - title: Configure Azure network environment
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started

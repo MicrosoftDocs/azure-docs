@@ -13,7 +13,7 @@ ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
 ---
 
-# How to use Queue storage from Node.js
+# Use Azure Queue Service to create and delete queues from Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]

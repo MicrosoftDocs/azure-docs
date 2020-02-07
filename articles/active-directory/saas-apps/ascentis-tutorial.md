@@ -26,7 +26,6 @@ In this tutorial, you'll learn how to integrate Ascentis with Azure Active Direc
 
 * Control in Azure AD who has access to Ascentis.
 * Enable your users to be automatically signed-in to Ascentis with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 

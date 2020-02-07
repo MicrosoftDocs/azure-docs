@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Redirect URI/reply URL restrictions and limitations - Microsoft identity platform
+title: Redirect URI & reply URL restrictions - Microsoft identity platform | Azure
 description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
@@ -11,15 +11,19 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
 ---
 # Redirect URI/reply URL restrictions and limitations
 
 A redirect URI, or reply URL, is the location that the authorization server will send the user to once the app has been successfully authorized, and granted an authorization code or access token. The code or token is contained in the redirect URI or reply token so it's important that you register the correct location as part of the app registration process.
 
+ The following restrictions apply to reply URLs:
+
+    * The reply URL must begin with the scheme `https`.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    
 ## Maximum number of redirect URIs
 
-The following table shows the maximum number of redirect URIs that you can add when you register your app. 
+The following table shows the maximum number of redirect URIs that you can add when you register your app.
 
 | Accounts being signed in | Maximum number of redirect URIs | Description |
 |--------------------------|---------------------------------|-------------|
@@ -29,6 +33,12 @@ The following table shows the maximum number of redirect URIs that you can add w
 ## Maximum URI length
 
 You can use a maximum of 256 characters for each redirect URI that you add to an app registration.
+
+## Supported schemes
+The Azure AD application model today supports both HTTP and HTTPS schemes for apps that sign in Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant. That is `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*. For the apps that sign in Personal Microsoft accounts and work and school accounts (that is `signInAudience` set to *AzureADandPersonalMicrosoftAccount*) only HTTPS scheme is allowed.
+
+> [!NOTE]
+> The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience doesn't allow developers to add URIs with HTTP scheme on the UI. Adding HTTP URIs for apps that sign in work or school accounts is supported only through the app manifest editor. Going forward, new apps won't be able to use HTTP schemes in the redirect URI. However, older apps that contain HTTP schemes in redirect URIs will continue to work. Developers must use HTTPS schemes in the redirect URIs.
 
 ## Restrictions using a wildcard in URIs
 

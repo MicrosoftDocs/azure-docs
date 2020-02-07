@@ -1,12 +1,8 @@
 ---
 title: Sample - Allowed resource types
-description: This sample policy definition ensures only approved resource types are deployed.
-author: DCtheGeek
-manager: carmonm
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition ensures only approved resource types defined in a parameter are deployed.
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Allowed resource types
 

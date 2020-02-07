@@ -2,13 +2,9 @@
 title: Azure Automation State Configuration Continuous Deployment with Chocolatey
 description: DevOps continuous deployment using Azure Automation State Configuration, DSC, and Chocolatey package manager.  Example with full JSON Resource Manager template and PowerShell source.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Usage Example: Continuous deployment to Virtual Machines using Automation State Configuration and Chocolatey
 
@@ -40,7 +36,7 @@ intro. In a nutshell, Chocolatey allows you to install packages from a central r
 packages into a Windows system using the command line. You can create and manage your own
 repository, and Chocolatey can install packages from any number of repositories that you designate.
 
-Desired State Configuration (DSC) ([overview](/powershell/dsc/overview)) is a PowerShell tool that
+Desired State Configuration (DSC) ([overview](/powershell/scripting/dsc/overview/overview)) is a PowerShell tool that
 allows you to declare the configuration that you want for a machine. For example, you can say, "I
 want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my
 website installed." The DSC Local Configuration Manager (LCM) implements that configuration. A DSC
@@ -65,7 +61,7 @@ they can be used by your configurations.
 
 Resource Manager templates provide a declarative way of generating your infrastructure - things
 like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on. Here's
-an [article](../azure-resource-manager/resource-manager-deployment-model.md) that compares the
+an [article](../azure-resource-manager/management/deployment-models.md) that compares the
 Resource Manager deployment model (declarative) with the Azure Service Management (ASM or classic)
 deployment model (imperative), and discusses the core resource providers, compute, storage and
 network.

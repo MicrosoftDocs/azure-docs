@@ -1,35 +1,25 @@
----
-title: Azure Sentinel Quickstart - Get started with Azure Sentinel Preview| Microsoft Docs
+﻿---
+title: 'Quickstart: Get started with Azure Sentinel'
 description: Azure Sentinel Quickstart - Get started with Azure Sentinel
 services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
-
-ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 3/20/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
+ms.custom: fasttrack-edit
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
-
 ---
 
-# Quickstart: Get started with Azure Sentinel Preview
-
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Quickstart: Get started with Azure Sentinel
 
 
-In this quickstart you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you dashboards that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in dashboards or create a new dashboard easily, from scratch or based on an existing dashboard. 
+
+
+In this quickstart, you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in workbooks or create a new workbook easily, from scratch or based on an existing workbook. 
 
 ## Get visualization
 
@@ -58,47 +48,47 @@ The main body of the overview page gives insight at a glance into the security s
 
    ![Azure Sentinel map](./media/qs-get-visibility/anomolies.png)
 
-## Use built-in dashboards<a name="dashboards"></a>
+## Use built-in workbooks<a name="dashboards"></a>
 
-Built-in dashboards provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in dashboards include Azure ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third party including firewall traffic logs, Office 365, and insecure protocols based on Windows events.
+Built-in workbooks provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in workbooks include Azure AD, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/app/usage-workbooks.md).
 
-1. Under **Settings**, select **Dashboards**. Under **Installed**, you can see all your installed dashboards. Under **All** you can see the whole gallery of built-in dashboards that are available for installation. 
-2. Search for a specific dashboard to see the whole list and description of what each offers. 
-3. Assuming you use Azure AD, to get up and running with Azure Sentinel, we recommend that you install at least the following dashboards:
+1. Under **Settings**, select **Workbooks**. Under **Installed**, you can see all your installed workbook. Under **All**, you can see the whole gallery of built-in workbooks that are available for installation. 
+2. Search for a specific workbook to see the whole list and description of what each offers. 
+3. Assuming you use Azure AD, to get up and running with Azure Sentinel, we recommend that you install at least the following workbooks:
    - **Azure AD**: Use either or both of the following:
-       - **Azure AD sign-ins** analyzes sign-ins over time to see if there are anomalies. This dashboard provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
+       - **Azure AD sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
        - **Azure AD audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
 
-   - Add a dashboard for your firewall. For example, add the Palo Alto dashboard. The dashboard analyzes your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Dashboards provides you with information about trends in your traffic and lets you drill down into and filter results. 
+   - Add a workbook for your firewall. For example, add the Palo Alto workbook. The workbook analyzes your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
 
       ![Pal Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-You can customize the dashboards either by editing the main query ![button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can select the ellipsis (...) and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the dashboard.
+You can customize the workbooks either by editing the main query ![button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can select the ellipsis (...) and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the workbook.
 
 For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### Add a new tile
 
-If you want to add a new tile, you can add it to an existing dashboard, either one that you create or an Azure Sentinel built-in dashboard. 
+If you want to add a new tile, you can add it to an existing workbook, either one that you create or an Azure Sentinel built-in workbook. 
 1. In Log Analytics, create a tile using the instructions found in [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. After the tile is created, under **Pin**, select the dashboard in which you want the tile to appear.
+2. After the tile is created, under **Pin**, select the workbook in which you want the tile to appear.
 
-## Create new dashboards
-You can create a new dashboard from scratch or use a built-in dashboard as the basis for your new dashboard.
+## Create new workbooks
+You can create a new workbook from scratch or use a built-in workbook as the basis for your new workbook.
 
-1. To create a new dashboard from scratch, select **Dashboards** and then **+New dashboard**.
-2. Select the subscription the dashboard is created in and give it a descriptive name. Each dashboard is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access. 
-3. To enable it to show up in your dashboards to pin visualizations to, you have to share it. Click **Share** and then **Manage users**. 
+1. To create a new workbook from scratch, select **Workbooks** and then **+New workbook**.
+2. Select the subscription the workbook is created in and give it a descriptive name. Each workbook is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access. 
+3. To enable it to show up in your workbooks to pin visualizations to, you have to share it. Click **Share** and then **Manage users**. 
  
-1. Use the **Check access** and **Role assignments** as you would for any other Azure resource. For more information, see [Share Azure dashboards by using RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Use the **Check access** and **Role assignments** as you would for any other Azure resource. For more information, see [Share Azure workbooks by using RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
-## New dashboard examples
+## New workbook examples
 
 The following sample query enables you to compare trends of traffic across weeks. You can easily switch which device vendor and data source you run the query on. This example uses SecurityEvent from Windows, you can switch it to run on AzureActivity or CommonSecurityLog on any other firewall.
 
-     |where DeviceVendor = = "Palo Alto Networks":
+     |where DeviceVendor == "Palo Alto Networks":
       // week over week query
       SecurityEvent
       | where TimeGenerated > ago(14d)
@@ -116,7 +106,7 @@ You might want to create a query that incorporates data from multiples sources. 
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-You can create different dashboards based on role of person looking at the data and what they're looking for. For example, you can create a dashboard for your network admin that includes the firewall data. You can also create dashboards based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Azure AD sign-ins every hour to search for anomalies. 
+You can create different workbooks based on role of person looking at the data and what they're looking for. For example, you can create a workbook for your network admin that includes the firewall data. You can also create workbooks based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Azure AD sign-ins every hour to search for anomalies. 
 
 ## Create new detections
 
@@ -124,18 +114,14 @@ Generate detections on the [data sources that you connected to Azure Sentinel](c
 
 When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
 
-1. [In the GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) go to the **Detections** folder and select the relevant folders.
-   ![relevant folders](./media/qs-get-visibility/detection-folders.png)
- 
-3.	Go to the **Analytics** tab and select **add**.
-   ![create rule in Log Analytics](./media/qs-get-visibility/query-params.png)
+To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
 
-3.	Copy all parameters to the rule and click **Create**.
-   ![create alert rule](./media/qs-get-visibility/create-alert-rule.png)
+   ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
+For more information about getting out-of-the-box detections, see [Tutorial: Get built-in-analytics](tutorial-detect-threats-built-in.md).
  
 ## Next steps
-In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats.md).
+In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
-> [Detect threats](tutorial-detect-threats.md) to automate your responses to threats.
+> [Create custom threat detection rules](tutorial-detect-threats-custom.md) to automate your responses to threats.
 

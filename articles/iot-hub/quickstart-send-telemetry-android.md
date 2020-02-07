@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install).
+* Android studio from https://developer.android.com/studio/. For more information on Android Studio installation, see [android-installation](https://developer.android.com/studio/install).
 
 * Android SDK 27 is used by the sample in this article.
 
@@ -49,38 +49,38 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. Run the following command in Azure Cloud Shell to create the device identity.
 
-   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyAndroidDevice**: MyAndroidDevice is the name given for the registered device. Use MyAndroidDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyAndroidDevice**: This is the name of the device you're registering. It's recommended to use **MyAndroidDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
-2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+2. Run the following command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in this quickstart to send telemetry.
+    You'll use this value later in this quickstart to send telemetry.
 
-## Send telemetry
+## Send simulated telemetry
 
 1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with your device connection string you noted earlier.
+2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with the device connection string you made a note of earlier.
 
     ```
-    DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}
+    DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
 3. In Android Studio, click **File** > **Sync Project with Gradle Files**. Verify the build completes.
@@ -104,10 +104,10 @@ In this section, you will use the Azure Cloud Shell with the [IoT extension](htt
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 
-   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     The following screenshot shows the output as the IoT hub receives telemetry sent by the Android device:
@@ -119,7 +119,7 @@ In this section, you will use the Azure Cloud Shell with the [IoT extension](htt
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using an Android application, and read the telemetry from the hub using the Azure Cloud Shell.
+In this quickstart, you set up an IoT hub, registered a device, sent simulated telemetry to the hub using an Android application, and read the telemetry from the hub using the Azure Cloud Shell.
 
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 

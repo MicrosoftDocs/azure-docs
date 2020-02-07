@@ -1,21 +1,9 @@
 ---
-title: Azure Service Fabric DNS service | Microsoft Docs
+title: Azure Service Fabric DNS service 
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
 
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 7/20/2018
-ms.author: atsenthi
-
 ---
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
@@ -69,16 +57,16 @@ After you have a template, you can enable the DNS service with the following ste
 
    - To enable the DNS service with default settings, add it to the `addonFeatures` section inside the `properties` section as shown in the following example:
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
@@ -107,8 +95,13 @@ After you have a template, you can enable the DNS service with the following ste
               ]
             }
        ```
-1. Once you have updated the cluster template with your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
+3. Once you have updated the cluster template with your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
 
+> [!NOTE]
+> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+
+> [!NOTE]
+> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
 
 ## Setting the DNS name for your service
 You can set a DNS name for your services either declaratively for default services in the ApplicationManifest.xml file or through PowerShell commands.

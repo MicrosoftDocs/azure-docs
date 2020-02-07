@@ -1,12 +1,10 @@
 ---
 title: What is Azure Security Center?| Microsoft Docs
-description: Learn about Azure Security Center, its key capabilities, and how it works.
+description: This page describes Security Center's key benefits - discovering your security state, and improving it with coverage of cloud and on-prem resources.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/06/2019
-ms.author: v-mohabe
+ms.date: 06/06/2019
+ms.author: memildin
 
 ---
 # What is Azure Security Center?
@@ -33,14 +31,15 @@ Azure Security Center addresses the three most urgent security challenges:
 
 -   **Security skills are in short supply** - The number of security alerts and alerting systems far outnumbers the number of administrators with the necessary background and experience to make sure your environments are protected. Staying up-to-date with the latest attacks is a constant challenge, making it impossible to stay in place while the world of security is an ever-changing front.
 
-To help you protect yourself against these challenges, Security Center provides
-you with the tools to:
+To help you protect yourself against these challenges, Security Center provides you with the tools to:
 
 -   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, and whether they are secure.
 
 -   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and threat detection alerts.
 
 -   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with autoprovisioning and protection with Azure services.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Architecture
 

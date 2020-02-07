@@ -4,7 +4,7 @@ description: Provides an overview of Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -60,7 +60,7 @@ The following are the equivalent entities, as described by different concepts. U
 | Concept                                | Top Level Organization | Lower Level Organization                                            | Data Container |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
-| ADLS Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
+| Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
 
 ## Supported open source platforms
 
@@ -77,10 +77,15 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
+## Supported Azure services
+
+Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
+
 ## Next steps
 
 The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
 
--   [Hierarchical namespace](data-lake-storage-namespace.md)
--   [Create a storage account](data-lake-storage-quickstart-create-account.md)
--   [Use a Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)
+- [Hierarchical namespace](data-lake-storage-namespace.md)
+- [Create a storage account](data-lake-storage-quickstart-create-account.md)
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md);

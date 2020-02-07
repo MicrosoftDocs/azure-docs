@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 12/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
 
 > [!NOTE]
->  If you don't tell the server what resource you plan to call, then the server will not trigger the conditional access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
+>  If you don't tell the server what resource you plan to call, then the server will not trigger the Conditional Access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
 >
 
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
@@ -59,7 +58,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
 | client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Azure Active Directory** in the services sidebar, click **App registrations**, and choose the application. |
 | response_type |required |Must include `code` for the authorization code flow. |
-| redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
+| redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
 | response_mode |optional |Specifies the method that should be used to send the resulting token back to your app. Can be `query`, `fragment`, or `form_post`. `query` provides the code as a query string parameter on your redirect URI. If you're requesting an ID token using the implicit flow, you cannot use `query` as specified in the [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). If you're requesting just the code, you can use `query`, `fragment`, or `form_post`. `form_post` executes a POST containing the code to your redirect URI. The default is `query` for a code flow.  |
 | state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. |
@@ -261,7 +260,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.microsoftonline.com or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
 | error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
-| resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
+| resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be https://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
 
 #### Bearer scheme error codes
 The RFC 6750 specification defines the following errors for resources that use the WWW-Authenticate header and Bearer scheme in the response.

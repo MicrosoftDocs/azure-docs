@@ -4,8 +4,9 @@ description: Overview of how to track customer usage for Azure Marketplace solut
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 9/23/2019
 ms.author: pabutler
 ---
 
@@ -29,7 +30,7 @@ Customer usage attribution is required on [Azure Application](https://docs.micro
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Use Resource Manager templates
-Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution should be straight forward.
+Many partner solutions are deployed on a customer's subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution should be straight forward.
 
 For more information on creating and publishing Solution Templates, see
 
@@ -122,7 +123,7 @@ For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go
 
 ## Use Terraform
 
-The support for Terraform is available through Azure Provider’s 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
+The support for Terraform is available through Azure Provider's 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
 
 Azure provider for Terraform added a new optional field called [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) which is where you specify the tracking GUID that you use for your solution. The value of this field can also be sourced from the *ARM_PARTNER_ID* Environment Variable.
 
@@ -132,7 +133,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 Partners who want to get their deployment via Terraform tracked by customer usage attribution need to do the following:
 
@@ -161,43 +162,28 @@ You can also track GUIDs at a more granular level like the SKU, where SKUs are v
 
 The GUIDs must be registered to enable customer usage attribution.
 
-All registrations for template GUIDs are done via the Azure Marketplace Cloud Partner Portal (CPP).
+All registrations for template GUIDs are done within Partner Center.
 
-After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked.
+After you add the GUID to your template or in the user agent, and register the GUID in Partner Center, all deployments are tracked.
 
-1. Apply to [Azure Marketplace](https://aka.ms/listonazuremarketplace) and get access to the CPP.
+1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
 
-   * Partners are required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
+   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.
    * Partners can register a GUID for the non-Marketplace solution templates and offers.
 
-1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. In the upper-right corner, select your account icon, and then select **Publisher profile**.
+1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
 
-   ![Select Publisher profile](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. On the **Account settings page**, select **Add Tracking GUID.**
 
-1. On the **Profile page**, select **Add Tracking GUID.**
-
-   ![Select Add Tracking GUID](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. In the **Tracking GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Custom Description** box, enter your offer name or description.
-
-   ![Profile page](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Enter the GUID and offer description](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
 
 1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
 
-   ![Select Add Tracking GUID again](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Enter another GUID and offer description](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Select **Save**.
 
-   ![Select Save](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked.
 
 ## Verify the GUID deployment
 
@@ -310,7 +296,7 @@ sign-in credentials, an online request form will open:
 
 View step-by-step instructions with screenshots at [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
-### What’s next
+### What's next
 
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
 

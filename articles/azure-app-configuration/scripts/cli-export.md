@@ -1,9 +1,10 @@
 ---
-title: Azure CLI Script Sample - Export from an Azure App Configuration Store | Microsoft Docs
+title: Azure CLI Script Sample - Export from an Azure App Configuration Store
+titleSuffix: Azure App Configuration
 description: Provides information and sample scripts for exporting from an Azure App Configuration store
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 
@@ -13,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: azure-app-configuration
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
 ---
 
@@ -44,14 +45,14 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## Script explanation
 
-This script uses the following commands to export an app configuration store. Each command in the table links to command specific documentation.
+This script uses the following commands to export from an App Configuration store. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exports from an app configuration store resource. |
+| [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | Exports from an App Configuration store resource. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional App Configuration CLI script samples can be found in the [Azure App Configuration documentation](../cli-samples.md).
+Additional App Configuration CLI script samples can be found in the [Azure App Configuration CLI samples](../cli-samples.md).

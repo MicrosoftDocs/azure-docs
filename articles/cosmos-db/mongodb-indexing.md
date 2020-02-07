@@ -16,7 +16,108 @@ ms.author: sivethe
 
 Azure Cosmos DB's API for MongoDB leverages automatic index management capabilities of Cosmos DB. As a result, users have access to the default indexing policies of Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into a collection. For most scenarios, we recommend using the default indexing policy set on the account.
 
-## Dropping the default indexes
+## Indexing for version 3.6
+
+Accounts serving wire protocol version 3.6 provide a different default indexing policy than the policy provided by earlier versions. By default, only the _id field is indexed. To index additional fields, the user must apply the MongoDB index management commands. To apply a sort to a query, currently an index must be created on the fields used in the sort operation.
+
+### Dropping the default indexes (3.6)
+
+For accounts serving wire protocol version 3.6, the only default index is _id, which cannot be dropped.
+
+### Creating a compound index (3.6)
+
+True compound indexes are supported for accounts using the 3.6 wire protocol. The following command will create a compound index on the fields 'a' and 'b':
+`db.coll.createIndex({a:1,b:1})`
+
+Compound indexes can be used to sort efficiently on multiple fields at once, such as:
+`db.coll.find().sort({a:1,b:1})`
+
+### Track the index progress
+
+The 3.6 version of Azure Cosmos DB's API for MongoDB accounts support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about the in-progress operations on a database instance. The `currentOp` command is used to track all the in-progress operations in native MongoDB whereas in Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
+
+Here are some examples that show how to use the `currentOp` command to track the index progress:
+
+• Get the index progress for a collection:
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+• Get the index progress for all the collections in a database:
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+• Get the index progress for all the databases and collections in an Azure Cosmos account:
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+The index progress details contain percentage of progress for the current index operation. The following example shows the output document format for different stages of index progress:
+
+1. If the index operation on a ‘foo’ collection and ‘bar’ database that has 60 % indexing complete will have the following output document. `Inprog[0].progress.total` shows 100 as the target completion.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. For an index operation that has just started on a ‘foo’ collection and ‘bar’ database, the output document may show 0% progress until it reaches to a measurable level.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. When the in-progress index operation completes, the output document shows empty inprog operations.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
+
+## Indexing for version 3.2
+
+### Dropping the default indexes (3.2)
 
 The following command can be used to drop the default indexes for a collection ```coll```:
 
@@ -25,20 +126,25 @@ The following command can be used to drop the default indexes for a collection `
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-## Creating compound indexes
+### Creating a compound index (3.2)
 
 Compound indexes hold references to multiple fields of a document. Logically, they are equivalent to creating multiple individual indexes per field. To take advantage of the optimizations provided by Cosmos DB indexing techniques, we recommend creating multiple individual indexes instead of a single (non-unique) compound index.
 
+## Common Indexing Operations
+
+The following operations are common for both accounts serving wire protocol version 3.6 and accounts serving earlier wire protocol versions. 
+
 ## Creating unique indexes
 
-[Unique indexes](unique-keys.md) are useful for enforcing that no two or more documents contain the same value for the indexed field(s). 
->[!important] 
-> Currently, unique indexes can be created only when the collection is empty (contains no documents). 
+[Unique indexes](unique-keys.md) are useful for enforcing that no two or more documents contain the same value for the indexed field(s).
+
+>[!Important]
+> Currently, unique indexes can be created only when the collection is empty (contains no documents).
 
 The following command creates a unique index on the field "student_id":
 
-```JavaScript
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 
+```shell
+globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -52,7 +158,7 @@ For sharded collections, as per MongoDB behavior, creating a unique index requir
 
 The following commands create a sharded collection ```coll``` (shard key is ```university```) with a unique index on fields student_id and university:
 
-```JavaScript
+```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
         "_t" : "ShardCollectionResponse",
@@ -76,22 +182,23 @@ In the above example, if ```"university":1``` clause was omitted, an error with 
 ## TTL indexes
 
 To enable document expiration in a particular collection, a ["TTL index" (time-to-live index)](../cosmos-db/time-to-live.md) needs to be created. A TTL index is an index on the _ts field with an "expireAfterSeconds" value.
- 
+
 Example:
+
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
-The preceding command will cause the deletion of any documents in ```db.coll``` collection that have not been modified in the last 10 seconds. 
- 
+The preceding command will cause the deletion of any documents in ```db.coll``` collection that have not been modified in the last 10 seconds.
+
 > [!NOTE]
 > **_ts** is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
->
 
 ## Migrating collections with indexes
 
-Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the --noIndexRestore flag in the command line).
+Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the `--noIndexRestore` flag in the command line).
 
 ## Next steps
+
 * [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)

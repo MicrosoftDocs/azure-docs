@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
@@ -17,12 +17,17 @@ ms.author: diberry
 
 You can integrate your LUIS app with [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct misspelled words in utterances before LUIS predicts the score and entities of the utterance. 
 
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+
+
 ## Create first key for Bing Spell Check V7
+
 Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) is free. 
 
 ![Create free key](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-<a name"create-subscription-key"></a>
+<a name="create-subscription-key"></a>
+
 ## Create Endpoint key
 If your free key expired, create an endpoint key.
 
@@ -52,9 +57,10 @@ If your free key expired, create an endpoint key.
 
 10. Copy the first key. You only need one of the two keys. 
 
+<!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
-
+-->
 ## Adding the key to the endpoint URL
 The endpoint query needs the key passed in the query string parameters for each query you want to apply spelling correction. You may have a chatbot that calls LUIS or you may call the LUIS endpoint API directly. Regardless of how the endpoint is called, each and every call must include the required information for spelling corrections to work properly.
 
@@ -84,7 +90,13 @@ The endpoint URL has several values that need to be passed correctly. The Bing S
 ```
 
 ## Ignore spelling mistakes
-If you don't want to use the Bing Spell Check API v7 service, you can label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
+
+If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
+
+Two solutions are:
+
+* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
+* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
 
 ## Publishing page
 The [publishing](luis-how-to-publish-app.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance. 

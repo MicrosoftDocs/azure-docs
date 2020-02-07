@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/02/2019
 ms.author: mlearned
 ---
 
@@ -82,7 +82,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     e. Select **Add permissions** to save the updates.
 
-    f. Under **Grant consent**, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
+    f. Under **Grant consent**, select **Grant admin consent**. This button won't be available the current account being used is not listed as a tenant admin.
 
     When permissions are successfully granted, the following notification is displayed in the portal:
 
@@ -113,6 +113,13 @@ The second Azure AD application is used when you sign in with the Kubernetes CLI
     b. For **Supported account types**, select **Accounts in this organizational directory only**.
 
     c. Select **Web** for the Redirect URI type, and then enter any URI-formatted value such as *https://aksazureadclient*.
+
+    >[!NOTE]
+    >If you are creating a new RBAC-enabled cluster to support Azure Monitor for containers, add the following two additional redirect URLs to this list as **Web** application types. The first base URL value should be `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >If you're using this feature in Azure China, the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >For further information, see [How to setup the Live Data (preview) feature](../azure-monitor/insights/container-insights-livedata-setup.md) for Azure Monitor for containers, and the steps for configuring authentication under the [Configure AD integrated authentication](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) section.
 
     d. Select **Register** when you're finished.
 

@@ -22,8 +22,6 @@ ms.author: juliako
 >
 >
 
-For premium encoder questions, email mepd@microsoft.com.
-
 ## Overview
 Microsoft Azure Media Services is introducing the **Media Encoder Premium Workflow** media processor. This processor offers advance encoding capabilities for your premium on-demand workflows.
 
@@ -227,7 +225,9 @@ namespace MediaEncoderPremiumWorkflowSample
 }
 ```
 
-For premium encoder questions, email mepd@microsoft.com.
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

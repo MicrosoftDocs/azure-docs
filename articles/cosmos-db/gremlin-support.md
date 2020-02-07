@@ -22,7 +22,7 @@ The following table shows popular Gremlin drivers that you can use against Azure
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) | 3.2.0+ |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/jbmusso/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) | 3.1.0 |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-gremlin-console.md) | 3.2.0 + |
@@ -43,7 +43,7 @@ The following table lists the TinkerPop features that are implemented by Azure C
 
 ## Gremlin wire format: GraphSON
 
-Azure Cosmos DB uses the [GraphSON format](https://tinkerpop.apache.org/docs/3.3.2/reference/#graphson-reader-writer) when returning results from Gremlin operations. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON. 
+Azure Cosmos DB uses the [GraphSON format](https://tinkerpop.apache.org/docs/current/reference/#graphson) when returning results from Gremlin operations. Azure Cosmos DB currently supports "GraphSONv2" version. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON.
 
 For example, the following snippet shows a GraphSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
 

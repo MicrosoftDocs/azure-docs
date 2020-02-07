@@ -17,7 +17,6 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory for developers (v1.0) overview
@@ -29,7 +28,7 @@ Azure Active Directory (Azure AD) is a cloud identity service that allows develo
 
 | | |
 | --- | --- |
-|[Authentication basics](authentication-scenarios.md) | An introduction to authentication with Azure AD. |
+|[Authentication basics](v1-authentication-scenarios.md) | An introduction to authentication with Azure AD. |
 |[Types of applications](app-types.md) | An overview of the authentication scenarios that are supported by Azure AD. |
 | | |
 

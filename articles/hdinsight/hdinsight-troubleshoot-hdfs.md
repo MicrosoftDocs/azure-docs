@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/14/2019 
+ms.date: 09/30/2019 
 ms.custom: seodec18
 ---
 
 # Troubleshoot Apache Hadoop HDFS by using Azure HDInsight
 
-Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
+Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari. For a full list of commands, see the [HDFS Commands Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) and the [File System Shell Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>How do I access the local HDFS from inside a cluster?
 
 ### Issue
 
-Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Storage from inside the HDInsight cluster.   
+Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Storage from inside the HDInsight cluster.
 
 ### Resolution steps
 
@@ -67,6 +67,30 @@ Access the local HDFS from the command line and application code instead of by u
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
 
+## du
+
+The [-du](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) command displays sizes of files and directories contained in the given directory or the length of a file in case it's just a file.
+
+The `-s` option produces an aggregate summary of file lengths being displayed.  
+The `-h` option formats the file sizes.
+
+Example:
+
+```bash
+hdfs dfs -du -s -h hdfs://mycluster/
+hdfs dfs -du -s -h hdfs://mycluster/tmp
+```
+
+## rm
+
+The [-rm](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) command deletes files specified as arguments.
+
+Example:
+
+```bash
+hdfs dfs -rm hdfs://mycluster/tmp/testfile
+```
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
@@ -75,4 +99,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

@@ -1,10 +1,10 @@
 ---
 title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage various tasks on ML Services cluster in Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
@@ -18,22 +18,20 @@ In this article, you learn how to manage an existing ML Services cluster on Azur
 
 * An ML Services cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **ML Services** for **Cluster type**.
 
-
 * A Secure Shell (SSH) client: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 
 ## Enable multiple concurrent users
 
 You can enable multiple concurrent users for ML Services cluster on HDInsight by adding more users for the edge node on which the RStudio community version runs. When you create an HDInsight cluster, you must provide two users, an HTTP user and an SSH user:
 
-![Concurrent user 1](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+![HDI Azure portal login parameters](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Apache Ambari UI, Apache Hadoop YARN UI, as well as other UI components.
 - **Secure Shell (SSH) username**: an SSH user to access the cluster through secure shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use secure shell to access any of the nodes in a remote cluster.
 
 The R Studio Server Community version used in the ML Services cluster on HDInsight accepts only Linux username and password as a sign in mechanism. It does not support passing tokens. So, when you try to access R Studio for the first time on an ML Services cluster, you need to sign in twice.
 
-- First sign in using the HTTP user credentials through the HDInsight Gateway. 
+- First sign in using the HTTP user credentials through the HDInsight Gateway.
 
 - Then use the SSH user credentials to sign in to RStudio.
   
@@ -61,13 +59,13 @@ To add a user to the edge node, execute the commands:
 
 The following screenshot shows the outputs.
 
-![Concurrent user 3](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+![screenshot output concurrent users](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 When prompted for "Current Kerberos password:", just press **Enter** to ignore it. The `-m` option in `useradd` command indicates that the system will create a home folder for the user, which is required for RStudio Community version.
 
 ### Step 3: Use RStudio Community version with the user created
 
-Access RStudio from https://CLUSTERNAME.azurehdinsight.net/rstudio/. If you are logging in for the first time after creating the cluster, enter the cluster admin credentials followed by the SSH user credentials you created. If this is not your first login, only enter the credentials for the SSH user you created.
+Access RStudio from `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. If you are logging in for the first time after creating the cluster, enter the cluster admin credentials followed by the SSH user credentials you created. If this is not your first login, only enter the credentials for the SSH user you created.
 
 You can also sign in using the original credentials (by default, it is *sshuser*) concurrently from another browser window.
 
@@ -200,11 +198,9 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
    > [!NOTE]
    > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of ML Server that has been installed. If you want to install newer versions of packages, then there is some risk of incompatibility. However this kind of install is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
    > 2. Some R packages require additional Linux system libraries. For convenience, the HDInsight ML Services comes pre-installed with the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
-   >    For more information on developing Script Actions, see [Script Action development](../hdinsight-hadoop-script-actions-linux.md).  
-   >
-   >
+   >    For more information on developing Script Actions, see [Script Action development](../hdinsight-hadoop-script-actions-linux.md).
 
-   ![Adding a script action](./media/r-server-hdinsight-manage/submit-script-action.png)
+   ![Azure portal submit script action](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Select **Create** to run the script. Once the script completes, the R packages are available on all worker nodes.
 

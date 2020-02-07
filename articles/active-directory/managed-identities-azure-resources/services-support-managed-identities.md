@@ -1,10 +1,10 @@
 ---
-title: Azure Services that support managed identities for Azure resources
+title: Azure Services that support managed identities - Azure AD
 description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/19/2019
+ms.date: 09/24/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -102,7 +102,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
-- [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity)
 
 ### Azure Data Factory V2
@@ -153,6 +153,17 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+
+### Azure Service Fabric
+[Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| System assigned | Available | Not Available | Not Available | not Available |
+| User assigned | Available | Not Available | Not Available |Not Available |
+
+Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+- [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## Azure services that support Azure AD authentication
 
@@ -219,14 +230,31 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
+
+
+
+
+
+
+
+
 ### Azure Storage blobs and queues
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
 | Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Available |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Available |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Available |
+
+
+
+
+
+
+
+
+
 
 ### Azure Analysis Services
 

@@ -1,8 +1,9 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB list and get operations for Gremlin API
+title: PowerShell script to list and get operations for Azure Cosmos DB Gremlin API
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for Gremlin API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown

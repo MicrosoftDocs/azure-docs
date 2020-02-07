@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Perform a news search using the Bing News Search SDK for Java"
+title: "Quickstart: Perform a news search using the SDK for Java - Bing News Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Java, and process the response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -52,7 +52,7 @@ import java.io.IOException;
 
 ## Create a search client and store credentials
 
-1. Create a method called `getClient()` that returns a new `NewsSearchAPIImpl` search client. Add your endpoint as the first parameter for the new`NewsSearchAPIImpl` object, and a new `ServiceClientCredentials` object to store your credentials.
+1. Create a method called `getClient()` that returns a new `NewsSearchAPIImpl` search client. Add your endpoint as the first parameter for the new`NewsSearchAPIImpl` object, and a new `ServiceClientCredentials` object to store your credentials. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

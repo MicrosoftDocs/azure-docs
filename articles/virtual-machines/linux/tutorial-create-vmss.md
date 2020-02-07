@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a virtual machine scale set for Linux in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
+title: "Tutorial: Create a Linux virtual machine scale set" 
+description: Learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -33,7 +33,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 

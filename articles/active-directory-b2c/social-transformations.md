@@ -1,6 +1,7 @@
 ---
-title: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Social account claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: Social account claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -47,7 +48,7 @@ Use this claims transformation to generate a `alternativeSecurityId` ClaimType. 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="socialIdpUserId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
     <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>

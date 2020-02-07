@@ -1,5 +1,5 @@
 ---
-title: Azure IoT device management with Cloud Explorer for Visual Studio | Microsoft Docs
+title: Azure IoT device management w/ Visual Studio Cloud Explorer
 description: Use the Cloud Explorer for Visual Studio for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 author: shizn
 ms.service: iot-hub

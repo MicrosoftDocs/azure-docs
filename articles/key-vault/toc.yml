@@ -7,17 +7,23 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set and retrieve a secret - CLI
+  - name: CLI
     href: quick-create-cli.md
-  - name: Set and retrieve a secret - PowerShell
+  - name: PowerShell
     href: quick-create-powershell.md
-  - name: Set and retrieve a secret - Portal
+  - name: Portal
     href: quick-create-portal.md
-  - name: Set and retrieve a secret - .NET
-    href: quick-create-net.md
-  - name: Set and retrieve a secret - Node.js
+  - name: Python
+    href: quick-create-python.md
+  - name: Java
+    href: quick-create-java.md
+  - name: Node.js
     href: quick-create-node.md
-  - name: Set and retrieve a secret - Resource Manager Template
+  - name: .NET (SDK v4)
+    href: quick-create-net.md
+  - name: .NET (SDK v3)
+    href: quick-create-net-v3.md
+  - name: Azure Resource Manager template
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
 - name: Tutorials
@@ -28,28 +34,30 @@
       href: tutorial-net-create-vault-azure-web-app.md
   - name: Azure Virtual Machine
     items:
-    - name: Linux Virtual Machine 
-      items: 
+    - name: Linux Virtual Machine
+      items:
         - name: .NET
           href: tutorial-net-linux-virtual-machine.md
         - name: Python
           href: tutorial-python-linux-virtual-machine.md
-    - name: Windows Virtual Machine 
-      items: 
+    - name: Windows Virtual Machine
+      items:
         - name: .NET
           href: tutorial-net-windows-virtual-machine.md
         - name: Python
           href: tutorial-python-windows-virtual-machine.md
-  - name: Storage Account Keys 
+  - name: Storage Account Keys
     items:
-      - name: Managed storage account keys using Azure CLI
+      - name: Manage storage account keys with Azure CLI
         href: key-vault-ovw-storage-keys.md
-      - name: Managed storage account keys using PowerShell
+      - name: Manage storage account keys with PowerShell
         href: key-vault-overview-storage-keys-powershell.md
+      - name: Fetch shared access signature tokens in code
+        href: storage-keys-sas-tokens-code.md
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
-    href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+    href: ../azure-resource-manager/templates/key-vault-parameter.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
 - name: Samples
@@ -61,17 +69,19 @@
   - name: Basic concepts
     href: basic-concepts.md
   - name: Security
-    items: 
+    items:
       - name: Security overview
         href: overview-security.md
-      - name: Built-in security controls
-        href: key-vault-security-controls.md
       - name: Security worlds
         href: key-vault-ovw-security-worlds.md
       - name: Secure your key vault
         href: key-vault-secure-your-key-vault.md
+      - name: Built-in security controls
+        href: key-vault-security-controls.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
+  - name: Monitoring Key Vault events
+    href: event-grid-overview.md  
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
@@ -92,8 +102,24 @@
       href: create-certificate-scenarios.md
 - name: How-to guides
   items:
-  - name: Use an App Service managed identity
-    href: managed-identity.md
+  - name: Security
+    items:
+    - name: Recommendations
+      href: security-recommendations.md
+  - name: Authenticate
+    items:
+    - name: Use an App Service managed identity
+      href: managed-identity.md
+    - name: Use an access control policy
+      href: key-vault-group-permissions-for-apps.md
+  - name: Route key vault notifications with Event Grid
+    href: event-grid-tutorial.md      
+  - name: Receive notifications via Event Grid and Logic Apps
+    href: event-grid-logicapps.md    
+  - name: Integrate with Azure Policy
+    href: azure-policy.md
+  - name: Integrate with Azure Private Link Service (Preview)
+    href: private-link-service.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls
@@ -108,8 +134,6 @@
     href: key-vault-soft-delete-cli.md
   - name: Use Key Vault soft-delete with Azure PowerShell
     href: key-vault-soft-delete-powershell.md
-  - name: Use groups to grant access
-    href: key-vault-group-permissions-for-apps.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
   - name: Java development
@@ -118,6 +142,8 @@
       href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
+  - name: Key Vault REST error codes
+    href: rest-error-codes.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
@@ -153,7 +179,7 @@
     - name: Service authentication using .NET
       href: service-to-service-authentication.md
     - name: Use the Key Vault Connected Service
-      href: vs-key-vault-add-connected-service.md      
+      href: vs-key-vault-add-connected-service.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -162,7 +188,7 @@
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: Customer Data 
+  - name: Customer Data
     href: key-vault-customer-data.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
@@ -171,7 +197,7 @@
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault/
   - name: Service limits
-    href: key-vault-service-limits.md  
+    href: key-vault-service-limits.md
   - name: Service status
     href: https://azure.microsoft.com/status/
   - name: Service updates

@@ -1,18 +1,13 @@
 ---
 title: Understand the health of your Azure virtual machines | Microsoft Docs
 description: This article describes how to understand the health of virtual machines and underlying operating systems with Azure Monitor for VMs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 11/14/2019
+
 ---
 
 # Understand the health of your Azure virtual machines
@@ -26,6 +21,10 @@ Viewing the overall health state of an Azure VM and the underlying OS can be obs
 This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VMs health feature.
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
+
+>[!NOTE]
+>We recently [announced changes](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) we are making to the Health feature based on the feedback we have received from our public preview customers. Given the number of changes we will be making, we are going to stop offering the Health feature for new customers. Existing customers can continue to use the health feature. For more details, please refer to our [General Availability FAQ](vminsights-ga-release-faq.md). 
 
 ## Monitoring configuration details
 
@@ -112,7 +111,7 @@ An Unknown health state can be caused by the following issues:
 - The agent was reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - The VM was deleted.
 - The workspace associated with Azure Monitor for VMs was deleted. You can recover the workspace if you have Premier support benefits. Go to [Premier](https://premier.microsoft.com/) and open a support request.
-- The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, reinstall these solutions by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Or, use the Configure Workspace option found in the Get Started tab.
+- The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, reinstall the ServiceMap solution by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). To reinstall the InfastructureInsights solution, email vminsights@microsoft.com. 
 - The VM was shut down.
 - The Azure VM service is unavailable, or maintenance is being performed.
 - The workspace [daily data or retention limit](../platform/manage-cost-storage.md) was met.
@@ -340,7 +339,7 @@ To identify the *monitorId* for specific health criteria, the following example 
 2. Enter the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property:
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     The following example shows the output of the *armclient GET* command. Take note of the value of *MonitorId*. This value is required for the next step, where we must specify the ID of the health criteria and modify its property to create an alert.
@@ -435,5 +434,6 @@ Azure Monitor for VMs health supports SMS and email notifications when alerts ar
 
 ## Next steps
 
-- To identify limitations and overall VM performance, see [View Azure VM performance](vminsights-performance.md).
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
+
 - To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

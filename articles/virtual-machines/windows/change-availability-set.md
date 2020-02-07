@@ -1,29 +1,20 @@
 ---
-title: Change a VMs availability set | Microsoft Docs
-description: Learn how to change the availability set for your virtual machines using Azure PowerShell and the Resource Manager deployment model.
-keywords: ''
-services: virtual-machines-windows
-documentationcenter: ''
+title: Change a VMs availability set 
+description: Learn how to change the availability set for your virtual machine using Azure PowerShell.
+ms.service: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 01/31/2020
 ms.author: cynthn
-
+#pmcontact: 
 ---
-# Change the availability set for a Windows VM
+# Change the availability set for a VM
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. To change the availability set, you need to delete and then recreate the virtual machine. 
+
+This article applies to both Linux and Windows VMs.
 
 This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://shell.azure.com/powershell) and the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Change the availability set 
 
@@ -58,12 +49,13 @@ The following script provides an example of gathering the required information, 
 # Remove the original VM
     Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
-# Create the basic configuration for the replacement VM
+# Create the basic configuration for the replacement VM. 
     $newVM = New-AzVMConfig `
 	   -VMName $originalVM.Name `
 	   -VMSize $originalVM.HardwareProfile.VmSize `
 	   -AvailabilitySetId $availSet.Id
-  
+ 
+# For a Linux VM, change the last parameter from -Windows to -Linux 
     Set-AzVMOSDisk `
 	   -VM $newVM -CreateOption Attach `
 	   -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `

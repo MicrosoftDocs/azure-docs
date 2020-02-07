@@ -11,11 +11,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/07/2020
 ms.author: juliako
 ---
 
 # Azure Media Services Video Indexer release notes
+
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -23,6 +25,98 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## January 2020
+ 
+### Custom language support for additional languages
+
+Video Indexer now supports custom language models for `ar-SY` , `en-UK`, and `en-AU` (API only).
+ 
+### Delete account timeframe action update
+
+Delete account action now deletes the account within 90 days instead of 48 hours.
+ 
+### New Video Indexer GitHub repository
+
+A new Video Indexer GitHub with different projects, getting started guides and code samples is now available:
+https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### Swagger update
+
+Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+
+## December 2019
+
+### Update transcript with the new API
+
+Update a specific section in the transcript using the [Update-Video-Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) API.
+
+### Fix account configuration from the Video Indexer portal
+
+You can now update Media Services connection configuration in order to self-help with issues like: 
+
+* incorrect Azure Media Services resource
+* password changes
+* Media Services resources were moved between subscriptions  
+
+To fix the account configuration, in the Video Indexer portal navigate to Settings > Account tab (as owner).
+
+### Configure the custom vision account
+
+Configure the custom vision account on paid accounts using the Video Indexer portal (previously, this was only supported by API). To do that, sign in to the Video Indexer portal, choose Model Customization > Animated characters > Configure. 
+
+### Scenes, shots and keyframes – now in one insight pane
+
+Scenes, shots, and keyframes are now merged into one insight for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of. 
+
+### Notification about a long video name
+
+When a video name is longer than 80 characters, Video Indexer shows a descriptive error on upload.
+
+### Streaming endpoint is disabled notification
+
+When streaming endpoint is disabled, Video Indexer will show a descriptive error on the player page.
+
+### Error handling improvement
+
+Status code 409 will now be returned from [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) and [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) APIs in case a video is actively indexed, to prevent overriding the current re-index changes by accident.
+
+## November 2019
+ 
+* Korean custom language models support
+
+    Video indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal. 
+* New languages supported for speech-to-text (STT)
+
+    Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    
+    For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
+    
+## October 2019
+ 
+* Search for animated characters in the gallery
+
+    When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
+
+## September 2019
+ 
+Multiple advancements announced at IBC 2019:
+ 
+* Animated character recognition  (public preview)
+
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
+* Multi-language identification (public preview)
+
+    Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* Named entity extraction for People and Location
+
+    Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
+* Editorial shot type classification
+
+    Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc. For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Topic inferencing enhancement - now covering level 2
+    
+    The topic inferencing model now supports deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## August 2019
  

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus suspend messaging entities | Microsoft Docs
-description: Suspend and reactivate Azure Service Bus message entities.
+title: Azure Service Bus - suspend messaging entities
+description: This article explains how to temporarily suspend and reactivate Azure Service Bus message entities (queues, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

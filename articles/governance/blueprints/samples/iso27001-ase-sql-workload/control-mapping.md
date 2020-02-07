@@ -1,12 +1,8 @@
 ---
-title: Sample - ISO 27001 ASE/SQL workload blueprint - Control mapping
+title: ISO 27001 ASE/SQL workload blueprint sample controls
 description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and RBAC.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
 
@@ -300,7 +296,7 @@ deploy this sample:
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Overview](./index.md)
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

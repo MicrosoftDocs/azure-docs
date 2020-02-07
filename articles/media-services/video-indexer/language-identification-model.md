@@ -1,6 +1,6 @@
 ---
-title: Automatically identify the spoken language with Video Indexer - Azure  
-titlesuffix: Azure Media Services
+title: Use Video Indexer to auto identify spoken languages  - Azure
+titleSuffix: Azure Media Services
 description: This article describes how the Video Indexer language identification model is used to automatically identifying the spoken language in a video.
 services: media-services
 author: juliako
@@ -49,7 +49,7 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 * If the audio contains languages other than the supported list above, the result is unexpected.
 * If Video Indexer cannot identify the language with a high enough confidence (`>0.6`), the fallback language is English.
 * There is no current support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 
-* Low-quality audio caustic may impact the model results.
+* Low-quality audio may impact the model results.
 * The model requires at least one minute of speech in the audio.
 * The model is designed to recognize a spontaneous conversational speech (not voice commands, singing, etc.).
 

@@ -26,16 +26,16 @@ When resources deployed in virtual networks need to resolve domain names to inte
 The type of name resolution you use depends on how your resources need to communicate with each other. The following table illustrates scenarios and corresponding name resolution solutions:
 
 > [!NOTE]
-> Depending on your scenario, you may want to use the Azure DNS Private Zones feature, which is currently in Public Preview. For more information, see [Using Azure DNS for private domains](../dns/private-dns-overview.md).
+> Depending on your scenario, you might want to use Azure DNS private zones. For more information, see [Using Azure DNS for private domains](../dns/private-dns-overview.md).
 >
 
 | **Scenario** | **Solution** | **Suffix** |
 | --- | --- | --- |
-| Name resolution between VMs located in the same virtual network, or Azure Cloud Services role instances in the same cloud service. | [Azure DNS Private Zones](../dns/private-dns-overview.md) or [Azure-provided name resolution](#azure-provided-name-resolution) |Hostname or FQDN |
-| Name resolution between VMs in different virtual networks or role instances in different cloud services. |[Azure DNS Private Zones](../dns/private-dns-overview.md) or, Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution between VMs located in the same virtual network, or Azure Cloud Services role instances in the same cloud service. | [Azure DNS private zones](../dns/private-dns-overview.md) or [Azure-provided name resolution](#azure-provided-name-resolution) |Hostname or FQDN |
+| Name resolution between VMs in different virtual networks or role instances in different cloud services. |[Azure DNS private zones](../dns/private-dns-overview.md) or, Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
 | Name resolution from an Azure App Service (Web App, Function, or Bot) using virtual network integration to role instances or VMs in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
 | Name resolution from App Service Web Apps to VMs in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
-| Name resolution from App Service Web Apps in one virtual network to VMs in a different virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See Name resolution using your own DNS server. |FQDN only |
+| Name resolution from App Service Web Apps in one virtual network to VMs in a different virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
 | Resolution of on-premises computer and service names from VMs or role instances in Azure. |Customer-managed DNS servers (on-premises domain controller, local read-only domain controller, or a DNS secondary synced using zone transfers, for example). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
 | Resolution of Azure hostnames from on-premises computers. |Forward queries to a customer-managed DNS proxy server in the corresponding virtual network, the proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
 | Reverse DNS for internal IPs. |[Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |Not applicable |
@@ -188,22 +188,16 @@ When you are using your own DNS servers, Azure provides the ability to specify m
 
 > [!NOTE]
 > Network connection properties, such as DNS server IPs, should not be edited directly within VMs. This is because they might get erased during service heal when the virtual network adaptor gets replaced. This applies to both Windows and Linux VMs.
->
->
 
 When you are using the Azure Resource Manager deployment model, you can specify DNS servers for a virtual network and a network interface. For details, see [Manage a virtual network](manage-virtual-network.md) and [Manage a network interface](virtual-network-network-interface.md).
 
 > [!NOTE]
 > If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
->
->
 
 When you are using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, you can specify DNS servers via the [Service Configuration file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> If you change the DNS settings for a virtual network or virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
->
->
+> If you change the DNS settings for a virtual network or virtual machine that is already deployed, for the new DNS settings to take effect, you must perform a DHCP lease renewal on all affected VMs in the virtual network. For VMs running the Windows OS, you can do this by typing `ipconfig /renew` directly in the VM. The steps vary depending on the OS. See the relevant documentation for your OS type.
 
 ## Next steps
 

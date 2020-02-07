@@ -1,16 +1,16 @@
 ---
-title: Copy data to/from Azure Blob Storage | Microsoft Docs
+title: Copy data to/from Azure Blob Storage
 description: 'Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/05/2018
@@ -46,7 +46,7 @@ You can copy data from the following data stores **to Azure Blob Storage**:
 > [!IMPORTANT]
 > Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
 >
-> Copy Activity does not delete data from the source after the data is successfully copied to the destination. If you need to delete source data after a successful copy, create a [custom activity](data-factory-use-custom-activities.md) to delete the data and use the activity in the pipeline. For an example, see the [Delete blob or folder sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
+> Copy Activity does not delete data from the source after the data is successfully copied to the destination. If you need to delete source data after a successful copy, create a [custom activity](data-factory-use-custom-activities.md) to delete the data and use the activity in the pipeline. For an example, see the [Delete blob or folder sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
 ## Get started
 You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.
@@ -173,7 +173,7 @@ This section describes the resulting behavior of the Copy operation for differen
 Let's look at how to quickly copy data to/from an Azure blob storage. In this walkthrough, both source and destination data stores of type: Azure Blob Storage. The pipeline in this walkthrough copies data from a folder to another folder in the same blob container. This walkthrough is intentionally simple to show you settings or properties when using Blob Storage as a source or sink.
 
 ### Prerequisites
-1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
+1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
 2. Create a blob container named **adfblobconnector** in the storage account.
 4. Create a folder named **input** in the **adfblobconnector** container.
 5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
@@ -197,7 +197,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 
 ### Copy Wizard
 1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Data Wizard** in a separate tab.  
-    
+
     > [!NOTE]
     > If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third-party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
 2. In the **Properties** page:

@@ -2,15 +2,17 @@
 title: Set up push notifications in Azure Notification Hubs | Microsoft Docs
 description: Learn how to set up Azure Notification Hubs in the Azure portal by using platform notification system (PNS) settings.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
 ---
 
 # Set up push notifications in a notification hub in the Azure portal
@@ -41,7 +43,7 @@ To set up Apple Push Notification Service (APNS):
    * Enter the values for **Key ID**, **Bundle ID**, **Team ID**, and **Token**.
    * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
-     ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Screenshot of an APNS token configuration in the Azure portal](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
 For more information, see [Push notifications to iOS by using Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 

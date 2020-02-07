@@ -95,7 +95,7 @@ This article answers common questions about Azure Files features and functionali
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx.
+    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx. Azure File Sync supports 100 conflict files per file. Once the maximum number of conflict files has been reached, the file will fail to sync until the number of conflict files is less than 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Is geo-redundant storage supported for Azure File Sync?**  
@@ -122,20 +122,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
-    By default, Azure File Sync excludes the following files:
-  * desktop.ini
-  * thumbs.db
-  * ehthumbs.db
-  * ~$\*.\*
-  * \*.laccdb
-  * \*.tmp
-  * 635D02A9D91C401B97884B82B3BCDAEA.\*
-
-    The following folders are also excluded by default:
-
-  * \System Volume Information
-  * \$RECYCLE.BIN
-  * \SyncShareState
+  See [Files skipped](storage-sync-files-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  
@@ -169,7 +156,7 @@ This article answers common questions about Azure Files features and functionali
 
     Azure Files offers two additional ways to manage access control:
 
-    - You can use shared access signatures (SAS) to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token with read-only access to a specific file that has a 10-minute expiry. Anyone who possesses the token while the token is valid has read-only access to that file for those 10 minutes. Currently, shared access signature keys are supported only via the REST API or in client libraries. You must mount the Azure file share over SMB by using the storage account keys.
+    - You can use shared access signatures (SAS) to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token with read-only access to a specific file that has a 10-minute expiry. Anyone who possesses the token while the token is valid has read-only access to that file for those 10 minutes. Shared access signature keys are supported only via the REST API or in client libraries. You must mount the Azure file share over SMB by using the storage account keys.
 
     - Azure File Sync preserves and replicates all discretionary ACLs, or DACLs, (whether Active Directory-based or local) to all server endpoints that it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync is an effective stop-gap option until full support for Active Directory-based authentication and ACL support arrives.
     
@@ -339,7 +326,12 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="need-larger-share"></a>
 **What sizes are available for Azure file shares?**  
-    Azure file share sizes (premium and standard) can scale up to 100 TiB. Premium file shares sizes up to 100 TiB are available as a GA offering. Standard file shares sizes up to 5 TiB are available as a GA offering, while sizes up to 100 TiB are in preview. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares preview for the standard tier.
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
+
+* <a id="lfs-performance-impact"></a>
+**Does expanding my file share quota impact my workloads or Azure File Sync?**
+    
+    No. Expanding the quota will not impact your workloads or Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **How many clients can access the same file simultaneously?**   

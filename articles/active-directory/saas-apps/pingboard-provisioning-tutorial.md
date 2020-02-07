@@ -1,6 +1,6 @@
 ---
 
-title: 'Tutorial: Configure Pingboard for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: User provisioning for Pingboard - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -86,7 +86,7 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Pingboard**.
 
-1. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Pingboard. The attributes selected as **Matching** properties are used to match the user accounts in Pingboard for update operations. Select **Save** to commit any changes. For more information, see [Customize user provisioning attribute mappings](../manage-apps/customize-application-attributes.md).
+1. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Pingboard. The attributes selected as **Matching** properties are used to match the user accounts in Pingboard for update operations. Select **Save** to commit any changes. For more information, see [Customize user provisioning attribute mappings](../app-provisioning/customize-application-attributes.md).
 
 1. To enable the Azure AD provisioning service for Pingboard, in the **Settings** section, change **Provisioning Status** to **On**.
 
@@ -94,10 +94,10 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 The initial synchronization takes longer to run than following syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The logs describe all actions taken by the provisioning service on your Pingboard app.
 
-For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configure single sign-on](pingboard-tutorial.md)

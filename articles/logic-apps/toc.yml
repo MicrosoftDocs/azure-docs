@@ -1,4 +1,4 @@
-- name: Azure Logic Apps Documentation
+- name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,9 +17,9 @@
   items:
   - name: Create schedule-based workflows
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
-  - name: Manage mailing list requests
+  - name: Create approval-based workflows
     href: tutorial-process-mailing-list-subscriptions-workflow.md
-  - name: Process email attachments
+  - name: Create Azure Storage and Azure Functions workflow
     href: tutorial-process-email-attachments-workflow.md
 - name: Samples
   items:
@@ -31,7 +31,7 @@
   items:
   - name: Connectors for Logic Apps
     href: ../connectors/apis-list.md
-  - name: Schedule automated recurring workflows
+  - name: Schedule recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
@@ -47,7 +47,7 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
-    - name: Export flows from Microsoft Flow and deploy to Azure Logic Apps
+    - name: Export flows from Power Automate and deploy to Azure Logic Apps
       href: export-from-microsoft-flow-logic-app-template.md
     - name: Control workflow execution
       items:
@@ -103,14 +103,36 @@
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
+  - name: Access Azure virtual networks
+    items: 
+      - name: Connect to virtual networks with integration service environments
+        href: connect-virtual-network-vnet-isolated-environment.md
+      - name: Set up access for multiple integration service environments
+        href: connect-virtual-network-vnet-set-up-single-ip-address.md
+      - name: Add artifacts to integration service environments
+        href: add-artifacts-integration-service-environment-ise.md
+      - name: Set up customer-managed encryption keys for integration service environments
+        href: customer-managed-keys-integration-service-environment.md
+  - name: Access on-premises data
+    items: 
+      - name: Install data gateway
+        href: logic-apps-gateway-install.md
+      - name: Connect to on-premises data
+        href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
     items: 
-      - name: Create an integration account
+      - name: Create integration account
         href: logic-apps-enterprise-integration-create-integration-account.md
       - name: Trading partners
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
         href: logic-apps-enterprise-integration-agreements.md
+      - name: Schemas for XML validation
+        href: logic-apps-enterprise-integration-schemas.md
+      - name: Maps for XML transform
+        href: logic-apps-enterprise-integration-maps.md
+      - name: Certificates
+        href: logic-apps-enterprise-integration-certificates.md
       - name: Artifact metadata
         href: logic-apps-enterprise-integration-metadata.md
       - name: Receive B2B messages
@@ -141,40 +163,26 @@
         href: logic-apps-scenario-edi-send-batch-messages.md
       - name: Process flat files
         href: logic-apps-enterprise-integration-flatfile.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
         href: logic-apps-enterprise-integration-xml.md
       - name: Validate XML
         href: logic-apps-enterprise-integration-xml-validation.md
-      - name: Add schemas for XML validation
-        href: logic-apps-enterprise-integration-schemas.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
-      - name: Add maps for XML transform
-        href: logic-apps-enterprise-integration-maps.md
       - name: Transform JSON
         href: logic-apps-enterprise-integration-liquid-transform.md
-      - name: Add security certificates
-        href: logic-apps-enterprise-integration-certificates.md
       - name: Troubleshoot B2B errors
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
-  - name: Connect to virtual networks with isolated environments
-    href: connect-virtual-network-vnet-isolated-environment.md
-  - name: Add artifacts to integration service environments
-    href: add-artifacts-integration-service-environment-ise.md  
-  - name: Access on-premises data
-    items: 
-      - name: Install data gateway
-        href: logic-apps-gateway-install.md
-      - name: Connect to on-premises data
-        href: logic-apps-gateway-connection.md
   - name: Connectors - In-depth topics
     items: 
       - name: AS2
         href: logic-apps-enterprise-integration-as2.md
       - name: Azure Blob Storage
         href: ../connectors/connectors-create-api-azureblobstorage.md
+      - name: Azure Container Instances
+        href: ../connectors/connectors-create-api-container-instances.md
       - name: Azure Event Hubs
         href: ../connectors/connectors-create-api-azure-event-hubs.md      
       - name: Azure Functions
@@ -322,16 +330,13 @@
   - name: Monitor
     items: 
       - name: Monitor logic apps
-        href: logic-apps-monitor-your-logic-apps.md
+        href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
-        href: logic-apps-monitor-your-logic-apps-oms.md
+        href: monitor-logic-apps-log-analytics.md
       - name: Monitor B2B messages with Azure Monitor logs
-        href: logic-apps-monitor-b2b-message.md
-        items:
-        - name: Track B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Create queries for B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+        href: monitor-b2b-messages-log-analytics.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 

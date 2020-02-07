@@ -1,12 +1,12 @@
 ---
 title: 'Disable network policies for Azure Private Link service source IP address '
 description: Learn how to disable network policies for Azure private Link
-services: virtual-network
-author: KumudD
-ms.service: virtual-network
+services: private-link
+author: malopMSFT
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Disable network policies for Private Link service source IP
@@ -25,9 +25,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
   -ResourceGroupName "myResourceGroup"  
    
-($virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
-  | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled" 
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```

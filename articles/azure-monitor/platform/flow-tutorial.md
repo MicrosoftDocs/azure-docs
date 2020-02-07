@@ -1,16 +1,13 @@
 ---
 title: Automate Azure Monitor log processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-ms.service: log-analytics
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/29/2017
+author: bwren
 ms.author: bwren
+ms.date: 09/29/2017
+
 ---
 
 # Automate Azure Monitor log processes with the connector for Microsoft Flow

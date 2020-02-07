@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting hybrid Azure Active Directory joined devices - Azure Active Directory
+title: Troubleshooting hybrid Azure Active Directory joined devices
 description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -101,7 +101,7 @@ This field indicates whether the device is registered with Azure AD as a persona
 
 #### AzureAdJoined : YES  
 
-This field indicates whether the device is joined with Azure AD. 
+This field indicates whether the device is joined. The value will be **YES** if the device is either an Azure AD joined device or a hybrid Azure AD joined device.
 If the value is **NO**, the join to Azure AD has not completed yet. 
 
 Proceed to next steps for further troubleshooting.
@@ -110,7 +110,7 @@ Proceed to next steps for further troubleshooting.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 The 'Error Phase' field denotes the phase of the join failure while 'Client ErrorCode' denotes the error code of the Join operation.
 
 ```
@@ -181,7 +181,7 @@ To find the suberror code for the discovery error code, use one of the following
 
 ##### Windows 10 1803 and above
 
-Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output.
+Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 
 ```
 +----------------------------------------------------------------------+
@@ -244,7 +244,7 @@ Applicable only for federated domain accounts.
 Reasons for failure:
 
 - Unable to get an Access token silently for DRS resource.
-   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Common error codes:**
 
@@ -305,7 +305,7 @@ Find the registration type and look for the error code from the list below.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 'Registration Type' field denotes the type of join performed.
 
 ```

@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Media Services v3 API - Java
-description: Learn how to connect to Media Services v3 API with Java.
+description: This article describes how to connect to Azure Media Services v3 API with Java.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 09/18/2019
 ms.author: juliako
 
 ---
@@ -125,3 +125,5 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 ## Next steps
 
 You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` and start manipulating entities.
+
+For more code examples, see the [Java SDK samples](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) repo.

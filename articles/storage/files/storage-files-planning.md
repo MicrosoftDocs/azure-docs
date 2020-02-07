@@ -4,7 +4,7 @@ description: Learn what to consider when planning for an Azure Files deployment.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -19,9 +19,9 @@ ms.subservice: files
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
+* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
 
-* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares and a share can store an unlimited number of files, up to the total capacity of the file share. For standard file shares, the total capacity is up to 5 TiB (GA) or 100 TiB (preview), for premium file shares, the total capacity is up to 100 TiB.
+* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares and a share can store an unlimited number of files, up to the total capacity of the file share. The total capacity for premium and standard file shares is 100 TiB.
 
 * **Directory**: An optional hierarchy of directories.
 
@@ -74,10 +74,8 @@ Azure Files offers two performance tiers: standard and premium.
 
 Standard file shares are backed by hard disk drives (HDDs). Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
-Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
-
 > [!IMPORTANT]
-> See the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for steps to onboard, as well as the scope and restrictions of the preview.
+> If you want to use file shares larger than 5 TiB, see the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for steps to onboard, as well as regional availability and restrictions.
 
 ### Premium file shares
 
@@ -91,6 +89,8 @@ Currently, you cannot directly convert between a standard file share and a premi
 
 > [!IMPORTANT]
 > Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Support coverage and regional availability](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+>
+> To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
 
 #### Provisioned shares
 
@@ -127,7 +127,7 @@ The following table illustrates a few examples of these formulae for the provisi
 |102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
 > [!NOTE]
-> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 #### Bursting
 
@@ -188,74 +188,29 @@ Keep these points in mind when deciding which replication option to use:
 
 ## Onboard to larger file shares (standard tier)
 
-This section only applies to the standard file shares. All premium file shares are available with 100 TiB as a GA offering.
+This section only applies to the standard file shares. All premium file shares are available with 100 TiB capacity.
 
 ### Restrictions
 
-- Azure preview [terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) apply to large file shares while in preview including when used with Azure File Sync deployments.
-- Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
-- LRS/ZRS to GRS/GZRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
-
+- LRS/ZRS to GRS/GZRS account conversion will not be possible for any storage account with large file shares enabled.
 
 ### Regional availability
 
-Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
+Standard file shares with 100 TiB capacity limit are available globally in all Azure regions -
 
-|Region |Supported redundancy |Supports existing storage accounts |Portal support* |
-|-------|---------|---------|---------|
-|Australia East |LRS     |No    |Yes|
-|Australia Southeast|LRS     |No    |Not yet|
-|Central India  |LRS     |No    |Not yet|
-|East Asia      |LRS     |No    |Not yet|
-|East US        |LRS     |No    |Not yet|
-|France Central |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
-|France South   |LRS     |No    |Yes|
-|South India    |LRS     |No    |Not yet|
-|Southeast Asia |LRS, ZRS|No    |Yes|
-|West Central US|LRS     |No    |Not yet|
-|West Europe    |LRS, ZRS|No    |Yes|
-|West US        |LRS     |No    |Not yet|
-|West US 2      |LRS, ZRS|No    |Yes|
+- LRS: All regions, except for South Africa North and South Africa West.
+   - East US and West Europe: All new accounts are supported. A small number of existing accounts have not completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
+- ZRS: All regions, except for Japan East, North Europe, South Africa North.
+- GRS/GZRS: Not supported.
 
-*For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Alternatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
+### Enable and create larger file shares
 
-To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
-
-### Steps to onboard
-
-To enroll your subscription to the larger file shares preview, you need to use Azure PowerShell. You can either use [Azure Cloud Shell](https://shell.azure.com/) or install the [Azure PowerShell module locally](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) to run the following PowerShell commands:
-
-First, make sure the subscription you want to enroll in the preview is selected:
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-Then, enroll in the preview using the following commands:
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-Your subscription is automatically approved once both commands are run.
-
-To verify your registration status, you can run the following command:
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-It may take up to 15 minutes for your status to update to **registered**. Once your status is **registered**, you should be able to use the feature.
-
-### Use larger file shares
-
-To begin using larger file shares, create a new general purpose v2 storage account and a new file share.
+To begin using larger file shares, see our article [How to enable and create large file shares](storage-files-how-to-create-large-file-share.md).
 
 ## Data growth pattern
 
-Today, the maximum size for an Azure file share is 5 TiB (100 TiB in preview). Because of this current limitation, you must consider the expected data growth when deploying an Azure file share.
+Today, the maximum size for an Azure file share is 100 TiB. Because of this current limitation, you must consider the expected data growth when deploying an Azure file share.
 
 It is possible to sync multiple Azure file shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, large file shares that you may have on-premises can be brought into Azure File Sync. For more information, see [Planning for an Azure File Sync Deployment](storage-files-planning.md).
 
@@ -263,7 +218,7 @@ It is possible to sync multiple Azure file shares to a single Windows File Serve
 
 There are many easy options to bulk transfer data from an existing file share, such as an on-premises file share, into Azure Files. A few popular ones include (non-exhaustive list):
 
-* **Azure File Sync**: As part of a first sync between an Azure file share (a "Cloud Endpoint") and a Windows directory namespace (a "Server Endpoint"), Azure File Sync will replicate all data from the existing file share to Azure Files.
+* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)**: As part of a first sync between an Azure file share (a "Cloud Endpoint") and a Windows directory namespace (a "Server Endpoint"), Azure File Sync will replicate all data from the existing file share to Azure Files.
 * **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure file share by shipping hard disk drives to an Azure datacenter. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is a well known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance.

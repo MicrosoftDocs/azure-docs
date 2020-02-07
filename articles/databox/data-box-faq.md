@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -136,7 +136,7 @@ A. You can go to your Data Box order in the Azure portal and go to **Overview**.
 A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes up to 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
-A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
+A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, see [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md).
 
 ### Q. How do I know that my data is secure during transit? 
 A. There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock password. For more information, go to [Azure Data Box security and data protection](data-box-security.md).
@@ -175,8 +175,19 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 ### Q. My device was delivered but the device seems to be damaged. What should I do?
 A. If your device has arrived damaged or there is evidence of tampering, do not use the device. [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md) and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
-### Q. Can I use my own shipping carrier to ship Data Box?
-A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
+### Q. Can I pick up my Data Box order myself? Can I return the Data Box via a carrier that I choose?
+A. Yes. Microsoft also offers self-managed shipping in US Gov region only. When placing the Data Box order, you can choose self-managed shipping option. To pick up your Data Box device, take the following steps:
+    
+1. After you have placed the order, the order is processed and the Data Box is prepared. You will be notified via an email that your order is ready for pickup. 
+2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
+3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
+
+Once the data copy is complete, take the following steps to return your device:
+
+1. Once the data copy is complete with no errors, run **Prepare to ship**. After the preparation is complete, you'll receive a code in the local web UI of the device. Copy and save the code.
+2. Turn off the device and remove the connecting cables.
+3. Spool and securely place the power cord that was provided with device in the back of the device.
+4. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code that you saved earlier. They would provide you information on where and when to drop off the device.
 
 ### Q. Will my Data Box devices cross country borders during shipping?
 A. All Data Box devices are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country. This applies to both the Data Box and the Data Box Heavy devices.

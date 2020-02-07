@@ -1,19 +1,11 @@
 ---
-title: Azure CLI Script Sample - Create an Azure Cache for Redis | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cache for Redis
-services: cache
-documentationcenter: ''
+title: Create an Azure Cache for Redis - Azure CLI
+description: This Azure CLI code sample shows how to create an Azure Cache for Redis instance using the command az redis create.
 author: yegu-ms
-manager: jhubbard
-editor: 
 tags: azure-service-management
-
-ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
 ---

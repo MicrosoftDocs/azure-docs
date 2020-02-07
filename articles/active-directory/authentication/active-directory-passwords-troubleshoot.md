@@ -1,15 +1,15 @@
 ---
-title: Self-service password reset troubleshooting - Azure Active Directory
+title: Troubleshoot self-service password reset - Azure Active Directory
 description: Troubleshooting Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 02/01/2019
+ms.topic: troubleshooting
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -125,7 +125,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 31018| KeyPairCreationSuccess| This event indicates that we successfully created the password encryption key. This key is used to encrypt passwords from the cloud to be sent to your on-premises environment.|
 | 32000| UnknownError| This event indicates an unknown error occurred during a password management operation. Look at the exception text in the event for more details. If you're having problems, try disabling and then re-enabling password writeback. If this does not help, include a copy of your event log along with the tracking ID specified insider to your support engineer.|
 | 32001| ServiceError| This event indicates there was an error connecting to the cloud password reset service. This error generally occurs when the on-premises service was unable to connect to the password-reset web service.|
-| 32002| ServiceBusError| This event indicates there was an error connecting to your tenant’s Service Bus instance. This can happen if you're blocking outbound connections in your on-premises environment. Check your firewall to ensure that you allow connections over TCP 443 and to https://ssprsbprodncu-sb.accesscontrol.windows.net/, and then try again. If you're still having problems, try disabling and then re-enabling password writeback.|
+| 32002| ServiceBusError| This event indicates there was an error connecting to your tenant’s Service Bus instance. This can happen if you're blocking outbound connections in your on-premises environment. Check your firewall to ensure that you allow connections over TCP 443 and to https://ssprdedicatedsbprodncu.servicebus.windows.net, and then try again. If you're still having problems, try disabling and then re-enabling password writeback.|
 | 32003| InPutValidationError| This event indicates that the input passed to our web service API was invalid. Try the operation again.|
 | 32004| DecryptionError| This event indicates that there was an error decrypting the password that arrived from the cloud. This might be due to a decryption key mismatch between the cloud service and your on-premises environment. To resolve this problem, disable and then re-enable password writeback in your on-premises environment.|
 | 32005| ConfigurationError| During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates that there was an error saving this file or that when the service was started, there was an error reading the file. To fix this problem, try disabling and then re-enabling password writeback to force a rewrite of the configuration file.|
@@ -133,14 +133,14 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 32008| ValidationError| This event indicates we received an invalid response from the password-reset web service. To fix this problem, try disabling and then re-enabling password writeback.|
 | 32009| AuthTokenError| This event indicates that we couldn't get an authorization token for the global administrator account specified during Azure AD Connect setup. This error can be caused by a bad username or password specified for the global admin account. This error can also occur if the global admin account specified is federated. To fix this problem, rerun the configuration with the correct username and password and ensure that the administrator is a managed (cloud-only or password-synchronized) account.|
 | 32010| CryptoError| This event indicates there was an error generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates a problem with your environment. Look at the details of your event log to learn more about how to resolve this problem. You can also try disabling and then re-enabling the password writeback service.|
-| 32011| OnBoardingServiceError| This event indicates that the on-premises service couldn't properly communicate with the password-reset web service to initiate the onboarding process. This can happen as a result of a firewall rule or if there is a problem getting an authentication token for your tenant. To fix this problem, ensure that you're not blocking outbound connections over TCP 443 and TCP 9350-9354 or to https://ssprsbprodncu-sb.accesscontrol.windows.net/. Also ensure that the Azure AD admin account you're using to onboard isn't federated.|
-| 32013| OffBoardingError| This event indicates that the on-premises service couldn't properly communicate with the password-reset web service to initiate the offboarding process. This can happen as a result  of a firewall rule or if there is a problem getting an authorization token for your tenant. To fix this problem, ensure that you're not blocking outbound connections over 443 or to https://ssprsbprodncu-sb.accesscontrol.windows.net/, and that the Azure Active Directory admin account you're using to offboard isn't federated.|
+| 32011| OnBoardingServiceError| This event indicates that the on-premises service couldn't properly communicate with the password-reset web service to initiate the onboarding process. This can happen as a result of a firewall rule or if there is a problem getting an authentication token for your tenant. To fix this problem, ensure that you're not blocking outbound connections over TCP 443 and TCP 9350-9354 or to https://ssprdedicatedsbprodncu.servicebus.windows.net. Also ensure that the Azure AD admin account you're using to onboard isn't federated.|
+| 32013| OffBoardingError| This event indicates that the on-premises service couldn't properly communicate with the password-reset web service to initiate the offboarding process. This can happen as a result  of a firewall rule or if there is a problem getting an authorization token for your tenant. To fix this problem, ensure that you're not blocking outbound connections over 443 or to https://ssprdedicatedsbprodncu.servicebus.windows.net, and that the Azure Active Directory admin account you're using to offboard isn't federated.|
 | 32014| ServiceBusWarning| This event indicates that we had to retry to connect to your tenant’s Service Bus instance. Under normal conditions, this should not be a concern, but if you see this event many times, consider checking your network connection to Service Bus, especially if it’s a high-latency or low-bandwidth connection.|
 | 32015| ReportServiceHealthError| In order to monitor the health of your password writeback service, we send heartbeat data to our password-reset web service every five minutes. This event indicates that there was an error when sending this health information back to the cloud web service. This health information does not include an object identifiable information (OII) or personally identifiable information (PII) data, and is purely a heartbeat and basic service statistics so that we can provide service status information in the cloud.|
 | 33001| ADUnKnownError| This event indicates that there was an unknown error returned by Active Directory. Check the Azure AD Connect server event log for events from the ADSync source for more information.|
 | 33002| ADUserNotFoundError| This event indicates that the user who is trying to reset or change a password was not found in the on-premises directory. This error can occur when the user has been deleted on-premises but not in the cloud. This error can also occur if there is a problem with sync. Check your sync logs and the last few sync run details for more information.|
 | 33003| ADMutliMatchError| When a password reset or change request originates from the cloud, we use the cloud anchor specified during the setup process of Azure AD Connect to determine how to link that request back to a user in your on-premises environment. This event indicates that we found two users in your on-premises directory with the same cloud anchor attribute. Check your sync logs and the last few sync run details for more information.|
-| 33004| ADPermissionsError| This event indicates that the Active Directory Management Agent (ADMA) service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the ADMA account in the user’s forest has reset and change password permissions on all objects in the forest. For more information on how to set the permissions, see Step 4: Set up the appropriate Active Directory permissions.|
+| 33004| ADPermissionsError| This event indicates that the Active Directory Management Agent (ADMA) service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the ADMA account in the user’s forest has reset and change password permissions on all objects in the forest. For more information on how to set the permissions, see Step 4: Set up the appropriate Active Directory permissions. This error could also occur when the user's attribute AdminCount is set to 1.|
 | 33005| ADUserAccountDisabled| This event indicates that we attempted to reset or change a password for an account that was disabled on-premises. Enable the account and try the operation again.|
 | 33006| ADUserAccountLockedOut| This event indicates that we attempted to reset or change a password for an account that was locked out on-premises. Lockouts can occur when a user has tried a change or reset password operation too many times in a short period. Unlock the account and try the operation again.|
 | 33007| ADUserIncorrectPassword| This event indicates that the user specified an incorrect current password when performing a password change operation. Specify the correct current password and try again.|
@@ -171,6 +171,9 @@ For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access
 For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the next Monday.
 
 For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md) article.
+
+> [!NOTE]
+> SSPR can also fail if the "Password never expires" or "User cannot change password" settings are configured on the account in AD DS on-premises. 
 
 ### Restart the Azure AD Connect Sync service
 

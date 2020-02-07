@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Job automation | Microsoft Docs
+title: Job automation
 description: 'Use Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
 ms.service: sql-database
@@ -9,7 +9,7 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 01/25/2019
+ms.date: 02/07/2020
 ---
 # Automate management tasks using database jobs
 
@@ -197,7 +197,9 @@ The *Job database* is used for defining jobs and tracking the status and history
 
 For the current preview, an existing Azure SQL database (S0 or higher) is required to create an Elastic Job agent.
 
-The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service tier. The recommended service tier of the *Job database* is S1 or higher, but really depends on the performance needs of your job(s): number of job steps, how many times, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour, but running a job every minute might not be performant enough, and a higher service tier might be better.
+The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service objective. The recommended service objective of the *Job database* is S1 or higher, but the optimal choice depends on the performance needs of your job(s): the number of job steps, the number of job targets, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour targeting less than ten databases, but running a job every minute might not be fast enough with an S0 database, and a higher service tier might be better. 
+
+If operations against the job database are slower than expected, [monitor](sql-database-monitor-tune-overview.md#monitor-database-performance) database performance and the resource utilization in the job database during periods of slowness using Azure portal or the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. If utilization of a resource, such as CPU, Data IO, or Log Write approaches 100% and correlates with periods of slowness, consider incrementally scaling the database to higher service objectives (either in the [DTU model](sql-database-service-tiers-dtu.md) or in the [vCore model](sql-database-service-tiers-vcore.md)) until job database performance is sufficiently improved.
 
 
 ##### Job database permissions
@@ -245,6 +247,10 @@ The following examples show how different target group definitions are dynamical
 
 **Example 5** and **Example 6** show advanced scenarios where Azure SQL Servers, elastic pools, and databases can be combined using include and exclude rules.<br>
 **Example 7** shows that the shards in a shard map can also be evaluated at job run time.
+
+> [!NOTE]
+> The Job database itself can be the target of a job. In this scenario, the Job database is treated just like any other target database. The job user must be created and granted sufficient permissions in the Job database, and the database scoped credential for the job user must also exist in the Job database, just like it does for any other target database.
+>
 
 #### Job
 

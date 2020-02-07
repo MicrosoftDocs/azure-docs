@@ -1,5 +1,5 @@
 ---
-title: Create and publish single sign-on documentation for your application
+title: Create & publish single sign-on documentation for your application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
 author: barbaraselden

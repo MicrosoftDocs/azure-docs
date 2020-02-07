@@ -9,13 +9,13 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
 ---
 
 # Quickstart: Create an image classification project with the Custom Vision Node.js SDK
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Node.js to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
+This article shows you how to get started using the Custom Vision SDK with Node.js to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Create a new file called *sample.js* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/).
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **createProject** call.
 
 ```javascript
 const util = require('util');
@@ -57,7 +57,7 @@ const predictionKey = "<your prediction key>";
 const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
-const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "classifyModel";
 
@@ -105,7 +105,7 @@ await Promise.all(fileUploadPromises);
 
 ### Train the classifier and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```javascript
 console.log("Training...");

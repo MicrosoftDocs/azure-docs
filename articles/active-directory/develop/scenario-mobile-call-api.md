@@ -1,5 +1,6 @@
 ---
-title: Mobile app that calls web APIs - calling a web API | Microsoft identity platform
+title: Call a web API from a mobile app | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (calling a web API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,7 +18,6 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Mobile app that calls web APIs - call a web API
@@ -85,28 +85,34 @@ After you have the access token, it's easy to call a web API. Your app will use 
         queue.add(request);
 ```
 
-### iOS
+### MSAL for iOS and macOS
+
+The methods to acquire tokens return an `MSALResult` object. `MSALResult` exposes an `accessToken` property which can be used to call a web API. Access token should be added to the HTTP authorization header, before making the call to access the protected Web API.
+
+Objective-C:
+
+```objc
+NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
+urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
+urlRequest.HTTPMethod = @"GET";
+urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
+        
+NSURLSessionDataTask *task =
+[[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
+     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
+[task resume];
+```
+
+Swift:
 
 ```swift
-        let url = URL(string: kGraphURI)
-        var request = URLRequest(url: url!)
-
-        // Put access token in HTTP request.
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                self.updateLogging(text: "Couldn't get graph result: \(error)")
-                return
-            }
-            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                self.updateLogging(text: "Couldn't deserialize result JSON")
-                return
-            }
-
-            // Successfully got data from Graph.
-            self.updateLogging(text: "Result from Graph: \(result))")
-        }.resume()
+let urlRequest = NSMutableURLRequest()
+urlRequest.url = URL(string: "https://contoso.api.com")!
+urlRequest.httpMethod = "GET"
+urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
+     
+let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
+task.resume()
 ```
 
 ### Xamarin
@@ -124,7 +130,7 @@ If you need to call the same API several times, or if you need to call multiple 
 
 If you need to call several APIs for the same user, once you've acquired a token for a user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -137,7 +143,7 @@ The cases where interaction is required is when:
 - The user consented for the first API, but now needs to consent for more scopes (incremental consent)
 - The first API didn't require multiple-factor authentication, but the next one does.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure dedicated hosts using the Azure PowerShell | Microsoft Docs
+title: Deploy Azure dedicated hosts using the Azure PowerShell 
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 services: virtual-machines-windows
 author: cynthn
@@ -16,33 +16,16 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Preview: Deploy VMs to dedicated hosts using the Azure PowerShell
+# Deploy VMs to dedicated hosts using the Azure PowerShell
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
-Make sure that you have installed Azure PowerShell version 2.4.2 or later, and you are signed in to an Azure account in with `Connect-AzAccount`. To install version 2.4.2, open a PowerShell prompt and type:
+Make sure that you have installed Azure PowerShell version 2.8.0 or later, and you are signed in to an Azure account in with `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrelease
-```
+## Limitations
 
-You will need at least version 1.6.0 of the PowerShellGet module to enable preview module functionality in PowerShell. The latest versions of PowerShell Core have this automatically built in, but for older versions of PowerShell, you can run the following command to update to the latest version:
-
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Azure Dedicated Hosts is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Known preview limitations**
-> - Virtual machine scale sets are not currently supported on dedicated hosts.
-> - The preview initial release supports the following VM series: DSv3 and ESv3. 
-
-
+- Virtual machine scale sets are not currently supported on dedicated hosts.
+- The following VM series are supported: DSv3 and ESv3. 
 
 ## Create a host group
 

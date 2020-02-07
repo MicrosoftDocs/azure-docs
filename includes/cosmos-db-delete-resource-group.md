@@ -4,6 +4,7 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 03/23/2019
 ms.author: sngun
+ms.custom: seo-java-september2019
 ---
 When you're done with your web app and Azure Cosmos DB account, you can delete the Azure resources you created so you don't incur more charges. To delete the resources:
 
@@ -11,11 +12,11 @@ When you're done with your web app and Azure Cosmos DB account, you can delete t
 
 2. Select the resource group you created for this quickstart.  
 
-   ![Metrics in the Azure portal](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
+   ![Select the resource group to delete](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
 2. In the new window, select **Delete resource group**.
 
-   ![Metrics in the Azure portal](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+   ![Delete the resource group](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 
 3. In the next window, enter the name of the resource group to delete, and then select **Delete**.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Viewer
-description: Kinect for Azure sensor data stream viewer homepage
+description: Understand how to visualize all device data streams using the Azure Kinect viewer.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

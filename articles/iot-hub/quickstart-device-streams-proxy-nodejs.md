@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams Node.js quickstart for SSH and RDP (preview) | Microsoft Docs
+title: Azure IoT Hub device streams Node.js quickstart for SSH and RDP
 description: In this quickstart, you run a sample Node.js application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
@@ -38,6 +38,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   * Central US
   * Central US EUAP
+  * Southeast Asia
+  * North Europe
+  
 
 * To run the service-local application in this quickstart, you need Node.js v10.x.x or later on your development machine.
   * Download [Node.js](https://nodejs.org) for multiple platforms.
@@ -70,23 +73,23 @@ A device must be registered with your IoT hub before it can connect. In this sec
 1. To create the device identity, run the following command in Cloud Shell:
 
    > [!NOTE]
-   > * Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
-   > * Use *MyDevice*, as shown. It's the name given for the registered device. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
+   > * Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
+   > * For the name of the device you're registering, it's recommended to use *MyDevice* as shown. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. To enable the back-end application to connect to your IoT hub and retrieve the messages, you also need a *service connection string*. The following command retrieves the string for your IoT hub:
 
    > [!NOTE]
-   > Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
+   > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Note the returned value for later use in this quickstart. It looks like the following example:
+   Note the returned service connection string for later use in this quickstart. It looks like the following example:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -105,25 +108,25 @@ Before you proceed to the next step, ensure that the device-local proxy applicat
 
 ### Run the service-local proxy application
 
-With the device-local proxy application running, run the service-local proxy application that's written in Node.js by doing the following:
+With the device-local proxy application running, run the service-local proxy application that's written in Node.js by doing the following in a local terminal window:
 
 1. For environment variables, provide your service credentials, the target device ID where the SSH daemon runs, and the port number for the proxy that's running on the device.
 
    ```
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
    export PROXY_PORT=2222
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    SET PROXY_PORT=2222
    ```
 
-   Change the preceding values to match your device ID and connection string.
+   Change the ServiceConnectionString placeholder to match your service connection string, and **MyDevice** to match your device ID if you gave yours a different name.
 
-1. Go to the *Quickstarts/device-streams-service* directory in your unzipped project folder, and run the service-local proxy application.
+1. Navigate to the `Quickstarts/device-streams-service` directory in your unzipped project folder. Use the following code to run the service-local proxy application:
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -144,7 +147,7 @@ Console output on the service-local after SSH session is established (the servic
 
 ![SSH terminal output](./media/quickstart-device-streams-proxy-nodejs/service-console-output.png)
 
-Console output of the SSH client application (SSH client communicates to SSH daemon by connecting to port 22, which the service-local proxy application is listening on):
+Console output of the SSH client application (SSH client communicates to SSH daemon by connecting to port 22, where the service-local proxy application is listening):
 
 ![SSH client output](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
 
@@ -163,7 +166,7 @@ Now use your RDP client application and connect to the service proxy on port 222
 
 ## Next steps
 
-In this quickstart, you've set up an IoT hub, registered a device, and deployed a service proxy application to enable RDP and SSH on an IoT device. The RDP and SSH traffic will be tunneled through a device stream through the IoT hub. This process eliminates the need for direct connectivity to the device.
+In this quickstart, you set up an IoT hub, registered a device, and deployed a service proxy application to enable RDP and SSH on an IoT device. The RDP and SSH traffic will be tunneled via a device stream through the IoT hub. This process eliminates the need for direct connectivity to the device.
 
 To learn more about device streams, see:
 

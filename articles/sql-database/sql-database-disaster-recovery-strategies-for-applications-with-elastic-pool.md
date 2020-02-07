@@ -1,5 +1,5 @@
 ---
-title: Design disaster recovery solutions - Azure SQL Database | Microsoft Docs
+title: Design disaster recovery solutions
 description: Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern.
 services: sql-database
 ms.service: sql-database

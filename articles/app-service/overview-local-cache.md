@@ -1,21 +1,11 @@
 ---
-title: Local cache overview - Azure App Service | Microsoft Docs
-description: This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature
-services: app-service
-documentationcenter: app-service
-author: cephalin
-manager: jpconnock
-editor: ''
+title: Local cache
+description: Learn how the local cache work in Azure App Service, and how to enable, resize, and query the status of your app's local cache.
 tags: optional
-keywords: ''
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
-ms.service: app-service
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/04/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -42,10 +32,10 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 
 ## How the local cache changes the behavior of App Service
 * _D:\home_ points to the local cache, which is created on the VM instance when the app starts up. _D:\local_ continues to point to the temporary VM-specific storage.
-* The local cache contains a one-time copy of the _/site_ and _/siteextensions_ folders of the shared content store, at _D:\home\site_ and _D:\home\siteextensions_, respectively. The files are copied to the local cache when the app starts up. The size of the two folders for each app is limited to 300 MB by default, but you can increase it up to 2 GB.
+* The local cache contains a one-time copy of the _/site_ and _/siteextensions_ folders of the shared content store, at _D:\home\site_ and _D:\home\siteextensions_, respectively. The files are copied to the local cache when the app starts up. The size of the two folders for each app is limited to 300 MB by default, but you can increase it up to 2 GB. If the copied files exceed the size of the local cache, App Service silently ignores local cache and read from the remote file share.
 * The local cache is read-write. However, any modification is discarded when the app moves virtual machines or gets restarted. Do not use the local cache for apps that store mission-critical data in the content store.
 * _D:\home\LogFiles_ and _D:\home\Data_ contain log files and app data. The two subfolders are stored locally on the VM instance, and are copied to the shared content store periodically. Apps can persist log files and data by writing them to these folders. However, the copy to the shared content store is best-effort, so it is possible for log files and data to be lost due to a sudden crash of a VM instance.
-* [Log streaming](troubleshoot-diagnostic-logs.md#streamlogs) is affected by the best-effort copy. You could observe up to a one-minute delay in the streamed logs.
+* [Log streaming](troubleshoot-diagnostic-logs.md#stream-logs) is affected by the best-effort copy. You could observe up to a one-minute delay in the streamed logs.
 * In the shared content store, there is a change in the folder structure of the _LogFiles_ and _Data_ folders for apps that use the local cache. There are now subfolders in them that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the app is running or has run.
 * Other folders in _D:\home_ remain in the local cache and are not copied to the shared content store.
 * App deployment through any supported method publishes directly to the durable shared content store. To refresh the _D:\home\site_ and _D:\home\siteextensions_ folders in the local cache, the app needs to be restarted. To make the lifecycle seamless, see the information later in this article.
@@ -102,6 +92,7 @@ We recommend that you use Local Cache in conjunction with the [Staging Environme
 * Sticky settings include name and sticky to a slot. So when the Staging slot gets swapped into Production, it inherits the Local Cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up as part of slot warmup after swap. So when the slot swap is complete, your Production slot is running against the local cache.
 
 ## Frequently asked questions (FAQ)
+
 ### How can I tell if Local Cache applies to my app?
 If your app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 2 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage."
 

@@ -30,10 +30,11 @@ This article shows you how to assign users or groups to an application in Azure 
 
 The availability of group-based assignment is determined by your license agreement. Group-based assignment is supported for Security groups only. Nested group memberships and O365 groups are not currently supported.
 
-## Prerequisites
-Before you can assign users and groups to an application, you must require user assignment. To require user assignment:
+## Configure the application to require assignment
 
-1. Log in to the Azure portal with an administrator account.
+An application can be configured to require assignment before it can be accessed. To require assignment:
+
+1. Log in to the Azure portal with an administrator account, or as an owner of the app under **Enterprise apps**.
 2. Click on the **All services** item in the main menu.
 3. Choose the directory you are using for the application.
 4. Click on the **Enterprise applications** tab.
@@ -46,7 +47,7 @@ Before you can assign users and groups to an application, you must require user 
 
 To assign one or more users to an application directly, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator or as a non-admin application owner.**
 
 2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
@@ -84,7 +85,7 @@ After a short period of time, the users you have selected will be able to launch
 
 To assign one or more groups to an application directly, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or as a non-admin application owner with an Azure AD Premium license assigned.
 
 2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 

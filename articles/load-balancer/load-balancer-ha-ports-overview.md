@@ -1,6 +1,6 @@
 ---
 title: High availability ports overview in Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn about high availability ports load balancing on an internal load balancer. 
 services: load-balancer
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 09/19/2019
 ms.author: allensu
 ---
 
@@ -19,11 +19,11 @@ ms.author: allensu
 
 Azure Standard Load Balancer helps you load-balance TCP and UDP flows on all ports simultaneously when you're using an internal load balancer. 
 
-A high availability (HA) ports load balancing rule is a variant of a load balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
+A high availability (HA) ports load-balancing rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
 
-The HA ports load balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
+The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 
-The HA ports load balancing rules is configured when you set the front-end and back-end ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
+The HA ports load-balancing rules is configured when you set the front-end and back-end ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
 
 ## Why use HA ports?
 
@@ -39,7 +39,7 @@ For NVA HA scenarios, HA ports offer the following advantages:
 - Provide *n*-active and active-passive scenarios
 - Eliminate the need for complex solutions, such as Apache ZooKeeper nodes for monitoring appliances
 
-The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load balancing rule additionally provides flow symmetry for ingress and egress traffic.
+The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
 
 <a node="diagram"></a>
 ![Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode](./media/load-balancer-ha-ports-overview/nvaha.png)
@@ -89,13 +89,11 @@ You can configure *one* public Standard Load Balancer resource for the back-end 
 
 ## Limitations
 
-- HA ports configuration is available only for internal load balancers. It is not available for public load balancers.
-
+- HA ports load-balancing rules are available only for internal Standard Load Balancer.
 - The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule is not supported.
-
-- The HA ports feature is not available for IPv6.
-
-- Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load balancing rules. It is not provided in any other scenario. This means that two or more Load Balancer resources and their respective rules make independent decisions and are never coordinated. See the description and diagram for [network virtual appliances](#nva). When you are using a multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  You may be able to work around this by source NAT'ing the ingress flow to the IP of the appliance to allow replies to arrive on the same NVA.  However, we strongly recommend using a single NIC and using the reference architecture shown in the diagram above.
+- Existing IP fragments will be forwarded by HA Ports load-balancing rules to same destination as first packet.  IP fragmenting a UDP or TCP packet is not supported.
+- The HA ports load-balancing rules are not available for IPv6.
+- Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load-balancing rules. It is not provided in any other scenario. This means that two or more Load Balancer resources and their respective rules make independent decisions and are never coordinated. See the description and diagram for [network virtual appliances](#nva). When you are using multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  You may be able to work around this by source NAT'ing the ingress flow to the IP of the appliance to allow replies to arrive on the same NVA.  However, we strongly recommend using a single NIC and using the reference architecture shown in the diagram above.
 
 
 ## Next steps

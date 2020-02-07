@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about different APIs in Azure Cosmos DB
+title: Frequently asked questions on different APIs in Azure Cosmos DB
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -71,8 +71,6 @@ To request new features, create a new request on [User voice](https://feedback.a
 
 To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
-Other questions can be submitted to the team at [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); however this isn't a technical support alias.
-
 ## <a id="try-cosmos-db"></a>Try Azure Cosmos DB subscriptions
 
 You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
@@ -118,6 +116,10 @@ Container and database level throughput provisioning are separate offerings and 
 ### Does Azure CosmosDB support time series analysis?
 
 Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
+
+## What are the Azure Cosmos DB service quotas and throughput limits
+
+See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
 
 ## SQL API
 
@@ -278,8 +280,6 @@ For the .NET SDK in particular, there are some classes and methods that Azure Co
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
-
-If any of these differences are a problem for your project, contact [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) and let us know.
 
 ### How do I provide feedback about the SDK or bugs?
 
@@ -750,7 +750,7 @@ No, sstableloader isn't supported.
 
 ### Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 
-At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We are working on offering to help pair the on-premise/different cloud Cassandra cluster to Cosomos DB's Cassandra API.
+At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We are working on offering to help pair the on-premises/different cloud Cassandra cluster to Cosomos DB's Cassandra API.
 
 ### Does Cassandra API provide full backups?
 

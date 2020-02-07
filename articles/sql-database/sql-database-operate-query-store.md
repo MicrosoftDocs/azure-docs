@@ -1,5 +1,5 @@
 ---
-title: Operating Query Store in Azure SQL Database
+title: Operate Query Store
 description: Learn how to operate the Query Store in Azure SQL Database
 services: sql-database
 ms.service: sql-database

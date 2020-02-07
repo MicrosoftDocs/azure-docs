@@ -1,10 +1,10 @@
 ---
-title: Use Python to query Azure SQL Database | Microsoft Docs
+title: Use Python to query a database
 description: This topic shows you how to use Python to create a program that connects to an Azure SQL database and query it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
@@ -14,35 +14,47 @@ ms.date: 03/25/2019
 ---
 # Quickstart: Use Python to query an Azure SQL database
 
- This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure SQL database and use Transact-SQL statements to query data. For further SDK details, check out our [reference](https://docs.microsoft.com/python/api/overview/azure/sql) documentation, the [pyodbc GitHub repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this quickstart, make sure you have the following:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An [Azure SQL database](sql-database-single-database-get-started.md)
+- [Python](https://python.org/downloads) 3 and related software
 
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+  # [macOS](#tab/macos)
 
-  || Single database | Managed instance |
-  |:--- |:--- |:---|
-  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+  To install Homebrew and Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, use steps **1.2**, **1.3**, and **2.1** in [create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
-  > [!IMPORTANT]
-  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
-  
-- Python and related software for your operating system:
-  
-  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. See Steps 1.2, 1.3, and 2.1 in [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). For more information, see [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+  For further information, see [Microsoft ODBC Driver on macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  - **Ubuntu**: Install Python and other required packages with `sudo apt-get install python python-pip gcc g++ build-essential`. Download and install the ODBC driver, SQLCMD, and the Python driver for SQL Server. For instructions, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+  # [Ubuntu](#tab/ubuntu)
 
-  - **Windows**: Install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server. For instructions, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
+  To install Python and other required packages, use `sudo apt-get install python python-pip gcc g++ build-essential`.
+
+  To install the ODBC driver, SQLCMD, and the Python driver for SQL Server, see [configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+
+  For further information, see [Microsoft ODBC Driver on Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+
+  # [Windows](#tab/windows)
+
+  To install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server, see [configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
+
+  For further information, see [Microsoft ODBC Driver](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
+
+---
+
+> [!IMPORTANT]
+> The scripts in this article are written to use the **Adventure Works** database.
+
+> [!NOTE]
+> You can optionally choose to use an Azure SQL managed instance.
+>
+> To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
+>
+> To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
+
+To further explore Python and the Azure SQL database, see [Azure SQL database libraries for Python](/python/api/overview/azure/sql), the [pyodbc repository](https://github.com/mkleehammer/pyodbc/wiki/), and a [pyodbc sample](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## Get SQL server connection information
 

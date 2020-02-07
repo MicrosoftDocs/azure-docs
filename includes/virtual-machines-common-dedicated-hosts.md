@@ -10,6 +10,10 @@
  ms.custom: include file
 ---
 
+## Limitations
+
+- Virtual machine scale sets are not currently supported on dedicated hosts.
+- The following VM series are supported: DSv3, ESv3 and Fsv2. 
 
 ## Benefits 
 
@@ -18,7 +22,6 @@ Reserving the entire host provides the following benefits:
 -   Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
 -   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt-in to a maintenance window to reduce the impact to your service.
 -   With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## Groups, hosts, and VMs  
@@ -65,8 +68,8 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
 
 > [!NOTE]
->  Maintenance control is currently in a limited preview stage and requires an onboarding process. 
-> Apply for this preview by submitting a [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+>  Maintenance control is currently in public preview. 
+> For more information, see **Control updates with Maintenance Control using [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) or [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)**.
 
 ## Capacity considerations
 
@@ -79,6 +82,8 @@ There is a default quota limit of 3000 vCPUs for dedicated hosts, per region. Bu
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
 For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
+
+Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
 
 ## Pricing
 
@@ -98,7 +103,7 @@ Different `types` for the same VM series will be from different CPU vendors and 
 
 Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
-During the preview, we will support the following host SKU\types:  DSv3_Type1 and ESv3_Type1
+Dedicated hosts support the following host SKU\types:  DSv3_Type1 and ESv3_Type1
 
  
 ## Host life cycle
@@ -110,6 +115,6 @@ Azure monitors and manages the health status of your hosts. The following states
 |----------|----------------|
 | Host Available     | There are no known issues with your host.   |
 | Host Under Investigation  | We’re having some issues with the host which we’re looking into. This is a transitional state required for Azure to try and identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
-| Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoHealingOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
+| Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
 | Host deallocated  | All virtual machines have been removed from the host. You are no longer being charged for this host since the hardware was taken out of rotation.   |
 

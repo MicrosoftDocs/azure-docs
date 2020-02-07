@@ -1,5 +1,5 @@
 ---
-title: Develop U-SQL user-defined operators (UDOs) in Azure Data Lake Analytics
+title: Develop U-SQL user-defined operators - Azure Data Lake Analytics
 description: Learn how to develop user-defined operators to be used and reused in Azure Data Lake Analytics jobs.
 services: data-lake-analytics
 ms.service: data-lake-analytics

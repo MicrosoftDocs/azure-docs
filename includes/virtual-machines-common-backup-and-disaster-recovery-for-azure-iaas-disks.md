@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: "include file"
 ---
 
-# Backup and disaster recovery for Azure IaaS disks
+
 
 This article explains how to plan for backup and disaster recovery (DR) of IaaS virtual machines (VMs) and disks in Azure. This document covers both managed and unmanaged disks.
 
@@ -125,7 +125,7 @@ Your choices for high availability, backup, and DR at application or infrastruct
 
 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) can back up your VMs running Windows or Linux to the Azure recovery services vault. Backing up and restoring business-critical data is complicated by the fact that business-critical data must be backed up while the applications that produce the data are running. 
 
-To address this issue, Azure Backup provides application-consistent backups for Microsoft workloads. It uses the volume shadow service to ensure that data is written correctly to storage. For Linux VMs, only file-consistent backups are possible, because Linux does not have functionality equivalent to the volume shadow service.
+To address this issue, Azure Backup provides application-consistent backups for Microsoft workloads. It uses the volume shadow service to ensure that data is written correctly to storage. For Linux VMs, the default backup consistency mode is file-consistent backups, because Linux does not have functionality equivalent to the volume shadow service as in the case of Windows. For Linux machines, see [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 ![Azure Backup flow][1]
 
@@ -148,8 +148,6 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 1.	Configure the backup policy and select the VM from the same UI.
 
 1.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 

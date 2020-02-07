@@ -1,6 +1,6 @@
 ---
-title: Understanding Azure Security Center for IoT solution event aggregation| Microsoft Docs
-description: Learn about how events are aggregated in Azure Security Center for IoT service.
+title: Understanding Azure Security Center for IoT event aggregation| Microsoft Docs
+description: Learn about Azure Security Center for IoT event aggregation.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
 
 ---
 
-# Security agent event aggregation
+# Azure Security Center for IoT event aggregation
 
-Azure Security Center for IoT security agents collect data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the amount of messages this forces the security agents to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that are crucial to protecting your device.
+Azure Security Center for IoT security agents collects data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
 
 To reduce the additional quota and costs while keeping your devices protected, Azure Security Center for IoT Agents aggregate these types of events.
 
@@ -41,8 +41,8 @@ To reduce the memory footprint of the agent, whenever the agent collects an iden
 
 Events are considered identical only when the following conditions are met: 
 
-* ProcessCreate events - when **commandLine**, **executable**, **username** and **userid** are identical
-* ConnectionCreate events - when **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol** and **destination port** are identical
+* ProcessCreate events - when **commandLine**, **executable**, **username**, and **userid** are identical
+* ConnectionCreate events - when **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol, and **destination port** are identical
 * ProcessTerminate events - when **executable** and **exit status** are identical
 
 ### Working with aggregated events
@@ -54,9 +54,9 @@ During aggregation, event properties that are not aggregated are discarded, and 
 ## Event aggregation based alerts 
 After analysis, Azure Security Center for IoT creates security alerts for suspicious aggregated events. Alerts created from aggregated events appear only once for each aggregated event.
 
-Aggregation start time, end time and hit count for each event are logged in the event **ExtraDetails** field within Log Analytics for use during investigations. 
+Aggregation start time, end time, and hit count for each event are logged in the event **ExtraDetails** field within Log Analytics for use during investigations. 
 
-Each aggregated event represents a 24 hour period of collected alerts. Using the event options menu on the upper left of each event, you can **dismiss** each individual aggregated event.    
+Each aggregated event represents a 24-hour period of collected alerts. Using the event options menu on the upper left of each event, you can **dismiss** each individual aggregated event.    
 
 ## Event aggregation twin configuration
 Make changes to the configuration of Azure Security Center for IoT event aggregation inside the [agent configuration object](how-to-agent-configuration.md) of the module twin identity of the **azureiotsecurity** module.

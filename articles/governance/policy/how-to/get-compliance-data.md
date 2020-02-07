@@ -1,12 +1,8 @@
 ---
 title: Get policy compliance data
-description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details.
-author: DCtheGeek
-ms.author: dacoulte
+description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
 ms.date: 02/01/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
+ms.topic: how-to
 ---
 # Get compliance data of Azure resources
 
@@ -185,12 +181,23 @@ resources for the current assignment. The tab defaults to **Non-compliant**, but
 Events (append, audit, deny, deploy) triggered by the request to create a resource are shown under
 the **Events** tab.
 
+> [!NOTE]
+> For an AKS Engine policy, the resource shown is the resource group.
+
 ![Example of Azure Policy Compliance events](../media/getting-compliance-data/compliance-events.png)
 
-Right-click on the row of the event you would like to gather more details on and select **Show
-activity logs**. The activity log page opens and is pre-filtered to the search showing details for
-the assignment and the events. The activity log provides additional context and information about
-those events.
+For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
+on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
+selecting **View compliance details** opens the component compliance details. This page also offers
+tabs to see the policies that are assigned to this resource, events, component events, and change
+history.
+
+![Example of Azure Policy Component compliance details](../media/getting-compliance-data/compliance-components.png)
+
+Back on the resource compliance page, right-click on the row of the event you would like to gather
+more details on and select **Show activity logs**. The activity log page opens and is pre-filtered
+to the search showing details for the assignment and the events. The activity log provides
+additional context and information about those events.
 
 ![Example of Azure Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -203,37 +210,13 @@ determine the reason a resource is **non-compliant** or to find the change respo
 
 ## Command line
 
-The same information available in the portal can be retrieved with the REST API (including with [ARMClient](https://github.com/projectkudu/ARMClient))
-or Azure PowerShell. For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
+The same information available in the portal can be retrieved with the REST API (including with
+[ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI (preview).
+For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
 reference. The REST API reference pages have a green 'Try It' button on each operation that allows
 you to try it right in the browser.
 
-To use the following examples in Azure PowerShell, construct an authentication token with this
-example code. Then replace the $restUri with the string in the examples to retrieve a JSON object
-that can then be parsed.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
 ### Summarize results
 

@@ -32,7 +32,7 @@ The process is similar if you want the logic app to perform a different action.
 
 1.  In the Azure portal, select **Create a resource** in the upper-left corner.
 
-2.  Search for and selectÂ **Logic App**, then selectÂ **Create**.
+2.  Search for and select **Logic App**, then select **Create**.
 
 3.  Give your logic app a **Name**, choose a **Resource group**, and so on.
 
@@ -63,10 +63,10 @@ The process is similar if you want the logic app to perform a different action.
                 "activityLog": {
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/â€¦"
+                    "scope": "/subscriptions/…"
                     },
                     "channels": "Operation",
-                    "claims": "â€¦",
+                    "claims": "…",
                     "caller": "logicappdemo@contoso.com",
                     "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
                     "description": "",
@@ -76,12 +76,12 @@ The process is similar if you want the logic app to perform a different action.
                     "level": "Informational",
                     "operationName": "microsoft.insights/activityLogAlerts/write",
                     "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/â€¦",
+                    "resourceId": "/subscriptions/…",
                     "resourceGroupName": "LOGICAPP-DEMO",
                     "resourceProviderName": "microsoft.insights",
                     "status": "Succeeded",
                     "subStatus": "",
-                    "subscriptionId": "â€¦",
+                    "subscriptionId": "…",
                     "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
                     "resourceType": "microsoft.insights/activityLogAlerts"
                 }
@@ -99,7 +99,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Add an action](media/action-groups-logic-app/add-action.png "Add an action")
 
-11. Search for and select the Microsoft Teams connector. Choose the **Microsoft Teams â€“ Post message** action.
+11. Search for and select the Microsoft Teams connector. Choose the **Microsoft Teams – Post message** action.
 
     ![Microsoft Teams actions](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams actions")
 
@@ -123,7 +123,7 @@ The process is similar if you want the logic app to perform a different action.
 
 14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Open your existing action group and add an action to reference the logic app. If you donâ€™t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Donâ€™t forget to save your changes.
+15. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
 
     ![Update the action group](media/action-groups-logic-app/update-action-group.png "Update the action group")
 
@@ -145,7 +145,7 @@ Azure Service Health entries are part of the activity log. The process for creat
                 "activityLog": {
                     "channels": "Admin",
                     "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                    "description": "â€¦",
+                    "description": "…",
                     "eventSource": "ServiceHealth",
                     "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
                     "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
@@ -153,23 +153,23 @@ Azure Service Health entries are part of the activity log. The process for creat
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "â€¦",
-                        "service": "â€¦",
+                        "title": "…",
+                        "service": "…",
                         "region": "Global",
-                        "communication": "â€¦",
+                        "communication": "…",
                         "incidentType": "Incident",
-                        "trackingId": "â€¦",
+                        "trackingId": "…",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "â€¦",
-                        "defaultLanguageContent": "â€¦",
+                        "defaultLanguageTitle": "…",
+                        "defaultLanguageContent": "…",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "â€¦",
+                    "subscriptionId": "…",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -232,7 +232,7 @@ The process for creating a metric alert is similar to [creating an activity log 
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "â€¦",
+        "id": "…",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -254,12 +254,12 @@ The process for creating a metric alert is similar to [creating an activity log 
             }
             ]
         },
-        "subscriptionId": "â€¦",
+        "subscriptionId": "…",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "â€¦",
-        "portalLink": "â€¦"
+        "resourceId": "…",
+        "portalLink": "…"
         },
         "properties": {}
     }
@@ -279,7 +279,7 @@ The process for creating a metric alert is similar to [creating an activity log 
 
       !["Metric alert true condition post action"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Metric alert true condition post action")
 
-  1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesnâ€™t match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
+  1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesn’t match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
 
       !["Metric alert false condition post action"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
 

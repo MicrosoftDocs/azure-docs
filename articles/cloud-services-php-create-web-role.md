@@ -27,7 +27,7 @@ For more information about these options, see [Compute hosting options provided 
 
 ## Download the Azure SDK for PHP
 
-The [Azure SDK for PHP](php-download-sdk.md) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+The [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Create a Cloud Services project
 

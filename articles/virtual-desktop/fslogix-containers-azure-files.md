@@ -1,5 +1,5 @@
 ---
-title: FSLogix profile containers and Azure Files in Windows Virtual Desktop - Azure
+title: Windows Virtual Desktop FSLogix profile containers files - Azure
 description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
 services: virtual-desktop
 author: Heidilohr
@@ -12,9 +12,10 @@ ms.author: helohr
 
 # FSLogix profile containers and Azure files
 
-The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
+The Windows Virtual Desktop service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers used with Azure Files function in Windows Virtual Desktop.
 
-In this article, we'll describe FSLogix profile containers used with Azure Files. The information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+>[!NOTE]
+>If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
 
 ## User profiles
 
@@ -51,7 +52,7 @@ The following table shows benefits and limitations of previous user profile tech
 
 #### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D was the solution the RDS team recommended for Windows Virtual Desktop during the preview of the service.  
+UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D is the solution we recommend for Windows Virtual Desktop.  
 
 #### Cost
 
@@ -73,11 +74,11 @@ Since the acquisition, Microsoft started replacing existing user profile solutio
 
 ## Azure Files integration with Azure Active Directory Domain Service
 
-FSLogix profile containers' performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files authentication with Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). By addressing both cost and administrative overhead, Azure Files with Azure AD DS Authentication is a premium solution for user profiles in the Windows Virtual Desktop service.
+FSLogix profile containers' performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files authentication with Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). By addressing both cost and administrative overhead, Azure Files with Azure AD DS Authentication is a premium solution for user profiles in the Windows Virtual Desktop service.
 
 ## Best practices for Windows Virtual Desktop
 
-Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop Preview?](overview.md).
+Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop?](overview.md).
 
 To ensure your Windows Virtual Desktop environment follows best practices:
 

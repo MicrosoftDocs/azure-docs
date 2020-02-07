@@ -7,7 +7,7 @@ ms.author: wesmc
 ---
 | Resource | Limit |
 | --- | --- |
-| Cache size |530 GB |
+| Cache size |1.2 TB |
 | Databases |64 |
 | Maximum connected clients |40,000 |
 | Azure Cache for Redis replicas, for high availability |1 |

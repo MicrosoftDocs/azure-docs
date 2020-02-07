@@ -16,7 +16,7 @@ ms.date: 03/22/2019
 ms.author: apimpm
 ---
 # API Management policy expressions
-This article discusses policy expressions syntax is C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.
+This article discusses policy expressions syntax in C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.
 
 For more information:
 
@@ -47,15 +47,16 @@ Multi-statement expressions are enclosed in `@{expression}`. All code paths with
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)
 
 @{
-  string value;
+  string[] value;
   if (context.Request.Headers.TryGetValue("Authorization", out value))
   {
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));
+      if(value != null && value.Length > 0)
+      {
+          return Encoding.UTF8.GetString(Convert.FromBase64String(value[0]));
+      }
   }
-  else
-  {
-    return null;
-  }
+  return null;
+
 }
 ```
 

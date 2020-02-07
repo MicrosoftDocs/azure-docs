@@ -1,6 +1,6 @@
 ---
 title: Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Docs
-description: 'This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH.'
+description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. 
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -85,7 +85,9 @@ The following diagram represents a live streaming workflow where a channel recei
 The following are general steps involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time. There is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
+> Currently, the max recommended duration of a live event is 8 hours.
+>
+> There is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges. It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP or Smooth Streaming. 
 
@@ -207,8 +209,6 @@ The language identifier of the audio stream, conforming to ISO 639-2, such as EN
 ### <a id="preset"></a>System Preset
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
-Note that if you need custom presets, you should contact amshelp@microsoft.com.
-
 **Default720p** will encode the video into the following 6 layers.
 
 #### Output Video Stream
@@ -267,7 +267,6 @@ Optional. Specifies the Asset Id of the Media Services Asset which contains the 
 > [!NOTE] 
 > Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). This image is used only when the live encoder is inserting a slate due to an ad break, or has been explicitly signaled to insert a slate. 
 > There is currently no option to use a custom image when the live encoder enters such an 'input signal lost' state. You can vote for this feature [here](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
-
 
 * At most 1920x1080 in resolution.
 * At most 3 Mbytes in size.
@@ -329,7 +328,7 @@ The following table shows how Channel states map to the billing mode.
 * By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 * You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 * You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. 
 * Make sure to have the streaming endpoint from which you want to stream content in the **Running** state.
 * The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.94i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
 * Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
@@ -339,7 +338,12 @@ The following table shows how Channel states map to the billing mode.
 * Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt to create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 * Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
 ## Next step
+
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

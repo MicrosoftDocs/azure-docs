@@ -4,6 +4,7 @@ description: Provides the prerequisites for publishing a Power BI app to AppSour
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
@@ -31,7 +32,7 @@ The business requirements include procedural, contractual, and legal obligations
     > Use the same Microsoft Developer Center registration account to sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com). You should have only one Microsoft account for your AppSource offerings. Accounts shouldn't be specific to individual services or offers.
  
 - Make technical support available to customers in a commercially reasonable manner.
-- Provide content that meets the criteria for your offering to be listed on AppSource. For more information, see [Have an app to list on AppSource? Here’s how](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
+- Provide content that meets the criteria for your offering to be listed on AppSource. For more information, see [Have an app to list on AppSource? Here's how](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Comply with the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
 
