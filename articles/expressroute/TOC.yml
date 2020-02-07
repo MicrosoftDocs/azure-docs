@@ -70,7 +70,7 @@
     items:
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
-    - name: Using VPN as a Backup
+    - name: Using VPN as a backup
       href: using-s2s-vpn-as-a-backup-for-expressroute-privatepeering.md      
 - name: How-to guides
   items:

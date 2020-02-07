@@ -23,7 +23,7 @@ Unlike geo-redundant ExpressRoute circuits, you can use ExpressRoute-VPN disaste
 
 In this article, let's see how to verify the connectivity both from the Azure perspective and the customer side network edge perspective. Ability to validate from either end will help irrespective of whether or not you manage the customer side network devices that peer with the Microsoft network entities. 
 
-## Example Topology
+## Example topology
 
 In our setup, we have an on-premises network connected to an Azure hub VNet via both an ExpressRoute circuit and a S2S VPN connection. The Azure hub VNet is in turn peered to a spoke VNet, as shown in the diagram below:
 
@@ -285,8 +285,8 @@ To enable monitoring and alerts based on VPN gateway metrics, see [Set up alerts
 To expedite BGP convergence following an ExpressRoute failure, [Configure BFD over ExpressRoute][BFD].
 
 <!--Image References-->
-[1]: ./media/using-s2s-vpn-as-a-backup-for-expressroute-privatepeering/topology.png "topology under consideration"
-[2]: ./media/using-s2s-vpn-as-a-backup-for-expressroute-privatepeering/vpn-gw-config.png "VPN GW configuration"
+[1]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/topology.png "topology under consideration"
+[2]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/vpn-gw-config.png "VPN GW configuration"
 
 <!--Link References-->
 [DR-PP]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
