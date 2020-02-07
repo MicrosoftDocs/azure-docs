@@ -74,7 +74,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. To create the new role assignment, select **Add**. A notification of the status is displayed.
 
-    ![New assignment - Notification](./media/pim-resource-roles-assign-roles/assignment-notification.png)
+    ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
 ## Update or remove an existing role assignment
 
