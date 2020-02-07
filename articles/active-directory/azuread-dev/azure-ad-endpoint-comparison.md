@@ -24,7 +24,7 @@ When developing a new application, it's important to know the differences betwee
 
 ## Who can sign in
 
-![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
+![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who_can_signin.svg)
 
 * The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
 * The Microsoft identity platform endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
