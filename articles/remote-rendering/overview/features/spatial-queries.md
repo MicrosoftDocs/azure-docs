@@ -1,79 +1,61 @@
 ---
 title: Spatial queries
 description: How to do spatial queries in a scene
-author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
-ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+author: jakrams
+ms.author: jakras
+ms.date: 02/07/2020
+ms.topic: article
 ---
 
 # Spatial queries
 
-This section will cover spatial queries, that is queries returning objects lying in a given spatial region, or intersecting a given geometry.
+Spatial queries are operations with which you can ask the remote rendering service which objects are located in an area. Spatial queries are frequently used to implement interactions, such as figuring out which object a user is pointing at.
 
-## Model preparation
+All spatial queries are evaluated on the server. Consequently they are asynchronous operations and results will arrive with a delay that depends on your network latency. Since every spatial query generates network traffic, be careful not to do too many at once.
 
-The model's geometry needs to be processed to generate the optimized data that will support fast queries on potentially complex scenes and meshes.
+## Collision meshes
 
-## Ray cast query
+Spatial queries are powered by the [Havok Physics](https://www.havok.com/products/havok-physics) engine and require a dedicated collision mesh to be present. By default, [model conversion](../../how-tos/conversion/model-conversion.md) generates collision meshes. If you don't require spatial queries on a complex model, consider disabling collision mesh generation in the [conversion options](../../how-tos/conversion/configure-model-conversion.md), as it has an impact in multiple ways:
 
-A ray cast query traces a line in space, and returns objects that intersect the line. It also returns the object's surface normal at the point of impact. To perform ray casts on objects, the server needs the model data to be prepared as so called collision meshes. This is a [conversion setting](../../how-tos/conversion/configure-model-conversion.md) that is enabled by default. Without collision meshes, ray cast queries will always gracefully return with no result.
-If no ray casts are required on a model it is recommended to export without collision meshes, because collision mesh generation has large impact on:
+1. [Model conversion](../../how-tos/conversion/model-conversion.md) will take considerably longer.
+1. Converted model file sizes are noticeably larger, impacting download speed.
+1. Runtime loading times are longer.
+1. Runtime CPU memory consumption is higher.
+1. There's a slight runtime performance overhead for every model instance.
 
-- conversion time
-- file size
-- runtime loading time
-- runtime memory consumption
-- runtime performance (baseline overhead even if no ray casts are issued)
+## Ray casts
+
+A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
 
 ````c#
-// C#
-void sampleRaycastQuery(AzureSession session)
+async void CastRay(AzureSession session)
 {
-    // Trace a line from the origin toward the world +z direction, over 10 units of distance.
-    RayCast rayCast = new RayCast(new Double3(0.0, 0.0, 0.0), new Double3(0.0, 0.0, 1.0), 10.0);
-    // Get the closest hit
+    // trace a line from the origin into the +z direction, over 10 units of distance.
+    RayCast rayCast = new RayCast(new Double3(0, 0, 0), new Double3(0, 0, 1), 10);
+
+    // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy.ClosestHit;
 
-    // The query is asynchronous
-    RaycastQueryAsync queryOp = session.Actions.RayCastQueryAsync(rayCast);
-    Wait(queryOp);
+    RayCastHit[] hits = await session.Actions.RayCastQueryAsync(rayCast).AsTask();
 
-    RayCastHit[] hits = queryOp.Result;
-
-    if(hits.Length > 0)
+    if (hits.Length > 0)
     {
-        var hitObject = hits[0].Entity;
-        // Do something with the intersected object.
+        var hitObject = hits[0].HitEntity;
+        var hitPosition = hits[0].HitPosition;
+        var hitNormal = hits[0].HitNormal;
+
+        // do something with the hit information
     }
 }
 ````
 
-The query struct has the following parameters:
+There are three hit collection modes:
 
-- Origin (3D point)
-- EndPoint (3D point) (alternatively the C# constructor offers direction vector and length)
-- HitCollectionPolicy (enum: All, Closest, Any)
-- MaxHits (integer)
-<!-- - CollisionMask (bitfield) -->
+1. **Closest:** In this mode, only the closest hit will be reported.
+1. **Any:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
+1. **All:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
 
-The Origin and EndPoint describe the line that will be used to find intersections.
-
-The Hit Collection Policy will tell which intersection will be returned.
-
-- *All* will return all the objects that intersected the line. The returned list of hits is sorted from closer to farther from the origin.
-- *Closest* will return the hit closest to the line's origin amongst all potential hits.
-- *Any* will return the first hit encountered when trying to find intersecting geometry. It may be different from the closest one.
-
-It could be argued that *Closest* and *Any* are a subset of *All*, and that further processing could be done client-side, but if you are only interested in a single hit, the server's algorithms can take advantage of the *Closest* or *Any* hint to complete the query faster than if it had to collect every hit, so it's an optimization to consider.
-
-Max hits limits the number of returned hits for the *All* hit policy. It will return the closest hits.
-
-To exclude objects selectively from being considered for ray casts, the [HierarchicalStateUpdate](override-hierarchical-state.md) component can be used.
+To exclude objects selectively from being considered for ray casts, the [HierarchicalStateOverrideComponent](override-hierarchical-state.md) component can be used.
 
 <!--
 The CollisionMask allows the quey to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
@@ -81,17 +63,19 @@ It is useful in case you want to ignore objects, for instance when setting an ob
 TODO : Add an API to make that possible.
 -->
 
-The result of a Ray Cast Query is an array of Hits.
+### Hit result
+
+The result of a ray cast query is an array of hits. The array is empty, if no object was hit.
+
 A Hit has the following properties:
 
-- HitEntity (intersected Entity)
-- SubPartId (integer)
-- HitPosition (3D point)
-- HitNormal (3D vector)
-- DistanceToHit (float)
+* **HitEntity:** Which [entity](../../concepts/entities.md) was hit.
+* **SubPartId:** Which *submesh* was hit in a [MeshComponent](../../concepts/meshes.md). Can be used to index into `MeshComponent.UsedMaterials` and look up the [material](../../concepts/materials.md) at that point.
+* **HitPosition:** The world space position where the ray intersected the object.
+* **HitNormal:** The world space surface normal of the mesh at the position of the intersection.
+* **DistanceToHit:** The distance from the ray starting position to the hit.
 
-The ObjectId tells which entity has been hit. The SubPartId tells which submesh from the entity has been hit (submeshes are parts of a mesh that can be assigned a material, so it is also the index of the hit material in the mesh's material array).
+## Next steps
 
-The HitPosition and HitNormal are the surface's properties at the point of impact.
-
-The DistanceToHit is taken from the ray's origin. It is also the sort criterion for the returned array.
+* [Object bounds](../../concepts/object-bounds.md)
+* [Overriding hierarchical states](override-hierarchical-state.md)
