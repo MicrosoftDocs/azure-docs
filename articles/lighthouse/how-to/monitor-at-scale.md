@@ -1,6 +1,6 @@
 ---
 title: Monitor delegated resources at scale
-description: Learn how to effectively use Azure Monitor in a scalable way across the customer tenants you’re managing.
+description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you’re managing.
 ms.date: 02/03/2020
 ms.topic: conceptual
 ---
@@ -9,11 +9,11 @@ ms.topic: conceptual
 
 As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. [Azure Lighthouse](../overview.md) allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use [Azure Monitor](../../azure-monitor/index.yml) in a scalable way across the customer tenants you’re managing.
+This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) in a scalable way across the customer tenants you’re managing.
 
 ## Create Log Analytics workspaces
 
-In order to collect data, you’ll need to create Log Analytics workspaces. These Log Analytics workspaces are unique environments for Azure Monitor log data. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace.
+In order to collect data, you’ll need to create Log Analytics workspaces. These Log Analytics workspaces are unique environments for data collected by Azure Monitor. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace.
 
 We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. This also allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
 
@@ -34,4 +34,5 @@ After you've deployed your policies, data will be logged in the Log Analytics wo
 ## Next steps
 
 - Learn about [Azure Monitor](../../azure-monitor/index.yml).
+- Learn about [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md).
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

@@ -44,7 +44,7 @@
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
-  - name: Use Azure Monitor at scale
+  - name: Use Azure Monitor Logs at scale
     displayName: log, analytics, analyze, activity
     href: ./how-to/monitor-at-scale.md
   - name: Azure Policy integration

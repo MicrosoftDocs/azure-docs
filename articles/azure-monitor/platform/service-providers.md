@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for Service Providers | Microsoft Docs
-description: Azure Monitor can help Managed Service Providers (MSPs), large Enterprises, Independent Software Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
+title: Azure Monitor Logs for Service Providers | Microsoft Docs
+description: Azure Monitor Logs can help Managed Service Providers (MSPs), large Eenterprises, Independent Software Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.date: 02/03/2020
 
 ---
 
-# Azure Monitor for Service Providers
+# Azure Monitor Logs for Service Providers
 
 Log Analytics workspaces in Azure Monitor can help managed service providers (MSPs), large enterprises, independent software vendors (ISVs), and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 
@@ -33,19 +33,19 @@ In this architecture, a workspace is deployed in the customer's tenant that is u
 There are two ways that service provider administrators can gain access to a Log Analytics workspace in a customer tenant:
 
 - A customer can add individual users from the service provider as [Azure Active Directory guest users (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). The service provider administrators will have to sign in to each customer's directory in the Azure portal to be able to access these workspaces. This also requires the customers to manage individual access for each service provider administrator.
-- For greater scalability and flexibility, service providers can use the [Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) capability of [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access the customer’s tenant. With this method, the service provider administrators are included in an Azure AD user group in the service provider’s tenant, and this group is granted access during the onboarding process for each customer. These administrators can then access each customer’s workspaces from within their own service provider tenant, rather than having to log into each customer’s tenant individually. Accessing your customers’ Log Analytics workspaces resources in this way reduces the work required on the customer side, and can make it easier to gather and analyze data across multiple customers managed by the same service provider. For more info, see [Monitor customer resources at scale](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale).
+- For greater scalability and flexibility, service providers can use the [Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) capability of [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access the customer’s tenant. With this method, the service provider administrators are included in an Azure AD user group in the service provider’s tenant, and this group is granted access during the onboarding process for each customer. These administrators can then access each customer’s workspaces from within their own service provider tenant, rather than having to log into each customer’s tenant individually. Accessing your customers’ Log Analytics workspaces resources in this way reduces the work required on the customer side, and can make it easier to gather and analyze data across multiple customers managed by the same service provider via tools such as [Azure Monitor Workbooks](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview). For more info, see [Monitor customer resources at scale](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale).
 
 The advantages of the distributed architecture are:
 
-* The customer can manage access to the logs using their own [role-based access](https://docs.microsoft.com/azure/role-based-access-control/overview).
+* The customer can confirm specific levels of permissions via [Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management), or can manage access to the logs using their own [role-based access](https://docs.microsoft.com/azure/role-based-access-control/overview).
+* Logs can be collected from all types of resources, not just agent-based VM data. For example, Azure Audit Logs.
 * Each customer can have different settings for their workspace such as retention and data capping.
 * Isolation between customers for regulatory and compliancy.
 * The charge for each workspace will be rolled into the customer's subscription.
-* Logs can be collected from all types of resources, not just agent-based. For example, Azure Audit Logs.
 
 The disadvantages of the distributed architecture are:
 
-* The service provider must use tools such as [Azure Monitor Workbooks](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview) in order to analyze data across its customers.
+* Centrally visualizing and analyzing data across customer tenants with tools such as Azure Monitor Workbooks can result in slower experiences , especially when analyzing data across more than 50+ workspaces.
 * If customers are not onboarded for Azure delegated resource management, service provider administrators must be provisioned in the customer directory, and it is harder for the service provider to manage a large number of customer tenants at once.
 
 ### 2. Central - Logs are stored in a workspace located in the service provider tenant
