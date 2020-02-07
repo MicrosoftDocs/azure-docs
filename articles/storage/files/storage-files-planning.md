@@ -199,8 +199,7 @@ This section only applies to the standard file shares. All premium file shares a
 Standard file shares with 100 TiB capacity limit are available globally in all Azure regions -
 
 - LRS: All regions, except for South Africa North and South Africa West.
-   - National clouds (Government, Germany, China) are supported via PowerShell and Azure Command Line Interface (CLI). No portal support. 
-   - East US, East US2, West Europe: All new accounts are supported. A small number of existing accounts have not completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
+   - East US and West Europe: All new accounts are supported. A small number of existing accounts have not completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
 - ZRS: All regions, except for Japan East, North Europe, South Africa North.
 - GRS/GZRS: Not supported.

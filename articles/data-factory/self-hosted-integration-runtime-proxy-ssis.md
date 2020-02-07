@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 12/23/2019
+ms.date: 02/06/2020
 ---
 
 # Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF
@@ -144,7 +144,7 @@ The second staging tasks running on your Azure-SSIS IR will not be billed separa
 
 ## Current limitations
 
-- Only Data Flow Tasks with ODBC/OLEDB/Flat File Connection Managers and ODBC/OLEDB/Flat File Sources are currently supported. 
+- Only Data Flow Tasks with ODBC/OLEDB/Flat File Connection Managers and ODBC/OLEDB/Flat File Sources or OLEDB Destination are currently supported. 
 - Only Azure Blob Storage linked services configured with **Account key**/**SAS URI**/**Service Principal** authentication are currently supported.
 
 ## Next steps
