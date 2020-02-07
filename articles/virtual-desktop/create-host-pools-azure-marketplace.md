@@ -60,6 +60,10 @@ Here's what you do for the **Basics** blade:
 For the **Configure virtual machines** blade:
 
 1. Either accept the defaults or customize the number and size of the VMs.
+    
+    >[!NOTE]
+    >If a specific VM size does not appear in the VM size selector but you feel should be available for the Azure subscription and Azure location you selected, we may not have onboarded it to the Azure Marketplace tool yet. To request us to onboard a VM size, please file feedback or upvote an existing request in the [Windows Virtual Desktop UserVoice forum](https://aka.ms/wvdfbk).
+    
 2. Enter a prefix for the names of the virtual machines. For example, if you enter the name "prefix," the virtual machines will be called "prefix-0," "prefix-1," and so on.
 3. Select **Next : Virtual machine settings**.
 
