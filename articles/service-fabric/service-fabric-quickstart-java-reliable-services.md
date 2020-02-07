@@ -25,7 +25,7 @@ Azure Service Fabric is a distributed systems platform for deploying and managin
 
 In a command window, run the following command to clone the sample app repository to your local machine.
 
-```git
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
@@ -56,6 +56,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Azure Service Fabric local host](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
+
+![Azure Service Fabric voting sample](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 ## Scale applications and services in a cluster
 

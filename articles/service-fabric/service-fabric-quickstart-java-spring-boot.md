@@ -14,19 +14,23 @@ In this quickstart, you deploy a Java Spring Boot application to Azure Service F
 
 ## Prerequisites
 
-**Linux:**
+#### [Linux](#tab/linux)
+
 - [Java environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) and [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-**Mac:**
+#### [Mac](#tab/mac)
+
 - [Java environment and Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
 - [Git](https://git-scm.com/downloads)
 
+--- 
+
 ## Download the sample
 
-This quickstart uses the Spring Boot [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. In a terminal window, run the following command to clone the sample app to your local machine.
+In a terminal window, run the following command to clone the Spring Boot [Getting Started](https://github.com/spring-guides/gs-spring-boot) sample app to your local machine.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
@@ -35,9 +39,9 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## Build the Spring Boot application 
 Inside the *gs-spring-boot/complete* directory, run the command below to build the application 
 
-    ```bash
-    ./gradlew build
-    ``` 
+```bash
+./gradlew build
+``` 
 
 ## Package the Spring Boot application 
 1. Inside the *gs-spring-boot* directory in your clone, run the `yo azuresfguest` command. 
@@ -131,6 +135,8 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     ![Spring Boot Service Fabric sample](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 You can now access the Spring Boot application that was deployed to a Service Fabric cluster.
+
+For more information, see the Spring Boot [Getting Started](https://spring.io/guides/gs/spring-boot/) sample on the Spring website.
 
 ## Scale applications and services in a cluster
 
