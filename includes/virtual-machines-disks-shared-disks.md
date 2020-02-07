@@ -14,6 +14,8 @@ Azure shared disks (preview) is a new feature for Azure managed disks that enabl
 
 VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
 
+## How it works
+
 Managed disks with shared disks enabled offer shared block storage that can be accessed by multiple VMs, this is exposed as Logical Unit Numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
 
 Managed disks with shared disks enabled do not natively offer a fully-managed file system that can be accessed using SMB. You will need to use a clustered manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication as well as write locking.

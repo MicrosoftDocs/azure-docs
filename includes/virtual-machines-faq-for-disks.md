@@ -200,6 +200,7 @@ Yes.
 No.
 
 **Can I enable host caching for a disk that has shared disk enabled?**
+
 The only supported host caching option is 'None'.
 
 ## Ultra disks
