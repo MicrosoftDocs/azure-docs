@@ -284,7 +284,7 @@ az acr scope-map update \
 
 For steps to update the scope map using the portal, see the preceding section.
 
-
+The following 
 
 ### Show repo tags 
 
