@@ -129,7 +129,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Logging ##
 
-You can integrate your ASE with Azure Monitor to send logs about the ASE to Storage, Event Hub, or Log Analytics. If you send your logs to Log Analytics, you can then set alerts for events that you are interested in. The items that are logged today are:
+You can integrate your ASE with Azure Monitor to send logs about the ASE to Storage, Event Hub, or Log Analytics. The items that are logged today are:
 
 | Situation | Message |
 |---------|----------|
