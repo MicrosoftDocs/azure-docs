@@ -96,7 +96,7 @@ You can add an external identity provider as described in [Use Azure AD as an id
 
 To provide IP address lookup, IP address management, and name resolution services for your workloads in the AVS Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your AVS Private Cloud](dns-dhcp-setup.md).
 
-The *.avs.io domain is used by management VMs and hosts in your AVS Private Cloud. To resolve requests to this domain, configure DNS forwarding on the DNS server as described in [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
+The *.cloudsimple.io domain is used by management VMs and hosts in your AVS Private Cloud. To resolve requests to this domain, configure DNS forwarding on the DNS server as described in [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
 ### Install vSphere Replication Appliance in your on-premises environment
 
