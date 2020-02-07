@@ -22,176 +22,36 @@ highlightedContent:
   items:
     # Card
     - title: Linux virtual machines
-      itemType: quickstart
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      itemType: overview
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/
     # Card
     - title: Windows virtual machines
-      itemType: quickstart
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      itemType: overview
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/
     # Card
     - title: Virtual machine scale sets
-      itemType: quickstart
-      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
-
-# productDirectory section (optional)
-productDirectory:
-  title: RedHat # < 60 chars (optional)
-  summary: Learn about deploying RedHat virtual machines in Azure # < 160 chars (optional)
-  items:
-    # Card
-    - title: cardtitle1
-      # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
-      links:
-        - url: file1a.md OR https://docs.microsoft.com/file1a
-          text: linktext1a
-        - url: file1b.md OR https://docs.microsoft.com/file1b
-          text: linktext1b
-    # Card
-    - title: cardtitle2
-      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
-      links:
-        - url: file2a.md OR https://docs.microsoft.com/file2a
-          text: linktext2a
-        - url: file2b.md OR https://docs.microsoft.com/file2b
-          text: linktext2b
-    # Card
-    - title: cardtitle3
-      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
-      links:
-        - url: file3a.md OR https://docs.microsoft.com/file3a
-          text: linktext3a
-        - url: file3b.md OR https://docs.microsoft.com/file3b
-          text: linktext3b
-
-# conceptualContent section (optional)
-conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  title: sectiontitle # < 60 chars (optional)
-  summary: sectionsummary # < 160 chars (optional)
-  items:
-    # Card
-    - title: cardtitle1
-      links:
-        - url: file1.md OR https://docs.microsoft.com/file1
-          itemType: itemType
-          text: linktext1
-        - url: file2.md OR https://docs.microsoft.com/file2
-          itemType: itemType
-          text: linktext2
-        - url: file3.md OR https://docs.microsoft.com/file3
-          itemType: itemType
-          text: linktext3
-      # footerLink (optional)
-      footerLink:
-        url: filefooter.md OR https://docs.microsoft.com/filefooter
-        text: See more
-    # Card
-    - title: cardtitle2
-      links:
-        - url: file1.md OR https://docs.microsoft.com/file1
-          itemType: itemType
-          text: linktext1
-        - url: file2.md OR https://docs.microsoft.com/file2
-          itemType: itemType
-          text: linktext2
-        - url: file3.md OR https://docs.microsoft.com/file3
-          itemType: itemType
-          text: linktext3
-      # footerLink (optional)
-      footerLink:
-        url: filefooter.md OR https://docs.microsoft.com/filefooter
-        text: See more
-    # Card
-    - title: cardtitle3
-      links:
-        - url: file1.md OR https://docs.microsoft.com/file1
-          itemType: itemType
-          text: linktext1
-        - url: file2.md OR https://docs.microsoft.com/file2
-          itemType: itemType
-          text: linktext2
-        - url: file3.md OR https://docs.microsoft.com/file3
-          itemType: itemType
-          text: linktext3
-      # footerLink (optional)
-      footerLink:
-        url: filefooter.md OR https://docs.microsoft.com/filefooter
-        text: See more
+      itemType: overview
+      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
 
 # tools section (optional)
 tools:
-  title: sectiontitle # < 60 chars (optional)
+  title: Tools for creating virtual machines < 60 chars (optional)
   summary: sectionsummary # < 160 chars (optional)
   items:
     # Card
-    - title: cardtitle1
+    - title: Azure CLI
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/index/image1.svg OR https://docs.microsoft.com/media/logos/image1.svg
-      url: file1.md
+      imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      url: https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
     # Card
-    - title: cardtitle2
-      imageSrc: ./media/index/image2.svg OR https://docs.microsoft.com/media/logos/image2.svg
-      url: file2.md
+    - title: Azure PowerShell
+      imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      url: https://docs.microsoft.com/en-us/powershell/module/az.compute#virtual_machines
     # Card
-    - title: cardtitle3
-      imageSrc: ./media/index/image3.svg OR https://docs.microsoft.com/media/logos/image3.svg
-      url: file3.md
+    - title: REST API
+      imageSrc:
+      url: https://docs.microsoft.com/rest/api/compute/virtualmachines
 
-# additionalContent section (optional)
-# Card with summary style
-additionalContent:
-  # Supports up to 3 sections
-  sections:
-    - title: sectiontitle # < 60 chars (optional)
-      summary: sectionsummary # < 160 chars (optional)
-      items:
-        # Card
-        - title: cardtitle1
-          summary: cardsummary1
-          url: file1.md OR https://docs.microsoft.com/file1
-        # Card
-        - title: cardtitle2
-          summary: cardsummary2
-          url: file1.md OR https://docs.microsoft.com/file2
-        # Card
-        - title: cardtitle3
-          summary: cardsummary3
-          url: file1.md OR https://docs.microsoft.com/file3
-  # footer (optional)
-  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
-
-# additionalContent section (optional)
-# Card with links style
-additionalContent:
-  # Supports up to 3 sections
-  sections:
-    - title: sectiontitle # < 60 chars (optional)
-      summary: sectionsummary # < 160 chars (optional)
-      items:
-        # Card
-        - title: cardtitle1
-          links:
-            - text: link1a
-              url: file1a.md OR https://docs.microsoft.com/file1a
-            - text: link1b
-              url: file1b.md OR https://docs.microsoft.com/file1b
-        # Card
-        - title: cardtitle2
-          links:
-            - text: link2a
-              url: file2a.md OR https://docs.microsoft.com/file2a
-            - text: link2b
-              url: file2b.md OR https://docs.microsoft.com/file2b
-        # Card
-        - title: cardtitle3
-          links:
-            - text: link3a
-              url: file3a.md OR https://docs.microsoft.com/file3a
-            - text: link3b
-              url: file3b.md OR https://docs.microsoft.com/file3b
-  # footer (optional)
-  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
 
 
 
