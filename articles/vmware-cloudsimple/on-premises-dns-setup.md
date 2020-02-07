@@ -26,10 +26,10 @@ To access the vCenter server on an AVS Private Cloud from on-premises workstatio
 
 Use either of these options for the DNS configuration.
 
-* [Create a zone on the DNS server for *.AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Create a conditional forwarder on your on-premises DNS server to resolve *.AVS.io](#create-a-conditional-forwarder)
+* [Create a zone on the DNS server for *.cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Create a conditional forwarder on your on-premises DNS server to resolve *.cloudsimple.io](#create-a-conditional-forwarder)
 
-## Create a zone on the DNS server for *.AVS.io
+## Create a zone on the DNS server for *.cloudsimple.io
 
 You can set up a zone up as a stub zone and point to the DNS servers on the Private
 Cloud for name resolution. This section provides information on using a BIND DNS server or a Microsoft Windows DNS server.
@@ -76,7 +76,7 @@ from the AVS portal.
 
 ## Create a conditional forwarder
 
-A conditional forwarder forwards all DNS name resolution requests to the designated server. With this setup, any request to *.AVS.io is forwarded to the DNS servers located on the AVS Private Cloud. The following examples show how to set up
+A conditional forwarder forwards all DNS name resolution requests to the designated server. With this setup, any request to *.cloudsimple.io is forwarded to the DNS servers located on the AVS Private Cloud. The following examples show how to set up
 forwarders on different types of DNS servers.
 
 ### Create a conditional forwarder on a BIND DNS server
