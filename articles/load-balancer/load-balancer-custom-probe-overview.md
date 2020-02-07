@@ -247,7 +247,7 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Limitations
 
 - HTTPS probes do not support mutual authentication with a client certificate.
-- You should assumehHealth probes will fail when TCP timestamps are enabled.
+- You should assume Health probes will fail when TCP timestamps are enabled.
 
 ## Next steps
 
