@@ -35,7 +35,7 @@ Use the following command to enable Azure CLI Resource Manager mode commands.
 > 
 > 
 
-## azure account: Manage your account information
+## Account information
 Your Azure subscription information is used by the tool to connect to your account.
 
 **List the imported subscriptions**
@@ -62,7 +62,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## azure ad: Commands to display Active Directory objects
+## Active Directory objects
 **Commands to display active directory applications**
 
     ad app create [options]
@@ -89,7 +89,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     ad user list [options]
     ad user show [options]
 
-## azure availset: commands to manage your availability sets
+## Availability sets
 **Creates an availability set within a resource group**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -106,7 +106,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 
     availset delete [options] <resource-group> <name>
 
-## azure config: commands to manage your local settings
+## Local settings
 **List Azure CLI configuration settings**
 
     config list [options]
@@ -124,7 +124,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     config mode [options] <modename>
 
 
-## azure feature: commands to manage account features
+## Account features
 **List all features available for your subscription**
 
     feature list [options]
@@ -137,7 +137,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 
     feature register [options] <providerName> <featureName>
 
-## azure group: Commands to manage your resource groups
+## Resource groups
 **Creates a resource group**
 
     group create [options] <name> <location>
@@ -176,7 +176,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## azure HDInsight: Commands to manage your HDInsight clusters
+## HDInsight clusters
 **Commands to create or add to a cluster configuration file**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -295,17 +295,17 @@ Parameter options:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## azure insights: Commands related to monitoring Insights (events, alert rules, autoscale settings, metrics)
+## Insights (events, alert rules, autoscale settings, metrics)
 **Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider**
 
     insights logs list [options]
 
-## azure location: Commands to get the available locations for all resource types
+## Locations 
 **List the available locations**
 
     location list [options]
 
-## azure network: Commands to manage network resources
+## Network resources
 **Commands to manage virtual networks**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -1497,7 +1497,7 @@ Parameter options:
 
     network gateway list [options] <resource-group>
 
-## azure provider: Commands to manage resource provider registrations
+## Resource provider registrations
 **List currently registered providers in Resource Manager**
 
     provider list [options]
@@ -1514,7 +1514,7 @@ Parameter options:
 
     provider unregister [options] <namespace>
 
-## azure resource: Commands to manage your resources
+## Resources
 **Creates a resource in a resource group**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1535,7 +1535,7 @@ Parameter options:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## azure role: Commands to manage your Azure roles
+## Azure roles
 **Get all available role definitions**
 
     role list [options]
@@ -1550,7 +1550,7 @@ Parameter options:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## azure storage: Commands to manage your Storage objects
+## Storage objects
 **Commands to manage your Storage accounts**
 
     storage account list [options]
@@ -1673,7 +1673,7 @@ Parameter options:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## azure tag: Commands to manage your Resource Manager tag
+## Tags
 **Add a tag**
 
     tag create [options] <name> <value>
@@ -1690,7 +1690,7 @@ Parameter options:
 
     tag show [options] [name]
 
-## azure vm: Commands to manage your Azure Virtual Machines
+## Virtual Machines
 **Create a VM**
 
     vm create [options] <resource-group> <name> <location> <os-type>
