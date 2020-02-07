@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/05/2020
+ms.date: 02/07/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -42,7 +42,7 @@ You authorize a user in your Azure AD B2C directory (the **Service Provider**) t
 
 ## Create a resource group
 
-In the Azure Active Directory (Azure AD) tenant that contains your Azure subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Use the following values:
+In the Azure Active Directory (Azure AD) tenant that contains your Azure subscription (*not* the directory that contains your Azure AD B2C tenant), [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). This resource gropu will contain your [Azure storage account](../storage/blobs/storage-blobs-introduction.md), [event hub](../event-hubs/event-hubs-about.md), or [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) where you want to archive the sign-in and auditing logs. Alternatively use an existing resouce group, where you have your Azure storage account, event hub, or Log Analytics workspace. To create a new resource group, use the following values:
 
 * **Subscription**: Select your Azure subscription.
 * **Resource group**: Enter name for the resource group. For example, *azure-ad-b2c-monitor*.
