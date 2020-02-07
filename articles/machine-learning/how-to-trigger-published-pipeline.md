@@ -9,38 +9,33 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 02/07/2020
 
 ---
 # Trigger a run of a Machine Learning pipeline from a Logic App
 
-Trigger the run of your Azure Machine Learning Pipeline when new data appears. For example, you may want to trigger the pipeline to train a new model when new data appears the blob storage account.
+Trigger the run of your Azure Machine Learning Pipeline when new data appears. For example, you may want to trigger the pipeline to train a new model when new data appears the blob storage account. Set up the trigger with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-You'll use:
-* [A published Machine Learning pipeline](concept-ml-pipelines.md).
+## Prerequisites
+
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+* [A published Machine Learning pipeline](concept-ml-pipelines.md). [Create and publish your pipeline](how-to-create-your-first-pipeline.md). Then find the REST endpoint of your PublishedPipeline by using the pipeline ID:
+    
+     ```
+    # You can find the pipeline ID in Azure Machine Learning studio
+    
+    published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here")
+    published_pipeline.endpoint 
+    ```
 * [Azure blob storage](../storage/blobs/storage-blobs-overview.md) to store your data.
-* [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-
-## Create and publish the pipeline
-
-First [create and publish your pipeline](how-to-create-your-first-pipeline.md).  Use the pipeline ID to find the REST endpoint of your PublishedPipeline.
-
-```
-# You can find the pipeline ID in Azure Machine Learning studio
-
-published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here")
-published_pipeline.endpoint 
-```
-
-### Set up a datastore
-
-In your Machine Learning workspace, [define a datastore](how-to-access-data.md) with the details from your blob storage account.
+* [A datastore](how-to-access-data.md) in your workspace that has the details from your blob storage account.
 
 ## Create a Logic App
 
 Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. Once your Logic App has been provisioned, use these steps to configure it:
 
-1.  [Create a system-assigned managed identity](../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace. 
+1. [Create a system-assigned managed identity](../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace.
 
 1. Navigate to the LogicApp Designer view and select the Blank Logic App template. 
     > [!div class="mx-imgBorder"]
@@ -56,6 +51,8 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
 
 1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action. Use the following settings.
 
+  > [!div class="mx-imgBorder"]
+  > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
 
   | Setting | Value | 
   |---|---|
@@ -63,8 +60,6 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
   | URI |the endpoint that you found at the beginning of this article |
   | Authentication mode | Managed Identity |
 
-  > [!div class="mx-imgBorder"]
-  > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
 
 1. Set up your schedule to set the value of any [DataPath PipelineParameters](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) you may have:
 
@@ -81,7 +76,7 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
                             },
     ```
 
-     Use the `DataStoreName` you added to your workspace.
+    Use the `DataStoreName` you added to your workspace.
      
     > [!div class="mx-imgBorder"]
     > ![HTTP settings](media/how-to-trigger-published-pipeline/http-settings.png)
