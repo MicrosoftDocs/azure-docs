@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 2/7/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -15,16 +15,16 @@ services: iot-edge
 > [!NOTE]
 > This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-In this article, we create three IoT Edge modules that receive messages from leaf devices, run the data through your machine learning model, and then forward insights to IoT Hub.
+In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
 IoT Edge hub facilitates module to module communication. Using the IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages.
 
 We want the IoT Edge device to accomplish four things for us:
 
-* Receive data from the leaf devices
-* Predict remaining useful life (RUL) for the device that sent the data
-* Send a message with only the RUL for the device to IoT Hub (this function could be modified to only send data if the RUL drops below some level)
-* Save the leaf device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub via file upload to refine training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
+* Receive data from the leaf devices.
+* Predict the remaining useful life (RUL) for the device that sent the data.
+* Send a message with the RUL for the device to IoT Hub. This function could be modified to send data only if the RUL drops below a specified level.
+* Save the leaf device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub to refine the training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
 
 To accomplish these tasks, we use three custom modules:
 
@@ -51,9 +51,11 @@ The steps in this article are typically performed by a cloud developer.
 
 ## Create a new IoT Edge solution
 
-During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, packaged that model so that the image is deployable as an Azure IoT Edge module. In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
+During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, packaged that model so that the image is deployable as an Azure IoT Edge module.
 
-1. Open a remote desktop session to your development machine.
+In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
+
+1. Open a remote desktop session to your development VM.
 
 2. Open folder **C:\\source\\IoTEdgeAndMlSample** in Visual Studio Code.
 
@@ -156,7 +158,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 > [!NOTE]
 > The description of the module responsibilities may make the processing seem sequential, but the flow is message/event based. This is why we need an orchestration module like our Router module.
 
-### Create module and copy files
+### Create the module
 
 1. Right click on the modules folder in Visual Studio Code and choose **Add IoT Edge Module**.
 
@@ -405,35 +407,6 @@ To add the directory to the module’s container, we will modify the Dockerfiles
    The `mkdir` and `chown` commands instruct the Docker build process to create a top-level directory called /avrofiles in the image and then to make the moduleuser the owner of that directory. It is important that these commands are inserted after the module user is added to the image with the `useradd` command and before the context switches to the moduleuser (USER moduleuser).
 
 3. Make the corresponding changes to Dockerfile.amd64.debug and Dockerfile.arm32v7.
-
-#### Update the module configuration
-
-The final step of creating the bind is to update the deployment.template.json (and deployment.debug.template.json) files with the bind information.
-
-1. Open deployment.template.json.
-
-2. Modify the module definition for avroFileWriter by adding the `Binds` parameter that points the container directory /avrofiles to the local directory on the edge device. Your module definition should match this example:
-
-   ```json
-   "avroFileWriter": {
-     "version": "1.0",
-     "type": "docker",
-     "status": "running",
-     "restartPolicy": "always",
-     "settings": {
-       "image": "${MODULES.avroFileWriter}",
-       "createOptions": {
-         "HostConfig": {
-           "Binds": [
-             "/data/avrofiles:/avrofiles"
-           ]
-         }
-       }
-     }
-   }
-   ```
-
-3. Make the corresponding changes to deployment.debug.template.json.
 
 ### Bind mount for access to config.yaml
 
@@ -823,7 +796,7 @@ the device.
 
 In this article, we created an IoT Edge Solution in Visual Studio Code with three modules, a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device, modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules’ containers. Next, we updated the configuration of the IoT Hub to route our messages based on type and to handle file uploads. With everything in place, we deployed the modules to the IoT Edge device and ensured the modules were running correctly.
 
-More information can be found at the following pages:
+See the following articles for more guidance:
 
 * [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md)
 * [IoT Hub message routing query syntax](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
