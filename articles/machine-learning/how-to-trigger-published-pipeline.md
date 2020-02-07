@@ -14,7 +14,7 @@ ms.date: 02/07/2020
 ---
 # Trigger a run of a Machine Learning pipeline from a Logic App
 
-Trigger the run of your Azure Machine Learning Pipeline when new data appears. For example, you may want to trigger the pipeline to train a new model when new data appears the blob storage account. Set up the trigger with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+Trigger the run of your Azure Machine Learning Pipeline when new data appears. For example, you may want to trigger the pipeline to train a new model when new data appears in the blob storage account. Set up the trigger with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## Prerequisites
 
