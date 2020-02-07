@@ -50,7 +50,7 @@ From the end-to-end transaction details blade, you can click on *Unminify* and i
 
 ### From the Properties Page
 
-If you would like to change or reconfigure the Storage Account or Blob Container that is linked to your Application Insights Resource, you can do it by viewing the Application Insights resource's Properties blade.
+If you would like to configure or change the Storage Account or Blob Container that is linked to your Application Insights Resource, you can do it by viewing the Application Insights resource's Properties blade.
 
 1. Navigate to the *Properties* blade of your Application Insights Resource.
 2. Click on *Change source map blob container*
