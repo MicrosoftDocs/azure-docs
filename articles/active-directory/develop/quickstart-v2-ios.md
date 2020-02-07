@@ -88,6 +88,14 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
+>    ```swift
+>    let kAuthority = "https://Enter_the_Cloud_Instance_Id_here/Enter_the_Tenant_Info_Here"
+>    ```
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
+>    ```swift
+>    let kGraphEndpoint = "Enter_the_Graph_Endpoint_Here"
+>    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
 > 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
@@ -114,6 +122,18 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. If you're building an app for [AzureAD national clouds](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
+>
+> ```objective-c
+> let kGraphEndpoint = "https://graph.microsoft.com"
+> let kAuthority = "https://login.microsoftonline.com/common"
+> ```
+> Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with AzureAD Germany, use following:
+>
+> ```objective-c
+> let kGraphEndpoint = "https://graph.microsoft.de"
+> let kAuthority = "https://login.microsoftonline.de/common"
+> ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
 > 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
