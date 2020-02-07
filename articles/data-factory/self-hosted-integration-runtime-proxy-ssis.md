@@ -16,9 +16,9 @@ ms.date: 02/06/2020
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
 
-This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory with a self-hosted integration runtime (self-hosted IR)configured as a proxy. 
+This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
-With this feature, you can access data on-premises without having to [join your Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  The feature is useful when your corporate network has a configuration too complex or a policy too restrictive for you to inject your Azure-SSIS IR into it.
+With this feature, you can access data on-premises without having to [join your Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). The feature is useful when your corporate network has a configuration too complex or a policy too restrictive for you to inject your Azure-SSIS IR into it.
 
 This feature splits packages that contain a data flow task with an on-premises data source into two staging tasks: 
 * The first task, which runs on your self-hosted IR, first moves data from the on-premises data source into a staging area in your Azure Blob storage.
@@ -40,28 +40,28 @@ Finally, you download and install the latest version of the self-hosted IR, as w
 
   If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  If you use OLEDB drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit version from their respective websites.
+  If you use OLEDB drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you haven't already done so, [download and install the 64-bit version of Visual C++ (VC) runtime](https://www.microsoft.com/download/details.aspx?id=40784) on the same machine where your self-hosted IR is installed.
 
 ## Prepare the Azure Blob storage-linked service for staging
 
 If you haven't already done so, create an Azure Blob storage-linked service in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create an Azure data factory-linked service](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Be sure to do the following:
-- For **Data Store**, select **Azure Blob Storage**.
-- For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime**. 
-- For **Authentication method**, select **Account key**, **SAS URI**, or **Service Principal**. 
+- For **Data Store**, select **Azure Blob Storage**.  
+- For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime**.  
+- For **Authentication method**, select **Account key**, **SAS URI**, or **Service Principal**.  
 
     >[!TIP]
-    >When **Service Principal** is selected, grant at least the *Storage Blob Data Contributor* role. For more information, refer to [Azure Blob storage connector](connector-azure-blob-storage.md#linked-service-properties).
+    >If you select **Service Principal**, grant at least the *Storage Blob Data Contributor* role. For more information, refer to [Azure Blob storage connector](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Prepare the Azure Blob storage-linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
 ## Configure an Azure-SSIS IR with your self-hosted IR as a proxy
 
-Having prepared your self-hosted IR and Azure Blob storage-linked service for staging, you can now configure your new or existing Azure-SSIS IR with the self-hosted IR as a proxy in your data factory portal or app. Before you do so, however, if your existing Azure-SSIS IR is already running, stop it and then restart it.
+Having prepared your self-hosted IR and Azure Blob storage-linked service for staging, you can now configure your new or existing Azure-SSIS IR with the self-hosted IR as a proxy in your data factory portal or app. Before you do so, though, if your existing Azure-SSIS IR is already running, stop it and then restart it.
 
-1. In the **Integration runtime setup** pane, advance past the **General Settings** and **SQL Settings** sections by selecting **Next**. 
+1. In the **Integration runtime setup** pane, skip past the **General Settings** and **SQL Settings** sections by selecting **Next**. 
 
-1. In the **Advanced settings** section:
+1. In the **Advanced settings** section, do the following:
 
    1. Select the **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** check box. 
 
@@ -146,7 +146,7 @@ On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSI
 
 If the staging tasks on your self-hosted IR require Windows authentication, [configure your SSIS packages to use the same Windows authentication](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-Your staging tasks will be invoked with the self-hosted IR service account (*NT SERVICE\DIAHostService*, by default), and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. Consequently, on the self-hosted IR machine, go to **Local Security Policy** > **Local Policies** > **User Rights Assignment** and do the following:
+Your staging tasks will be invoked with the self-hosted IR service account (*NT SERVICE\DIAHostService*, by default), and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. On the self-hosted IR machine, go to **Local Security Policy** > **Local Policies** > **User Rights Assignment**, and then do the following:
 
 1. Assign the *Adjust memory quotas for a process* and *Replace a process level token* policies to the self-hosted IR service account. This should occur  automatically when you install your self-hosted IR with the default service account. If you use a different service account, assign the same policies to it.
 
