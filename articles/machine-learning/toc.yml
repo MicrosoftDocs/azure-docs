@@ -288,7 +288,7 @@
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
     - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
+      displayName: log, monitor, metrics, Databricks
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
