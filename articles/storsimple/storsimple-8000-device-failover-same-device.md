@@ -1,5 +1,5 @@
 ---
-title: Failover, disaster recovery to same StorSimple physical device
+title: Failover and disaster recovery to same StorSimple physical device
 description: Learn how to fail over your StorSimple device to the same device.
 services: storsimple
 documentationcenter: ''
