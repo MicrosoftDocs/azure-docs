@@ -16,7 +16,7 @@ Multiple site hosting enables you to configure more than one web application on 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> Rules are processed in the order they are listed in the portal. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
+> Rules are processed in the order they are listed in the portal for the v1 SKU. For the v2 SKU, exact matches have higher precedence. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
 
 Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://fabrikam.com` are routed to FabrikamServerPool.
 
