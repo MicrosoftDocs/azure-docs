@@ -67,7 +67,7 @@ Directional lights are represented by component `DirectionalLightComponent`. A d
 
 ## Performance considerations
 
-Light sources have a significant implication on rendering performance so they should be used carefully and only if required by the application. Note that any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](sky.md#api-usage) with no additional rendering cost associated.
+Light sources have a significant implication on rendering performance so they should be used carefully and only if required by the application. Note that any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](sky.md) with no additional rendering cost associated.
 
 ## Next steps
 
