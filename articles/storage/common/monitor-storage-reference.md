@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 09/30/2019
+ms.date: 02/07/2020
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -13,6 +13,85 @@ ms.subservice: logs
 # Azure Storage monitoring data reference
 
 See [Monitoring Azure Storage](monitor-storage.md) for details on collecting and analyzing monitoring data for Azure Storage.
+
+## Metrics
+
+The following tables list the platform metrics collected for Azure Storage. 
+
+### Capacity metrics
+
+Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
+
+Azure Storage provides the following capacity metrics in Azure Monitor.
+
+#### Account Level
+
+| Metric | Description |
+| ------------------- | ----------------- |
+| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+
+#### Blob storage
+
+| Metric | Description |
+| ------------------- | ----------------- |
+| BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimensions: **BlobType**, and **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimensions: **BlobType**, and **BlobTier** ([Definition](#metrics-dimensions)) |
+| ContainerCount    | The number of containers in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| IndexCapacity     | The amount of storage used by ADLS Gen2 Hierarchical Index <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+
+#### Table storage
+
+| Metric | Description |
+| ------------------- | ----------------- |
+| TableCapacity | The amount of Table storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| TableCount   | The number of tables in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| TableEntityCount | The number of table entities in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+
+#### Queue storage
+
+| Metric | Description |
+| ------------------- | ----------------- |
+| QueueCapacity | The amount of Queue storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| QueueCount   | The number of queues in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| QueueMessageCount | The number of unexpired queue messages in the storage account. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+
+#### File storage
+
+| Metric | Description |
+| ------------------- | ----------------- |
+| FileCapacity | The amount of File storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+
+### Transaction metrics
+
+Transaction metrics are emitted on every request to a storage account from Azure Storage to Azure Monitor. In the case of no activity on your storage account, there will be no data on transaction metrics in the period. All transaction metrics are available at both account and service level (Blob storage, Table storage, Azure Files, and Queue storage). The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
+
+Azure Storage provides the following transaction metrics in Azure Monitor.
+
+| Metric | Description |
+| ------------------- | ----------------- |
+| Transactions | The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests that produced errors. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Applicable dimensions: ResponseType, GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions))<br/> Value example: 1024 |
+| Ingress | The amount of ingress data. This number includes ingress from an external client into Azure Storage as well as ingress within Azure. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
+| Egress | The amount of egress data. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
+| SuccessServerLatency | The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
+| SuccessE2ELatency | The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
+| Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 99.99 |
+
+## Metrics dimensions
+
+Azure Storage supports following dimensions for metrics in Azure Monitor.
+
+| Dimension Name | Description |
+| ------------------- | ----------------- |
+| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append Blob is included in BlockBlob. |
+| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](../blobs/storage-blob-storage-tiers.md). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
+| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **ResponseType** | Transaction response type. The available values include: <br/><br/> <li>**ServerOtherError**: All other server-side errors except described ones </li> <li>**ServerBusyError**: Authenticated request that returned an HTTP 503 status code. </li> <li>**ServerTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li>**AuthorizationError**: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li>**NetworkError**: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li>**ClientThrottlingError**: Client-side throttling error. </li> <li>**ClientTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. If the client's network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li>**ClientOtherError**: All other client-side errors except described ones. </li> <li>**Success**: Successful request</li> <li> **SuccessWithThrottling**: Successful request when a SMB client gets throttled in the first attempt(s) but succeeds after retries.</li> |
+| **ApiName** | The name of operation. For example: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> For all operation names, see [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Authentication** | Authentication type used in transactions. The available values include: <br/> <li>**AccountKey**: The transaction is authenticated with storage account key.</li> <li>**SAS**: The transaction is authenticated with shared access signatures.</li> <li>**OAuth**: The transaction is authenticated with OAuth access tokens.</li> <li>**Anonymous**: The transaction is requested anonymously. It doesn’t include preflight requests.</li> <li>**AnonymousPreflight**: The transaction is preflight request.</li> |
+
+For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
 
 ## Resource logs
 
@@ -98,85 +177,6 @@ The following table contains properties that describe the operation.
 |**smbSessionID** | The SMB2 **SessionId** established at session setup time. For example: `0x8530280128000049` |
 |**smbCommandMajor	uint32** | Value in the **SMB2_HEADER.Command**. Currently, this is a number between 0 and 18 inclusive. For example: `0x6` |
 |**smbCommandMinor** | The subclass of **SmbCommandMajor**, where appropriate. For example: `DirectoryCloseAndDelete` |
-
-## Metrics
-
-The following tables list the platform metrics collected for Azure Storage. 
-
-### Capacity metrics
-
-Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
-
-Azure Storage provides the following capacity metrics in Azure Monitor.
-
-#### Account Level
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-
-#### Blob storage
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimensions: **BlobType**, and **BlobTier** ([Definition](#metrics-dimensions)) |
-| BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimensions: **BlobType**, and **BlobTier** ([Definition](#metrics-dimensions)) |
-| ContainerCount    | The number of containers in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| IndexCapacity     | The amount of storage used by ADLS Gen2 Hierarchical Index <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-
-#### Table storage
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| TableCapacity | The amount of Table storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| TableCount   | The number of tables in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| TableEntityCount | The number of table entities in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-
-#### Queue storage
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| QueueCapacity | The amount of Queue storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| QueueCount   | The number of queues in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| QueueMessageCount | The number of unexpired queue messages in the storage account. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-
-#### File storage
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| FileCapacity | The amount of File storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-
-### Transaction metrics
-
-Transaction metrics are emitted on every request to a storage account from Azure Storage to Azure Monitor. In the case of no activity on your storage account, there will be no data on transaction metrics in the period. All transaction metrics are available at both account and service level (Blob storage, Table storage, Azure Files, and Queue storage). The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
-
-Azure Storage provides the following transaction metrics in Azure Monitor.
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| Transactions | The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests that produced errors. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Applicable dimensions: ResponseType, GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions))<br/> Value example: 1024 |
-| Ingress | The amount of ingress data. This number includes ingress from an external client into Azure Storage as well as ingress within Azure. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
-| Egress | The amount of egress data. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
-| SuccessServerLatency | The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
-| SuccessE2ELatency | The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
-| Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 99.99 |
-
-## Metrics dimensions
-
-Azure Storage supports following dimensions for metrics in Azure Monitor.
-
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append Blob is included in BlockBlob. |
-| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](../blobs/storage-blob-storage-tiers.md). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
-| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
-| **ResponseType** | Transaction response type. The available values include: <br/><br/> <li>**ServerOtherError**: All other server-side errors except described ones </li> <li>**ServerBusyError**: Authenticated request that returned an HTTP 503 status code. </li> <li>**ServerTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li>**AuthorizationError**: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li>**NetworkError**: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li>**ClientThrottlingError**: Client-side throttling error. </li> <li>**ClientTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. If the client's network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li>**ClientOtherError**: All other client-side errors except described ones. </li> <li>**Success**: Successful request</li> <li> **SuccessWithThrottling**: Successful request when a SMB client gets throttled in the first attempt(s) but succeeds after retries.</li> |
-| **ApiName** | The name of operation. For example: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> For all operation names, see [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Authentication** | Authentication type used in transactions. The available values include: <br/> <li>**AccountKey**: The transaction is authenticated with storage account key.</li> <li>**SAS**: The transaction is authenticated with shared access signatures.</li> <li>**OAuth**: The transaction is authenticated with OAuth access tokens.</li> <li>**Anonymous**: The transaction is requested anonymously. It doesn’t include preflight requests.</li> <li>**AnonymousPreflight**: The transaction is preflight request.</li> |
-
-For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
 
 ## See Also
 
