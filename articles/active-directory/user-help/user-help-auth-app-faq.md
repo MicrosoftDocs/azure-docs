@@ -2,7 +2,7 @@
 title: Questions & answers about Microsoft Authenticator app - Azure AD
 description: Frequently asked questions and answers (FAQs) about the Microsoft Authentication app and two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
 ---
 

@@ -26,6 +26,9 @@
     - name: Create an automated ML experiment
       displayName: automl, automated, auto ml, portal, ui
       href: tutorial-first-experiment-automated-ml.md
+    - name: Forecast demand with automated ML (Bike share data)
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-automated-ml-forecast.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
