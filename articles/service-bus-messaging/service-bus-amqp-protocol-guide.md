@@ -84,7 +84,7 @@ Clients that use AMQP connections over TCP require ports 5671 and 5672 to be ope
 
 ![List of destination ports][4]
 
-A .NET client would fail with a socketexception ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connectiong string, which forces the clients to communicate with the remote service over port 5671.
+A .NET client would fail with a SocketException ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connectiong string, which forces the clients to communicate with the remote service over port 5671.
 
 
 ### Links
