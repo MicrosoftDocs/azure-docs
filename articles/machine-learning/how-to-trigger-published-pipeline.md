@@ -49,11 +49,13 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
  
     Choose the **Interval** and **Frequency** to poll for updates that work for you.  
 
-1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action. Use the following settings.
+1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action. 
 
   > [!div class="mx-imgBorder"]
   > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
 
+  Use the following settings.
+  
   | Setting | Value | 
   |---|---|
   | HTTP action | POST |
