@@ -111,8 +111,6 @@
     items:
     - name: Manage NICs
       href: virtual-network-network-interface.md
-    - name: Add or remove IP addresses
-      href: virtual-network-network-interface-addresses.md
     - name: Manage virtual network
       href: manage-virtual-network.md
     - name: Manage subnets
