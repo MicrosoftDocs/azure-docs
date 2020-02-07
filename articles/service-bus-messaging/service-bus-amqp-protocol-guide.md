@@ -78,12 +78,13 @@ Azure Service Bus currently uses exactly one session for each connection. The Se
 
 Connections, channels, and sessions are ephemeral. If the underlying connection collapses, connections, TLS tunnel, SASL authorization context, and sessions must be reestablished.
 
-### AMQP Outbound Port Requirements
-Clients using AMQP Connections over tcp requires port 5671 and 5672 to be opened in the local firewall. Along with these ports, it might be necessary to open additional ports if the [EnableLinkRedirect](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) feature is enabled. EnableLinkRedirect is a new messaging feature which helps to skip one-hop while receiving messages thus helping to boost throughput. The client would start communicating directly with backend service over port range 104XX as seen below. 
+### AMQP outbound port requirements
 
-![][4]
+Clients that use AMQP connections over TCP require ports 5671 and 5672 to be opened in the local firewall. Along with these ports, it might be necessary to open additional ports if the [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) feature is enabled. `EnableLinkRedirect` is a new messaging feature that helps skip one-hop while receiving messages, thus helping to boost throughput. The client would start communicating directly with the back-end service over port range 104XX as shown in the following image. 
 
-A dotnet client would fail with socketexception (An attempt was made to access a socket in a way forbidden by its access permissions) if these ports are blocked by the firewall. This feature can be disabled by setting EnableAmqpLinkRedirect=false in the connectiong string, which would force the clients to communicate with remote service over port 5671.
+![List of destination ports][4]
+
+A .NET client would fail with a socketexception ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connectiong string, which forces the clients to communicate with the remote service over port 5671.
 
 
 ### Links
