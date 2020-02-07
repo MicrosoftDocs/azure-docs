@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
 
-Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) usage activity events to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
+Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and [auditing](view-audit-logs.md) logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 
 You can route log events to:
 
