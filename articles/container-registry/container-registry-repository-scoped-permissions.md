@@ -59,8 +59,6 @@ The following image shows the relationship between tokens and scope maps.
 * **Docker** - To authenticate with the registry to pull or push images, you need a local Docker installation. Docker provides installation instructions for [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms) systems.
 * **Container registry** - If you don't have one, create a Premium container registry in your Azure subscription, or upgrade an existing registry. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). 
 
-
-
 ## Create access token - CLI
 
 ### Create access token and specify repositories
@@ -79,18 +77,18 @@ The output shows details about the token, including two generated password. It's
 
 ```console
 {
-  "creationDate": "2019-10-22T00:15:34.066221+00:00",
+  "creationDate": "2020-01-18T00:15:34.066221+00:00",
   "credentials": {
     "certificates": [],
     "passwords": [
       {
-        "creationTime": "2019-10-22T00:15:52.837651+00:00",
+        "creationTime": "2020-01-18T00:15:52.837651+00:00",
         "expiry": null,
         "name": "password1",
         "value": "uH54BxxxxK7KOxxxxRbr26dAs8JXxxxx"
       },
       {
-        "creationTime": "2019-10-22T00:15:52.837651+00:00",
+        "creationTime": "2020-01-18T00:15:52.837651+00:00",
         "expiry": null,
         "name": "password2",
         "value": "kPX6Or/xxxxLXpqowxxxxkA0idwLtmxxxx"
@@ -271,7 +269,7 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### Delete images
 
-Update the token permissions by adding the `content/delete` action to the `alpine` repository. This action allows image deletion in the repository.
+Update the scope map by adding the `content/delete` action to the `alpine` repository. This action allows deletion of images in the repository, or deletion of the entire repository.
 
 For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update] command to update the scope map:
 
@@ -284,11 +282,17 @@ az acr scope-map update \
 
 For steps to update the scope map using the portal, see the preceding section.
 
-The following 
+Use the following [az acr repository delete][az-acr-repository-delete] command to delete the `samples/alpine` repository. Deletion doesn't use authentication through `docker login`. Instead, pass the token's name and password to the command. The following example uses the environment variables created earlier in the article:
+
+```azurecli
+az acr repository delete \
+  --name myregistry --repository samples/alpine \
+  --username $TOKEN_NAME --password $TOKEN_PWD
+```
 
 ### Show repo tags 
 
-Update the token permissions by adding the `metadata/read` action to the `hello-world` repository. This action allows showing manifest and tag data in the repository.
+Update the scope map by adding the `metadata/read` action to the `hello-world` repository. This action allows showing manifest and tag data in the repository.
 
 For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update] command to update the scope map:
 
@@ -303,10 +307,12 @@ For steps to update the scope map using the portal, see the preceding section.
 
 To read metadata in the `samples/hello-world` repository, run the [az acr repository show-manifests][az-acr-repository-show-manifests] or [az acr repository show-tags][az-acr-repository-show-tags] command. 
 
-Reading metadata doesn't require authentication using `docker login`. Instead, pass the token's name and password to either command. The following example use the environment variables created earlier in the article:
+Reading metadata doesn't use authentication through `docker login`. Instead, pass the token's name and password to either command. The following example uses the environment variables created earlier in the article:
 
 ```bash
-az acr repository show-tags --name myregistry --repository samples/hello-world  --username $TOKEN_NAME --password $TOKEN_PWD
+az acr repository show-tags \
+  --name myregistry --repository samples/hello-world \
+  --username $TOKEN_NAME --password $TOKEN_PWD
 ```
 
 Sample output:
@@ -316,7 +322,7 @@ Sample output:
   "v1"
 ]
 ```
-## Manage tokens and scope maps - CLI
+## Manage tokens and scope maps
 
 ### List scope maps
 
@@ -331,9 +337,9 @@ The output shows the scope maps you defined and several system-defined scope map
 ```
 NAME                 TYPE           CREATION DATE         DESCRIPTION
 -------------------  -------------  --------------------  ------------------------------------------------------------
-_repositories_admin  SystemDefined  2019-11-13T09:44:24Z  Can perform all read, write and delete operations on the ...
-_repositories_pull   SystemDefined  2019-11-13T09:44:24Z  Can pull any repository of the registry
-_repositories_push   SystemDefined  2019-11-13T09:44:24Z  Can push to any repository of the registry
+_repositories_admin  SystemDefined  2020-01-20T09:44:24Z  Can perform all read, write and delete operations on the ...
+_repositories_pull   SystemDefined  2020-01-20T09:44:24Z  Can pull any repository of the registry
+_repositories_push   SystemDefined  2020-01-20T09:44:24Z  Can push to any repository of the registry
 MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 ```
 
@@ -354,25 +360,16 @@ TOKEN_PWD=$(az acr token credential generate \
   --name MyToken --registry myregistry --days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
-### Update scope map and token
+### Update token with new scope map
 
-To update token permissions, update the permissions in the associated scope map, using [az acr scope-map update][az-acr-scope-map-update]. For example, to update *MyScopeMap* to remove the `content/delete` action on the `samples/hello-world` repository:
-
-```azurecli
-az acr scope-map update --name MyScopeMap --registry myregistry \
-  --remove samples/hello-world content/delete
-```
-
-If the scope map is associated with more than one token, the command updates the permissions of all associated tokens.
-
-If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. For example:
+If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update] and specify the new scope map. For example:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` or other authentication using the token.
+After updating a token with a new scope map, the permission changes take effect at the next `docker login` or other authentication using the token.
 
 After updating a token, you might want to generate new passwords to access the registry using the [az acr token credential generate][az-acr-token-credential-generate] command.
 
@@ -393,6 +390,7 @@ After updating a token, you might want to generate new passwords to access the r
 [az-acr-repository]: /cli/azure/acr/repository/
 [az-acr-repository-show-tags]: /cli/azure/acr/repository/#az-acr-repository-show-tags
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository/#az-acr-repository-show-manifests
+[az-acr-repository-delete]: /cli/azure/acr/repository/#az-acr-repository-delete
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az-acr-scope-map-create
 [az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-show
