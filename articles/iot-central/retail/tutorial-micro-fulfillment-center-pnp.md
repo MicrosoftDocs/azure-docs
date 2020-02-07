@@ -1,6 +1,6 @@
 ---
 title: Micro-fulfillment center app template tutorial | Microsoft Docs
-description: A tutorial about the micro-fulfillment center application template for IoT Central
+description: A tutorial about the micro-fulfillment center application template for Azure IoT Central
 author: avneet723
 ms.author: avneets 
 ms.service: iot-central
@@ -50,7 +50,7 @@ To create a new micro-fulfillment center application that uses preview features:
 
 ## Walk through the application 
 
-After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this IoT Central application. On this operator dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
+After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this operator dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
 
 From the dashboard, you can:
    * See device telemetry, such as the number of picks, the number of orders processed, and properties, such as the structure system status.  
@@ -87,5 +87,5 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 * Learn more about the [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center-pnp.md).
-* Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md).
-* Read the [IoT Central overview](../preview/overview-iot-central.md).
+* Learn more about other [Azure IoT Central retail templates](./overview-iot-central-retail-pnp.md).
+* Read the [Azure IoT Central overview](../preview/overview-iot-central.md).
