@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
+        - name: Plan and manage costs
+          href: plan-manage-costs.md
         - name: Pricing model
           href: how-pricing-works.md
         - name: Total Cost of Ownership (TCO) 
