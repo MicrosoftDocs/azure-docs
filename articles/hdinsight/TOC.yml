@@ -521,6 +521,8 @@
         href: ./hadoop/troubleshoot-port-conflict.md
       - name: Lost Key Vault access
         href: ./hadoop/troubleshoot-lost-key-vault-access.md
+      - name: WASBS storage exception
+        href: ./hadoop/troubleshoot-wasbs-storage-exception.md
 - name: Apache Kafka
   items:
   - name: Overview
