@@ -14,7 +14,7 @@
   href: single-sided-rendering.md
 - name: Spatial queries
   href: spatial-queries.md
-- name: Sky
+- name: Sky reflections
   href: sky.md
 - name: Z-fighting mitigation
   href: z-fighting-mitigation.md
