@@ -56,11 +56,12 @@ Now create an [Azure Logic App](../logic-apps/logic-apps-overview.md) instance. 
 
 1. Add an HTTP action that will run when a new or modified blob is detected. Select **+ New Step**, then search for and select the HTTP action. Use the following settings.
 
-    | Setting | Value | 
-    |---|---|
-    | HTTP action | POST |
-    | URI |the endpoint that you found at the beginning of this article
-    | Authentication mode | Managed Identity |
+
+  | Setting | Value | 
+  |---|---|
+  | HTTP action | POST |
+  | URI |the endpoint that you found at the beginning of this article |
+  | Authentication mode | Managed Identity |
 
     > [!div class="mx-imgBorder"]
     > ![Search for HTTP action](media/how-to-trigger-published-pipeline/search-http.png)
