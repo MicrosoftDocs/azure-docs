@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/10/2020
 ---
 
 # Receive and send B2B messages by using Azure Logic Apps and Enterprise Integration Pack
@@ -46,7 +46,7 @@ This example uses the Logic App Designer in the Azure portal, but you can follow
 
    ![URL generated for Request trigger to receive calls](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## Add B2B actions
+## Add AS2 decode action
 
 Now add the B2B actions that you want to use. This example uses AS2 and X12 actions.
 
@@ -58,9 +58,9 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
    ![Find and select "AS2 Decode (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-1. For the **Message to decode** property, enter the input that you want the AS2 action to decode, which is the `body` content that's received by the HTTP request trigger. You have these options:
+1. For the **Message to decode** property, enter the input that you want the AS2 action to decode, which is the `body` content that's received by the HTTP request trigger. You have multiple ways to specify this content as input, either from the dynamic content list or as an expression:
 
-   * To select from the available trigger outputs, click inside the **Message to decode** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body**, for example:
+   * To select tokens that represent the available trigger outputs, click inside the **Message to decode** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body** property value, for example:
 
      ![Select "Body" value from trigger](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
@@ -68,13 +68,13 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
      `triggerOutputs()['body']`
 
-   * Directly in the **Message to decode** box, enter this expression:
+     Or, in the **Message to decode** box, directly enter this expression:
 
      `@triggerBody()`
 
-   The expression resolves to the **Body** token.
+     The expression resolves to the **Body** token.
 
-   ![Resolved body output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
+     ![Resolved body output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
 1. For the **Message headers** property, enter any headers required for the AS2 action, which are described by the `headers` content that's received by the HTTP request trigger.
 
@@ -86,7 +86,29 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
    ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
-1. Now add the **Decode X12 message** action. Under the **AS2 Decode** action, select **New step**.
+## Add notification for message receipt
+
+To notify the trading partner that the message was received, you can return a response that contains an AS2 Message Disposition Notification (MDN) by using the **Response** action. By adding this action immediately after the **AS2 Decode** action, should that action fail, the logic app doesn't continue processing.
+
+1. Under the **AS2 Decode** action, select **New step**.
+
+1. Under **Choose an action**, in the search box, enter `response`, and select **Response**.
+
+   ![Find and select the "Response" action](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
+
+1. To access the AS2 MDN from the **AS2 Decode** action's output, in the **Response** action's **Body** property, enter this expression:
+
+   `@base64ToString(body('AS2_Decode')?['OutgoingMdn']?['Content'])`
+
+   The expression resolves to a token:
+
+   ![Resolved expression to access AS MDN](./media/logic-apps-enterprise-integration-b2b/response-action-resolved-expression.png)
+
+1. Save your logic app.
+
+## Add Decode X12 message action
+
+1. Now add the **Decode X12 message** action. Under the **Response** action, select **New step**.
 
 1. Under **Choose an action**, in the search box, enter `x12 decode`, and select **Decode X12 message**.
 
@@ -108,33 +130,13 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
 1. Save your logic app.
 
-   Continue building your logic app, if you need additional steps to decode the message content and output that content in JSON object format.
-
-## Add Response action
-
-To notify the trading partner that the message was received, you can return a response that contains an AS2 Message Disposition Notification (MDN) by using the Response action.
-
-1. Under the **Decode X12 message** action, select **New step**.
-
-1. Under **Choose an action**, in the search box, enter `response`, and select **Response**.
-
-   ![Find and select the "Response" action](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
-
-1. To access the AS2 MDN from the **Decode X12 message** action's output, in the **Response** action's **Body** property, enter this expression:
-
-   `@base64ToString(body('AS2_Decode')?['OutgoingMdn']?['Content'])`
-
-   The expression resolves to a token:
-
-   ![Resolved expression to access AS MDN](./media/logic-apps-enterprise-integration-b2b/response-action-resolved-expression.png)
-
-1. Save your logic app.
+   If you need additional steps for this logic app, for example, to decode the message content and output that content in JSON object format, continue building your logic app.
 
 You're now done setting up your B2B logic app. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. To connect your own LOB apps and use these APIs in your logic app, you can add further actions or write custom APIs.
 
 ## Next steps
 
-* Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Receive and respond to incoming HTTPS calls](../connectors/connectors-native-reqres.md)
 * [Exchange AS2 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-as2.md)
 * [Exchange X12 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-x12.md)
+* Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
