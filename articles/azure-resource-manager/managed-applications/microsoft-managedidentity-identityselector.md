@@ -43,8 +43,7 @@ The selected identities are displayed in the table. The user can add or delete i
   },
   "options": {
     "hideSystemAssignedIdentity": false,
-    "hideUserAssignedIdentity": false,
-    "systemAssignedIdentityReadOnly": false
+    "hideUserAssignedIdentity": false
   },
   "visible": true
 }
@@ -67,17 +66,14 @@ The selected identities are displayed in the table. The user can add or delete i
 
 ## Remarks
 
-- Use **defaultValue.systemAssignedIdentity** to set an initial value for the system assigned identity options control. The default value is **Off**, which indicates no system assigned identity is assigned to the resource.
+- Use **defaultValue.systemAssignedIdentity** to set an initial value for the system assigned identity options control. The default value is **Off**. The following values are allowed:
+  - **On** – A system assigned identity is assigned to the resource.
+  - **Off** – A system assigned identity isn't assigned to the resource.
+  -	**OnOnly** – A system assigned identity is assigned to the resource. Users can't edit this value during deployment.
+  - **OffOnly** – A system assigned identity isn't assigned to the resource. Users can't edit this value during deployment.
+
 - If **options.hideSystemAssignedIdentity** is set to **true**, the UI to configure the system assigned identity isn't displayed. The default value for this option is **false**.
--	If **options.hideUserAssignedIdentity** is set to **true**, the UI to configure the user assigned identity isn't displayed. The resource isn't assigned a user assigned identity. The default value for this option is **false**.
-- If **options.systemAssignedIdentityReadOnly** is set to **true**, the user can't edit the initial value for the system assigned identity. The default value for this option is **false**.
-- The following default text is displayed in the description below the **system** assigned identity section label. You can override the default text by specifying a message in **toolTip.systemAssignedIdentity**.
-
-   *A system assigned managed identity enables Azure resources to authenticate to cloud services (e.g. Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (e.g. Virtual Machine) can only have one system assigned managed identity. [Learn more about Managed identities](https://go.microsoft.com/fwlink/?LinkId=854449).*
-
-- The following default text is displayed in the description below the **user** assigned identity section label. You can override the default text by specifying a message in **toolTip.userAssignedIdentity**.
-
-   *User assigned managed identities enable Azure resources to authenticate to cloud services (e.g. Azure Key Vault) without storing credentials in code. This type of managed identities are created as standalone Azure resources, and have their own lifecycle. A single resource (e.g. Virtual Machine) can utilize multiple user assigned managed identities. Similarly, a single user assigned managed identity can be shared across multiple resources (e.g. Virtual Machine). [Learn more about Managed identities](https://go.microsoft.com/fwlink/?LinkId=854449).*
+- If **options.hideUserAssignedIdentity** is set to **true**, the UI to configure the user assigned identity isn't displayed. The resource isn't assigned a user assigned identity. The default value for this option is **false**.
 
 ## Next steps
 
