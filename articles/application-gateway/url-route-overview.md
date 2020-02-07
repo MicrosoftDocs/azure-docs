@@ -22,7 +22,7 @@ In the following example, Application Gateway is serving traffic for contoso.com
 Requests for http\://contoso.com/video/* are routed to VideoServerPool, and http\://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
 > [!IMPORTANT]
-> Rules are processed in the order they are listed in the portal. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This ensures that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
+> Rules are processed in the order they are listed in the portal for the v1 SKU. For the v2 SKU, exact matches have higher precedence. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This ensures that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
 
 ## UrlPathMap configuration element
 
