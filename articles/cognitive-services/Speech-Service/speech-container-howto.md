@@ -420,7 +420,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
   * *Custom Text-to-speech*
 * Container images are downloaded from the container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Speech containers by specifying the host URI of the container.
+* Whether using the REST API (Text-to-speech only) or the SDK (Speech-to-text or Text-to-speech) you specify the host URI of the container. 
 * You're required to provide billing information when instantiating a container.
 
 > [!IMPORTANT]
