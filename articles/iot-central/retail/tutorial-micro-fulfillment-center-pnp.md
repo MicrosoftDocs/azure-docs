@@ -11,7 +11,7 @@ ms.date: 01/09/2020
 
 # Tutorial: Deploy and walk through a micro-fulfillment center application template
 
-In this tutorial, you use the Azure IoT Central micro-fulfillment center application template to build a retail solution. You learn about how to deploy the template, what's includeded in it, and what you might want to do next.
+In this tutorial, you use the Azure IoT Central micro-fulfillment center application template to build a retail solution. You learn about how to deploy the template, what's included in it, and what you might want to do next.
 
 ## Prerequisites
 To complete this tutorial series, you need an Azure subscription. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
