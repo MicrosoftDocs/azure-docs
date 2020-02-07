@@ -44,7 +44,7 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 You can create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they’re useful as part of an overall cost monitoring strategy. However, they may have limited functionality to manage individual Azure service costs like the cost of Azure Cosmos DB because they are designed to track costs at a higher level.
 
-## Monitor costs when using Azure Cosmos DB
+## Monitor costs
 
 As you use resources with Azure Cosmos DB, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (request units, bytes, megabytes, and so on.) As soon as usage of Azure Cosmos DB starts, costs are incurred and you can see them in the [cost analysis](../cost-management/quick-acm-cost-analysis.md) pane in the Azure portal.
 
@@ -62,9 +62,11 @@ When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and
 
 In the preceding example, you see the current cost for Azure Cosmos DB for the month of Feb. The charts also contain Azure Cosmos DB costs by location and by resource group.
 
-## Other ways to manage and reduce costs for Azure Cosmos DB
-
 ## Next steps
 
-Learn more about managing costs with cost analysis.
+See the following articles to learn more on how pricing works in Azure Cosmos DB:
 
+* [Pricing model in Azure Cosmos DB](how-pricing-works.md)
+* [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
+* [Optimize query cost in Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimize storage cost in Azure Cosmos DB](optimize-cost-storage.md)
