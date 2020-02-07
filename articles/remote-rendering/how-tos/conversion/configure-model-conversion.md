@@ -72,7 +72,7 @@ For example, if a model is defined in centimeters, then applying a scale of 0.01
 Centering is important if the source model is displaced far from the origin, since in that case floating point precision issues may cause rendering artifacts.
 
 * `opaqueMaterialDefaultSidedness` - The rendering engine assumes that opaque materials are double-sided.
-If that is not the intended behavior, this parameter should be set to "SingleSided".
+If that is not the intended behavior, this parameter should be set to "SingleSided". See [single sided rendering](../../overview/features/single-sided-rendering.md) for additional information.
 
 ### Material overrides
 
@@ -197,7 +197,7 @@ There are certain classes of use cases that qualify for specific optimizations. 
 
 * These types of scenes tend to be static as in they don't need movable/addressable parts. Accordingly, the `sceneGraphMode` can be set to `static`, which improves runtime performance. The scene's root node can still be moved, rotated, and scaled, for example to dynamically switch between 1:1 scale (for first person view) and table top view.
 * Using movable parts often come in pair with ray casting to identify parts. Accordingly, if ray casts are not needed, the generation of the physics representation can be turned off via the `generateCollisionMesh` flag. Turning off collisions has significant impact on conversion times, runtime loading times, and also runtime per-frame update costs.
-* If the application does not use the [cut planes feature](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off as well. The performance gain is typically 20%-30%. However, cut planes can still be used, but there won't be backfaces when looking into the inner parts of objects, which looks counter-intuitive.
+* If the application does not use [cut planes](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off. The performance gain is typically 20%-30%. Cut planes can still be used, but there won't be back-faces when looking into the inner parts of objects, which looks counter-intuitive. See [single sided rendering](../../overview/features/single-sided-rendering.md) for additional information.
 
 ### Use case: Photogrammetry models
 
@@ -208,13 +208,13 @@ Due to the nature of photogrammetry data, materials do not need to go through a 
 * The `unlitMaterials` flag turns all materials into [unlit color materials](../../concepts/materials.md#color-material) at conversion time
 * The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](#example) above.
 
-### Use case: Visualization of compact machines, etc.
+### Use case: Visualization of compact machines, etc
 
 These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
 
-* Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to default `dynamic`. 
-* Accurate ray casts are typically integral part of the application, so collision meshes must be generated
-* Cutplanes look better with the `opaqueMaterialDefaultSidedness` flag enabled
+* Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to default `dynamic`.
+* Accurate ray casts are typically an integral part of the application, so collision meshes must be generated.
+* Cut planes look better with the `opaqueMaterialDefaultSidedness` flag enabled.
 
 ## Next steps
 
