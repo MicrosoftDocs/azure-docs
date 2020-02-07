@@ -189,7 +189,7 @@ We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handl
 
 ## Create an Azure Maps Events subscription
 
-Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps. We need two different event subscriptions, one for the enter event and one for the exit events.
+Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). We need two different event subscriptions, one for the enter event and one for the exit events.
 
 Follow the steps below to create an event subscription for the geofence enter events. You can subscribe to geofence exit events in a similar manner.
 

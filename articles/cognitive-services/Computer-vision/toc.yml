@@ -135,8 +135,6 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
-  - name: Use the Computer Vision Connected Service
-    href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
