@@ -177,19 +177,6 @@ No, shared disks are only supported for data disks.
 
 Only premium SSDs that are P15 or greater support shared disks.
 
-**Do I need to use a new version of Azure API/tools to create, attach, and resize shared disks?**
-
-You need to use the following API/tooling versions:
-
-
-|Azure tools  |Supported versions  |
-|---------|---------|
-|Azure REST API     |2019-07-01 or later         |
-|Azure PowerShell     |4.1.0 or later         |
-|Azure CLI v1     |0.10.13 or later         |
-|Azure CLI v2     |2.0.12 or later         |
-|Azure .NET SDK     |6.1.0 or later         |
-
 **If I have an existing premium SSD, can I enable shared disks on it?**
 
 All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
