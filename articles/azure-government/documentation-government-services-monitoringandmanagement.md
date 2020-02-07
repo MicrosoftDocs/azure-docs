@@ -447,7 +447,7 @@ The following Azure Monitor logs features behave differently in Azure Government
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](https://technet.microsoft.com/library/hh212691.aspx).
     4. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
-* To use [computer groups from System Center Configuration Manager 2016](../azure-monitor/platform/collect-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
+* For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/platform/collect-sccm.md).
 
 ### Frequently asked questions
 * Can I migrate data from Azure Monitor logs in Microsoft Azure to Azure Government?

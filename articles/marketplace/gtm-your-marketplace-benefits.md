@@ -6,7 +6,7 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/08/2020
 ms.author: evansma
 
 ---
@@ -82,7 +82,7 @@ In addition to the rewards benefits, business applications partners with Dynamic
 
 ### Publisher Agreement
 
-All the activities described on this page are covered by the [marketplace publisher agreement](https://docs.microsoft.com/legal/marketplace/terms) and are pursuant to the Commercial Benefits Program Addendum.
+All the activities described on this page are covered by the [marketplace publisher agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and are pursuant to the Commercial Benefits Program Addendum.
 
 ### Cancellation policy
 

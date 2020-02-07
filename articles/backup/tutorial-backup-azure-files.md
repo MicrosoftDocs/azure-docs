@@ -38,29 +38,29 @@ This tutorial assumes you already have established an Azure file share. To back 
 
 1. Create a Recovery Services vault in the same region as your file share. If you already have a vault, open your vault's Overview page and click **Backup**.
 
-    ![Click Backup in your vault's Overview page](./media/backup-file-shares/overview-backup-page.png)
+    ![Click Backup in your vault's Overview page](./media/tutorial-backup-azure-files/overview-backup-page.png)
 
 2. In the **Backup Goal** menu, from **What do you want to back up?**, choose Azure FileShare.
 
-    ![Choose Azure Fileshare as Backup goal](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+    ![Choose Azure Fileshare as Backup goal](./media/tutorial-backup-azure-files/choose-azure-fileshare-from-backup-goal.png)
 
 3. Click **Backup** to configure the Azure file share to your Recovery Services vault.
 
-   ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/set-backup-goal.png)
+   ![click Backup to associate the Azure file share with vault](./media/tutorial-backup-azure-files/set-backup-goal.png)
 
     Once the vault is associated with the Azure file share, the Backup menu opens and prompts you to select a Storage account. The menu displays all supported Storage Accounts in the region where your vault exists that aren't already associated with a Recovery Services vault.
 
-   ![Select your storage account](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![Select your storage account](./media/tutorial-backup-azure-files/list-of-storage-accounts.png)
 
 4. In the list of Storage accounts, select an account, and click **OK**. Azure searches the storage account for files shares that can be backed up. If you recently added your file shares and do not see them in the list, allow a little time for the file shares to appear.
 
-   ![File Shares are being discovered](./media/backup-file-shares/discover-file-shares.png)
+   ![File Shares are being discovered](./media/tutorial-backup-azure-files/discover-file-shares.png)
 
 5. From the **File Shares** list, select one or more of the file shares you want to back up, and click **OK**.
 
 6. After choosing your File Shares, the Backup menu switches to the **Backup policy**. From this menu either select an existing backup policy, or create a new one, and then click **Enable Backup**.
 
-   ![Select a Backup policy or create a new one](./media/backup-file-shares/apply-backup-policy.png)
+   ![Select a Backup policy or create a new one](./media/tutorial-backup-azure-files/apply-backup-policy.png)
 
     After establishing a backup policy, a snapshot of the File Shares will be taken at the scheduled time, and the recovery point is retained for the chosen period.
 
@@ -72,19 +72,19 @@ After configuring the backup policy, you'll want to create an on-demand backup t
 
 1. Open the Recovery Services vault that contains the file share recovery points, and click **Backup Items**. The list of Backup Item types appears.
 
-   ![List of Backup Items](./media/backup-file-shares/list-of-backup-items.png)
+   ![List of Backup Items](./media/tutorial-backup-azure-files/list-of-backup-items.png)
 
 2. From the list, select **Azure Storage (Azure Files)**. The list of Azure file shares appears.
 
-   ![List of Azure file shares](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![List of Azure file shares](./media/tutorial-backup-azure-files/list-of-azure-files-backup-items.png)
 
 3. From the list of Azure file shares, select the desired file share. The Backup Item menu for the selected file share opens.
 
-   ![Backup Item menu for the selected file share](./media/backup-file-shares/backup-item-menu.png)
+   ![Backup Item menu for the selected file share](./media/tutorial-backup-azure-files/backup-item-menu.png)
 
 4. From the Backup Item menu, click **Backup Now**. Because this is an on-demand backup job, there is no retention policy associated with the recovery point. The **Backup Now** dialog opens. Specify the last day you want to retain the recovery point.
 
-   ![Choose date for recovery point retention](./media/backup-file-shares/backup-now-menu.png)
+   ![Choose date for recovery point retention](./media/tutorial-backup-azure-files/backup-now-menu.png)
 
 ## Next steps
 
@@ -98,4 +98,4 @@ In this tutorial, you used the Azure portal to:
 Continue to the next article to restore from a backup of an Azure file share.
 
 > [!div class="nextstepaction"]
-> [Restore from backup of Azure file shares](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
+> [Restore from backup of Azure file shares](restore-afs.md)

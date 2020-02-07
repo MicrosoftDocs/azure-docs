@@ -159,6 +159,8 @@
         href: bambubysproutsocial-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beekeeper Azure AD Data Connector
+        href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
         href: beeline-tutorial.md
       - name: Benchling
@@ -309,6 +311,8 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Coda
+        href: coda-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -369,6 +373,8 @@
       items:
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: DataCamp
+        href: datacamp-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
       - name: Dealpath
@@ -415,6 +421,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate
+        href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
@@ -492,6 +500,8 @@
         href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
+      - name: Fastly Edge Cloud
+        href: fastly-edge-cloud-tutorial.md
       - name: Fidelity NetBenefits
         href: fidelitynetbenefits-tutorial.md
       - name: Fieldglass
@@ -502,6 +512,8 @@
         href: filecloud-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
+      - name: Firmex VDR
+        href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
       - name: Firstbird
@@ -598,6 +610,8 @@
         href: helpscout-tutorial.md
       - name: Helpshift
         href: helpshift-tutorial.md
+      - name: Health Support System
+        href: health-support-system-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -608,6 +622,8 @@
         href: hightail-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
+      - name: Hive
+        href: hive-tutorial.md
       - name: Hootsuite
         href: hootsuite-tutorial.md
       - name: Hornbill
@@ -664,6 +680,8 @@
         href: impacriskmanager-tutorial.md
       - name: In Case of Crisis - Mobile
         href: in-case-of-crisis-mobile-tutorial.md
+      - name: In Case of Crisis - Online Portal
+        href: in-case-of-crisis-online-portal-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
       - name: Infogix Data3Sixty Govern
@@ -746,6 +764,8 @@
         href: jobscore-tutorial.md
       - name: join.me
         href: joinme-tutorial.md
+      - name: JOSA
+        href: josa-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
       - name: Juno Journey
@@ -944,6 +964,8 @@
         href: nexonia-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nintex Promapp
+        href: promapp-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1074,8 +1096,6 @@
         href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
-      - name: Promapp
-        href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
       - name: ProNovos Ops Manager
@@ -1124,6 +1144,8 @@
         href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
+      - name: Reprints Desk - Article Galaxy
+        href: reprints-desk-article-galaxy-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
@@ -1340,6 +1362,8 @@
         href: syncplicity-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
+      - name: Syxsense
+        href: syxsense-tutorial.md
     - name: T - V
       items:
       - name: T&E Express
@@ -1366,10 +1390,14 @@
         href: teamphoria-tutorial.md
       - name: TeamSeer
         href: teamseer-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
       - name: Templafy
         href: templafy-tutorial.md
+      - name: Terraform Enterprise
+        href: terraform-enterprise-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1382,6 +1410,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: TicketManager
+        href: ticketmanager-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger
@@ -1408,6 +1438,8 @@
         href: trakstar-tutorial.md
       - name: Trello
         href: trello-tutorial.md
+      - name: TripActions
+        href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
       - name: TurboRater
@@ -1420,6 +1452,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: Upshotly
+        href: upshotly-tutorial.md
       - name: Upwork Enterprise
         href: upwork-enterprise-tutorial.md
       - name: Useall
@@ -1470,6 +1504,8 @@
         href: wdesk-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: Wedo
+        href: wedo-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
       - name: Whatfix
@@ -1579,6 +1615,8 @@
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: Azure Databricks SCIM Connector
+        href: azure-databricks-scim-connector-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
@@ -1661,6 +1699,8 @@
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
         href: meta-networks-connector-provisioning-tutorial.md
+      - name: Mixpanel
+        href: mixpanel-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
@@ -1735,6 +1775,8 @@
         href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
       - name: Templafy
@@ -1755,6 +1797,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Zapier
+        href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler

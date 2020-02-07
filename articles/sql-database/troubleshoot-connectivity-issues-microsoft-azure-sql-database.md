@@ -8,7 +8,7 @@ ms.custom: seo-lt-2019, OKR 11/2019
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
-ms.date: 11/14/2019
+ms.date: 01/14/2020
 ---
 
 # Troubleshooting connectivity issues and other errors with Microsoft Azure SQL Database

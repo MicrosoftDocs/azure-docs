@@ -1,18 +1,11 @@
 ---
 title: Networking for Azure virtual machine scale sets
 description: How to configuration some of the more advanced networking properties for Azure virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar

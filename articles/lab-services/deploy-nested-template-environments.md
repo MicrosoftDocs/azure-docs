@@ -1,5 +1,5 @@
 ---
-title: Deploy nested Resource Manager template environments in Azure DevTest Labs | Microsoft Docs
+title: Deploy nested template environments in Azure DevTest Labs
 description: Learn how to deploy nested Azure Resource Manager templates to provide environments with Azure DevTest Labs. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---

@@ -14,7 +14,6 @@ ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
-ms.collection: M365-identity-device-management
 ---
 
 # Authentication flows and application scenarios
@@ -235,7 +234,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
    <td>Work or school accounts</td>
  </tr>
