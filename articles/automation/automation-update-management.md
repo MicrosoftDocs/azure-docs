@@ -252,13 +252,11 @@ The following sections explain potential issues with patching Linux distros.
 
 ### Unexpected OS-level upgrades
 
-On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades might occur through packages. This might lead to Update Management runs where the OS version number changes. Because Update Management uses the same methods to update packages that an administrator would use locally on the Linux computer, this behavior is intentional.
+Linux upgrades the OS minor version as part of normal patching and most applications that support Linux also support this approach.
 
-To avoid updating the OS version through Update Management runs, use the **Exclusion** feature.
+RedHat Linux offers an alternative. In the rare case that minor version changes absolutely must be avoided, use [RedHat Extended Update Support](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-infrastructure-redhat#rhel-eus-and-version-locking-rhel-vms) to accomplish this goal.
 
-In Red Hat Enterprise Linux, the package name to exclude is redhat-release-server.x86_64.
-
-![Packages to exclude for Linux](./media/automation-update-management/linuxpatches.png)
+Not all Linux vendors include version locking as an option.
 
 ### Critical/security patches aren't applied
 
