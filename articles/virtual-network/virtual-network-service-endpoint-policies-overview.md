@@ -94,28 +94,40 @@ Let's take a quick look at the Service Endpoint Policy object and Aliases.
     - an individual storage account by listing the corresponding Azure Resource Manager resourceId. This covers traffic to blobs, tables, queues, files and Azure Data Lake Storage Gen2. <br>
     `E.g. /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Storage/storageAccounts/storageAccountName`
 -	By default, if no policies are attached to a subnet with endpoints, you can access all storage accounts in the service. Once a policy is configured on that subnet, only the resources specified in the policy can be accessed from compute instances in that subnet. Access to all other storage accounts will be denied.
--	When applying Service Endpoint policies on a subnet, the Azure Storage Service Endpoint scope gets upgraded from regional to global. This means that all the traffic to Azure Storage is secured over service endpoint thereafter. Also, the Service endpoint policies are applicable globally, so any Storage accounts not explicitly whitelisted will be denied access. Please refer to [Global Tags for Azure Storage](https://aka.ms/AzStorageGlobalTags) for more context.
+-	When applying Service Endpoint policies on a subnet, the Azure Storage Service Endpoint scope gets upgraded from regional to global. This means that all the traffic to Azure Storage is secured over service endpoint thereafter. Also, the Service endpoint policies are applicable globally, so any Storage accounts not explicitly whitelisted will be denied access. 
 -	You can apply multiple policies to a subnet. When multiple policies are associated to the subnet, virtual network traffic to resources specified across any of these policies will be allowed. Access to all other service resources, not specified in any of the policies, will be denied.
 
     > [!NOTE]  
-    > Service endpoint policies are **whitelisting policies**, so apart from the specified resources, all other resources are restricted. Please ensure that all service resource dependencies  for your applications are identified and listed in the policy.
+    > Service endpoint policies are **whitelisting policies**, so apart from the specified resources, all other resources are restricted. Please ensure that all service resource dependencies for your applications are identified and listed in the policy.
 
+- You can whitelist the following managed Azure services via their **Aliases** in your subnet where service endpoint policies are applied 
+
+  **Azure Service** | **Alias**
+  --- | --- |
+  Azure Kubernetese Service | /services/Azure/AKS 
+  Azure API Management | /services/Azure/ApiManagement 
+  Azure Backup | /services/Azure/Backup 
+  Azure Batch | /services/Azure/Batch 
+  Azure Databricks | /services/Azure/Databricks 
+  Azure Data Factory | /services/Azure/DataFactory 
+  Azure Firewall | /services/Azure/Firewall 
+  Azure Logic Apps | /services/Azure/LogicApps 
+  Azure SQL Managed Instances | /services/Azure/ManagedInstances 
+  Azure Redis Cache | /services/Azure/RedisCache 
+  Azure WebPI | /services/Azure/WebPI 
+  (***Preview***) Azure Active Directory | /services/Azure/ActiveDirectory 
+  (***Preview***) Azure HDI | /services/Azure/HDI 
+  
     > [!WARNING]  
-    > Some of the managed Azure services are not yet supported with Azure Service Endpoint Policies. The services currently supported via Aliases are: 
-    __ActiveDirectory, AKS, ApiManagement, Backup, Batch, Databricks, DataFactory, Firewall, HDI, LogicApps, ManagedInstance, RedisCache, WebPI__
+    > Any other managed Azure services in your subnet might experience connectivity disruption if Service Endpoint policies are applied to this subnet.
     >
-    >Any other managed Azure services in your subnet might experience connectivity disruption if Service Endpoint policies are applied to this subnet.
-    >
-    >For updates regarding the supported Azure services, refer to [Limitations](#limitations).
+    > Keep watching this space for updates regarding the supported Azure services.
 
 - When applying aliases, you can opt to use a higher level Alias `/services/Azure` to allow all services, or explicitly add an alias for all the known injected services in your subnet to ensure unrestricted function.<br>
   > [!NOTE]  
   > A service endpoint policy with only aliases will not be effective unless a specific Storage account is also added in the policy definition.
   
-- Only storage accounts using the Azure Resource Model can be specified in the endpoint policy.  
-
-  > [!NOTE]  
-  > Access to classic storage accounts is blocked with endpoint policies.
+- Only storage accounts using the Azure Resource Model can be specified in the endpoint policy. Your classic Azure Storage accounts or managed Azure services dependent on classic Azure Storage accounts will not support Azure Service Endpoint Policies.
 
 - RA-GRS secondary access will be automatically allowed if the primary account is listed.
 - Storage accounts can be in the same or a different subscription or Azure Active Directory tenant as the virtual network.
@@ -126,31 +138,8 @@ Let's take a quick look at the Service Endpoint Policy object and Aliases.
 - Virtual networks must be in the same region as the service endpoint policy.
 - You can only apply service endpoint policy on a subnet if service endpoints are configured for the Azure services listed in the policy.
 - You can't use service endpoint policies for traffic from your on-premises network to Azure services.
-- Endpoint policies can be applied to subnets with managed Azure services whose Aliases are listed below, please do not use service endpoint policies for other managed services to ensure uninterrupted infrastructure connectivity.
-  - /services/Azure/AKS
-  - /services/Azure/ApiManagement
-  - /services/Azure/Backup
-  - /services/Azure/Batch
-  - /services/Azure/Databricks
-  - /services/Azure/DataFactory
-  - /services/Azure/Firewall
-  - /services/Azure/LogicApps
-  - /services/Azure/ManagedInstances  (*SqlMI*)
-  - /services/Azure/RedisCache
-  - /services/Azure/WebPI
-  - (***Preview***) /services/Azure/ActiveDirectory
-  - (***Preview***) /services/Azure/HDI
-  
-
-- Some Azure services are deployed into dedicated subnets. Endpoint policies are blocked on all such services, listed below.
-  - Azure App Service Environment
-  - Azure Rediscache
-  - Azure API Management
-  - Azure SQL Managed Instance
-  - Azure Active Directory Domain Services
-  - Azure Application Gateway (Classic)
-  - Azure VPN Gateway (Classic)
-
+- Endpoint policies can be applied to subnets with managed Azure services whose Aliases are listed above, please do not use service endpoint policies for other managed services to ensure uninterrupted infrastructure connectivity.
+- Azure services that are deployed into dedicated subnets do not support Endpoint policies.
 - Classic storage accounts are not supported in endpoint policies. Policies will deny access to all classic storage accounts, by default. If your application needs access to Azure Resource Manager and classic storage accounts, endpoint policies should not be used for this traffic.
 
 ## Scenarios
