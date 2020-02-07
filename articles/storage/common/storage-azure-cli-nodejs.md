@@ -229,7 +229,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 You can find Azure classic CLI command reference for working with Storage resources here:
 
-* [Azure classic CLI commands in Resource Manager mode](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Azure classic CLI commands in Resource Manager mode](../../virtual-machines/azure-cli-arm-commands.md#storage-objects)
 * [Azure classic CLI commands in Azure Service Management mode](../../cli-install-nodejs.md)
 
 You may also like to try the latest version of the [Azure CLI](../storage-azure-cli.md), for use with the Resource Manager deployment model.
