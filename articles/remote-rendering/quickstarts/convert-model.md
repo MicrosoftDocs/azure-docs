@@ -170,7 +170,7 @@ PS> .\Conversion.ps1
 ```
 
 You should see something like this:
-![Conversion.ps1](./media/successful-ingestion.png)
+![Conversion.ps1](./media/successful-conversion.png)
 
 The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](render-model.md)) to have it render your custom model!
 
