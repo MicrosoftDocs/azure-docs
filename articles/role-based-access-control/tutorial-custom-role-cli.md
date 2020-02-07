@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use Azure CLI to create a custom role for Azure resources"
+title: "Tutorial: Create a custom role for Azure resources with Azure CLI"
 description: Get started creating a custom role for Azure resources using Azure CLI in this tutorial.
 services: active-directory
 documentationCenter: ''

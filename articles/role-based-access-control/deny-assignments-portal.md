@@ -1,5 +1,5 @@
 ---
-title: Use the Azure portal to list deny assignments for Azure resources
+title: List deny assignments for Azure resources with the Azure portal
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal.
 services: active-directory
 documentationcenter: ''
