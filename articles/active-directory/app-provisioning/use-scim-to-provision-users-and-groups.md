@@ -724,6 +724,34 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 *HTTP/1.1 204 No Content*
 
+### Security requirements
+**TLS Protocol Versions**
+
+The only acceptable TLS protocol versions are TLS 1.2 and TLS 1.3. No other versions of TLS are permitted. No version of SSL is permitted. 
+- RSA keys must be at least 2,048 bits.
+- ECC keys must be at least 256 bits, generated using an approved elliptic curve
+
+
+**Key Lengths**
+
+All services must use X.509 certificates generated using cryptographic keys of sufficient length, meaning:
+
+**Cipher Suites**
+
+All services must be configured to use the following cipher suites, in the exact order specified below. Note that if you only have an RSA certificate, installed the ECDSA cipher suites do not have any effect. </br>
+
+TLS 1.2 Cipher Suites minimum bar:
+
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+
 ## Step 3: Build a SCIM endpoint
 
 By creating a SCIM web service that interfaces with Azure Active Directory, you can enable automatic user provisioning for virtually any application or identity store.
