@@ -144,11 +144,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings Icon**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/configure1.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/configure1.png)
 
 1. Click on the **External Authentication** and provide the **App Federation Metadata Url** value into the **SAML2.0 Metadata** textbox and click on **Save**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/configure2.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/configure2.png)
 
 ### Create Syxsense test user
 
@@ -156,17 +156,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **User Accounts** from the left navigation panel.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/user1.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/user1.png)
 
 1. Click **Add**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/user2.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/user2.png)
 
 1. Provide the user details according to your organization requirements and click **Save**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/user3.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/user3.png)
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
