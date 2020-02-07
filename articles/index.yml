@@ -43,21 +43,21 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
         - featured
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/anomaly-detector/index.yml
     # Card
     - title: Azure Bot Service
       summary: Intelligent, serverless bot service that scales on demand
       imageSrc: https://static.docs.com/ui/media/product/azure/bot-service.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: https://docs.microsoft.com/azure/bot-service/
     # Card
     - title: Azure Cognitive Search
       summary: AI-powered cloud search service for mobile and web app development
       imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - web
       url: search/index.yml
     # Card
@@ -65,7 +65,7 @@ productDirectory:
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
       imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - analytics
       url: azure-databricks/index.yml
     # Card
@@ -73,7 +73,7 @@ productDirectory:
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
       imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - iot
       url: machine-learning/index.yml
     # Card
@@ -81,77 +81,77 @@ productDirectory:
       summary: Cloud platform to host and share curated open datasets to accelerate development of machine learning models
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: open-datasets/index.yml
     # Card
     - title: Bing Autosuggest
       summary: Give your app intelligent autosuggest options for searches
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Custom Search
       summary: An easy-to-use, ad-free, commercial-grade search tool that lets you deliver the results you want
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Entity Search
       summary: Enrich your experiences by identifying and augmenting entity information from the web
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Image Search
       summary: Search for images and get comprehensive results
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing News Search
       summary: Search for news and get comprehensive results
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Spell Check
       summary: Detect and correct spelling mistakes in your app
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Video Search
       summary: Search for videos and get comprehensive results
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Visual Search
       summary: Get rich insights to help build compelling image applications on the device of your choice
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Bing Web Search
       summary: Get enhanced search details from billions of web documents
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/bing-web-search/index.yml
     # Card
     - title: Cognitive Services
       summary: Add smart API capabilities to enable contextual interactions
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - containers
       url: cognitive-services/index.yml
     # Card
@@ -159,35 +159,35 @@ productDirectory:
       summary: Distill actionable information from images
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/computer-vision/index.yml
     # Card
     - title: Content Moderator
       summary: Automated image, text, and video moderation
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/content-moderator/index.yml
     # Card
     - title: Custom Vision
       summary: Easily customize your own state-of-the-art computer vision models for your unique use case
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/Custom-Vision-Service/index.yml
     # Card
     - title: Data Science Virtual Machines
       summary: Rich pre-configured environment for AI development
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: machine-learning/data-science-virtual-machine/index.yml
     # Card
     - title: Face
       summary: Detect, identify, analyze, organize, and tag faces in photos
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/face/index.yml
     # Card
     - title: Form Recognizer (Preview)
@@ -195,7 +195,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - featured
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/form-recognizer/index.yml
     # Card
     - title: Immersive Reader (Preview)
@@ -203,7 +203,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - featured
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/immersive-reader/index.yml
     # Card
     - title: Ink Recognizer (Preview)
@@ -211,30 +211,30 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - featured
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/ink-recognizer/index.yml
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - iot
-        - mixedReality
+        - mixed-reality
       url: kinect-dk/index.yml
     # Card
     - title: Language Understanding
       summary: Teach your apps to understand commands from your users
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
     - title: Machine Learning Studio
       summary: Easily build, deploy, and manage predictive analytics solutions
       imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning-studio-service.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - iot
       url: machine-learning/studio/index.yml
     # Card
@@ -242,21 +242,21 @@ productDirectory:
       summary: Power genome sequencing & research insights
       imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: genomics/index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/personalizer/index.yml
     # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/qnamaker/index.yml
     # Card
     - title: Speaker Recognition (Preview)
@@ -264,49 +264,49 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - featured
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/speaker-recognition/home.md
     # Card
     - title: Speech to Text
       summary: Convert spoken audio to text for more natural interactions
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
     # Card
     - title: Speech Translation
       summary: Easily integrate real-time speech translation to your app
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/text-analytics/index.yml
     # Card
     - title: Text to Speech
       summary: Convert text to speech to create more natural, accessible interfaces
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
     # Card
     - title: Translator Text
       summary: Easily conduct machine translation with a simple REST API call
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
       url: cognitive-services/translator/index.yml
     # Card
     - title: Video Indexer
       summary: Unlock video insights
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
-        - aiMachineLearning
+        - ai-machine-learning
         - media
       url: media-services/video-indexer/index.yml
     # Card
@@ -395,7 +395,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/log-analytics.svg
       azureCategories:
         - analytics
-        - managementAndGovernance
+        - management-and-governance
       url: azure-monitor/index.yml
     # Card
     - title: Power BI Embedded
@@ -603,7 +603,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
         - compute
-        - windowsVirtualDesktop
+        - windows-virtual-desktop
       url: virtual-desktop/index.yml
     # Card
     - title: Windows Virtual Machines
@@ -618,7 +618,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
         - containers
-        - developerTools
+        - developer-tools
       url: dev-spaces/index.yml
     # Card
     - title: Azure Red Hat OpenShift
@@ -718,14 +718,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
       azureCategories:
         - featured
-        - developerTools
+        - developer-tools
       url: azure-app-configuration/index.yml
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
       imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
       azureCategories:
-        - developerTools
+        - developer-tools
         - devops
         - hybrid
       url: https://docs.microsoft.com/azure/devops/
@@ -734,7 +734,7 @@ productDirectory:
       summary: Quickly create environments using reusable templates and artifacts
       imageSrc: https://static.docs.com/ui/media/product/azure/devtest-labs.svg
       azureCategories:
-        - developerTools
+        - developer-tools
         - devops
       url: lab-services/index.yml
     # Card
@@ -742,14 +742,14 @@ productDirectory:
       summary: Set up labs for classrooms, trials, development and testing, and other scenarios
       imageSrc: https://static.docs.com/ui/media/product/azure/lab-services.svg
       azureCategories:
-        - developerTools
+        - developer-tools
       url: lab-services/index.yml
     # Card
     - title: Azure Pipelines
       summary: Continuously build, test, and deploy to any platform and cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/pipelines.svg
       azureCategories:
-        - developerTools
+        - developer-tools
         - devops
       url: https://docs.microsoft.com/azure/devops/pipelines/
     # Card
@@ -757,7 +757,7 @@ productDirectory:
       summary: Use the development tools you know—including Eclipse, IntelliJ, and Maven—with Azure
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - developerTools
+        - developer-tools
         - devops
       url: integrations/index.yml
     # Card
@@ -765,21 +765,21 @@ productDirectory:
       summary: Get the SDKs and command-line tools you need
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - developerTools
+        - developer-tools
       url: sdks/index.yml
     # Card
     - title: Visual Studio
       summary: The powerful and flexible environment for developing applications in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/vs.svg
       azureCategories:
-        - developerTools
+        - developer-tools
       url: https://docs.microsoft.com/visualstudio/
     # Card
     - title: Visual Studio Code
       summary: A powerful, lightweight code editor for cloud development
       imageSrc: https://static.docs.com/ui/media/product/azure/vs-code.svg
       azureCategories:
-        - developerTools
+        - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
     - title: Visual Studio Online (Preview)
@@ -787,7 +787,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/vs.svg
       azureCategories:
         - featured
-        - developerTools
+        - developer-tools
       url: https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline
     # Card
     - title: Application Insights
@@ -795,7 +795,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/application-insights.svg
       azureCategories:
         - devops
-        - managementAndGovernance
+        - management-and-governance
       url: azure-monitor/index.yml
     # Card
     - title: Azure Artifacts
@@ -817,7 +817,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/monitor.svg
       azureCategories:
         - devops
-        - managementAndGovernance
+        - management-and-governance
       url: azure-monitor/index.yml
     # Card
     - title: Azure Repos
@@ -945,7 +945,7 @@ productDirectory:
       azureCategories:
         - featured
         - iot
-        - mixedReality
+        - mixed-reality
       url: digital-twins/index.yml
     # Card
     - title: Azure IoT Central
@@ -1021,21 +1021,21 @@ productDirectory:
       summary: Simplify cloud management with process automation
       imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: automation/index.yml
     # Card
     - title: Azure Advisor
       summary: Your personalized Azure best practices recommendation engine
       imageSrc: https://static.docs.com/ui/media/product/azure/advisor.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: advisor/index.yml
     # Card
     - title: Azure Backup
       summary: Simplify data protection and protect against ransomware
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
         - storage
       url: backup/index.yml
     # Card
@@ -1044,28 +1044,28 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/blueprints.svg
       azureCategories:
         - featured
-        - managementAndGovernance
+        - management-and-governance
       url: governance/blueprints/index.yml
     # Card
     - title: Azure Lighthouse
       summary: Empowering service providers to manage customers at scale and with precision
       imageSrc: https://static.docs.com/ui/media/product/azure/lighthouse.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: lighthouse/index.yml
     # Card
     - title: Azure Managed Applications
       summary: Simplify management of cloud offerings
       imageSrc: https://static.docs.com/ui/media/product/azure/managed-applications.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: azure-resource-manager/managed-applications/index.yml
     # Card
     - title: Azure Migrate
       summary: Easily discover, assess, right-size, and migrate your on-premises VMs to Azure
       imageSrc: https://static.docs.com/ui/media/product/azure/migrate.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
         - migration
       url: migrate/index.yml
     # Card
@@ -1073,28 +1073,28 @@ productDirectory:
       summary: Implement corporate governance and standards at scale for Azure resources
       imageSrc: https://static.docs.com/ui/media/product/azure/policy.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: governance/policy/index.yml
     # Card
     - title: Azure Resource Manager
       summary: Simplify how you manage your app resources
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
     - title: Azure Service Health
       summary: Personalized guidance and support for when issues in Azure services affect you
       imageSrc: https://static.docs.com/ui/media/product/azure/service-health.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: service-health/index.yml
     # Card
     - title: Azure Site Recovery
       summary: Keep your business running with built-in disaster recovery service
       imageSrc: https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
         - migration
       url: site-recovery/index.yml
     # Card
@@ -1102,14 +1102,14 @@ productDirectory:
       summary: Streamline Azure administration with a browser-based shell
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-shell.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: cloud-shell/overview.md
     # Card
     - title: Cost Management + Billing
       summary: Optimize what you spend on the cloud, while maximizing cloud potential
       imageSrc: https://static.docs.com/ui/media/product/azure/cost-management.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
         - migration
       url: cost-management-billing/index.yml
     # Card
@@ -1117,14 +1117,14 @@ productDirectory:
       summary: Build, manage, and monitor all Azure products in a single, unified console
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: azure-portal/index.yml
     # Card
     - title: Network Watcher
       summary: Network performance monitoring and diagnostics solution
       imageSrc: https://static.docs.com/ui/media/product/azure/network-watcher.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
         - networking
       url: network-watcher/index.yml
     # Card
@@ -1132,14 +1132,14 @@ productDirectory:
       summary: Run your jobs on simple or complex recurring schedules
       imageSrc: https://static.docs.com/ui/media/product/azure/scheduler.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
       url: scheduler/index.md
     # Card
     - title: Traffic Manager
       summary: Route incoming traffic for high performance and availability
       imageSrc: https://static.docs.com/ui/media/product/azure/traffic-manager.svg
       azureCategories:
-        - managementAndGovernance
+        - management-and-governance
         - networking
       url: traffic-manager/index.yml
     # Card
@@ -1200,7 +1200,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
       azureCategories:
         - featured
-        - mixedReality
+        - mixed-reality
       url: spatial-anchors/index.yml
     # Card
     - title: Visual Studio App Center
