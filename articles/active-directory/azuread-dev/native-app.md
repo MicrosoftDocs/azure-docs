@@ -23,7 +23,7 @@ Native apps are applications that call a web API on behalf of a user. This scena
 
 ## Diagram
 
-![Native Application to Web API Diagram](./media/authentication-scenarios/native_app_to_web_api.png)
+![Native Application to Web API Diagram](./media/authentication-scenarios/native-app-to-web-api.png)
 
 ## Protocol flow
 

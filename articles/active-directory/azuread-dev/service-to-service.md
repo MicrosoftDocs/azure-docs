@@ -35,7 +35,7 @@ Service-to-service applications can be a daemon or server application that needs
 
 ## Diagram
 
-![Daemon or Server Application to Web API diagram](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
+![Daemon or Server Application to Web API diagram](./media/authentication-scenarios/daemon-server-app-to-web-api.png)
 
 ## Protocol flow
 

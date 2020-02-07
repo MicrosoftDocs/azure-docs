@@ -29,7 +29,7 @@ In this scenario, when the user signs in, the JavaScript front end uses [Active 
 
 ## Diagram
 
-![Single-page application diagram](./media/authentication-scenarios/single_page_app.png)
+![Single-page application diagram](./media/authentication-scenarios/single-page-app.png)
 
 ## Protocol flow
 

@@ -27,7 +27,7 @@ Web apps are applications that authenticate a user in a web browser to a web app
 
 ## Diagram
 
-![Authentication flow for browser to web application](./media/authentication-scenarios/web_browser_to_web_api.png)
+![Authentication flow for browser to web application](./media/authentication-scenarios/web-browser-to-web-api.png)
 
 ## Protocol flow
 

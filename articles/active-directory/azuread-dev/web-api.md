@@ -32,7 +32,7 @@ Both the application identity and delegated user identity types are discussed in
 
 ## Diagram
 
-![Web Application to Web API diagram](./media/authentication-scenarios/web_app_to_web_api.png)
+![Web Application to Web API diagram](./media/authentication-scenarios/web-app-to-web-api.png)
 
 ## Protocol flow
 
