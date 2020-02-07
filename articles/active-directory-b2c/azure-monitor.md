@@ -223,12 +223,12 @@ To configure monitoring settings for Azure AD B2C activity logs:
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
-1. If there are existing settings on the resource, you will see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit** setting to edit an existing one. Each setting can have no more than one of each of the destination types..
+1. If there are existing settings on the resource, you will see a list of settings already configured. Either select **Add diagnostic setting** to add a new setting, or **Edit** setting to edit an existing one. Each setting can have no more than one of each of the destination types..
 
     ![Diagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
 1. Give your setting a name if it doesn't already have one.
-1. Check the box for each destination to send the logs. Click **Configure** to specify their settings as described in the following table.
+1. Check the box for each destination to send the logs. Select **Configure** to specify their settings as described in the following table.
 
     | Setting | Description |
     |:---|:---|
@@ -236,8 +236,8 @@ To configure monitoring settings for Azure AD B2C activity logs:
     | Stream to an event hub | The namespace where the event hub is created (if this is your first time streaming logs) or streamed to (if there are already resources that are streaming that log category to this namespace).
     | Send to Log Analytics | Name of workspace. |
 
-1. Select the **AuditLogs** and **SignInLogs**.
-1. Select **Save** to save your settings.
+1. Select **AuditLogs** and **SignInLogs**.
+1. Select **Save**.
 
 ## Next steps
 
