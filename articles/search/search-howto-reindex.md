@@ -1,7 +1,7 @@
 ---
-title: Rebuild an Azure Cognitive Search index
+title: Rebuild a search index
 titleSuffix: Azure Cognitive Search
-description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Cognitive Search index.
+description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial indexing to refresh an Azure Cognitive Search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How to rebuild an Azure Cognitive Search index
+# How to rebuild an index in Azure Cognitive Search
 
 This article explains how to rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
 

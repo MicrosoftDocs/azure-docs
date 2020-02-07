@@ -1,5 +1,5 @@
 ---
-title: Common Azure CLI commands | Microsoft Docs
+title: Common Azure CLI commands 
 description: Learn some of the common Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode
 services: virtual-machines-linux
 documentationcenter: ''

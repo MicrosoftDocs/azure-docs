@@ -1,11 +1,12 @@
 ---
-title: Manage traffic to multi-tenant apps such as App service web apps with Azure Application Gateway - Portal
+title: Manage traffic to multi-tenant apps using the portal
+titleSuffix: Azure Application Gateway
 description: This article provides guidance on how to configure Azure App service web apps as members in backend pool on an existing or new application gateway.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/14/2019
 ms.author: absha
 ---
 

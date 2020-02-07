@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 title: Azure IoT Central documentation
-summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor, and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
+summary: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
 
 metadata:
   title: Azure IoT Central documentation
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor, and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, manage, and use an Azure IoT Central application.
   services: iot-central
   ms.service: iot-central
   ms.topic: landing-page 
@@ -37,7 +37,7 @@ landingContent:
         links:
           - text: Set up a device template
             url: howto-set-up-template.md
-          - text: Connect an IoT Plug and Play device
+          - text: Connect an IoT Plug and Play (preview) device
             url: tutorial-add-device.md
       - linkListType: how-to-guide
         links:

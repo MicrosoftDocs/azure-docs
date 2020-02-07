@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB create MongoDB API database and collection
+title: PowerShell script to create database and collection in Azure Cosmos DB's API for MongoDB
 description: Azure PowerShell script - Azure Cosmos DB create MongoDB API database and collection
 author: markjbrown
 ms.service: cosmos-db

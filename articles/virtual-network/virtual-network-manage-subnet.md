@@ -44,11 +44,12 @@ The account you log into, or connect to Azure with, must be assigned to the [net
    - **Network security group**: You can associate zero, or one existing network security group to a subnet to filter inbound and outbound network traffic for the subnet. The network security group must exist in the same subscription and location as the virtual network. Learn more about [network security groups](security-overview.md) and [how to create a network security group](tutorial-filter-network-traffic.md).
    - **Route table**: You can associate zero or one existing route table to a subnet to control network traffic routing to other networks. The route table must exist in the same subscription and location as the virtual network. Learn more about [Azure routing](virtual-networks-udr-overview.md) and [how to create a route table](tutorial-create-route-table-portal.md)
    - **Service endpoints:** A subnet can have zero or multiple service endpoints enabled for it. To enable a service endpoint for a service, select the service or services that you want to enable service endpoints for from the **Services** list. The location is configured automatically for an endpoint. By default, service endpoints are configured for the virtual network's region. For Azure Storage, to support regional failover scenarios, endpoints are automatically configured to [Azure paired regions](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-   - **Subnet delegation:** A subnet can have zero to multiple delegations enabled for it. Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet using a unique identifier when deploying the service. To delegate for a service, select the service you want to delegate to from the **Services** list.
-
+   
        To remove a service endpoint, unselect the service you want to remove the service endpoint for. To learn more about service endpoints, and the services they can be enabled for, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md). Once you enable a service endpoint for a service, you must also enable network access for the subnet for a resource created with the service. For example, if you enable the service endpoint for *Microsoft.Storage*, you must also enable network access to all Azure Storage accounts you want to grant network access to. For details about how to enable network access to subnets that a service endpoint is enabled for, see the documentation for the individual service you enabled the service endpoint for.
 
      To validate that a service endpoint is enabled for a subnet, view the [effective routes](diagnose-network-routing-problem.md) for any network interface in the subnet. When an endpoint is configured, you see a *default* route with the address prefixes of the service, and a nextHopType of **VirtualNetworkServiceEndpoint**. To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md).
+   - **Subnet delegation:** A subnet can have zero to multiple delegations enabled for it. Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet using a unique identifier when deploying the service. To delegate for a service, select the service you want to delegate to from the **Services** list.
+
 6. To add the subnet to the virtual network that you selected, select **OK**.
 
 **Commands**
@@ -87,7 +88,7 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 **Commands**
 
-- Azure CLI: [az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
+- Azure CLI: [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Permissions

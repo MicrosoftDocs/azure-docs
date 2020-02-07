@@ -1,5 +1,5 @@
 ---
-title: Speech-to-text API reference (REST) - Speech Service
+title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
@@ -8,19 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 ---
 
 # Speech-to-text REST API
 
-As an alternative to the [Speech SDK](speech-sdk.md), Speech Services allow you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
 Before using the speech-to-text REST API, understand:
-* Requests that use the REST API can only contain 10 seconds of recorded audio.
+
+* Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
-If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [batch transcription](batch-transcription.md).
+If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -28,7 +29,7 @@ If sending longer audio is a requirement for your application, consider using th
 
 These regions are supported for speech-to-text transcription using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## Query parameters
 
@@ -38,7 +39,7 @@ These parameters may be included in the query string of the REST request.
 |-----------|-------------|---------------------|
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
-| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which remove all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
+| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
 
 ## Request headers
 
@@ -46,12 +47,12 @@ This table lists required and optional headers for speech-to-text requests.
 
 |Header| Description | Required / Optional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your Speech Services subscription key. | Either this header or `Authorization` is required. |
+| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
-| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Services acknowledge the initial request and awaits additional data.| Required if sending chunked audio data. |
-| `Accept` | If provided, it must be `application/json`. The Speech Services provide results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. |
+| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
+| `Accept` | If provided, it must be `application/json`. The Speech service provides results in JSON. Some request frameworks provide an incompatible default value. It is good practice to always include `Accept`. | Optional, but recommended. |
 
 ## Audio formats
 
@@ -63,11 +64,11 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech Services. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
+>The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
 
 ## Sample request
 
-This is a typical HTTP request. The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
+The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -87,13 +88,13 @@ The HTTP status code for each response indicates success or common errors.
 |------------------|-------------|-----------------|
 | 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.) |
 | 200 | OK | The request was successful; the response body is a JSON object. |
-| 400 | Bad request | Language code not provided or is not a supported language; invalid audio file. |
+| 400 | Bad request | Language code not provided, not a supported language, invalid audio file, etc. |
 | 401 | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
 | 403 | Forbidden | Missing subscription key or authorization token. |
 
 ## Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Services to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API does not provide partial or interim results.
 
 This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -172,7 +173,7 @@ Each object in the `NBest` list includes:
 
 ## Sample responses
 
-This is a typical response for `simple` recognition.
+A typical response for `simple` recognition:
 
 ```json
 {
@@ -183,7 +184,7 @@ This is a typical response for `simple` recognition.
 }
 ```
 
-This is a typical response for `detailed` recognition.
+A typical response for `detailed` recognition:
 
 ```json
 {

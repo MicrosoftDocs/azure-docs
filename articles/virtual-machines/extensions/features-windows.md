@@ -1,5 +1,5 @@
 ---
-title: Azure VM extensions and features for Windows | Microsoft Docs
+title: Azure VM extensions and features for Windows 
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -247,6 +247,10 @@ Moving the **command to execute** property to the **protected** configuration se
     }
 }
 ```
+
+On an Azure IaaS VM that uses extensions, in the certificates console, you might see certificates that have the subject **_Windows Azure CRP Certificate Generator_**. On a Classic RDFE VM, these certificates have the subject name **_Windows Azure Service Management for Extensions_**.
+
+These certificates secure the communication between the VM and its host during the transfer of protected settings (password, other credentials) used by extensions. The certificates are built by the Azure fabric controller and passed to the VM Agent. If you stop and start the VM every day, a new certificate might be created by the fabric controller. The certificate is stored in the computer's Personal certificates store. These certificates can be deleted. The VM Agent re-creates certificates if needed.
 
 ### How do agents and extensions get updated?
 

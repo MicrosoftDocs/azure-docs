@@ -1,11 +1,8 @@
 ---
-title: Set up an appliance for Azure Migrate Server Assessment/Migration for VMware VMs | Microsoft Docs
-description: Describes how to set up an appliance for discovery, assessment, and agentless migration of VMware VMs using Azure Migrate Server Assessment/Migration.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Set up an Azure Migrate appliance for VMware 
+description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
 ms.topic: article
-ms.date: 10/10/2019
-ms.author: raynew
+ms.date: 11/18/2019
 ---
 
 
@@ -44,11 +41,12 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For appliance version 1.0.0.5, the generated hash should match these settings.
+3. For the latest appliance version, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## Create the appliance VM
@@ -68,7 +66,7 @@ will be hosted.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 
 ## Configure the appliance
@@ -110,11 +108,11 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 ### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
+2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed.
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) about the access privileges needed.
 
 > [!NOTE]
 > This input is optional and is needed to enable application discovery and agentless dependency visualization.

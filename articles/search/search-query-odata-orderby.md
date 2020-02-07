@@ -1,7 +1,7 @@
 ---
 title: OData order-by reference
 titleSuffix: Azure Cognitive Search
-description: OData language reference for order-by syntax in Azure Cognitive Search queries.
+description: Syntax and language reference documentation for using order-by in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft

@@ -6,12 +6,12 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 01/30/2020
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
 
-This article lists partners of Windows Virtual Desktop.
+This article lists approved partner providers and independent software vendors for Windows Virtual Desktop.
 
 ## Citrix
 
@@ -23,7 +23,6 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 - [Go to the partner website](https://more.citrix.com/wvd).
 
-
 ## VMware
 
 ![VMware Logo](./media/partners/vmware.png)
@@ -34,6 +33,24 @@ As an approved provider, the benefits of Windows Virtual Desktop will be extende
 
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+## 10ZiG
+
+![10ZiG logo](./media/partners/10zig.png)
+
+10ZiG Technology, with cutting-edge Thin and Zero Client hardware and software, is a longstanding partner with Microsoft and a dedicated Microsoft Azure and Windows Virtual Desktop partner. 10ZiG Windows 10 IoT-based Thin Clients are powerful, reliable, and affordable endpoints for all Windows Virtual Desktop multi-users. 10ZiG Manager Software provides exceptional management and deployment without license limitations at no additional cost. The 10ZiG Tech Team, Advance Warranty Program, and no-hassle demos are a one-stop Windows Virtual Desktop multi-session support solution in the cloud.
+
+10ZiG’s world-market leadership in Thin and Zero Client endpoint devices and management software for virtual desktops is exemplified by how they work for their customers. Its Thin Client hardware comes with thoughtfully constructed benefit features and options designed to ensure customers receive the right Client devices based on their needs. 10ZiG customizes its devices to fit into customer environments with Windows-based and Linux-based Clients that provide the best possible performance in virtual desktops, both inside and outside the cloud.
+
+## Cloudhouse
+
+![Cloudhouse logo](./media/partners/cloudhouse.png)
+
+Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
+
+By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
+
+- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## CloudJumper
 
@@ -67,6 +84,16 @@ deviceTRUST extends the value of Windows Virtual Desktop with their contextual s
 
 - [Go to the partner website](https://devicetrust.com/wvd).
 
+## HP
+
+![HP logo](./media/partners/hp.png)
+
+HP Thin Client is an approved and verified partner of Microsoft's Azure and Windows Virtual Desktop services. HP Thin Clients with Windows 10 IoT Enterprise offer out-of-box support for Azure-based workloads and Windows Virtual Desktop hosted desktops. The hardware and OS are optimized to provide a best-in-class experience that effectively delivers remote workloads while reducing the OS footprint, hardware, and maintenance costs.
+
+As HP looked at industry trends, customer challenges, and the solutions virtualization offered during the development process, they were inspired to invent the ideal cloud endpoint using a four-pillar value proposition: design, manageability, security, and versatility. Every HP Thin Client is purpose-built with IT decision makers in mind. HP Thin Clients are long-lasting, secure, easy to deploy and manage, and powerful so you can effortlessly transition to VDI or cloud computing. HP's versatile portfolio gives you the freedom to choose the modern endpoint solution that’s right for you.
+
+- [Go to the partner website](https://hp.com/go/thin).
+
 ## IGEL
 
 ![IGEL logo](./media/partners/igel.png)
@@ -75,7 +102,7 @@ IGEL is an approved and verified partner of Microsoft Azure and Windows Virtual 
  
 IGEL OS supports all popular virtual apps, desktops, and cloud workspace client protocols from Citrix, Microsoft, and VMware. It includes integrated technologies from 85 peripheral, interface, and protocol partners to help organizations quickly adopt Windows Virtual Desktop services into their own unique user environments. IGEL OS is a read-only, modular endpoint OS, which helps protect it from tampering. It now also includes a complete “chain of trust” that verifies the integrity of all key major processes running on the endpoint, from the endpoint hardware (some selected models) or UEFI process all the way to the Azure cloud and Windows Virtual Desktop services. With IGEL OS, enterprises can subscribe to Windows Virtual Desktop from the Azure cloud with full confidence in the integrity, security, and manageability of their users’ endpoint devices.
 
-- [Go to the partner website.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [Go to the partner website](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## Ivanti
 
@@ -109,6 +136,14 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Go to the partner website](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## Liquit
+
+![Liquit logo](./media/partners/liquit.png)
+
+Liquit application aggregation and delivery software enables enterprises and service providers to connect to and combine with all workspace back-ends (Citrix, VMWare, Windows Virtual Desktop, RDP, and Legacy) and deliver a customized and consistent customer experience, regardless of where the customer's applications reside. When a customer publishes the smart icon, Liquit decides where to start the application based on the customer's location, device, and profile rights.
+
+As a certified integration partner, Liquit helps accelerate transition to the cloud without a rip-and-replace delay. Windows Virtual Desktop can easily connect to an existing environment, create a workspace, and deliver the desktop. You can then take your time migrating off of old platforms and make changes on the back-end without your users noticing. Gain a consistent end-user experience, flexible infrastructure, and maintain control of your applications no matter where they are.
+
 ## Login VSI
 
 ![Login VSI Logo](./media/partners/loginvsi.png)
@@ -128,6 +163,16 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Go to the partner website](https://getnerdio.com/windows-virtual-desktop/).
 
+## Numecent
+
+![Numecent Logo](./media/partners/numecent.png)
+
+Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs through rapid onboarding and migration of complicated or incompatible Windows apps in Windows Virtual Desktop environments. Numecent also minimizes the amount of configuration that users need to do, reduces application updates, and simplifies complex processes. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
+
+When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications. 
+
+- [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
 ## PolicyPak
 
 ![PolicyPak Logo](./media/partners/policypak.png)
@@ -142,21 +187,22 @@ The top use cases for PolicyPak are to remove local admin rights and overcome UA
 
 ![PrinterLogic Logo](./media/partners/printerlogic.png)
 
-PrinterLogic is a Windows Virtual Desktop value-added service provider platform that empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to manage centrally and deploy printer objects to any printer or endpoint OS.   
+PrinterLogic is a Windows Virtual Desktop value-added service provider platform that empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to manage centrally and deploy printer objects to any printer or endpoint OS. 
 
-Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name, or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing. 
+Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name, or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing. 
 
 - [Go to partner website](https://www.printerlogic.com).
 
-## Numecent
+## Printix
 
-![Numecent Logo](./media/partners/numecent.png)
+![Printix Logo](./media/partners/printix.png)
 
-Numecent is a Windows Virtual Desktop value-added services provider that significantly reduces the total operating costs through rapid onboarding and migration of complicated or incompatible Windows apps in Windows Virtual Desktop environments. Numecent also minimizes the amount of configuration that users need to do, reduces application updates, and simplifies complex processes. Because Numecent Cloudpaging supports more applications seamlessly than any other application delivery tool, it reduces time and IT workloads in environments with a diverse set of applications. 
+Printix is a Windows Virtual Desktop value-added service provider that automates user connection to office printing resources. As the missing piece in your customer Azure migration, Printix is the most cost-effective service available to remove infrastructure and IT tasks associated with supporting and optimizing print workflow for every user, regardless of location.
 
-When used with Windows Virtual Desktop, Cloudpaging further reduces costs by completing software asset lifecycle from deployment to upgrading, metering, and removing applications. Cloudpaging simplifies image management by dynamically provisioning apps as needed in real time to the Windows Virtual Desktop deployments. Cloudpaging helps applications run without administration or intervention through the periodic Windows 10 updates. Cloudpaging also reduces the licensing cost of expensive applications by enabling more efficient deployment and usage of these applications. 
+Printing is a fundamental task in just about every office and small business environment. In order to take full advantage of Windows Virtual Desktop and provide a great user experience, it's essential to ensure your users can connect to printers with minimum effort and maximum reliability. With Printix, you can get the most out of Windows Virtual Desktop through single sign-on (SSO), silent configuration, regular updates, and continuous monitoring of your print environment.
 
-- [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
+- [Go to the partner website](https://www.printix.net/printix-for-windows-virtual-desktop)
 
 ## RDPSoft
 
@@ -167,6 +213,16 @@ RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpens
 RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop administration. Premium Management features simplify delegation of Windows Virtual Desktop management tasks to support desk staff by providing remote assistance, user session, and process management. At the same time, the Remote Desktop Commander Suite collects rich metrics about per-user performance and load, user activity and auditing, Windows Virtual Desktop connection quality (latency and bandwidth), licensing, and security into a central Azure SQL database instance for review. With RDPSoft, rich historic reporting and comprehensive dashboards are just a click away.
 
 - [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
+## sepago
+
+![sepago logo](./media/partners/sepago.png)
+
+sepago was founded in 2002 by four friends in Cologne. Today, sepago is an IT management consultancy with a steadily increasing number of sepagists, with locations throughout Germany in Cologne, Munich, and Hamburg. sepago are experts on automated application provisioning, virtualization, cloud solutions, and IT security. sepago supports medium-sized and large companies on their way to digital transformation and ensure that users can work securely and efficiently.
+
+sepago's innovation and development lab builds smart solutions using big data and AI technologies. These solutions focus on improving the business, user experience, and administrations of partner products like Windows Virtual Desktop.
+
+- [Go to the partner website](https://www.sepago.de/wvd-value-add-tools/)
 
 ## ThinPrint
 
@@ -187,7 +243,7 @@ Tricerat offers a superior print management solution for Windows Virtual Desktop
 
 With Tricerat, printing is seamless in Windows Virtual Desktop and beyond. Tricerat software allows administrators to easily connect on-premises printers to the cloud, extending enterprise print management from traditional environments to new, modern workspaces.
 
-- [Go to the partner website](https://www.tricerat.com/solutions/wvd-microsoft/).
+- [Go to the partner website](https://www.tricerat.com/microsoft-printing).
 
 ## Workspot
 

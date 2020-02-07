@@ -1,5 +1,5 @@
 ---
-title: Add custom analyzers to string fields in an index
+title: Add custom analyzers to string fields
 titleSuffix: Azure Cognitive Search
 description: Configure text tokenizers and character filters used in Azure Cognitive Search full text search queries.
 
@@ -21,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add custom analyzers to an Azure Cognitive Search index
+# Add custom analyzers to string fields in an Azure Cognitive Search index
 
 A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 

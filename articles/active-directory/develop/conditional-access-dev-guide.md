@@ -1,8 +1,7 @@
 ---
-title: Developer guidance for Azure Active Directory Conditional Access
+title: Azure AD Conditional Access developer guidance
 description: Developer guidance and scenarios for Azure AD Conditional Access
 services: active-directory
-keywords: 
 author: rwike77
 manager: CelesteDG
 
@@ -12,11 +11,8 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.collection: M365-identity-device-management
 ---
 
 # Developer guidance for Azure Active Directory Conditional Access

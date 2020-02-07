@@ -1,5 +1,5 @@
 ---
-title: 'Verify Connectivity - ExpressRoute Troubleshooting Guide: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: Verify Connectivity - Troubleshooting Guide'
 description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit.
 services: expressroute
 author: rambk
@@ -19,7 +19,7 @@ This article helps you verify and troubleshoot ExpressRoute connectivity. Expres
 -  	Microsoft Datacenter
 
 > [!NOTE]
-> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), cusomters can directly connect to Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
+> In the ExpressRoute direct connectivity model (offered at 10/100 Gbps bandwidth), customers can directly connect to Microsoft Enterprise Edge (MSEE) routers' port. Therefore, in the direct connectivity model, there are only customer and Microsoft network zones.
 >
 
 

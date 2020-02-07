@@ -1,10 +1,11 @@
 ---
-title: 'How To: Fulfill Custom Commands on the client with the Speech SDK (Preview)'
+title: How to fulfill Custom Commands on the client with the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this article, handle Custom Commands activities on client with the Speech SDK
+description: In this article, we explain how to handle Custom Commands activities on client with the Speech SDK.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -24,12 +25,12 @@ In this article, you'll:
 ## Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services
-   - [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+- An Azure subscription key for Speech service
+  - [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 - A previously created Custom Commands app
-   - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+  - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 - A Speech SDK enabled client application
-   - [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## Optional: Get started fast
 
@@ -40,20 +41,22 @@ This article describes, step by step, how to make a client application to talk t
 1. Open your previously created Custom Commands application from the [Speech Studio](https://speech.microsoft.com/)
 1. Check the **Completion Rules** section to make sure you have the previously created rule that responds back to the user
 1. To send a payload directly to the client, create a new rule with a Send Activity action
+
    > [!div class="mx-imgBorder"]
    > ![Send Activity completion rule](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Setting    | Suggested value                                  | Description                                        |
-   | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | Rule Name  | UpdateDeviceState                                | A name describing the purpose of the rule          |
-   | Conditions | Required Parameter - `OnOff` and `SubjectDevice` | Conditions that determine when the rule can run    |
-   | Actions    | `SendActivity` (see below)                        | The action to take when the rule condition is true |
+   | Setting | Suggested value | Description |
+   | ------- | --------------- | ----------- |
+   | Rule Name | UpdateDeviceState | A name describing the purpose of the rule |
+   | Conditions | Required Parameter - `OnOff` and `SubjectDevice` | Conditions that determine when the rule can run |
+   | Actions | `SendActivity` (see below) | The action to take when the rule condition is true |
 
    > [!div class="mx-imgBorder"]
    > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
    ```json
    {
+     "type": "event",
      "name": "UpdateDeviceState",
      "state": "{OnOff}",
      "device": "{SubjectDevice}"
@@ -98,12 +101,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
     dynamic activity = JsonConvert.DeserializeObject(activityReceivedEventArgs.Activity);
-    var payload = activity?.Value;
 
-    if(payload?.name == "SetDeviceState")
+    if(activity?.name == "SetDeviceState")
     {
-        var state = payload?.state;
-        var device = payload?.device;
+        var state = activity?.state;
+        var device = activity?.device;
         switch(device)
         {
             case "tv":
@@ -134,6 +136,6 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. The visual state of the tv should change to "On"
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
+> [!div class="nextstepaction"]
+> [How to: Add validations to Custom Command parameters (preview)](./how-to-custom-speech-commands-validations.md)

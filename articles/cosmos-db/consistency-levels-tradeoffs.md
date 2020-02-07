@@ -1,5 +1,5 @@
 ---
-title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
+title: Azure Cosmos DB consistency, availability, and performance tradeoffs 
 description: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown

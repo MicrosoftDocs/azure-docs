@@ -1,5 +1,5 @@
 ---
-title: Swap OS disk for an Azure VM with PowerShell | Microsoft Docs'
+title: Swap OS disk for an Azure VM with PowerShell '
 description: Change the operating system disk used by an Azure virtual machine using PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''

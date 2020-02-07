@@ -4,8 +4,8 @@ description: You can use the Azure Web Apps Analytics solution to gain insights 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/02/2018
 
 ---

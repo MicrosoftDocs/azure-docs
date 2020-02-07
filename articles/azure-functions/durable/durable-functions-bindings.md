@@ -1,13 +1,8 @@
 ---
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
 ---
 
@@ -398,7 +393,7 @@ Every entity function has a parameter type of `IDurableEntityContext`, which has
 * **DeleteState()**: deletes the state of the entity. 
 * **GetInput\<TInput>()**: gets the input for the current operation. The `TInput` type parameter must be a primitive or JSON-serializeable type.
 * **Return(arg)**: returns a value to the orchestration that called the operation. The `arg` parameter must be a primitive or JSON-serializeable object.
-* **SignalEntity(EntityId, operation, input)**: sends a one-way message to an entity. The `operation` parameter must be a non-null string, and the `input` parameter must be a primitive or JSON-serializeable object.
+* **SignalEntity(EntityId, scheduledTimeUtc, operation, input)**: sends a one-way message to an entity. The `operation` parameter must be a non-null string, the optional `scheduledTimeUtc` must be a UTC datetime at which to invoke the operation, and the `input` parameter must be a primitive or JSON-serializeable object.
 * **CreateNewOrchestration(orchestratorFunctionName, input)**: starts a new orchestration. The `input` parameter must be a primitive or JSON-serializeable object.
 
 The `IDurableEntityContext` object passed to the entity function can be accessed using the `Entity.Current` async-local property. This approach is convenient when using the class-based programming model.
@@ -519,7 +514,7 @@ If you're using scripting languages (for example, *.csx* or *.js* files) for dev
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +530,7 @@ In .NET functions, you typically bind to `IDurableEntityClient`, which gives you
 
 * **ReadEntityStateAsync\<T>**: reads the state of an entity. It returns a response that indicates whether the target entity exists, and if so, what its state is.
 * **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
+* **ListEntitiesAsync**: queries for the state of multiple entities. Entities can be queried by *name* and *last operation time*.
 
 There is no need to create the target entity before sending a signal - the entity state can be created from within the entity function that handles the signal.
 

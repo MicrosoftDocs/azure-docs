@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written in Node.js. You need Node.js v10.x.x or later on your development machine.
+The two sample applications you run in this quickstart are written in Node.js. You need Node.js v10.x.x or later on your development machine. If you are using the Azure Cloud Shell, do not update the installed version of Node.js. The Azure Cloud Shell already has the latest Node.js version.
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 

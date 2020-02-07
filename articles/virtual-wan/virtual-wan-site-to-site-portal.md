@@ -1,9 +1,8 @@
 ---
-title: 'Use Azure Virtual WAN to create a Site-to-Site connection to Azure | Microsoft Docs'
+title: 'Azure Virtual WAN: Create Site-to-Site connections'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
@@ -70,7 +69,7 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 ## <a name="site"></a>Create a site
 
-You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway (Here is a link to automation guidance from Azure to CPE partners).
+You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -118,7 +117,7 @@ The device configuration file contains the settings to use when configuring your
     * **Address space** of the VNets that are connected to the hub<br>Example:
 
          ```
-        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+        "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
     * **IP addresses** of the virtual hub vpngateway. Because each connection of the  vpngateway is composed of two tunnels in active-active configuration, you'll see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
 
@@ -147,7 +146,7 @@ The device configuration file contains the settings to use when configuring your
                "Region":"West Europe",
                "ConnectedSubnets":[ 
                   "10.2.0.0/16",
-                  "10.30.0.0/16"
+                  "10.3.0.0/16"
                ]
             },
             "gatewayConfiguration":{ 
@@ -244,7 +243,7 @@ If you need instructions to configure your device, you can use the instructions 
 * The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device. 
 * The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
 * A new Virtual WAN can support both IKEv1 and IKEv2.
-* Virtual WAN can only use route-based VPN devices and device instructions.
+* Virtual WAN can use both policy based and route-based VPN devices and device instructions.
 
 ## <a name="viewwan"></a>View your virtual WAN
 

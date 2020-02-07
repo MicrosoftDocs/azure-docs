@@ -1,27 +1,24 @@
 ---
-title: Group machines in Azure Migrate using agentless dependency visualization 
+title: Group machines in Azure Migrate using agentless dependency visualization
 description: Describes how to create groups using machine dependencies in an agentless manner.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
 ---
 
 
 # Set up agentless dependency visualization for assessment
 
-> [!NOTE]
-> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
-
-This article describes how to set up agentless dependency mapping in Azure Migrate: Server Assessment. This capability is currently available in preview for VMware machines discovered using an Azure Migrate appliance. 
+This article describes how to set up agentless dependency mapping in Azure Migrate: Server Assessment. 
 
 > [!IMPORTANT]
 > Agentless dependency visualization is currently in preview for Azure VMware VMs discovered using an Azure Migrate appliance.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Certain features might not be supported or might have constrained capabilities. This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## About dependency mapping 
+## About dependency mapping
 
 Dependency mapping helps you to visualize dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
 
@@ -43,7 +40,7 @@ Agentless dependency visualization doesn't require you to install any agents on 
 ## Current limitations
 
 - Agentless dependency visualization is currently available for VMware VMs only.
-- Right now you can't add or remove a server from a group, in the dependency analysis view. 
+- Right now you can't add or remove a server from a group, in the dependency analysis view.
 - Dependency map for a group of servers is currently not available.
 - Currently, the dependency data cannot be downloaded in tabular format.
 
@@ -53,24 +50,15 @@ Agentless dependency visualization doesn't require you to install any agents on 
 - The agentless dependency analysis is currently available only for VMware machines.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 - Make sure you have discovered your VMware machines in Azure Migrate; you can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
-- Make sure the VMware VMs are supported for agentless dependency visualization, as summarized in the table below.
+- [Review the requirements](migrate-support-matrix-vmware.md#agentless-dependency-visualization) for setting up agentless dependency visualization.
 
-
-### Supported operating systems
- 
-Supported operating systems for agentless dependency visualization are as follows.
-
-**Type** | **Supported operating systems**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bit) 
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## Create a user account for discovery
 
 Set up a user account that has the required permissions so that Server Assessment can access the VM for discovery. You can specify one user account.
 
-- **Required permission on Windows VMs**: The user account requires 'Guest' access.
+- **Required permission on Windows VMs**: The user account needs to be a local or a domain administrator.
 - **Required permission on Linux VMs**: The root privilege is required on the account. Alternately, the user account requires these two capabilities on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 
 ## Add the user account to the appliance
@@ -81,7 +69,7 @@ Add the account as follows:
 
 1. Open the appliance management app. Navigate to the **Provide vCenter details** panel.
 2. In the **Discover application and dependencies on VMs** section, click **Add credentials**
-3. Choose the **Operating system**. 
+3. Choose the **Operating system**.
 4. Provide a friendly name for the account.
 5. Provide the **User name** and **Password**
 6. Click **Save**.
@@ -95,10 +83,10 @@ Choose the machines on which you want to enable dependency discovery.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** icon.
-3. Click **Start dependency discovery**.
-3. In the **Start dependency discovery** page, choose the appliance that's discovering the relevant machines.
+3. Click **Add servers**.
+3. In the **Add servers** page, choose the appliance that's discovering the relevant machines.
 4. From the machine list, select the machines.
-5. Click **Start dependency discovery**.
+5. Click **Add servers**.
 
     ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -110,8 +98,8 @@ You will be able to visualize dependencies 6 hours after starting dependency dis
 2. Search for the machine for which you want to view the dependency map.
 3. Click **View dependencies** in the **Dependencies** column.
 4. Change the time period for which you want to view the map using the **Time duration** dropdown.
-5. Expand the **Client** group to list the machines that have a dependency on the selected machine. 
-6. Expand the **Port** group to list the machines that have a dependency from the selected machine. 
+5. Expand the **Client** group to list the machines that have a dependency on the selected machine.
+6. Expand the **Port** group to list the machines that have a dependency from the selected machine.
 7. To navigate to the map view of any of the dependent machines, click on the machine name, and then click **Load server map**
 
     ![Expand Server port group and load server map](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
@@ -131,10 +119,10 @@ Choose the machines on which you want to stop dependency discovery.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** icon.
-3. Click **Stop dependency discovery**.
-3. In the **Stop dependency discovery** page, choose the **appliance** that is discovering the VMs on which you look to stop dependency discovery.
+3. Click **Remove servers**.
+3. In the **Remove servers** page, choose the **appliance** that is discovering the VMs on which you look to stop dependency discovery.
 4. From the machine list, select the machines.
-5. Click **Stop dependency discovery**
+5. Click **Remove servers**.
 
 
 ## Next steps

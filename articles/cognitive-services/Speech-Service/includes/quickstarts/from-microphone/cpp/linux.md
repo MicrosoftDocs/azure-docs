@@ -1,25 +1,25 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, C++ (Linux) - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, C++ (Linux) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Linux by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
+> * Make sure that you have access to a microphone for audio capture
 
 ## Add sample code
 
@@ -27,9 +27,12 @@ Before you get started, make sure to:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Build the app
 
@@ -82,7 +85,7 @@ Before you get started, make sure to:
    ./helloworld
    ```
 
-1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service and transcribed to text, which appears in the same window.
 
    ```text
    Say something...

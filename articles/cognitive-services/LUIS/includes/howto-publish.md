@@ -23,7 +23,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
     ![LUIS publish to endpoint](../media/howto-publish/publish-app-popup.png)
 
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+3. Publishing is complete when you see the status bar at the top of the page confirming success.
 
     ![LUIS publish to endpoint](../media/howto-publish/publish-endpoint-success.png)
 

@@ -1,10 +1,7 @@
 ---
-title: Azure Resource Health overview | Microsoft Docs
+title: Azure Resource Health overview
 description: Overview of Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
 
 ---

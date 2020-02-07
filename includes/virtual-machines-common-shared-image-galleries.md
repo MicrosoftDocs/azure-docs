@@ -60,7 +60,7 @@ The following are other parameters that can be set on your image definition so t
 * Eula - can be used to point to an end-user license agreement specific to the image definition.
 * Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
 * End-of-life date - attach an end-of-life date to your image definition to be able to use automation to delete old image definitions.
-* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/resource-group-using-tags.md)
+* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
 * Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 
@@ -110,6 +110,7 @@ There are limits, per subscription, for deploying resources using Shared Image G
 - 100 shared image galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+- Any disk attached to the image must be less than or equal to 1TB in size
 
 For more information, see [Check resource usage against limits](https://docs.microsoft.com/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
  
@@ -183,7 +184,7 @@ The following SDKs support creating Shared Image Galleries:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -235,9 +236,9 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image, then you can create an image definition and image version from it.
+ Scenario 1: If you have a managed image in the same subscription as your SIG, then you can create an image definition and image version from it.
 
- Scenario 2: If you have an unmanaged image, you can create a managed image from it, and then create an image definition and image version from it. 
+ Scenario 2: If you have an unmanaged image in the same subscription as your SIG, you can create a managed image from it, and then create an image definition and image version from it. 
 
  Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD to a managed image, then you can create an image definition and image version from it.
 

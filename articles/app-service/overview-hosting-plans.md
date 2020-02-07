@@ -1,20 +1,10 @@
 ---
-title: App Service plan overview - Azure | Microsoft Docs
-description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
+title: App Service plans
+description: Learn how App Service plans work in Azure App Service, how they're billed to the customer, and how to scale them for your needs.
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

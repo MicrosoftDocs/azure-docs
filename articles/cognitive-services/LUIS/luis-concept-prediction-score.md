@@ -63,7 +63,7 @@ You can turn off the **non-deterministic training** by [training with all data](
 
 ## E (exponent) notation
 
-Prediction scores can use exponent notation, *appearing* above the 0-1 range, such as `9.910309E-07`. This score is an indication of a very **small** number.
+Prediction scores can use exponent notation, _appearing_ above the 0-1 range, such as `9.910309E-07`. This score is an indication of a very **small** number.
 
 |E notation score |Actual score|
 |--|--|

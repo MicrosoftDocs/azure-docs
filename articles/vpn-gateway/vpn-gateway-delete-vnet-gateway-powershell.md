@@ -1,5 +1,5 @@
 ﻿---
-title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Microsoft Docs'
+title: 'Azure VPN Gateway: Delete a gateway: PowerShell'
 description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model. 
 services: vpn-gateway
 author: cherylmc

@@ -1,8 +1,8 @@
 ---
-title: Manage your two-factor verification settings - Azure AD
-description: Learn how to change your security verification method details as it relates to two-factor verification.
+title: Change your two-factor verification method and settings - Azure AD
+description: Learn how to change the security verification method and settings for your work or school account, from the Additional security verification page.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
@@ -12,11 +12,10 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
-# Manage your two-factor verification method settings
+# Change your two-factor verification method and settings
 
 After you set up your security verification methods for your work or school account, you can update any of the related details, including:
 
@@ -28,16 +27,16 @@ After you set up your security verification methods for your work or school acco
 
 ## Using the Additional security verification page
 
-If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://aka.ms/mfasetup) page.
+If your organization provided you with specific steps about how to turn on and manage your two-factor verification, you should follow those instructions. Otherwise, you can get to your security verification method settings from the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
 
 >[!Note]
 >If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the Security info (preview) experience or that your organization has their own custom portal. For more information about the security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your Help desk.
 
 ### To get to the Additional security verification page
 
-- Go to https://aka.ms/mfasetup.
+- Go to the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
 
-    ![Additional security verification screen, with the available security verification method details](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
+    ![Additional security verification page, with the available security verification method details](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
     If clicking that link doesn't work for you, you can also get to the **Additional security verification** page by following these steps:
 

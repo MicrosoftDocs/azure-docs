@@ -1,15 +1,15 @@
 ---
-title: Develop apps with the Speech SDK - Speech Service
+title: Develop apps with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to create apps using the Speech SDK.
+description: Learn how to deploy an application that uses the Speech SDK on supported platforms.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
 ---
 
@@ -34,16 +34,16 @@ For microphone input, the Media Foundation libraries must be installed. These li
 
 The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (Win32/x64) that matches your application.
 
-| Name | Function
-|:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | Core SDK, required for native and managed deployment
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment
+| Name | Function |
+| :--- | :------- |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, required for native and managed deployment |
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment                      |
 
->[!NOTE]
+> [!NOTE]
 > Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
 
->[!NOTE]
-> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the  `Application Files` button and find corresponding libraries from the scroll down list. Make sure the  value is set to `Included`. Visual Studio will include the file when project is published/deployed.
+> [!NOTE]
+> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the `Application Files` button and find corresponding libraries from the scroll down list. Make sure the value is set to `Included`. Visual Studio will include the file when project is published/deployed.
 
 ## Linux
 
@@ -51,9 +51,9 @@ The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, and Debian 9 d
 For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
 
-* The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
-* The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
-* The shared library for ALSA applications (`libasound.so.2`)
+- The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
+- The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
+- The shared library for ALSA applications (`libasound.so.2`)
 
 On Ubuntu, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
 
@@ -71,5 +71,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

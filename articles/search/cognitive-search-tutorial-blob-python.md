@@ -1,18 +1,18 @@
 ---
-title: 'Python Tutorial: Call Cognitive Services in an AI enrichment pipeline'
+title: 'Tutorial: Create a skillset in Python using REST APIs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of data extraction, natural language, and image AI processing in Azure Cognitive Search using a Jupyter Python notebook. Extracted data is indexed and easily accessed by query.
 
 manager: nitinme
-author: LisaLeib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
 ---
 
-# Python Tutorial: Call Cognitive Services APIs in an Azure Cognitive Search enrichment pipeline
+# Tutorial: Create an AI enrichment pipeline using REST and Python
 
 In this tutorial, you learn the mechanics of programming data enrichment in Azure Cognitive Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The result is rich additional content in a search index, created with AI enrichments in an indexing pipeline. 
 
@@ -84,7 +84,7 @@ There are other ways to specify the connection string, such as providing a share
 ## Create a Jupyter notebook
 
 > [!Note]
-> This article shows you how to build a data source, index, indexer and skillset using a series of Python scripts. To download the complete notebook example, go to the [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> This article shows you how to build a data source, index, indexer and skillset using a series of Python scripts. To download the complete notebook example, go to the [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Use Anaconda Navigator to launch Jupyter Notebook and create a new Python 3 notebook.
 

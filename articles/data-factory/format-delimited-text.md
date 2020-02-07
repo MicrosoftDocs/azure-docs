@@ -2,13 +2,13 @@
 title: Delimited text format in Azure Data Factory 
 description: 'This topic describes how to deal with delimited text format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 01/09/2020
 ms.author: jingwang
 
 ---
@@ -34,7 +34,7 @@ For a full list of sections and properties available for defining datasets, see 
 | firstRowAsHeader | Specifies whether to treat/make the first row as a header line with names of columns.<br>Allowed values are **true** and **false** (default). | No       |
 | nullValue        | Specifies the string representation of null value. <br>The default value is **empty string**. | No       |
 | encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", “UTF-7”, "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258”.<br>Note mapping data flow doesn’t support UTF-7 encoding. | No       |
-| compressionCodec | The compression codec used to read/write text files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. <br>Note currently Copy activity doesn’t support “snappy” & “lz4”, and mapping data flow doesn’t support “ZipDeflate”. | No       |
+| compressionCodec | The compression codec used to read/write text files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. <br>Note currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate". <br>Note when using copy activity to decompress ZipDeflate file(s) and write to file-based sink data store, files will be extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No       |
 | compressionLevel | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
 
 Below is an example of delimited text dataset on Azure Blob Storage:
@@ -82,7 +82,7 @@ Supported **delimited text read settings** under `formatSettings`:
 
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | The type of formatSettings must be set to **DelimitedTextReadSetting**. | Yes      |
+| type          | The type of formatSettings must be set to **DelimitedTextReadSettings**. | Yes      |
 | skipLineCount | Indicates the number of **non-empty** rows to skip when reading data from input files. <br>If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. | No       |
 
 ### Delimited text as sink
@@ -99,8 +99,8 @@ Supported **delimited text write settings** under `formatSettings`:
 
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | The type of formatSettings must be set to **DelimitedTextWriteSetting**. | Yes                                                   |
-| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. | Yes when file name is not specified in output dataset |
+| type          | The type of formatSettings must be set to **DelimitedTextWriteSettings**. | Yes                                                   |
+| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is configured in the output dataset, it will be used as the sink file name and the file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
 
 ## Mapping data flow properties
 

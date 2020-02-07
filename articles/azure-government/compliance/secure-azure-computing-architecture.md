@@ -152,7 +152,7 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 
 ## Automated SACA deployment options
 
- As previously mentioned, Microsoft has partnered with two vendors to create an automated SACA infrastructure template. Both templates deploy the following Azure components: 
+ As previously mentioned, Microsoft has partnered with two vendors to create an automated SACA infrastructure template. Both templates deploy the following Azure components:
 
 - SACA virtual network
     - Management subnet

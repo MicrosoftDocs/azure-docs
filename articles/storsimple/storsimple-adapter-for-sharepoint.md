@@ -3,7 +3,7 @@ title: Install StorSimple Adapter for SharePoint | Microsoft Docs
 description: Describes how to install and configure or remove the StorSimple Adapter for SharePoint in a SharePoint server farm.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Install and configure the StorSimple Adapter for SharePoint

@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshoot an Azure AD authentication VPN client: Azure VPN Gateway| Microsoft Docs'
+title: 'VPN Gateway: Troubleshoot VPN client - Azure AD authentication'
 description: Troubleshoot VPN Gateway P2S Azure AD authentication clients
 services: vpn-gateway
 author: cherylmc

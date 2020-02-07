@@ -1,11 +1,11 @@
 ---
 title: Deploy Azure Firewall using a template
-description: Deploy Azure Firewall using a template
+description: Deploy Azure Firewall using a template. The created network has one VNet with three subnets. Two, two-core Windows Server virtual machines are deployed.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/9/2018
+ms.date: 11/19/2019
 ms.author: victorh
 ---
 

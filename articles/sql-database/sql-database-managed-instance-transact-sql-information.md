@@ -8,8 +8,8 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova 
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
 ---
 
@@ -21,7 +21,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 There are some PaaS limitations that are introduced in Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
-- [Availability](#availability) includes the differences in [Always-On](#always-on-availability) and [backups](#backup).
+- [Availability](#availability) includes the differences in [Always On Availability Groups](#always-on-availability-groups) and [backups](#backup).
 - [Security](#security) includes the differences in [auditing](#auditing), [certificates](#certificates), [credentials](#credential), [cryptographic providers](#cryptographic-providers), [logins and users](#logins-and-users), and the [service key and service master key](#service-key-and-service-master-key).
 - [Configuration](#configuration) includes the differences in [buffer pool extension](#buffer-pool-extension), [collation](#collation), [compatibility levels](#compatibility-levels), [database mirroring](#database-mirroring), [database options](#database-options), [SQL Server Agent](#sql-server-agent), and [table options](#tables).
 - [Functionalities](#functionalities) include [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distributed transactions](#distributed-transactions), [extended events](#extended-events), [external libraries](#external-libraries), [filestream and FileTable](#filestream-and-filetable), [full-text Semantic Search](#full-text-semantic-search), [linked servers](#linked-servers), [PolyBase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [stored procedures, functions, and triggers](#stored-procedures-functions-and-triggers).
@@ -33,7 +33,7 @@ This page also explains [Temporary known issues](#Issues) that are discovered in
 
 ## Availability
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Always On Availability Groups
 
 [High availability](sql-database-high-availability.md) is built into managed instance and can't be controlled by users. The following statements aren't supported:
 
@@ -402,41 +402,12 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on managed instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
-    - Managed instances can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Managed instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) for more information.
     - Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
 
-For information about configuring replication, see the [replication tutorial](replication-with-sql-database-managed-instance.md).
-
-
-If replication is enabled on a database in a [failover group](sql-database-auto-failover-group.md), the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
-
-1. Stop all replication jobs running on the database, if there are any.
-2. Drop subscription metadata from publisher by running the following script on publisher database:
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Drop subscription metadata from the subscriber. Run the following script in the subscription database on subscriber instance:
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Forcefully drop all replication objects from publisher by running the following script in the published database:
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Forcefully drop old distributor from original primary instance (if failing back over to an old primary that used to have a distributor). Run the following script on the master database in old distributor managed instance:
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+For more information about configuring transactional replication, see the following tutorials:
+- [Replication between an MI publisher and subscriber](replication-with-sql-database-managed-instance.md)
+- [Replication between an MI publisher, MI distributor, and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### RESTORE statement 
 
@@ -531,11 +502,55 @@ The following variables, functions, and views return different results:
 
 The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 
+### MSDB
+
+The following MSDB schemas in managed instance must be owned by their respective predefined roles:
+
+- General roles
+  - TargetServersRole
+- [Fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [DatabaseMail roles](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Integration services roles](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> Changing the predefined role names, schema names and schema owners by customers will impact the normal operation of the service. Any changes made to these will be reverted back to the predefined values as soon as detected, or at the next service update at the latest to ensure normal service operation.
+
 ### Error logs
 
 A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) or [managed instance extension(preview)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) for Azure Data Studio.
 
 ## <a name="Issues"></a> Known issues
+
+### SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins
+
+**Date:** Dec 2019
+
+If non-sysadmin logins are added to any of [SQL Agent fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message “The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)” will be shown.
+
+**Workaround**: Once you add logins to either of SQL Agent fixed database roles: SQLAgentUserRole, SQLAgentReaderRole or SQLAgentOperatorRole, for each of the logins added to these roles execute the below T-SQL script to explicitly grant EXECUTE permissions to the stored procedures listed.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### SQL Agent jobs can be interrupted by Agent process restart
+
+**Date:** Dec 2019
+
+SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
 
 ### In-memory OLTP memory limits are not applied
 
@@ -562,16 +577,6 @@ Restore process will block these operations on the Managed instances and instanc
 
 **Workaround**: Wait until the restore process finishes, or cancel the restore process if creation or update service-tier operation has higher priority.
 
-### Missing validations in restore process
-
-**Date:** Sep 2019
-
-`RESTORE` statement and built-in point-in time restore do not perform some nessecary checks on restored database:
-- **DBCC CHECKDB** - `RESTORE` statement don't perform `DBCC CHECKDB` on the restored database. If an original database is corrupted, or backup file is corrupted while it is copied to Azure blob Storage, automatic backups will not be taken and Azure support will contact the customer. 
-- Built-in Point-in-time restore process doesn't check does the automated backup from Business Critical instance contain the [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp). 
-
-**Workaround**: Make sure that you are executing `DBCC CHECKDB` on the source database before taking a backup, and using `WITH CHECKSUM` option in backup to avoid potential corruptions that could be restored on Managed instance. Make sure that your source database doesn't contain [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp) if you are restoring it on General Purpose tier.
-
 ### Resource Governor on Business Critical service tier might need to be reconfigured after failover
 
 **Date:** Sep 2019
@@ -580,14 +585,6 @@ Restore process will block these operations on the Managed instances and instanc
 
 **Workaround**: Run `ALTER RESOURCE GOVERNOR RECONFIGURE` periodically or as part of SQL Agent Job that executes the SQL task when the instance starts if you are using 
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### Cannot authenticate to external mail servers using secure connection (SSL)
-
-**Date:** Aug 2019
-
-Database mail that is [configured using secure connection (SSL)](/sql/relational-databases/database-mail/configure-database-mail) cannot authenticate on some email servers outside the Azure. This is security configuration issue that will be resolved soon.
-
-**Workaround:** Temporary remove secure connection (SSL) from the database mail configuration until the issue gets resolved. 
 
 ### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 

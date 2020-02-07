@@ -10,7 +10,7 @@ ms.date: 11/04/2019
 ms.author: memildin
 
 ---
-# Integrate Azure Security Center with Windows Admin Center
+# Integrate Azure Security Center with Windows Admin Center (Preview)
 
 Windows Admin Center is a management tool for your Windows servers. It's a single location for system administrators to access the majority of the most commonly used admin tools. From within Windows Admin Center, you can directly onboard your on-prem servers into Azure Security Center. You can then view a summary of your security recommendations and alerts directly in the Windows Admin Center experience.
 

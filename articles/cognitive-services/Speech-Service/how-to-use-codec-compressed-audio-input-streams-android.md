@@ -1,10 +1,11 @@
 ---
-title: Stream codec compressed audio with the Speech SDK on Android - Speech Service
+title: Stream codec compressed audio with the Speech SDK on Android
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK on Android.
+description: Learn how to stream compressed audio to the Speech service with the Speech SDK on Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -12,15 +13,15 @@ ms.date: 09/20/2019
 ms.author: amishu
 ---
 
-# Using codec compressed audio input with the Speech SDK on Android
+# How to: Use codec compressed audio input with the Speech SDK on Android
 
-The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
+The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using PullStream or PushStream.
 
 > [!IMPORTANT]
 > Streaming compressed input audio is currently supported for [C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). It is also supported for Java in Android and [Objective-C in iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) platform.
 > Speech SDK version 1.7.0 or higher is required.
 
-For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the following codec compressed input formats are supported:
+For wav/PCM see the mainline speech documentation. Outside of wav/PCM, the following codec compressed input formats are supported:
 
 - MP3
 - OPUS/OGG
@@ -30,7 +31,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 
 ## Prerequisites to using codec compressed audio input on Android
 
-Codec compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons, Gstreamer binaries are not compiled with the SDK. You'll need to use the prebuilt binaries for Android. To download the prebuilt libraries, see  [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+Codec compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons, Gstreamer binaries are not compiled with the SDK. You'll need to use the prebuilt binaries for Android. To download the prebuilt libraries, see [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
 `libgstreamer_android.so` is required. Make sure that your GStreamer plugins are linked in `libgstreamer_android.so`.
 
@@ -128,7 +129,7 @@ Once the shared object (libgstreamer_android.so) is built application developer 
 
 ## Example code using codec compressed audio input
 
-To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
+To stream in a compressed audio format to the Speech service, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
 Let's assume that you have an input stream class called `myPullStream` and are using OPUS/OGG. Your code may look like this:
 
@@ -155,4 +156,4 @@ String text = result.getText();
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

@@ -1,5 +1,5 @@
 ---
-title: Activate an Azure AD custom role in Privileged Identity Management (PIM)| Microsoft Docs
+title: Activate Azure AD custom role - Privileged Identity Management (PIM)
 description: How to activate an Azure AD custom role for assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -38,6 +39,9 @@ When you need to activate an Azure AD custom role, request activation by selecti
 1. Select **Azure AD custom roles** to see a list of your eligible Azure AD custom role assignments.
 
    ![See the list of eligible Azure AD custom role assignments](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
+
+> [!Note] 
+>  Before assigning a role, you must create/configure a role. For further information regarding configuring AAD Custom Roles see [here] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
 
 1. On the **Azure AD custom roles (Preview)** page, find the assignment you need.
 1. Select **Activate your role** to open the **Activate** page.

@@ -38,8 +38,14 @@
       href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
+    - name: Geomatch custom rules
+      href: ./ag/geomatch-custom-rules.md
     - name: Request size limits and exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
+    - name: WAF Policy overview
+      href: ./ag/policy-overview.md
+    - name: Bot protection overview
+      href: ./ag/bot-protection-overview.md
   - name: Front Door
     items:
     - name: Custom rules
@@ -62,6 +68,8 @@
          href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
+     - name: Migrate WAF policy
+       href: ./ag/migrate-policy.md
      - name: Customize WAF rules
        items:
        - name: Azure portal
@@ -111,9 +119,23 @@
   - name: CRS rules
     href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall
+    items:
+    - name: Front Door
+      href: https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest
+    - name: Application Gateway
+      href: https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest
   - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
+    items:
+    - name: Front Door
+      href: https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0
+    - name: Application Gateway
+      href: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway
+  - name: REST API
+    items:
+    - name: Front Door
+      href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
+    - name: Application Gateway
+      href: https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies
   - name: .NET
     href: /dotnet/api
   - name: Java
@@ -122,14 +144,10 @@
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/firewall
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

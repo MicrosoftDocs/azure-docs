@@ -1,18 +1,9 @@
 ---
 title: Setup Azure Monitor for containers Live Data (preview) | Microsoft Docs
 description: This article describes how to setup the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
+
 ---
 
 # How to setup the Live Data (preview) feature
@@ -106,7 +97,7 @@ Azure AD client registration must be reconfigured to allow the Azure portal to r
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers. 
+>If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers matching those specified in Step 3 below.
 
 ### Client registration reconfiguration
 
@@ -119,7 +110,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
     >[!NOTE]
     >If you're using this feature in Azure China, the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. After registering the redirect URLs, under **Advanced settings**, select the options **Access tokens** and **ID tokens** and then save your changes.
+4. After registering the redirect URLs, under **Implicit grant**, select the options **Access tokens** and **ID tokens** and then save your changes.
 
 >[!NOTE]
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.

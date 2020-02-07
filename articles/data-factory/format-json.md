@@ -2,13 +2,13 @@
 title: JSON format in Azure Data Factory 
 description: 'This topic describes how to deal with JSON format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 02/05/2020
 ms.author: jingwang
 
 ---
@@ -28,7 +28,7 @@ For a full list of sections and properties available for defining datasets, see 
 | type             | The type property of the dataset must be set to **Json**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
 | encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
-| compressionCodec | The compression codec used to read/write text files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. <br>Note currently Copy activity doesn’t support "snappy" & "lz4". | No       |
+| compressionCodec | The compression codec used to read/write text files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. <br>Note currently Copy activity doesn’t support "snappy" & "lz4".<br>Note when using copy activity to decompress ZipDeflate file(s) and write to file-based sink data store, files will be extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No       |
 | compressionLevel | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
 
 Below is an example of JSON dataset on Azure Blob Storage:
@@ -83,7 +83,7 @@ Supported **JSON write settings** under `formatSettings`:
 
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | The type of formatSettings must be set to **JsonWriteSetting**. | Yes                                                   |
+| type          | The type of formatSettings must be set to **JsonWriteSettings**. | Yes                                                   |
 | filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 
 ### JSON file patterns
@@ -180,7 +180,148 @@ Copy activity can automatically detect and parse the following patterns of JSON 
 
 ## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+JSON file types can be used as both a sink and a source in mapping data flow.
+
+### Creating JSON structures in a derived column
+
+You can add a complex column to your data flow via the derived column expression builder. In the derived column transformation, add a new column and open the expression builder by clicking on the blue box. To make a column complex, you can enter the JSON structure manually or use the UX to add subcolumns interactively.
+
+#### Using the expression builder UX
+
+In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
+
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
+
+![Complex column](media/data-flow/complexcolumn.png "Complex column")
+
+#### Entering the JSON structure manually
+
+To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
+
+```
+@(
+	field1=0,
+	field2=@(
+		field1=0
+	)
+)
+```
+
+If this expression were entered for a column named "complexColumn", then it would be written to the sink as the following JSON:
+
+```
+{
+	"complexColumn": {
+		"field1": 0,
+		"field2": {
+			"field1": 0
+		}
+	}
+}
+```
+
+#### Sample manual script for complete hierarchical definition
+```
+@(
+	title=Title,
+	firstName=FirstName,
+	middleName=MiddleName,
+	lastName=LastName,
+	suffix=Suffix,
+	contactDetails=@(
+		email=EmailAddress,
+		phone=Phone
+	),
+	address=@(
+		line1=AddressLine1,
+		line2=AddressLine2,
+		city=City,
+		state=StateProvince,
+		country=CountryRegion,
+		postCode=PostalCode
+	),
+	ids=[
+		toString(CustomerID), toString(AddressID), rowguid
+	]
+)
+```
+
+### Source format options
+
+Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab.  
+
+![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
+
+#### Default
+
+By default, JSON data is read in the following format.
+
+```
+{ "json": "record 1" }
+{ "json": "record 2" }
+{ "json": "record 3" }
+```
+
+#### Single document
+
+If **Single document** is selected, mapping data flows read one JSON document from each file. 
+
+``` json
+File1.json
+{
+    "json": "record 1"
+}
+File2.json
+{
+    "json": "record 2"
+}
+File3.json
+{
+    "json": "record 3"
+}
+```
+
+#### Unquoted column names
+
+If **Unquoted column names** is selected, mapping data flows reads JSON columns that aren't surrounded by quotes. 
+
+```
+{ json: "record 1" }
+{ json: "record 2" }
+{ json: "record 3" }
+```
+
+#### Has comments
+
+Select **Has comments** if the JSON data has C or C++ style commenting.
+
+``` json
+{ "json": /** comment **/ "record 1" }
+{ "json": "record 2" }
+{ /** comment **/ "json": "record 3" }
+```
+
+#### Single quoted
+
+Select **Single quoted** if the JSON fields and values use single quotes instead of double quotes.
+
+```
+{ 'json': 'record 1' }
+{ 'json': 'record 2' }
+{ 'json': 'record 3' }
+```
+
+#### Backslash escaped
+
+Select **Single quoted** if backslashes are used to escape characters in the JSON data.
+
+```
+{ "json": "record 1" }
+{ "json": "\} \" \' \\ \n \\n record 2" }
+{ "json": "record 3" }
+```
 
 ## Next steps
 

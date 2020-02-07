@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -63,6 +62,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Amazon Web Services (AWS) supports **SP and IDP** initiated SSO
+* Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -71,13 +71,12 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a work account, school account, or personal Microsoft account.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Within the Azure Active Directory overview menu, choose **Enterprise Applications** > **All applications**.
+1. Select **New application** to add an application.
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
 1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Amazon Web Services (AWS)
 
@@ -90,6 +89,7 @@ To configure and test Azure AD SSO with Amazon Web Services (AWS), complete the 
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Amazon Web Services (AWS) SSO](#configure-amazon-web-services-aws-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Amazon Web Services (AWS) test user](#create-amazon-web-services-aws-test-user)** - to have a counterpart of B.Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
+	1. **[How to configure role provisioning in Amazon Web Services (AWS)](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -120,7 +120,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Within the Azure Active Directory overview menu, choose **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
@@ -132,8 +133,9 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Amazon Web Services (AWS).
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Amazon Web Services (AWS)**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Within the Azure Active Directory overview menu, choose **Enterprise Applications** > **All applications**.
+1. In the application list, select **Amazon Web Services (AWS)**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
@@ -309,11 +311,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. Select **Close**.
 
-21. In the Azure AD management portal, in the AWS app, go to **Provisioning**.
+### How to configure role provisioning in Amazon Web Services (AWS)
+
+1. In the Azure AD management portal, in the AWS app, go to **Provisioning**.
 
 	![Screenshot of AWS app, with Provisioning highlighted](./media/amazon-web-service-tutorial/provisioning.png)
 
-22. Enter the access key and secret in the **clientsecret** and **Secret Token** fields, respectively.
+2. Enter the access key and secret in the **clientsecret** and **Secret Token** fields, respectively.
 
 	![Screenshot of Admin Credentials dialog box](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -325,7 +329,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	d. Save the setting by selecting **Save**.
 
-23. In the **Settings** section, for **Provisioning Status**, select **On**. Then select **Save**.
+3. In the **Settings** section, for **Provisioning Status**, select **On**. Then select **Save**.
 
 	![Screenshot of Settings section, with On highlighted](./media/amazon-web-service-tutorial/provisioning2.png)
 
@@ -367,6 +371,10 @@ When you click the Amazon Web Services (AWS) tile in the Access Panel, you shoul
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Amazon Web Services (AWS) with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Amazon Web Services (AWS) with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

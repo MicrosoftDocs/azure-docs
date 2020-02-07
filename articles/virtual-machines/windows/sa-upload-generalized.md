@@ -1,5 +1,5 @@
 ---
-title: Upload a generalize VHD to create multiple VMs in Azure | Microsoft Docs
+title: Upload a generalize VHD to create multiple VMs in Azure 
 description: Upload a generalized VHD to an Azure storage account to create a Windows VM to use with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

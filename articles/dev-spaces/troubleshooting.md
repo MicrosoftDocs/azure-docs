@@ -1,16 +1,12 @@
 ---
 title: "Troubleshooting"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
-ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+ms.topic: "troubleshooting"
+description: "Learn how to troubleshoot and resolve common problems when enabling and using Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
-# Troubleshooting guide
+# Azure Dev Spaces troubleshooting
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
@@ -87,6 +83,14 @@ azure-cli                         2.0.60 *
 Despite the error message when running `az aks use-dev-spaces` with a version of the Azure CLI before 2.0.63, the installation does succeed. You can continue to use `azds` without any issues.
 
 To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
+
+### Error "Unable to reach kube-apiserver"
+
+You might see this error when Azure Dev Spaces is unable to connect to your AKS cluster's API server. 
+
+If access to your AKS cluster API server is locked down or if you have [API server authorized IP address ranges](../aks/api-server-authorized-ip-ranges.md) enabled for your AKS cluster, you must also [create](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) or [update](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) your cluster to [allow additional ranges based on your region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
+Ensure that the API server is available by running kubectl commands. If the API server is unavailable, please contact AKS support and try again when the API server is working.
 
 ## Common issues when preparing your project for Azure Dev Spaces
 
@@ -242,7 +246,22 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-This error occurs because AKS nodes run an older version of Docker that doesn't support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
+This error occurs because Azure Dev Spaces does not currently support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
+
+### Network traffic is not forwarded to your AKS cluster when connecting your development machine
+
+When using [Azure Dev Spaces to connect your AKS cluster to your development machine](how-to/connect.md), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
+
+When connecting your development machine to your AKS cluster, Azure Dev Spaces forwards network traffic between your AKS cluster and your development machine by modifying your development machine's `hosts` file. Azure Dev Spaces creates an entry in the `hosts` with the address of the Kubernetes service you are replacing as a host name. This entry is used with port forwarding to direct network traffic between your development machine and the AKS cluster. If a service on your development machine conflicts with the port of the Kubernetes service you are replacing, Azure Dev Spaces cannot forward network traffic for the Kubernetes service. For example, the *Windows BranchCache* service is usually bound to *0.0.0.0:80*, which conflicts will cause a conflict for port 80 on all local IPs.
+
+To fix this issue, you need to stop any services or processes that conflict with port of the Kubernetes service you are trying to replace. You can use tools, such as *netstat*, to inspect what services or processes on your development machine are in conflict.
+
+For example, to stop and disable the *Windows BranchCache* service:
+* Run `services.msc` from the command prompt.
+* Right click on *BranchCache* and select *Properties*.
+* Click *Stop*.
+* Optionally, you can disable it by setting *Startup type* to *Disabled*.
+* Click *OK*.
 
 ## Common issues using Visual Studio and Visual Studio Code with Azure Dev Spaces
 
@@ -439,3 +458,23 @@ kubectl -n my-namespace delete pod --all
 ```
 
 After your pods have restarted, you can begin using your existing namespace with Azure Dev Spaces.
+
+### Enable Azure Dev Spaces on AKS cluster with restricted egress traffic for cluster nodes
+
+To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from cluster nodes is restricted, you will have to allow following FQDNs:
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
+| gcr.io | HTTP:443 | To pull helm/tiller images|
+| storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json|
+
+### Error "Could not find the cluster \<cluster\> in subscription \<subscriptionId\>"
+
+You may see this error if your kubeconfig file is targeting a different cluster or subscription than you are trying to use with the Azure Dev Spaces client side tooling. The Azure Dev Spaces client side tooling replicates the behavior of *kubectl*, which uses [one or more kubeconfig files](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to select and communicate with the cluster.
+
+To fix this issue:
+
+* Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` to update the current context. This command also enables Azure Dev Spaces on your AKS cluster if is not already enabled. Alternatively, you can use `kubectl config use-context <cluster name>` to update the current context.
+* Use `az account show` to show the current Azure subscription you are targeting and verify this is correct. You can change the subscription you are targeting using `az account set`.

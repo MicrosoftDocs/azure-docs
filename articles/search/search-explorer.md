@@ -1,5 +1,5 @@
 ---
-title: Use Search explorer tool for querying data in Azure portal
+title: Search explorer query tool in Azure portal
 titleSuffix: Azure Cognitive Search
 description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Cognitive Search. Enter strings for term or phrase search, or fully qualified search expressions with advanced syntax.
 

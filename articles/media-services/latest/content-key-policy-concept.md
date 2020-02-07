@@ -25,9 +25,6 @@ To specify encryption options on your stream, you need to create a [Streaming Po
 
 Usually, you associate your content key policy with your [Streaming Locator](streaming-locators-concept.md). Alternatively, you can specify the content key policy inside a [Streaming Policy](streaming-policy-concept.md) (when creating a custom streaming policy for advanced scenarios). 
 
-> [!NOTE]
-> Properties of the Content Key Policies that are of the `Datetime` type are always in UTC format.
-
 ## Best practices and considerations
 
 > [!IMPORTANT]
@@ -53,6 +50,11 @@ To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [G
 ## Filtering, ordering, paging
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+
+## Additional notes
+
+* Properties of the Content Key Policies that are of the `Datetime` type are always in UTC format.
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

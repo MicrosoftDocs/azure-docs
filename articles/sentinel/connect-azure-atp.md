@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
 
 ---
@@ -29,7 +29,7 @@ You can stream logs from [Azure Advanced Threat Protection](https://docs.microso
 ## Prerequisites
 
 - User with global administrator or security administrator permissions
-- You must be a preview customer of Azure ATP
+- You must be a preview customer of Azure ATP and enable integration between Azure ATP and Microsoft Cloud App Security. For more information, see [Azure Advanced Protection Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
 ## Connect to Azure ATP
 

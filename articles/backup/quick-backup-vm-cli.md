@@ -1,14 +1,9 @@
 ---
-title: Azure Quickstart - Back up a VM with Azure CLI
+title: Quickstart - Back up a VM with Azure CLI
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on a VM, and create the initial recovery point with Azure CLI.
-author: dcurwin
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 

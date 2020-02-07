@@ -1,20 +1,20 @@
 ---
-title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
+title: On-premises password protection FAQ - Azure Active Directory
 description: On-premises Azure AD Password Protection FAQ
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
-ms.date: 02/01/2019
+ms.topic: troubleshooting
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
-
 # Azure AD Password Protection on-premises - Frequently asked questions
 
 This section provides answers to many commonly asked questions about Azure AD Password Protection.

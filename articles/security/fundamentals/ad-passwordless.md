@@ -1,5 +1,6 @@
 ---
-title: Understanding a world without passwords with Azure Active Directory | Microsoft Docs
+title: Passwordless authentication with Azure AD
+titleSuffix: Active Directory
 description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing a passwordless authentication method for their Azure Active Directory implementation.
 keywords: passwordless, azuread
 author: martincoetzer
@@ -18,7 +19,7 @@ Three types of attacks commonly used to compromise user accounts are password sp
 
 This article is the beginning of your journey to help you understand and implement Microsoft's passwordless solutions and help you choose between one or more of the following options:
 
-* **Windows Hello for Business**. In Windows 10, Windows Hello for Business replaces passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied to a device and uses a biometric or PIN.
+* **Windows Hello for Business**. In Windows 10, Windows Hello for Business replaces passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied to a device and uses a biometric recognition or PIN.
 
 * **Passwordless sign-in with Microsoft Authenticator**. The Microsoft Authenticator app can be used to sign in to an Azure AD account without using a password. Similar to the technology of Windows Hello for Business, the Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device and uses a biometric or PIN.
 
@@ -305,7 +306,7 @@ Passwordless authentication is the wave of the future and the path to a more sec
 
 * Deploy Microsoft Authenticator App for mobility.
 
-* Deploy Windows Hello for Business (1903: stay current).
+* Deploy Windows Hello for Business (1909: stay current).
 
 * Deploy FIDO2 devices for users who can't use phones.
 

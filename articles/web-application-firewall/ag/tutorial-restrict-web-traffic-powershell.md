@@ -1,12 +1,13 @@
 ---
-title: Restrict web traffic with a Web Application Firewall - Azure PowerShell
+title: Restrict web traffic using PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using Azure PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.topic: overview
+ms.topic: conceptual
 ---
 
 # Enable Web Application Firewall using Azure PowerShell

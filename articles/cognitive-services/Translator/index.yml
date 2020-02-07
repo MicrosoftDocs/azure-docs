@@ -36,10 +36,6 @@ landingContent:
             url: translator-text-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
-      - linkListType: concept
-        links:
-          - text: Docker containers
-            url: how-to-install-containers.md
   - title: Translator Text API
     linkLists:
       - linkListType: quickstart

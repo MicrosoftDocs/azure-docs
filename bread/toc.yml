@@ -18,7 +18,7 @@
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
-      - name: Conditional access
+      - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
@@ -108,6 +108,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Internet Peering
+    tocHref: /azure/internet-peering/
+    topicHref: /azure/internet-peering/
   - name: Blockchain
     tocHref: /azure/blockchain/
     topicHref: /azure/blockchain/
@@ -139,6 +142,10 @@
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
+    items:
+    - name: Application Insights
+      tocHref: /azure/azure-monitor/azure-monitor-app-hub
+      topicHref: /azure/azure-monitor/azure-monitor-app-hub
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
@@ -170,7 +177,7 @@
   - name: Azure VMware Solution by CloudSimple
     tocHref: /azure/vmware-cloudsimple/
     topicHref: /azure/vmware-cloudsimple/
-  - name: Azure portal customization
+  - name: Azure portal documentation
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/\
   - name: Internet of Things
@@ -187,19 +194,16 @@
         - name: IoT Central
           tocHref: /azure/iot-central/core/
           topicHref: /azure/iot-central/core/
-        - name: IoT Central (preview)
-          tocHref: /azure/iot-central/preview/
-          topicHref: /azure/iot-central/preview/
-        - name: IoT Central for Energy 
+        - name: IoT Central for Energy
           tocHref: /azure/iot-central/energy/
           topicHref: /azure/iot-central/energy/
-        - name: IoT Central for Government 
+        - name: IoT Central for Government
           tocHref: /azure/iot-central/government/
           topicHref: /azure/iot-central/government/
-        - name: IoT Central for Healthcare 
+        - name: IoT Central for Healthcare
           tocHref: /azure/iot-central/healthcare/
           topicHref: /azure/iot-central/healthcare/
-        - name: IoT Central for Retail 
+        - name: IoT Central for Retail
           tocHref: /azure/iot-central/retail/
           topicHref: /azure/iot-central/retail/
       - name: IoT Edge
@@ -226,6 +230,19 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+    items:
+      - name: Templates
+        tocHref: /azure/azure-resource-manager/templates/
+        topicHref: /azure/azure-resource-manager/templates/
+      - name: Management
+        tocHref: /azure/azure-resource-manager/management/
+        topicHref: /azure/azure-resource-manager/management/
+      - name: Managed Applications
+        tocHref: /azure/azure-resource-manager/managed-applications/
+        topicHref: /azure/azure-resource-manager/managed-applications/
+      - name: Azure Custom Providers
+        tocHref: /azure/azure-resource-manager/custom-providers/
+        topicHref: /azure/azure-resource-manager/custom-providers/
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -235,9 +252,6 @@
   - name: Azure Stack User
     tocHref: /azure/azure-stack/user/
     topicHref: /azure/azure-stack/user/
-  - name: Supportability
-    tocHref: /azure/azure-supportability/
-    topicHref: /azure/azure-supportability/
   - name: Backup
     tocHref: /azure/backup/
     topicHref: /azure/backup/
@@ -530,8 +544,8 @@
     topicHref: /azure/industry
     items:
       - name: Azure FarmBeats
-        tocHref: /azure/industry/agriculture
-        topicHref: /azure/industry/agriculture
+        tocHref: /azure/industry
+        topicHref: /azure/industry
 #  - name: Internet of Things
 #    tocHref: /azure/iot-fundamentals/
 #    topicHref: /azure/iot-fundamentals/
@@ -579,25 +593,21 @@
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
   - name: Machine Learning
-    tocHref: /azure/machine-learning/
+    tocHref: /azure/machine-learning
     topicHref: /azure/machine-learning/
     items:
-      - name: Service
-        tocHref: /azure/machine-learning/service
-        topicHref: /azure/machine-learning/service/
-        items:
-        - name: Algorithm and Module Reference
-          tocHref: /azure/machine-learning/algorithm-module-reference
-          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
-      - name: Studio (classic)
-        tocHref: /azure/machine-learning/studio
-        topicHref: /azure/machine-learning/studio/
-      - name: Team Data Science Process
-        tocHref: /azure/machine-learning/team-data-science-process
-        topicHref: /azure/machine-learning/team-data-science-process/overview
-      - name: Data Science Virtual Machine
-        tocHref: /azure/machine-learning/data-science-virtual-machine
-        topicHref: /azure/machine-learning/data-science-virtual-machine/
+    - name: Algorithm and Module Reference
+      tocHref: /azure/machine-learning/algorithm-module-reference
+      topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
+    - name: Studio (classic)
+      tocHref: /azure/machine-learning/studio
+      topicHref: /azure/machine-learning/studio/
+    - name: Team Data Science Process
+      tocHref: /azure/machine-learning/team-data-science-process
+      topicHref: /azure/machine-learning/team-data-science-process/overview
+    - name: Data Science Virtual Machine
+      tocHref: /azure/machine-learning/data-science-virtual-machine
+      topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
@@ -694,6 +704,9 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Benchmarks
+        tocHref: /azure/security/benchmarks/
+        topicHref: /azure/security/benchmarks/
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/

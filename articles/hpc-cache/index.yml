@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: rohogue
-  ms.date: 10/30/2019
+  ms.date: 11/07/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -33,9 +33,9 @@ landingContent:
         links:
           - text: Configure prerequisites for Azure HPC Cache
             url: hpc-cache-prereqs.md
-          - text: Create the cache 
+          - text: Create the cache
             url: hpc-cache-create.md
-          - text: Add storage  # where to put the ingest articles? collapsible heading??
+          - text: Add storage
             url: hpc-cache-add-storage.md
           - text: Mount clients
             url: hpc-cache-mount.md
@@ -57,6 +57,8 @@ landingContent:
             url: hpc-cache-support-ticket.md
           - text: Edit a storage target
             url: hpc-cache-edit-storage.md
+          - text: Work around firewall settings to create Blob storage targets
+            url: hpc-cache-blob-firewall-fix.md
       - linkListType: concept
         links:
           - text: Recover from a regional outage

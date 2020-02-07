@@ -31,8 +31,11 @@ There are many benefits of using Azure AD authentication to log in to Windows VM
 - Azure RBAC allows you to grant the appropriate access to VMs based on need and remove it when it is no longer needed.
 - Before allowing access to a VM, Azure AD Conditional Access can enforce additional requirements such as: 
    - Multi-factor authentication
-   - Sign-in risk
-- Automate and scale Azure AD join for Azure based Windows VMs.
+   - Sign-in risk check
+- Automate and scale Azure AD join of Azure Windows VMs that are part for your VDI deployments.
+
+> [!NOTE]
+> Once you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join it to other domain like on prem AD or Azure AD DS. If you need to do so, you will need to disconnect the VM from your Azure AD tenant by uninstalling the extension.
 
 ## Requirements
 
@@ -42,6 +45,9 @@ The following Windows distributions are currently supported during the preview o
 
 - Windows Server 2019 Datacenter
 - Windows 10 1809 and later
+
+> [!IMPORTANT]
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
 
 The following Azure regions are currently supported during the preview of this feature:
 
@@ -54,10 +60,10 @@ The following Azure regions are currently supported during the preview of this f
 
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- https:\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- https:\//device.login.microsoftonline.com
+- https:\//pas.windows.net
 
 ## Enabling Azure AD login in for Windows VM in Azure
 
@@ -65,7 +71,7 @@ To use Azure AD login in for Windows VM in Azure, you need to first enable Azure
 There are multiple ways you can enable Azure AD login for your Windows VM:
 
 - Using the Azure portal experience when creating a Windows VM
-- Using the Azure Cloud Shell experience when creating a Windows VM or for an existing Windows VM
+- Using the Azure Cloud Shell experience when creating a Windows VM **or for an existing Windows VM**
 
 ### Using Azure portal create VM experience to enable Azure AD login
 
@@ -113,6 +119,9 @@ az vm create \
     --admin-username azureuser \
     --admin-password yourpassword
 ```
+
+> [!NOTE]
+> It is required that you enable System assigned managed identity on your virtual machine before you install the Azure AD login VM extension.
 
 It takes a few minutes to create the VM and supporting resources.
 
@@ -184,10 +193,18 @@ For more information on how to use RBAC to manage access to your Azure subscript
 - [Manage access to Azure resources using RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - [Manage access to Azure resources using RBAC and Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
+## Using Conditional Access
+
+You can enforce Conditional Access policies such as multi-factor authentication or user sign-in risk check before authorizing access to Windows VMs in Azure that are enabled with Azure AD sign in. To apply Conditional Access policy, you must select "Azure Windows VM Sign-In" app from the cloud apps or actions assignment option and then use Sign-in risk as a condition and/or 
+require multi-factor authentication as a grant access control. 
+
+> [!NOTE]
+> If you use "Require multi-factor authentication" as a grant access control for requesting access to the "Azure Windows VM Sign-In" app, then you must supply multi-factor authentication claim as part of the client that initiates the RDP session to the target Windows VM in Azure. The only way to achieve this on a Windows 10 client is to use Windows Hello for Business PIN or biometric authenication with the RDP client. Support for biometric authentication was added to the RDP client in Windows 10 version 1809. Remote desktop using Windows Hello for Business authentication is only available for deployments that use cert trust model and currently not available for key trust model.
+
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login.
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login. At this time, Azure Bastion cannot be used to login using Azure Active Directory authentication with the AADLoginForWindows extension. Only direct RDP is supported.
 
 To login in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -220,24 +237,24 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
    | Command to run | Expected output |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Correct information about the Azure VM |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Valid Tenant ID associated with the Azure Subscription |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > The access token can be decoded using a tool like [http://calebb.net/](http://calebb.net/). Verify the "appid" in the access token matches the managed identity assigned to the VM.
 
 1. Ensure the required endpoints are accessible from the VM using the command line:
    
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>`/ -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
 
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
@@ -264,15 +281,15 @@ This Exit code translates to DSREG_AUTOJOIN_DISC_FAILED because the extension is
 
 1. Verify the required endpoints are accessible from the VM using the command line:
 
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>`/ -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
    
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select Azure Active Directory > Properties > Directory ID in the Azure portal.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    
@@ -334,7 +351,12 @@ If you see the following error message when you initiate a remote desktop connec
 
 ![The sign-in method you're trying to use isn't allowed.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-If you have configured a Conditional Access policy that requires MFA to be done before you can access the RBAC resource, then you need to ensure that the Windows 10 PC initiating the remote desktop connection to your VM signs in using a strong authentication method such as Windows Hello. If you do not use a strong authentication method for your remote desktop connection, you will see the following error.
+If you have configured a Conditional Access policy that requires multi-factor authentication (MFA) before you can access the resource, then you need to ensure that the Windows 10 PC initiating the remote desktop connection to your VM signs in using a strong authentication method such as Windows Hello. If you do not use a strong authentication method for your remote desktop connection, you will see the previous error.
+
+If you have not deployed Windows Hello for Business and if that is not an option for now, you can exclude MFA requirement by configuring Conditional Access policy that excludes "Azure Windows VM Sign-In" app from the list of cloud apps that require MFA. To learn more about Windows Hello for Business, see [Windows Hello for Business Overview](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+
+> [!NOTE]
+> Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business auth during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
  
 ## Preview feedback
 

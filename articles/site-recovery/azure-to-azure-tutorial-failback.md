@@ -1,11 +1,11 @@
 ---
-title: Fail back Azure VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
-description: Learn how to fail back Azure VMs with the Azure Site Recovery service.
+title: Fail back Azure VMs to a primary region with the Azure Site Recovery service.
+description: Describes how to fail back Azure VMs to the primary region with Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
 ---

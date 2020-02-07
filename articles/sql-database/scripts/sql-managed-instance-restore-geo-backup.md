@@ -47,8 +47,8 @@ $backup = Get-AzSqlInstanceDatabaseGeoBackup `
 -Name $SourceDatabaseName
 
 $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
--TargetInstanceDatabaseName $TargetInstanceName `
--TargetInstanceName $TargetDatabaseName `
+-TargetInstanceDatabaseName $TargetDatabaseName `
+-TargetInstanceName $TargetInstanceName `
 -TargetResourceGroupName $TargetResourceGroupName
 
 ```

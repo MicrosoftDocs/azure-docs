@@ -1,5 +1,5 @@
 ---
-title: Linked sign-on for Azure AD applications - Microsoft identity platform | Microsoft Docs
+title: Linked sign-on for Azure AD apps - Microsoft identity platform
 description: Configure linked single sign-on (SSO) to your Azure AD enterprise applications in Microsoft identity platform (Azure AD)
 services: active-directory
 author: msmimart
@@ -45,4 +45,4 @@ If the application hasn't been added to your Azure AD tenant, see [Add a gallery
 ## Next steps
 
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
-- [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)
+- [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

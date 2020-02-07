@@ -59,6 +59,8 @@
     href: linux-recovery-cannot-start-file-system-errors.md
   - name: Troubleshoot kernel-related boot problems
     href: https://support.microsoft.com/help/4091524
+  - name: Recover LVM configured VMs and no boot 
+    href: chroot-logical-volume-manager.md
   - name: Troubleshoot fstab errors
     href: linux-virtual-machine-cannot-start-fstab-errors.md
   - name: Detailed SSH troubleshooting
@@ -114,6 +116,8 @@
       href: serial-console-grub-single-user-mode.md
     - name: Serial Console NMI/SysRq
       href: serial-console-nmi-sysrq.md
+    - name: Serial console grub proactive configuration
+      href: serial-console-grub-proactive-configuration.md
   - name: Serial Console for Windows
     href: serial-console-windows.md
     items:
@@ -171,11 +175,14 @@
       href: troubleshoot-recovery-disks-linux.md
     - name: Azure portal
       href: troubleshoot-recovery-disks-portal-linux.md
-- name: Boot errors
-  href: boot-error-troubleshoot.md
+- name: Boot errors Linux
+  href: boot-error-troubleshoot-linux.md
   items:
   - name: Grub Rescue
     href: troubleshoot-vm-boot-error.md
+- name: Boot errors Windows
+  href: boot-error-troubleshoot.md
+  items:
   - name: Boot diagnostics
     href: boot-diagnostics.md
   - name: BitLocker errors
@@ -190,6 +197,8 @@
     href: troubleshoot-critical-service-failed-boot-error.md
   - name: Reboot loop
     href: troubleshoot-reboot-loop.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
   - name: Stuck at Windows update
     href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors

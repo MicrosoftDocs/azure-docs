@@ -1,5 +1,5 @@
 ---
-title: 'REST Tutorial: Build an AI enrichment pipeline to extract text and structure from JSON blobs'
+title: 'Tutorial: Extract text and structure from JSON blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in JSON blobs using Postman and the Azure Cognitive Search REST APIs. 
 
@@ -11,9 +11,9 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ---
 
-# Tutorial: Add structure to "unstructured content" with AI enrichment
+# Tutorial: Extract text and structure from JSON blobs in Azure using REST APIs (Azure Cognitive Search)
 
-If you have unstructured text or image content, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can help you extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process image files (JPG, PNG, TIFF), this tutorial focuses on word-based content, applying language detection and text analytics to create new fields and information that you can leverage in queries, facets, and filters.
+If you have unstructured text or image content in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can help you extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process image files (JPG, PNG, TIFF), this tutorial focuses on word-based content, applying language detection and text analytics to create new fields and information that you can leverage in queries, facets, and filters.
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, MD, DOCX, and PPTX in Azure Blob storage.

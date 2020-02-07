@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 11/14/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -77,7 +77,7 @@ Use the batch testing tool when you want to:
 * determine top answer and score for a set of questions
 * validate expected answer for set of questions
 
-Batch testing is provided with the batch testing tool. This tool is available as an [zipped executable](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip) for download or as [C# source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Batch testing is provided with the batch testing tool. This tool is available as an [zipped executable](https://aka.ms/qnamakerbatchtestingtool) for download or as [C# source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
 
 [Reference documentation about the tool](../reference-tsv-format-batch-testing.md) includes:
 

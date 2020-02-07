@@ -1,19 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample - Create app and deploy from local Git repo | Microsoft Docs
-description: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository
-services: app-service\web
-documentationcenter: 
-author: cephalin
-manager: erikre
-editor: 
+title: 'PowerShell: Deploy from local Git repo'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to deploy code from a local Git repository.
 tags: azure-service-management
 
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
 ---
 

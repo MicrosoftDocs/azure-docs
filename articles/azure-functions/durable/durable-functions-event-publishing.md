@@ -1,14 +1,8 @@
 ---
 title: Durable Functions publishing to Azure Event Grid (preview)
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: glenga
 ---
 
 # Durable Functions publishing to Azure Event Grid (preview)
@@ -87,7 +81,7 @@ Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` pr
 
 The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the event grid topic. This works when you run your function app both locally and in Azure.```
 
-Set the app setting for the topic key in the Function App and `local.setting.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
+Set the app setting for the topic key in the Function App and `local.settings.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
 
 ```json
 {
@@ -278,7 +272,7 @@ The following list explains the lifecycle events schema:
 
 ## How to test locally
 
-To test locally, use [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
+To test locally, read [Azure Function Event Grid Trigger Local Debugging](../functions-debug-event-grid-trigger-local.md).
 
 ## Next steps
 

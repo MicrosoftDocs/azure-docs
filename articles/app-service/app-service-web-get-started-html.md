@@ -1,16 +1,9 @@
 ---
-title: Create static HTML web app - Azure App Service | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'QuickStart: Create a static HTML web app'
+description: Deploy your first HTML Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
+author: msangapu-msft
 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
@@ -53,7 +46,7 @@ In the following example, replace <app_name> with a unique app name.
 ```bash
 cd html-docs-hello-world
 
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 The `az webapp up` command does the following actions:
@@ -105,7 +98,7 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 You'll now redeploy the app with the same `az webapp up` command.
 
 ```bash
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.

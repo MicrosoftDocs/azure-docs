@@ -1,5 +1,5 @@
 ---
-title: Disable user sign-ins for an enterprise app in Azure Active Directory | Microsoft Docs
+title: Disable user sign-ins for an enterprise app in Azure AD
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
 documentationcenter: ''

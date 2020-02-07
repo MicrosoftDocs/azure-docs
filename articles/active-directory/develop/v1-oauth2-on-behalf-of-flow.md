@@ -1,5 +1,5 @@
 ---
-title: Azure AD service-to-service authentication OAuth2.0 On-Behalf-Of draft spec | Microsoft Docs
+title: Service-to-service authentication with OAuth2.0 on-behalf-of flow | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service-to-service authentication with the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: .net
@@ -18,7 +18,6 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Service-to-service calls that use delegated user identity in the On-Behalf-Of flow

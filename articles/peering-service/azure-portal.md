@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: ypitsch
 ---
 
 # Register Peering Service Preview by using the Azure portal
@@ -25,7 +25,8 @@ If you don't have an Azure subscription, create an [account](https://azure.micro
 > This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites 
+## Prerequisites
+
 You must have the following:
 
 ### Azure account
@@ -44,8 +45,8 @@ Before you proceed to the steps of registering the Peering Service, you need to 
 
 **Azure PowerShell**
 
-```PowerShellCopy
-Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
 
@@ -53,8 +54,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 
 **Azure CLI**
 
-```azurecli
-az feature register --namespace Microsoft.Peering--name AllowPeeringService
+```azurecli-interactive
+az feature register --namespace Microsoft.Peering --name AllowPeeringService
 ```
 
 ## Sign in to the Azure portal

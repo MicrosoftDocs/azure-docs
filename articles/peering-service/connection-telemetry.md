@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: ypitsch
 ---
 # Peering Service Preview connection telemetry
 
@@ -22,15 +22,15 @@ Connection telemetry provides insights collected for the connectivity between th
 
 ## Preview scope
 
-Connection telemetry is composed of the following scopes: 
+Connection telemetry is composed of the following scopes:
 
-**Latency measurement**
+### Latency measurement
 
  Latency is measured from the client to the Microsoft edge PoP for the registered prefixes.
 
-**Route (prefix) monitoring and protection** 
+### Route prefix monitoring and protection
 
-Routing paths are monitored for any suspicious activity that's then captured in event logs. For instance, event logs are created for some of these factors: 
+Routing paths are monitored for any suspicious activity that's then captured in event logs. For instance, event logs are created for some of these factors:
 
 - Prefix hijacks
 - Prefix withdrawal

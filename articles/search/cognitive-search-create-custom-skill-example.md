@@ -1,5 +1,5 @@
 ---
-title: 'Example: Creating a custom cognitive skill with the Bing Entity Search API'
+title: 'Custom skill example using Bing Entity Search API'
 titleSuffix: Azure Cognitive Search
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
 

@@ -1,25 +1,20 @@
 ---
-title: Instantiate a public client app with options (Microsoft Authentication Library for .NET) 
+title: Instantiate a public client app (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to instantiate a public client application with configuration options using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to use application config options so I can instantiate a public client app.
-ms.collection: M365-identity-device-management
 ---
 
 # Instantiate a public client application with configuration options using MSAL.NET

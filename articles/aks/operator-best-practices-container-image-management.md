@@ -22,6 +22,8 @@ This article focuses on how to secure your containers in AKS. You learn how to:
 
 You can also read the best practices for [cluster security][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
 
+You can also use [Container security in Security Center][security-center-containers] to help scan your containers for vulnerabilities.  There is also [Azure Container Registry integration][security-center-acr] with Security Center to help protect your images and registry from vulnerabilities.
+
 ## Secure the images and run time
 
 **Best practice guidance** - Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster.
@@ -57,3 +59,5 @@ This article focused on how to secure your containers. To implement some of thes
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

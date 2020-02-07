@@ -1,5 +1,5 @@
 ---
-title: Protect your content with Media Services dynamic encryption
+title: Protect your content with Media Services v3 dynamic encryption
 titleSuffix: Azure Media Services
 description: Learn about content protection with dynamic encryption, streaming protocols, and encryption types in Azure Media Services.
 services: media-services
@@ -240,7 +240,10 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` has a value of the requested key. You can use `AlternativeMediaId` if you want to map the request to an entity on your side. For example, `AlternativeMediaId` can be used to help you look up permissions.
 
- For REST examples that use custom license/key acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+For REST examples that use custom license/key acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Troubleshoot
 

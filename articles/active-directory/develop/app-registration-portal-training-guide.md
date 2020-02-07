@@ -1,32 +1,28 @@
 ---
-title: Application Registration Portal app registrations training guide - Microsoft identity platform | Azure
-description: App registrations in the Azure portal for users familiar with Application registration portal
+title: New Azure portal app registration experience
+titleSuffix: Microsoft identity platform
+description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Training guide: Using App registrations in the Azure portal instead of Application Registration Portal
+# The new Azure portal app registration experience
 
 There are many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) experience for registering or managing converged applications, referred to as the old experience, this training guide will get you started using the new experience.
 
 ## What's not changing?
 
--   Your applications and related configurations can be found as-is in the new experience. You do not need to register the applications again and users of your applications will not need to sign-in again.
+- Your applications and related configurations can be found as-is in the new experience. You do not need to register the applications again and users of your applications will not need to sign-in again.
 
     > [!NOTE]
     > You must sign-in with the account you used to register applications to find them in the Azure portal. We recommend you
@@ -41,7 +37,7 @@ There are many improvements in the new [App registrations](https://go.microsoft.
     you still believe your applications are missing, sign out and sign
     in with the right account.
 
--   Live SDK apps created using personal Microsoft accounts are not yet supported in the Azure portal and will continue to remain in the old experience in near future.
+- Live SDK apps created using personal Microsoft accounts are not yet supported in the Azure portal and will continue to remain in the old experience in near future.
 
 ## Key changes
 
@@ -113,7 +109,7 @@ separate pages. Here's where you can find the equivalent functionality:
 
 -   Advanced option - Live SDK support is on the Authentication page.
 
-## Application Secrets/Certificates & secrets
+## Application secrets/Certificates & secrets
 
 In the new experience, **Application secrets** have been renamed to
 **Certificates & secrets**. In addition, **Public keys** are referred to as
@@ -121,7 +117,7 @@ In the new experience, **Application secrets** have been renamed to
 chose to not bring this functionality along in the new experience for
 security reasons, hence, you can no longer generate a new key pair.
 
-## Platforms/Authentication - Reply URLs/Redirect URIs
+## Platforms/Authentication: Reply URLs/redirect URIs
 In the old experience, an app had Platforms section for Web, native, and
 Web API to configure Redirect URLs, Logout URL and Implicit flow.
 
@@ -138,7 +134,7 @@ Web APIs are configured in Expose an API page.
 configure settings for your application based on the platform or device
 that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
-## Microsoft Graph Permissions/API permissions
+## Microsoft Graph permissions/API permissions
 
 -   When selecting an API in the old experience, you could choose from
     Microsoft Graph APIs only. In the new experience, you can choose
@@ -172,7 +168,7 @@ the manifest editor or the API, or didn't exist.
 
 -   Implicit grant flow (oauth2AllowImplicitFlow) can be found on the
     Authentication page. Unlike the old experience, you can enable
-    access tokens or id tokens, or both.
+    access tokens or ID tokens, or both.
 
 -   Scopes defined by this API (oauth2Permissions) and Authorized client
     applications (preAuthorizedApplications) can be configured through

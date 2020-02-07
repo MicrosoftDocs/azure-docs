@@ -1,14 +1,10 @@
 ---
-title: 'Azure Backup: application-consistent backups of Linux VMs'
+title: Application-consistent backups of Linux VMs
 description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: app-consistent backup; application-consistent Azure VM backup; Linux VM backup; Azure Backup
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
+
 ---
 
 # Application-consistent backup of Azure Linux VMs

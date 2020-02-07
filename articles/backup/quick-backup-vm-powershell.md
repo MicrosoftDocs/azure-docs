@@ -1,13 +1,9 @@
 ---
-title: Azure Quickstart - Back up a VM with PowerShell
+title: Quickstart - Back up a VM with PowerShell
 description: In this Quickstart, learn how to back up your Azure virtual machines with the Azure PowerShell module.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 
@@ -101,18 +97,18 @@ Enable backup as follows:
 
 ## Start a backup job
 
-Backups run in accordance with the schedule specified in the backup policy. You can also run an ad hoc backup:
+Backups run according to the schedule specified in the backup policy. You can also run an on-demand backup:
 
 - The first initial backup job creates a full recovery point.
 - After the initial backup, each backup job creates incremental recovery points.
 - Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
-To run an ad hoc backup, you use the [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+To run an on-demand backup, you use the [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 - You specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Each VM to back up is treated as an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Run an ad hoc backup job as follows:
+Run an on-demand backup job as follows:
 
 1. Specify the container, obtain VM information, and run the backup.
 

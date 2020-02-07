@@ -227,7 +227,7 @@ After creating a Scala application, you can submit it to the cluster.
     |Spark clusters (Linux only)|Select the HDInsight Spark cluster on which you want to run your application.|
     |Select an Artifact to submit|Leave default setting.|
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
-    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
     |Command line arguments|You can enter arguments separated by space for the main class if needed.|
     |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Job Upload Storage|Expand to reveal additional options.|
@@ -331,8 +331,6 @@ Ensure you have satisfied the WINUTILS.EXE prerequisite.
 
 ### Spark Livy Interactive Session Console(Scala)
 
-It is only supported on IntelliJ 2018.2 and 2018.3.
-
 1. From the menu bar, navigate to **Run** > **Edit Configurations...**.
 
 2. From the **Run/Debug Configurations** window, in the left pane, navigate to **Apache Spark on HDInsight** > **[Spark on HDInsight] myApp**.
@@ -361,6 +359,25 @@ It is only supported on IntelliJ 2018.2 and 2018.3.
 It is convenient for you to foresee the script result by sending some code to the local console or Livy Interactive Session Console(Scala). You can highlight some code in the Scala file, then right-click **Send Selection To Spark Console**. The selected code will be sent to the console and be performed. The result will be displayed after the code in the console. The console will check the errors if existing.  
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## Integrate with HDInsight Identity Broker (HIB) 
+
+### Connect to your HDInsight ESP cluster with Id Broker (HIB)
+You can follow the normal steps to sign in to Azure subscription to connect to your HDInsight ESP cluster with Id Broker (HIB). After sign in, you will see the cluster list in Azure Explorer. For more instructions, see [Connect to your HDInsight cluster](#connect-to-your-hdinsight-cluster).
+
+### Run a Spark Scala application on an HDInsight ESP cluster with Id Broker (HIB)
+You can follow the normal steps to submit job to HDInsight ESP cluster with Id Broker (HIB). Refer to [Run a Spark Scala application on an HDInsight Spark cluster](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) for more instructions.
+
+We upload the necessary files to a folder named with your sign in account, and you can see the upload path in the configuration file.
+
+   ![upload path in the configuration](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### Spark console on an HDInsight ESP cluster with Id Broker (HIB)
+You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Console(Scala) on an HDInsight ESP cluster with Id Broker (HIB). Refer to [Spark Console](#spark-console) for more instructions.
+
+   > [!NOTE]  
+   > For the HDInsight ESP cluster with Id Broker (HIB), [link a cluster](#link-a-cluster) and [debug Apache Spark applications remotely](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) is not supported currently.
+
 
 ## Reader-only role
 

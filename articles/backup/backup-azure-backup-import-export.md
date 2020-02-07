@@ -1,13 +1,9 @@
 ---
-title: Seed offline backup with the Azure Backup Import/Export service
+title: Seed offline backup with the Import/Export service
 description: Learn how Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
 ---
 # Offline-backup workflow in Azure Backup
 
@@ -34,7 +30,7 @@ The following Azure Backup features or workloads support use of Offline Backup.
 > * Backup of files and folders with the Microsoft Azure Recovery Services (MARS) agent, also referred to as the Azure Backup agent.
 > * Backup of all workloads and files with System Center Data Protection Manager (SC DPM)
 > * Backup of all workloads and files with Microsoft Azure Backup Server
-
+ 
    > [!NOTE]
    > Offline Backup is not supported for System State backups done using the Azure Backup agent.
 
@@ -73,6 +69,15 @@ This section describes the offline-backup workflow so that your data can be deli
 
     ![Import screen](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
+2. Select the option **Transfer using my own disks**.
+
+    >[!NOTE]
+    >We recommend using the Azure Data Box option to transfer initial backup data offline. This option saves the effort required to procure your own Azure-compatible disks by delivering Microsoft-proprietary, secure and tamper-proof Azure Data box devices to which backup data can be directly written to by the MARS Agent.
+
+3. Click **Next** and fill in the inputs carefully:
+
+    ![Enter your disk details](./media/backup-azure-backup-import-export/your-disk-details.png)
+
    The description of the inputs is as follows:
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. Staging location might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
@@ -83,15 +88,15 @@ This section describes the offline-backup workflow so that your data can be deli
   
    Provide the inputs on the screen and click **Next**. Save the provided *Staging location* and the *Azure Import Job Name*, as this information is required to prepare the disks.
 
-2. When prompted, sign into your Azure subscription. You must sign in so that Azure Backup can create the Azure Active Directory application, and provide the required permissions to access the Azure Import Service.
+4. When prompted, sign into your Azure subscription. You must sign in so that Azure Backup can create the Azure Active Directory application, and provide the required permissions to access the Azure Import Service.
 
-    ![Backup now](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Backup now](./media/backup-azure-backup-import-export/azure-login.png)
 
-3. Complete the workflow, and in the Azure Backup agent console click **Back Up Now**.
+5. Complete the workflow, and in the Azure Backup agent console click **Back Up Now**.
 
     ![Backup now](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. In the Confirmation page of the wizard, click **Back Up**. The initial backup is written to the staging area as part of the setup.
+6. In the Confirmation page of the wizard, click **Back Up**. The initial backup is written to the staging area as part of the setup.
 
    ![Confirm that you're ready to Back up now](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -103,7 +108,7 @@ This section describes the offline-backup workflow so that your data can be deli
 
 The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory (in the following path):
 
-   *\Microsoft Azure Recovery Services Agent\Utils\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Go to the directory and copy the **AzureOfflineBackupDiskPrep** directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure:
 
@@ -204,4 +209,3 @@ Once the initial backup is complete, you can safely delete the data imported to 
 ## Next steps
 
 * For any questions on the Azure Import/Export workflow, refer to [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
-* Refer to the offline-backup section of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow.

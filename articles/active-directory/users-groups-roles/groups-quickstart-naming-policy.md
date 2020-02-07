@@ -1,23 +1,22 @@
 ---
-title: Add naming policy quickstart for Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Group naming policy quickstart - Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-
 #As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my tenant’s user-created groups. 
 ms.collection: M365-identity-device-management
 ---
+
 # Quickstart: Naming policy for groups in Azure Active Directory
 
 In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) tenant for user-created Office 365 groups, to help you sort and search your tenant’s groups. For example, you could use the naming policy to:

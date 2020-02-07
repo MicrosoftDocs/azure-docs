@@ -9,10 +9,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: ypitsch
 ---
 
-# Register a Peering Service Preview connection by using Azure PowerShell
+# Register a Peering Service Preview connection by using the Azure PowerShell
 
 Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
 
@@ -48,7 +48,7 @@ Make sure that the connectivity providers are partnered with Microsoft.
 
 Before you proceed to the steps of registering Peering Service, register your subscription with the resource provider and feature flag by using Azure PowerShell. The Azure PowerShell commands are specified here:
 
-```PowerShellCopy
+```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
@@ -61,13 +61,13 @@ Run the following commands in Azure PowerShell to acquire the location and servi
 
 Get Peering Service locations:
 
-```
+```azurepowershell-interactive
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
 Get Peering Service providers:
               
-```
+```azurepowershell-interactive
 Get-AzPeeringServiceProvider
 ```
 
@@ -75,18 +75,20 @@ Get-AzPeeringServiceProvider
 
 Register the Peering Service connection by using the following set of commands via Azure PowerShell. This example registers the Peering Service named myPeeringService.
 
-```loc = "Washington"
+```azurepowershell-interactive
+$loc = "Washington"
 $provider = "TestPeer1"
 $resourceGroup = "MyResourceGroup"
 $name = “myPeeringService”
-$peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider 
+$peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider
 ```
 
 ### Register the Peering Service prefix
 
 Register the prefix that's provided by the connectivity provider by executing the following commands via Azure PowerShell. This example registers the prefix named myPrefix.
 
-```$loc = "Washington"
+```azurepowershell-interactive
+$loc = "Washington"
 $provider = "TestPeer1"
 $resourceGroup = "MyResourceGroup"
 $name = “myPeeringService”
@@ -100,7 +102,7 @@ $prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName 
 
 To view the list of all Peering Services connections, run the following command:
 
-```
+```azurepowershell-interactive
 $peeringService = Get-AzPeeringService
 ```
 
@@ -108,11 +110,11 @@ $peeringService = Get-AzPeeringService
 
 To view the list of all Peering Service prefixes, run the following command:
 
-```
+```azurepowershell-interactive
  $prefixName = "myPrefix"
 ```
 
-```
+```azurepowershell-interactive
 $prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -ResourceGroupName "MyResourceGroup" -Name "myPrefix"
 ```
 
@@ -120,7 +122,7 @@ $prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -Res
 
 To remove the Peering Service prefix, run the following command:
 
-```
+```azurepowershell-interactive
 Remove-AzPeeringServicePrefix -ResourceGroupName  "MyResourceGroup" -Name "myPrefix" -PeeringServiceName "myPeeringService"
 ```
 

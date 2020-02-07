@@ -30,11 +30,11 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Connect a sample device to IoT Hub
-          url: quickstart-connect-pnp-device.md
+          url: quickstart-connect-pnp-device-c-windows.md
         - text: Connect a sample device to IoT Central
           url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - text: Use a device capability model to create a device
-          url: quickstart-create-pnp-device.md
+          url: quickstart-create-pnp-device-windows.md
     - linkListType: tutorial
       links:
         - text: Create and test a device capability model using Visual Studio Code
@@ -58,7 +58,7 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Interact with a device that's connected to your solution
-          url: quickstart-connect-pnp-device-solution.md
+          url: quickstart-connect-pnp-device-solution-node.md
     - linkListType: concept
       links:
         - text: Model discovery

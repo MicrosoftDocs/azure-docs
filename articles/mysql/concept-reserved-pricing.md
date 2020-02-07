@@ -1,11 +1,11 @@
 ---
-title: Prepay for Azure Database for MySQL compute resources with  reserved capacity
-description: Prepay for Azure Database for MySQL compute resources with  reserved capacity
+title: Prepay for compute with reserved capacity - Azure Database for MySQL 
+description: Prepay for Azure Database for MySQL compute resources with reserved capacity
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/02/2019
 ---
 
 # Prepay for Azure Database for MySQL compute resources with reserved capacity
@@ -27,7 +27,7 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed server within a specific region and using the same performance tier and hardware generation.</br>
 
-For example, let's suppose that you are running one general purpose, Gen5 – 32 vCore MySQL database, and two memory optimized, Gen5 – 16 vCore MySQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 32 vCore elastic pool, and one memory optimized, Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least 1 year. In this case, you should purchase a 64 (2x32) vCores, 1 year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore 1 year reservation for single database memory optimized - Gen5
+For example, let's suppose that you are running one general purpose, Gen5 – 32 vCore MySQL database, and two memory optimized, Gen5 – 16 vCore MySQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 32 vCore database server, and one memory optimized, Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least 1 year. In this case, you should purchase a 64 (2x32) vCores, 1 year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore 1 year reservation for single database memory optimized - Gen5
 
 
 ## Buy Azure Database for MySQL reserved capacity

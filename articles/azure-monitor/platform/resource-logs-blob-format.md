@@ -1,6 +1,6 @@
 ---
-title: Prepare for format change to Azure Monitor diagnostic logs
-description: Azure Diagnostic Logs will be moved to use append blobs on November 1, 2018.
+title: Prepare for format change to Azure Monitor resource logs
+description: Azure resource logs moved to use append blobs on November 1, 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -12,13 +12,12 @@ ms.subservice: logs
 # Prepare for format change to Azure Monitor platform logs archived to a storage account
 
 > [!WARNING]
-> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](resource-logs-collect-storage.md) or [activity logs to a storage account using log profiles](activity-log-export.md), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format. 
+> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](resource-logs-collect-storage.md) or [activity logs to a storage account using log profiles](activity-log-export.md), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format.
 >
-> 
 
-## What is changing
+## What changed
 
-Azure Monitor offers a capability that enables you to send resource logs and activity logs into an Azure storage account, Event Hubs namespace, or into a Log Analytics workspace in Azure Monitor. In order to address a system performance issue, on **November 1, 2018 at 12:00 midnight UTC** the format of log data send to blob storage will change. If you have tooling that is reading data out of blob storage, you need to update your tooling to understand the new data format.
+Azure Monitor offers a capability that enables you to send resource logs and activity logs into an Azure storage account, Event Hubs namespace, or into a Log Analytics workspace in Azure Monitor. In order to address a system performance issue, on **November 1, 2018 at 12:00 midnight UTC** the format of log data send to blob storage changed. If you have tooling that is reading data out of blob storage, you need to update your tooling to understand the new data format.
 
 * On Thursday, November 1, 2018 at 12:00 midnight UTC, the blob format changed to be [JSON Lines](http://jsonlines.org/). This means each record will be delimited by a newline, with no outer records array and no commas between JSON records.
 * The blob format changed for all diagnostic settings across all subscriptions at once. The first PT1H.json file emitted for November 1 used this new format. The blob and container names remain the same.
@@ -30,8 +29,8 @@ Azure Monitor offers a capability that enables you to send resource logs and act
   * [Azure Activity log data being exported by log profiles](activity-log-collect.md)
 * This change does not impact:
   * Network flow logs
-  * Azure service logs not made available through Azure Monitor yet (for example, Azure App Service diagnostic logs, storage analytics logs)
-  * Routing of Azure diagnostic logs and activity logs to other destinations (Event Hubs, Log Analytics)
+  * Azure service logs not made available through Azure Monitor yet (for example, Azure App Service resource logs, storage analytics logs)
+  * Routing of Azure resource logs and activity logs to other destinations (Event Hubs, Log Analytics)
 
 ### How to see if you are impacted
 
@@ -129,6 +128,6 @@ Custom tools should be updated to handle both the current format and the JSON Li
 
 ## Next steps
 
-* Learn about [archiving resource diagnostic logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Learn about [archiving resource resource logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Learn about [archiving activity log data to a storage account](./../../azure-monitor/platform/archive-activity-log.md)
 

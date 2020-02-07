@@ -1,12 +1,13 @@
 ---
-title: Designing highly available Applications using read-access geo-redundant storage (RA-GZRS or RA-GRS) | Microsoft Docs
-description: How to use Azure RA-GZRS or RA-GRS storage to architect a highly available application flexible enough to handle outages.
+title: Design highly available applications using geo-redundant storage
+titleSuffix: Azure Storage
+description: Learn how to use read-access geo-redundant storage to architect a highly available application that is flexible enough to handle outages.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -94,7 +95,7 @@ There are many ways to handle update requests when running in read-only mode. We
 
 ## Handling retries
 
-The Azure Storage client library helps you determine which errors can be retried. For example, a 404 error (resource not found) can be retried because retrying it is not likely to result in success. On the other hand, a 500 error cannot be retried because it is a server error, and it may simply be a transient issue. For more details, check out the [open source code for the ExponentialRetry class](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in the .NET storage client library. (Look for the ShouldRetry method.)
+The Azure Storage client library helps you determine which errors can be retried. For example, a 404 error (resource not found) would not be retried because retrying it is not likely to result in success. On the other hand, a 500 error can be retried because it is a server error, and the problem may simply be a transient issue. For more details, check out the [open source code for the ExponentialRetry class](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in the .NET storage client library. (Look for the ShouldRetry method.)
 
 ### Read requests
 

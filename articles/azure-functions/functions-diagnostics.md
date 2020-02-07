@@ -1,11 +1,8 @@
 ---
 title: Azure Functions diagnostics Overview
 description: Learn how you can troubleshoot issues with your function app with Azure Functions diagnostics.
-keywords: functions, diagnostics, support, serverless, troubleshooting, self-help
 author: yunjchoi
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
@@ -29,7 +26,7 @@ To access Azure Functions diagnostics:
 
 ## Use the Interactive interface
 
-Once you select a homepage category that best aligns with your function app's problem, Azure Functions diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem of your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
+Once you select a homepage category that best aligns with your function app's problem, Azure Functions diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem of your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested in. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
 
 ![Genie](./media/functions-diagnostics/genie.png)
 
@@ -39,11 +36,11 @@ After selecting a tile, you can see a list of topics related to the issue descri
 
 ## View a diagnostic report
 
-After you choose a topic, you can view a diagnostic report specific to your function app. Diagnostic reports use status icons to indicate if any specific issues with your app. You see detailed description of the issue, recommended actions, related-metrics, and helpful docs. Customized diagnostic reports are generated from a series of checks run on your function app. Diagnostic reports can be a useful tool for pinpointing problems in your function app and guiding you towards resolving the issue.
+After you choose a topic, you can view a diagnostic report specific to your function app. Diagnostic reports use status icons to indicate if there are any specific issues with your app. You see detailed description of the issue, recommended actions, related-metrics, and helpful docs. Customized diagnostic reports are generated from a series of checks run on your function app. Diagnostic reports can be a useful tool for pinpointing problems in your function app and guiding you towards resolving the issue.
 
-## Find the problem code 
+## Find the problem code
 
-For script-based functions, you can use **Function Execution** and **Errors under Function App Down or Reporting Errors** to narrow down on the line of code causing exceptions or errors. This feature can be a useful tool for getting to the root cause and fixing issues from a specific line of code. This option isn't available for precompiled C# and Java functions.
+For script-based functions, you can use **Function Execution and Errors** under **Function App Down or Reporting Errors** to narrow down on the line of code causing exceptions or errors. This feature can be a useful tool for getting to the root cause and fixing issues from a specific line of code. This option isn't available for precompiled C# and Java functions.
 
 ![Diagnostic report on function execution errors](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

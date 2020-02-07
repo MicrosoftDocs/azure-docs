@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Time Series Insights Preview data querying | Microsoft Docs'
-description: Azure Time Series Insights Preview data querying.
+title: 'Data querying in Preview - Azure Time Series Insights | Microsoft Docs'
+description: Data querying concepts and HTTP REST API overview in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,11 +8,11 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
 ---
 
-# Data querying
+# Data querying in Azure Time Series Insights Preview
 
 Azure Time Series Insights Preview enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used in the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
@@ -34,8 +34,8 @@ The following core APIs are supported.
 
 The following Environment APIs are available:
 
-* [Get Environment API](/rest/api/time-series-insights/management/environments/get): Returns the list of environments that the caller is authorized to access.
-* [Get Environment Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
+* [Get Environments API](/rest/api/time-series-insights/management/environments/get): Returns the list of environments that the caller is authorized to access.
+* [Get Environments Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
 * [Get Event Schema API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Returns the event schema metadata for a given search span. This API helps retrieve all metadata and properties available in the schema for the given search span.
 
 ## Time Series Model-Query (TSM-Q) APIs

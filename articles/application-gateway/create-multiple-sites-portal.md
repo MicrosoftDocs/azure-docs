@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Create an application gateway that hosts multiple web sites using the Azure portal
+title: 'Tutorial: Hosts multiple web sites using the Azure portal'
+titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
 author: vhorne

@@ -1,41 +1,43 @@
 ---
-title: Build highly available Azure Storage applications on zone-redundant storage (ZRS) | Microsoft Docs
+title: Build highly available applications with zone-redundant storage (ZRS)
+titleSuffix: Azure Storage
 description: Zone-redundant storage (ZRS) offers a simple way to build highly available applications. ZRS protects against hardware failures in the datacenter, and against some regional disasters.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Zone-redundant storage (ZRS) for building highly available Azure Storage applications
+# Build highly available applications with zone-redundant storage (ZRS)
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
 
-ZRS currently supports standard general-purpose v2 and FileStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2, FileStorage and BlockBlobStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
-ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
+General-purpose v2 ZRS accounts support block blobs, non-disk page blobs, standard file shares, tables, and queues.
 
 For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
-- Europe West
 - Europe North
+- Europe West
 - France Central
 - Japan East
+- South Africa North
 - UK South
 - US Central
 - US East
 - US East 2
 - US West 2
 
-For FileStorage accounts, ZRS is generally available in the following regions:
+For FileStorage accounts (premium file shares) and BlockBlobStorage accounts (premium block blobs), ZRS is generally available in the following regions:
 
 - Europe West
 - US East
@@ -83,7 +85,7 @@ During a live migration, you can use your storage account while your data is mig
 Keep in mind the following restrictions on live migration:
 
 - While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated to ZRS by a certain date, then Microsoft recommends that you perform a manual migration instead. Generally, the more data you have in your account, the longer it takes to migrate that data. 
-- Live migration is supported only for storage accounts that use LRS or GRS replication. If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding. This intermediary step removes the secondary read-only endpoint provided by RA-GRS before migration.
+- Live migration is supported only for storage accounts that use LRS replication. If your account uses GRS or RA-GRS, then you need to first change your account's replication type to LRS before proceeding. This intermediary step removes the secondary endpoint provided by GRS/RA-GRS.
 - Your account must contain data.
 - You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
 - Only standard storage account types support live migration. Premium storage accounts must be migrated manually.
@@ -125,9 +127,9 @@ Once the migration is complete the replication type of the account(s) will chang
 
 ZRS only supports general-purpose v2 accounts so before submitting a request for a live migration to ZRS make sure to upgrade your account(s) to general-purpose v2. See [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) for more details.
 
-**Can I request a live migration of my read-access geo-redundant storage (RA-GRS) account(s) to ZRS?**
+**Can I request a live migration of my geo-redundant or read-access geo-redundant storage (GRS/RA-GRS) account(s) to ZRS?**
 
-Before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to geo-redundant storage (GRS). See [Changing replication strategy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
+Live migration is supported only for storage accounts that use LRS replication. If your account uses GRS or RA-GRS, then you need to first change your account's replication type to LRS before proceeding. This intermediary step removes the secondary endpoint provided by GRS/RA-GRS. Also, before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to locally-redundant storage (LRS). See [Changing replication strategy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
 
 **Can I request a live migration of my storage account(s) to ZRS  to another region?**
 

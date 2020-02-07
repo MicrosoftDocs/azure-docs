@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -33,6 +33,13 @@ There are two types of virtual WANs: Basic and Standard. The following table sho
 
 For steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
+## <a name="architecture"></a>Architecture
+
+For information about Virtual WAN architecture and how to migrate to Virtual WAN, see the following articles:
+
+* [Virtual WAN architecture](migrate-from-hub-spoke-topology.md)
+* [Global transit network architecture](virtual-wan-global-transit-network-architecture.md)
+
 ## <a name="resources"></a>Virtual WAN resources
 
 To configure an end-to-end virtual WAN, you create the following resources:
@@ -53,7 +60,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
   * **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
 
-## <a name="connectivity"></a>Connectivity
+## <a name="connectivity"></a>Types of connectivity
 
 Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
 
@@ -77,7 +84,7 @@ For a list of the available partners and locations, see the [Virtual WAN partner
 
 ### <a name="uservpn"></a>User VPN (point-to-site) connections
 
-You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN connection. This type of connection requires a VPN client to be configured on the client computer. For more information, see [Create a point-to-site connection](virtual-wan-site-to-site-portal.md).
+You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN connection. This type of connection requires a VPN client to be configured on the client computer. For more information, see [Create a point-to-site connection](virtual-wan-point-to-site-portal.md).
 
 ### <a name="er"></a>ExpressRoute connections
 ExpressRoute lets you connect on-premises network to Azure over a private connection. To create the connection, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md).

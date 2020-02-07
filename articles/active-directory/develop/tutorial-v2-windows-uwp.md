@@ -13,10 +13,9 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
@@ -349,7 +348,7 @@ Now you need to register your application:
 Configure authentication for your application:
 
 1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
-1. In the **Redirect URIs** list, for **TYPE**, select **Public client (mobile & desktop)** and enter `urn:ietf:wg:oauth:2.0:oob` for **REDIRECT URI**.
+1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 1. Select **Save**.
 
 Configure API permissions for your application:

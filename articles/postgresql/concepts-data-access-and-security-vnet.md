@@ -1,8 +1,8 @@
 ---
-title: Virtual Network (VNet) services endpoint overview in Azure Database for PostgreSQL - Single Server
-description: Learn how Virtual Network (VNet) service endpoints work for Azure Database for PostgreSQL - Single Server.
-author: bolzmj
-ms.author: mbolz
+title: Virtual network rules - Azure Database for PostgreSQL - Single Server
+description: Learn how to use virtual network (vnet) service endpoints to connect to Azure Database for PostgreSQL - Single Server.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
@@ -141,7 +141,7 @@ For articles on creating VNet rules, see:
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -155,4 +155,4 @@ For articles on creating VNet rules, see:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

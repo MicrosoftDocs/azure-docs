@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank single database
 
-A single database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and is managed using an [database server](sql-database-servers.md).
+A single database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and is managed using an [database server](sql-database-servers.md).
 
 Follow these steps to create a blank single database.
 

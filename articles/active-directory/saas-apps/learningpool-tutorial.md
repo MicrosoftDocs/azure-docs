@@ -225,7 +225,7 @@ There is no action item for you to configure user provisioning to Learningpool A
 Users need to be created by your [Learningpool Act support team](https://www.Learningpool.com/support).
 
 > [!NOTE]
-> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision AAD user accounts.
+> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision Azure AD user accounts.
 
 ### Test single sign-on
 

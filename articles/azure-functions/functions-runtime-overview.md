@@ -1,12 +1,8 @@
 ---
-title: Azure Functions Runtime Overview | Microsoft Docs
+title: Azure Functions Runtime Overview 
 description: Overview of the Azure Functions Runtime Preview
-services: functions
 author: apwestgarth
-manager: stefsch
 
-ms.assetid:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg

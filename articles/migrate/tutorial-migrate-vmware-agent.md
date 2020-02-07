@@ -1,12 +1,8 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agent-based Azure Migrate Server Migration  | Microsoft Docs
-description: This article describes how to perform an agent-based migration of on-premises machines to Azure with Azure Migrate Server Migration
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.author: raynew
+ms.date: 11/19/2019
 ms.custom: MVC
 ---
 
@@ -174,9 +170,9 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
-1. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements.
-2. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) VM support requirements for migration.
-3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware server requirements.
+2. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) VM support requirements for migration.
+3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -333,7 +329,7 @@ Now, select VMs for migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -403,7 +399,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
+    - By default Azure Migrate shuts down the on-premises VM to ensure minimum data loss. 
     - If you don't want to shut down the VM, select **No**
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.

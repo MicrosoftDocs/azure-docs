@@ -1,12 +1,8 @@
 ---
 title: Back up Azure Files FAQ
 description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Questions about backing up Azure Files
@@ -35,7 +31,7 @@ When trying to back up, selecting a Storage Account to discover file shares with
 
 ### Can I change the Vault to which I back up my file shares?
 
-Yes. However, you'll need to [Stop Protection](backup-azure-files.md#stop-protecting-an-azure-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
+Yes. However, you'll need to  [Stop protection on a file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
 
 ### In which geos can I back up Azure File shares?
 
@@ -69,6 +65,18 @@ Backup for Azure File shares is currently in Preview and is available only in th
 - US Gov Arizona (UGA)
 - US Gov Texas (UGT)
 - US Gov Virginia (UGV)
+- Australia Central (ACL)
+- India West(INW)
+- South Africa North(SAN)
+- UAE North(UAN)
+- France Central (FRC)
+- Germany North (GN)                       
+- Germany West Central (GWC)
+- South Africa West (SAW)
+- UAE Central (UAC)
+- NWE (Norway East)     
+- NWW (Norway West)
+- SZN (Switzerland North)
 
 Write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
@@ -104,7 +112,7 @@ Yes. If you chose **Retain Backup Data** when you stopped protection, then you c
 
 If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks.
 
-## Manage Backup
+## Manage backup
 
 ### Can I use PowerShell to configure/manage/restore backups of Azure File shares?
 
@@ -114,7 +122,7 @@ Yes. Please refer to the detailed documentation [here](backup-azure-afs-automati
 
 All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
 
-### What is the maximum retention I can configure for Backups?
+### What is the maximum retention I can configure for backups?
 
 Backup for Azure file shares offers the ability to configure policies with retention up to 180 days. However, using the ["On-demand backup" option in PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), you can retain a recovery point even for 10 years.
 
@@ -122,9 +130,9 @@ Backup for Azure file shares offers the ability to configure policies with reten
 
 When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they're marked for pruning in the next cleanup job and deleted.
 
-## See also
+## Next steps
 
-This information is just about backing up Azure Files, to learn more about other areas of Azure Backup, see some of these other Backup FAQs:
+To learn more about other areas of Azure Backup, see some of these other Backup FAQs:
 
 - [Recovery Services vault FAQ](backup-azure-backup-faq.md)
 - [Azure VM backup FAQ](backup-azure-vm-backup-faq.md)

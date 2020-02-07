@@ -1,10 +1,10 @@
 ---
-title: Set up an appliance for assessment of physical servers with Azure Migrate Server Assessment
-description: Describes how to set up an appliance for assessment of physical servers using Azure Migrate Server Assessment.
+title: Set up an Azure Migrate appliance for physical servers
+description: Learn how to set up an Azure Migrate appliance for physical server assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -51,14 +51,15 @@ Check that the zipped file is secure, before you deploy it.
 2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For appliance version 1.19.05.10, the generated hash should match these settings.
+3.  For the latest appliance version, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 
-  
+
 ## Run the Azure Migrate installer script
 =
 The installer script does the following:
@@ -78,7 +79,7 @@ Run the script as follows:
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script by running the following command:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 The script will launch the appliance web application when it finishes successfully.
 
@@ -86,7 +87,7 @@ The script will launch the appliance web application when it finishes successful
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to the required [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to the required [Azure URLs](migrate-appliance.md#url-access).
 
 ## Configure the appliance
 
@@ -107,7 +108,7 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials. 
+2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
     - Sign-in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
@@ -129,14 +130,14 @@ You can add one set of credentials each for Windows and Linux servers.
     - To remove a server, select > **Delete**.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal. 
+This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal.
 
 ## Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**. 
+2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**.
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - IIS | Microsoft Docs
+title: Azure PowerShell Script Sample - IIS 
 description: Azure PowerShell Script Sample - IIS
 services: virtual-machines-windows
 documentationcenter: virtual-machines

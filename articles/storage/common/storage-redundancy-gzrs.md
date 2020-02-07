@@ -15,7 +15,7 @@ ms.subservice: common
 
 Geo-zone-redundant storage (GZRS) (preview) marries the high availability of [zone-redundant storage (ZRS)](storage-redundancy-zrs.md) with protection from regional outages as provided by [geo-redundant storage (GRS)](storage-redundancy-grs.md). Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters. Each Azure region is paired with another region within the same geography, together making a regional pair. For more details and exceptions refer to the [documentation](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same [scalability targets](storage-scalability-targets.md) as LRS, ZRS, GRS, or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same scalability targets as LRS, ZRS, GRS, or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
 
 Microsoft recommends using GZRS for applications requiring consistency, durability, high availability, excellent performance, and resilience for disaster recovery. For the additional security of read access to the secondary region in the event of a regional disaster, enable RA-GZRS for your storage account.
 
@@ -25,8 +25,11 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are currently available for preview in the following regions:
 
+- Asia Southeast
 - Europe North
 - Europe West
+- Japan East
+- UK South
 - US East
 - US East 2
 - US Central
@@ -45,7 +48,7 @@ When data is written to a storage account with GZRS or RA-GZRS enabled, that dat
 > [!IMPORTANT]
 > Asynchronous replication involves a delay between the time that data is written to the primary region and when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 
-When you create a storage account, you specify how data in that account is to be replicated, and you also specify the primary region for that account. The paired secondary region for a geo-replicated account is determined based on the primary region and can't be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). For information about creating a storage account using GZRS or RA-GZRS, see [Create a storage account](storage-quickstart-create-account.md).
+When you create a storage account, you specify how data in that account is to be replicated, and you also specify the primary region for that account. The paired secondary region for a geo-replicated account is determined based on the primary region and can't be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). For information about creating a storage account using GZRS or RA-GZRS, see [Create a storage account](storage-account-create.md).
 
 ### Use RA-GZRS for high availability
 
@@ -79,6 +82,11 @@ The recovery time objective (RTO)  is a measure of how long it takes to perform 
 ## Migrate a storage account to GZRS or RA-GZRS
 
 You can migrate any existing storage account to GZRS or RA-GZRS. Migrating from an existing ZRS account to GZRS or RA-GZRS is straightforward, while migrating from an LRS, GRS, or RA-GRS account is more involved. The following sections describe how to migrate in either case.
+
+**Known limitations**
+
+- Archive tier is not currently supported on (RA-)GZRS accounts. See [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) for more details.
+- Managed disks do not support (RA-)GZRS. You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### Migrating from a ZRS account
 
@@ -118,6 +126,7 @@ Once the migration is complete, the storage account's replication setting will b
 Keep in mind the following restrictions on live migration:
 
 - While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated to GZRS or RA-GZRS by a certain date, then Microsoft recommends that you perform a manual migration instead. Generally, the more data you have in your account, the longer it takes to migrate that data.
+- Live migration is supported only for storage accounts that use GRS or RA-GRS replication. If your account uses LRS, then you need to first change your account's replication type to GRS or RA-GRS before proceeding. This intermediary step adds the secondary endpoint provided by GRS/RA-GRS.
 - Your account must contain data.
 - You can only migrate data within the same region.
 - Only standard storage account types support live migration. Premium storage accounts must be migrated manually.
@@ -149,3 +158,4 @@ A support representative will contact you to provide assistance.
 - [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [Zone-redundant storage (ZRS): Highly available Azure Storage applications](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md)

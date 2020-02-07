@@ -1,6 +1,6 @@
 ---
-title: Add a tile layer to Azure Maps | Microsoft Docs
-description: How to add a tile Layer to the Azure Maps Web SDK.
+title: Add a tile layer to a map | Microsoft Azure Maps
+description: In this article, you will learn how to overlay a tile Layer on a map by using the Microsoft Azure Maps Web SDK. Tile layers allow you to render images on a map.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -13,29 +13,29 @@ ms.custom: codepen
 
 # Add a tile layer to a map
 
-This article shows you how you can overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. More information on Azure Maps tiling system can be found in the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
+This article shows you how to overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. For more information on Azure Maps tiling system, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-A Tile layer loads in tiles from a server. These images can either be pre-rendered and stored like any other image on a server using a naming convention that the tile layer understands, or a dynamic service that generates the images on the fly. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class: 
+A Tile layer loads in tiles from a server. These images can either be pre-rendered or dynamically rendered. Pre-rendered images are stored like any other image on a server using a naming convention that the tile layer understands. Dynamically rendered images use a service to load the images close to real time. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class: 
 
-* X, Y, Zoom notation - Based on the zoom level, x is the column and y is the row position of the tile in the tile grid.
-* Quadkey notation - Combination x, y, zoom information into a single string value that is a unique identifier for a tile.
-* Bounding Box - Bounding box coordinates can be used to specify an image in the format `{west},{south},{east},{north}` which is commonly used by [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y, Zoom notation - X is the column, Y is the row position of the tile in the tile grid, and the Zoom notation a value based on the zoom level.
+* Quadkey notation - Combines x, y, and zoom information into a single string value. This string value becomes a unique identifier for a single tile.
+* Bounding Box -  Specify an image in the Bounding box coordinates format: `{west},{south},{east},{north}`. This format is commonly used by [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> A [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is a great way to visualize large data sets on the map. Not only can a tile layer be generated from an image, but vector data can also be rendered as a tile layer too. By rendering vector data as a tile layer, the map control only needs to load the tiles which can be much smaller in file size than the vector data they represent. This technique is used by many who need to render millions of rows of data on the map.
+> A [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) is a great way to visualize large data sets on the map. Not only can a tile layer be generated from an image, vector data can also be rendered as a tile layer too. By rendering vector data as a tile layer, map control only needs to load the tiles which are smaller in file size than the vector data they represent. This technique is commonly used to render millions of rows of data on the map.
 
-The tile URL passed into a Tile layer must be an http/https URL to a TileJSON resource or a tile URL template that uses the following parameters: 
+The tile URL passed into a Tile layer must be an http or an https URL to a TileJSON resource or a tile URL template that uses the following parameters: 
 
 * `{x}` - X position of the tile. Also needs `{y}` and `{z}`.
 * `{y}` - Y position of the tile. Also needs `{x}` and `{z}`.
 * `{z}` - Zoom level of the tile. Also needs `{x}` and `{y}`.
 * `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
 * `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
-* `{subdomain}` - A placeholder where the subdomain values if specified will be added.
+* `{subdomain}` - A placeholder for the subdomain values, if specified the `subdomain` will be added.
 
 ## Add a tile layer
 
- This sample shows how to create a tile layer that points to a set of tiles that use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). When viewing radar data ideally users would be able to clearly see the labels of cities as they navigate the map, which can be done by inserting the tile layer below the `labels` layer.
+ This sample shows how to create a tile layer that points to a set of tiles. This sample uses the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). When viewing radar data, ideally users would clearly see the labels of cities as they navigate the map. This behavior can be implemented by inserting the tile layer below the `labels` layer.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

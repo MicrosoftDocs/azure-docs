@@ -1,21 +1,18 @@
 ---
-title: Copy data from Google AdWords using Azure Data Factory 
+title: Copy data from Google AdWords
 description: Learn how to copy data from Google AdWords to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from Google AdWords using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Google AdWords. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.

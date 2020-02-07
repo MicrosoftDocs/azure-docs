@@ -1,7 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Analyzing video and audio files with Azure Media Services | Microsoft Docs
-description: When using Azure Media Services, you can analyze your audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset.  
+title: Analyze video and audio files
+titleSuffix: Azure Media Services
+description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +12,22 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 09/21/2019
+ms.date: 01/30/2020
 ms.author: juliako
 ---
 
-# Analyzing video and audio files
+# Analyze video and audio files with Azure Media Services
 
-Azure Media Services v3 enables you to extract insights from your video and audio files with Video Indexer through  Media Services v3 analyzer presets (described in this article). If you want more detailed insights, use Video Indexer directly. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. This article describes the Media Services v3 analyzer presets used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. The following article demonstrates how to use **VideoAnalyzerPreset**: [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
+To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. For a tutorial demonstrating how to use **VideoAnalyzerPreset**, see [Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
+
+## Compliance, Privacy and Security
+
+As an important reminder, you must comply with all applicable laws in your use of Video Indexer, and you may not use Video Indexer or any other Azure service in a manner that violates the rights of others or may be harmful to others. Before uploading any videos, including any biometric data, to the Video Indexer service for processing and storage, You must have all the proper rights, including all appropriate consents, from the individual(s) in the video. To learn about compliance, privacy and security in Video Indexer, the Microsoft [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). Additional privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Video Indexer, you agree to be bound by the Cognitive Services Terms, the OST, DPA and the Privacy Statement.
 
 ## Built-in presets
 
@@ -30,32 +35,32 @@ Media Services currently supports the following built-in analyzer presets:
 
 |**Preset name**|**Scenario**|**Details**|
 |---|---|---|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It does not currently support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription will fall back to English.|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting all the faces present in the video|Describes the settings to be used when analyzing a video in order to detect all the faces present.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
 
 ### AudioAnalyzerPreset
 
 The preset enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
 
-* Audio transcription – a transcript of the spoken words with timestamps. Multiple languages are supported
-* Speaker indexing – a mapping of the speakers and the corresponding spoken words
-* Speech sentiment analysis – the output of sentiment analysis performed on the audio transcription
-* Keywords – keywords that are extracted from the audio transcription.
+* **Audio transcription**: A transcript of the spoken words with timestamps. Multiple languages are supported.
+* **Speaker indexing**: A mapping of the speakers and the corresponding spoken words.
+* **Speech sentiment analysis**: The output of sentiment analysis performed on the audio transcription.
+* **Keywords**: Keywords that are extracted from the audio transcription.
 
 ### VideoAnalyzerPreset
 
 The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
 
-* Face tracking – the time during which faces are present in the video. Each face has a face id and a corresponding collection of thumbnails
-* Visual text – the text that is detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript)
-* Keyframes – a collection of keyframes that are extracted from the video
-* Visual content moderation – the portion of the videos that have been flagged as adult or racy in nature
-* Annotation – a result of annotating the videos based on a pre-defined object model
+* **Face tracking**: The time during which faces are present in the video. Each face has a face ID and a corresponding collection of thumbnails.
+* **Visual text**: The text that's detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript).
+* **Keyframes**: A collection of keyframes extracted from the video.
+* **Visual content moderation**: The portion of the videos flagged as adult or racy in nature.
+* **Annotation**: A result of annotating the videos based on a pre-defined object model
 
-##  insights.json elements
+## insights.json elements
 
-The output includes a JSON file (insights.json) with all the insights that were found in the video or audio. The json may contain the following elements:
+The output includes a JSON file (insights.json) with all the insights found in the video or audio. The JSON may contain the following elements:
 
 ### transcript
 
@@ -143,16 +148,16 @@ Example:
 |Name|Description|
 |---|---|
 |id|The face ID.|
-|name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
+|name|The face name. It can be ‘Unknown #0’, an identified celebrity, or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
 |thumbnailId|The ID of the thumbnail of that face.|
-|knownPersonId|If it is a known person, its internal ID.|
-|referenceId|If it is a Bing celebrity, its Bing ID.|
+|knownPersonId|The internal ID (if it's a known person).|
+|referenceId|The Bing ID (if it's a Bing celebrity).|
 |referenceType|Currently just Bing.|
-|title|If it is a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|If it is a celebrity, its image url.|
-|instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
+|title|The title (if it's a celebrity—for example, "Microsoft's CEO").|
+|imageUrl|The image URL, if it's a celebrity.|
+|instances|Instances where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
 "faces": [{
@@ -247,7 +252,7 @@ Example:
 |CorrespondenceCount|Number of correspondences in the video.|
 |WordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
-|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
+|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it's included. Silence at the beginning and the end of the monolog is removed.|
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
 
@@ -296,7 +301,6 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
 |instances|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
-
 
 ```json
 "labels": [
@@ -396,9 +400,9 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 
 #### visualContentModeration
 
-The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there is no adult content that was identified.
+The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there's no adult content that was identified.
 
-Videos that are found to contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content, in which case the IsAdult attribute will contain the result of the human review.
+Videos that are found to contain adult or racy content might be available for private view only. Users can submit a request for a human review of the content, in which case the `IsAdult` attribute will contain the result of the human review.
 
 |Name|Description|
 |---|---|

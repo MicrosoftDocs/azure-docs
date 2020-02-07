@@ -1,5 +1,5 @@
 ---
-title: Tutorial -  Manage Linux virtual machine configuration in Azure | Microsoft Docs
+title: Tutorial -  Manage Linux virtual machine configuration in Azure 
 description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines

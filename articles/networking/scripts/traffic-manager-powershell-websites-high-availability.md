@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Route traffic for high availability of applications | Microsoft Docs
+title: Route traffic for HA of applications - Azure PowerShell - Traffic Manager
 description: Azure PowerShell Script Sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -14,7 +14,7 @@ ms.date: 05/16/2017
 ms.author: allensu
 ---
 
-# Route traffic for high availability of applications
+# Route traffic for high availability of applications - Azure PowerShell
 
 This script creates a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Traffic Manager directs traffic to the application in one region as the primary region, and to the secondary region when the application in the primary region is unavailable. Before executing the script, you must change the MyWebApp, MyWebAppL1 and MyWebAppL2 values to unique values across Azure. After running the script, you can access the app in the primary region with the URL mywebapp.trafficmanager.net.
 

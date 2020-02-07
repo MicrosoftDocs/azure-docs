@@ -4,9 +4,12 @@ description: Identify and troubleshoot latency issues using Azure Storage Analyt
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/21/2019
 ms.service: storage
 ms.subservice: common
+services: storage
+tags: ''
 ---
 
 # Troubleshoot latency using Storage Analytics logs

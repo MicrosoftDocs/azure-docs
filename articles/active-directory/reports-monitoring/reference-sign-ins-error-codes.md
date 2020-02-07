@@ -3,7 +3,7 @@ title: Error codes in the Azure Active Directory portal | Microsoft Docs
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/08/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -33,9 +33,13 @@ When a sign-in fails, you will see an error code corresponding to the failure. T
 
 ## How can I display failed sign-ins? 
 
-Navigate to the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) in the [Azure portal](https://portal.azure.com).
+On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
-![Sign-in activity](./media/reference-sign-ins-error-codes/61.png "Sign-in activity")
+![Select Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Sign-in activity](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
 
 Filter the report to display all failed sign-ins by selecting **Failure** from the **Sign-in status** drop-down box.
 
@@ -89,6 +93,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50072|User needs to enroll for two-factor authentication (interactive).|
 |50074|User did not pass the MFA challenge.|
 |50076|User did not pass the MFA challenge (non interactive).|
+|50078|The presented multi-factor authentication has expired, you must refresh your multi-factor authentication to access.|
 |50079|User needs to enroll for two factor authentication (non-interactive logins).|
 |50085|Refresh token needs social IDP login. Have user try signing-in again with their username and password.|
 |50089|Flow token expired - Authentication failed. Have user try signing-in again with their username and password|
@@ -135,6 +140,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |53002|Application used is not an approved application for Conditional Access. User needs to use one of the apps from the list of approved applications to use in order to get access.|
 |53003|Access has been blocked due to Conditional Access policies.|
 |53004|User needs to complete Multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication.|
+|53032|Acount has been blocked due to Azure AD Identity Protection policies.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65004|User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
 |65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the application supports SAML, you may have configured the application with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
@@ -177,14 +183,18 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
 |90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
-|90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
-|500021|Tenant is restricted by company proxy. Denying the resource access.|
+|90094| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was blocked. |
+|90095| The app has requested permissions which the signed-in user is not allowed to consent to, and the user was shown the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form. |
+|500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
+|500021| Tenant is restricted by company proxy. Denying the resource access.|
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
 |530032|Blocked by security policy.| 
 |700016|Application with identifier '{appIdentifier}' was not found in the directory '{tenantName}'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.|
 |900432|Confidential Client is not supported in Cross Cloud request.|
+|5000811|Unable to verify SAML token signature. The signing key identifier does not match any valid registered keys.|
+|7000215|Invalid client secret was provided.|
 |7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
 
 

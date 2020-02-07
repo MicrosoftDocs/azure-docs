@@ -1,14 +1,9 @@
 ---
-title: Automate task workflows in Visual Studio - Azure Logic Apps
+title: Automate task workflows in Visual Studio
 description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
@@ -62,7 +57,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
 ## Create Azure resource group project
 
-To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
+To get started, create an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Learn more about [Azure resource groups and resources](../azure-resource-manager/management/overview.md).
 
 1. Start Visual Studio. Sign in with your Azure account.
 
@@ -195,11 +190,11 @@ When you're done with your logic app, delete the resource group that contains yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the same account used to create your logic app.
 
-1. On the main Azure menu, select **Resource groups**. Select your logic app's resource group, and select **Overview**.
+1. On the Azure portal menu, select **Resource groups**, or search for and select **Resource groups** from any page. Select your logic app's resource group.
 
 1. On the **Overview** page, select **Delete resource group**. Enter the resource group name as confirmation, and select **Delete**.
 
-   !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. Delete the Visual Studio solution from your local computer.
 
