@@ -12,7 +12,7 @@ ms.date: 01/13/2020
 
 # SCP programming guide for Apache Storm in Azure HDInsight
 
-SCP is a platform for building real time, reliable, consistent, and high-performance data processing applications. It's built on top of [Apache Storm](https://storm.incubator.apache.org/), which is a stream-processing system designed by open-source software communities. Nathan Marz created Storm and then published it as open source via Twitter. Storm uses [Apache ZooKeeper](https://zookeeper.apache.org/), which is another Apache project that enables highly reliable distributed coordination and state management.
+SCP is a platform for building real time, reliable, consistent, and high-performance data processing applications. It's built on top of [Apache Storm](https://storm.incubator.apache.org/), which is a stream-processing system designed by open-source software communities. Nathan Marz created Storm. It was published as open source by Twitter. Storm uses [Apache ZooKeeper](https://zookeeper.apache.org/), which is another Apache project that enables highly reliable distributed coordination and state management.
 
 The SCP project has ported not only Storm on Windows but also project-added extensions and customization for the Windows environment. The extensions include the .NET developer experience and .NET libraries. The customization includes Windows-based deployment.
 
