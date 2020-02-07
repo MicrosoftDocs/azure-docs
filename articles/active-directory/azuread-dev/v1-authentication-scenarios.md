@@ -39,7 +39,7 @@ There are two primary use cases in the Azure AD programming model:
 
 Consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application. The following diagram shows this scenario:
 
-![Overview of sign-on to web application](./media/v1-authentication-scenarios/auth_basics_microsoft_identity_platform.svg)
+![Overview of sign-on to web application](./media/v1-authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
 Here’s what you need to know about the various components shown in the diagram:
 
@@ -93,7 +93,7 @@ In Azure AD, an **application object** describes an application as an abstract e
 
 The following diagram shows a simplified Azure AD provisioning flow driven by consent.  In it, two tenants exist (A and B), where tenant A owns the application, and tenant B is instantiating the application via a service principal.  
 
-![Simplified provisioning flow driven by consent](./media/v1-authentication-scenarios/simplified_provisioning_flow_consent_driven.svg)
+![Simplified provisioning flow driven by consent](./media/v1-authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 In this provisioning flow:
 

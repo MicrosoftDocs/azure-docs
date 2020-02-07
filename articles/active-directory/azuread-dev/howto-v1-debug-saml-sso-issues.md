@@ -41,7 +41,7 @@ To test SAML-based single sign-on between Azure AD and a target application:
 1. To open the SAML-based single sign-on testing experience, go to **Test single sign-on** (step 5). If the **Test** button is greyed out, you need to fill out and save the required attributes first in the **Basic SAML Configuration** section.
 1. In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
 
-    ![Screenshot showing the test SAML SSO page](./media/howto-v1-debug-saml-sso-issues/test_single_sign_on.png)
+    ![Screenshot showing the test SAML SSO page](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 If you are successfully signed in, the test has passed. In this case, Azure AD issued a SAML response token to the application. The application used the SAML token to successfully sign you in.
 

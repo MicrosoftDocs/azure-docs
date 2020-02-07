@@ -55,7 +55,7 @@ First, register your application with your Azure Active Directory (Azure AD) ten
 
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 
-![OpenId Connect Authentication Flow](./media/v1-protocols-openid-connect-code/active_directory_oauth_code_flow_web_app.png)
+![OpenId Connect Authentication Flow](./media/v1-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
 ## OpenID Connect metadata document
 
