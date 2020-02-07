@@ -260,22 +260,32 @@ $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -Name wafpolicySite `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
-  -PolicySetting $PolicySettingURI
-  -CustomRules $rule4, $rule5
+  -PolicySetting $PolicySettingURI `
+  -CustomRule $rule4, $rule5
 
 $Gateway = Get-AzApplicationGateway -Name "myAppGateway"
 
-$PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" -Paths "/base" `
--BackendAddressPool $defaultPool -BackendHttpSettings $HttpSettings -FirewallPolicy $wafPolicyURI
+$PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" `
+  -Paths "/base" `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings `
+  -FirewallPolicy $wafPolicyURI
 
-$PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig -Name "base" -Paths "/test" `
--BackendAddressPool $defaultPool -BackendHttpSettings $HttpSettings
+$PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
+  -Name "base" -Paths "/test" `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 
-$URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" -PathRules $PathRuleConfig, $PathRuleConfig1 `
--DefaultBackendAddressPoolId $defaultPool.Id -DefaultBackendHttpSettingsId poolSettings.Id
+$URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
+  -PathRules $PathRuleConfig, $PathRuleConfig1 `
+  -DefaultBackendAddressPoolId $defaultPool.Id `
+  -DefaultBackendHttpSettingsId poolSettings.Id
 
-Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw -Name "RequestRoutingRule" -RuleType PathBasedRouting `
--HttpListener $siteListener -UrlPathMapId $URLPathMap.Id
+Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
+  -Name "RequestRoutingRule" `
+  -RuleType PathBasedRouting `
+  -HttpListener $siteListener `
+  -UrlPathMapId $URLPathMap.Id
 ```
 
 ## Create a virtual machine scale set
