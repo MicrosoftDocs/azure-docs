@@ -133,7 +133,7 @@ For more information about these installation options, continue reading this art
 During installation two files are downloaded:
 
 * Microsoft Azure IoT Edge cab, which contains the IoT Edge security daemon (iotedged), Moby container engine, and Moby CLI.
-* Visual C++ redistributable package (VC runtime) msi
+* Visual C++ redistributable package (VC runtime) MSI
 
 If your device will be offline during installation, or if you want to install a specific version of IoT Edge, you can download one or both of these files ahead of time to the device. When it's time to install, point the installation script at the directory that contains the downloaded files. The installer checks that directory first, and then only downloads components that aren't found. If all the files are available offline, you can install with no internet connection.
 
