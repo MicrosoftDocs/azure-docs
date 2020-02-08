@@ -4,9 +4,9 @@ description: This article provides a tutorial for using Log Analytics in the Azu
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
-ms.date: 07/19/2019
+author: rboucher    
+ms.author: robb
+ms.date: 02/10/2020
 
 ---
 
