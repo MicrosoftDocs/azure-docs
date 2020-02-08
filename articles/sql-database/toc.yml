@@ -486,7 +486,7 @@
           - name: ETL for analytics
             href: saas-multitenantdb-tenant-analytics.md
     - name: Request quota increases
-      href: sql-database-quota-increase-request.md
+      href: quota-increase-request.md
 
 - name: SQL databases
   items:
