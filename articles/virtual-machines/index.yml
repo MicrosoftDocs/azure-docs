@@ -49,7 +49,7 @@ tools:
       url: https://docs.microsoft.com/en-us/powershell/module/az.compute#virtual_machines
     # Card
     - title: REST API
-      imageSrc:
+      imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
       url: https://docs.microsoft.com/rest/api/compute/virtualmachines
 
 
