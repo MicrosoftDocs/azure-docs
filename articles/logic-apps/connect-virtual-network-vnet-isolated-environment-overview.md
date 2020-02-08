@@ -57,7 +57,7 @@ When you create an integrated service environment (ISE) in Azure, you can select
 
 Logic apps in an ISE provide the same user experiences and similar capabilities as the public global Logic Apps service. You can use all the same built-in triggers, actions, and managed connectors that are available in the global Logic Apps service. Some managed connectors offer additional ISE versions. The difference exists in where they run and the labels that they display in the Logic App Designer when you work within an ISE.
 
-![Connectors with and without labels in an ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
+![Connectors with and without labels in an ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
 * Built-in triggers and actions display the **CORE** label, and they always run in the same ISE as your logic app. Managed connectors that display the **ISE** label also run in the same ISE as your logic app.
 
