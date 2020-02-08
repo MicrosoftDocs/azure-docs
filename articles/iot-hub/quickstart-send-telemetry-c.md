@@ -37,6 +37,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    az extension add --name azure-cli-iot-ext
    ```
 
+* Make sure that port 8883 is open in your firewall. The sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## Prepare the development environment
 
 For this quickstart, you'll be using the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). 
