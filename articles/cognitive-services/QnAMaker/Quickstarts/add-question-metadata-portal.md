@@ -30,7 +30,7 @@ Once metadata is added to a QnA set, the client application can:
 
 ## Prerequisites
 
-* Complete the [previous quickstart](./quickstarts/create-publish-knowledge-base.md)
+* Complete the [previous quickstart](./create-publish-knowledge-base.md)
 
 ## Sign in to the QnA Maker portal
 
