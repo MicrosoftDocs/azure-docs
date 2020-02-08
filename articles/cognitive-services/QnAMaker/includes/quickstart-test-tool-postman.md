@@ -19,7 +19,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 * Latest [**Postman**](https://www.getpostman.com/).
 * You must have
     * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
-    * A trained and published [knowledge base with questions and answers](../Quickstarts/create-publish-knowledge-base.md) built from the quickstart is configured with metadata and Chit chat.
+    * A trained and published [knowledge base with questions and answers](../Quickstarts/add-question-metadata-portal.md) built from the quickstart is configured with metadata and Chit chat.
 
 > [!NOTE]
 > When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
@@ -63,7 +63,7 @@ In a previous quickstart, metadata was added to two QnA sets to distinguish betw
 
 1. The response includes only the answer that meets the filter criteria.
 
-    The following cURL response has been formatted for readability:
+    The following response has been formatted for readability:
 
     ```JSON
     {
@@ -318,7 +318,7 @@ The JSON response uses the same schema as the published knowledge base query.
 
     Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, as well as the metadata property containing the Chit-chat metadata tag information.
 
-## Use cURL with threshold and default answer
+## Use threshold and default answer
 
 You can request a minimum threshold for the answer. If the threshold is not met, the default answer is returned.
 

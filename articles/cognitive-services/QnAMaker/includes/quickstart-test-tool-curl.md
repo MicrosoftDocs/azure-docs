@@ -19,7 +19,7 @@ This cURL-based quickstart walks you through getting an answer from your knowled
 * Latest [**cURL**](https://curl.haxx.se/).
 * You must have
     * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
-    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/create-publish-knowledge-base.md), configured with metadata and Chit chat.
+    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
 > [!NOTE]
 > When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
