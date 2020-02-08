@@ -20,19 +20,19 @@ Use the following steps to create a new support request from the Azure portal fo
 
 1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 
-   ![The Help + support link](./media/sql-database-quota-increase-request/help-plus-support.png)
+   ![The Help + support link](./media/quota-increase-request/help-plus-support.png)
 
 1. In **Help + support**, select **New support request**.
 
-    ![Create a new support request](./media/sql-database-quota-increase-request/new-support-request.png)
+    ![Create a new support request](./media/quota-increase-request/new-support-request.png)
 
 1. For **Issue type**, select **Service and subscription limits (quotas)**.
 
-   ![Select an issue type](./media/sql-database-quota-increase-request/select-quota-issue-type.png)
+   ![Select an issue type](./media/quota-increase-request/select-quota-issue-type.png)
 
 1. For **Subscription**, select the subscription whose quota you want to increase.
 
-   ![Select a subscription for an increased quota](./media/sql-database-quota-increase-request/select-subscription-support-request.png)
+   ![Select a subscription for an increased quota](./media/quota-increase-request/select-subscription-support-request.png)
 
 1. For **Quota type**, select one of the following quota types:
 
@@ -41,11 +41,11 @@ Use the following steps to create a new support request from the Azure portal fo
 
    Then select **Next: Solutions >>**.
 
-   ![Select a quota type](./media/sql-database-quota-increase-request/select-quota-type.png)
+   ![Select a quota type](./media/quota-increase-request/select-quota-type.png)
 
 1. In the **Details** window, select **Provide details** to enter additional information.
 
-   ![The "Provide details" link](./media/sql-database-quota-increase-request/provide-details-link.png)
+   ![The "Provide details" link](./media/quota-increase-request/provide-details-link.png)
 
 Clicking **Provide details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
 
@@ -67,7 +67,7 @@ Use the following steps to request an increase in the DTUs per server.
 
 1. In the **New quota** field, enter the new DTU limit that you are requesting.
 
-   ![DTU quota details](./media/sql-database-quota-increase-request/quota-details-dtus.png)
+   ![DTU quota details](./media/quota-increase-request/quota-details-dtus.png)
 
 For more information, see [Resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md) and [Resources limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md).
 
@@ -81,7 +81,7 @@ Use the following steps to request an increase in the number of servers per subs
 
 1. In the **New quota** field, enter your request for the maximum number of servers in that region.
 
-   ![Servers quota details](./media/sql-database-quota-increase-request/quota-details-servers.png)
+   ![Servers quota details](./media/quota-increase-request/quota-details-servers.png)
 
 For more information, see [SQL Database resource limits and resource governance](sql-database-resource-limits-database-server.md).
 
@@ -93,7 +93,7 @@ Some offer types are not available in every region. You may see an error such as
 
 If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Other quota details](./media/sql-database-quota-increase-request/quota-details-whitelisting.png)
+![Other quota details](./media/quota-increase-request/quota-details-whitelisting.png)
 
 ## <a id="sqlmiquota"></a> Managed instance quota type
 
@@ -103,10 +103,16 @@ For the **SQL Server Managed Instance** quota type, use the following steps:
 
 1. Enter the new limits you are requesting for **Subnet** and **vCore**.
 
-   ![Managed instance quota details](./media/sql-database-quota-increase-request/quota-details-managed-instance.png)
+   ![Managed instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
 
 For more information, see [Overview Azure SQL Database managed instance resource limits](sql-database-managed-instance-resource-limits.md).
 
+## Submit your request
+
+The final step is to fill in the remaining details of your SQL Database quota request. Then select **Next: Review + create>>**, and after reviewing the request details, click **Create** to submit the request.
+
 ## Next steps
 
-Next, fill in the remaining details of your SQL Database quota request, and then select **Next: Review + create>>**. After reviewing the request details, click **Create** to submit the request.
+After your request has been reviewed, you will be contacted with an answer based on the information you provided in the form.
+
+For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
