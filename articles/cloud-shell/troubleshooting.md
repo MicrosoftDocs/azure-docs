@@ -25,6 +25,11 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ## General troubleshooting
 
+### Error running AzureAD cmdlets in PowerShell
+
+- **Details**: When running AzureAD cmdlets such as `Get-AzureADUser` in Cloud Shell you may see an error `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **Resolution**: Run the Connect-AzureAD cmdlet. Previously, Cloud Shell ran this automatically during PowerShell startup. This has been removed in order to speed up start time. If desired, the previous behavior can be restored by adding `Connect-AzureAD` to the $PROFILE file in PowerShell.
+
 ### Early timeouts in FireFox
 
 - **Details**: Cloud Shell utilizes an open websocket to pass input/output to your browser. FireFox has preset policies that can close the websocket prematurely causing early timeouts in Cloud Shell.
