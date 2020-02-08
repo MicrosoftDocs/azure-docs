@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 02/07/2019
 ms.author: alzam
 
 ---
@@ -85,9 +85,9 @@ A P2S configuration defines the parameters for connecting remote clients.
 1. Set the following variables, replacing values as needed for your environment.
 
    ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
+   $aadAudience = "41b23e61-6c1e-4545-b367-cd054e0ed4b4"
+   $aadIssuer = "https://sts.windows.net/<your Directory ID>/"
+   $aadTenant = "https://login.microsoftonline.com/<your Directory ID>/"    
    ```
 
 2. Run the following commands to create the configuration:

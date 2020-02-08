@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Learn how to configure single sign on (SSO) on macOS and iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: 
 ms.custom: aaddev
 ---
