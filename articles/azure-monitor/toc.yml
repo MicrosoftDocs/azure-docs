@@ -912,13 +912,15 @@
     - name: Convert views to workbooks
       items:
       - name: Conversion overview
-        href: platform/view-designer-overview.md
+        href: platform/view-designer-conversion-overview.md
       - name: Conversion options
         href: platform/view-designer-conversion-options.md
       - name: Common steps
-        href: platform/view-designer-common-steps.md
+        href: platform/view-designer-conversion-common-steps.md
       - name: Tile conversions
-        href: platform/view-designer-tile-conversions.md
+        href: platform/view-designer-conversion-tiles.md
+      - name: Examples
+        href: platform/view-designer-examples.md
     - name: Views
       items:
       - name: View Designer
