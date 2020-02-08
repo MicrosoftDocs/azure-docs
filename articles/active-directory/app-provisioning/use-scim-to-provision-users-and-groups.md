@@ -1439,6 +1439,16 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 
 If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../develop/howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use. 
 
+### Gallery onboarding checklist
+Follow the checklist below to ensure that your application is onboarded quicky and customers have a smooth deployment experience
+> [!div class="checklist"]
+> * [Support SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00)
+> * Support at least 25 requests per second per tenant
+> * Support schema discovery
+> * Support the OAuth authorization code grant or a long lived token as described below
+> * Establish an engineering and support point of contact to support customer post gallery onboarding
+> * Document your SCIM endpoint publicly
+
 
 ### Authorization for provisioning connectors in the application gallery
 The SCIM spec does not define a SCIM-specific scheme for authentication and authorization. It relies on the use of existing industry standards. The Azure AD provisioning client supports two authorization methods for applications in the gallery. 
