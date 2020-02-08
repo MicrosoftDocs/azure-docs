@@ -909,6 +909,16 @@
       href: platform/rest-api-walkthrough.md
   - name: Visualize data
     items:
+    - name: Convert views to workbooks
+      items:
+      - name: Conversion overview
+        href: platform/view-designer-overview.md
+      - name: Conversion options
+        href: platform/view-designer-conversion-options.md
+      - name: Common steps
+        href: platform/view-designer-common-steps.md
+      - name: Tile conversions
+        href: platform/view-designer-tile-conversions.md
     - name: Views
       items:
       - name: View Designer

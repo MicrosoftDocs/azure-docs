@@ -10,17 +10,33 @@ ms.date: 09/29/2017
 
 ---
 
-# Automate Azure Monitor log processes with the connector for Microsoft Flow
-[Microsoft Flow](https://ms.flow.microsoft.com) allows you to create automated workflows using hundreds of actions for a variety of services. Output from one action can be used as input to another allowing you to create integration between different services.  The Azure Log Analytics connector for Microsoft Flow allow you to build workflows that include data retrieved by log queries from a Log Analytics workspace in Azure Monitor.
+# Access Azure Monitor Log data in Logic Apps and Flow
+[Azure Logic Apps](/azure/logic-apps/) and [Microsoft Flow](https://ms.flow.microsoft.com) both allows you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector for Microsoft Flow allow you to build workflows that include data retrieved by log queries from a Log Analytics workspace in Azure Monitor.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> The Azure Monitor Logs connector replaces both the Log Analytics and Application Insights connectors. Those are still available, but they will be deprecated soon and should no longer be used. 
 
 For example, you can use Microsoft Flow to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
 
 The tutorial in this article shows you how to create a flow that automatically sends the results of an Azure Monitor log query by email, just one example of how you can use the Log Analytics connector in Microsoft Flow. 
 
 
-## Step 1: Create a flow
+## Activities
+
+The Azure Monitor Logs connector has two activities that are showing the following table. Both run a query against either a Log Analytics workspace or an Application Insights application. Their difference is in how the results are returned.
+
+| Action | Description |
+|:---|:---|
+| Run query and list results | Results are returned as a result set.  Use this activity if you want to work with individual records such as with a [for each](../logic-apps/logic-apps-control-flow-loops.md) activity. |
+| Run query and visualize results | Results are returned formatted as as an *Pie Chart*, *Time Chart*, *Bar Chart*, *HTML Table*. Use this activity if you want to use the output  as a single set of formatted data. in the next activity, such as sending a mail. |
+
+
+
+
+## Step 1: Create a Logic App or Flow
+
+
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My Flows**.
 2. Click **+ Create from blank**.
 
