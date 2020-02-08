@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Your first ML model with R"
+title: "Tutorial: Logistic regression model in R"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
+description: In this tutorial, you create a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,15 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 11/04/2019
+ms.date: 02/07/2020
 ---
 
-# Tutorial: Train and deploy your first model in R with Azure Machine Learning
+# Tutorial: Create a logistic regression model in R with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a **caret** model to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
+In this tutorial you'll create a logistic regression model using **caret** to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
 
-In this tutorial, you learn the following tasks:
-
-> [!div class="checklist"]
-> * Connect your workspace
-> * Load data and prepare for training
-> * Upload data to the datastore so it is available for remote training
-> * Create a compute resource
-> * Train a caret model to predict probability of fatality
-> * Deploy a prediction endpoint
-> * Test the model from R
+In this tutorial, you perform the following tasks:
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -43,32 +34,6 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
 
-## <a name="azure"></a>Clone a notebook folder
-
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
-
-You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-
-1. Select your subscription and the workspace you created.
-
-1. Select **Notebooks** on the left.
-
-1. Open the **Samples** folder.
-
-1. Open the **R** folder.
-
-1. Open the folder with a version number on it.  This number represents the current release for the R SDK.
-
-1. Open the **vignettes** folder.
-
-1. Select the **"..."** at the right of the **train-and-deploy-to-aci** folder and then select **Clone**.
-
-    ![Clone folder](media/tutorial-1st-r-experiment/clone-folder.png)
-
-1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **train-and-deploy-to-aci**  folder there.
-
 ## <a name="open">Open RStudio
 
 Use RStudio on a compute instance or Notebook VM to run this tutorial.  
@@ -79,7 +44,15 @@ Use RStudio on a compute instance or Notebook VM to run this tutorial.
 
 1. Once the compute is running, use the **RStudio** link to open RStudio.
 
-1. In RStudio, your **train-and--deploy-to-aci** folder is a few levels down from **Users** in the **Files** section on the lower right.  Select the **train-and-deploy-to-aci** folder to find the files needed in this tutorial.
+1. In RStudio, select **File>New Project...*** to create a project.
+
+1. Select **Version Control**, then select **Git** to access the sample tutorial.
+
+1. Specify **https://github.com/Azure/azureml-sdk-for-r** for the Repository URL.
+
+1. Select **Create Project** to begin cloning the repository to RStudio.
+
+1. Once the files appear in the lower right pane, scroll down to the **vignettes/train-and--deploy-to-aci** to find the files needed in this tutorial.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file. 
