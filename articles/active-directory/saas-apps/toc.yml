@@ -177,6 +177,8 @@
         href: betterworks-tutorial.md
       - name: BGS Online
         href: bgsonline-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-tutorial.md
       - name: Bime
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
@@ -1090,7 +1092,7 @@
         href: presspage-tutorial.md
       - name: Printix
         href: printix-tutorial.md
-      - name: Prisma Cloud
+      - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
@@ -1470,6 +1472,8 @@
         href: veracode-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
+      - name: Verkada Command
+        href: verkada-command-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)
@@ -1729,6 +1733,8 @@
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: PureCloud by Genesys
+        href: purecloud-by-genesys-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
