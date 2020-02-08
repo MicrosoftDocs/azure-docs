@@ -86,7 +86,7 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
    ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
-## Add notification for message receipt
+## Add Response action for message receipt notification
 
 To notify the trading partner that the message was received, you can return a response that contains an AS2 Message Disposition Notification (MDN) by using the **Response** action. By adding this action immediately after the **AS2 Decode** action, should that action fail, the logic app doesn't continue processing.
 
