@@ -19,7 +19,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Either [create a QnA Maker service](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) or use an existing service, which uses the English language.
+* Either [create a QnA Maker service](create-publish-knowledge-base.md) or use an existing service, which uses the English language.
 * Download the [multi-turn sample `.docx` file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Download the [batch testing tool](https://aka.ms/qnamakerbatchtestingtool), extract the executable file from the `.zip` file.
 
