@@ -36,9 +36,9 @@ This example uses the Logic App Designer in the Azure portal, but you can follow
 
    ![Select Request trigger to start your logic app workflow](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
-1. In the **Request body JSON Schema** box, enter the JSON schema that describes the body content that you expect from the incoming request. For more information, see [Receive and respond to incoming HTTPS calls](../connectors/connectors-native-reqres.md).
+1. Leave the **Request body JSON Schema** box empty because the X12 message is a flat file.
 
-   ![Provide JSON schema for expected request body input](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
+   ![Leave "Request body JSON Schema" empty](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
 1. When you're done, on the designer toolbar, select **Save**.
 
@@ -158,7 +158,12 @@ To notify the trading partner that the message was received, you can return a re
 
    If you need additional steps for this logic app, for example, to decode the message content and output that content in JSON object format, continue building your logic app.
 
-You're now done setting up your B2B logic app. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. To connect your own LOB apps and use these APIs in your logic app, you can add further actions or write custom APIs.
+You're now done setting up your B2B logic app. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, see these articles:
+
+* [Connect to SAP systems from Azure Logic Apps](../logic-apps/logic-apps-using-sap-connector.md)
+* [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
+
+To connect your own LOB apps and use these APIs in your logic app, you can add more actions or [write custom APIs](../logic-apps/logic-apps-create-api-app.md).
 
 ## Next steps
 
