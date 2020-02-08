@@ -49,6 +49,10 @@ You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) 
 
 Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://aka.ms/ampdocs) for details on how to set up and configure Azure Media Player. 
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 
 - [Azure Media Player documentation](https://aka.ms/ampdocs)

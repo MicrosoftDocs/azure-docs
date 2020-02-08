@@ -18,7 +18,7 @@ In some contexts, you may need to run "on-demand" an Azure Function that is indi
 
 ## Define the request location
 
-To run a non HTTP-triggered function, you need to a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
+To run a non HTTP-triggered function, you need a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
 
 ![Define the request location: host name + folder path + function name](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Add and call Azure functions from Azure Logic Apps
-description: Add and run Azure functions from logic apps
+title: Add and call Azure Functions from Azure Logic Apps
+description: Call and run custom code in your Azure Functions from automated tasks and workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm

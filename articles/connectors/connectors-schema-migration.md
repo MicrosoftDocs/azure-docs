@@ -1,6 +1,6 @@
 ---
 title: Migrate apps to latest schema
-description: How to migrate your logic apps to the latest schema version
+description: How to migrate logic app workflow JSON definitions to the most recent Workflow Definition Language schema version
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm

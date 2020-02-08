@@ -1,6 +1,6 @@
 ---
 title: Connect to Office 365 Video
-description: Manage videos with Office 365 Video REST APIs and Azure Logic Apps 
+description: Automate tasks and workflows that manage videos in Office 365 Video by using Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -9,7 +9,7 @@ ms.date: 05/18/2016
 tags: connectors
 ---
 
-# Get started with the Office365 Video connector
+# Manage videos in Office365 Video by using Azure Logic Apps
 
 Connect to Office 365 Video to get information about an Office 365 video, get a list of videos, and more. With Office 365 Video, you can:
 
@@ -21,7 +21,7 @@ For example, you can use the Bing Search connector to search for Office 365 vide
 
 You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## Create a connection to Office365 Video connector
+## Connect to Office365 Video
 
 When you add this connector to your logic apps, you must sign-in to your Office 365 Video account and allow logic apps to connect to your account.
 

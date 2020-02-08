@@ -46,12 +46,12 @@ The items that appear in this table will change over time as support for Blob st
 |Blob SDKs |Generally available|
 |[PowerShell (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
 |[CLI (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
+|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Generally available|
 |Blob SDKs with file system semantics ([.NET](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Preview|
 |[PowerShell with file system semantics](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Preview|
 |[CLI with file system semantics](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Preview|
 |[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
 |[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
-|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
 |[Archive access tier](storage-blob-storage-tiers.md)| Preview|
 |[blobfuse](storage-how-to-mount-container-linux.md)|Not yet supported|
 |[Immutable storage](storage-blob-immutable-storage.md)|Not yet supported|

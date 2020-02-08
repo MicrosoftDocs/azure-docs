@@ -219,7 +219,7 @@ Include your message content with your request. To the send the request, you can
    > [request timeout limit](./logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. 
    > To help you diagnose problems, learn how you can 
-   > [check and monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   > [check and monitor your logic apps](../logic-apps/monitor-logic-apps.md).
 
 You've now created a logic app that can communicate with your SAP server. Now that you've set up an SAP connection for your logic app, you can explore other available SAP actions, such as BAPI and RFC.
 

@@ -31,9 +31,11 @@ The template contains five activities:
 - **Copy** copies one file from the source to the destination store.
 - **Delete** deletes the same one file from the source store.
 
-The template defines two parameters:
-- *FolderPath_SourceStore* is the folder path of your source store where you want to move files from. 
-- *FolderPath_DestinationStore* is the folder path of your destination store where you want to move files to. 
+The template defines four parameters:
+- *SourceStore_Location* is the folder path of your source store where you want to move files from. 
+- *SourceStore_Directory* is the subfolder path of your source store where you want to move files from.
+- *DestinationStore_Location* is the folder path of your destination store where you want to move files to. 
+- *DestinationStore_Directory* is the subfolder path of your destination store where you want to move files to.
 
 ## How to use this solution template
 
@@ -45,9 +47,7 @@ The template defines two parameters:
 
     ![Create a new connection to the destination](media/solution-template-move-files/move-files2.png)
 
-3. Select **Use this template**.
-
-    ![Use this template](media/solution-template-move-files/move-files3.png)
+3. Select **Use this template** tab.
 	
 4. You'll see the pipeline, as in the following example:
 

@@ -1,5 +1,6 @@
 ---
-title: Migrate applications and APIs to b2clogin.com - Azure AD B2C
+title: Migrate applications and APIs to b2clogin.com
+titleSuffix: Azure AD B2C
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -41,7 +42,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
 * Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references.
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](active-directory-b2c-ui-customization-custom-dynamic.md).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization-dynamic.md).
 
 ## Change identity provider redirect URLs
 
@@ -88,7 +89,7 @@ For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migr
 
 If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. This setting is not required for MSAL.NET v3 and above.
 
-```CSharp
+```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```

@@ -113,6 +113,14 @@ Older version of Azure Cosmos DB SDKs such as V2.x.x and V1.x.x don’t support 
 
 If a migrated container is consumed by the latest/V3 version of SDK and you start populating the system defined partition key within the new documents, you cannot access (read, update, delete, query) such documents from the older SDKs anymore.
 
+## Known issues
+
+**Querying for the count of items that were inserted without a partition key by using V3 SDK may involve higher throughput consumption**
+
+If you query from the V3 SDK for the items that are inserted by using V2 SDK, or the items inserted by using the V3 SDK with `PartitionKey.None` parameter, the count query may consume more RU/s if the `PartitionKey.None` parameter is supplied in the FeedOptions. We recommend that you don't supply the `PartitionKey.None` parameter if no other items are inserted with a partition key.
+
+If new items are inserted with different values for the partition key, querying for such item counts by passing the appropriate key in `FeedOptions` will not have any issues. After inserting new documents with partition key, if you need to query just the document count without the partition key value, that query may again incur higher RU/s similar to the regular partitioned collections.
+
 ## Next steps
 
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md)

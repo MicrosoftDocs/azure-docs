@@ -19,7 +19,7 @@ ms.author: alsin
 
 # Power Options available from the Azure Serial Console
 
-The Azure Serial Console provides several powerful tools for power management on your VM or virtual machine scale set. These power management options may be confusing to some, so this document is an overview of each tool and its intended use case.
+The Azure Serial Console provides several powerful tools for power management on your VM or virtual machine scale set. These power management options may be confusing to some, so this is an overview of each tool and its intended use case.
 
 Serial Console Feature | Description | Use Case
 :----------------------|:------------|:---------

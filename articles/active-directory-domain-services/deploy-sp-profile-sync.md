@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 01/21/2020 
 ms.author: iainfou
 
 ---
 # Configure Azure Active Directory Domain Services to support user profile synchronization for SharePoint Server
 
-SharePoint Server includes a service to synchronize user profiles. This feature lets user profiles be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in an Azure Active Directory Domain Services (Azure AD DS) managed domain. For more information, see [user profile synchronization in SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
+SharePoint Server includes a service to synchronize user profiles. This feature allows user profiles to be stored in a central location and accessible across multiple SharePoint sites and farms. To configure the SharePoint Server user profile service, the appropriate permissions must be granted in an Azure Active Directory Domain Services (Azure AD DS) managed domain. For more information, see [user profile synchronization in SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
 
 This article shows you how to configure Azure AD DS to allow the SharePoint Server user profile sync service.
 

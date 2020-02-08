@@ -18,6 +18,9 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
+### What is a Virtual WAN Gateway Scale Unit
+A scale unit is an unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps . 1 scale unit of ExpressRoute = 2 Gbps. Example : 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
+
 ### Which device providers (Virtual WAN partners) are supported?
 
 At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md). 
@@ -34,9 +37,6 @@ No. You can use any VPN-capable device that adheres to the Azure requirements fo
 
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
-### Am I required to use a preferred partner device?
-
-No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -106,9 +106,13 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 You can connect a VNet in a different region than your virtual WAN.
 
-### Can spoke VNets connected to a virtual hub communicate with each other?
+### Can spoke VNets connected to a virtual hub communicate with each other (V2V Transit)?
 
-Yes. Standard Virtual WAN supports Vnet to Vnet transitive connectivity via the Virtual WAN hub that the Vnets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan Hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN Hubs across two or more regions. VNet transit supports up to 3 Gbps of throughput during public preview. Throughput will expanded when global transit goes GA.   
+Yes. Standard Virtual WAN supports Vnet to Vnet transitive connectivity via the Virtual WAN hub that the Vnets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan Hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN Hubs across two or more regions. VNet transit supports up to 3 Gbps of throughput during public preview. Throughput will expanded when global transit goes GA.
+
+NOTE:
+Currently V2V transit preview requires a VPN GW to be deployed in a Virtual Hub to trigger the routing elements to be launched. This VPN GW is not used for the V2V transit path. This is a known limitation and will be removed at the time of V2V GA. 
+You can delete the VPN Gateway in the hub(s) after it is fully launched as it is not needed for V2V transit functionality. 
 
 For some scenarios, spoke Vnets can also be directly peered with each other using [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, Vnet Peering takes precedence over the transitive connection via the Virtual WAN hub. 
 

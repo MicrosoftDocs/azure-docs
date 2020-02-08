@@ -124,7 +124,7 @@ Add the following constants and static fields to the **Program** class in Progra
 > [!NOTE]
 > You set the TeamName constant to the name you used when you
 > created your Content Moderator subscription. You retrieve TeamName from the
-> [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Content Moderator web site.
 > Once you log in, select **Credentials** from the **Settings** (gear) menu.
 >
 > Your team name is the value of the **Id** field in the **API** section.

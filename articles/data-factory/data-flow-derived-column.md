@@ -23,6 +23,16 @@ To add additional derived columns, hover over an existing derived column and cli
 
 ![New derived column selection](media/data-flow/columnpattern.png "New derived column selection")
 
+## Build schemas in Output Schema pane
+
+The columns you're modifying and adding to your schema are listed in the Output Schema pane,. You can interactively build simple and complex data structures here. To add additional fields, select **Add column**. To build hierarchies, select **Add subcolumn**.
+
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
+
+![Add complex column](media/data-flow/complexcolumn.png "Add columns")
+
 ## Data flow script
 
 ### Syntax

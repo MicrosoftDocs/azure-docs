@@ -101,6 +101,7 @@ Sync a single blob:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
 Sync a virtual directory:
 
@@ -133,13 +134,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-attributes** string   (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
 
-**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--exclude-path** string Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
+
+**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: \*.jpg;\*.pdf;exactName
 
 **-h, --help**                        help for sync
 
 **--include-attributes** string   (Windows only) Include only files whose attributes match the attribute list. For example: A;S;R
 
-**--include-pattern** string      Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--include-pattern** string      Include only files where the name matches the pattern list. For example: \*.jpg;\*.pdf;exactName
 
 **--log-level** string            Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
 

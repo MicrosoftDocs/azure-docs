@@ -10,7 +10,7 @@ ms.author: jehollan
 
 # Azure Functions Premium plan
 
-The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan)  is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 ## Create a Premium plan
 
@@ -33,7 +33,7 @@ The following features are available to function apps deployed to a Premium plan
 
 ### Pre-warmed instances
 
-If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
+If no events and executions occur today in the Consumption plan, your app may scale in to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
 
 In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
 
@@ -41,7 +41,7 @@ You can configure the number of pre-warmed instances in the Azure portal by sele
 
 ![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
 
-You can also configure pre-warmed instances for an app with the Azure CLI
+You can also configure pre-warmed instances for an app with the Azure CLI.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -72,7 +72,7 @@ When you create the plan, you configure two settings: the minimum number of inst
 
 If your app requires instances beyond your plan size, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit, whereas the minimum plan instances are guaranteed for your app.
 
-You can configure the plan size and maximums in the Azure portal by selected the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
+You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
 
 You can also increase the maximum burst limit from the Azure CLI:
 
@@ -99,27 +99,28 @@ Below are the currently supported regions for each OS.
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | |
-|Australia Southeast | ✔ | ✔ |
+|Australia Southeast | ✔ | ✔<sup>1</sup> |
 |Brazil South| ✔<sup>2</sup> |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
-|East US | ✔ | ✔ |
+|East US | ✔ | ✔<sup>1</sup> |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
-|Japan East| ✔ | ✔ |
+|Germany West Central| ✔ | |
+|Japan East| ✔ | ✔<sup>1</sup> |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
-|North Europe| ✔ | ✔ |
-|South Central US| ✔ |  |
+|North Europe| ✔ | ✔<sup>1</sup> |
+|South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
-|Southeast Asia| ✔ | ✔ |
+|Southeast Asia| ✔ | ✔<sup>1</sup> |
 |UK South| ✔ | |
 |UK West| ✔ |  |
-|West Europe| ✔ | ✔ |
+|West Europe| ✔ | ✔<sup>1</sup> |
 |West India| ✔ |  |
-|West US| ✔ | ✔ |
+|West US| ✔ | ✔<sup>1</sup> |
 |West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  

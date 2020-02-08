@@ -1,6 +1,6 @@
 ---
-title: Connect to Excel Online
-description: Manage data with Excel Online REST APIs and Azure Logic Apps
+title: Manage data, worksheets, and tables in Excel Online
+description: Manage data in worksheets and tables in Excel Online for Business or Excel Online for OneDrive by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -11,7 +11,9 @@ tags: connectors
 
 # Manage Excel Online data with Azure Logic Apps
 
-With Azure Logic Apps and the Excel Online connector, 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
+[Excel Online for Business](/connectors/excelonlinebusiness/) connector or 
+[Excel Online for OneDrive](/connectors/excelonline/) connector, 
 you can create automated tasks and workflows based 
 on your data in Excel Online for Business or OneDrive. 
 This connector provides actions that help you work with 

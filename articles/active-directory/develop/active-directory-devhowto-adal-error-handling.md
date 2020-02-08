@@ -1,5 +1,5 @@
 ---
-title: Error handling best practices for Azure AD Authentication Library (ADAL) clients
+title: ADAL client app error handling best practices | Azure
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
 author: rwike77
@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients

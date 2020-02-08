@@ -6,7 +6,7 @@ author:  charwen
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 01/13/2018
 ms.author: charwen
 ---
 
@@ -16,7 +16,7 @@ This article describes how to disable and enable peerings of an ExpressRoute cir
 
 There are a couple scenarios where you may find it helpful resetting your ExpressRoute peerings.
 * Test your disaster recovery design and implementation. For example, you have two ExpressRoute circuits. You can disable the peerings of one circuit and force your network traffic to fail over to the other circuit.
-* Enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering of your ExpressRoute circuit. BFD is enabled by default if your ExpressRoute circuit is created after August 1, 2018. If your circuit was created before that, BFD wasn't enabled. You can enable BFD by disabling the peering and reenabling it. It should be noted that BFD is supported on Azure Private Peering only.
+* Enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering or Microsoft Peering of your ExpressRoute circuit. BFD is enabled by default on Azure Private Peering if your ExpressRoute circuit is created after August 1 2018 and on Microsoft Peering if your ExpressRoute circuit is created after January 10 2020. If your circuit was created before that, BFD wasn't enabled. You can enable BFD by disabling the peering and reenabling it. 
 
 ### Working with Azure PowerShell
 

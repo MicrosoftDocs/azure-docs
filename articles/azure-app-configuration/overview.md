@@ -1,19 +1,11 @@
 ---
-title: What is Azure App Configuration? | Microsoft Docs
+title: What is Azure App Configuration?
 description: An overview of the Azure App Configuration service.
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
-
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
-ms.author: yegu
 ---
 
 # What is Azure App Configuration?

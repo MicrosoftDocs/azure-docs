@@ -1,6 +1,7 @@
-﻿---
-title: Tutorial - Customize the interface of user experiences - Azure Active Directory B2C | Microsoft Docs
-description: Learn how to customize the user interface of your applications in Azure Active Directory B2C using the Azure portal.
+---
+title: "Tutorial: Customize the user interface"
+titleSuffix: Azure AD B2C
+description: Learn how to customize the user interface (UI) of your applications in Azure Active Directory B2C by using the Azure portal.
 services: B2C
 author: mmacy
 manager: celestedg
@@ -15,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Customize the interface of user experiences in Azure Active Directory B2C
 
-For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
+For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
 
 In this article, you learn how to:
 
@@ -161,4 +162,4 @@ In this article, you learned how to:
 > * Test the customized UI
 
 > [!div class="nextstepaction"]
-> [Language customization in Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md)
+> [Language customization in Azure Active Directory B2C](user-flow-language-customization.md)

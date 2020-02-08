@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/06/2019
 ---
-## Create a Bing Web Search resource
+## Create an Azure resource
 
 Start using the Bing Image Search API by creating one of the Azure resources below.
 

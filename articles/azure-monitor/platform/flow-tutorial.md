@@ -4,7 +4,7 @@ description: Learn how you can use Microsoft Flow to quickly automate repeatable
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 09/29/2017
 

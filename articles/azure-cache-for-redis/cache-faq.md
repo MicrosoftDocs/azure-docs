@@ -2,12 +2,10 @@
 title: Azure Cache for Redis FAQ
 description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.author: yegu
-
 ---
 # Azure Cache for Redis FAQ
 Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -467,7 +465,7 @@ Unlike traditional caches that deal only with key-value pairs, Redis is popular 
 
 Another key aspect to Redis success is the healthy, vibrant open- source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This ecosystem and wide range of clients allow Azure Cache for Redis to be used by nearly any workload you would build inside of Azure.
 
-For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.md).
+For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.yml).
 
 ### Managed Cache service
 [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

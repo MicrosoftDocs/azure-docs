@@ -1,5 +1,5 @@
 ---
-title: Get a token to call web APIs in mobile apps | Azure
+title: Acquire a token to call a web API (mobile apps) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (getting a token for the app)
 services: active-directory
@@ -18,7 +18,6 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Mobile app that calls web APIs - get a token
@@ -42,7 +41,7 @@ let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 #### Xamarin
-```CSharp 
+```csharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
@@ -197,7 +196,7 @@ MSAL for iOS and macOS supports various modifiers when getting a token interacti
 
 The following example shows minimal code to get a token interactively for reading the user's profile with Microsoft Graph.
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -238,9 +237,9 @@ The class defines the following constants:
 
 ##### WithExtraScopeToConsent
 
-This modifier is used in an advanced scenario where you want the user to pre-consent to several resources upfront (and don't want to use the incremental consent, which is normally used with MSAL.NET / the Microsoft identity platform v2.0). For details see [How-to : have the user consent upfront for several resources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+This modifier is used in an advanced scenario where you want the user to pre-consent to several resources upfront (and don't want to use the incremental consent, which is normally used with MSAL.NET / the Microsoft identity platform v2.0). For details see [How-to : have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();

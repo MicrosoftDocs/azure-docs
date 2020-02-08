@@ -96,7 +96,7 @@ You can deploy one or many instances of the integration runtime as required to m
 For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
 
 ## What is the limit on the number of integration runtimes?
-There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
+There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## What are the top-level concepts of Azure Data Factory?
 An Azure subscription can have one or more Azure Data Factory instances (or data factories). Azure Data Factory contains four key components that work together as a platform on which you can compose data-driven workflows with steps to move and transform data.

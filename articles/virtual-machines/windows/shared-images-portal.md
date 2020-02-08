@@ -1,5 +1,5 @@
 ---
-title: Create shared Azure Virtual Machine images for Windows using portal 
+title: Create an Azure Shared Image Gallery using the portal 
 description: Learn how to use Azure portal to create and share virtual machine images.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -21,7 +21,7 @@ ms.custom:
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Create a shared image gallery using the Azure portal
+# Create an Azure Shared Image Gallery using the portal
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 

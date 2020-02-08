@@ -84,6 +84,10 @@ The following considerations apply:
   * **cbcs-aapl**: For FairPlay (AES CBC encryption)
   * **cbc**: For AES envelope encryption
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 The following articles describe next steps to help you get started with content protection:
 

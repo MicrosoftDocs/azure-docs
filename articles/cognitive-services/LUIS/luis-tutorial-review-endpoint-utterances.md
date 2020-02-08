@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Reviewing endpoint utterances - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
+description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
@@ -26,8 +26,6 @@ This review process allows LUIS to learn your app domain. LUIS selects the utter
 
 By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 **In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
@@ -43,9 +41,9 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 Use the following steps to import an app.
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. On the [preview LUIS portal](https://preview.luis-ai), import the .json file into a new app.
+1. On the [preview LUIS portal](https://preview.luis.ai), import the .json file into a new app.
 
 1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `review`.
 

@@ -16,9 +16,7 @@
     href: manage-app-groups.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool.md
-  - name: 6. Deploy a management tool
-    href: manage-resources-using-ui.md
-  - name: 7. Set up service alerts
+  - name: 6. Set up service alerts
     href: set-up-service-alerts.md
 - name: How-to
   items:
@@ -45,7 +43,7 @@
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
   - name: Create a profile container
-    items: 
+    items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
@@ -56,6 +54,8 @@
         href: customize-rdp-properties.md
       - name: Load-balancing for pooled host pools
         href: configure-host-pool-load-balancing.md
+      - name: Personal desktop assignment type
+        href: configure-host-pool-personal-desktop-assignment-type.md
   - name: Use Windows Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
@@ -64,12 +64,22 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts dynamically
+  - name: Scale session hosts automatically
     href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
-  - name: Deploy the diagnostics tool
-    href: deploy-diagnostics.md
+  - name: Deploy the management tool
+    items:
+      - name: Azure Resource Manager template
+        href: manage-resources-using-ui.md
+      - name: PowerShell
+        href: manage-resources-using-ui-powershell.md
+  - name: Use service diagnostics
+    items:
+        - name: Deploy the diagnostics tool
+          href: deploy-diagnostics.md
+        - name: Use diagnostics with Log Analytics
+          href: diagnostics-log-analytics.md
   - name: Publish built-in apps
     href: publish-apps.md
   - name: Set up MSIX app attach
@@ -78,8 +88,6 @@
   items:
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Bandwidth recommendations for remote sessions
-    href: bandwidth-recommendations.md
   - name: Determine user connection latency
     href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
@@ -110,20 +118,28 @@
     href: troubleshoot-windows-7-vm.md
   - name: Troubleshoot the Windows Virtual Desktop management tool
     href: troubleshoot-management-tool.md
-  - name: Remote Desktop client connections
-    href: troubleshoot-client-connection.md
+  - name: Remote Desktop service connections
+    href: troubleshoot-service-connection.md
+  - name: Remote Desktop client issues
+    href: troubleshoot-client.md
   - name: Windows Virtual Desktop PowerShell
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Linux support
+    href: linux-overview.md
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
   - name: REST API
     href: /rest/api/virtual-desktop/
   - name: Supported RDP file settings
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+  - name: Network guidance
+    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
+  - name: Virtual machine sizing guidance
+    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
 - name: Resources
   items:
   - name: Experience estimator

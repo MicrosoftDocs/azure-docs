@@ -152,6 +152,8 @@ landingContent:
             url: how-to-provision-container-throughput.md
           - text: Get the request unit charges 
             url: find-request-unit-charge.md
+          - text: Scale using Azure Functions timer
+            url: scale-on-schedule.md
 
   # Card
   - title: Build an app with SQL API 

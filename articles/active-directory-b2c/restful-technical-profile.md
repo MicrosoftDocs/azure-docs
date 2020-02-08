@@ -1,5 +1,6 @@
 ---
-title: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define a RESTful technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -57,6 +58,43 @@ The **InputClaims** element contains a list of claims to send to the REST API. Y
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the REST API.
 
+## Send a JSON payload
+
+The REST API technical profile allows you to send a complex JSON payload to an endpoint.
+
+To send a complex JSON payload:
+
+1. Build your JSON payload with the [GenerateJson](json-transformations.md) claims transformation.
+1. In the REST API technical profile:
+    1. Add an input claims transformation with a reference to the `GenerateJson` claims transformation.
+    1. Set the `SendClaimsIn` metadata option to `body`
+    1. Set the `ClaimUsedForRequestPayload` metadata option to the name of the claim containing the JSON payload.
+    1. In the input claim, add a reference to the input claim containing the JSON payload.
+
+The following example `TechnicalProfile` sends a verification email by using a third-party email service (in this case, SendGrid).
+
+```XML
+<TechnicalProfile Id="SendGrid">
+  <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
+    <Item Key="AuthenticationType">Bearer</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
+  </CryptographicKeys>
+  <InputClaimsTransformations>
+    <InputClaimsTransformation ReferenceId="GenerateSendGridRequestBody" />
+  </InputClaimsTransformations>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="sendGridReqBody" />
+  </InputClaims>
+</TechnicalProfile>
+```
+
 ## Output claims
 
 The **OutputClaims** element contains a list of claims returned by the REST API. You may need to map the name of the claim defined in your policy to the name defined in the REST API. You can also include claims that aren't returned by the REST API identity provider, as long as you set the `DefaultValue` attribute.
@@ -83,10 +121,11 @@ The technical profile also returns claims, that aren't returned by the identity 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ServiceUrl | Yes | The URL of the REST API endpoint. |
-| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: `None`, `Basic`, or `ClientCertificate`. The `None` value indicates that the REST API is not anonymous. The `Basic` value indicates that the REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The `ClientCertificate` (recommended) value indicates that the REST API restricts access using client certificate authentication. Only services that have the appropriate certificates, such as Azure AD B2C can access your service. |
-| SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the input claim that is sent in the request body in JSON format. The `Form` value is the input claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the input claim that is sent in the request header. The `QueryString` value is the input claim that is sent in the request query string. |
+| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: `None`, `Basic`, `Bearer`, or `ClientCertificate`. The `None` value indicates that the REST API is not anonymous. The `Basic` value indicates that the REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The `ClientCertificate` (recommended) value indicates that the REST API restricts access by using client certificate authentication. Only services that have the appropriate certificates, for example Azure AD B2C, can access your API. The `Bearer` value indicates that the REST API restricts access using client OAuth2 Bearer token. |
+| SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the input claim that is sent in the request body in JSON format. The `Form` value is the input claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the input claim that is sent in the request header. The `QueryString` value is the input claim that is sent in the request query string. The HTTP verbs invoked by each are as follows:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | Specifies the format for the output claims. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the output claim that is sent in the request body in JSON format. The `Form` value is the output claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the output claim that is sent in the request header. The `QueryString` value is the output claim that is sent in the request query string. |
-| DebugMode | No | Runs the technical profile in debug mode. In debug mode, the REST API can return more information. See the returning error message section. |
+| ClaimUsedForRequestPayload| No | Name of a string claim that contains the payload to be sent to the REST API. |
+| DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-error-message) section. |
 
 ## Cryptographic keys
 
@@ -150,9 +189,30 @@ If the type of authentication is set to `ClientCertificate`, the **Cryptographic
 </TechnicalProfile>
 ```
 
+If the type of authentication is set to `Bearer`, the **CryptographicKeys** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| BearerAuthenticationToken | No | The OAuth 2.0 Bearer Token. |
+
+```XML
+<TechnicalProfile Id="REST-API-SignUp">
+  <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
+    <Item Key="AuthenticationType">Bearer</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_B2cRestClientAccessToken" />
+  </CryptographicKeys>
+</TechnicalProfile>
+```
+
 ## Returning error message
 
-Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. In an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
+Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -193,24 +253,11 @@ public class ResponseContent
 }
 ```
 
-## Examples:
-- [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](active-directory-b2c-custom-rest-api-netfw.md)
-- [Secure your RESTful services by using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Secure your RESTful service by using client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](active-directory-b2c-rest-api-validation-custom.md)
+## Next steps
 
- 
+See the following articles for examples of using a RESTful technical profile:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](rest-api-claims-exchange-dotnet.md)
+- [Secure your RESTful services by using HTTP basic authentication](secure-rest-api-dotnet-basic-auth.md)
+- [Secure your RESTful service by using client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](custom-policy-rest-api-claims-validation.md)

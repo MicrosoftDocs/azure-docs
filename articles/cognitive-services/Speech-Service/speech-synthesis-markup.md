@@ -142,6 +142,8 @@ Use this table to determine which speaking styles are supported for each neural 
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
 | | type=`chat` | Speak in a casual, relaxed tone |
+| | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
+| | type=`customerservice` | Speak in a friendly and patient way as customer service |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
 | | type=`sentiment` | Conveys a touching message or a story |
 

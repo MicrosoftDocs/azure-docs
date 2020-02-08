@@ -12,5 +12,5 @@ ms.custom: include file
 
 | |
 |--|
-|If what you're seeing on your screen doesn't match what's being covered in this article, it means that your administrator hasn't turned on the new **My Apps** (preview) experience. To use the old experience, you must follow the instructions and information in the [My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview) section.|
-| |
+|If your administrator has turned on the new **My Apps** preview experience for your organization, you’ll now see a banner at the top of the **My Apps** page that says, **An updated My Applications experience is available**. If you select **Try It**, you’ll immediately go you to the new URL (myapplications.microsoft.com) and the updated experience. After that, every time you return to the **My Apps** page, you'll automatically go to the new experience.<br><br>To stop using the new experience, you can select **Yes** from the **Leave new experience** banner at the top of the new **My Apps** page. You’ll immediately return to the old URL (myapps.microsoft.com) and experience. After that, every time you return to the **My Apps** page, you'll automatically go to the old experience.|
+|

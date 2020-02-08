@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/05/2019
 ---
 
@@ -41,11 +41,11 @@ We recommend you perform the below validation, before you start troubleshooting 
 | --- | --- | --- |
 | Backup | Online recovery point creation failed | **Error Message**: Windows Azure Backup Agent was unable to create a snapshot of the selected volume. <br> **Workaround**: Try increasing the space in replica and recovery point volume.<br> <br> **Error Message**: The Windows Azure Backup Agent cannot connect to the OBEngine service <br> **Workaround**: verify that the OBEngine exists in the list of running services on the computer. If the OBEngine service is not running, use the "net start OBEngine" command to start the OBEngine service. <br> <br> **Error Message**: The encryption passphrase for this server is not set. Please configure an encryption passphrase. <br> **Workaround**: Try configuring an encryption passphrase. If it fails, take the following steps: <br> <ol><li>Verify that the scratch location exists. This is the location that's mentioned in the registry **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, with the name **ScratchLocation** should exist.</li><li> If the scratch location exists, try re-registering by using the old passphrase. *Whenever you configure an encryption passphrase, save it in a secure location.*</li><ol>|
 
-## The vault credentials provided are different from the vault the server is registered
+## The original and external DPM servers must be registered to the same vault
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The vault credentials provided are different from the vault the server is registered | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
 
 ## Online recovery point creation jobs for VMware VM fail
 

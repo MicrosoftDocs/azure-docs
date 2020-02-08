@@ -1,24 +1,19 @@
 ---
-title: Microsoft identity platform ASP.NET web server quickstart | Azure
-description: Learn how to implement Microsoft Sign-in on an ASP.NET web app using OpenID Connect.
+title: Add Microsoft identity platform sign-in to an ASP.NET web app | Azure
+description: Learn how to implement Microsoft sign-in on an ASP.NET web app using OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add Microsoft identity platform sign-in to an ASP.NET web app

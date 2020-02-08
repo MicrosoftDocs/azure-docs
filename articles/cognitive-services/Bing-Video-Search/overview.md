@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/26/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
 ---
 # What is the Bing Video Search API?
@@ -48,3 +48,5 @@ Use the [quickstart](csharp.md) to quickly get started with your first API reque
 * The [Bing Video Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) reference page contains the list of endpoints, headers, and query parameters used to request search results.
 
 * The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
+
+* Visit the [Bing Search API hub page](../bing-web-search/search-the-web.md) to explore the other available APIs.

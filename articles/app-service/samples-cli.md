@@ -28,6 +28,8 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Scale app**||
 | [Scale an app manually](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and scales it across 2 instances. |
 | [Scale an app worldwide with a high-availability architecture](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two App Service apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
+|**Protect app**||
+| [Integrate with Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and integrates it with Application Gateway using service endpoint and access restrictions. |
 |**Connect app to resources**||
 | [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a SQL database, then adds the database connection string to the app settings. |
 | [Connect an app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a storage account, then adds the storage connection string to the app settings. |

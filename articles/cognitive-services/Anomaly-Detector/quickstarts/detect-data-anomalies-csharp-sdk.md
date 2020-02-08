@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Detect anomalies in time series data using the Anomaly Detector client library for .NET'
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data. 
+description: This quickstart shows how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data. 
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -3,11 +3,11 @@ title: Cloud Services and management certificates | Microsoft Docs
 description: Learn how to create and use certificates with Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # Certificates overview for Azure Cloud Services
@@ -87,4 +87,7 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
 Upload a [management API certificate](../azure-api-management-certs.md) to the Azure portal.
+
+
+
 

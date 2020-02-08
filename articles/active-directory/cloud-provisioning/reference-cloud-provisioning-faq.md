@@ -26,6 +26,10 @@ Cloud provisioning is scheduled to run every 2 mins. Every 2 mins, any user, gro
 
 This is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned to Azure AD, password hashes should provisioning in the subsequent run. Wait for a couple of runs and confirm that password hash sync no longer has the errors.
 
+**Q: What happens if the Active Directory instance has attributes that are not supported by cloud provisoning (for instance, directory extensions)?**
+
+Cloud provisioning will run and provision the supported attributes. The unsupported attributes will not be provisioned to Azure AD. Review the directory extensions in Active Directory and ensure that you don't need those attribute to flow to Azure AD. If one or more attributes are required, consider using Azure AD Connect sync or moving the required information to one of the supported attributes (for instance, extension attributes 1-15).
+
 **Q: What's the difference between Azure AD Connect sync and cloud provisioning?**
 
 With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud provisioning, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. 
@@ -36,7 +40,7 @@ Yes. Cloud provisioning can be used to sync from multiple Active Directory fores
 
 **Q: How is the agent updated?**
 
-The agents are auto upgraded by Microsoft. This reduces the burden off IT to test and validate new agent versions. 
+The agents are auto upgraded by Microsoft. For the IT team, this reduces the burden of having to test and validate new agent versions. 
 
 **Q: Can I disable auto upgrade?**
 
@@ -52,7 +56,7 @@ Yes, cloud provisioning creates a service principal for the provisioning configu
 
 **Q: What happens when a synced user is required to change password on next logon?**
 
-If password hash sync is enabled in cloud provisioning and the synced user is required to change password on next logon in on-premises AD, cloud provisioning does not provisioned the to be changed password hash to Azure AD. Once the user changes the password, the user password hash is provisioned from AD to Azure AD.
+If password hash sync is enabled in cloud provisioning and the synced user is required to change password on next logon in on-premises AD, cloud provisioning does not provision the to be changed password hash to Azure AD. Once the user changes the password, the user password hash is provisioned from AD to Azure AD.
 
 **Q: Does cloud provisioning support writeback of ms-ds-consistencyGUID for any object?**
 

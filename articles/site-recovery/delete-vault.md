@@ -39,7 +39,7 @@ Before you can delete a vault you must remove registered servers, and items in t
 
 1. Follow [these steps](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) to delete Hyper-V VMs managed by System Center VMM.
 2. Disassociate and delete all replication policies. Do this in your vault > **Site Recovery Infrastructure** > **For System Center VMM** > **Replication Policies**.
-3. Follow [these steps](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) to unregister a connected VMM server.
+3. Follow [these steps](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) to unregister a connected VMM server.
 4. Then, delete the vault.
 
 ## Delete a vault-Hyper-V VM to Azure

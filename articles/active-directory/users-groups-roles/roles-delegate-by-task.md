@@ -50,11 +50,11 @@ Create, read, update, and delete sign-in user flows | Global Administrator |
 Create, read, update, and delete sign-up user flow |Global Administrator | 
 Create, read, update, and delete user attributes | Global Administrator | 
 Create, read, update, and delete users | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-Read all configuration | Global Administrator | 
-Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Read all configuration | Global reader | 
+Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Azure AD B2C global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global readers do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 
@@ -74,7 +74,7 @@ Configure company properties | Global Administrator |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Passthrough authentication | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 Seamless single sign-on | Global Administrator | 
 
 ## Connect Health
@@ -93,7 +93,6 @@ Read sync services | Reader ([see documentation](https://docs.microsoft.com/azur
 View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 View sync service metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
-
 
 ## Custom domain names
 
@@ -224,9 +223,9 @@ Configure one-time bypass | Global Administrator |
 Configure phone call settings | Global Administrator | 
 Configure providers | Global Administrator | 
 Configure server settings | Global Administrator | 
-Read activity report | Global Administrator | 
-Read all configuration | Global Administrator | 
-Read server status | Global Administrator |  
+Read activity report | Global reader | 
+Read all configuration | Global reader | 
+Read server status | Global reader |  
 
 ## Organizational relationships
 
@@ -235,7 +234,7 @@ Task | Least privileged role | Additional roles
 Manage identity providers | Global Administrator | 
 Manage settings | Global Administrator | 
 Manage terms of use | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 
 ## Password reset
 
@@ -271,7 +270,7 @@ Read all configuration | Default user role ([see documentation](https://docs.mic
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
-Read all configuration | Global Administrator | 
+Read all configuration | Global reader | 
 
 ## Security - Conditional Access
 

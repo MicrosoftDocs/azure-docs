@@ -1,6 +1,6 @@
 ---
-title: Secure single-page apps with Microsoft identity platform implicit flow | Azure
-description: Building web applications using Microsoft identity platform implementation of the implicit flow for single-page apps.
+title: OAuth 2.0 implicit grant flow - Microsoft identity platform | Azure
+description: Secure single-page apps using Microsoft identity platform implicit flow.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,7 +18,6 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and Implicit grant flow

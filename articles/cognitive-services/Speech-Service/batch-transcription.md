@@ -1,5 +1,5 @@
 ---
-title: How to use Batch transcription - Speech service
+title: How to use batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
@@ -8,37 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: panosper
 ---
 
-# Why use Batch transcription?
+# How to use batch transcription
 
-Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
+Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
+
+The API offers asynchronous speech-to-text transcription and other features. You can use REST API to expose methods to:
+
+- Create a batch processing requests
+- Query the status
+- Download transcription results
+- Delete transcription information from the service
+
+The detailed API is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
+
+Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job will change into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
+
+Next to the easy-to-use API, you don't need to deploy custom endpoints, and you don't have any concurrency requirements to observe.
 
 ## Prerequisites
 
 ### Subscription Key
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md). If you plan to get transcriptions from our baseline models, creating a key is all you need to do.
+As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
 
 >[!NOTE]
-> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For additional information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### Custom models
 
-If you plan to customize acoustic or language models, follow the steps in [Customize acoustic models](how-to-customize-acoustic-models.md) and [Customizing language models](how-to-customize-language-model.md). To use the created models in batch transcription you need their model IDs. This ID is not the endpoint ID that you find on the Endpoint Details view, it is the model ID that you can retrieve when you select the details of the models.
+If you plan to customize acoustic or language models, follow the steps in [Customize acoustic models](how-to-customize-acoustic-models.md) and [Design customization language models](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model IDs. You can retrieve the model ID when you inspect the details of the model. A deployed custom endpoint is not needed for the batch transcription service.
 
 ## The Batch Transcription API
-
-The Batch Transcription API offers asynchronous speech-to-text transcription, along with additional features. It is a REST API that exposes methods for:
-
-1. Creating batch processing requests
-1. Query Status
-1. Downloading transcriptions
-
-> [!NOTE]
-> The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. It makes it easy to transcribe large volumes of audio recordings.
 
 ### Supported formats
 
@@ -46,11 +50,11 @@ The Batch Transcription API supports the following formats:
 
 | Format | Codec | Bitrate | Sample Rate |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
-| MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
-| OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
+| WAV | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
+| MP3 | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
+| OGG | OPUS | 16-bit | 8 kHz or 16 kHz, mono or stereo |
 
-For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. This sample request includes properties for profanity filtering, punctuation, and word level timestamps.
+For stereo audio streams, the left and right channels are split during the transcription. For each channel, a JSON result file is being created. The timestamps generated per utterance enable the developer to create an ordered final transcript.
 
 ### Configuration
 
@@ -64,16 +68,15 @@ Configuration parameters are provided as JSON:
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
-    "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True",
-    "AddSentiment" : "True"
+    "ProfanityFilterMode": "None | Removed | Tags | Masked",
+    "PunctuationMode": "None | Dictated | Automatic | DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True | False",
+    "AddSentiment" : "True | False",
+    "AddDiarization" : "True | False",
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
-
-> [!NOTE]
-> The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
 
 ### Configuration properties
 
@@ -81,21 +84,99 @@ Use these optional properties to configure transcription:
 
 | Parameter | Description |
 |-----------|-------------|
-| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `masked` which replaces profanity with asterisks, `removed` which removes all profanity from the result, or `tags` which adds "profanity" tags. The default setting is `masked`. |
-| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. |
- | `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
- | `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
- | `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `Masked` which replaces profanity with asterisks, `Removed` which removes all profanity from the result, or `Tags` which adds "profanity" tags. The default setting is `Masked`. |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `Dictated` which implies explicit punctuation, `Automatic` which lets the decoder deal with punctuation, or `DictatedAndAutomatic` which implies dictated punctuation marks or automatic. |
+| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
+| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
+| `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
+|`TranscriptionResultsContainerUrl`|Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result will be stored in this container.
 
 ### Storage
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
-## Speaker Separation (Diarization)
+## The batch transcription result
 
-Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing two speakers on mono channel recordings.
+For mono input audio, one transcription result file is being created. For stereo input audio, two transcription result files are being created. Each has this structure:
 
-To request that your audio transcription request is processed for diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
+```json
+{
+  "AudioFileResults":[ 
+    {
+      "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
+      "AudioFileUrl": null                                  'always null'
+      "AudioLengthInSeconds": number                        'Real number. Two decimal places'
+      "CombinedResults": [
+        {
+          "ChannelNumber": null                             'always null'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
+        }
+      ]
+      SegmentResults:[                                      'for each individual segment'
+        {
+          "RecognitionStatus": "Success | Failure"
+          "ChannelNumber": null
+          "SpeakerId": null | "1 | 2"                       'null if no diarization
+                                                             or stereo input file, the
+                                                             speakerId as a string if
+                                                             diarization requested for
+                                                             mono audio file'
+          "Offset": number                                  'time in milliseconds'
+          "Duration": number                                'time in milliseconds'
+          "OffsetInSeconds" : number                        'Real number. Two decimal places'
+          "DurationInSeconds" : number                      'Real number. Two decimal places'
+          "NBest": [
+            {
+              "Confidence": number                          'between 0 and 1'
+              "Lexical": string
+              "ITN": string
+              "MaskedITN": string
+              "Display": string
+              "Sentiment":
+                {                                           'this is omitted if sentiment is
+                                                             not requested'
+                  "Negative": number                        'between 0 and 1'
+                  "Neutral": number                         'between 0 and 1'
+                  "Positive": number                        'between 0 and 1'
+                }
+              "Words": [
+                {
+                  "Word": string
+                  "Offset": number                          'time in milliseconds'
+                  "Duration": number                        'time in milliseconds'
+                  "OffsetInSeconds": number                 'Real number. Two decimal places'
+                  "DurationInSeconds": number               'Real number. Two decimal places'
+                  "Confidence": number                      'between 0 and 1'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+The result contains these forms:
+
+|Form|Content|
+|-|-|
+|`Lexical`|The actual words recognized.
+|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
+|`MaskedITN`|The ITN form with profanity masking applied.
+|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
+
+## Speaker separation (Diarization)
+
+Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
+
+All transcription output contains a `SpeakerId`. If diarization is not used, it will show `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers will be identified as `"1"` or `"2"`.
+
+To request diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
 
  ```json
 {
@@ -111,28 +192,19 @@ To request that your audio transcription request is processed for diarization, y
 }
 ```
 
-Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate. 
+Word-level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
 
-The corresponding audio will contain the speakers identified by a number (currently we support only two voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
+## Sentiment analysis
 
-Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used, it will show 'Speaker: Null' in the JSON output.
+The sentiment feature estimates the sentiment expressed in the audio. The sentiment is expressed by a value between 0 and 1 for `Negative`, `Neutral`, and `Positive` sentiment. For example, sentiment analysis can be used in call center scenarios:
 
-> [!NOTE]
-> Diarization is available in all regions and for all locales!
+- Get insight on customer satisfaction
+- Get insight on the performance of the agents (team taking the calls)
+- Find the exact point in time when a call took a turn in a negative direction
+- What went well when turning a negative call into a positive direction
+- Identify what customers like and what they dislike about a product or a service
 
-## Sentiment
-
-Sentiment is a new feature in Batch Transcription API and is an important feature in the call center domain. Customers can use the `AddSentiment` parameters to their requests to
-
-1.	Get insights on customer satisfaction
-2.	Get insight on the performance of the agents (team taking the calls)
-3.	Pinpoint the exact point in time when a call took a turn in a negative direction
-4.	Pinpoint what went well when turning negative calls to positive
-5.	Identify what customers like and what they dislike about a product or a service
-
-Sentiment is scored per audio segment where an audio segment is defined as the time lapse between the start of the utterance (offset) and the detection silence of end of byte stream. The entire text within that segment is used to calculate sentiment. We DO NOT calculate any aggregate sentiment values for the entire call or the entire speech of each channel. These aggregations are left to the domain owner to further apply.
-
-Sentiment is applied on the lexical form.
+Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription.
 
 A JSON output sample looks like below:
 
@@ -169,7 +241,10 @@ A JSON output sample looks like below:
   ]
 }
 ```
-The feature uses a Sentiment model, which is currently in Beta.
+
+## Best practices
+
+The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service once you retrieved the results. This will guarantee quick replies from the transcription management calls.
 
 ## Sample code
 
@@ -195,9 +270,6 @@ The current sample code doesn't specify a custom model. The service uses the bas
 ## Download the sample
 
 You can find the sample in the `samples/batch` directory in the [GitHub sample repository](https://aka.ms/csspeech/samples).
-
-> [!NOTE]
-> Batch transcription jobs are scheduled on a best effort basis, there is no time estimate for when a job will change into the running state. Once in running state, the actual transcription is processed faster than the audio real time.
 
 ## Next steps
 

@@ -19,6 +19,8 @@ This article lists the top queries you might have related to Microsoft Genomics.
 ## How do I run GATK4 workflows on Microsoft Genomics?
 In the Microsoft Genomics service's config.txt file, specify the process_name to `gatk4`. Note that you will be billed at regular billing rates.
 
+## How do I enable output compression?
+You can compress the output vcf or gvcf using an optional argument for output compression. This is equivalent to running `-bgzip` followed by `-tabix` on the vcf or gvcf output, to produce `.gz` (bgzip output) and `.tbi` (tabix output) files. `bgzip` compresses the vcf or gvcf file, and `tabix` creates an index for the compressed file. The argument is a boolean, which is set to `false` by default for vcf output, and to `true` by default for gcvf output. To use on the command line, specify `-bz` or `--bgzip-output` as `true` (run bgzip and tabix) or `false`. To use this argument in the config.txt file, add `bgzip_output: true` or `bgzip_output: false` to the file.
 
 ## What is the SLA for Microsoft Genomics?
 We guarantee that 99.9% of the time Microsoft Genomics service will be available to receive workflow API requests. For more information, see [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).

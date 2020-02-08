@@ -1,17 +1,14 @@
 ---
-title: Build AngularJS single-page app for sign in and sign out with Azure AD | Microsoft Docs
-description: Learn how to build an AngularJS single-page application that integrates with Azure AD for sign-in and calls Azure AD-protected APIs by using OAuth.
+title: Build an Azure AD AngularJS single-page app for sign in/sign out | Microsoft Docs
+description: Learn how to build an AngularJS single-page app that integrates Azure AD for sign-in & sign-out & calls Azure AD-protected APIs using OAuth.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 10/25/2019
@@ -19,7 +16,6 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to build an AngularJS single-page app for sign-in and sign out with Azure Active Directory.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build an AngularJS single-page app for sign-in and sign out with Azure Active Directory

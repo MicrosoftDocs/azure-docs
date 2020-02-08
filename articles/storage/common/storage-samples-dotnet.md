@@ -14,7 +14,10 @@ ms.topic: sample
 
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
-## Blob samples
+> [!NOTE]
+> These samples use the Azure Storage .NET v11 library. For v12 code, see [samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) in the GitHub repository.
+
+## Blob samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -35,7 +38,7 @@ The following table provides an overview of our samples repository and the scena
 | Service Properties | [Getting Started with Blobs](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Snapshot Blob | [Backup Azure Virtual Machine Disks with Incremental Snapshots](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
-## File samples
+## File samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -49,7 +52,7 @@ The following table provides an overview of our samples repository and the scena
 | List Shares | [Azure Storage .NET File Storage Sample](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 | Share Properties/Metadata/Stats | [Azure Storage .NET File Storage Sample](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 
-## Queue samples
+## Queue samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -62,7 +65,7 @@ The following table provides an overview of our samples repository and the scena
 | Queue Service Properties | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
 | Update Message | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 
-## Table samples
+## Table samples (v11)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|

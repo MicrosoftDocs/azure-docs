@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ---
 
-# Query data in Azure Data Lake using Azure Data Explorer (Preview)
+# Query data in Azure Data Lake using Azure Data Explorer
 
 Azure Data Lake Storage is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
  
@@ -239,7 +239,7 @@ Ascertain that external data resides in the same Azure region as your Azure Data
  
 ### File size
  
-Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files must be greater than the number of CPU cores in your Azure Data Explorer cluster. 
+Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files should be greater than the number of CPU cores in your Azure Data Explorer cluster. 
  
 ### Compression
  

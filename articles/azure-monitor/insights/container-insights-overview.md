@@ -1,12 +1,8 @@
 ---
 title: Overview of Azure Monitor for containers | Microsoft Docs
 description: This article describes Azure Monitor for containers that monitors AKS Container Insights solution and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/18/2019
+ms.date: 01/07/2020
 
 ---
 
@@ -19,6 +15,8 @@ Azure Monitor for containers is a feature designed to monitor the performance of
 - Self-managed Kubernetes clusters hosted on Azure Stack or on-premises
 - Azure Red Hat OpenShift
 
+Azure Monitor for containers supports clusters running the Linux and Windows Server 2019 operating system. 
+
 Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
 Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. Metrics are written to the metrics store and log data is written to the logs store associated with your [Log Analytics](../log-query/log-query-overview.md) workspace. 
@@ -27,7 +25,7 @@ Azure Monitor for containers gives you performance visibility by collecting memo
  
 ## What does Azure Monitor for containers provide?
 
-Azure Monitor for containers delivers a comprehensive monitoring experience using different features of Azure Monitor enabling you to understand the performance and health of your Kubernetes cluster and the container workloads. With Azure Monitor for containers you can:
+Azure Monitor for containers delivers a comprehensive monitoring experience using different features of Azure Monitor. These features enable you to understand the performance and health of your Kubernetes cluster running Linux and Windows Server 2019 operating system, and the container workloads. With Azure Monitor for containers you can:
 
 * Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
 * Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.  
@@ -36,17 +34,21 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 * Understand the behavior of the cluster under average and heaviest loads. This knowledge can help you identify capacity needs and determine the maximum load that the cluster can sustain. 
 * Configure alerts to proactively notify you or record it when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
 * Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes using [queries](container-insights-log-search.md) to create custom alerts, dashboards, and detailed perform detailed analysis.
-
-    >[!NOTE]
-    >Support for Prometheus is a feature in public preview at this time.
-    >
-
 * Monitor container workloads [deployed to AKS Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine) on-premises and [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
     >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
+
+The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
+
+- Memory RSS metric isn't available for Windows node and containers.
+- Disk storage capacity information isn't available for Windows nodes.
+- Container logs aren't available for containers running in Windows nodes.
+- Live Data (preview) feature support is available with the exception of Windows container logs.
+- Only pod environments are monitored, not Docker environments.
+- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation doesn't apply to Linux containers. 
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
 
