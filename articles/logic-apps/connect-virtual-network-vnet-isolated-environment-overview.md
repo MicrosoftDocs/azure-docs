@@ -5,28 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
+ms.date: 02/10/2020
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
-Sometimes, your logic apps and integration accounts need access to secured resources, 
-such as virtual machines (VMs) and other systems or services, that are inside an 
-[Azure virtual network](../virtual-network/virtual-networks-overview.md). 
-To set up this access, you can 
-[create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
-where you can run your logic apps and create your integration accounts.
+Sometimes, your logic apps and integration accounts need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) where you can run your logic apps and create your integration accounts.
 
-When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys a private and isolated instance of the Logic Apps service into your Azure virtual network. This private instance uses dedicated resources such as storage, 
-and runs separately from the public, "global", multi-tenant Logic Apps service. 
-Separating your isolated private instance and the public global 
-instance also helps reduce the impact that other Azure tenants 
-might have on your apps' performance, which is also known as the 
-["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
+When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys a private and isolated instance of the Logic Apps service into your Azure virtual network. This private instance uses dedicated resources such as storage, and runs separately from the public, "global", multi-tenant Logic Apps service. Separating your isolated private instance and the public global instance also helps reduce the impact that other Azure tenants might have on your apps' performance, which is also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 
-After creating your ISE, when you go to create your logic app 
-or integration account, you can select your ISE as your logic 
-app or integration account's location:
+After creating your ISE, when you go to create your logic app or integration account, you can select your ISE as your logic app or integration account's location:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -111,9 +99,7 @@ These endpoints also affect the way that you can access inputs and outputs in yo
 
 ## Access to on-premises data sources
 
-For on-premises systems that are connected to an Azure virtual network, 
-inject an ISE into that network so your logic apps can directly access 
-those systems by using any of these items:
+For on-premises systems that are connected to an Azure virtual network, inject an ISE into that network so your logic apps can directly access those systems by using any of these items:
 
 * HTTP action
 
@@ -127,32 +113,17 @@ those systems by using any of these items:
 
 * Custom connector
 
-  * If you have custom connectors that require the on-premises 
-  data gateway, and you created those connectors outside an ISE, 
-  logic apps in an ISE can also use those connectors.
-  
-  * Custom connectors created in an ISE don't work with the 
-  on-premises data gateway. However, these connectors can 
-  directly access on-premises data sources that are connected 
-  to the virtual network hosting the ISE. So, logic apps in an 
-  ISE most likely don't need the data gateway when communicating 
-  with those resources.
+  * If you have custom connectors that require the on-premises data gateway, and you created those connectors outside an ISE, logic apps in an ISE can also use those connectors.
 
-For on-premises systems that aren't connected to a virtual 
-network or don't have ISE-labled connectors, you must first 
-[set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) 
-before your logic apps can connect to those systems.
+  * Custom connectors created in an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to the virtual network hosting the ISE. So, logic apps in an ISE most likely don't need the data gateway when communicating with those resources.
+
+For on-premises systems that aren't connected to a virtual network or don't have ISE-labeled connectors, you must first [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) before your logic apps can connect to those systems.
 
 <a name="create-integration-account-environment"></a>
 
 ## Integration accounts with ISE
 
-You can use integration accounts with logic apps inside an 
-integration service environment (ISE). However, those integration 
-accounts must use the *same ISE* as the linked logic apps. 
-Logic apps in an ISE can reference only those integration accounts 
-that are in the same ISE. When you create an integration account, 
-you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Next steps
 
