@@ -20,7 +20,15 @@ This article shows how to create a logic app that receives an HTTP request by us
 
 * An Azure subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A blank logic app so that you can create the B2B workflow by using the [Request](../connectors/connectors-native-reqres.md) trigger, which is followed by the [AS2 Decode](../logic-apps/logic-apps-enterprise-integration-as2.md) action, [Decode X12 message](../logic-apps/logic-apps-enterprise-integration-x12.md) action, and [Response](../connectors/connectors-native-reqres.md) action in this example. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A blank logic app so that you can create the B2B workflow by using the [Request](../connectors/connectors-native-reqres.md) trigger that's followed by these actions:
+
+  * [AS2 Decode](../logic-apps/logic-apps-enterprise-integration-as2.md)
+
+  * [Condition](../logic-apps/logic-apps-control-flow-conditional-statement.md), which sends a [Response](../connectors/connectors-native-reqres.md) based on whether the AS2 Decode action succeeds or fails
+
+  * [Decode X12 message](../logic-apps/logic-apps-enterprise-integration-x12.md) 
+
+  If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) that's associated with your Azure subscription and linked to your logic app. Both your logic app and integration account must exist in the same location or Azure region.
 
