@@ -117,7 +117,7 @@ Create a web application that has an HTML sign-in page to configure [password-ba
 
 Follow the process shown in the following image to request user provisioning.
 
-   ![Request for user provisioning](./media/howto-app-gallery-listing/user_provisioning.png)
+   ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 
 ## Update or remove an existing listing
 
@@ -135,7 +135,7 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
 Customers can submit a request to list an application by selecting **App requests by Customers** > **Submit new request**.
 
-![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer_submit_request.png)
+![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Here's the flow of customer-requested applications.
 
