@@ -60,7 +60,7 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
 1. For the **Message to decode** property, enter the input that you want the AS2 action to decode, which is the `body` content that's received by the HTTP request trigger. You have multiple ways to specify this content as input, either from the dynamic content list or as an expression:
 
-   * To select tokens that represent the available trigger outputs, click inside the **Message to decode** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body** property value, for example:
+   * To select from a list that shows the available trigger outputs, click inside the **Message to decode** box. After the dynamic content list appears, under **When a HTTP request is received**, select **Body** property value, for example:
 
      ![Select "Body" value from trigger](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
@@ -80,9 +80,9 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
    To enter an expression that references the trigger's `headers` output, click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
 
-   `triggerOutputs()['headers']`
+   `triggerOutputs()['Headers']`
 
-   The expression resolves to a token.
+   To get this expression to resolve as this token, switch between the designer and code view, for example:
 
    ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
@@ -92,41 +92,67 @@ To notify the trading partner that the message was received, you can return a re
 
 1. Under the **AS2 Decode** action, select **New step**.
 
-1. Under **Choose an action**, in the search box, enter `response`, and select **Response**.
+1. Under **Choose an action**, under the search box, select **Built-in**. In the search box, enter `condition`. From the **Actions** list, select **Condition**.
 
-   ![Find and select the "Response" action](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
+   ![Add the "Condition" action](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
-1. To access the AS2 MDN from the **AS2 Decode** action's output, in the **Response** action's **Body** property, enter this expression:
+   Now the condition shape appears, including the paths for whether the condition is met or not.
 
-   `@base64ToString(body('AS2_Decode')?['OutgoingMdn']?['Content'])`
+   ![Condition shape with decision paths](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
-   The expression resolves to a token:
+1. Now specify the condition to evaluate. In the **Choose a value** box, enter this expression:
 
-   ![Resolved expression to access AS MDN](./media/logic-apps-enterprise-integration-b2b/response-action-resolved-expression.png)
+   `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
+
+   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`. To get the expression to resolve as this token, switch between the designer and code view.
+
+   ![Condition shape with decision paths](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+
+1. Now specify the responses to return whether the **AS2 Decode** action succeeds or not.
+
+   1. For the case when the **AS2 Decode** action succeeds, in the **If true** shape, select **Add an action**. Under **Choose an action**, in the search box, enter `response`, and select **Response**.
+
+      ![Find and select the "Response" action](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
+
+   1. To access the AS2 MDN from the **AS2 Decode** action's output, specify these expressions:
+
+      * In the **Response** action's **Headers** property, enter this expression:
+
+        `@body('AS2_Decode')?['OutgoingMdn']?['OutboundHeaders']`
+
+      * In the **Response** action's **Body** property, enter this expression:
+
+        `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
+
+   1. To get the expressions to resolve as tokens, switch between the designer and code view:
+
+      ![Resolved expression to access AS2 MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
+
+   1. For the case when the **AS2 Decode** action fails, in the **If false** shape, select **Add an action**. Under **Choose an action**, in the search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
 
 1. Save your logic app.
 
 ## Add Decode X12 message action
 
-1. Now add the **Decode X12 message** action. Under the **Response** action, select **New step**.
+1. Now add the **Decode X12 message** action. Under the **Response** action, select **Add an action**.
 
 1. Under **Choose an action**, in the search box, enter `x12 decode`, and select **Decode X12 message**.
 
    ![Find and select "Decode X12 message" action](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 
+1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+
+   ![Create X12 connection to integration account](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
+
 1. Now specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64 encoded. So, you have to convert this content to a string.
 
-   1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+   In the **X12 Flat file message to decode** box, enter this expression to convert the AS2 output:
 
-      ![Create X12 connection to integration account](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
+   `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
 
-   1. In the **X12 Flat file message to decode** box, enter this expression to convert the AS2 output:
+    To get the expression to resolve as this token, switch between the designer and code view.
 
-      `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
-
-      The expression resolves to a token:
-
-      ![Convert base64-encoded content to a string](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
+    ![Convert base64-encoded content to a string](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
 
 1. Save your logic app.
 
