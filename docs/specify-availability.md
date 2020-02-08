@@ -22,7 +22,8 @@ If you don't want your solution to automatically be made available in future mar
 
 ## Schedule
 
-By default, your solution will be made available and discoverable in Microsoft AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in Microsoft AppSource, use the date and time selectors to specify the date and time at which your solution will be discoverable to customers. Note that your solution will still be accessible via direct link in Microsoft AppSource prior to the release date.
+By default, your solution will be made available and discoverable in Microsoft AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in Microsoft AppSource, use the date and time selectors to specify the date and time at which your solution will be discoverable to customers. 
+<!--Note that your solution will still be accessible via direct link in Microsoft AppSource prior to the release date.-->
 <!--
 If you choose not to make your solution discoverable in Microsoft AppSource, select the **Make my product hidden after release and accessible only by direct link** check box.
 -->
