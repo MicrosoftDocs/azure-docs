@@ -71,11 +71,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## View the State Configuration logs
 
-After you set up integration with Azure Monitor logs for your Automation State Configuration data, a
-**Log search** button will appear on the **DSC Nodes** blade of your automation account. Click the
-**Log Search** button to view the logs for DSC node data.
+After you set up integration with Azure Monitor logs for your Automation State Configuration data, they can be viewed by selecting **Logs** in the **Monitoring** section in the left pane of the State Configuration (DSC) page.  
 
-![Log search button](media/automation-dsc-diagnostics/log-search-button.png)
+![Logs](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
 The **Log Search** blade opens, and you see a **DscNodeStatusData** operation for each State
 Configuration node, and a **DscResourceStatusData** operation for each [DSC
@@ -85,13 +83,14 @@ The **DscResourceStatusData** operation contains error information for any DSC r
 
 Click each operation in the list to see the data for that operation.
 
-You can also view the logs by searching in Azure Monitor logs.
-See [Find data using log searches](../log-analytics/log-analytics-log-searches.md).
-Type the following query to find your State Configuration logs:
-`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+You can also view the logs by searching in Azure Monitor logs. See [Find data using log searches](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Type the following query to find your State Configuration logs.
 
-You can also narrow the query by the operation name. For example:
-`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### Send an email when a State Configuration compliance check fails
 
