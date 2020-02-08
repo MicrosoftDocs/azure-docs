@@ -20,7 +20,8 @@ ms.author: allensu
 
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses.  Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
-<!-- illustration goes here -->
+[!div class="mx-imgBorder"]
+![Virtual Network NAT](./media/nat-overview/flow-map.svg)
 
 >[!NOTE] 
 >Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
