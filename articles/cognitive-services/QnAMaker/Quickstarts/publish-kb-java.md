@@ -98,7 +98,7 @@ Build and run the program from the command line. It will automatically send the 
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-java.md).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

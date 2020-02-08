@@ -69,7 +69,7 @@ Once your knowledge base is published, you can query it from the endpoint with a
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-csharp.md).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
