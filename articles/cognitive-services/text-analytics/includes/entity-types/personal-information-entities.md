@@ -30,7 +30,7 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                                                                                       |              |
+| Subtype name | Description                                                                                       | Available starting with model version|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
 | N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
