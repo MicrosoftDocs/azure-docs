@@ -124,12 +124,13 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
 ## Create your ISE
 
-To create your integration service environment (ISE), follow these steps:
+1. In the [Azure portal](https://portal.azure.com), in the main Azure search box, enter `integration service environments` as your filter, and select **Integration Service Environments**.
 
-1. In the [Azure portal](https://portal.azure.com), on the main Azure menu, select **Create a resource**.
-In the search box, enter "integration service environment" as your filter.
+   ![Find and select "Integration Service Environments"](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-   ![Create new resource](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+1. On the **Integration Service Environments** pane, select **Add**.
+
+   ![Find and select "Integration Service Environments"](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
 1. On the Integration Service Environment creation pane, choose **Create**.
 
