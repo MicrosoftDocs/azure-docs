@@ -22,21 +22,21 @@ highlightedContent:
   items:
     # Card
     - title: Linux virtual machines
-      itemType: overview
+      itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machines/linux/
     # Card
     - title: Windows virtual machines
-      itemType: overview
+      itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machines/windows/
     # Card
     - title: Virtual machine scale sets
-      itemType: overview
+      itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
 
 # tools section (optional)
 tools:
-  title: Tools for creating virtual machines < 60 chars (optional)
-  summary: sectionsummary # < 160 chars (optional)
+  title: 
+  summary:
   items:
     # Card
     - title: Azure CLI
