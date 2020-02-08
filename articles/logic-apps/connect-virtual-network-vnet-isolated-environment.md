@@ -132,24 +132,24 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
    ![Find and select "Integration Service Environments"](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
-1. On the Integration Service Environment creation pane, choose **Create**.
+1. On the Integration Service Environment creation pane, select **Create**.
 
-   ![Choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
+   ![Select "Create"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
-1. Provide these details for your environment, and then choose **Review + create**, for example:
+1. Provide these details for your environment, and then select **Review + create**, for example:
 
    ![Provide environment details](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your environment |
-   | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | A new or existing Azure resource group where you want to create your environment |
    | **Integration service environment name** | Yes | <*environment-name*> | Your ISE name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
    | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
    | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. <p><p>Your selection also affects the way that you can view and access inputs and outputs in your logic app runs history. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
-   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
+   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p><p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet). |
    |||||
 
@@ -184,22 +184,22 @@ This table describes the ports in your Azure virtual network that your ISE uses 
      **Address prefix**: 0.0.0.0/0<br>
      **Next hop**: Internet
 
-   1. Under the **Subnets** list, choose **Manage subnet configuration**.
+   1. Under the **Subnets** list, select **Manage subnet configuration**.
 
-      ![Manage subnet configuration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Manage subnet configuration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet-configuration.png)
 
-   1. On the **Subnets** pane, choose **Subnet**.
+   1. On the **Subnets** pane, select **Subnet**.
 
-      ![Add subnet](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Add four empty subnets](./media/connect-virtual-network-vnet-isolated-environment/add-empty-subnets.png)
 
    1. On the **Add subnet** pane, provide this information.
 
       * **Name**: The name for your subnet
       * **Address range (CIDR block)**: Your subnet's range in your virtual network and in CIDR format
 
-      ![Add subnet details](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
+      ![Add subnet details](./media/connect-virtual-network-vnet-isolated-environment/provide-subnet-details.png)
 
-   1. When you're done, choose **OK**.
+   1. When you're done, select **OK**.
 
    1. Repeat these steps for three more subnets.
 
@@ -209,17 +209,17 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
    For more information about creating subnets, see [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
-1. After Azure successfully validates your ISE information, choose **Create**, for example:
+1. After Azure successfully validates your ISE information, select **Create**, for example:
 
-   ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
+   ![After successful validation, select "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure starts deploying your environment, which usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, on your Azure toolbar, choose the notifications icon, which opens the notifications pane.
+   Azure starts deploying your environment, which usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
    ![Check deployment status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
    If deployment finishes successfully, Azure shows this notification:
 
-   ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success-message.png)
 
    Otherwise, follow the Azure portal instructions for troubleshooting deployment.
 
@@ -233,7 +233,7 @@ This table describes the ports in your Azure virtual network that your ISE uses 
    > When deleting virtual networks, make sure that no resources are still connected. 
    > See [Delete virtual network](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
-1. To view your environment, choose **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
+1. To view your environment, select **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
 
 1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
@@ -249,31 +249,56 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
 ## Add ISE capacity
 
-The Premium ISE base unit has fixed capacity, so if you need more throughput, you can add more scale units, either during creation or afterwards. You can autoscale based on performance metrics or based on a number of additional processing units. If you choose autoscaling based on metrics, you can choose from various criteria and specify the threshold conditions for meeting that criteria. The Developer SKU doesn't include the capability to add scale units.
+The Premium ISE base unit has fixed capacity, so if you need more throughput, you can add more scale units, either during creation or afterwards. The Developer SKU doesn't include the capability to add scale units.
 
 1. In the Azure portal, find your ISE.
 
-1. To review usage and performance metrics for your ISE, on your ISE's main menu, select **Overview**.
+1. To review usage and performance metrics for your ISE, on your ISE menu, select **Overview**.
 
    ![View usage for ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
-1. To set up autoscaling, under **Settings**, select **Scale out**. On the **Configure** tab, choose **Enable autoscale**.
+1. Under **Settings**, select **Scale out**. On the **Configure** pane, select from these options:
 
-   ![Turn on autoscaling](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+   * [**Manual scale**](#manual-scale): Scale based on the number of processing units that you want to use.
+   * [**Custom autoscale**](#custom-autoscale): Scale based on performance metrics by selecting from various criteria and specifying the threshold conditions for meeting that criteria.
 
-1. For **Autoscale setting name**, provide a name for your setting.
+   ![Select the scaling type that you want](./media/connect-virtual-network-vnet-isolated-environment/select-scale-out-options.png)
 
-1. In the **Default** section, choose either **Scale based on a metric** or **Scale to a specific instance count**.
+<a name="manual-scale"></a>
 
-   * If you choose instance-based, enter the number of processing units between 0 and 10 inclusively.
+### Manual scale
+
+1. After you select **Manual scale**, for **Additional capacity**, select the number of scaling units that you want to use.
+
+   ![Select the scaling type that you want](./media/connect-virtual-network-vnet-isolated-environment/select-manual-scale-out-units.png)
+
+1. When you're done, select **Save**.
+
+<a name="custom-autoscale"></a>
+
+### Custom autoscale
+
+1. After you select **Custom autoscale**, for **Autoscale setting name**, provide a name for your setting and optionally, select the Azure resource group where the setting belongs.
+
+   ![Provide name for autoscale setting and select resource group](./media/connect-virtual-network-vnet-isolated-environment/select-custom-autoscale.png)
+
+1. For the **Default** condition, select either **Scale based on a metric** or **Scale to a specific instance count**.
+
+   * If you choose instance-based, enter the number for the processing units, which is a value from 0 to 10.
 
    * If you choose metric-based, follow these steps:
 
-     1. In the **Rules** section, choose **Add a rule**.
+     1. In the **Rules** section, select **Add a rule**.
 
      1. On the **Scale rule** pane, set up your criteria and action to take when the rule triggers.
 
-     1. When you're done, choose **Add**.
+     1. For **Instance limits**, specify these values:
+
+        * **Minimum**: The minimum number of processing units to use
+        * **Maximum**: The maximum number of processing units to use
+        * **Default**: If any problems happen while reading the resource metrics, and the current capacity is below the default capacity, autoscaling scales out to the default number of processing units. However, if the current capacity exceeds the default capacity, autoscaling doesn't scale in.
+
+1. To add another condition, select **Add scale condition**.
 
 1. When you're finished with your autoscale settings, save your changes.
 
