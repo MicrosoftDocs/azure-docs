@@ -1,4 +1,4 @@
-sasa---
+---
 title: Code samples for Azure Active Directory v1.0 | Microsoft Docs
 description: Provides an index of Azure Active Directory (v1.0 endpoint) code samples, organized by scenario.
 services: active-directory
