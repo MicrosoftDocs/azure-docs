@@ -1,5 +1,5 @@
 ---
-title: Manage storage account credentials with StorSimple Device Manager
+title: Manage storage account credentials, StorSimple 8000 series device
 description: Explains how you can use the StorSimple Device Manager Configure page to add, edit, delete, or rotate the security keys for a storage account.
 services: storsimple
 documentationcenter: NA
