@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 02/10/2020
 ---
 
 # Add artifacts to your integration service environment (ISE) in Azure Logic Apps
