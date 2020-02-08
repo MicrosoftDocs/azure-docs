@@ -132,10 +132,6 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
    ![Find and select "Integration Service Environments"](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
-1. On the Integration Service Environment creation pane, select **Create**.
-
-   ![Select "Create"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
-
 1. Provide these details for your environment, and then select **Review + create**, for example:
 
    ![Provide environment details](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
