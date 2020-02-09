@@ -85,7 +85,7 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | `selfasserted:` |	Displays a form that enables users to create or update their profile. |
 
 
-## Select a page layout version
+## Select a page layout
 
 You can enable [JavaScript client-side code](javascript-samples.md) by inserting `contract` between `elements` and the page type, for example: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.  
 
