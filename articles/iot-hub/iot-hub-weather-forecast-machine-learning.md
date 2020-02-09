@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 02/08/2020
 ms.author: robinsh
 ---
 
@@ -85,7 +85,7 @@ For the model to behave correctly, the temperature and humidity data must be con
 
    ```
 
-   When you're finished the properties window should look similar to the following:
+   When you're finished, the properties window should look similar to the following:
 
    ![Add code to Execute R Script module](media/iot-hub-weather-forecast-machine-learning/add-code-to-module.png)
 
