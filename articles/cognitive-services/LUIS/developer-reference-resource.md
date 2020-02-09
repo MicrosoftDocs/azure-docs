@@ -72,7 +72,7 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Create and manage your LUIS.ai applications
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- manage parent and child apps
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
-* [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
+* [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 
 
 ## Next steps
