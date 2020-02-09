@@ -169,7 +169,7 @@ This repository contains:
 
 •	LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
 
-**For mosquito_pub:**
+**For mosquitto_pub:**
 
 •	This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
 
