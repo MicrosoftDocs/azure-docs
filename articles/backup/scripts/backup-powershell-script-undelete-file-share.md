@@ -158,7 +158,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $RestoreAsFileShareName $Del
 
 ### Prerequisites
 
-1. Install the latest Azure PowerAhell Az modules from [this link](https://docs.microsoft.com//powershell/azure/install-az-ps?view=azps-3.3.0) before running the script.
+1. Install the latest Azure PowerShell Az modules from [this link](https://docs.microsoft.com//powershell/azure/install-az-ps?view=azps-3.3.0) before running the script.
 2. Keep the following details handy as you will need to pass them as values for different parameters of the script:
 
     * **-SubscriptionId** - ID of the subscription where the file share is present.
