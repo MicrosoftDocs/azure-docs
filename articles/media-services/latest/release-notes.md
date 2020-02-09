@@ -44,10 +44,6 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 Media Services GA’ed in the following Azure Government regions: *USGov Arizona* and *USGov Texas*.
 
-### The Azure Government cloud updates
-
-Media Services GA’ed in the following Azure Government regions: *USGov Arizona* and *USGov Texas*.
-
 ## December 2019
 
 Added CDN support for *Origin-Assist Prefetch* headers for both live and video on-demand streaming; available for customers who have direct contract with Akamai CDN. Origin-Assist CDN-Prefetch feature involves the following HTTP header exchanges between Akamai CDN and Azure Media Services origin:
