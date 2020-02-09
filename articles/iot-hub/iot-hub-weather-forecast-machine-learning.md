@@ -89,11 +89,11 @@ For the model to behave correctly, the temperature and humidity data must be con
 
    ![Add code to Execute R Script module](media/iot-hub-weather-forecast-machine-learning/add-code-to-module.png)
 
+### Deploy predictive web service
+
 1. Click **Run** to validate the steps in the model. This step might take a few minutes to complete.
 
    ![Run the experiment to validate the steps](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
-
-### Deploy predictive web service
 
 1. Click **SET UP WEB SERVICE** > **Predictive Web Service**.
 
@@ -228,9 +228,9 @@ Run the client application to start collecting and sending temperature and humid
 1. Sign in to your Azure account.
 1. Select your subscription.
 1. Click your subscription > **Storage Accounts** > your storage account > **Blob Containers** > your container.
-1. Open a .csv file to see the result. The last column records the chance of rain.
+1. Download a .csv file to see the result. The last column records the chance of rain.
 
-   ![Get weather forecast result with Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
+   ![Get weather forecast result with Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## Summary
 
