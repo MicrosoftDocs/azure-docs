@@ -44,9 +44,24 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 Media Services GA’ed in the following Azure Government regions: *USGov Arizona* and *USGov Texas*.
 
+### The Azure Government cloud updates
+
+Media Services GA’ed in the following Azure Government regions: *USGov Arizona* and *USGov Texas*.
+
 ## December 2019
 
-Added CDN support for *Origin-Assist Prefetch* headers for both live and video on-demand streaming; available for customers who have direct contract with Akamai CDN. 
+Added CDN support for *Origin-Assist Prefetch* headers for both live and video on-demand streaming; available for customers who have direct contract with Akamai CDN. Origin-Assist CDN-Prefetch feature involves the following HTTP header exchanges between Akamai CDN and Azure Media Services origin:
+
+|HTTP header|Values|Sender|Receiver|Purpose|
+| ---- | ---- | ---- | ---- | ----- |
+|CDN-Origin-Assist-Prefetch-Enabled | 1 (default) or 0 |CDN|Origin|To indicate CDN is prefetch enabled|
+|CDN-Origin-Assist-Prefetch-Path| Example: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|Origin|CDN|To provide prefetch path to CDN|
+|CDN-Origin-Assist-Prefetch-Request|1 (prefetch request) or 0 (regular request)|CDN|Origin|To indicate the request from CDN is a prefetch|
+
+To see part of the header exchange in action, you can try the following steps:
+
+1. Use Postman or curl to issue a request to Media Services origin for an audio or video segment or fragment. Make sure to add the header CDN-Origin-Assist-Prefetch-Enabled: 1 in the request.
+2. In the response, you should see the header CDN-Origin-Assist-Prefetch-Path with a relative path as its value.
 
 ## November 2019
 
