@@ -35902,8 +35902,38 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-provisioning.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/plan-auto-user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-auto-user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/plan-cloud-hr-provision.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-cloud-hr-provision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/provisioning-agent-release-version-history.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/provisioning-agent-release-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/sap-successfactors-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/sap-successfactors-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/skip-out-of-scope-deletions.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/skip-out-of-scope-deletions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-automatic-user-provisioning-portal.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
@@ -35946,6 +35976,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/use-scim-to-provision-users-and-groups.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/workday-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/workday-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
       "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure",
       "redirect_document_id": true
@@ -35966,14 +36006,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
       "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/customize-application-attributes",
+      "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/customize-application-attributes.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-group-policy.md",
@@ -35987,18 +36042,33 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-provisioning-reporting.md",
-      "redirect_url": "/azure/active-directory/manage-apps/check-status-user-account-provisioning",
+      "redirect_url": "/azure/active-directory/app-provisioning/check-status-user-account-provisioning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/check-status-user-account-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/check-status-user-account-provisioning",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-scoping-filters.md",
-      "redirect_url": "/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/functions-for-customizing-application-data",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/functions-for-customizing-application-data.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
@@ -36127,33 +36197,73 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-no-users-provisioned.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned.md",
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-storage-limit.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-wrong-users-provisioned.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md",
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-quarantine-status.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-quarantine-status",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish-specific-user.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",

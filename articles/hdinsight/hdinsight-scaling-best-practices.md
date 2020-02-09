@@ -6,7 +6,7 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/05/2020
 ---
 
 # Scale Azure HDInsight clusters
@@ -211,6 +211,10 @@ If Hive has left behind temporary files, then you can manually clean up those fi
 If your clusters get stuck in safe mode frequently when scaling down to fewer than three worker nodes, and the previous steps don't work, then you can avoid your cluster going in to safe mode altogether by keeping at least three worker nodes.
 
 Retaining three worker nodes is more costly than scaling down to only one worker node, but it will prevent your cluster from getting stuck in safe mode.
+
+### Scale HDInsight down to one worker node
+
+Even when the cluster is scaled down to 1 node, worker node 0 will still survive. Worker node 0 can never be decommissioned.
 
 #### Run the command to leave safe mode
 

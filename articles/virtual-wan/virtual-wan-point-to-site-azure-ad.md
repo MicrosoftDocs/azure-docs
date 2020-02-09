@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 02/07/2019
 ms.author: alzam
 
 ---
@@ -82,19 +82,17 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 A P2S configuration defines the parameters for connecting remote clients.
 
-1. Set the following variables, replacing values as needed for your environment.
+1. Under your virtual WAN, select **User VPN configurations**.
 
-   ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
-   ```
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Run the following commands to create the configuration:
+2. click **+Create user VPN config**.
 
-   ```powershell
-   $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-   ```
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+
+3. Enter the information and click **Create**
+
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="hub"></a>Edit hub assignment
 

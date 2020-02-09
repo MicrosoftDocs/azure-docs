@@ -1124,9 +1124,9 @@ The CumeDist function computes the position of a value relative to all values in
 * ``cumeDist()``
 ___
 ### <code>denseRank</code>
-<code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values
-* ``denseRank(salesQtr, salesAmt)``
+<code><b>denseRank() => integer</b></code><br/><br/>
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values
+* ``denseRank()``
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -1147,9 +1147,9 @@ The NTile function divides the rows for each window partition into `n` buckets r
 * ``nTile(numOfBuckets)``
 ___
 ### <code>rank</code>
-<code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
-* ``rank(salesQtr, salesAmt)``
+<code><b>rank() => integer</b></code><br/><br/>
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
+* ``rank()``
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
