@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -24,11 +24,11 @@ You can add your own JavaScript client-side code to your Azure Active Directory 
 
 ## Prerequisites
 
-### Select a page layout
+### Select a page layout 
 
-* [Select a page layout](page-layout.md) for the user interface elements of your application.
+* Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
 
-    If you intend to use JavaScript, you need to [define a page layout version](page-layout.md#replace-datauri-values) for *all* of the content definitions in your custom policy.
+    If you intend to use JavaScript, you need to [define a page layout version](contentdefinitions.md#migrating-to-page-layout) for *all* of the content definitions in your custom policy.
 
 ## Add the ScriptExecution element
 
@@ -48,25 +48,7 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
     ```
 3. Save and upload the file.
 
-## Guidelines for using JavaScript
-
-Follow these guidelines when you customize the interface of your application using JavaScript:
-
-- Don't bind a click event on `<a>` HTML elements.
-- Don’t take a dependency on Azure AD B2C code or comments.
-- Don't change the order or hierarchy of Azure AD B2C HTML elements. Use an Azure AD B2C policy to control the order of the UI elements.
-- You can call any RESTful service with these considerations:
-    - You may need to set your RESTful service CORS to allow client-side HTTP calls.
-    - Make sure your RESTful service is secure and uses only the HTTPS protocol.
-    - Don't use JavaScript directly to call Azure AD B2C endpoints.
-- You can embed your JavaScript or you can link to external JavaScript files. When using an external JavaScript file, make sure to use the absolute URL and not a relative URL.
-- JavaScript frameworks:
-    - Azure AD B2C uses a specific version of jQuery. Don’t include another version of jQuery. Using more than one version on the same page causes issues.
-    - Using RequireJS isn't supported.
-    - Most JavaScript frameworks are not supported by Azure AD B2C.
-- Azure AD B2C settings can be read by calling `window.SETTINGS`, `window.CONTENT` objects, such as the current UI language. Don’t change the value of these objects.
-- To customize the Azure AD B2C error message, use localization in a policy.
-- If anything can be achieved by using a policy, generally it's the recommended way.
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## JavaScript samples
 
