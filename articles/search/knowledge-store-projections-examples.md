@@ -397,7 +397,16 @@ File projections are images that are either extracted from the source document o
 
 ## Projecting to multiple types
 
-Sometimes you might need to project content across projection types. For example, if you need to save the OCR results of text and layout text in addition to the table projections, object projections would be a better option for this data. Let's now create a projection for the document, key phrases and entities as tables, OCR text and layout text as object projections and the images as files. Start by adding a new shaper skill to the skill array that creates a shaped object. 
+A more complex scenario might require you to project content across projection types. For example, if you need to project some data like key phrases and enitirties to tables, save the OCR results of text and layout text as objects and project the images as files. This update to the skillset will:
+
+1. Create a table with a row for each document
+2. Create a table related to the document table with each key phrases identified as a row in this table
+3. Create a table related to the document table with each entity identified as a row in this table
+4. Create a object projection with the layout text for each image
+5. Create a file projection, projecting each extrated image
+6. Create a cross reference table that contains references to the document table, object projection with the layout text and the file projection.
+
+Start by adding a new shaper skill to the skill array that creates a shaped object. 
 
 ```json
 {
