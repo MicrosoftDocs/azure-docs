@@ -12,12 +12,13 @@ This script helps you to undelete a file share, if you deleted it accidentally. 
 ## Sample script
 
 ```powershell
-#Import-Module Az.Storage -MinimumVersion 1.7.0 -Scope Local
+#Import-Module Az.Storage -MinimumVersion 1.7.0 -Scope Local 
 Param(
         [Parameter(Mandatory=$True)][System.String] $ResourceGroupName,
         [Parameter(Mandatory=$True)][System.String] $StorageAccountName,
         [Parameter(Mandatory=$True)][System.String] $FileShareName,
         [Parameter(Mandatory=$True)][System.String] $SubscriptionId,
+        [Parameter(Mandatory=$False)][System.Boolean] $ListOption,
         [Parameter(Mandatory=$False)][System.String] $RestoreAsFileShareName,
         [Parameter(Mandatory=$False)][System.String] $DeletedShareVersion
     )
@@ -39,7 +40,8 @@ Function Restore-DeletedFileShare
     $FileShareName = $FileShareName.ToLowerInvariant()
 
     Write-Verbose "Restoring a file share with the name: $FileShareName" -Verbose
-
+    
+    
     Write-Information -MessageData "Started: Creating SASToken to List File Shares" -InformationAction Continue
 
     $listToken = New-AzStorageAccountSASToken -Context $Context -Service File -ResourceType Service -Permission "l" -Protocol HttpsOrHttp -StartTime (Get-Date).AddHours(-1) -ExpiryTime (Get-Date).AddHours(1)
@@ -54,11 +56,11 @@ Function Restore-DeletedFileShare
 
     if ($listSharesResponse.StatusCode -ne 200)
     {
-        Write-Error "Request to list file shares failed." -ErrorAction Stop
+        Write-Error "Request to list file shares failed." -ErrorAction Stop 
     }
 
     Write-Verbose $listSharesResponse.RawContent -Verbose
-
+    
     $listSharesResponseContent = $listSharesResponse.Content.Substring(3)
 
     Write-Information -MessageData "Completed: Listing File Shares to find the deleted file share" -InformationAction Continue
@@ -66,16 +68,33 @@ Function Restore-DeletedFileShare
     Write-Information -MessageData "Started: Search for a deleted file share with the specified name" -InformationAction Continue
 
     $deletedFileShares = Select-Xml -Content $listSharesResponseContent -XPath "/EnumerationResults/Shares/Share[Deleted=""true"" and Name=""$FileShareName""]"
-
+     
     $matchedCount = 0
     $deletedShareVersions = New-Object System.Collections.Generic.List[string]
 
     foreach($share in $deletedFileShares)
-    {
-        Write-Verbose $share.Node.InnerXml -Verbose
-        $deletedShareVersions.Add($share.Node.Item("Version").InnerText)
+    {   
+        if($matchedCount -eq 0)
+        {
+          Write-Verbose $share.Node.InnerXml -Verbose
 
-        $matchedCount++
+          Write-Information -MessageData "Completed: Search for a deleted file share with the specified name And Found versions" -InformationAction Continue
+        } 
+        
+        $shareVer = $share.Node.Item("Version").InnerText
+        $shareDelTime = $share.Node.Item("Properties").Item("DeletedTime").InnerText
+        $retDays = $share.Node.Item("Properties").Item("RemainingRetentionDays").InnerText
+                   
+        $deletedShareVersions.Add($share.Node.Item("Version").InnerText)
+        
+        Write-Information -MessageData "DeletedVersion: $shareVer, DeletedTime: $shareDelTime, RemainingRetentionDays: $retDays"  -InformationAction Continue
+
+        $matchedCount++        
+    }
+
+    if($ListOption -eq $True)
+    {
+       return;
     }
 
     if ($matchedCount -eq 0)
@@ -83,18 +102,11 @@ Function Restore-DeletedFileShare
         Write-Error "Deleted file share with the specified name was not found." -ErrorAction Stop
     }
     elseif($matchedCount -eq 1 -and ([string]::IsNullOrWhiteSpace($DeletedShareVersion) -or $deletedShareVersions.Contains($DeletedShareVersion)))
-    {
+    { 
       $DeletedShareVersion = $deletedShareVersions
     }
-    elseif ($matchedCount -gt 1)
-    {
-      Write-Information -MessageData "Completed: Search for a deleted file share with the specified name And Found versions" -InformationAction Continue
-
-      foreach($dv in $deletedShareVersions)
-      {
-        Write-Information -MessageData $dv -InformationAction Continue
-      }
-
+    elseif ($matchedCount -gt 1) 
+    {   
       if ([string]::IsNullOrWhiteSpace($DeletedShareVersion) -or !$deletedShareVersions.Contains($DeletedShareVersion))
       {
         Write-Error "More than one share with the specified name was found. Please specify a valid DeletedShareVersion parameter from above possible values." -ErrorAction Stop
@@ -114,20 +126,20 @@ Function Restore-DeletedFileShare
 
     if([string]::IsNullOrWhiteSpace($RestoreAsFileShareName))
     {
-      $RestoreAsFileShareName = $FileShareName
+      $RestoreAsFileShareName = $FileShareName      
     }
 
     Write-Information -MessageData "Restoring File Share as $RestoreAsFileShareName" -InformationAction Continue
 
     $restoreShareUrl = [string]::Concat($Context.FileEndPoint, $RestoreAsFileShareName, "?restype=share&comp=undelete&api-version=2019-10-10&", $restoreToken.Substring(1))
 
-    $restoreHeaders = @{"x-ms-deleted-share-name" = $FileShareName; "x-ms-deleted-share-version" = $DeletedShareVersion}
+    $restoreHeaders = @{"x-ms-deleted-share-name" = $FileShareName; "x-ms-deleted-share-version" = $DeletedShareVersion}   
 
     $restoreResponse = Invoke-WebRequest $restoreShareUrl -Headers $restoreHeaders -Method "PUT" -Verbose
 
     if ($restoreResponse.StatusCode -ne 201)
     {
-        Write-Error "Request to restore a file share failed." -ErrorAction Stop
+        Write-Error "Request to restore a file share failed." -ErrorAction Stop 
     }
 
     Write-Verbose $restoreResponse.RawContent -Verbose
