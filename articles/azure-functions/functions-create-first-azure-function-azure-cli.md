@@ -12,7 +12,9 @@ In this article, you use command-line tools to create a function that responds t
 
 There is also a [Visual Studio Code-based version](functions-create-first-function-vs-code.md) of this article.
 
-## Prerequisites
+## Configure your environment
+
+Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -254,10 +256,12 @@ You can change `scriptFile` to invoke a different Python file if desired.
 ::: zone pivot="programming-language-powershell"
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json":::
 
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
-
+::: zone-end  
 
 ## Run the function locally
 
@@ -316,10 +320,10 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     ```azurecli
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
-    ::: zone pivot="programming-language-python"
+    ::: zone pivot="programming-language-python"  
     > [!NOTE]
     > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
-    ::: zone-end
+    ::: zone-end  
     
 1. Create a general-purpose storage account in your resource group and region by using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In the following example, replace `<STORAGE_NAME>` with a globally unique name appropriate to you. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a typical general-purpose account.
 
@@ -435,4 +439,4 @@ az group delete --name AzureFunctionsQuickstart-rg
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md)
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)

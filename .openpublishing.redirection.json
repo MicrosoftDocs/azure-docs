@@ -7020,6 +7020,11 @@
       "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md",
       "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/create-visual-studio.md",

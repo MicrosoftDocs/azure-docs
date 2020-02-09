@@ -1,26 +1,27 @@
 ---
-title: Add an Azure Storage queue binding to your Python function 
-description: Integrate an Azure Storage queue with a Python function using an output binding.
-ms.date: 01/15/2020
+title: Connect Azure Functions to Azure Storage using command line tools 
+description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project. 
+ms.date: 02/07/2020
 ms.topic: quickstart
+zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Add an Azure Storage queue binding to your Python function
+# Connect Azure Functions to Azure Storage using command line tools
 
-In this article, you integrate an Azure Storage queue with the function and storage account you created in [Create an HTTP triggered Python function](functions-create-first-function-python.md). You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart.
+In this article, you integrate an Azure Storage queue with the function and storage account you created in [the previous quickstart](functions-create-first-azure-function-azure-cli.md). You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-## Prerequisites
+## Configure your environment
 
-- Complete the quickstart, [Create an HTTP triggered Python function](functions-create-first-function-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the Functions app in Azure, but leave the resources in place.
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](functions-create-first-azure-function-azure-cli.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
 
 ## Retrieve the Azure Storage connection string
 
 When you created a function app in Azure in the previous quickstart, you also created a Storage account. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use that connection write to a Storage queue in the same account when running the function locally. 
 
-1. From the root of the project, run the following command, replacing `<app_name>` with the name of your function app from the previous quickstart. This command will overwrite any existing values in the file.
+1. From the root of the project, run the following command, replacing `<APP_NAME>` with the name of your function app from the previous quickstart. This command will overwrite any existing values in the file.
 
     ```
-    func azure functionapp fetch-app-settings <app_name>
+    func azure functionapp fetch-app-settings <APP_NAME>
     ```
     
 1. Open *local.settings.json* and locate the value named `AzureWebJobsStorage`, which is the Storage account connection string. You use the name `AzureWebJobsStorage` and the connection string in other sections of this article.
@@ -28,34 +29,16 @@ When you created a function app in Azure in the previous quickstart, you also cr
 > [!IMPORTANT]
 > Because *local.settings.json* contains secrets downloaded from Azure, always exclude this file from source control. The *.gitignore* file created with a local functions project excludes the file by default.
 
-## Add an output binding to function.json
+[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
-Although a function can have only one trigger, it can have multiple input and output bindings, which let you connect to other Azure services and resources without writing custom integration code. You declare these bindings in the *function.json* file in your function folder as appropriate for the language you're using for the function.
+## Add an output binding definition to the function
 
-From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:
+Although a function can have only one trigger, it can have multiple input and output bindings, which let you connect to other Azure services and resources without writing custom integration code. 
 
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-}
-```
+::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
+You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:
+
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/function.json" range="2-18":::
 
 Each binding has at least a type, a direction, and a name. In the example above, the first binding is of type `httpTrigger` with the direction `in`. For the `in` direction, `name` specifies the name of an input parameter that's sent to the function when invoked by the trigger.
 
@@ -94,6 +77,11 @@ To write to an Azure Storage queue from this function, add an `out` binding of t
 ```
 
 In this case, `msg` is given to the function as an output argument. For a `queue` type, you must also specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json*) in `connection`.
+
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]  
+::: zone-end  
 
 For more information on the details of bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) and [queue output configuration](functions-bindings-storage-queue.md#output---configuration).
 
@@ -134,7 +122,7 @@ The `msg` parameter is an instance of the [`azure.functions.InputStream class`](
 
 Observe that you *don't* need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
-## Run and test the function locally
+## Run the function locally
 
 1. In a terminal or command prompt, navigate to your function project folder, *LocalFunctionProj*.
 
@@ -144,26 +132,13 @@ Observe that you *don't* need to write any code for authentication, getting a qu
     func host start
     ```
 
-1. Once startup is complete and you see the URL for the `HttpExample` endpoint, copy its URL to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Guido`. The browser should display a message like `Hello Guido` as in the previous article.
+1. Once startup is complete and you see the URL for the `HttpExample` endpoint, copy its URL to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions` as in the previous article.
 
     If you don't see the `HttpExample` endpoint appear, stop the host with **Ctrl**+**C** and check the output for errors. For example, the host won't activate the endpoint if there's an error in *function.json*. Also check that you are running `func host start` from the functions project folder and not the *HttpExample* folder.
 
 1. When you're done, stop the host with **Ctrl**+**C**.
 
-> [!TIP]
-> During startup, the host downloads and installs the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) and other Microsoft binding extensions. This installation happens because binding extensions are enabled by default in the *host.json* file with the following properties:
->
-> ```json
-> {
->     "version": "2.0",
->     "extensionBundle": {
->         "id": "Microsoft.Azure.Functions.ExtensionBundle",
->         "version": "[1.*, 2.0.0)"
->     }
-> }
-> ```
->
-> If you encounter any errors related to binding extensions, check that the above properties are present in *host.json*.
+[!INCLUDE [functions-extension-bundles-info](../../includes/functions-extension-bundles-info.md)]
 
 ## View the message in the Azure Storage queue
 
@@ -238,10 +213,10 @@ When your function generates an HTTP response for the web browser, it also calls
 
 Now that you've tested the function locally and verified that it wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
 
-1. In the *LocalFunctionsProj* folder, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project, replacing`<app_name>` with the name of your app.
+1. In the *LocalFunctionsProj* folder, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project, replacing`<APP_NAME>` with the name of your app.
 
     ```
-    func azure functionapp publish <app_name>
+    func azure functionapp publish <APP_NAME>
     ```
     
 1. As in the previous quickstart, use a browser or CURL to test the redeployed function.
