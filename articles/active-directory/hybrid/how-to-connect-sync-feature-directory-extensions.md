@@ -59,16 +59,9 @@ The attributes are prefixed with **extension \_{ApplicationId}\_**. ApplicationI
 
 ## Viewing attributes using Graph
 
-These attributes are now available through the Azure AD Graph API. You can query them by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
+These attributes are now available through the Microsoft Graph API. You can query them by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
-![Azure AD Graph Explorer](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-Or you can query the attributes through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
-
->[!NOTE]
-> In Microsoft Graph, you need to ask for the attributes to be returned. Explicitly select the attributes like this: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division.
->
-> For more information, see [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+![Microsoft Graph Explorer](./media/how-to-connect-sync-feature-directory-extensions/extension4new.png)
 
 ## Use the attributes in dynamic groups
 
