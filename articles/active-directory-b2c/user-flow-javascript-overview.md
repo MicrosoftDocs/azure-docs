@@ -22,8 +22,6 @@ Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaSc
 
 If you intend to enable [JavaScript](javascript-samples.md) client-side code, you’ll want to be sure the elements you’re basing your JavaScript on are immutable. Otherwise, any changes could cause unexpected behavior on your user pages. To prevent these issues, you can enforce the use of a page layout and specify a page layout version. Doing this ensures that all the content definitions that you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
 
-## User flows
-
 In the user flow **Properties**, you can enable JavaScript, which also enforces the use of a page layout. You can then set the page layout version for the user flow as described in the next section.
 
 ![User flow properties page with Enable JavaScript setting highlighted](media/user-flow-javascript-overview/javascript-settings.png)
