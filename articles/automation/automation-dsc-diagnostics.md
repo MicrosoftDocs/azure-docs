@@ -154,11 +154,11 @@ Diagnostics from Azure Automation creates two categories of records in Azure Mon
 | SourceSystem | How Azure Monitor logs collected the data. Always *Azure* for Azure diagnostics. |
 | ResourceId |Specifies the Azure Automation account. |
 | ResultDescription | The description for this operation. |
-| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
+| SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID that is the Correlation Id of the compliance report. |
+| CorrelationId |GUID that is the Correlation ID of the compliance report. |
 
 ### DscResourceStatusData
 
@@ -185,11 +185,11 @@ Diagnostics from Azure Automation creates two categories of records in Azure Mon
 | SourceSystem | How Azure Monitor logs collected the data. Always *Azure* for Azure diagnostics. |
 | ResourceId |Specifies the Azure Automation account. |
 | ResultDescription | The description for this operation. |
-| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
+| SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID that is the Correlation Id of the compliance report. |
+| CorrelationId |GUID that is the Correlation ID of the compliance report. |
 
 ## Summary
 
