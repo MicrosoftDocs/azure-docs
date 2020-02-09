@@ -56,7 +56,7 @@ To create the service principal using PowerShell, perform the following.
     $credential.GetNetworkCredential().password
     ```
 
-3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
 
 The values from the following properties are used with parameters passed to the `azcmagent`:
 
@@ -81,7 +81,7 @@ The following are the settings that you configure the `azcmagent` command to use
 * `location` : See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.
 * `resource-name` : (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname is used.
 
-You can learn more about the `azcmagent` command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
+You can learn more about the `azcmagent` command-line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
 
 ### Windows installation script
 
