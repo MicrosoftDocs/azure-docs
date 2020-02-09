@@ -28,14 +28,14 @@ Workbooks are helpful for scenarios such as:
 
 ## Why convert view designer dashboards to workbooks?
 
-View Designer offers the ability to generate different query-based views and visualizations. However, many high-level customizations remain limited, such as formatting the grids and tile layouts or selecting alternative graphics to represent your data. View Designer is restricted to a total of 9 distinct tiles to represent your data.
+View Designer offers the ability to generate different query-based views and visualizations. However, many high-level customizations remain limited, such as formatting the grids and tile layouts or selecting alternative graphics to represent your data. View Designer is restricted to a total of nine distinct tiles to represent your data.
 
-Workbooks is a platform that unlocks the full potential of your data. workbooks not only retains all the capabilities, but also supports additional functionality through text, metrics, parameters, and much more. For example, workbooks allows users to consolidate dense grids and add search bars to easily filter and analyze the data. 
+Workbooks is a platform that unlocks the full potential of your data. workbooks not only retain all the capabilities, but also supports additional functionality through text, metrics, parameters, and much more. For example, workbooks allow users to consolidate dense grids and add search bars to easily filter and analyze the data. 
 
-While this guide offers simple steps to directly recreate several of the commonly used View Designer views, workbooks allows users to have the freedom to create and design any of their own custom visualizations and metrics. Below is a snapshot of what workbooks is capable of creating:
+While this guide offers simple steps to directly recreate several of the commonly used View Designer views, workbooks allow users to have the freedom to create and design any of their own custom visualizations and metrics. Below is a snapshot of what workbooks are capable of creating:
 
 [Workspace usage template from workbooks](https://go.microsoft.com/fwlink/?linkid=874159&resourceId=Azure%20Monitor&featureName=Workbooks&itemId=community-Workbooks%2FAzure%20Monitor%20-%20Workspaces%2FWorkspace%20Usage&workbookTemplateName=Workspace%20Usage&func=NavigateToPortalFeature&type=workbook)
-![Example of workbooks application](media/view-designer-overview/workbook-template-example.jpg)
+![Example of workbooks application](media/view-designer-conversion-overview/workbook-template-example.jpg)
 
 
 ## How to start using workbooks
@@ -47,10 +47,10 @@ Once selected, a gallery will be displayed listing out all the saved workbooks a
 
 ![Workbooks gallery](media/view-designer-conversion-overview/workbooks-gallery.png)
 
-To start a new workbook, you may select the Empty template under Quick start, or the New icon in the top navigation bar. To view templates or return to saved workbooks, select the item from the gallery or search for the name in the search bar.
+To start a new workbook, you may select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. To view templates or return to saved workbooks, select the item from the gallery or search for the name in the search bar.
 
 To save a workbook, you will need to save the report with a specific title, subscription, resource group, and location.
-The workbook will auto-fill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are by default saved to 'My Reports', accessible only by the individual user. But can be saved directly to shared reports or shared later on.
+The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are by default saved to 'My Reports', accessible only by the individual user. But can be saved directly to shared reports or shared later on.
 
 ![Workbooks save](media/view-designer-conversion-overview/workbooks-save.png)
 

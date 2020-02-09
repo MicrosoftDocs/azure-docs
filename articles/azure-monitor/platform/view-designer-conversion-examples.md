@@ -14,7 +14,7 @@ ms.date: 02/07/2020
 
 To replicate the view designer tabbed workbook, copy and paste the following code into the Advanced editor, denoted by the </> symbol in toolbar
 
-![Advanced Editor Toolbar](view-designer-conversion-examples/toolbar.png)
+![Advanced Editor Toolbar](media/view-designer-conversion-examples/toolbar.png)
 
 Users may have to update their query settings and subscriptions to their own accessible resources
 

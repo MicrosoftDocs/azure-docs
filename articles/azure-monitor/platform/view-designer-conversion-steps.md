@@ -5,7 +5,7 @@ author: austonli
 ms.author: aul
 ms.service: azure-monitor
 ms.subservice: visualization
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/07/2020
 
 ---
@@ -15,8 +15,6 @@ ms.date: 02/07/2020
 ## Quick Start with preset View Designer Templates
 
 Workbooks in Log Analytics workspaces already have templates made to match some of the views in view designer. Under the **View Designer Guides** category, select the **View Designer Transition Guide** to learn about your options or select one of the many preset templates.
-
-[Click here](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) to view your Log Analytics workspaces and get started with workbooks.
 
 ![Example templates](media/view-designer-conversion-steps/templates.png)
 
@@ -35,7 +33,7 @@ From the sidebar menu, in the **Parameter name** textbox, type *TimeRange*. Set 
 
 ![Parameter Menu](media/view-designer-conversion-steps/parameter-menu.png)
 
-Save the parameter in the upper left hand corner of the sidebar menu. You can leave the dropdown as *unset* by default or select a default **TimeRange** value, such as *24 hours*. Select **Done Editing**.
+Save the parameter in the upper left corner of the sidebar menu. You can leave the dropdown as *unset* by default or select a default **TimeRange** value, such as *24 hours*. Select **Done Editing**.
 
 Parameters can be used in queries by adding curly braces {} around your parameter name.
 
@@ -72,7 +70,7 @@ View Designer employs a default query that matches the syntax from the Original 
 
 This will generate a list that looks similar to the following:
 
-![List Example](./ExampListEx.png)
+![List Example](media/view-designer-conversion-steps/list-example.png)
 
 ## Enabling sparklines
 A common feature for grids is to add sparklines to summarize various data patterns over time. View Designer offers the Enable Sparklines feature for all lists, as does Workbooks.
@@ -84,10 +82,10 @@ _| join kind = inner (search *
 | make-series Trend = count() default=0 on TimeGenerated from{TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type) on Type_
 ```
 Then under **Column Settings**
-![Column Settings]((media/view-designer-conversion-steps/column-settings.png)
+![Column Settings](media/view-designer-conversion-steps/column-settings.png)
 
-Update the **Column renderer** dropdown to be a Spark area
-![Sparklines]((media/view-designer-conversion-steps/sparkline.png)
+Update the **Column renderer** dropdown to be a spark area.
+![Sparklines](media/view-designer-conversion-steps/sparkline.png)
 
 Then save the settings and re-running the query will now update your table to include a sparkline.
 
@@ -115,17 +113,17 @@ To mirror view designer, some common steps such as changing the size of workbook
 
 To access **Advanced Settings** select the gear icon at the bottom of each cell.
 
-![Advanced Settings](media/view-designer-conversion-steps/advanced-settings.png)
+![Advanced settings](media/view-designer-conversion-steps/advanced-settings.png)
 
 This will display a menu with various options:
 
-![Advanced Settings Settings](media/view-designer-conversion-steps/advanced-settings-settings.png)
+![Advanced settings settings](media/view-designer-conversion-steps/advanced-settings-settings.png)
 
 To add a pin and a link to an external query select the corresponding checkboxes. To add a title to your cell, type the desired title into the **Chart title** section.
 
-By default any corkbooks cell is set to take up the entire page width, but users can adjust this by scaling the cell down, by clicking under the **Style** tab of the Advanced Settings menu
+By default any workbooks cell is set to take up the entire page width, but users can adjust this by scaling the cell down, by clicking under the **Style** tab of the Advanced Settings menu
 
-![Advanced Settings Style](media/view-designer-conversion-steps/advanced-settings-style.png)
+![Advanced settings style](media/view-designer-conversion-steps/advanced-settings-style.png)
 
  
 ## Additional Parameters
@@ -144,4 +142,4 @@ This will insert dropdowns to let you access your various subscriptions and reso
 
 ![Subscription Resource Dropdown]((media/view-designer-conversion-steps/subscription-resource.png)
 
-### [Next Section: Tile Conversions](view-designer-tile-conversions.md)
+### [Next Section: Tile Conversions](view-designer-conversion-tiles.md)

@@ -41,4 +41,4 @@ Formulating queries in workbooks is a simple two-step process. First, the data i
 
 The goal of these next sections is to demonstrate how to recreate direct mappings of view designer views, however, learning the various options enables users to create their own custom views in workbooks.
 
-### [Next Section: Common Steps](view-designer-common-steps.md)
+### [Next Section: Common Steps](view-designer-conversion-steps.md)

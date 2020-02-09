@@ -916,11 +916,11 @@
       - name: Conversion options
         href: platform/view-designer-conversion-options.md
       - name: Common steps
-        href: platform/view-designer-conversion-common-steps.md
+        href: platform/view-designer-conversion-steps.md
       - name: Tile conversions
         href: platform/view-designer-conversion-tiles.md
       - name: Examples
-        href: platform/view-designer-examples.md
+        href: platform/view-designer-conversion-examples.md
     - name: Views
       items:
       - name: View Designer
