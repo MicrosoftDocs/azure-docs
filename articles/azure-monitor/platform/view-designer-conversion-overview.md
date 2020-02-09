@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor view designer to workbooks transition guide
+title: Azure Monitor View Designer to workbooks transition guide
 description: 
 author: austonli
 ms.author: aul
@@ -10,9 +10,9 @@ ms.date: 02/07/2020
 
 ---
 
-# Azure Monitor view designer to workbooks transition guide
+# Azure Monitor View Designer to workbooks transition guide
 
-## View designer overview
+## View Designer overview
 [View Designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. 
 
 ## Workbooks overview
@@ -26,7 +26,7 @@ Workbooks are helpful for scenarios such as:
 -	Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 
-## Why convert view designer dashboards to workbooks?
+## Why convert View Designer dashboards to workbooks?
 
 View Designer offers the ability to generate different query-based views and visualizations. However, many high-level customizations remain limited, such as formatting the grids and tile layouts or selecting alternative graphics to represent your data. View Designer is restricted to a total of nine distinct tiles to represent your data.
 
@@ -39,7 +39,8 @@ While this guide offers simple steps to directly recreate several of the commonl
 
 
 ## How to start using workbooks
-Workbooks are enabled in Log Analytics workspaces as an item in the side navigation bar, directly under the View Designer location
+Open workbooks from the 
+Workbooks are enabled in Log Analytics workspaces as an item in the side navigation bar, directly under the View Designer location.
 
 ![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
 

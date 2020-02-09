@@ -24,13 +24,13 @@ Select **Add query** and paste the original query from View Designer into the ce
  ![Pie Chart Visualization Menu](media/view-designer-conversion-tiles/pie-chart.png)
 **Option 2:** Add a line to the KQL
 **Add:** `| render piechart`
-Note that the Visualization setting should be set to **Set by query**
+The Visualization setting should be set to **Set by query**
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
 **Example:**\
 **Original:** `search * | summarize AggregatedValue = count() by Type | order by AggregatedValue desc`
 **Updated:** `search * | summarize AggregatedValue = count() by Type | order by AggregatedValue desc | render piechart`
 
-For creating a list and enabling sparklines please reference the section on [CommonSteps](./Examples/CommonSteps.md)
+For creating a list and enabling sparklines, reference the section on [CommonSteps](view-designer-conversion-steps.md)
 
 The following is an example of how the Donut & List tile might be reinterpreted in Workbooks
 
@@ -53,7 +53,7 @@ There are two options for visualizing the line chart
 
 **Option 2:** Add a line to the KQL
 Add: `| render linechart`
-Note that the Visualization setting should be set to Set by query
+The Visualization setting should be set to Set by query
 
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -64,7 +64,7 @@ search *
 | render linechart_
 ```
 
-For creating a list and enabling sparklines please reference the section on [Common Steps](./Examples/CommonSteps.md)
+For creating a list and enabling sparklines, reference the section on [Common Steps](view-designer-conversion-steps.md)
 
 The following is an example of how the Linechart & List tile might be reinterpreted in Workbooks
 
@@ -93,7 +93,7 @@ Leave the Title section blank, and change Left to Use Column: Count, and the Col
 ![Tile Settings](media/view-designer-conversion-tiles/tile-settings.png)
 Advanced Settings \ Settings \ Chart title:  Computers sending data
  
-For creating a list and enabling sparklines please reference the section on [Common Steps](./Examples/CommonSteps.md)
+For creating a list and enabling sparklines, reference the section on [Common Steps](view-designer-conversion-steps.md)
 
 The following is an example of how the Number & List tile might be reinterpreted in Workbooks
 
@@ -116,11 +116,11 @@ There are two options for visualizing as a bar chart
  
 **Option 2:** Add a line to the KQL
 Add: | render barchart
-Note that the Visualization setting should be set to Set by query
+The Visualization setting should be set to Set by query
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
 
  
-For creating a list and enabling sparklines please reference the section on [Common Steps](./Examples/CommonSteps.md)
+For creating a list and enabling sparklines, reference the section on [Common Steps](view-designer-conversion-steps.md)
 
 The following is an example of how the Timeline & List tile might be reinterpreted in Workbooks
 
