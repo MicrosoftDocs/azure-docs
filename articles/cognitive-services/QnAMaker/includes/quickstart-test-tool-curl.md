@@ -48,7 +48,7 @@ Use the knowledge base from the previous quick to query for an answer based on m
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
                 "score": 68.76,
                 "id": 3,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
@@ -97,7 +97,7 @@ Debug: {Enable:true}
                 "questions": [
                     "How do I share a knowledge base with others?"
                 ],
-                "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base) how to collaborate on a knowledge base.",
+                "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base) to learn how to collaborate on a knowledge base.",
                 "score": 56.07,
                 "id": 5,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
