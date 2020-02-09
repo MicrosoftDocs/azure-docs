@@ -63,7 +63,7 @@ The following image shows the relationship between tokens and scope maps.
 
 ### Create access token and specify repositories
 
-Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, you can specify one or more repositories and associated actions on each repository. The repositories don't need to be in the registry yet.
+Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, you can specify one or more repositories and associated actions on each repository. The repositories don't need to be in the registry yet. To create a token by specifying an existing scope map, see the next section.
 
 The following example creates an access token in the registry *myregistry* with the following permissions on the `samples/hello-world` repo: `content/write` and `content/read`. By default, the command sets the default token status to `enabled`, but you can update the status to `disabled` at any time.
 
@@ -168,7 +168,7 @@ You can generate one or two passwords, and set an expiration date for each one.
 
 ## Authenticate with token
 
-When a user or system uses a token to access the target registry, it authenticates using a token name as a user name and one of its generated passwords. The authentication method depends on the configured action or actions associated with the token.
+When a user or system uses a token to authenticate with the target registry, it uses the token name as a user name and one of its generated passwords. The authentication method depends on the configured action or actions associated with the token.
 
 |Action  |How to authenticate  |
   |---------|---------|
@@ -228,11 +228,11 @@ docker push myregistry.azurecr.io/samples/alpine:v1
 
 ### Change push/pull permissions
 
-To update the permissions of a token, update the permissions in the associated scope map. The updated scope map is applied to all associated tokens. 
+To update the permissions of a token, update the permissions in the associated scope map. The updated scope map is applied immediately to all associated tokens. 
 
 For example, update `MyToken-scope-map` with `content/write` and `content/read` actions on the `samples/alpine` repository, and remove the `content/write` action on the `samples/hello-world` repository.  
 
-If you use the Azure CLI, run [az acr scope-map update][az-acr-scope-map-update] to update the scope map:
+To use the Azure CLI, run [az acr scope-map update][az-acr-scope-map-update] to update the scope map:
 
 ```azurecli
 az acr scope-map update \
@@ -247,7 +247,7 @@ In the Azure portal:
 1. Navigate to your container registry.
 1. Under **Services**, select **Scope maps (Preview)**, and select the scope map to update.
 1. Under **Repositories**, enter `samples/alpine`, and under **Permissions**, select `content/read` and `content/write`. Then select **+Add**.
-1. Under **Repositories**, select `samples/hello-world` and under **Permissions**, deselect `content/write`.
+1. Under **Repositories**, select `samples/hello-world` and under **Permissions**, deselect `content/write`. Then select **Save**.
 
 After updating the scope map, the following push succeeds:
 
@@ -292,7 +292,7 @@ az acr repository delete \
 
 ### Show repo tags 
 
-Update the scope map by adding the `metadata/read` action to the `hello-world` repository. This action allows showing manifest and tag data in the repository.
+Update the scope map by adding the `metadata/read` action to the `hello-world` repository. This action allows reading manifest and tag data in the repository.
 
 For brevity, we show only the [az acr scope-map update][az-acr-scope-map-update] command to update the scope map:
 
@@ -309,7 +309,7 @@ To read metadata in the `samples/hello-world` repository, run the [az acr reposi
 
 To read metadata, the token doesn't authenticate through `docker login`. Instead, pass the token's name and password to either command. The following example uses the environment variables created earlier in the article:
 
-```bash
+```azurecli
 az acr repository show-tags \
   --name myregistry --repository samples/hello-world \
   --username $TOKEN_NAME --password $TOKEN_PWD
@@ -363,7 +363,7 @@ az acr token list --registry myregistry --output table
 
 If you don't have a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command. 
 
-The following example generates a new value for password1 for the *MyToken* token, with an expiration period of 30 days. It stores the password in the environment variable TOKEN_PWD. This example is formatted for the bash shell.
+The following example generates a new value for password1 for the *MyToken* token, with an expiration period of 30 days. It stores the password in the environment variable `TOKEN_PWD`. This example is formatted for the bash shell.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -371,7 +371,7 @@ TOKEN_PWD=$(az acr token credential generate \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 
-To use the Azure portal to generate a token password, see the steps in [Create access token - portal](#create-access-token-portal) earlier in this article.
+To use the Azure portal to generate a token password, see the steps in [Create access token - portal](#create-access-token---portal) earlier in this article.
 
 ### Update token with new scope map
 
