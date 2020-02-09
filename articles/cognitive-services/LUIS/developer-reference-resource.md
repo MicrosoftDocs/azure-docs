@@ -1,13 +1,13 @@
 ---
 title: Developer resources - Language Understanding
-description: Programming SDKs, REST APIs, CLI, and integration information allow you to develop for Language Understanding (LUIS) in your programming language. Develop for management of your Azure resources, your LUIS apps, and your prediction endpoints. Code quickstarts cover the most common tasks.
+description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 ms.topic: reference
 ms.date: 02/09/2020
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
 
-Programming SDKs, REST APIs and integration information allow you to develop for Language Understanding (LUIS) in your programming language. Develop for management of your Azure resources, your LUIS apps, and your prediction endpoints. Code quickstarts cover the most common tasks.
+SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions. 
 
 ## Azure resource management
 
