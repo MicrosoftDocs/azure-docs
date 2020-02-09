@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
 description: Quickstart for using Azure App Configuration with ASP.NET Core apps
 services: azure-app-configuration
-author: jpconnock
+author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/21/2020
-ms.author: jeconnoc
+ms.author: lcozzens
 
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---

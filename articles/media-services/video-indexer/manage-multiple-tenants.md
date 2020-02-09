@@ -41,7 +41,7 @@ When using this architecture, a Video Indexer account is created for each tenant
 * Harder to manage due to multiple Video Indexer (and associated Media Services) accounts per tenant.
 
 > [!TIP]
-> Create an admin user for your system in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) and use the Authorization API to provide your tenants the relevant [account access token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+> Create an admin user for your system in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) and use the Authorization API to provide your tenants the relevant [account access token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
 
 ## Single Video Indexer account for all users
 

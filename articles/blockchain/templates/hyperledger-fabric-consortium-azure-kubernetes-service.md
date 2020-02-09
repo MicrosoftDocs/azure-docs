@@ -139,7 +139,6 @@ SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 -
 ORDERER_AKS_SUBSCRIPTION=<ordererAKSClusterSubscriptionID>
 ORDERER_AKS_RESOURCE_GROUP=<ordererAKSClusterResourceGroup>
 ORDERER_AKS_NAME=<ordererAKSClusterName>
-ORDERER_DNS_ZONE=
 ORDERER_DNS_ZONE=$(az aks show --resource-group $ORDERER_AKS_RESOURCE_GROUP --name $ORDERER_AKS_NAME --subscription $ORDERER_AKS_SUBSCRIPTION -o json | jq .addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName | tr -d '"')
 ORDERER_END_POINT="orderer1.$ORDERER_DNS_ZONE:443"
 CHANNEL_NAME=<channelName>
@@ -462,7 +461,7 @@ npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <que
 
 ```
 
-Pass query function name and comma separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking `fabcar` chaincode as reference, to query all the cars in the world state set `<queryFunction>` to `"queryAllCars"` and `<queryArgs>' to `""`.
+Pass query function name and comma separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking `fabcar` chaincode as reference, to query all the cars in the world state set `<queryFunction>` to `"queryAllCars"` and `<queryArgs>` to `""`.
 
 Refer command help for more details on the arguments passed in the command
 

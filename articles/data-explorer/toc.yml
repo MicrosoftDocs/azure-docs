@@ -98,7 +98,7 @@
       href: ingest-data-kafka.md
     - name: Logstash
       href: ingest-data-logstash.md
-    - name: json formatted data
+    - name: JSON formatted data
       href: ingest-json-formats.md  
   - name: Query data
     items:
@@ -174,12 +174,28 @@
         href: manage-cluster-vertical-scaling.md
       - name: Check cluster health
         href: check-cluster-health.md
+      - name: Add cluster principal
+        items:
+          - name: C#
+            href: cluster-principal-csharp.md
+          - name: Python
+            href: cluster-principal-python.md
+          - name: Azure Resource Manager template
+            href: cluster-principal-resource-manager.md
     - name: Database
       items:
       - name: Follower databases
         href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
+      - name: Add database principal
+        items:
+          - name: C#
+            href: database-principal-csharp.md
+          - name: Python
+            href: database-principal-python.md
+          - name: Azure Resource Manager template
+            href: database-principal-resource-manager.md
       - name: Policies
         items:
         - name: C#

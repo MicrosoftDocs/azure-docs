@@ -26,10 +26,3 @@
 2. Select **Enable**.
 
    ![Select](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>Enable authentication
-
-1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
-2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
-
-   ![Directory ID](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)

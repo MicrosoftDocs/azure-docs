@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 
 tags: billing
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/30/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -12,6 +12,8 @@ ms.date: 01/28/2020
 This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more services.
 
 To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](../../billing/billing-getting-started.md).
+
+For limits on resource names, see [Naming rules and restrictions for Azure resources](resource-name-rules.md).
 
 > [!NOTE]
 > If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md). The limits can't be raised above the maximum limit value shown in the following tables. If there's no maximum limit column, the resource doesn't have adjustable limits.
@@ -21,7 +23,7 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 
 ## Limits and Azure Resource Manager
 
-It's now possible to combine multiple Azure resources into a single Azure resource group. When you use resource groups, limits that once were global become managed at a regional level with Azure Resource Manager. For more information about Azure resource groups, see [Azure Resource Manager overview](overview.md).
+You can combine multiple Azure resources into a single Azure resource group. When you use resource groups, limits that once were global become managed at a regional level with Azure Resource Manager. For more information about Azure resource groups, see [Azure Resource Manager overview](overview.md).
 
 In the following list of limits, a new table reflects any differences in limits when you use Azure Resource Manager. For example, there's a **Subscription limits** table and a **Subscription limits - Azure Resource Manager** table. When a limit applies to both scenarios, it's only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
@@ -65,6 +67,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Data Share](#data-share-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [Event Grid](#event-grid-limits)
 * [Event Hubs](#event-hubs-limits)
@@ -399,6 +402,10 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
+### Data Share limits
+
+[!INCLUDE [azure-data-share-limits](../../../includes/azure-data-share-limits.md)]
+
 ### Database Migration Service Limits
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
@@ -480,3 +487,4 @@ For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../sq
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Virtual machine and cloud service sizes for Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
+* [Naming rules and restrictions for Azure resources](resource-name-rules.md)

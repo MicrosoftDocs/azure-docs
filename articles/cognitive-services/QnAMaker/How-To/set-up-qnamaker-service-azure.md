@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -91,7 +91,8 @@ Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
 2. View or reset your keys:
 
-    ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    > [!div class="mx-imgBorder"]
+    > [![Show, copy, or set endpoint key in the Service Settings](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)](../media/qnamaker-how-to-key-management/Endpoint-keys1.png#lightbox)
 
     >[!NOTE]
     >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
@@ -130,7 +131,7 @@ QnA Maker's **App Service** resource uses the Cognitive Search resource. In orde
 1. Select **Settings**, then **Configuration**. This will display all existing settings for the QnA Maker's App Service.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of Azure portal showing App Service configuration settings](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+    > [![Screenshot of Azure portal showing App Service configuration settings](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png#lightbox)
 
 1. Change the values for the following keys:
 
@@ -140,7 +141,7 @@ QnA Maker's **App Service** resource uses the Cognitive Search resource. In orde
 1. To use the new settings, you need to restart the App service. Select **Overview**, then select **Restart**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of Azure portal restarting App Service after configuration settings change](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+    > [![Screenshot of Azure portal restarting App Service after configuration settings change](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
 

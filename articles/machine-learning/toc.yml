@@ -26,6 +26,9 @@
     - name: Create an automated ML experiment
       displayName: automl, automated, auto ml, portal, ui
       href: tutorial-first-experiment-automated-ml.md
+    - name: Forecast demand with automated ML (Bike share data)
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-automated-ml-forecast.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -146,6 +149,8 @@
       href: how-to-manage-workspace.md
     - name: Use Azure CLI
       href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
@@ -198,6 +203,9 @@
     - name: Create datasets with labels
       displayName: data, labels, torchvision
       href: how-to-use-labeled-dataset.md
+    - name: DevOps for data ingestion
+      displayName: data, ingestion, devops
+      href: how-to-cicd-data-ingestion.md
   - name: Train models
     items:
     - name: Use the designer
@@ -283,7 +291,7 @@
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
     - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
+      displayName: log, monitor, metrics, Databricks
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics

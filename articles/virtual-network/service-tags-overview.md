@@ -38,7 +38,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. | Both | No | Yes |
-| **ApplicationInsightsAvailability** | Application Insights Availability. | Both | No | No |
+| **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web app front ends. | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
@@ -80,7 +80,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>*Note:* Please also whitelist following IP (this dependency will be removed soon): 204.79.197.219. | Outbound | Yes | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
-| **ServiceFabric** | Azure Service Fabric. | Outbound | No | No |
+| **ServiceFabric** | Azure Service Fabric.<br/><br/>*Note:* This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET (endpoint eg. https:// westus.servicefabric.azure.com) | Both | No | No |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. | Outbound | Yes | Yes |
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
