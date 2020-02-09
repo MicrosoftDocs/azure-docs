@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -31,41 +31,93 @@ You can create a storage account that relies on the account encryption key for Q
 
 ### Register to use the account encryption key
 
+To register to use the account encryption key with Queue or Table storage, use PowerShell or Azure CLI.
+
+# [PowerShell](#tab/powershell)
+
+To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
 
-To register to use the account encryption key with Queue storage:
-
 ```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
-To register to use the account encryption key with Table storage:
+# [Template](#tab/template)
 
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
-```
+N/A
+
+---
 
 ### Check the status of your registration
 
-To check the status of your registration for Queue storage:
+To check the status of your registration for Queue or Table storage, use PowerShell or Azure CLI.
 
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+# [PowerShell](#tab/powershell)
+
+To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-To check the status of your registration for Table storage:
+# [Azure CLI](#tab/azure-cli)
+
+To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
+
+# [Template](#tab/template)
+
+N/A
+
+---
 
 ### Re-register the Azure Storage resource provider
 
-After your registration is approved, you must re-register the Azure Storage resource provider. Call the [az provider register](/cli/azure/provider#az-provider-register) command:
+After your registration is approved, you must re-register the Azure Storage resource provider. Use PowerShell or Azure CLI to re-register the resource provider.
+
+# [PowerShell](#tab/powershell)
+
+To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
 ```
+
+# [Template](#tab/template)
+
+N/A
+
+---
 
 ## Create an account that uses the account encryption key
 
@@ -76,7 +128,28 @@ The storage account must be of type general-purpose v2. You can create the stora
 > [!NOTE]
 > Only Queue and Table storage can be optionally configured to encrypt data with the account encryption key when the storage account is created. Blob storage and Azure Files always use the account encryption key to encrypt data.
 
-### [Azure CLI](#tab/azure-cli)
+# [PowerShell](#tab/powershell)
+
+To use PowerShell to create a storage account that relies on the account encryption key, make sure you have installed the Azure PowerShell module, version 3.4.0 or later. For more information, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+
+Next, create a general-purpose v2 storage account by calling the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command, with the appropriate parameters:
+
+- Include the `-EncryptionKeyTypeForQueue` option and set its value to `Account` to use the account encryption key to encrypt data in Queue storage.
+- Include the `-EncryptionKeyTypeForTable` option and set its value to `Account` to use the account encryption key to encrypt data in Table storage.
+
+The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and that uses the account encryption key to encrypt data for both Queue and Table storage. Remember to replace the placeholder values in brackets with your own values:
+
+```powershell
+New-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account> `
+    -Location <location> `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -EncryptionKeyTypeForTable Account `
+    -EncryptionKeyTypeForQueue Account
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 To use Azure CLI to create a storage account that relies on the account encryption key, make sure you have installed Azure CLI version 2.0.80 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -85,22 +158,22 @@ Next, create a general-purpose v2 storage account by calling the [az storage acc
 - Include the `--encryption-key-type-for-queue` option and set its value to `Account` to use the account encryption key to encrypt data in Queue storage.
 - Include the `--encryption-key-type-for-table` option and set its value to `Account` to use the account encryption key to encrypt data in Table storage.
 
-The following example shows how to create a general-purpose v2 storage account that is configured for LRS and that uses the account encryption key to encrypt data for both Queue and Table storage. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and that uses the account encryption key to encrypt data for both Queue and Table storage. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2 \
     --encryption-key-type-for-table Account \
     --encryption-key-type-for-queue Account
 ```
 
-### [Template](#tab/template)
+# [Template](#tab/template)
 
-The following JSON example creates a general-purpose v2 storage account that is configured for LRS and that uses the account encryption key to encrypt data for both Queue and Table storage. Remember to replace the placeholder values in angle brackets with your own values:
+The following JSON example creates a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and that uses the account encryption key to encrypt data for both Queue and Table storage. Remember to replace the placeholder values in angle brackets with your own values:
 
 ```json
 "resources": [
@@ -112,7 +185,7 @@ The following JSON example creates a general-purpose v2 storage account that is 
         "dependsOn": [],
         "tags": {},
         "sku": {
-            "name": "[parameters('Standard_LRS')]"
+            "name": "[parameters('Standard_RAGRS')]"
         },
         "kind": "[parameters('StorageV2')]",
         "properties": {
@@ -147,11 +220,32 @@ After you have created an account that relies on the account encryption key, see
 
 To verify that a service in a storage account is using the account encryption key, call the Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
+# [PowerShell](#tab/powershell)
+
+To verify that a service in a storage account is using the account encryption key, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Look for the `KeyType` field for each service within the `Encryption` property and verify that it is set to `Account`.
+
+```powershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$account.Encryption.Services.Queue
+$account.Encryption.Services.Table
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To verify that a service in a storage account is using the account encryption key, call the [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+
 ```azurecli
 az storage account show /
     --name <storage-account> /
     --resource-group <resource-group>
 ```
+
+# [Template](#tab/template)
+
+N/A
+
+---
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.date: 01/06/2020
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-host-json-v1.md)
-> * [Version 2](functions-host-json.md)
+> * [Version 2+](functions-host-json.md)
 
 The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
 
@@ -22,7 +22,7 @@ Some host.json settings are only used when running locally in the [local.setting
 
 ## Sample host.json file
 
-The following sample *host.json* file has all possible options specified (excluding any that are for internal use only).
+The following sample *host.json* file for version 2.x+ has all possible options specified (excluding any that are for internal use only).
 
 ```json
 {
@@ -69,10 +69,10 @@ The following sample *host.json* file has all possible options specified (exclud
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
               "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
@@ -372,7 +372,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 
 ## version
 
-The version string `"version": "2.0"` is required for a function app that targets the v2 runtime.
+This value indicates the schema version of host.json. The version string `"version": "2.0"` is required for a function app that targets the v2 runtime, or a later version. There are no host.json schema changes between v2 and v3.
 
 ## watchDirectories
 
