@@ -106,7 +106,7 @@ The following example shows the **DataUri** of `selfasserted` version `1.2.0`:
 </ContentDefinition>
 ```
 
-#### Migrating to page layout version
+#### Migrating to page layout
 
 The format of the value must contain the word `contract` as following  _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value, use following table to migrate to the new format.  
 
