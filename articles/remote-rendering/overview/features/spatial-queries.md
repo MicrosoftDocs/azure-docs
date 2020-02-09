@@ -17,11 +17,11 @@ All spatial queries are evaluated on the server. Consequently they are asynchron
 
 Spatial queries are powered by the [Havok Physics](https://www.havok.com/products/havok-physics) engine and require a dedicated collision mesh to be present. By default, [model conversion](../../how-tos/conversion/model-conversion.md) generates collision meshes. If you don't require spatial queries on a complex model, consider disabling collision mesh generation in the [conversion options](../../how-tos/conversion/configure-model-conversion.md), as it has an impact in multiple ways:
 
-1. [Model conversion](../../how-tos/conversion/model-conversion.md) will take considerably longer.
-1. Converted model file sizes are noticeably larger, impacting download speed.
-1. Runtime loading times are longer.
-1. Runtime CPU memory consumption is higher.
-1. There's a slight runtime performance overhead for every model instance.
+* [Model conversion](../../how-tos/conversion/model-conversion.md) will take considerably longer.
+* Converted model file sizes are noticeably larger, impacting download speed.
+* Runtime loading times are longer.
+* Runtime CPU memory consumption is higher.
+* There's a slight runtime performance overhead for every model instance.
 
 ## Ray casts
 
@@ -51,9 +51,9 @@ async void CastRay(AzureSession session)
 
 There are three hit collection modes:
 
-1. **Closest:** In this mode, only the closest hit will be reported.
-1. **Any:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
-1. **All:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
+* **Closest:** In this mode, only the closest hit will be reported.
+* **Any:** Prefer this mode when all you want to know is *whether* a ray would hit anything, but don't care what was hit exactly. This query can be considerably cheaper to evaluate, but also has only few applications.
+* **All:** In this mode, all hits along the ray are reported, sorted by distance. Don't use this mode unless you really need more than the first hit. Limit the number of reported hits with the `MaxHits` option.
 
 To exclude objects selectively from being considered for ray casts, the [HierarchicalStateOverrideComponent](override-hierarchical-state.md) component can be used.
 
