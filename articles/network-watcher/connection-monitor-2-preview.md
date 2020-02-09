@@ -18,7 +18,7 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ---
-# Overview
+# Unified connectivity monitoring with Connection Monitor (Preview)
 
 Connection Monitor (Preview) provides unified end-to-end connection monitoring capabilities in Azure Network Watcher for hybrid and Azure cloud deployments. Azure Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
@@ -73,8 +73,8 @@ _Connection Monitor_ monitors communication at regular intervals and informs you
 
 ### Accessing Connection Monitor (Preview)
 
-1. Access Network Watcher using the following link:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Click "Connection Monitor (Preview)" tab in the Monitoring section in Network Watcher's left pane. This tab will only be visible if Network Watcher is accessed using the link specified in step 1.
+1. From the Azure portal home page, visit Network Watcher
+2. Click "Connection Monitor (Preview)" tab in the Monitoring section in Network Watcher's left pane.
 3. You can see all Connection Monitors that are created using Connection Monitor (Preview) experience. All Connection Monitors created using the classic experience of Connection Monitor tab will be visible in Connection Monitor tab.
 
     ![Create a Connection Monitor](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -573,8 +573,8 @@ Resource Type - Microsoft.Network/networkWatchers/connectionMonitors
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Probes Failed | Percent | Average | % of connectivity monitoring probes failed | No Dimensions |
 | AverageRoundtripMs | Avg. Round-trip Time (ms) | MilliSeconds | Average | Average network round-trip time (ms) for connectivity monitoring probes sent between source and destination |             No Dimensions |
-| ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percent | Average | % of checks failed for a test |List: - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType -DestinationPort - TestGroupName - TestConfigurationName - Region |
-| RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | Round-trip time (ms) for checks sent between source and destination. This value is not averaged | List: - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType - DestinationPort - TestGroupName - TestConfigurationName - Region |
+| ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percent | Average | % of checks failed for a test | * ConnectionMonitorResourceId <br> * SourceAddress <br> *  SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> *  TestGroupName <br> *  TestConfigurationName <br> * Region |
+| RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | Round-trip time (ms) for checks sent between source and destination. This value is not averaged | * ConnectionMonitorResourceId <br> * SourceAddress <br> *  SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> *  TestGroupName <br> *  TestConfigurationName <br> * Region |
 
  ![Monitor Metrics](./media/connection-monitor-2-preview/monitor-metrics.png)
 

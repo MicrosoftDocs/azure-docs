@@ -107,19 +107,9 @@ Select all of the Dynamics 365 products that this offer applies to.
 
 Enter the version number of your offer. Customers will see this version listed on the offer's detail page. If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.
 
-### Standard contract
+### Terms and conditions
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace.
-
-Rather than crafting custom terms and conditions, you can choose to offer your software under the Standard Contract, which customers only need to vet and accept once.
-
-The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178
-
-To use the Standard Contract, check the **Use Standard Contract?** box.
-
-#### Terms of use
-
-If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
+Provide your own legal terms and conditions in the **Terms and conditions** field. You can also provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 ## Offer listing
 

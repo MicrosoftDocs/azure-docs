@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin Android and MSAL.NET so that I can decide if this platform meets my application development needs.
@@ -73,18 +73,24 @@ This line ensures that the control returns to MSAL at the end of the interactive
 ## Update the Android manifest
 The *AndroidManifest.xml* file should contain the following values:
 
-```csharp
-<activity android:name="microsoft.identity.client.BrowserTabActivity">
-	<intent-filter>
-		<action android:name="android.intent.action.VIEW" />
-		<category android:name="android.intent.category.DEFAULT" />
-		<category android:name="android.intent.category.BROWSABLE" />
-		<data android:scheme="msal{client_id}" android:host="auth" />
-         </intent-filter>
-</activity>
+<!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
+```
+  <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">
+     <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="msauth"
+                android:host="Enter_the_Package_Name"
+                android:path="/Enter_the_Signature_Hash" />
+     </intent-filter>
+ </activity>
 ```
 
-Alternatively, [create the activity in code](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) rather than manually editing *AndroidManifest.xml*. To create the activity in code, first create a class that has the `Activity` attribute and the `IntentFilter` attribute. 
+Substitute the package name that you registered in the Azure portal for the `android:host=` value. Substitute the key hash that you registered in the Azure portal for the `android:path=` value. The signature hash should *not* be URL encoded. Ensure that a leading forward slash (`/`) appears at the beginning of your signature hash.
+
+Alternatively, [create the activity in code](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) rather than manually editing *AndroidManifest.xml*. To create the activity in code, first create a class that includes the `Activity` attribute and the `IntentFilter` attribute. 
 
 Here's an example of a class that represents the values of the XML file:
 

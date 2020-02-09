@@ -110,7 +110,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
     >[!NOTE]
     >If you're using this feature in Azure China, the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. After registering the redirect URLs, under **Advanced settings**, select the options **Access tokens** and **ID tokens** and then save your changes.
+4. After registering the redirect URLs, under **Implicit grant**, select the options **Access tokens** and **ID tokens** and then save your changes.
 
 >[!NOTE]
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.
