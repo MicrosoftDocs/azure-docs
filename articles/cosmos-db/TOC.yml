@@ -12,6 +12,9 @@
       items:
       - name: Azure portal
         href: create-cosmosdb-resources-portal.md
+      - name: Azure Resource Manager template
+        displayName: ARM
+        href: quick-create-template.md
       - name: .NET app - V4 SDK
         href: create-sql-api-dotnet-v4.md
       - name: .NET app - V3 SDK
@@ -853,8 +856,6 @@
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: how-to-manage-consistency.md
-      - name: Implement custom synchronization
-        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
@@ -871,6 +872,9 @@
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
+      - name: Scale using Azure Functions timer
+        displayName: request units, RUs, RU, timer
+        href: scale-on-schedule.md
     - name: Work with containers and items
       items:
       - name: Work with Cosmos DB data
@@ -1041,12 +1045,13 @@
       - name: Azure Stream Analytics
         href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
         maintainContext: true 
-      - name: Logic Apps and Service bus
-        href: change-feed-hl7-fhir-logic-apps.md
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
         href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+        maintainContext: true
+      - name: Spring Data developer guide
+        href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md

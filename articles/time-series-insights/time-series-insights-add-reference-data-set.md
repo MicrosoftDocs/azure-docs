@@ -9,8 +9,8 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.custom: seodec18
+ms.date: 02/07/2020
+ms.custom: seodec18~~~~
 ---
 
 # Create a reference data set for your Time Series Insights environment using the Azure portal
@@ -33,7 +33,9 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 1. Locate your existing Azure Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
-1. Select the **Overview** page. Locate the **Time Series Insights explorer URL** and open the link.  
+1. Select the **Overview** page. Expand the **Essentials** section near the top of the page to locate the **Time Series Insights explorer URL** and open the link.  
+
+   [![Expand Essentials section](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    View the explorer for your Time Series Insights environment.
 

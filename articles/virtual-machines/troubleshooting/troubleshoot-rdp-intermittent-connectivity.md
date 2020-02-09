@@ -22,7 +22,7 @@ This article explains how to troubleshoot frequent disconnections to an Azure vi
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
+[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
 ## Symptom
 

@@ -16,7 +16,7 @@ This ZIP file deployment uses the same Kudu service that powers continuous integ
 
 - Deletion of files left over from a previous deployment.
 - Option to turn on the default build process, which includes package restore.
-- [Deployment customization](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), including running deployment scripts.  
+- Deployment customization, including running deployment scripts.  
 - Deployment logs. 
 - A file size limit of 2048 MB.
 
@@ -24,47 +24,25 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 The WAR file deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_format)) file to App Service to run your Java web app. See [Deploy WAR file](#deploy-war-file).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
-To complete the steps in this article:
+To complete the steps in this article, [create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
 
-* [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a project ZIP file
-
->[!NOTE]
-> If you downloaded the files in a ZIP file, extract the files first. For example, if you downloaded a ZIP file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
->
-
-In a local terminal window, navigate to the root directory of your app project. 
-
-This directory should contain the entry file to your web app, such as _index.html_, _index.php_, and _app.js_. It can also contain package management files like _project.json_, _composer.json_, _package.json_, _bower.json_, and _requirements.txt_.
-
-Create a ZIP archive of everything in your project. The following command uses the default tool in your terminal:
-
-```
-# Bash
-zip -r <file-name>.zip .
-
-# PowerShell
-Compress-Archive -Path * -DestinationPath <file-name>.zip
-``` 
+[!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) instead.
 
 ## Deploy ZIP file with Azure CLI
 
-Make sure your Azure CLI version is 2.0.21 or later. To see which version you have, run `az --version` command in your terminal window.
-
 Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
 
 The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src`.
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
+az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src clouddrive/<filename>.zip
 ```
 
 This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app.
@@ -72,10 +50,8 @@ This command deploys the files and directories from the ZIP file to your default
 By default, the deployment engine assumes that a ZIP file is ready to run as-is and doesn't run any build automation. To enable the same build automation as in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
-
-
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
@@ -83,7 +59,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 ## Deploy WAR file
 
-To deploy a WAR file to App Service, send a POST request to `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication.
+To deploy a WAR file to App Service, send a POST request to `https://<app-name>.scm.azurewebsites.net/api/wardeploy`. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication.
 
 Always use `/api/wardeploy` when deploying WAR files. This API will expand your WAR file and place it on the shared file drive. using other deployment APIs may result in inconsistent behavior. 
 
@@ -94,7 +70,7 @@ For the HTTP BASIC authentication, you need your App Service deployment credenti
 The following example uses the cURL tool to deploy a .war file. Replace the placeholders `<username>`, `<war-file-path>`, and `<app-name>`. When prompted by cURL, type in the password.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
 ```
 
 ### With PowerShell

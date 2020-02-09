@@ -46,7 +46,7 @@ You can also use any of the following SDKs:
 * [HTML5 Player Framework Documentation](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://aka.ms/sspk) 
-* [XBOX Video Application Development](https://xbox.create.msdn.com/) 
+* [XBOX Video Application Development](https://www.xbox.com/en-US/developers) 
 
 ## Advertising
 Azure Media Services provides support for ad insertion through the Windows Media Platform: Player Frameworks. Player frameworks with ad support are available for Windows 8, Silverlight, Windows Phone 8, and iOS devices. Each player framework contains sample code that shows you how to implement a player application. There are three different kinds of ads you can insert into your media:

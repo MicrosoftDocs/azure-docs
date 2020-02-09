@@ -5,7 +5,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
 
 ---
@@ -17,36 +17,52 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 ### Timing metrics
 
-The following metrics related to timing of the request and response are available. By analyzing these metrics for a specific listener, you can determine whether the slowdown in application in due to the WAN, the Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
+Application Gateway provides several built‑in timing metrics related to the request and response which are all measured in milliseconds. 
+
+![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
 > If there are more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
-- **Client RTT**
+- **Backend connect time**
 
-  Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments. 
+  Time spent establishing a connection with the backend application. 
 
-- **Application gateway total time**
-
-  Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond.
-  
-After filtering by listener, if the *Client RTT* is much more than the *Application gateway total time*, then it can be deduced that the latency observed by the client is due to the network connectivity between the client and Application Gateway. If both the latencies are comparable, then the high latency could be due to any of the following: Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
+  This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. In case of SSL, it also includes the time spent on handshake. 
 
 - **Backend first byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header, approximating processing time of backend server
+  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
+
+  This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte
+  of the response to reach the Application Gateway from the backend.
 
 - **Backend last byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body
-  
-If the *Application gateway total time* is much more than the *Backend last byte response time* for a specific listener, then it can be deduced that the high latency could be due the Application Gateway. On the other hand, if the two metrics are comparable, then the issue could either be because of the network between the Application Gateway and the backend application, or the performance of the backend application.
+  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
 
-- **Backend connect time**
+  This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
 
-  Time spent establishing a connection with a backend application. In case of SSL, it includes the time spent on handshake. Note that this metric is different from the other latency metrics since this only measures the connection time and therefore, should not be directly compared in magnitude with the other latencies. However, comparing the pattern of *Backend connect time* with the pattern of the other latencies can indicate whether an increase in other latencies could be deduced due to a variation in the network betweent the Application Gatway and the backend application. 
-  
+- **Application gateway total time**
+
+  Average time that it takes for a request to be received, processed and its response to be sent. 
+
+  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, time taken by Application Gateway to send all the response and the *Client RTT*.
+
+- **Client RTT**
+
+  Average round trip time between clients and Application Gateway.
+
+
+
+These metrics can be used to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size.
+
+For example, If there’s a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, then it can be inferred that the Application gateway to backend latency and the time taken to establish the connection is stable, and the spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, then it can be deduced that either the network between Application Gateway and backend server or the backend server TCP stack has saturated. 
+
+If you notice a spike in *Backend last byte response time* but the *Backend first byte response time* is stable, then it can be deduced that the spike is because of a larger file being requested.
+
+Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then this indicates that that the degradation is because of the network between client and Application Gateway.
 
 ### Application Gateway metrics
 
@@ -74,7 +90,7 @@ For Application Gateway, the following metrics are available:
 
 - **Current connections**
 
-   Count of current connections established with Application Gateway
+   The total number of concurrent connections active from clients to the Application Gateway
 
 - **Failed Requests**
 
@@ -107,11 +123,15 @@ For Application Gateway, the following metrics are available:
 
 - **Healthy host count**
 
-  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
 
 - **Unhealthy host count**
 
-  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show unhealthy hosts in a specific backend pool.
+  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
+  
+- **Requests per minute per Healthy Host**
+  The average number of requests received by each healthy member in a backend pool in a minute. You must specify the backend pool using the *BackendPool HttpSettings* dimension.  
+  
 
 ## Metrics supported by Application Gateway V1 SKU
 
@@ -153,11 +173,11 @@ For Application Gateway, the following metrics are available:
 
 - **Healthy host count**
 
-  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
 
 - **Unhealthy host count**
 
-  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show unhealthy hosts in a specific backend pool.
+  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
 
 ## Metrics visualization
 

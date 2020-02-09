@@ -97,6 +97,23 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ![Table key](./media/backup-architecture/table-key.png)
 
+## Backup policy essentials
+
+- A backup policy is created per vault.
+- A backup policy can be created for the backup of following workloads
+  - Azure VM
+  - SQL in Azure VM
+  - Azure File Share
+- A policy can be assigned to many resources. An Azure VM backup policy can be used to protect many Azure VMs.
+- A policy consists of two components
+  - Schedule: When to take the backup
+  - Retention: For how long each backup should be retained.
+- Schedule can be defined as "daily" or "weekly" with a specific point of time.
+- Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
+- "weekly" refers to a backup on a certain day of the week, "monthly" means a backup on a certain day of the month and "yearly" refers to a backup on a certain day of the year.
+- Retention for "monthly", "yearly" backup points is referred to as "LongTermRetention".
+- When a vault is created, a policy for Azure VM backups called "DefaultPolicy" is also created and can be used to back up Azure VMs.
+
 ## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.

@@ -3,9 +3,9 @@ Description: The estimated time to transfer payments, applicable payment thresho
 title: Payment thresholds, methods, and time frames in commercial marketplace | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ---
 # Payment thresholds, methods, and time frames

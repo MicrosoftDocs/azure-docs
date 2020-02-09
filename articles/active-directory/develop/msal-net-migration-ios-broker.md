@@ -14,7 +14,6 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to migrate my iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET. 
-ms.collection: M365-identity-device-management
 ---
 
 # Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET

@@ -17,7 +17,7 @@ ms.author: memildin
 ---
 # Remediate recommendations in Azure Security Center
 
-Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation. 
+Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
 
 ## Remediation steps <a name="remediation-steps"></a>
 
@@ -41,12 +41,12 @@ To implement Quick Fix remediation:
 
     [![Select Quick Fix!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**. 
+1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**.
 
     > [!NOTE]
     > Some of the listed resources might be disabled, because you don't have the appropriate permissions to modify them.
 
-1. In the confirmation box, read the remediation details and implications. 
+1. In the confirmation box, read the remediation details and implications.
 
     ![Quick Fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
@@ -62,7 +62,7 @@ To implement Quick Fix remediation:
 
 ## Quick Fix remediation logging in the activity log <a name="activity-log"></a>
 
-The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit.md).
+The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/management/view-activity-logs.md).
 
 
 ## Recommendations with Quick Fix remediation
@@ -74,7 +74,7 @@ The remediation operation uses a template deployment or REST PATCH API call to a
 |Vulnerability assessment should be enabled on your SQL managed instances|This action will enable SQL Vulnerability Assessment on the selected SQL managed instances. <br>**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS is not enabled already, it will automatically be enabled on the managed instance.</li><li>For each region and resource group of the selected SQL managed instances, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
 |Advanced Data Security should be enabled on your SQL servers|This action will enable Advanced Data Security (ADS) on these selected servers and their databases. <br>**Note**:<ul><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the servers in that region.<</li><li>ADS is charged at $15 per SQL server.</li></ul>||
 |Vulnerability Assessment should be enabled on your SQL servers|This action will enable SQL Vulnerability Assessment on these selected servers and their databases. <br>**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS isn't enabled already, it will automatically be enabled on the SQL server.</li><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|Transparent data encryption on SQL databases should be enabled|This action enables SQL Database Transparent Data Encryption (TDE) on the selected databases. <br>**Note**: By default, service-managed TDE keys will be used. 
+|Transparent data encryption on SQL databases should be enabled|This action enables SQL Database Transparent Data Encryption (TDE) on the selected databases. <br>**Note**: By default, service-managed TDE keys will be used.
 |Secure transfer to storage accounts should be enabled|This action updates your storage account security to only allow requests by secure connections. (HTTPS). <br>**Note**:<ul><li>Any requests using HTTP will be rejected.</li><li>When you're using the Azure files service, connection without encryption will fail, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. Learn more.</li></ul>|
 |Web Application should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
 |Function App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|

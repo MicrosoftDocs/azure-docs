@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
-ms.author: v-meravi
+ms.author: ypitsch
 ---
 
 # Register Peering Service Preview by using the Azure portal
@@ -55,7 +55,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 **Azure CLI**
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Peering--name AllowPeeringService
+az feature register --namespace Microsoft.Peering --name AllowPeeringService
 ```
 
 ## Sign in to the Azure portal

@@ -13,7 +13,6 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.topic: conceptual
 ms.workload: identity
-ms.collection: M365-identity-device-management
 ---
 
 # Developer guidance for Azure Active Directory Conditional Access

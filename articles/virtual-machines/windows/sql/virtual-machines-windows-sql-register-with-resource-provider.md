@@ -414,11 +414,11 @@ No. Registering with the SQL VM resource provider is not available in the Azure 
 
 **Can I register a VM with the SQL VM resource provider before SQL Server is installed?**
 
-No. A VM should have at least one SQL Server instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
+No. A VM should have at least one SQL Server (Database Engine) instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
 
 **Can I register a VM with the SQL VM resource provider if there are multiple SQL Server instances?**
 
-Yes. The SQL VM resource provider will register only one SQL Server instance. The SQL VM resource provider will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
+Yes. The SQL VM resource provider will register only one SQL Server (Database Engine) instance. The SQL VM resource provider will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
 
 **Can I register a SQL Server failover cluster instance with the SQL VM resource provider?**
 
