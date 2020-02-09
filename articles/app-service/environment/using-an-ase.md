@@ -127,6 +127,10 @@ Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don'
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 
+## Storage
+
+An ASE has 1 TB of storage for all of the apps within the ASE. An Isolated SKU App Service plan has a limit of 250 GB by default. It is possible to try and allocate beyond 1 TB through the use of multiple App Service plans i the same ASE. If you require more than the 250 GB limit in one App Service plan, contact to support to adjust the plan limit. When the plan limit is adjusted, there is still a limit of 1 TB across all of the App Service plans in the ASE.  
+
 ## Logging ##
 
 You can integrate your ASE with Azure Monitor to send logs about the ASE to Storage, Event Hub, or Log Analytics. The items that are logged today are:
@@ -135,7 +139,7 @@ You can integrate your ASE with Azure Monitor to send logs about the ASE to Stor
 |---------|----------|
 | ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
 | ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale  |
-| ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 100 instances. Contact support if more instances are needed |
+| ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 201 instances. |
 | ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
 | ASE is suspended | The specified ASE is suspended. The ASE suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the ASE to continue serving traffic |
 | ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations |
