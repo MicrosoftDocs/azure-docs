@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/07/2020
+ms.date: 02/10/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -208,7 +208,7 @@ Once you've deployed the template and have waited a few minutes for the resource
 Diagnostic settings define where logs and metrics for a resource should be sent. Possible destinations are:
 
 - [Azure storage account](../azure-monitor/platform/resource-logs-collect-storage.md)
-- [Event hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)solutions.
+- [Event hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) solutions.
 - [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 If you haven't already, create an instance of your chosen destination type in the resource group you specified in the [Azure Resource Manager template](#create-an-azure-resource-manager-template).
