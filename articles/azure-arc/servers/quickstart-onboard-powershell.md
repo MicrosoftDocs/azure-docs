@@ -71,15 +71,15 @@ The **Azure Connected Machine Onboarding** role contains only the permissions re
 
 ## Install the agent and connect to Azure
 
-The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md#) article. The difference is the final step to establish the connection to Azure Arc using the `azcmagent` command uses the service principal.
+The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. The difference is in the final step where you establish the connection to Azure Arc using the `azcmagent` command using the service principal. 
 
-The following are the settings that you configure to use the service principal with the `acmagent` command to connect the machine to Auzre Arc.
+The following are the settings that you configure the `azcmagent` command to use for the service principal.
 
-* `tenant-id` : The ID (GUID) that represents your dedicated instance of Azure AD.
+* `tenant-id` : The unique identifier (GUID) that represents your dedicated instance of Azure AD.
 * `subscription-id` : The subscription ID (GUID) of your Azure subscription that you want the machines in.
 * `resource-group` : The resource group name where you want your connected machines to belong to.
 * `location` : See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.
-* `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
+* `resource-name` : (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname is used.
 
 You can learn more about the `azcmagent` command line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
 
