@@ -40,7 +40,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 - Improved support for interlaced sources in Video Analysis – such content is now de-interlaced correctly before being sent to inference engines.
 - When generating thumbnails with the “Best” mode, the encoder now searches beyond 30 seconds to select a frame that is not monochromatic.
 
-### The Azure Government cloud updates
+### Azure Government cloud updates
 
 Media Services GA’ed in the following Azure Government regions: *USGov Arizona* and *USGov Texas*.
 
