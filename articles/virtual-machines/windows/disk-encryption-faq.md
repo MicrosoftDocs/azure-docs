@@ -105,9 +105,6 @@ Azure Disk Encryption selects the encryption method in BitLocker based on the ve
 
 To determine Windows OS version, run the 'winver' tool in your virtual machine.
 
-## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
-No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. 
-
 ## Can I backup and restore an encrypted VM? 
 
 Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restoring an encrypted VM to a different region is not currently supported.  
