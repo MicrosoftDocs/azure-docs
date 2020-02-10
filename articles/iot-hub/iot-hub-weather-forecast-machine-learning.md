@@ -101,7 +101,7 @@ In this section, you validate the model, set up a predictive web service based o
 
    ![Deploy the weather prediction model in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
-1. In the diagram, delete the connection between the **Web service input** module and the **Weather Dataset** at the top. Then drag the **Web service input** module somewhere near the **Score Model** module and connect it as shown:
+1. In the predictive experiment diagram, delete the connection between the **Web service input** module and the **Weather Dataset** at the top. Then drag the **Web service input** module somewhere near the **Score Model** module and connect it as shown:
 
    ![Connect two modules in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 
