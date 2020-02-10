@@ -1,11 +1,7 @@
 ---
 title: How to Troubleshoot Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Azure Monitor for containers.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
 
 ---

@@ -42,11 +42,11 @@
   - name: REST
     href: /rest/api/firewall
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

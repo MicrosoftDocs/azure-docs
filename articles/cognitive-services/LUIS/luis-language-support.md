@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: diberry
 ---
 
@@ -28,6 +28,7 @@ LUIS understands utterances in the following languages:
 | Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
+| Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|  -   |-|✔|
 | French (France) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -61,7 +62,7 @@ See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-serv
 See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
-In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. 
+In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -73,6 +74,7 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 
 |Language|  every space or special character | character level|compound words|[tokenized entity returned](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
+|Arabic|||||
 |Chinese||✔||✔|
 |Dutch|||✔|✔|
 |English (en-us)|✔ ||||
@@ -98,9 +100,9 @@ The following cultures have custom tokenizer versions:
 
 ### Migrating between tokenizer versions
 <!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -149,7 +151,7 @@ Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -199,6 +201,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Tokenization happens at the app level. There is no support for version-level tokenization. 
+Tokenization happens at the app level. There is no support for version-level tokenization.
 
-[Import the file as a new app](luis-how-to-start-new-app.md), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file. 
+[Import the file as a new app](luis-how-to-start-new-app.md), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file.

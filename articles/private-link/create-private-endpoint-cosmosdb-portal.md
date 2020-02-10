@@ -1,7 +1,7 @@
 ---
 title: Connect to an Azure Cosmos account with Azure Private Link
 description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -125,9 +125,6 @@ Connect to the VM *myVm* from the internet as follows:
 
 In this section, you will connect privately to the Azure Cosmos account using the Private Endpoint. 
 
-> [!IMPORTANT]
-> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file (on Windows) or `/etc/hosts` file (on Linux) to include the IP address and DNS mapping.
-
 1. To include the IP address and DNS mapping, sign into your Virtual machine *myVM*, open the `c:\Windows\System32\Drivers\etc\hosts` file and include the DNS information from previous step in the following format:
 
    [Private IP Address] [Account endpoint].documents.azure.com
@@ -139,7 +136,7 @@ In this section, you will connect privately to the Azure Cosmos account using th
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. In the Remote Desktop of *myVM*, install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+1. In the Remote Desktop of *myVM*, install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
 1. Select **Cosmos DB Accounts (Preview)** with the right-click.
 
@@ -157,22 +154,22 @@ In this section, you will connect privately to the Azure Cosmos account using th
 
 1. (Optionally) add new items to *mycosmosaccount*.
 
-1. Close the remote desktop connection to *myVM*.
+1. Close the remote desktop connection to *myVM*.
 
 ## Clean up resources
 
 When you're done using the Private Endpoint, Azure Cosmos account and the VM, delete the resource group and all of the resources it contains: 
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
 
 1. Select **Delete resource group**.
 
-1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
 In this article, you created a VM on a virtual network, an Azure Cosmos account and a Private Endpoint. You connected to the VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
 
-* To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+* To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
 
 * To learn more about limitation of Private Endpoint when using with Azure Cosmos DB, see [Azure Private Link with Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) article.

@@ -37,7 +37,7 @@ Take note of the value of the **Login server**. You use this value in the follow
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.
+Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.(Specify only Container Name. Do not include 'azurecr.io')
 
 ```azurecli
 az acr login --name <acrName>

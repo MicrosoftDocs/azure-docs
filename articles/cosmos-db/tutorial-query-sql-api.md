@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: How to query with SQL in Azure Cosmos DB?'
-description: 'Tutorial: Learn to query with SQL in Azure Cosmos DB'
+description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB using thw query playground'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db

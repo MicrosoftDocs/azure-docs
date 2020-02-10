@@ -18,7 +18,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Increase security and control over keys and passwords.
 - Create and import encryption keys in minutes.
 - Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for SSL/TLS certificates.
+- Simplify and automate tasks for TLS/SSL certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
 [API reference documentation](/python/api/overview/azure/key-vault?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
@@ -138,7 +138,7 @@ Authenticating to your key vault and creating a key vault client depends on the 
 ```python
 credential = DefaultAzureCredential()
 
-client = SecretClient(vault_endpoint=KVUri, credential=credential)
+client = SecretClient(vault_url=KVUri, credential=credential)
 ```
 
 ### Save a secret
@@ -146,7 +146,7 @@ client = SecretClient(vault_endpoint=KVUri, credential=credential)
 Now that your application is authenticated, you can put a secret into your keyvault using the client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
 
 ```python
-client.set_secret(secretName, secretValue);
+client.set_secret(secretName, secretValue)
 ```
 
 You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
@@ -170,7 +170,7 @@ Your secret is now saved as `retrieved_secret.value`.
 Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
 ```python
-client.delete_secret(secretName);
+client.delete_secret(secretName)
 ```
 
 You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
@@ -184,7 +184,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell
@@ -199,37 +199,37 @@ import cmd
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-keyVaultName = os.environ["KEY_VAULT_NAME"];
-KVUri = "https://" + keyVaultName + ".vault.azure.net";
+keyVaultName = os.environ["KEY_VAULT_NAME"]
+KVUri = "https://" + keyVaultName + ".vault.azure.net"
 
 credential = DefaultAzureCredential()
-client = SecretClient(vault_endpoint=KVUri, credential=credential)
+client = SecretClient(vault_url=KVUri, credential=credential)
 
-secretName = "mySecret";
+secretName = "mySecret"
 
-print("Input the value of your secret > ");
-secretValue = raw_input();
+print("Input the value of your secret > ")
+secretValue = raw_input()
 
-print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...")
 
-client.set_secret(secretName, secretValue);
+client.set_secret(secretName, secretValue)
 
-print(" done.");
+print(" done.")
 
-print("Forgetting your secret.");
-secretValue = "";
-print("Your secret is '" + secretValue + "'.");
+print("Forgetting your secret.")
+secretValue = ""
+print("Your secret is '" + secretValue + "'.")
 
-print("Retrieving your secret from " + keyVaultName + ".");
+print("Retrieving your secret from " + keyVaultName + ".")
 
 retrieved_secret = client.get_secret(secretName)
 
-print("Your secret is '" + retrieved_secret.value + "'.");
-print("Deleting your secret from " + keyVaultName + " ...");
+print("Your secret is '" + retrieved_secret.value + "'.")
+print("Deleting your secret from " + keyVaultName + " ...")
 
-client.delete_secret(secretName);
+client.delete_secret(secretName)
 
-print(" done.");
+print(" done.")
 ```
 
 ## Next steps

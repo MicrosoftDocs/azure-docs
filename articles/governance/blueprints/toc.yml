@@ -63,6 +63,28 @@
     - name: Steps to deploy
       displayName: standards, fedramp, moderate
       href: ./samples/fedramp-m/deploy.md
+  - name: FedRAMP High
+    items:
+    - name: Overview
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/index.md
+    - name: Control mapping
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, fedramp, high
+      href: ./samples/fedramp-h/deploy.md
+  - name: HIPAA HITRUST
+    items:
+    - name: Overview
+      displayName: standards, HIPAA HITRUST
+      href: ./samples/HIPAA-HITRUST/index.md
+    - name: Control mapping
+      displayName: standards, HIPAA HITRUST
+      href: ./samples/HIPAA-HITRUST/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, HIPAA HITRUST
+      href: ./samples/HIPAA-HITRUST/deploy.md
   - name: IRS 1075
     items:
     - name: Overview

@@ -1,15 +1,15 @@
 ---
-title: Manage Azure Database for MySQL - Azure portal
+title: Manage server - Azure portal - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ---
 
 # Manage an Azure Database for MySQL server using the Azure portal
-This article shows you how to manage your Afire Database for MySQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+This article shows you how to manage your Azure Database for MySQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Sign in
 Sign in to the [Azure portal](https://portal.azure.com).

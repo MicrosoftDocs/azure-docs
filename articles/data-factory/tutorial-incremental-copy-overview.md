@@ -1,16 +1,17 @@
 ---
-title: 'Incrementally copy data by using Azure Data Factory '
-description: 'These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.'
+title: Incrementally copy data by
+description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.author: yexu
 ---
 
 # Incrementally load data from a source data store to a destination data store

@@ -33,7 +33,7 @@ The account you sign into, or connect to Azure with, must be assigned to the [ne
 
 ## Create a route table
 
-There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. In the top-left corner of the portal, select **+ Create a resource**.
 1. Select **Networking**, then select **Route table**.
@@ -59,11 +59,11 @@ In the search box at the top of the portal, enter *route tables* in the search b
 1. Select the route table in the list that you want to view details for. Under **SETTINGS**, you can view the **Routes** in the route table and the **Subnets** the route table is associated to.
 1. To learn more about common Azure settings, see the following information:
 
-    * [Activity log](../azure-monitor/platform/activity-logs-overview.md)<br>
+    * [Activity log](../azure-monitor/platform/platform-logs-overview.md)<br>
     * [Access control (IAM)](../role-based-access-control/overview.md)<br>
-    * [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Automation script](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+    * [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 ### View details of route table - commands
 
@@ -127,7 +127,7 @@ If a route table is associated to any subnets, it cannot be deleted. [Dissociate
 
 ## Create a route
 
-There is a limit to how many routes per route table can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There is a limit to how many routes per route table can create per Azure location and subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 1. Select the route table from the list that you want to add a route to.

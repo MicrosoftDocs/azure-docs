@@ -300,6 +300,11 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
+  - name: Azure Key Vault integration
+    items:
+    - name: Integrate Key Vault with Azure Policy
+      displayName: key vault, certificate, key
+      href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Lighthouse integration
     items:
     - name: Deploy a policy at scale

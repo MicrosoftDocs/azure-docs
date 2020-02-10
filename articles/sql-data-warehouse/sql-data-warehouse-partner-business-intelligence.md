@@ -83,7 +83,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+[looker_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 

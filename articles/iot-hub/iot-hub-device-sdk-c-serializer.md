@@ -62,13 +62,13 @@ The following data types are supported in models created with the **serializer**
 | Type | Description |
 | --- | --- |
 | double |double precision floating point number |
-| int |32 bit integer |
+| int |32-bit integer |
 | float |single precision floating point number |
 | long |long integer |
-| int8\_t |8 bit integer |
-| int16\_t |16 bit integer |
-| int32\_t |32 bit integer |
-| int64\_t |64 bit integer |
+| int8\_t |8-bit integer |
+| int16\_t |16-bit integer |
+| int32\_t |32-bit integer |
+| int64\_t |64-bit integer |
 | bool |boolean |
 | ascii\_char\_ptr |ASCII string |
 | EDM\_DATE\_TIME\_OFFSET |date time offset |
@@ -273,7 +273,7 @@ When we run the previous code to send the Temperature event, this serialized for
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-We're sending a temperature which is of type **TemperatureEvent** and that struct contains a **Temperature** and **Time** member. This is directly reflected in the serialized data.
+We're sending a temperature, which is of type **TemperatureEvent**, and that struct contains a **Temperature** and **Time** member. This is directly reflected in the serialized data.
 
 Similarly, we can send a humidity event with this code:
 
@@ -310,7 +310,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-In this case we've eliminated the **DECLARE\_STRUCT** macros and are simply defining the data items from our scenario using simple types from the modeling language.
+In this case, we've eliminated the **DECLARE\_STRUCT** macros and are simply defining the data items from our scenario using simple types from the modeling language.
 
 Just for the moment, ignore the **Time** event. With that aside, here’s the code to ingress **Temperature**:
 
@@ -396,7 +396,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 
 If we used this model, it would be easier to understand how **Temperature** and **Humidity** would be sent in the same serialized message. However it may not be clear why it works that way when you pass both data events to **SERIALIZE** using model 2.
 
-This behavior is easier to understand if you know the assumptions that the **serializer** library is making. To make sense of this let’s go back to our model:
+This behavior is easier to understand if you know the assumptions that the **serializer** library is making. To make sense of this, let’s go back to our model:
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -406,7 +406,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Think of this model in object-oriented terms. In this case we’re modeling a physical device (a thermostat) and that device includes attributes like **Temperature** and **Humidity**.
+Think of this model in object-oriented terms. In this case, we’re modeling a physical device (a thermostat) and that device includes attributes like **Temperature** and **Humidity**.
 
 We can send the entire state of our model with code such as the following:
 
@@ -429,11 +429,11 @@ Sometimes you may only want to send *some* properties of the model to the cloud 
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-This generates exactly the same serialized event as if we had defined a **TemperatureEvent** with a **Temperature** and **Time** member, just as we did with model 1. In this case we were able to generate exactly the same serialized event by using a different model (model 2) because we called **SERIALIZE** in a different way.
+This generates exactly the same serialized event as if we had defined a **TemperatureEvent** with a **Temperature** and **Time** member, just as we did with model 1. In this case, we were able to generate exactly the same serialized event by using a different model (model 2) because we called **SERIALIZE** in a different way.
 
 The important point is that if you pass multiple data events to **SERIALIZE,** then it assumes each event is a property in a single JSON object.
 
-The best approach depends on you and how you think about your model. If you’re sending "events" to the cloud and each event contains a defined set of properties, then the first approach makes a lot of sense. In that case you would use **DECLARE\_STRUCT** to define the structure of each event and then include them in your model with the **WITH\_DATA** macro. Then you send each event as we did in the first example above. In this approach you would only pass a single data event to **SERIALIZER**.
+The best approach depends on you and how you think about your model. If you’re sending "events" to the cloud and each event contains a defined set of properties, then the first approach makes a lot of sense. In that case you would use **DECLARE\_STRUCT** to define the structure of each event and then include them in your model with the **WITH\_DATA** macro. Then you send each event as we did in the first example above. In this approach, you would only pass a single data event to **SERIALIZER**.
 
 If you think about your model in an object-oriented fashion, then the second approach may suit you. In this case, the elements defined using **WITH\_DATA** are the "properties" of your object. You pass whatever subset of events to **SERIALIZE** that you like, depending on how much of your "object’s" state you want to send to the cloud.
 
@@ -535,7 +535,7 @@ This section described everything you need to know when sending events and recei
 
 If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
 
-If you have cloned the Azure-iot-sdk-c repository from GitHub using the --recursive option, then you will find this shared utility library here:
+If you have cloned the Azure-iot-sdk-c repository from GitHub and issued the `git submodule update --init` command, then you will find this shared utility library here:
 
 ```C
 .\\c-utility
@@ -555,7 +555,7 @@ This folder contains a Visual Studio solution called **macro\_utils\_h\_generato
 
 The program in this solution generates the **macro\_utils.h** file. There’s a default macro\_utils.h file included with the SDK. This solution allows you to modify some parameters and then recreate the header file based on these parameters.
 
-The two key parameters to be concerned with are **nArithmetic** and **nMacroParameters** which are defined in these two lines found in macro\_utils.tt:
+The two key parameters to be concerned with are **nArithmetic** and **nMacroParameters**, which are defined in these two lines found in macro\_utils.tt:
 
 ```C
 <#int nArithmetic=1024;#>

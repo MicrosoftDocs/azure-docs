@@ -1,10 +1,11 @@
 ---
-title: Azure Data Factory data flow graphs
+title: Data flow graphs
 description: How to work with data factory data flow graphs
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/04/2019
 ---
 

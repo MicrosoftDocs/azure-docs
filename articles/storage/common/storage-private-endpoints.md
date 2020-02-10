@@ -28,7 +28,7 @@ A Private Endpoint is a special network interface for an Azure service in your [
 
 Applications in the VNet can connect to the storage service over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the storage account, including REST and SMB.
 
-Private endpoints can be created in subnets that use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can thus connect to one storage account using private endpoint, while using service endpoints to access others.
+Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can thus connect to one storage account using private endpoint, while using service endpoints to access others.
 
 When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
 
@@ -111,8 +111,8 @@ The recommended DNS zone names for private endpoints for storage services are:
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
-- [Name resolution for resources in Azure virtual networks](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## Pricing
 

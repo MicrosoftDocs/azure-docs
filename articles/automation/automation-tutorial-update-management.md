@@ -2,12 +2,9 @@
 title: Manage updates and patches for your Azure VMs
 description: This article provides an overview of how to use Azure Automation Update Management to manage updates and patches for your Azure and non-Azure VMs.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 11/20/2019
-ms.author: magoedte
+ms.date: 01/21/2020
 ms.custom: mvc
 ---
 # Manage updates and patches for your Azure VMs
@@ -122,6 +119,10 @@ To customize the subject of the alert email,  under **Create rule**, under **Cus
 
 Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
+>[!NOTE]
+>When you schedule an update deployment, it creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, it breaks the scheduled update deployment and presents an error when you attempt to reconfigure it from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
+>
+
 To schedule a new update deployment for the VM, go to **Update management**, and then select **Schedule update deployment**.
 
 Under **New update deployment**, specify the following information:
@@ -134,7 +135,7 @@ Under **New update deployment**, specify the following information:
 
 * **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
-* **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
+* **Update classification**: Select the supported update classifications available for each product that can be included in the update deployment. For this tutorial, leave all types selected.
 
   The classification types are:
 
@@ -149,6 +150,10 @@ Under **New update deployment**, specify the following information:
 
 > [!NOTE]
 > It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
+
+> [!NOTE]
+> You cannot specify updates that have been superseded for inclusion with the update deployment.
+>
 
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 

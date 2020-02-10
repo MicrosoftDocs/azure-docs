@@ -1,22 +1,21 @@
 ---
-title: Copy activity performance and scalability guide in Azure Data Factory 
+title: Copy activity performance and scalability guide
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-
 ---
+
 # Copy activity performance and scalability guide
+
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Current version](copy-activity-performance.md)
@@ -289,7 +288,8 @@ You're charged based on two steps: copy duration and copy type.
 
 Here are performance monitoring and tuning references for some of the supported data stores:
 
-* Azure Storage, which includes Blob storage and Table storage: [Azure Storage scalability targets](../storage/common/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
+* Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
+* Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the Database Transaction Unit (DTU) percentage.
 * Azure SQL Data Warehouse: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 11/06/2019
+ms.date: 01/07/2020
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -132,7 +132,7 @@ Your managed instance needs permissions to read Azure AD to successfully accompl
 
    The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they aren't supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and isn't propagated to SQL Server.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![Add Azure Active Directory admin](./media/sql-database-aad-authentication/add-azure-active-directory-admin.png)
 
 8. At the top of the Active Directory admin page, select **Save**.
 
@@ -235,11 +235,12 @@ The following two procedures show you how to provision an Azure Active Directory
 ### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)
+
     ![choose-ad][8]
 
-2. In the left banner select **All services**, and in the filter type in **SQL server**. Select **Sql Servers**.
+2. Search for and select **SQL server**.
 
-    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
+    ![Search for and select SQL servers](media/sql-database-aad-authentication/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
     > On this page, before you select **SQL servers**, you can select the **star** next to the name to *favorite* the category and add **SQL servers** to the left navigation bar.
@@ -248,11 +249,11 @@ The following two procedures show you how to provision an Azure Active Directory
 
 4. In the **Active Directory admin** page, select **Set admin**.
 
-    ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+    ![SQL servers set Active Directory admin](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
 5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
 
-    ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
+    ![Select Azure Active Directory admin](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
 6. At the top of the **Active Directory admin** page, select **SAVE**.
 
@@ -340,14 +341,17 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 On all client machines, from which your applications or users connect to Azure SQL Database or Azure SQL Data Warehouse using Azure AD identities, you must install the following software:
 
 - .NET Framework 4.6 or later from [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory Authentication Library for SQL Server (*ADALSQL.DLL*) is available in multiple languages (both x86 and amd64) from the download center at [Microsoft Active Directory Authentication Library for Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory Authentication Library for SQL Server (*ADAL.DLL*). Below are the download links to install the latest SSMS, ODBC, and OLE DB driver that contains the *ADAL.DLL* library.
+    1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+    1. [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
+    1. [OLE DB Driver 18 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
 You can meet these requirements by:
 
-- Installing either [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) or [SQL Server Data Tools for Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) meets the .NET Framework 4.6 requirement.
-- SSMS installs the x86 version of *ADALSQL.DLL*.
-- SSDT installs the amd64 version of *ADALSQL.DLL*.
-- The latest Visual Studio from [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) meets the .NET Framework 4.6 requirement, but does not install the required amd64 version of *ADALSQL.DLL*.
+- Installing the latest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) meets the .NET Framework 4.6 requirement.
+    - SSMS installs the x86 version of *ADAL.DLL*.
+    - SSDT installs the amd64 version of *ADAL.DLL*.
+    - The latest Visual Studio from [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) meets the .NET Framework 4.6 requirement, but does not install the required amd64 version of *ADAL.DLL*.
 
 ## Create contained database users in your database mapped to Azure AD identities
 
@@ -510,9 +514,13 @@ The following statements, connect using version 13.1 of sqlcmd, which is availab
 > `sqlcmd` with the `-G` command does not work with system identities, and requires a user principal login.
 
 ```cmd
-sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
+
+## Troubleshooting Azure AD Authentication
+
+Guidance on troubleshooting issues with Azure AD Authentication can be found in the following blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## Next steps
 

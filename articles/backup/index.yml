@@ -114,7 +114,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Back up and restore Azure file shares
-            url: backup-azure-files.md
+            url: backup-afs.md
           - text: FAQ - Back up Azure Files
             url: backup-azure-files-faq.md
  # Card

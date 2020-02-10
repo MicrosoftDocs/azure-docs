@@ -2,22 +2,18 @@
 title: Azure Active Directory Graph API | Microsoft Docs
 description: An overview and quickstart guide for Azure AD Graph API, which allows programmatic access to Azure AD through REST API endpoints.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Graph API

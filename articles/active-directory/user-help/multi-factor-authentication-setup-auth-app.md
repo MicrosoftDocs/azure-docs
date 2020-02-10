@@ -2,7 +2,7 @@
 title: Set up an authenticator app as your two-factor verification method - Azure Active Directory | Microsoft Docs
 description: Learn how to set up the Microsoft Authenticator app as your two-factor verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
@@ -10,8 +10,7 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up an authenticator app as your two-factor verification method

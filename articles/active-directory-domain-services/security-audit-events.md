@@ -14,7 +14,7 @@ ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
-# Enable security audits for Azure Active Directory Domain Services (preview)
+# Enable security audits for Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource. You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
@@ -66,7 +66,7 @@ The following table outlines scenarios for each destination resource type.
 
 | Target Resource | Scenario |
 |:---|:---|
-|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. Before you enable Azure AD DS security audit events, [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software. Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly. Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
@@ -78,8 +78,8 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 > Azure AD DS security audits aren't retroactive. It's not possible to retrieve events from the past, or to replay events from the past. Azure AD DS can only send events that occur after it's enabled.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
-1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *contoso.com*.
-1. In the Azure AD DS window, select **Diagnostic settings (preview)** on the left-hand side.
+1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aadds.contoso.com*.
+1. In the Azure AD DS window, select **Diagnostic settings** on the left-hand side.
 1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
 
     ![Add a diagnostic setting for Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
@@ -122,7 +122,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
 
 1. Create the target resource for the security audit events.
 
-    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
     * **Azure event hubs** - [Create an event hub using Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Azure AD DS permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
 
         > [!IMPORTANT]

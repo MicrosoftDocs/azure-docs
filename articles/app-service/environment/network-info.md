@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -83,7 +83,7 @@ The ASE communicates out to internet accessible addresses on the following ports
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, Windows updates, Linux dependencies, Azure services | 80/443 |
+| CRL, Windows updates, Linux dependencies, Azure services | 80/443 |
 | Azure SQL | 1433 | 
 | Monitoring | 12000 |
 
@@ -239,7 +239,7 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

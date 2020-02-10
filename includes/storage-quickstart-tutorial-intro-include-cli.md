@@ -56,4 +56,4 @@ export AZURE_STORAGE_ACCOUNT="<account-name>"
 export AZURE_STORAGE_KEY="<account-key>"
 ```
 
-For more information on how to retrieve the account access keys using the Azure portal, see **Access keys** in [Manage storage account settings in the Azure portal](../articles/storage/common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#access-keys).
+For more information on how to retrieve the account access keys using the Azure portal, see [Manage storage account access keys](../articles/storage/common/storage-account-keys-manage.md).

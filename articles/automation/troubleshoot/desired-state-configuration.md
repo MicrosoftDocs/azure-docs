@@ -1,16 +1,16 @@
 ---
-title: Troubleshooting issues with Azure Automation Desired State Configuration (DSC)
+title: Troubleshoot Azure Automation Desired State Configuration (DSC)
 description: This article provides information on troubleshooting Desired State Configuration (DSC)
 services: automation
 ms.service: automation
 ms.subservice:
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot Desired State Configuration (DSC)
+# Troubleshoot issues with Azure Automation Desired State Configuration (DSC)
 
 This article provides information on troubleshooting issues with Desired State Configuration (DSC).
 
@@ -88,6 +88,68 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 #### Resolution
 
 Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
+
+### <a name="unauthorized"><a/>Scenario: Status reports return response code "Unauthorized"
+
+#### Issue
+
+When registering a Node with State Configuration (DSC) you receive one of the following error messages:
+
+```error
+The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+```
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
+```
+
+### Cause
+
+This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+
+### Resolution
+
+Follow the steps listed below to re-register the failing DSC node.
+
+First, un-register the node using the following steps.
+
+1. From the Azure portal, under **Home** -> **Automation Accounts**-> {Your Automation Account} -> **State configuration (DSC)**
+2. Click "Nodes", and click on the node having trouble.
+3. Click "Unregister" to un-register the node.
+
+Second, uninstall the DSC extension from the node.
+
+1. From the Azure portal, under **Home** -> **Virtual Machine** -> {Failing node} -> **Extensions**
+2. Click "Microsoft.Powershell.DSC".
+3. Click "Uninstall", to uninstall the PowerShell DSC extension.
+
+Third, remove all bad or expired certificates from the node.
+
+On the failing node from an elevated Powershell Prompt, run the following:
+
+```powershell
+$certs = @()
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC"}
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC-OaaS Client Authentication"}
+$certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"}
+"";"== DSC Certificates found: " + $certs.Count
+$certs | FL ThumbPrint,FriendlyName,Subject
+If (($certs.Count) -gt 0)
+{ 
+    ForEach ($Cert in $certs) 
+    {
+        RD -LiteralPath ($Cert.Pspath) 
+    }
+}
+```
+
+Finally, re-register the failing node using the following steps.
+
+1. From the Azure portal, under **Home** -> **Automation Accounts** -> {Your Automation Account} -> **State configuration (DSC)**
+2. Click "Nodes".
+3. Click the "Add" button.
+4. Select the failing node.
+5. Click "Connect", and select your desired options.
 
 ### <a name="failed-not-found"></a>Scenario: Node is in failed status with a "Not found" error
 
@@ -186,6 +248,49 @@ This error typically occurs when the node is assigned a node configuration name 
 
 * Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
 * You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
+
+### <a name="cross-subscription"></a>Scenario: Registering a node with PowerShell returns the error "One or more errors occurred"
+
+#### Issue
+
+When registering a node using `Register-AzAutomationDSCNode` or `Register-AzureRMAutomationDSCNode`, you receive the following error.
+
+```error
+One or more errors occurred.
+```
+
+#### Cause
+
+This error occurs when you attempt to register a node that lives in a separate subscription than the Automation Account.
+
+#### Resolution
+
+Treat the cross-subscription node as though it lives in a separate cloud, or on-premise.
+
+Follow the steps below to register the node.
+
+* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+
+### <a name="agent-has-a-problem"></a>Scenario: Error message - "Provisioning Failed"
+
+#### Issue
+
+When registering a node, you see the error:
+
+```error
+Provisioning has failed
+```
+
+#### Cause
+
+This message occurs when there is a connectivity issue between the node and Azure.
+
+#### Resolution
+
+Determine whether your node is in a private virtual network or has other issues connecting to Azure.
+
+For more information, see [Troubleshoot errors when onboarding solutions](onboarding.md).
 
 ### <a name="failure-linux-temp-noexec"></a>Scenario: Applying a configuration in Linux, a failure occurs with a general error
 

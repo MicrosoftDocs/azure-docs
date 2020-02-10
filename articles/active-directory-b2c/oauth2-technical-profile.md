@@ -1,5 +1,6 @@
 ---
-title: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define an OAuth2 technical profile in a custom policy
+titleSuffix: Azure AD B2C
 description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -108,7 +109,7 @@ If you are using the **b2clogin.com** domain instead of **login.microsoftonline.
 
 Examples:
 
-- [Add Google+ as an OAuth2 identity provider using custom policies](active-directory-b2c-custom-setup-goog-idp.md)
+- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
 
 
 

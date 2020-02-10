@@ -27,11 +27,15 @@
     href: visualize-power-bi.md  
 - name: Concepts
   items:
-  - name: Data ingestion overview
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
+  - name: Data ingestion
+    items:  
+    - name: Data ingestion overview
+      displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
+      href: ingest-data-overview.md
   - name: Data visualization overview
     href: viz-overview.md
+  - name: Security overview
+    href: security.md
 - name: How-to guides
   items:
   - name: Create cluster and database
@@ -52,48 +56,50 @@
       items:
       - name: Azure portal
         href: ingest-data-event-hub.md
-      - name: Python
-        href: data-connection-event-hub-python.md
       - name: C#
         href: data-connection-event-hub-csharp.md
+      - name: Python
+        href: data-connection-event-hub-python.md
       - name: Azure Resource Manager template
         href: data-connection-event-hub-resource-manager.md
     - name: Event Grid
       items:
       - name: Azure portal
         href: ingest-data-event-grid.md
-      - name: Python
-        href: data-connection-event-grid-python.md
       - name: C#
         href: data-connection-event-grid-csharp.md
+      - name: Python
+        href: data-connection-event-grid-python.md
       - name: Azure Resource Manager template
         href: data-connection-event-grid-resource-manager.md
     - name: IoT Hub
       items:
       - name: Azure portal
         href: ingest-data-iot-hub.md
-      - name: Python
-        href: data-connection-iot-hub-python.md
       - name: C#
         href: data-connection-iot-hub-csharp.md
+      - name: Python
+        href: data-connection-iot-hub-python.md
       - name: Azure Resource Manager template
         href: data-connection-iot-hub-resource-manager.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
+    - name: Using SDKs
+      items: 
+      - name: Python
+        href: python-ingest-data.md
+      - name: Node SDK
+        href: node-ingest-data.md
+      - name: .NET Standard SDK
+        href: net-standard-ingest-data.md
     - name: Kafka
       href: ingest-data-kafka.md
-    - name: Python
-      href: python-ingest-data.md
-    - name: Node SDK
-      href: node-ingest-data.md
-    - name: .NET Standard SDK
-      href: net-standard-ingest-data.md
     - name: Logstash
       href: ingest-data-logstash.md
-    - name: Copy data using Azure Data Factory
-      href: data-factory-load-data.md   
+    - name: JSON formatted data
+      href: ingest-json-formats.md  
   - name: Query data
     items:
     - name: Write queries
@@ -101,9 +107,13 @@
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
-      href: query-monitor-data.md  
-    - name: Python
-      href: python-query-data.md
+      href: query-monitor-data.md
+    - name: Debug KQL inline Python
+      href: debug-inline-python.md
+    - name: using SDKs
+      items:  
+      - name: Python
+        href: python-query-data.md
     - name: Time Series Analysis and Machine Learning
       items:
       - name: Time series analysis
@@ -140,6 +150,18 @@
       href: sisense.md
     - name: Redash
       href: redash.md
+  - name: Secure
+    items:
+    - name: Manage cluster security
+      href: manage-cluster-security.md
+    - name: Configure managed identities
+      href: managed-identities.md
+    - name: Configure customer-managed-keys
+      items:
+        - name: C#
+          href: customer-managed-keys-csharp.md
+        - name: Azure Resource Manager template
+          href: customer-managed-keys-resource-manager.md
   - name: Manage
     items:
     - name: Cluster
@@ -150,16 +172,30 @@
         href: manage-cluster-horizontal-scaling.md
       - name: Manage cluster vertical scaling
         href: manage-cluster-vertical-scaling.md
-      - name: Manage cluster security
-        href: manage-cluster-security.md
       - name: Check cluster health
         href: check-cluster-health.md
+      - name: Add cluster principal
+        items:
+          - name: C#
+            href: cluster-principal-csharp.md
+          - name: Python
+            href: cluster-principal-python.md
+          - name: Azure Resource Manager template
+            href: cluster-principal-resource-manager.md
     - name: Database
       items:
       - name: Follower databases
         href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
+      - name: Add database principal
+        items:
+          - name: C#
+            href: database-principal-csharp.md
+          - name: Python
+            href: database-principal-python.md
+          - name: Azure Resource Manager template
+            href: database-principal-resource-manager.md
       - name: Policies
         items:
         - name: C#
@@ -174,7 +210,7 @@
         href: dealing-with-duplicates.md
   - name: Deploy
     items:
-    - name: Deploy your cluster into your VNet
+    - name: Deploy your cluster to your virtual network
       href: vnet-deployment.md  
   - name: Monitor
     items:
@@ -188,6 +224,8 @@
       items:
       - name: Integration with Data Factory 
         href: data-factory-integration.md 
+      - name: Copy data using Azure Data Factory
+        href: data-factory-load-data.md  
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory

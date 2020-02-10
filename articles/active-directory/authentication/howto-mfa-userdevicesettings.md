@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -27,7 +27,7 @@ As an administrator, you can manage the following user and device settings:
 
 As an administrator assigned the Authentication Administrator role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object.
 
-![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, select **Azure Active Directory** > **Users** > **All users**.

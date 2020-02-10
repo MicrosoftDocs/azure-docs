@@ -44,6 +44,7 @@ To see a list of available recovery points, use [az backup recoverypoint list](h
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
+    --backup-management-type AzureIaasVM
     --container-name myVM \
     --item-name myVM \
     --query [0].name \
@@ -52,7 +53,43 @@ az backup recoverypoint list \
 
 ## Restore a VM disk
 
-To restore your disk from the recovery point, you first create an Azure storage account. This storage account is used to store the restored disk. In additional steps, the restored disk is used to create a VM.
+> [!IMPORTANT]
+> It is very strongly recommended to use Az CLI version 2.0.74 or later to get all the benefits of a quick restore including managed disk restore. It is best if user always uses the latest version.
+
+### Managed disk restore
+
+If the backed up VM has managed disks and if the intent is to restore managed disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. Then, you also provide a target resource group for the managed disks to be restored into.
+
+1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
+
+    ```azurecli-interactive
+    az storage account create \
+        --resource-group myResourceGroup \
+        --name mystorageaccount \
+        --sku Standard_LRS
+    ```
+
+2. Restore the disk from your recovery point with [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) command. ***Also provide the target resource group to which the managed disks are restored into***.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --target-resource-group targetRG
+    ```
+
+> [!WARNING]
+> If target-resource-group is not provided then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account.
+
+### Unmanaged disks restore
+
+If the backed up VM has unmanaged disks and if the intent is to restore disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. By default, the unmanaged disks will be restored to their original storage accounts. If user wishes to restore all unmanaged disks to one single place, then the given storage account can also be used as a staging location for those disks too.
+
+In additional steps, the restored disk is used to create a VM.
 
 1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
@@ -73,6 +110,19 @@ To restore your disk from the recovery point, you first create an Azure storage 
         --item-name myVM \
         --storage-account mystorageaccount \
         --rp-name myRecoveryPointName
+    ```
+
+As mentioned above, the unmanaged disks will be restored to their original storage account. This provides the best restore performance. But if all unmanaged disks need to be restored to given storage account, then use the relevant flag as shown below.
+
+```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-to-staging-storage-account
     ```
 
 ## Monitor the restore job
@@ -96,65 +146,105 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-When the *Status* of the restore job reports *Completed*, the disk has been restored to the storage account.
-
-## Convert the restored disk to a Managed Disk
-
-The restore job creates an unmanaged disk. In order to create a VM from the disk, it must first be converted to a managed disk.
-
-1. Obtain the connection information for your storage account with [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Replace *mystorageaccount* with the name of your storage account as follows:
-
-    ```azurecli-interactive
-    export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
-        --resource-group myResourceGroup \
-        --output tsv \
-        --name mystorageaccount )
-    ```
-
-2. Your unmanaged disk is secured in the storage account. The following commands get information about your unmanaged disk and create a variable named *uri* that is used in the next step when you create the Managed Disk.
-
-    ```azurecli-interactive
-    container=$(az storage container list --query [0].name -o tsv)
-    blob=$(az storage blob list --container-name $container --query [0].name -o tsv)
-    uri=$(az storage blob url --container-name $container --name $blob -o tsv)
-    ```
-
-3. Now you can create a Managed Disk from your recovered disk with [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create). The *uri* variable from the preceding step is used as the source for your Managed Disk.
-
-    ```azurecli-interactive
-    az disk create \
-        --resource-group myResourceGroup \
-        --name myRestoredDisk \
-        --source $uri
-    ```
-
-4. As you now have a Managed Disk from your restored disk, clean up the unmanaged disk and storage account with [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete). Replace *mystorageaccount* with the name of your storage account as follows:
-
-    ```azurecli-interactive
-    az storage account delete \
-        --resource-group myResourceGroup \
-        --name mystorageaccount
-    ```
+When the *Status* of the restore job reports *Completed*, the necessary information (VM configuration and the deployment template) has been restored to the storage account.
 
 ## Create a VM from the restored disk
 
-The final step is to create a VM from the Managed Disk.
+The final step is to create a VM from the restored disks. You can use the deployment template downloaded to the given storage account to create the VM.
 
-1. Create a VM from your Managed Disk with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) as follows:
+### Fetch the Job details
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myRestoredVM \
-        --attach-os-disk myRestoredDisk \
-        --os-type linux
-    ```
+The resultant job details give the template URI that can be queried and deployed. Use the job show command to get more details for the triggered restored job.
 
-2. To confirm that your VM has been created from your recovered disk, list the VMs in your resource group with [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) as follows:
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
+```
 
-    ```azurecli-interactive
-    az vm list --resource-group myResourceGroup --output table
-    ```
+The output of this query will give all details but we are interested only in the storage account contents. We can use the [query capability](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) of Azure CLI to fetch the relevant details
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag
+
+{
+  "Config Blob Container Name": "myVM-daa1931199fd4a22ae601f46d8812276",
+  "Config Blob Name": "config-myVM-1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414.json",
+  "Config Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/config-appvm8-1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json",
+  "Job Type": "Recover disks",
+  "Recovery point time ": "12/25/2019 10:07:11 PM",
+  "Target Storage Account Name": "mystorageaccount",
+  "Target resource group": "mystorageaccountRG",
+  "Template Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+}
+```
+
+### Fetch the deployment template
+
+The template is not directly accessible since it is under a customer's storage account and the given container. We need the complete URL (along with a temporary SAS token) to access this template.
+
+First, extract the template blob Uri from job details
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag."""Template Blob Uri"""
+
+"https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+```
+
+The template blob Uri will be of this format and extract the template name
+
+```https
+https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
+```
+
+So, the template name from the above example will be ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` and the container name is ```myVM-daa1931199fd4a22ae601f46d8812276```
+
+Now get the SAS token for this container and template as detailed [here](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+
+```azurecli-interactive
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+connection=$(az storage account show-connection-string \
+    --resource-group mystorageaccountRG \
+    --name mystorageaccount \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --output tsv \
+    --connection-string $connection)
+```
+
+### Deploy the template to create the VM
+
+Now deploy the template to create the VM as explained [here](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
+```
+
+To confirm that your VM has been created from your recovered disk, list the VMs in your resource group with [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) as follows:
+
+```azurecli-interactive
+az vm list --resource-group myResourceGroup --output table
+```
 
 ## Next steps
 

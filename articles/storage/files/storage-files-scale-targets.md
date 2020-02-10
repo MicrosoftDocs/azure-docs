@@ -1,5 +1,5 @@
 ---
-title: Azure Files scalability and performance targets | Microsoft Docs
+title: Azure Files scalability and performance targets
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 author: roygara
 ms.service: storage
@@ -19,7 +19,7 @@ The scalability and performance targets listed here are high-end targets, but ma
 
 The parent resource for an Azure file share is an Azure storage account. A storage account represents a pool of storage in Azure that can be used by multiple storage services, including Azure Files, to store data. Other services that store data in storage accounts are Azure Blob storage, Azure Queue storage, and Azure Table storage. The following targets apply all storage services storing data in a storage account:
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -46,7 +46,7 @@ See the [Azure storage account scale targets](#azure-storage-account-scale-targe
 ### File share and file scale targets
 
 > [!NOTE]
-> Standard file shares larger than 5 TiB have certain limitations and regional restrictions.
+> Standard file shares larger than 5 TiB have certain limitations.
 > For a list of limitations, regional information, and instructions to enable these larger file share sizes, see the [Onboard to larger file shares](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
@@ -110,4 +110,3 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Scalability and performance targets for other storage services](../common/storage-scalability-targets.md)

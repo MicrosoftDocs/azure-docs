@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Provision simulated TPM device to Azure IoT Hub using Node.js
-description: Quickstart - Create and provision a simulated TPM device using Node.js device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
+description: Quickstart - Create and provision a simulated TPM device using Node.js device SDK for Azure IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018

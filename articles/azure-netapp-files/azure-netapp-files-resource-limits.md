@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -26,7 +26,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
-|  Number of NetApp accounts per Azure  Subscription   |  10    |  Yes   |
+|  Number of NetApp accounts per Azure region   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |

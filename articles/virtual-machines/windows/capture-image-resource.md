@@ -67,9 +67,9 @@ To generalize your Windows VM, follow these steps:
 
 ## Create a managed image in the portal 
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com) to manage the VM image. Search for and select **Virtual machines**.
 
-2. In the menu on the left, select **Virtual machines** and then select the VM from the list.
+2. Select your VM from the list.
 
 3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**.
 
@@ -77,7 +77,7 @@ To generalize your Windows VM, follow these steps:
 
 4. For **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
 
-5. For **Resource group**, either select **Create new** and enter a name, or select **Use existing** and select a resource group to use from the drop-down list.
+5. For **Resource group**, either select **Create new** and enter a name, or select a resource group to use from the drop-down list.
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**.
 
@@ -85,7 +85,7 @@ To generalize your Windows VM, follow these steps:
 
 8. Select **Create** to create the image.
 
-9. After the image is created, you can find it as an **Image** resource in the list of resources in the resource group.
+After the image is created, you can find it as an **Image** resource in the list of resources in the resource group.
 
 
 

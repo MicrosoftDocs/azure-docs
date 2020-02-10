@@ -1,5 +1,5 @@
 ---
-author: blackmist
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
 ms.date: 11/06/2019

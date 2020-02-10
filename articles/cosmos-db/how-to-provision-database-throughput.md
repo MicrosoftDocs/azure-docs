@@ -1,6 +1,6 @@
 ---
 title: Provision database throughput in Azure Cosmos DB
-description: Learn how to provision throughput at the database level in Azure Cosmos DB
+description: Learn how to provision throughput at the database level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual

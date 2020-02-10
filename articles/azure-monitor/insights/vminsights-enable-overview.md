@@ -4,8 +4,8 @@ description: Learn how to deploy and configure Azure Monitor for VMs. Find out t
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
 
 ---

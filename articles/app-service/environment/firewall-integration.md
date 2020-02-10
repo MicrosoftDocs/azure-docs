@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -14,14 +14,11 @@ ms.custom: seodec18
 
 The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
 
-There are a number of inbound dependencies that an ASE has. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses) document. You can create Network Security Group rules with that information to secure inbound traffic.
+There are a number of inbound endpoints that are used to manage an ASE. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses) document. There is also a Service Tag named AppServiceManagement which can be used with Network Security Groups (NSGs) to secure inbound traffic.
 
-The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
+The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
-
-> [!NOTE]
-> At this moment, we can't fully lockdown the outbound connection currently.
 
 ## System architecture
 
@@ -38,6 +35,12 @@ The traffic to and from an ASE must abide by the following conventions
 
 ![ASE with Azure Firewall connection flow][5]
 
+## Locking down inbound management traffic
+
+If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. This is all that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
+
+ASEs that are made through the portal with a new subnet are made with an NSG that contains the allow rule for the AppServiceManagement tag.  
+
 ## Configuring Azure Firewall with your ASE 
 
 The steps to lock down egress from your existing ASE with Azure Firewall are:
@@ -47,14 +50,19 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
    ![select service endpoints][2]
   
 1. Create a subnet named AzureFirewallSubnet in the VNet where your ASE exists. Follow the directions in the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
+
 1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows Update. 
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues.
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a ptocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
 
    ![Add NTP network rule][3]
+   
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under Service Tags, provide a name, select a protocol of **Any**, set * to Source addresses, select a service tag of AzureMonitor, and set the ports to 80, 443. This rule allows the system to supply Azure Monitor with health and metrics information.
 
+   ![Add NTP service tag network rule][6]
+   
 1. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address. 
 
    ![Creating a route table][4]
@@ -244,7 +252,25 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 ## US Gov dependencies
 
-For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
+For ASEs in US Gov regions, follow the instructions in the [Configuring Azure Firewall with your ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) section of this document to configure an Azure Firewall with your ASE.
+
+If you want to use a device other than Azure Firewall in US Gov 
+
+* Service Endpoint capable services should be configured with service endpoints.
+* FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
+* Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers.
+
+Linux is not available in US Gov regions and is thus not listed as an optional configuration.
+
+#### Service Endpoint capable dependencies ####
+
+| Endpoint |
+|----------|
+| Azure SQL |
+| Azure Storage |
+| Azure Event Hub |
+
+#### Dependencies ####
 
 | Endpoint |
 |----------|
@@ -371,3 +397,4 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

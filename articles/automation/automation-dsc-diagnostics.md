@@ -4,8 +4,8 @@ description: This article demonstrates how to send Desired State Configuration (
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
@@ -71,11 +71,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## View the State Configuration logs
 
-After you set up integration with Azure Monitor logs for your Automation State Configuration data, a
-**Log search** button will appear on the **DSC Nodes** blade of your automation account. Click the
-**Log Search** button to view the logs for DSC node data.
+After you set up integration with Azure Monitor logs for your Automation State Configuration data, they can be viewed by selecting **Logs** in the **Monitoring** section in the left pane of the State Configuration (DSC) page.  
 
-![Log search button](media/automation-dsc-diagnostics/log-search-button.png)
+![Logs](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
 The **Log Search** blade opens, and you see a **DscNodeStatusData** operation for each State
 Configuration node, and a **DscResourceStatusData** operation for each [DSC
@@ -85,13 +83,14 @@ The **DscResourceStatusData** operation contains error information for any DSC r
 
 Click each operation in the list to see the data for that operation.
 
-You can also view the logs by searching in Azure Monitor logs.
-See [Find data using log searches](../log-analytics/log-analytics-log-searches.md).
-Type the following query to find your State Configuration logs:
-`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+You can also view the logs by searching in Azure Monitor logs. See [Find data using log searches](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Type the following query to find your State Configuration logs.
 
-You can also narrow the query by the operation name. For example:
-`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### Send an email when a State Configuration compliance check fails
 
@@ -155,11 +154,11 @@ Diagnostics from Azure Automation creates two categories of records in Azure Mon
 | SourceSystem | How Azure Monitor logs collected the data. Always *Azure* for Azure diagnostics. |
 | ResourceId |Specifies the Azure Automation account. |
 | ResultDescription | The description for this operation. |
-| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
+| SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID that is the Correlation Id of the compliance report. |
+| CorrelationId |GUID that is the Correlation ID of the compliance report. |
 
 ### DscResourceStatusData
 
@@ -186,11 +185,11 @@ Diagnostics from Azure Automation creates two categories of records in Azure Mon
 | SourceSystem | How Azure Monitor logs collected the data. Always *Azure* for Azure diagnostics. |
 | ResourceId |Specifies the Azure Automation account. |
 | ResultDescription | The description for this operation. |
-| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
+| SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID that is the Correlation Id of the compliance report. |
+| CorrelationId |GUID that is the Correlation ID of the compliance report. |
 
 ## Summary
 

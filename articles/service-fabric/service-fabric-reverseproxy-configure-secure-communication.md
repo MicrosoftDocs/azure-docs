@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric reverse proxy secure communication | Microsoft Docs
-description: Configure reverse proxy to enable secure end-to-end communication.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric reverse proxy secure communication 
+description: Configure reverse proxy to enable secure end-to-end communication in an Azure Service Fabric application.
 author: kavyako
-manager: vipulm
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-
 ---
 # Connect to a secure service with the reverse proxy
 
@@ -26,7 +17,7 @@ Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reversepro
 ## Secure connection establishment between the reverse proxy and services 
 
 ### Reverse proxy authenticating to services:
-The reverse proxy identifies itself to services using its certificate. For Azure clusters the certificate is specified with ***reverseProxyCertificate*** property in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md) of the Resource Manager template. For standalone clusters, the certificate is specified with either the ***ReverseProxyCertificate*** or the ***ReverseProxyCertificateCommonNames*** property in the **Security** section of ClusterConfig.json. To learn more, see [Enable reverse proxy on standalone clusters](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+The reverse proxy identifies itself to services using its certificate. For Azure clusters the certificate is specified with ***reverseProxyCertificate*** property in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/templates/template-syntax.md) of the Resource Manager template. For standalone clusters, the certificate is specified with either the ***ReverseProxyCertificate*** or the ***ReverseProxyCertificateCommonNames*** property in the **Security** section of ClusterConfig.json. To learn more, see [Enable reverse proxy on standalone clusters](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Services can implement the logic to verify the certificate presented by the reverse proxy. The services can specify the accepted client certificate details as configuration settings in the configuration package. This can be read at runtime and used to validate the certificate presented by the reverse proxy. Refer to [Manage application parameters](service-fabric-manage-multiple-environment-app-configuration.md) to add the configuration settings. 
 

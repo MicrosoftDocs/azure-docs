@@ -9,7 +9,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 11/06/2019
+ms.date: 01/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -41,6 +41,7 @@ There are times when feature releases for SQL Data Warehouse may not include sup
 - [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
   - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported. 
 - [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) function 
+- [Tables with constraints](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-table-constraints#table-constraints) are not supported. For these table objects, set the build action to "None".
 
 ## Next steps
 

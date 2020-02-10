@@ -15,7 +15,7 @@ ms.date: 07/09/2019
 
 # Creating and using active geo-replication
 
-Active geo-replication is Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a SQL Database server in the same or different data center (region).
+Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a SQL Database server in the same or different data center (region).
 
 > [!NOTE]
 > Active geo-replication is not supported by managed instance. For geographic failover of managed instances, use [Auto-failover groups](sql-database-auto-failover-group.md).
@@ -118,6 +118,79 @@ Both primary and secondary databases are required to have the same service tier.
 If you decide to create the secondary with lower compute size, the log IO percentage chart on Azure portal provides a good way to estimate the minimal compute size of the secondary that is required to sustain the replication load. For example, if your Primary database is P6 (1000 DTU) and its log IO percent is 50% the secondary needs to be at least P4 (500 DTU). You can also retrieve the log IO data using [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) or [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) database views.  The throttling is reported as a HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait state in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views. 
 
 For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](sql-database-purchase-models.md).
+
+## Cross-subscription geo-replication
+
+To setup active geo-replication between two databases belonging to different subscriptions (whether under the same tenant or not), you must follow the special procedure described in this section.  The procedure is based on SQL commands and requires: 
+
+- Creating a privileged login on both servers
+- Adding the IP address to the allow list of the client performing the change on both servers (such as the IP address of the host running SQL Server Management Studio). 
+
+The client performing the changes needs network access to the primary server. Although the same IP address of the client must be added to the allow list on the secondary server, network connectivity to the secondary server is not strictly required. 
+
+### On the master of the primary server
+
+1. Add the IP address to the allow list of the client performing the changes (for more information see, [Configure firewall](sql-database-firewall-configure.md)). 
+1. Create a login dedicated to setup active geo-replication (and adjust the credentials as needed):
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01'
+   ```
+
+1. Create a corresponding user and assign it to the dbmanager role: 
+
+   ```sql
+   create user geodrsetup for login gedrsetup
+   alter role geodrsetup dbmanager add member geodrsetup
+   ```
+
+1. Take note of the SID of the new login using this query: 
+
+   ```sql
+   select sid from sys.sql_logins where name = 'geodrsetup'
+   ```
+
+### On the source database on the primary server
+
+1. Create a user for the same login:
+
+   ```sql
+   create user geodrsetup for login geodrsetup
+   ```
+
+1. Add the user to the db_owner role:
+
+   ```sql
+   alter role db_owner add member geodrsetup
+   ```
+
+### On the master of the secondary server 
+
+1. Add the IP address to the allow list of the client performing the changes. It must the same exact IP address of the primary server. 
+1. Create the same login as on the primary server, using the same username password, and SID: 
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
+   ```
+
+1. Create a corresponding user and assign it to the dbmanager role:
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup
+   ```
+
+### On the master of the primary server
+
+1. Login to the master of the primary server using the new login. 
+1. Create a secondary replica of the source database on the secondary server (adjust database name and servername as needed):
+
+   ```sql
+   alter database dbrep add secondary on server <servername>
+   ```
+
+After the initial setup, the users, logins, and firewall rules created can be removed. 
+
 
 ## Keeping credentials and firewall rules in sync
 

@@ -19,7 +19,7 @@ This article has answers to frequently asked questions (FAQs) about configuratio
 
 ## Are there limitations I should be aware of if I want to move App Service resources?
 
-If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## How do I use a custom domain name for my web app?
 
@@ -45,11 +45,11 @@ To learn how to purchase and set up an SSL certificate for your App Service web 
 
 Currently, Azure Application Insights doesn't support the move operation. If your original resource group includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when you try to move an App Service app, the entire move operation fails. However, Application Insights and the App Service plan do not need to be in the same resource group as the app for the app to function correctly.
 
-For more information, see [App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+For more information, see [App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## Where can I find a guidance checklist and learn more about resource move operations?
 
-[App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
+[App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
 
 ## How do I set the server time zone for my web app?
 

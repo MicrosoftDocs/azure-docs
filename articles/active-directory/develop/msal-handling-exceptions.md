@@ -3,10 +3,8 @@ title: Errors and exceptions (MSAL)
 titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL applications.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
@@ -15,8 +13,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: twhitney
-ms.reviewer: saeeda
+ms.author: marsma
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---
 

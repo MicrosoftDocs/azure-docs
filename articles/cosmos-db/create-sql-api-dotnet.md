@@ -1,6 +1,6 @@
 ---
-title: Build a .NET console app to manage Azure Cosmos DB SQL API resources
-description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources.
+title: Quickstart - Build a .NET console app to manage Azure Cosmos DB SQL API resources
+description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources in this quickstart.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db

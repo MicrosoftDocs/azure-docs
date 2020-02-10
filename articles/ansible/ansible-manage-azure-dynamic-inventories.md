@@ -223,7 +223,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     

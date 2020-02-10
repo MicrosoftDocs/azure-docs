@@ -99,10 +99,11 @@ Your app's **Custom domain** page is updated with the new, dedicated IP address.
 
 ## Test HTTPS
 
-In various browsers, browse
-to `https://<your.custom.domain>` to verify that it serves up your app.
+In various browsers, browse to `https://<your.custom.domain>` to verify that it serves up your app.
 
 ![Portal navigation to Azure app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+
+Your application code can inspect the protocol via the "x-appservice-proto" header. The header will have a value of `http` or `https`. 
 
 > [!NOTE]
 > If your app gives you certificate validation errors, you're probably using a self-signed certificate.

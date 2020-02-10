@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Export data and visualize insights in Azure IoT Central'
+title: 'Tutorial - Export data and visualize insights in Azure IoT Central'
 description: 'In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.'
 services: iot-central
 ms.service: iot-central
@@ -13,11 +13,11 @@ ms.date: 11/12/2019
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 In the two previous tutorials, you created and customized an IoT Central application using the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 > [!div class="checklist"]
 > * Configure an IoT Central application to export telemetry to an event hub.
 > * Use Logic Apps to send data from an event hub to a Power BI streaming dataset.
@@ -50,7 +50,7 @@ You now have a resource group called **retail-store-analysis** in your subscript
 Before you can configure the retail monitoring application to export telemetry, you need to create an event hub to receive the exported data. The following steps show you how to create your event hub:
 
 1. In the Azure portal, select **Create a resource** at the top left of the screen.
-1. In **Search the marketplace**, enter _Event Hubs_, and then press **Enter**.
+1. In **Search the Marketplace**, enter _Event Hubs_, and then press **Enter**.
 1. On the **Event Hubs** page, select **Create**.
 1. On the **Create Namespace** page, take the following steps:
     * Enter a unique name for the namespace such as _yourname-retail-store-analysis_. The system checks to see if this name is available.
@@ -59,7 +59,7 @@ Before you can configure the retail monitoring application to export telemetry, 
     * Select the **retail-store-analysis** resource group.
     * Select the same location you used for your IoT Central application.
     * Select **Create**. You may have to wait a few minutes for the system to provision the resources.
-1. In the portal, navigate to the **retail-store-analysis** resource group. Wait for the deployment to finish. You may need to select **Refresh** to update the deployment status. You can also check the status of the event hub namespace creation in the **Notifications**.
+1. In the portal, navigate to the **retail-store-analysis** resource group. Wait for the deployment to complete. You may need to select **Refresh** to update the deployment status. You can also check the status of the event hub namespace creation in the **Notifications**.
 1. In the **retail-store-analysis** resource group, select the **Event Hubs Namespace**. You see the home page for your **Event Hubs Namespace** in the portal.
 
 Now you have an **Event Hubs Namespace**, you can create an **Event Hub** to use with your IoT Central application:
@@ -154,7 +154,7 @@ Before you create the logic app, you need the device IDs of the two RuuviTag sen
 The following steps show you how to create the logic app in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource** at the top left of the screen.
-1. In **Search the marketplace**, enter _Logic App_, and then press **Enter**.
+1. In **Search the Marketplace**, enter _Logic App_, and then press **Enter**.
 1. On the **Logic App** page, select **Create**.
 1. On the **Logic App** create page:
     * Enter a unique name for your logic app such as _yourname-retail-store-analysis_.

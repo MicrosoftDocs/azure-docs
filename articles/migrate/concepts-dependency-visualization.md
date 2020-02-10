@@ -27,7 +27,7 @@ Dependency visualization helps you to understand dependencies across machines th
 
 There are two options for deploying dependency visualization:
 
-- **Agentless dependency visualization**: This option is currently in preview. It doesn't require you to install any agents on machines. 
+- **Agentless dependency visualization**: This option is currently in preview and is available only for VMware VMs. It doesn't require you to install any agents on machines. 
     - It works by capturing the TCP connection data from machines for which it's enabled. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
 After dependency discovery is started, the appliance gathers data from machines at a polling interval of five minutes.
     - The following data is collected:
@@ -88,6 +88,6 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 
 ## Next steps
 - [Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
-- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](common-questions-discovery-assessment.md#what-is-dependency-visualization) about the FAQs on dependency visualization.
 
 

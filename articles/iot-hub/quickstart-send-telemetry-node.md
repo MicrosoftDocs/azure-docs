@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written in Node.js. You need Node.js v10.x.x or later on your development machine.
+The two sample applications you run in this quickstart are written in Node.js. You need Node.js v10.x.x or later on your development machine. If you are using the Azure Cloud Shell, do not update the installed version of Node.js. The Azure Cloud Shell already has the latest Node.js version.
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -44,6 +44,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
+
+Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

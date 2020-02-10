@@ -266,7 +266,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-While the portal is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
+Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Create a search app in the portal](search-create-app-portal.md)

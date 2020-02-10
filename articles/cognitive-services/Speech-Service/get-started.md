@@ -28,7 +28,7 @@ In this article, you'll choose one of these options that suits your needs best.
 >
 > If you use the free, low-volume Speech service tier you can keep this free subscription even after your free trial or service credit expires.
 >
-> For more information, see [Cognitive Services pricing - Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> For more information, see [Cognitive Services pricing - Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Try the Speech service without credit card info
 

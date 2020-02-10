@@ -1,5 +1,5 @@
 ---
-title: Add a drawing toolbar to Azure Maps| Microsoft Docs
+title: Add a drawing toolbar to a map | Microsoft Azure Maps
 description: How to add a drawing toolbar to a map using Azure Maps Web SDK
 author: walsehgal
 ms.author: v-musehg
@@ -65,7 +65,7 @@ Below is the complete running code sample of the functionality above:
 
 ## Change drawing rendering style
 
-The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon, lines will be red and four pixels wide, polygons will have a green fill color and an orange outline.
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon. Lines will be red and four pixels wide. Polygons will have a green fill color and an orange outline.
 
 ```Javascript
 var layers = drawingManager.getLayers();
@@ -97,6 +97,17 @@ Below is the complete running code sample of the functionality above:
 
 
 ## Next steps
+
+Learn how to use additional features of the drawing tools module:
+
+> [!div class="nextstepaction"]
+> [Get shape data](map-get-shape-data.md)
+
+> [!div class="nextstepaction"]
+> [React to drawing events](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
 Learn more about the classes and methods used in this article:
 

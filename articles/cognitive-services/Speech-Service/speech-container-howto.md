@@ -1,5 +1,5 @@
 ---
-title: Install Speech containers - Speech Service
+title: Install Speech containers - Speech service
 titleSuffix: Azure Cognitive Services
 description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
 ---
 
-# Install and run Speech Service containers (Preview)
+# Install and run Speech service containers (Preview)
 
-Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
+Containers enable you to run some of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
 
@@ -366,12 +366,10 @@ This command:
 
 ## Query the container's prediction endpoint
 
-| Container | Endpoint | Protocol |
+| Containers | SDK Host URL | Protocol |
 |--|--|--|
-| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
+| Text-to-speech and Custom Text-to-speech | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -422,7 +420,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
   * *Custom Text-to-speech*
 * Container images are downloaded from the container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Speech containers by specifying the host URI of the container.
+* Whether using the REST API (Text-to-speech only) or the SDK (Speech-to-text or Text-to-speech) you specify the host URI of the container. 
 * You're required to provide billing information when instantiating a container.
 
 > [!IMPORTANT]
@@ -431,5 +429,5 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Learn how to [use Speech Service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
+* Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
 * Use more [Cognitive Services containers](../cognitive-services-container-support.md)

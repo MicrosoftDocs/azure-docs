@@ -1,6 +1,6 @@
 ---
-title: Secure single-page applications using the Microsoft identity platform implicit flow | Azure
-description: Building web applications using Microsoft identity platform implementation of the implicit flow for single-page apps.
+title: OAuth 2.0 implicit grant flow - Microsoft identity platform | Azure
+description: Secure single-page apps using Microsoft identity platform implicit flow.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,7 +18,6 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and Implicit grant flow
@@ -150,7 +149,7 @@ For details on the query parameters in the URL, see [send the sign in request](#
 > [!TIP]
 > Try copy & pasting the below request into a browser tab! (Don't forget to replace the `login_hint` values with the correct value for your user)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
 
 Thanks to the `prompt=none` parameter, this request will either succeed or fail immediately and return to your application. A successful response will be sent to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.

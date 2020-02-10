@@ -49,7 +49,7 @@ Learn more about deploying a [Windows](../articles/virtual-machines/windows/crea
 Availability sets are another datacenter configuration to provide VM redundancy and availability. This configuration within a datacenter ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Avoid leaving a single instance virtual machine in an availability set by itself. VMs in this configuration do not qualify for a SLA guarantee and face downtime during Azure planned maintenance events, except when a single VM is using [Azure premium SSDs](../articles/virtual-machines/windows/disks-types.md#premium-ssd). For single VMs using premium SSDs, the Azure SLA applies.
+> A single instance virtual machine in an availability set by itself should use Premium SSD or Ultra Disk for all operating system disks and data disks in order to qualify for the SLA for Virtual Machine connectivity of at least 99.9%.
 
 Each virtual machine in your availability set is assigned an **update domain** and a **fault domain** by the underlying Azure platform. For a given availability set, five non-user-configurable update domains are assigned by default (Resource Manager deployments can then be increased to provide up to 20 update domains) to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single availability set, the sixth virtual machine is placed into the same update domain as the first virtual machine, the seventh in the same update domain as the second virtual machine, and so on. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. A rebooted update domain is given 30 minutes to recover before maintenance is initiated on a different update domain.
 
@@ -65,24 +65,30 @@ If you are currently using VMs with unmanaged disks, we highly recommend you [co
 ![Managed disks FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
-> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
+> The number of fault domains for managed availability sets varies by region - either two or three per region. You can see the fault domain for each region by running the following scripts.
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.Name -eq 'Aligned'}
+```
 
-> Note:
-> Under certain circumstances, it might happen that 2 VMs part of the same AvailabilitySet are sharing the same FaultDomain. This can be confirmed by going into your AvailabilitySet and check the "Fault Domain" column.
-> This behavior can be observed when the following sequence happened while deploying the VMs:
+```azurecli-interactive 
+az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
+```
+
+> [!NOTE]
+> Under certain circumstances, 2 VMs in the same AvailabilitySet could shared the same FaultDomain. This can be confirmed by going into your availability set and checking the **Fault Domain** column.
+> This can be cause from the following sequence while deploying the VMs:
 > - Deploy the 1st VM
 > - Stop/Deallocate the 1st VM
 > - Deploy the 2nd VM
 > Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. 
-> To avoid this issue, it's recommended to not stop/deallocate the VM between their deployments.
+> To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
 
 If you plan to use VMs with unmanaged disks, follow below best practices for Storage accounts where virtual hard disks (VHDs) of VMs are stored as [page blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Keep all disks (OS and data) associated with a VM in the same storage account**
-2. **Review the [limits](../articles/storage/common/storage-scalability-targets.md) on the number of unmanaged disks in a Storage account** before adding more VHDs to a storage account
-3. **Use separate storage account for each VM in an Availability Set.** Do not share Storage accounts with multiple VMs in the same Availability Set. It is acceptable for VMs across different Availability Sets to share storage accounts if above best practices are followed
+2. **Review the [limits](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) on the number of unmanaged disks in an Azure Storage account** before adding more VHDs to a storage account
+3. **Use a separate storage account for each VM in an Availability Set.** Do not share Storage accounts with multiple VMs in the same Availability Set. It is acceptable for VMs across different Availability Sets to share storage accounts if above best practices are followed
 ![Unmanaged disks FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## Use scheduled events to proactively respond to VM impacting events

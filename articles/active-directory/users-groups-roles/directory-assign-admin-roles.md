@@ -66,7 +66,7 @@ Users in this role can create application registrations when the "Users can regi
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
+The Authentication administrator role is currently in public preview. Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
 
 * Authentication Administrator
 * Directory Readers
@@ -190,7 +190,7 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 
 ### [Directory Writers](#directory-writers-permissions)
 
-This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
+This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
 
 ### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
 
@@ -242,7 +242,7 @@ Users in this role can read settings and administrative information across Micro
 > These features are currently in development.
 >
 
-### [Group Administrator](#group-administrator)
+### [Group Administrator](#group-administrator-permissions)
 
 Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
 
@@ -275,7 +275,9 @@ This role was previously called "Password Administrator" in the [Azure portal](h
 
 ### [Intune Administrator](#intune-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the tenant. However, he/she can manage the Office group that he creates which comes as a part of his/her end user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
@@ -369,7 +371,7 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 
 ### [Security operator](#security-operator-permissions)
 
-Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 In | Can do
 --- | ---
@@ -419,12 +421,6 @@ Users with this role have global permissions within Microsoft Skype for Business
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Lync Service Administrator." It is "Skype for Business Administrator" in the [Azure portal](https://portal.azure.com/).
 
-### [Teams Administrator](#teams-service-administrator-permissions)
-
-Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health.
-> [!NOTE]
-> In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Teams Service Administrator ". It is "Teams Administrator" in the [Azure portal](https://portal.azure.com).
-
 ### [Teams Communications Administrator](#teams-communications-administrator-permissions)
 
 Users in this role can manage aspects of the Microsoft Teams workload related to voice & telephony. This includes the management tools for telephone number assignment, voice and meeting policies, and full access to the call analytics toolset.
@@ -437,9 +433,13 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can only view user details in the call for the specific user they have looked up. This role has no access to view, create, or manage support tickets.
 
+### [Teams Service Administrator](#teams-service-administrator-permissions)
+
+Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health.
+
 ### [User Administrator](#user-administrator-permissions)
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. The roles that are exceptions to this restriction are listed in the following table.
+Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permisssions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
 | | |
 | --- | --- |
@@ -681,7 +681,7 @@ Full access to manage devices in Azure AD.
 
 ### Company Administrator permissions
 
-Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
+Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. This role is also known as the Global Administrator role. 
 
 > [!NOTE]
 > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
@@ -1077,8 +1077,8 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/standard/read	| Read standard properties on all resources in microsoft.office365.webPortal. |
 
-### Group Administrator
-Can manage all aspects of groups and group settings like naming and expiration policies
+### Group Administrator permissions
+Can manage all aspects of groups and group settings like naming and expiration policies.
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -1519,6 +1519,7 @@ Can read security information and reports in Azure AD and Office 365.
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
@@ -1715,7 +1716,7 @@ External Identity Provider Administrator | External Identity Provider Administra
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Group Administrator | Group administrator | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
-Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Helpdesk Administrator | Helpdesk administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

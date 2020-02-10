@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions about Azure Spring Cloud | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Cloud.
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 
@@ -59,7 +59,7 @@ During preview release, Azure Spring Cloud has the following known limitations:
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
+If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## Development
 

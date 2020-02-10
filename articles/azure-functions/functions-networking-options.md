@@ -27,8 +27,8 @@ You can host function apps in a couple of ways:
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions & private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
-|[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[Hybrid connections](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
+|[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Yes |✅Yes|✅Yes|
+|[Hybrid connections](#hybrid-connections) (Windows only)|❌No|✅Yes|✅Yes|✅Yes|
 |[Outbound IP restrictions](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 ## Inbound IP restrictions
@@ -74,7 +74,7 @@ Neither feature lets you reach non-RFC 1918 addresses across ExpressRoute. To do
 
 Using regional virtual network integration doesn't connect your virtual network to on-premises endpoints or configure service endpoints. That's a separate networking configuration. Regional virtual network integration just enables your app to make calls across those connection types.
 
-Regardless of the version used, virtual network integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access means making your app accessible only from a private network like an Azure virtual network. virtual network integration is only for making outbound calls from your app into your virtual network.
+Regardless of the version used, virtual network integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access means making your app accessible only from a private network like an Azure virtual network. Virtual network integration is only for making outbound calls from your app into your virtual network.
 
 The virtual network integration feature:
 
@@ -106,7 +106,7 @@ To provide a higher level of security, you can restrict a number of Azure servic
 
 ### Restricting your storage account to a virtual network
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that will break your app.
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that will break your app.This functionality is currently available using the Premium Plan and a virtual network integration.
 
 [Learn more about storage account requirements.](./functions-create-function-app-portal.md#storage-account-requirements)
 
@@ -118,19 +118,51 @@ Currently [Key Vault references](../app-service/app-service-key-vault-references
 
 ## Virtual network triggers (non-HTTP)
 
-Currently, to use function triggers other than HTTP from within a virtual network, you must run your function app in an App Service plan or in an App Service Environment.
+Currently, you can use non-HTTP trigger functions from within a virtual network in one of two ways: 
++ Run your function app in a Premium plan and enable Virtual network trigger support.
++ Run your function app in an App Service plan or App Service Environment.
 
-For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. You would need to deploy your function app in an app service plan that provides virtual network integration with that virtual network in order to configure Azure Cosmos DB triggers from that resource. During preview, configuring virtual network integration doesn't allow the Premium plan to trigger off that Azure Cosmos DB resource.
+### Premium Plan with virtual network triggers
 
-See [this list for all non-HTTP triggers](./functions-triggers-bindings.md#supported-bindings) to double-check what's supported.
+When running in a Premium plan, you can connect non-HTTP trigger functions to services running inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Function app settings**.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+You can also enable virtual network triggers using the following Azure CLI command:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
+
+Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.
+
+| Extension | Minimum Version |
+|-----------|---------| 
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 or above |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 or above|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 or above|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 or above|
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 or above|
+
+> [!IMPORTANT]
+> When enabling virtual network trigger support, only the trigger types above scale dynamically with your application. You can still use triggers not listed above, however they are not scaled beyond their pre-warmed instance count. See [triggers and bindings](./functions-triggers-bindings.md#supported-bindings) for the complete list of triggers.
+
+### App Service Plan and App Service Environment with virtual network triggers
+
+When your function app runs in either an App Service Plan or an App Service Environment, you can use non-HTTP trigger functions. For your functions to get triggered correctly, you must be connected to a virtual network with access to the resource defined in the trigger connection. 
+
+For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. In this case, you must deploy your function app in an App Service plan that provides virtual network integration with that virtual network. This enables a function to be triggered by that Azure Cosmos DB resource. 
 
 ## Hybrid Connections
 
-[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions running in all but the Consumption plan.
+[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions running on Windows in all but the Consumption plan.
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application as long as you're accessing a TCP listening port. The Hybrid Connections feature doesn't know or care what the application protocol is or what you're accessing. It just provides network access.
 
 To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md). These same configuration steps support Azure Functions.
+
+>[!IMPORTANT]
+> Hybrid Connections is only supported on Windows plans. Linux is not supported
 
 ## Outbound IP restrictions
 

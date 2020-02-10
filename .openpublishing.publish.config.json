@@ -147,6 +147,12 @@
       "branch": "master"
     },
     {
+      "path_to_root": "functions-python-tensorflow-tutorial",
+      "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master"
@@ -194,7 +200,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "rhurey/quickstart.refactor"
+      "branch": "release-ignite-cogserv-speech-service"
     },
     {
       "path_to_root": "media-services-v3-dotnet-quickstarts",
@@ -425,14 +431,6 @@
       "PDF"
     ],
     "master": [
-      "Publish",
-      "PDF"
-    ],
-    "release-event-grid": [
-      "Publish",
-      "PDF"
-    ],
-    "hd-insight-pdf": [
       "Publish",
       "PDF"
     ]

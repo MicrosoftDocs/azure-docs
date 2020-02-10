@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -83,7 +83,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 Now that the claims are in place, we can configure trusted IPs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. Select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 3. From the **Conditional Access - Named locations** blade, select **Configure MFA trusted IPs**
 
    ![Azure AD Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)

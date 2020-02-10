@@ -4,11 +4,23 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
-  - name: Terminology changes
-    href: terminology.md
+  - name: FAQ
+    href: faq.md
+  - name: What's new?
+    href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Applications
+  - name: Monitor Azure resource
+    href: learn/quick-monitor-azure-resource.md
+  - name: Monitor virtual machines
+    items:
+    - name: Azure VMs
+      href: learn/quick-collect-azurevm.md
+    - name: Linux computer
+      href: learn/quick-collect-linux-computer.md
+    - name: Windows computer
+      href: learn/quick-collect-windows-computer.md
+  - name: Monitor applications
     items:
     - name: .NET application
       href: learn/quick-monitor-portal.md
@@ -20,26 +32,20 @@
       href: learn/mobile-center-quickstart.md
     - name: Web application
       href: app/website-monitoring.md 
-  - name: Virtual machines
-    items:
-    - name: Collect - Azure VMs
-      href: learn/quick-collect-azurevm.md
-    - name: Collect - Linux computer
-      href: learn/quick-collect-linux-computer.md
-    - name: Collect - Windows computer
-      href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
-  - name: Logs
-    items: 
-    - name: Log Analytics
-      href: log-query/get-started-portal.md
-    - name: Log queries
-      href: log-query/get-started-queries.md
-    - name: Dashboard with log data
-      href: learn/tutorial-logs-dashboards.md
-    - name: Alert on log data
-      href: learn/tutorial-response.md
+  - name: Create a metrics chart
+    href: learn/tutorial-metrics-explorer.md
+  - name: Collect logs from Azure resource
+    href: learn/tutorial-resource-logs.md
+  - name: Write log queries
+    href: log-query/get-started-queries.md
+  - name: Create a dashboard from log query
+    href: learn/tutorial-logs-dashboards.md
+  - name: Create alert from log query
+    href: learn/tutorial-response.md
+  - name: Autoscale on performance and schedule
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
@@ -52,16 +58,14 @@
       href: learn/tutorial-users.md
     - name: Dashboard with application data
       href: learn/tutorial-app-dashboards.md
-  - name: Archive platform metric and log data 
-    href: learn/tutorial-archive-data.md
-  - name: Autoscale on performance and schedule
-    href: learn/tutorial-autoscale-performance-schedule.md
 - name: Samples
   items:
   - name: Azure PowerShell
     href: platform/powershell-samples.md
 - name: Concepts
   items:
+  - name: What can you monitor?
+    href: monitor-reference.md
   - name: Azure management
     href: azure-management.md
   - name: Continuous monitoring
@@ -89,6 +93,8 @@
     items:
     - name: Log data
       href: platform/data-security.md
+    - name: Customer-managed keys
+      href: platform/customer-managed-keys.md
     - name: Personal log data handling
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
@@ -109,14 +115,6 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
-  - name: FAQ
-    items:
-    - name: Log Analytics
-      displayName: FAQ
-      href: platform/log-faq.md
-    - name: Application Insights
-      displayName: FAQ
-      href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
   - name: Manage Azure Monitor
@@ -158,6 +156,8 @@
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
+    - name: FAQ
+      href: app/troubleshoot-faq.md
     - name: Code-based monitoring
       items:
       - name: ASP.NET Core 
@@ -166,7 +166,7 @@
       - name: ASP.NET
         displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
         href: app/asp-net.md
-      - name: Non-Http apps/Background apps
+      - name: Non-HTTP apps/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
       - name: .NET Console
@@ -439,6 +439,8 @@
         href: app/configuration-with-applicationinsights-config.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
+      - name: Connection strings
+        href: app/sdk-connection-string.md
       - name: Special topics
         items:
         - name: Deep diagnostics for web apps and services
@@ -472,57 +474,53 @@
       - name: SharePoint sites
         href: app/sharepoint.md
       - name: Windows desktop
-        href: app/windows-desktop.md        
+        href: app/windows-desktop.md
   - name: Monitor Azure resources
     items:
     - name: Monitor Azure service
       href: insights/monitor-azure-resource.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
-    - name: Platform logs overview
-      href: platform/platform-logs-overview.md 
-    - name: Resource logs
-      items: 
-      - name: Overview
-        displayname: Resource logs
-        href: platform/resource-logs-overview.md 
-      - name: Collect in Azure Monitor Logs
-        displayname: Resource logs
-        href: platform/resource-logs-collect-workspace.md
-      - name: Archive to storage
-        displayname: Resource logs
-        href: platform/resource-logs-collect-storage.md
-      - name: Stream to Event Hubs
-        displayname: Resource logs
-        href: platform/resource-logs-stream-event-hubs.md
-    - name: Activity log
+    - name: Platform logs
       items:
       - name: Overview
-        displayname: Activity log
-        href: platform/activity-logs-overview.md
-      - name: Collect with diagnostic setting
-        displayname: Activity log
-        href: platform/diagnostic-settings-subscription.md
-      - name: View and retrieve
-        displayname: Activity log
+        displayName: Platform logs, Resource logs, Activity log
+        href: platform/platform-logs-overview.md 
+      - name: View Activity log
+        displayName: Platform logs
         href: platform/activity-log-view.md
-      - name: Collect and analyze
-        displayname: Activity log
-        href: platform/activity-log-collect.md
-      - name: Collect across tenants
-        displayname: Activity log
-        href: platform/activity-log-collect-tenants.md
-      - name: Export 
-        displayname: Activity log
-        href: platform/activity-log-export.md
-      - name: Schema
-        displayname: Activity log
-        href: platform/activity-log-schema.md
+      - name: Send to destinations
+        items:
+        - name: Log Analytics workspace
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-collect-workspace.md
+        - name: Azure storage
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-collect-storage.md
+        - name: Event Hubs
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-stream-event-hubs.md
+      - name: Legacy Activity log collection
+        items:
+        - name: Overview
+          displayName: Resource logs
+          href: platform/diagnostic-settings-legacy.md
+        - name: Collect and analyze
+          displayname: Activity log
+          href: platform/activity-log-collect.md
+        - name: Collect across tenants
+          displayname: Activity log
+          href: platform/activity-log-collect-tenants.md
+        - name: Export 
+          displayname: Activity log
+          href: platform/activity-log-export.md
     - name: Diagnostic settings
       items: 
       - name: Create diagnostic setting
+        displayName: Platform logs, Resource logs, Activity log
         href: platform/diagnostic-settings.md
-      - name: Create diagnostic setting with Resource Manager
+      - name: Create with Resource Manager
+        displayName: diagnostic setting, Platform logs, Resource logs, Activity log
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
         displayname: Diagnostic settings
@@ -535,25 +533,22 @@
       items:
       - name: Agents overview
         href: platform/agents-overview.md
+      - name: FAQ
+        href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
-        - name: Overview
-          href: platform/diagnostics-extension-overview.md
-        - name: Collect logs
-          href: platform/azure-storage-iis-table.md
-        - name: Windows 
-          items:   
-          - name: Version history
-            href: platform/diagnostics-extension-schema.md
-          - name: Schema
-            href: platform/diagnostics-extension-schema-1dot3.md
-          - name: Send to Azure Storage
-            href: platform/diagnostics-extension-to-storage.md
-          - name: Send to Application Insights
-            href: platform/diagnostics-extension-to-application-insights.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Azure Monitor as custom metrics
+        - name: Windows
+          displayname: diagnostics extension
+          items:
+          - name: Overview
+            href: platform/diagnostics-extension-overview.md
+          - name: Install and configure
+            items:
+            - name: PowerShell
+              href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Resource Manager template
+              href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+          - name: Send to Azure Monitor Metrics
             items:   
             - name: Virtual Machine 
               href: platform/collect-custom-metrics-guestos-resource-manager-vm.md 
@@ -563,22 +558,35 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
-          - name: JSON Lines diagnostic logs format
+          - name: Send to Event Hubs
+            href: platform/diagnostics-extension-stream-event-hubs.md
+          - name: Send to Logs
+            href: platform/azure-storage-iis-table.md
+          - name: Send to Azure Storage
+            href: platform/diagnostics-extension-to-storage.md
+          - name: Send to Application Insights
+            href: platform/diagnostics-extension-to-application-insights.md
+          - name: Version history
+            href: platform/diagnostics-extension-schema.md
+          - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
         - name: Linux
+          displayname: diagnostics extension
           items: 
-          - name: Use with VMs
-            href: ../virtual-machines/extensions/diagnostics-linux.md   
-          - name: Custom metrics with Telegraf
+          - name: Overview
+            href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+          - name: Collect metrics with Telegraf
             href: platform/collect-custom-metrics-linux-telegraf.md   
-      - name: Log Analytics agents
+      - name: Log Analytics agent
         items:
         - name: Overview
           href: platform/log-analytics-agent.md
         - name: Windows agents
           href: platform/agent-windows.md
+        - name: Linux agents
+          href: platform/agent-linux.md
         - name: VM Extension for Windows
           href: ../virtual-machines/windows/extensions-oms.md
         - name: VM Extension for Linux
@@ -589,6 +597,28 @@
           href: platform/agent-manage.md
         - name: Agent Health
           href: insights/solution-agenthealth.md
+        - name: Data sources
+          items:
+          - name: Overview
+            href: platform/agent-data-sources.md
+          - name: Windows events
+            href: platform/data-sources-windows-events.md
+          - name: Custom JSON data
+            href: platform/data-sources-json.md
+          - name: CollectD performance data
+            href: platform/data-sources-collectd.md
+          - name: Syslog
+            href: platform/data-sources-syslog.md
+          - name: Performance counters
+            href: platform/data-sources-performance-counters.md
+          - name: Linux application performance
+            href: platform/data-sources-linux-applications.md
+          - name: IIS logs
+            href: platform/data-sources-iis-logs.md
+          - name: Custom logs
+            href: platform/data-sources-custom-logs.md
+          - name: Custom fields
+            href: platform/custom-fields.md
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
@@ -600,28 +630,6 @@
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
           href: platform/agent-linux-troubleshoot.md
-    - name: Agent data sources
-      items:
-      - name: Overview
-        href: platform/agent-data-sources.md
-      - name: Windows events
-        href: platform/data-sources-windows-events.md
-      - name: Custom JSON data
-        href: platform/data-sources-json.md
-      - name: CollectD performance data
-        href: platform/data-sources-collectd.md
-      - name: Syslog
-        href: platform/data-sources-syslog.md
-      - name: Performance counters
-        href: platform/data-sources-performance-counters.md
-      - name: Linux application performance
-        href: platform/data-sources-linux-applications.md
-      - name: IIS logs
-        href: platform/data-sources-iis-logs.md
-      - name: Custom logs
-        href: platform/data-sources-custom-logs.md
-      - name: Custom fields
-        href: platform/custom-fields.md
     - name: Azure Monitor for VMs
       items:
       - name: Overview
@@ -631,7 +639,7 @@
       - name: General Availability FAQ
         href: insights/vminsights-ga-release-faq.md  
       - name: FAQ
-        href: insights/vminsights-faq.md
+        href: faq.md#azure-monitor-for-vms-preview
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -660,14 +668,16 @@
         href: insights/vminsights-dependency-agent-maintenance.md
       - name: Disable monitoring
         href: insights/vminsights-optout.md
-    - name: Capacity and performance solution
-      href: insights/capacity-performance.md
-    - name: VMware Analytics solution
-      href: insights/vmware.md
-    - name: Wire Data solution
-      href: insights/wire-data.md
-    - name: Service Map solution
-      href: insights/service-map.md
+    - name: Solutions
+      items:
+      - name: Capacity and performance solution
+        href: insights/capacity-performance.md
+      - name: VMware Analytics solution
+        href: insights/vmware.md
+      - name: Wire Data solution
+        href: insights/wire-data.md
+      - name: Service Map solution
+        href: insights/service-map.md
     - name: Computer groups
       href: platform/computer-groups.md
   - name: Monitor containers
@@ -677,7 +687,7 @@
       - name: Overview
         href: insights/container-insights-overview.md
       - name: FAQ
-        href: insights/container-insights-faq.md
+        href: faq.md#azure-monitor-for-containers
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview 
@@ -1125,6 +1135,12 @@
   items:
   - name: Service limits
     href: service-limits.md
+  - name: Diagnostics extension
+    items:
+    - name: Schema
+      href: platform/diagnostics-extension-schema-1dot3.md
+  - name: Terminology changes
+    href: terminology.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
@@ -1161,10 +1177,16 @@
     items:
     - name: Supported metrics
       href: platform/metrics-supported.md
+    - name: Metrics exportable with Diagnostic Settings
+      href: platform/metrics-supported-export-diagnostic-settings.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md
-  - name: Resource log services, categories, and schemas
-    href: platform/diagnostic-logs-schema.md
+  - name: Platform logs
+    items:
+    - name: Resource log services, categories, and schemas
+      href: platform/diagnostic-logs-schema.md
+    - name: Activity log schema
+      href: platform/activity-log-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)

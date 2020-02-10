@@ -1,6 +1,6 @@
 ---
 title: ARRAY_SLICE in Azure Cosmos DB query language
-description: Learn about SQL system function ARRAY_SLICE in Azure Cosmos DB.
+description: Learn about how the Array slice SQL system function in Azure Cosmos DB returns part of an array expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

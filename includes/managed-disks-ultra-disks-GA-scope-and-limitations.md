@@ -26,8 +26,8 @@ For now, ultra disks have additional limitations, they are as follows:
     - FSv2
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Not every VM size is available in every supported region with ultra disks.
-- Are only available as data disks and only support 4k physical sector size  
+- Not every VM size is available in every supported region with ultra disks
+- Are only available as data disks and only support 4k physical sector size. Due to the 4K native sector size of Ultra Disk, there are some applications that won't be compatible with ultra disks. One example would be Oracle Database, which requires release 12.2 or later in order to support ultra disks.  
 - Can only be created as empty disks  
 - Do not yet support disk snapshots, VM images, availability sets, and Azure disk encryption
 - Do not yet support integration with Azure Backup or Azure Site Recovery

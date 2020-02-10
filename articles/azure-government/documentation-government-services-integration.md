@@ -43,7 +43,7 @@ The creation experience for custom connectors isn't yet available in the Azure p
 4.	Download the custom connector details by going to the **Overview** blade on the connector resource and selecting **Download**.
 5.	Download the template for the custom connector resource by going to the **Export Template** blade and selecting **Download**. 
 6.	Add the downloaded details of the custom connector to the template under the **swagger** field nested in **properties**, which is nested in **resources**. Add the back-end service URL field, and change the location to a government region. 
-7.	Deploy the edited JSON file as a template under the government subscription. To deploy resources in an Azure Resource Manager deployment template from the Azure portal, see the [resource group deployment documentation](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+7.	Deploy the edited JSON file as a template under the government subscription. To deploy resources in an Azure Resource Manager deployment template from the Azure portal, see the [resource group deployment documentation](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 The following examples show how to edit the downloaded JSON template for deployment in Azure Government.
 

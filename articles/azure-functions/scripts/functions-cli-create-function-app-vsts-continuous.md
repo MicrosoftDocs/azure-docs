@@ -7,7 +7,7 @@ ms.custom: mvc
 ---
 # Create a function in Azure that is deployed from Azure DevOps
 
-This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from an Azure DevOps repository. 
+This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function app using the [Consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from an Azure DevOps repository. 
 
 To complete this topic, you must have:
 
@@ -36,7 +36,7 @@ This script uses the following commands to create a resource group, storage acco
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [Consumption plan](../functions-scale.md#consumption-plan). |
 | [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associates a function app with a Git or Mercurial repository. |
 
 ## Next steps

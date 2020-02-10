@@ -93,8 +93,28 @@ For this scenario, every VM in the backend pool has three network interfaces:
 * Frontend 1: a loopback interface within guest OS that is configured with IP address of Frontend 1
 * Frontend 2: a loopback interface within guest OS that is configured with IP address of Frontend 2
 
+For each VM in the backend pool, run the following commands at a Windows Command Prompt.
+
+To get the list of interface names you have on your VM, type this command:
+
+    netsh interface show interface 
+
+For the VM NIC (Azure managed), type this command:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (replace interfacename with the name of this interface)
+
+For each loopback interface you added, repeat these commands:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (replace interfacename with the name of this loopback interface)
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (replace interfacename with the name of this loopback interface)
+
 > [!IMPORTANT]
 > The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.
+
 
 Let's assume the same frontend configuration as in the previous scenario:
 
@@ -128,7 +148,7 @@ The Floating IP rule type is the foundation of several load balancer configurati
 * Multiple frontend configurations are only supported with IaaS VMs.
 * With the Floating IP rule, your application must use the primary IP configuration for outbound SNAT flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound SNAT is not available to rewrite the outbound flow and the flow fails.  Review [outbound scenarios](load-balancer-outbound-connections.md).
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
+* Subscription limits apply. For more information, see [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) for details.
 
 ## Next steps
 

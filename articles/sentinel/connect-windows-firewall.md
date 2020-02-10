@@ -26,7 +26,8 @@ The Windows firewall connector allows you to easily connect your Windows firewal
 
 
 > [!NOTE]
-> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> - If Azure Sentinel and Azure Security Center are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
 
 ## Enable the connector 
 

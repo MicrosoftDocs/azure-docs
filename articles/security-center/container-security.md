@@ -28,9 +28,9 @@ This article describes how you can improve, monitor, and maintain the security o
 [![Azure Security Center's container security tab](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## Vulnerability management - scanning container images (Preview)
-To monitor your Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
+To monitor your ARM-based Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](/azure/security-center/security-center-pricing)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
 
-When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations, see the list of recommendations in [Virtual Machine protection](security-center-virtual-machine-protection.md##compute-and-app-recs).
+When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations, see the [reference list of recommendations](recommendations-reference.md).
 
 ## Environment hardening
 
@@ -55,8 +55,7 @@ For details of Security Center's recommendations, see [Virtual Machine protectio
 
 Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-We detect threats at the host and AKS cluster level. For full details, see [Azure container service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
-
+We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 ## To view the security posture of your container-related resources
 1.	Open Security Center’s **Compute & apps** page.

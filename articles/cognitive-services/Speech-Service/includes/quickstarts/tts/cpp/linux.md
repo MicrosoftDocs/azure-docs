@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C++ (Linux) - Speech Service'
+title: 'Quickstart: Synthesize speech, C++ (Linux) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C++ on Linux by using the Speech SDK
 services: cognitive-services
@@ -27,7 +27,7 @@ Before you get started, make sure to:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
@@ -82,7 +82,7 @@ Before you get started, make sure to:
    ./helloworld
    ```
 
-1. In the console window, a prompt appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
+1. In the console window, a prompt appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech service and synthesized to speech, which plays on your speaker.
 
    ```text
    Type some text that you want to speak...

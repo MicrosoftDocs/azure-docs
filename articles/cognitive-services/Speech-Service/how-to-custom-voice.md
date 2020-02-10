@@ -1,5 +1,5 @@
 ---
-title: "What is Custom Voice? - Speech Service"
+title: "What is Custom Voice? - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom speech-to-text experience."
 services: cognitive-services
@@ -19,13 +19,13 @@ ms.author: erhopf
 
 ## What's in Custom Voice?
 
-Before starting with Custom Voice, you'll need an Azure account and a Speech Services subscription. Once you've created an account, you can prepare your data, train and test your models, evaluate voice quality, and ultimately deploy your custom voice model.
+Before starting with Custom Voice, you'll need an Azure account and a Speech service subscription. Once you've created an account, you can prepare your data, train and test your models, evaluate voice quality, and ultimately deploy your custom voice model.
 
 The diagram below highlights the steps to create a custom voice model using the [Custom Voice portal](https://aka.ms/customvoice). Use the links to learn more.
 
 ![Custom Voice architecture diagram](media/custom-voice/custom-voice-diagram.png)
 
-1.	[Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and create a Speech Services subscription. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Voice portal. Then, using your Speech Services subscription, create your first Custom Voice project.
+1.	[Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and create a Speech service subscription. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Voice portal. Then, using your Speech service subscription, create your first Custom Voice project.
 
 2.	[Upload data](how-to-custom-voice-create-voice.md#upload-your-datasets) - Upload data (audio and text) using the Custom Voice portal or Custom Voice API. From the portal, you can investigate and evaluate pronunciation scores and signal-to-noise ratios. For more information, see [How to prepare data for Custom Voice](how-to-custom-voice-prepare-data.md).
 
@@ -42,11 +42,11 @@ The neural voice customization capability is currently in public preview, limite
 
 ## Set up your Azure account
 
-A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a Speech Services subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
+A Speech service subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a Speech service subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
 
-Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to the Custom Voice portal and connect your subscription.
+Once you've created an Azure account and a Speech service subscription, you'll need to sign in to the Custom Voice portal and connect your subscription.
 
-1. Get your Speech Services subscription key from the Azure portal.
+1. Get your Speech service subscription key from the Azure portal.
 2. Sign in to the [Custom Voice portal](https://aka.ms/custom-voice).
 3. Select your subscription and create a speech project.
 4. If you'd like to switch to another Speech subscription, use the cog icon located in the top navigation.

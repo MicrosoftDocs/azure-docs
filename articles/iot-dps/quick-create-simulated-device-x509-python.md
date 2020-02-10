@@ -1,6 +1,6 @@
 ---
 title: Provision simulated X.509 device to Azure IoT Hub using Python
-description: Quickstart - Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
+description: Quickstart - Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 01/15/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -70,7 +70,7 @@ When you create an Azure AD DS instance, you specify a DNS name. There are some 
 >
 > You can use the root DNS name for your Azure AD DS managed domain, but you may need to create some additional DNS records for other services in your environment. For example, if you run a webserver that hosts a site using the root DNS name, there can be naming conflicts that require additional DNS entries.
 >
-> In these tutorials and how-to articles, the custom domain of *contoso.com* is used as a short example. In all commands, specify your own domain name, which may include a unique prefix.
+> In these tutorials and how-to articles, the custom domain of *aadds.contoso.com* is used as a short example. In all commands, specify your own domain name, which may include a unique prefix.
 >
 > For more information, see [Select a naming prefix for the domain][naming-prefix].
 
@@ -91,6 +91,9 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 
     There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
 
+1. The **SKU** determines the performance, backup frequency, and maximum number of forest trusts you can create. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
+
+    For this tutorial, select the *Standard* SKU.
 1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
 
     For this tutorial, choose to create a *User* forest.
@@ -103,7 +106,7 @@ To quickly create an Azure AD DS managed domain, you can select **Review + creat
 * Creates a subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
 * Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
 
-1. Select **Review + create** to accept these default configuration options.
+Select **Review + create** to accept these default configuration options.
 
 ## Deploy the managed domain
 
@@ -115,7 +118,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
-1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
+1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *aadds.contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
     ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
 
@@ -198,6 +201,7 @@ Before you domain-join VMs and deploy applications that use the Azure AD DS mana
 [skus]: overview.md
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

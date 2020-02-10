@@ -65,7 +65,7 @@ Complete the following steps to add a new private IP address:
 A public IP address is added by associating a public IP address resource to either a new IP configuration or an existing IP configuration.
 
 > [!NOTE]
-> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) article.
 > 
 
 ### <a name="create-public-ip"></a>Create a public IP address resource
