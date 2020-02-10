@@ -55,7 +55,7 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 11. Provide your credentials when prompted.
 
-12. Once the container IS running, check for the following files in **c:\\edgeCertificates**:
+12. Once the container finishes running, check for the following files in **c:\\edgeCertificates**:
 
     * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
     * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
