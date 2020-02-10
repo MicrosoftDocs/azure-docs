@@ -69,5 +69,5 @@ Returns a JSON document with a "status" field that can have the following values
 
 ## Next steps
 
-- [Using Azure Blob Storage for model conversion](blob-storage.md)
+- [Use Azure Blob Storage for model conversion](blob-storage.md)
 - [Model conversion](model-conversion.md)

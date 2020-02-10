@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guide
+title: Troubleshoot
 description: Troubleshooting on client side
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 ms.service: azure-remote-rendering
 ---
 
-# Troubleshooting
+# Troubleshoot
 
 This article has a few guidelines to troubleshoot problems that may occur on the client side when using the Remote Rendering service.
 

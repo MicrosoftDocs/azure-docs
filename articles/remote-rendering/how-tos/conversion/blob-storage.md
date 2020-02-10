@@ -1,5 +1,5 @@
 ---
-title: Using Azure Blob Storage for model conversion
+title: Use Azure Blob Storage for model conversion
 description: Describes common steps to set up and use blob storage for model conversion.
 author: jakrams
 ms.author: jakras
@@ -7,11 +7,11 @@ ms.date: 02/04/2020
 ms.topic: how-to
 ---
 
-# Using Azure Blob Storage for model conversion
+# Use Azure Blob Storage for model conversion
 
 The [model conversion](model-conversion.md) service requires you to store input data and retrieve output data through Azure blob storage. This article describes how to do the most common steps.
 
-## Preparing Azure Storage accounts
+## Prepare Azure Storage accounts
 
 - Create a storage account (StorageV2)
 - Create an input blob container in the storage account (for example named "arrinput")
@@ -27,7 +27,7 @@ The creation of the storage account and the blob containers can be done with one
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
-## Retrieving SAS for the storage containers
+## Retrieve SAS for the storage containers
 
 Stored access signatures (SAS) are used to grant read access for input, and write access for output. We recommend generating new URIs each time a model is converted. Since URIs expire after some time, persisting them for a longer duration may risk breaking your application unexpectedly.
 
@@ -42,7 +42,7 @@ A SAS URI can be generated using one of:
   - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 - SDKs (C#, Python ... )
 
-## Uploading an input model
+## Upload an input model
 
 To start converting a model, you need to upload it, using one of the following options:
 
@@ -53,7 +53,7 @@ To start converting a model, you need to upload it, using one of the following o
 - [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
 - [Using the Azure Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-## Getting a SAS URI for the converted model
+## Get a SAS URI for the converted model
 
 This step is similar to [Retrieving SAS for the storage containers](#retrieving-sas-for-the-storage-containers). However, this time you need to retrieve a SAS URI for the model file, that was written to the output container.
 

@@ -1,5 +1,5 @@
 ---
-title: Unity SDK Concepts
+title: SDK overview for Unity
 description: Base concepts for the Unity integration
 author: FlorianBorn71
 manager: jlyons
@@ -10,7 +10,7 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
-# Unity SDK concepts
+# SDK overview for Unity
 
 Due to the nature of integrating into a third-party engine, there are some special considerations when interacting with Azure remote rendering in Unity.
 

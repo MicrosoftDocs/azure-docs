@@ -6,11 +6,11 @@
   href: late-stage-reprojection.md
 - name: Lights
   href: lights.md
-- name: Materials
+- name: Materials overview
   href: materials.md
 - name: Outline rendering
   href: outlines.md
-- name: Single sided rendering
+- name: Single-sided rendering
   href: single-sided-rendering.md
 - name: Spatial queries
   href: spatial-queries.md

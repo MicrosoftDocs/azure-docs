@@ -1,5 +1,5 @@
 ---
-title: The TexConv command-line tool
+title: TexConv - Texture conversion tool
 description: User manual for the TexConv command-line tool
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# The TexConv command-line tool
+# TexConv - Texture conversion tool
 
 TexConv is a command-line tool to process textures from typical input formats like PNG, TGA, JPEG and DDS into optimized formats for runtime consumption.
 While the most common scenario is to convert a single input file `A.xxx` into an optimized format `B.yyy`, the tool has many additional options for advanced uses.
