@@ -35,8 +35,8 @@ highlightedContent:
 
 # tools section (optional)
 tools:
-  title: 
-  summary:
+  title: Tools
+  summary: Tools for working with Azure virtual machines.
   items:
     # Card
     - title: Azure CLI
