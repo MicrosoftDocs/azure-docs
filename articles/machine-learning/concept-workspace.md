@@ -80,7 +80,7 @@ You can also perform the following workspace management tasks:
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 > [!WARNING]
-> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors such as `Unexpected status code: 500` when attempting to use the workspace.
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 ## <a name='create-workspace'></a> Create a workspace
 

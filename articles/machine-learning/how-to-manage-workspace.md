@@ -115,7 +115,7 @@ Use the Delete button at the top of the workspace you wish to delete.
 ### Moving the workspace
 
 > [!WARNING]
-> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors such as `Unexpected status code: 500` when attempting to use the workspace.
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 ## Next steps
 
