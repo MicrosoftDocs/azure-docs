@@ -9,7 +9,7 @@ ms.topic: article
 
 # PBR materials
 
-*PBR materials* are one of the supported [material](../../concepts/materials.md) types in Azure Remote Rendering. They are used for [meshes](../../concepts/meshes.md) that should receive realistic lighting.
+*PBR materials* are one of the supported [material types](../../concepts/materials.md) in Azure Remote Rendering. They are used for [meshes](../../concepts/meshes.md) that should receive realistic lighting.
 
 PBR stands for **P**hysically **B**ased **R**endering and means that the material describes the visual properties of a surface in a physically plausible way, such that realistic results are possible under all lighting conditions. Most modern game engines and content creation tools support PBR materials because they are considered the best approximation of real world scenarios for real-time rendering.
 
@@ -24,11 +24,11 @@ These properties are common to all materials:
 * **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with 1 meaning fully opaque and 0 meaning fully transparent. Default is white.
 
   > [!NOTE]
-  > Even when a material is fully transparent, like a perfectly clean piece of glass, it still reflects the environment. Bright spots like the sun are still visible in the reflection.
+  > When a PBR material is fully transparent, like a perfectly clean piece of glass, it still reflects the environment. Bright spots like the sun are still visible in the reflection. This is different for [color materials](color-materials.md).
 
 * **albedoMap:** A [2D texture](../../concepts/textures.md) for per-pixel albedo values.
 
-* **alphaClipEnabled** and **alphaClipThreshold:** If *alphaClipEnabled* is true, all pixels where the albedo alpha value is lower than *alphaClipThreshold* will not be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. By default alpha clipping is disabled.
+* **alphaClipEnabled** and **alphaClipThreshold:** If *alphaClipEnabled* is true, all pixels where the albedo alpha value is lower than *alphaClipThreshold* won't be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. Alpha clipped materials are still slower to render than fully opaque materials, though. By default alpha clipping is disabled.
 
 * **textureCoordinateScale** and **textureCoordinateOffset:** The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
 
@@ -38,7 +38,7 @@ These properties are common to all materials:
 
 ## PBR material properties
 
-The core idea of physically based rendering is to use *BaseColor*, *Metalness*, and *Roughness* properties to emulate a wide range of real-world materials. A detailed description of PBR is beyond the scope of this article, please refer [other sources](http://www.pbr-book.org) for [further details](https://en.wikipedia.org/wiki/Physically_based_rendering).
+The core idea of physically based rendering is to use *BaseColor*, *Metalness*, and *Roughness* properties to emulate a wide range of real-world materials. A detailed description of PBR is beyond the scope of this article, please refer [other sources](http://www.pbr-book.org) for [further details](https://en.wikipedia.org/wiki/Physically_based_rendering). The following properties are specific to PBR materials:
 
 * **baseColor:** In PBR materials the *albedo color* is referred to as the *base color*. In Azure Remote Rendering the *albedo color* property is already present through the common material properties, so there is no additional base color property.
 
