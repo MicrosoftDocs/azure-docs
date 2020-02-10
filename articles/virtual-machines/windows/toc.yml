@@ -311,6 +311,24 @@
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
       href: windows-desktop-multitenant-hosting-deployment.md
+  - name: Migrate from classic to Azure Resource Manager
+    items:
+    - name: Retirement starting March 1, 2023
+      href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Overview
+      href: migration-classic-resource-manager-overview.md
+    - name: Deep Dive on migration
+      href: migration-classic-resource-manager-deep-dive.md
+    - name: Plan for migration
+      href: migration-classic-resource-manager-plan.md
+    - name: Migrate using PowerShell
+      href: migration-classic-resource-manager-ps.md
+    - name: Common migration errors
+      href: migration-classic-resource-manager-errors.md
+    - name: Community tools for migration
+      href: migration-classic-resource-manager-community-tools.md
+    - name: FAQ
+      href: migration-classic-resource-manager-faq.md
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -620,7 +638,7 @@
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Use VM extensions
     href: ../extensions/overview.md
-  - name: Move and migrate VMs
+  - name: Move VMs
     items:
     - name: Change subscription or resource group
       href: move-vm.md
@@ -637,21 +655,6 @@
         href: aws-to-azure.md
       - name: Use Azure Site Recovery
         href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Migrate from Classic to Azure Resource Manager
-      href: migration-classic-resource-manager-overview.md
-      items:
-      - name: Deep Dive on migration
-        href: migration-classic-resource-manager-deep-dive.md
-      - name: Plan for migration
-        href: migration-classic-resource-manager-plan.md
-      - name: Migrate using PowerShell
-        href: migration-classic-resource-manager-ps.md
-      - name: Common migration errors
-        href: migration-classic-resource-manager-errors.md
-      - name: Community tools for migration
-        href: migration-classic-resource-manager-community-tools.md
-      - name: FAQ
-        href: migration-classic-resource-manager-faq.md
 - name: Troubleshoot
   href: ../troubleshooting/index.md
 - name: Reference
