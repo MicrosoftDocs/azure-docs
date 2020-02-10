@@ -1,7 +1,7 @@
 ---
-title: Sample - DoD Impact Level 4 blueprint - Deploy steps
+title: DoD Impact Level 4 blueprint sample
 description: Deploy steps for the DoD Impact Level 4 blueprint sample including blueprint artifact parameter details.
-ms.date: 01/31/2020
+ms.date: 02/09/2020
 ms.topic: sample
 ---
 # Deploy the DoD Impact Level 4 blueprint sample
