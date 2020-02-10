@@ -18,7 +18,7 @@ You use your Azure subscription to register with Cloudyn. Your registration prov
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Register with Cloudyn
 
