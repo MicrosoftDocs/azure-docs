@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) can automatically provision users and groups to any application or system that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Azure AD's support for the SCIM 2.0 protocol is described in [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md), which lists the specific parts of the protocol that it implements in order to automatically provision users and groups from Azure AD to applications that support SCIM 2.0.
+Azure AD's support for the SCIM 2.0 protocol is described in [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md), which lists the specific parts of the protocol that it implements in order to automatically provision users and groups from Azure AD to applications that support SCIM 2.0.
 
 This article describes current and past issues with the Azure AD user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 
@@ -113,5 +113,5 @@ Yes. If you had coded an application to the old behavior that existed prior to t
 
 
 ## Next steps
-[Learn more about provisioning and de-provisioning to SaaS applications](user-provisioning.md)
+[Learn more about provisioning and de-provisioning to SaaS applications](../app-provisioning/user-provisioning.md)
 
