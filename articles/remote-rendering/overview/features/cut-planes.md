@@ -42,13 +42,13 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 
 The following properties are exposed on a cut plane component:
 
-**Enabled:** You can temporarily switch off cut planes by disabling the component. Disabled cut planes don't incur rendering overhead and also don't count against the global cut plane limit.
+* **Enabled:** You can temporarily switch off cut planes by disabling the component. Disabled cut planes don't incur rendering overhead and also don't count against the global cut plane limit.
 
-**Normal:** Specifies which direction (+X,-X,+Y,-Y,+Z,-Z) is used as the plane normal. This direction is relative to the owner entity's orientation. Move and rotate the owner entity for exact placement.
+* **Normal:** Specifies which direction (+X,-X,+Y,-Y,+Z,-Z) is used as the plane normal. This direction is relative to the owner entity's orientation. Move and rotate the owner entity for exact placement.
 
-**FadeColor** and **FadeLength:**
+* **FadeColor** and **FadeLength:**
 
-If the alpha value of *FadeColor* is non-zero, pixels close to the cut plane will fade towards the RGB part of FadeColor. The strength of the alpha channel determines whether it will fade fully towards the fade color or only partially. *FadeLength* defines over which distance this fade will take place.
+  If the alpha value of *FadeColor* is non-zero, pixels close to the cut plane will fade towards the RGB part of FadeColor. The strength of the alpha channel determines whether it will fade fully towards the fade color or only partially. *FadeLength* defines over which distance this fade will take place.
 
 ## Next steps
 
