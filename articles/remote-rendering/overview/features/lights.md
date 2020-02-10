@@ -21,9 +21,9 @@ By default the remotely rendered objects are lit using a [sky light](sky.md). Fo
 
 All light types derive from the abstract base class `LightComponent` and share these properties:
 
-**Color:** The color of the light in [Gamma space](https://en.wikipedia.org/wiki/SRGB). Alpha is ignored.
+* **Color:** The color of the light in [Gamma space](https://en.wikipedia.org/wiki/SRGB). Alpha is ignored.
 
-**Intensity:** The brightness of the light. For point and spot lights, intensity also defines how far the light shines.
+* **Intensity:** The brightness of the light. For point and spot lights, intensity also defines how far the light shines.
 
 ## Point light
 
@@ -31,13 +31,13 @@ In Azure Remote Rendering the `PointLightComponent` can not only emit light from
 
 ### PointLightComponent properties
 
-**Radius:** The default radius is zero, in which case the light acts as a point light. If the radius is larger than zero, it acts as spherical light source, which changes the appearance of specular highlights.
+* **Radius:** The default radius is zero, in which case the light acts as a point light. If the radius is larger than zero, it acts as spherical light source, which changes the appearance of specular highlights.
 
-**Length:** If both `Length` and `Radius` are non-zero, the light acts as a tube light. This can be used to simulate neon tubes.
+* **Length:** If both `Length` and `Radius` are non-zero, the light acts as a tube light. This can be used to simulate neon tubes.
 
-**AttenuationCutoff:** If left to (0,0) the attenuation of the light only depends on its `Intensity`. However, you can provide custom min/max distances over which the light's intensity is scaled linearly down to 0. This feature can be used to enforce a smaller range of influence of a specific light.
+* **AttenuationCutoff:** If left to (0,0) the attenuation of the light only depends on its `Intensity`. However, you can provide custom min/max distances over which the light's intensity is scaled linearly down to 0. This feature can be used to enforce a smaller range of influence of a specific light.
 
-**ProjectedCubemap:** If set to a valid [cubemap](../../concepts/textures.md), the texture is projected onto the light's surrounding geometry. The cubemap's color is modulated with the light's color.
+* **ProjectedCubemap:** If set to a valid [cubemap](../../concepts/textures.md), the texture is projected onto the light's surrounding geometry. The cubemap's color is modulated with the light's color.
 
 ## Spot light
 
@@ -45,15 +45,15 @@ The `SpotLightComponent` is similar to the `PointLightComponent` but the light i
 
 ### SpotLightComponent properties
 
-**Radius:** Same as for the `PointLightComponent`.
+* **Radius:** Same as for the `PointLightComponent`.
 
-**SpotAngleDeg:** This interval defines the inner and outer angle of the cone, measured in degree. Everything within the inner angle is illuminated with full brightness. A falloff is applied towards the outer angle that generates a penumbra-like effect.
+* **SpotAngleDeg:** This interval defines the inner and outer angle of the cone, measured in degree. Everything within the inner angle is illuminated with full brightness. A falloff is applied towards the outer angle that generates a penumbra-like effect.
 
-**FalloffExponent:** Defines how sharply the falloff transitions between the inner and the outer cone angle. A higher value results in a sharper transition. The default of 1.0 results in a linear transition.
+* **FalloffExponent:** Defines how sharply the falloff transitions between the inner and the outer cone angle. A higher value results in a sharper transition. The default of 1.0 results in a linear transition.
 
-**AttenuationCutoff:** Same as for the `PointLightComponent`.
+* **AttenuationCutoff:** Same as for the `PointLightComponent`.
 
-**Projected2dTexture:** If set to a valid [2D texture](../../concepts/textures.md), the image is projected onto geometry that the light shines at. The texture's color is modulated with the light's color.
+* **Projected2dTexture:** If set to a valid [2D texture](../../concepts/textures.md), the image is projected onto geometry that the light shines at. The texture's color is modulated with the light's color.
 
 ## Directional light
 
