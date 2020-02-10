@@ -46,9 +46,9 @@ ML Services in HDInsight provides the following benefits:
 
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
-> [!NOTE]  
-> ML Services cluster type in HDInsight is only supported in HDInsight 3.6. HDInsight 3.6 is scheduled to retire on Dec 31st 2020.
 
+> [!NOTE]  
+> The ML Services cluster type on HDInsight is supported only on HDInsight 3.6. HDInsight 3.6 is scheduled to retire on December 31, 2020.
 
 ## Key features of ML Services on HDInsight
 
