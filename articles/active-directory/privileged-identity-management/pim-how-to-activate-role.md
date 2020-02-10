@@ -69,11 +69,11 @@ When you need to assume an Azure AD role, you can request activation by using th
 
 1. In the **Reason** box, enter the reason for the activation request.
 
-    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-how-to-activate-role/activation-done.png)
-
 1. Select **Activate**.
 
     If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role, follow the steps in next section.
+
+    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
