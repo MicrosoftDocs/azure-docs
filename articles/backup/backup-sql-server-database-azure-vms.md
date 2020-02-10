@@ -90,7 +90,7 @@ Connectivity options include the following advantages and disadvantages:
 Allow IP ranges | No additional costs | Complex to manage because the IP address ranges change over time <br/><br/> Provides access to the whole of Azure, not just Azure Storage
 Use NSG service tags | Easier to manage as range changes are automatically merged <br/><br/> No additional costs <br/><br/> | Can be used with NSGs only <br/><br/> Provides access to the entire service
 Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
-Use an HTTP proxy | Single point of internet access to VMs <br/> | Additional costs to run a VM with the proxy software <br/> No published FQDN addresses to whitelist, allow rules will be subject to Azure IP address changes
+Use an HTTP proxy | Single point of internet access to VMs <br/> | Additional costs to run a VM with the proxy software <br/> No published FQDN addresses, allow rules will be subject to Azure IP address changes
 
 ### Database naming guidelines for Azure Backup
 
