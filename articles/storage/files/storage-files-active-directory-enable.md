@@ -14,8 +14,7 @@ ms.subservice: files
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-For an overview of the identity-based authentication supported on Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md). This article is focused on how to enable authentication with Azure Active Directory Domain Services (Azure AD DS) on Azure Files. If you are interested in leveraging customer-managed Active Directory (AD) as the directory service for Azure Files authentication, see [Enable Customer-managed Active Directory authentication on Azure Files](../../../includes/???)
-
+For an overview of the identity-based authentication supported on Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md). This article is focused on how to enable authentication with Azure Active Directory Domain Services (Azure AD DS) on Azure Files. 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview of the workflow
