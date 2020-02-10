@@ -96,15 +96,15 @@ The full JSON schema for materials files is as follows:
         "properties":
         {
             "name": { "type" : "string"},
+            "unlit": { "type" : "boolean" },
+            "albedoColor": { "$ref": "#/definitions/color" },
             "roughness": { "type": "number" },
             "metalness": { "type": "number" },
-            "albedoColor": { "$ref": "#/definitions/color" },
-            "alphaClipThreshold": { "type": "number" },
-            "isDoubleSided": { "type" : "boolean" },
-            "unlit": { "type" : "boolean" },
-            "useVertexColor": { "type" : "boolean" },
             "transparent" : { "type" : "boolean" },
-            "alphaClipEnabled": { "type" : "boolean"}
+            "alphaClipEnabled": { "type" : "boolean"},
+            "alphaClipThreshold": { "type": "number" },
+            "useVertexColor": { "type" : "boolean" },
+            "isDoubleSided": { "type" : "boolean" }
         },
         "required": ["name"],
         "additionalProperties" : false
