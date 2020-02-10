@@ -13,7 +13,7 @@ ms.date: 02/10/2020
 You can use an Azure container registry as a source of container images with any Kubernetes cluster, including "local" Kubernetes clusters such as [minikube](https://minikube.sigs.k8s.io/) and [kind](https://kind.sigs.k8s.io/). This article shows how to create a Kubernetes pull secret based on an Azure Active Directory service principal. Then, use the secret to pull images from an Azure container registry in a Kubernetes deployment.
 
 > [!TIP]
-> If you're using the managed [Azure Kubernetes Service](../aks/intro-kubernetes.md), you can also take advantage of a custom Azure feature to integrate your cluster with a target Azure container registry for image pulls. For details, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json).
+> If you're using the managed [Azure Kubernetes Service](../aks/intro-kubernetes.md), you can also [integrate your cluster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) with a target Azure container registry for image pulls. 
 
 This article assumes you already created a private Azure container registry. You also need to have a Kubernetes cluster running and accessible via the `kubectl` command-line tool.
 
