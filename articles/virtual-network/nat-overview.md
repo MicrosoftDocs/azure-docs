@@ -22,9 +22,14 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 <!-- 
 <img src="./media/nat-overview/flow-map.svg" width="270" align="center">
+![Virtual Network NAT](./media/nat-overview/flow-map.svg)
 -->
 
-![Virtual Network NAT](./media/nat-overview/flow-map.svg)
+<p align="center">
+  <img src="./media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT">
+</p>
+
+
 
 *Figure: Virtual Network NAT*
 
@@ -70,8 +75,11 @@ NAT and compatible features are aware of the direction the flow was started. Inb
 
 <!-- 
 <img src="./media/nat-overview/flow-direction4.svg" width="500" align="center">
--->
 ![Virtual Network NAT flow direction](./media/nat-overview/flow-direction4.svg)
+-->
+<p align="center">
+  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="Virtual Network NAT flow direction">
+</p>
 
 *Figure: Virtual Network NAT flow direction*
 
@@ -95,9 +103,12 @@ NAT is regional by default. When creating [availability zones](../availability-z
 
 <!-- 
 <img src="./media/nat-overview/az-directions.svg" width="500" align="center">
+![Virtual Network NAT with availability zones](./media/nat-overview/az-directions.svg)
 -->
 
-![Virtual Network NAT with availability zones](./media/nat-overview/az-directions.svg)
+<p align="center">
+  <img src="./media/nat-overview/az-directions.svg" width="512" title="Virtual Network NAT with availability zones">
+</p>
 
 *Figure: Virtual Network NAT with availability zones*
 
