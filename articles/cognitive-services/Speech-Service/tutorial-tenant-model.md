@@ -34,11 +34,11 @@ Before you can deploy your tenant model, you need to be enrolled in the Tenant M
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com).
 
-1. In the left pane, select **Settings**, select **Apps**, and then select **Azure Speech Services**.
+1. In the left pane, select **Settings**, then select **Settings** from the nested menu, then select **Azure Speech Services** from the main window.
 
    ![The "Services & add-ins" pane](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. Select the **Allow the organization-wide language model** check box, and then select **Save changes**. 
+1. Select the **Allow the organization-wide language model** check box, and then select **Save changes**.
 
    ![The Azure Speech Services pane](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -78,7 +78,7 @@ After your admin has enabled Tenant Model for your organization, you can create 
    > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
-1. Select **Opt in**. 
+1. Select **Opt in**.
 
    When your tenant model is ready, you'll receive a confirmation email message with further instructions.
 
