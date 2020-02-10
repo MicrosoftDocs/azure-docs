@@ -79,7 +79,9 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 
 * If you created a new Azure virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you [open the ports in this table](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you [open the ports in this table](#network-ports-for-ise).
+
+  If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols. NSG security rules describe the ports that you must have open and the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints keep those ports accessible to the IP addresses.
 
 * If you have previously existing NSGs, make sure that you [open the ports in this table](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
 
