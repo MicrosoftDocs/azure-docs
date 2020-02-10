@@ -1,11 +1,12 @@
 ---
-title: Convert machine learning experimental code to production code. 
-description: Convert machine learning experimental code to production code using the MLOpsPython code template. 
+title: Convert machine learning experiment code to production code
+titleSuffix: Azure Machine Learning
+description: Learn how to convert machine learning experimental code to production code using the MLOpsPython code template. 
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Convert ML Experimental Code to Production Code
@@ -23,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/generate) 
-and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks.
+and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks. These notebooks are used as an example of converting from experimentation to production.
 - Install nbconvert. Follow only the installation instructions under the Installing nbconvert section on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
 
 ## Remove all nonessential code
@@ -394,8 +395,8 @@ To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Now that you understand how to convert from an experiment to production code, use the following links to learn how to monitor experiment runs and models deployed as web services:
+
 > [!div class="nextstepaction"]
 > [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
 > [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
-> [DevOps for a Data Ingestion Pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion

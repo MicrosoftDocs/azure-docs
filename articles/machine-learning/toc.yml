@@ -51,6 +51,9 @@
       - name: Batch score a classification model
         displayName: pipelines
         href: tutorial-pipeline-batch-scoring-classification.md
+    - name: Go from experiment to production
+      displayName: mlops, mlopspython, production
+      href: tutorial-convert-ml-experiment-to-production.md
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
