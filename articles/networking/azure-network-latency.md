@@ -18,7 +18,7 @@ Azure continuously monitors the latency (speed) of core areas of its network usi
 
 The latency measurements are collected from ThousandEyes agents, hosted in Azure cloud regions worldwide, that continuously send network probes between themselves in 1-minute intervals. The monthly latency statistics are derived from averaging the collected samples for the month.
 
-## January 2020 round trip latency statistics
+## January 2020 round trip latency figures
 
 The monthly average round-trip times between Azure regions for past 31 days (ending on January 31, 2020) are shown below. The following measurements are powered by [ThousandEyes](https://thousandeyes.com).
 
