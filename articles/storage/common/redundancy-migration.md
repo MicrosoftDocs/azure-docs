@@ -1,13 +1,13 @@
 ---
 title: Changing the redundancy option for a storage account 
 titleSuffix: Azure Storage
-description: 
+description: Learn how to change how data in an existing storage account is replicated.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/09/2019
+ms.date: 02/09/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
