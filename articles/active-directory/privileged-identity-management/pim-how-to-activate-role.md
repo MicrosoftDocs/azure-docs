@@ -183,9 +183,7 @@ When you need to take on an Azure AD role, you can request activation by using t
 
     Once all the stages are complete, click the **Sign out** link to sign out of the Azure portal. When you sign back in to the portal, you can now use the role.
 
-    If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
-
-    ![Activation request is pending approval notification](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, an Azure notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
 ## View the status of your requests
 
