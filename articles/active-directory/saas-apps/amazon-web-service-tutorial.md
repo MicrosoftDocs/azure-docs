@@ -336,6 +336,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 > [!NOTE]
 > Provisioning service will only import roles from AWS to Azure AD. This service will not provision users and groups from Azure AD back to AWS.
 
+> [!NOTE]
+> After saving provisioning credentials, you must wait for the initial sync cycle to run. This usually takes around 40 minutes to complete. The status can be seen at the bottom of the Provisioning page under "Current Status".
+
 ### Create Amazon Web Services (AWS) test user
 
 The objective of this section is to create a user called B.Simon in Amazon Web Services (AWS). Amazon Web Services (AWS) doesn't need a user to be created in their system for SSO, so you don't need to perform any action here.
