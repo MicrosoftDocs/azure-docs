@@ -252,7 +252,7 @@ The Generated Secret Value should be shown with Database Connected as true.
 
 ![Test and verify](./media/rotate11.png)
 
-# Next Steps
+## Next Steps
 
 - Learn more about [Azure Key Vault with key rotation and auditing](key-vault-key-rotation-log-monitoring.md)
 - Learn more about [Azure Functions](../azure-functions/functions-overview.md)
