@@ -115,7 +115,7 @@ Now go back to the Azure portal to get your connection string information and la
     
 4. The app creates database with name `AzureSampleFamilyDB`
 5. The app creates container with name `FamilyContainer`
-6. The app will perform point reads using object ids and partition key value (which is lastName in our sample). 
+6. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
 7. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
 
 7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
