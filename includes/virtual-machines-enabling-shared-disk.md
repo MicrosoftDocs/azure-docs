@@ -73,7 +73,11 @@ Once you have deployed a shared disk with `maxShares>1`, you can mount the disk 
 ```azurepowershell-interactive
 $vm = New-AzVm -ResourceGroupName "mySharedDiskRG" -Name "myVM" -Location "WestCentralUS" -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" 
 
+$dataDisk = Get-AzDisk -ResourceGroupName "mySharedDiskRG" -DiskName "mySharedDisk"
+
 $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
+
+update-AzVm -VM $vm -ResourceGroupName "mySharedDiskRG"
 ```
 
 ## Supported SCSI PR commands
