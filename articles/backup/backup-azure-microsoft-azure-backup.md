@@ -61,6 +61,8 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 > * A computer that is a System Center Operations Manager management server
 > * A computer on which Exchange Server is running
 > * A computer that is a node of a cluster
+>
+> Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
 
 Always join Azure Backup Server to a domain. If you plan to move the server to a different domain, install Azure Backup Server first, then join the server to the new domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 

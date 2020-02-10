@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -186,15 +186,16 @@ You can also call a REST API technical profile with your business logic, overwri
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
-| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
 | setting.operatingMode | No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`. |
+| AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
 | setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile . For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
 | SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
-
+| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
+| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
+| setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
+| setting.forgotPasswordLinkLocation| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.| 
 ## Cryptographic keys
 
 The **CryptographicKeys** element is not used.

@@ -63,7 +63,9 @@ If you're using a public IP address as an endpoint, you'll find the IP and DNS i
 
 ### What are the settings for Keep-Alive timeout and TCP idle timeout?
 
- In the Application Gateway v1 SKU, the Keep-Alive timeout is 120 seconds. The Keep-Alive timeout for the v2 SKU is 75 seconds. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of Application Gateway.
+*Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open in case of no activity. 
+
+The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. 
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
@@ -127,7 +129,7 @@ Yes. You can set up connection draining to change members within a backend pool 
 
 ### Can I change instance size from medium to large without disruption?
 
-Yes. Azure distributes instances across update and fault domains to ensure that instances don't fail all at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
+Yes.
 
 ## Configuration
 

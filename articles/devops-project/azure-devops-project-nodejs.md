@@ -21,19 +21,22 @@ monikerRange: 'vsts'
 
 #  Quickstart: Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure Pipelines.  
+In this quickstart, you use the simplified Azure DevOps Projects experience to set up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure Pipelines. You can use Azure DevOps Projects to set up everything you need for developing, deploying, and monitoring your app. 
 
-If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- An [Azure DevOps](https://azure.microsoft.com/services/devops/) account and organization.
 
 ## Sign in to the Azure portal
 
-DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
-1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com), and in the left pane, select **Create a resource**. 
 
-1. In the left pane, select **Create a resource**, and then search for **DevOps Projects**. 
+   ![Create an Azure resource in Azure portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-   	![Create continuous delivery configuration resource](_img/azure-devops-project-nodejs/create-azure-resource.png)
+1. Search for and select **DevOps Projects**, and then select **Create**.
 
 ## Select a sample application and Azure service
 
@@ -48,16 +51,16 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
 ## Configure Azure DevOps and an Azure subscription 
 
 1. Create a new Azure DevOps organization or choose an existing organization. 
+   
+   1. Enter a name for your project.
+      
+   1. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
+      After a few minutes, the DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
+   
+1. Select **Browse** to view your running application.
+   
+   ![Dashboard view of CI/CD pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-	a. Enter a name for your project.
-
-	b. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
-	After a few minutes, the DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
-	 
-3. Select **Browse** to view your running application.
-
-   	![Dashboard view of CI/CD pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
-	
 DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a  Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 
 ## Commit code changes and execute CI/CD

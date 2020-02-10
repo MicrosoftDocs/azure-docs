@@ -159,6 +159,8 @@
         href: bambubysproutsocial-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beekeeper Azure AD Data Connector
+        href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
         href: beeline-tutorial.md
       - name: Benchling
@@ -175,6 +177,8 @@
         href: betterworks-tutorial.md
       - name: BGS Online
         href: bgsonline-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-tutorial.md
       - name: Bime
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
@@ -419,6 +423,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAB Navigate
+        href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
@@ -606,6 +612,8 @@
         href: helpscout-tutorial.md
       - name: Helpshift
         href: helpshift-tutorial.md
+      - name: Health Support System
+        href: health-support-system-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -616,6 +624,8 @@
         href: hightail-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
+      - name: Hive
+        href: hive-tutorial.md
       - name: Hootsuite
         href: hootsuite-tutorial.md
       - name: Hornbill
@@ -672,6 +682,8 @@
         href: impacriskmanager-tutorial.md
       - name: In Case of Crisis - Mobile
         href: in-case-of-crisis-mobile-tutorial.md
+      - name: In Case of Crisis - Online Portal
+        href: in-case-of-crisis-online-portal-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
       - name: Infogix Data3Sixty Govern
@@ -950,10 +962,14 @@
         href: netsuite-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
+      - name: New Relic (Limited Release)
+        href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nintex Promapp
+        href: promapp-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1076,7 +1092,7 @@
         href: presspage-tutorial.md
       - name: Printix
         href: printix-tutorial.md
-      - name: Prisma Cloud
+      - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
@@ -1084,8 +1100,6 @@
         href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
-      - name: Promapp
-        href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
       - name: ProNovos Ops Manager
@@ -1328,8 +1342,6 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
-      - name: Spintr SSO
-        href: spintr-sso-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
       - name: StatusPage
@@ -1354,6 +1366,8 @@
         href: syncplicity-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
+      - name: Syxsense
+        href: syxsense-tutorial.md
     - name: T - V
       items:
       - name: T&E Express
@@ -1400,6 +1414,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: TicketManager
+        href: ticketmanager-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger
@@ -1456,6 +1472,8 @@
         href: veracode-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
+      - name: Verkada Command
+        href: verkada-command-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)
@@ -1492,6 +1510,8 @@
         href: wdesk-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: Wedo
+        href: wedo-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
       - name: Whatfix
@@ -1601,6 +1621,8 @@
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: Azure Databricks SCIM Connector
+        href: azure-databricks-scim-connector-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
@@ -1711,6 +1733,8 @@
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: PureCloud by Genesys
+        href: purecloud-by-genesys-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
@@ -1759,6 +1783,8 @@
         href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
+      - name: TeamViewer
+        href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
       - name: Templafy
@@ -1779,6 +1805,8 @@
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
         href: wrike-provisioning-tutorial.md
+      - name: Zapier
+        href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler
