@@ -25,33 +25,26 @@ In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (R
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node.js v10+](https://nodejs.org).
+* [Node.js 10+](https://nodejs.org).
 
 * [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+
+You can verify the current version of Node.js on your development machine by using the following command:
+
+    ```cmd/sh
+   node --version
+    ```
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
-> The preview of device streams is currently only supported for IoT Hubs created in the following regions:
->
-> * Central US
-> * Central US EUAP
-> * North Europe
-> * Southeast Asia
+> The preview of device streams is currently only supported for IoT Hubs created in the following regions: Central US, Central US EUAP, North Europe, and Southeast Asia.
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-For an overview of the setup, see [Local Proxy Sample](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
+### Add Azure IoT Extension and verify software version
 
-* To run the service-local application in this quickstart, you need Node.js v10.x.x or later on your development machine.
-  * Download [Node.js](https://nodejs.org) for multiple platforms.
-  * Verify the current version of Node.js on your development machine by using the following command:
-
-   ```
-   node --version
-   ```
-
-* Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
+Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -103,7 +96,7 @@ As mentioned earlier, the IoT Hub Node.js SDK supports device streams on the ser
    * [Enable SSH and RDP over IoT Hub device streams by using a C proxy application](./quickstart-device-streams-proxy-c.md)
    * [Enable SSH and RDP over IoT Hub device streams by using a C# proxy application](./quickstart-device-streams-proxy-csharp.md) 
 
-Before you proceed to the next step, ensure that the device-local proxy application is running.
+Before you proceed to the next step, ensure that the device-local proxy application is running. For an overview of the setup, see [Local Proxy Sample](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 ### Run the service-local proxy application
 

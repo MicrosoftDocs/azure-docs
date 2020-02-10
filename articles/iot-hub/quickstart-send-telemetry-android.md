@@ -29,6 +29,8 @@ In this quickstart, you send telemetry to an Azure IoT Hub from an Android appli
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+### Add Azure IoT Extension
+
 * Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
    ```azurecli-interactive

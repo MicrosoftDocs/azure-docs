@@ -17,7 +17,7 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-In this quickstart, you use a direct method to control a simulated device connected to your Azure IoT hub with a Java application. IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud and ingest high volumes of device telemetry to the cloud for storage or processing. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. This quickstart uses two Java applications: a simulated device application that responds to direct methods called from a back-end application and a service application that calls the direct method on the simulated device.
+In this quickstart, you use a direct method to control a simulated device connected to Azure IoT Hub with a Java application. IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud and ingest high volumes of device telemetry to the cloud for storage or processing. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. This quickstart uses two Java applications: a simulated device application that responds to direct methods called from a back-end application and a service application that calls the direct method on the simulated device.
 
 ## Prerequisites
 
@@ -28,8 +28,6 @@ In this quickstart, you use a direct method to control a simulated device connec
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 * [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 You can verify the current version of Java on your development machine using the following command:
 
@@ -42,6 +40,10 @@ You can verify the current version of Maven on your development machine using th
 ```cmd/sh
 mvn --version
 ```
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### Add Azure IoT Extension
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
