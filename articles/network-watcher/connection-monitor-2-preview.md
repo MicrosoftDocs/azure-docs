@@ -129,7 +129,7 @@ To create a connection monitor from the Azure portal, follow these steps:
 
 1.  Connection Monitor (Preview) will create the Connection Monitor resource in the background.
 
-#### From Armclient
+#### From ARMclient
 
 ```armclient
 $connectionMonitorName = "sampleConnectionMonitor"
