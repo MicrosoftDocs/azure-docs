@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 12/17/2019
 ---
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
