@@ -189,3 +189,10 @@ Global Reach is typically used to connect customer’s ExpressRoute gateway with
 
 ### Operating system subscription – move/reuse
 As the VM servers are stood up and the HLI blades are decommissioned, the OS subscriptions can be replaced or reused to avoid double paying of OS licenses.
+
+
+
+## Next steps
+See these articles:
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+- [SAP workloads on Azure: planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
