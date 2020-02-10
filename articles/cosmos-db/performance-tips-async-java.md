@@ -39,7 +39,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ```java
         public ConnectionPolicy getConnectionPolicy() {
           ConnectionPolicy policy = new ConnectionPolicy();
-          policy.setConnectionMode(ConnectionMode.DirectHttps);
+          policy.setConnectionMode(ConnectionMode.Direct);
           policy.setMaxPoolSize(1000);
           return policy;
         }
@@ -84,21 +84,21 @@ So if you're asking "How can I improve my database performance?" consider the fo
         If you are using Cosmos DB as a reference database (that is, the database is used for many point reads and few writes), it may be acceptable to set *ideEndpointTimeout* to -1 (no timeout).
 
 
-        | Configuration Option       | Default    | Meaning  |
-        | :------------------:       | :-----:    | :-----:  |
-        | bufferPageSize             | 8192       |          |
-        | connectionTimeout          | "PT1M"     |          |
-        | idleChannelTimeout         | "PT0S"     |          |
-        | idleEndpointTimeout        | "PT1M10S"  |          |
-        | maxBufferCapacity          | 8388608    |          |
-        | maxChannelsPerEndpoint     | 10         |          |
-        | maxRequestsPerChannel      | 30         |          |
-        | receiveHangDetectionTime   | "PT1M5S"   |          |
-        | requestExpiryInterval      | "PT5S"     |          |
-        | requestTimeout             | "PT1M"     |          |
-        | requestTimerResolution     | "PT0.5S"   |          |
-        | sendHangDetectionTime      | "PT10S"    |          |
-        | shutdownTimeout            | "PT15S"    |          |
+        | Configuration Option       | Default    |
+        | :------------------:       | :-----:    |
+        | bufferPageSize             | 8192       |
+        | connectionTimeout          | "PT1M"     |
+        | idleChannelTimeout         | "PT0S"     |
+        | idleEndpointTimeout        | "PT1M10S"  |
+        | maxBufferCapacity          | 8388608    |
+        | maxChannelsPerEndpoint     | 10         |
+        | maxRequestsPerChannel      | 30         |
+        | receiveHangDetectionTime   | "PT1M5S"   |
+        | requestExpiryInterval      | "PT5S"     |
+        | requestTimeout             | "PT1M"     |
+        | requestTimerResolution     | "PT0.5S"   |
+        | sendHangDetectionTime      | "PT10S"    |
+        | shutdownTimeout            | "PT15S"    |
 
     3. ***Programming Tips for Direct Mode***
 
