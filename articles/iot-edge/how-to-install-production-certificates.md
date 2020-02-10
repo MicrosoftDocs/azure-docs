@@ -85,6 +85,14 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
 4. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
 
+5. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
+
+   * Windows
+
+   * Linux
+    `/var/lib/iotedge/hsm/certs`
+    `/var/lib/iotedge/hsm/cert_keys`
+
 ## Next steps
 
 Installing certificates on an IoT Edge device is a necessary step before deploying your solution in production. Learn more about how to [Prepare to deploy your IoT Edge solution in production](production-checklist.md).
