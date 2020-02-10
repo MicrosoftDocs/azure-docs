@@ -108,7 +108,7 @@ This section contains implementation details, tips, and answers to frequently as
 
     | Make       | Highway mpg -25 | Highway mpg -26 | Highway mpg -27 | Highway mpg -28 | Highway mpg -29 | Highway mpg -30 |
     | ---------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
-    | Alfa R | 0               | 0               | 0               | 0               | 0               | 1               |
+    | Contoso Cars | 0               | 0               | 0               | 0               | 0               | 1               |
 
 - To avoid adding too many dimensions to your dataset. We recommend that you first check the number of values in the column, and bin or quantize the data appropriately.  
 
