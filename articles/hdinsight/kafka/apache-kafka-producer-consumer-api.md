@@ -137,7 +137,7 @@ If you would like to skip this step, prebuilt jars can be downloaded from `Prebu
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. To get the Kafka broker hosts, substitute the cluster name for `<clustername>` in the following command and execute it:
+1. To get the Kafka broker hosts, substitute the cluster name for `<clustername>` in the following command and execute it. Please use the correct casing for `<clustername>` as you see in Azure portal.
 
     ```bash
     sudo apt -y install jq
