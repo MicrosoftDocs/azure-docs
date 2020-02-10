@@ -30,6 +30,30 @@ Azure Remote Rendering has two distinct material types:
 
 When you modify a material directly on the mesh resource, this change affects all instances of that mesh. Changing it on the MeshComponent, however, only affects that one mesh instance. Which method is more appropriate depends on the desired behavior, but modifying a MeshComponent is the more common approach.
 
+## Material classes
+
+All materials provided by the API derive from the base class `Material`. Their type can be queried through `Material.MaterialSubType` or by casting them directly:
+
+``` cs
+void SetMaterialColorToGreen(Material material)
+{
+    if (material.MaterialSubType == MaterialType.Color)
+    {
+        ColorMaterial colorMaterial = material as ColorMaterial;
+        colorMaterial.AlbedoColor = new Color4(0, 1, 0, 1);
+        return;
+    }
+
+    PbrMaterial pbrMat = material as PbrMaterial;
+    if( pbrMat!= null )
+    {
+        PbrMaterial pbrMaterial = material.PbrMaterial.Value;
+        pbrMaterial.AlbedoColor = new Color4(0, 1, 0, 1);
+        return;
+    }
+}
+```
+
 ## Next steps
 
 * [PBR materials](../overview/features/pbr-materials.md)
