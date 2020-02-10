@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ---
 
-# Tutorial: Convert ML Experimental Code to Production Code
+# Tutorial: Convert ML experimental code to production code
 
 A machine learning project requires experimentation where hypotheses are tested with agile tools like Jupyter Notebook using real datasets. Once the model is ready for production, the model code should be placed in a production code repository. In some cases, the model code must be converted to Python scripts to be placed in the production code repository. This tutorial covers a recommended approach on how to export experimentation code to Python scripts.  
 
@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Clean nonessential code
-> * Refactor Jupyter notebook code into functions
+> * Refactor Jupyter Notebook code into functions
 > * Create Python scripts for related tasks
 > * Create unit tests
 
@@ -29,7 +29,7 @@ and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `expe
 
 ## Remove all nonessential code
 
-Some code written during experimentation is only intended for exploratory purposes. Therefore, the first step to convert experimental code into production code is to remove this nonessential code. Removing nonessential code will also make the code more maintainable. In this section, you'll remove code from the Diabetes Ridge Regression Training Notebook. The statements printing the shape of `X` and `y` and the cell calling `features.describe` are just for data exploration and can be removed. After removing nonessential code, `experimentation/Diabetes Ridge Regression Training.ipynb` should look like the following code without markdown:
+Some code written during experimentation is only intended for exploratory purposes. Therefore, the first step to convert experimental code into production code is to remove this nonessential code. Removing nonessential code will also make the code more maintainable. In this section, you'll remove code from the Diabetes Ridge Regression Training notebook. The statements printing the shape of `X` and `y` and the cell calling `features.describe` are just for data exploration and can be removed. After removing nonessential code, `experimentation/Diabetes Ridge Regression Training.ipynb` should look like the following code without markdown:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -60,13 +60,14 @@ joblib.dump(value=reg, filename=model_name)
 ## Refactor code into functions
 
 Second, the Jupyter code needs to be refactored into functions. Refactoring code into functions makes unit testing easier and makes the code more maintainable. In this section, you'll refactor:
-- The Diabetes Ridge Regression Training Notebook(`experimentation/Diabetes Ridge Regression Training.ipynb`)
-- The Diabetes Ridge Regression Scoring Notebook(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
+- The Diabetes Ridge Regression Training notebook(`experimentation/Diabetes Ridge Regression Training.ipynb`)
+- The Diabetes Ridge Regression Scoring notebook(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### Refactor Diabetes Ridge Regression Training notebook into functions
 In `experimentation/Diabetes Ridge Regression Training.ipynb`, complete the following steps:
-- Create a function called `train_model`, which takes the parameters `data` and `alpha` and returns a model. 
-- Copy the code under the headings “Train Model on Training Set” and “Validate Model on Validation Set” into the `train_model` function
+
+1. Create a function called `train_model`, which takes the parameters `data` and `alpha` and returns a model. 
+1. Copy the code under the headings “Train Model on Training Set” and “Validate Model on Validation Set” into the `train_model` function.
 
 The `train_model` function should look like the following code:
 
@@ -88,9 +89,10 @@ reg = train_model(data, alpha)
 The previous statement calls the `train_model` function passing the `data` and `alpha` parameters and returns the model  
 
 In `experimentation/Diabetes Ridge Regression Training.ipynb`, complete the following steps:
-- Create a new function called `main`, which takes no parameters and returns nothing.
-- Copy the code under the headings “Load Data”, “Split Data into Training and Validation Sets”, and “Save Model” into the `main` function
-- Copy the newly created call to `train_model` into the `main` function 
+
+1. Create a new function called `main`, which takes no parameters and returns nothing.
+1. Copy the code under the headings “Load Data”, “Split Data into Training and Validation Sets”, and “Save Model” into the `main` function.
+1. Copy the newly created call to `train_model` into the `main` function.
 
 The `main` function should look like the following code:
 
@@ -157,8 +159,9 @@ main()
 
 ### Refactor Diabetes Ridge Regression Scoring notebook into functions
 In `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete the following steps:
-- Create a new function called `init`, which takes no parameters and return nothing
-- Copy the code under the “Load Model” heading into the `init` function
+
+1. Create a new function called `init`, which takes no parameters and return nothing.
+1. Copy the code under the “Load Model” heading into the `init` function.
 
 The `init` function should look like the following code:
 
@@ -176,23 +179,25 @@ init()
 ```
 
 In `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete the following steps:
-- Create a new function called `run`, which takes raw_data and request_headers as parameters and returns a dictionary of results as follows:
 
-```python
-{"result": result.tolist()}
-```
-- Copy the code under the “Prepare Data” and “Score Data” headings into the `run` function
+1. Create a new function called `run`, which takes raw_data and request_headers as parameters and returns a dictionary of results as follows:
 
-The `run` function should look like the following code(Remember to remove the statements that set the variables `raw_data` and `request_headers`, which will be used later when the `run` function is called):
+    ```python
+    {"result": result.tolist()}
+    ```
 
-```python
-def run(raw_data, request_headers):
-    data = json.loads(raw_data)["data"]
-    data = numpy.array(data)
-    result = model.predict(data)
+1. Copy the code under the “Prepare Data” and “Score Data” headings into the `run` function.
 
-    return {"result": result.tolist()}
-```
+    The `run` function should look like the following code (Remember to remove the statements that set the variables `raw_data` and `request_headers`, which will be used later when the `run` function is called):
+
+    ```python
+    def run(raw_data, request_headers):
+        data = json.loads(raw_data)["data"]
+        data = numpy.array(data)
+        result = model.predict(data)
+
+        return {"result": result.tolist()}
+    ```
 
 Once the `run` function has been created, replace all the code under the “Prepare Data” and “Score Data” headings with the following code:
 
@@ -233,10 +238,10 @@ print("Test result: ", prediction)
 
 ## Combine related functions in Python files
 Third, related functions need to be merged into Python files to better help code reuse. In this section, you'll be creating Python files for the following notebooks:
-- The Diabetes Ridge Regression Training Notebook(`experimentation/Diabetes Ridge Regression Training.ipynb`)
-- The Diabetes Ridge Regression Scoring Notebook(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
+- The Diabetes Ridge Regression Training notebook(`experimentation/Diabetes Ridge Regression Training.ipynb`)
+- The Diabetes Ridge Regression Scoring notebook(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
-### Create Python file for the Diabetes Ridge Regression Training Notebook
+### Create Python file for the Diabetes Ridge Regression Training notebook
 Convert your notebook to an executable script by running the following statement in a command prompt, which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
@@ -281,7 +286,7 @@ main()
 
 The `train.py` file found in the `diabetes_regression/training` directory in the MLOpsPython repository supports command-line arguments (namely `build_id`, `model_name`, and `alpha`). Support for command-line arguments can be added to your `train.py` file to support dynamic model names and `alpha` values, but it's not necessary for the code to execute successfully.
 
-### Create Python file for the Diabetes Ridge Regression Scoring Notebook
+### Create Python file for the Diabetes Ridge Regression Scoring notebook
 Covert your notebook to an executable script by running the following statement in a command prompt that which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
@@ -382,8 +387,8 @@ Following the getting started guide is necessary to have the supporting infrastr
 ### Replace Training Code
 Replacing the code used to train the model and removing or replacing corresponding unit tests is required for the solution to function with your own code.  Follow these steps specifically:
 
-- Replace `diabetes_regression\training\train.py`. This script trains your model locally or on the Azure ML compute.
-- Remove or replace training unit tests found in `tests/unit/code_test.py`
+1. Replace `diabetes_regression\training\train.py`. This script trains your model locally or on the Azure ML compute.
+1. Remove or replace training unit tests found in `tests/unit/code_test.py`
 
 ### Replace Score Code
 For the model to provide real-time inference capabilities, the score code needs to be replaced. The MLOpsPython template uses the score code to deploy the model to do real-time scoring on ACI, AKS, or Web apps.  If you want to keep scoring, replace `diabetes_regression/scoring/score.py`.
@@ -391,7 +396,7 @@ For the model to provide real-time inference capabilities, the score code needs 
 ### Update Evaluation Code
 The MLOpsPython template uses the evaluate_model script to compare the performance of the newly trained model and the current production model based on Mean Squared Error. If the performance of the newly trained model is better than the current production model, then the pipelines continue. Otherwise, the pipelines are stopped. To keep evaluation, replace all instances of `mse` in `diabetes_regression/evaluate/evaluate_model.py` with the metric that you want. 
 
-To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `.pipelines\diabetes_regression-variables` to false.
+To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `.pipelines\diabetes_regression-variables` to `false`.
 
 ## Next steps
 
