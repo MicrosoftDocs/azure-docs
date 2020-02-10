@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 01/31/2020
 ms.custom: seodec18
 ---
 
@@ -17,7 +17,20 @@ ms.custom: seodec18
 
 This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
-## Prerequisites
+> [!TIP]
+> View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
+## Summary
+
+The sample code below demonstrates the following features:
+
+* Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
+* Sequential CREATE, READ, UPDATE, and DELETE operations against the GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+* Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
+    
+    The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
+
+## Prerequisites and setup
 
 Complete the following steps before you compile and run the sample code:
 
@@ -37,9 +50,6 @@ Complete the following steps before you compile and run the sample code:
 1. Edit the sample code below by replacing each **#PLACEHOLDER#** with the appropriate environment identifier.
 
 1. Run `dotnet run` within the root directory of your project. When prompted, use your user profile to sign in to Azure. 
-
-> [!TIP]
-> * View other GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## Project dependencies
 
@@ -291,16 +301,6 @@ namespace CsharpTsiMsalGaSample
     }
 }
 ```
-
-## Summary
-
-The sample code above demonstrates the following features:
-
-* Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Sequential CREATE, READ, UPDATE, and DELETE operations against the GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-* Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
-    
-    The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
 
 ## Next steps
 

@@ -109,7 +109,7 @@ OPENROWSET
 { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } } 
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
-For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#read-csv-file---without-specifying-all-columns).
+For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
 
 ### Schema inference
 
@@ -216,9 +216,9 @@ You can find query samples for accessing elements from repeated columns in the [
 For more information on how to query different file types and creating and using views, see the following quickstart articles:
 
 - [Query single CSV file](query-single-csv-file.md)
-- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
-- [Query specific files](query-specific-files.md)
 - [Query Parquet files](query-parquet-files.md)
-- [Create and use views](create-use-views.md)
 - [Query JSON files](query-json-files.md)
 - [Query Parquet nested types](query-parquet-nested-types.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Use file metadata in queries](query-specific-files.md)
+- [Create and use views](create-use-views.md)

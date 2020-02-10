@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 10/02/2019
+ms.date: 02/03/2020
 ---
 
 # Enterprise Security Package configurations with Azure Active Directory Domain Services in HDInsight

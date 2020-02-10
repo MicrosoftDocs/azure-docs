@@ -1,6 +1,6 @@
 ---
 title: Create a map with Azure Maps | Microsoft Azure Maps
-description: In this article, you will learn how to render a map on a web page using the Microsoft Azure Maps Web SDK.
+description: In this article, you'll learn how to render a map on a web page using the Microsoft Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -17,7 +17,7 @@ This article shows you ways to create a map and animate a map.
 
 ## Loading a map
 
-To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). When initializing the map, a DIV element ID to render the map and a set of options to use when loading the map are passed in. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map in that event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
+To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). When initializing the map, pass a DIV element ID to render the map and pass a set of options to use when loading the map. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map to the event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
 
 <br/>
 
@@ -27,11 +27,11 @@ To load a map, create a new instance of the [Map class](https://docs.microsoft.c
 </iframe>
 
 > [!TIP]
-> Multiple maps can be loaded on the same page and each one can use the same or different authentication and language settings.
+> You can load multiple maps on the same page. Multiple map on the same page may use the same or different authentication and language settings.
 
 ## Show a single copy of the world
 
-When the map is zoomed out on a wide screen, multiple copies of the world will appear horizontally. This is great for most scenarios, but some for some applications it may be desirable to only see a single copy of the world. This can be done by setting the maps `renderWorldCopies` option to `false`.
+When the map is zoomed out on a wide screen, multiple copies of the world will appear horizontally. This option is great for some scenarios, but for other applications it's desirable to see a single copy of the world. This behavior is implemented by setting the maps `renderWorldCopies` option to `false`.
 
 <br/>
 
@@ -42,13 +42,13 @@ When the map is zoomed out on a wide screen, multiple copies of the world will a
 
 ## Controlling the map camera
 
-There are two ways you can set the displayed area of the map using the camera. You can set camera options such as center, and zoom, when loading the map, or call the `setCamera` option anytime after the map has loaded to programmatically update the map view.  
+There are two ways to set the displayed area of the map using the camera of a map. You can set the camera options when loading the map. Or, you can call the `setCamera` option anytime after the map has loaded to programmatically update the map view.  
 
 <a id="setCameraOptions"></a>
 
 ### Set the camera
 
-In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is created and the center and zoom options are set. Map properties such as center, and zoom level are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
+In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is created and the center and zoom options are set. Map properties, such as center and zoom level, are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -68,7 +68,7 @@ In the following code,  a [Map object](https://docs.microsoft.com/javascript/api
 
 ### Animate map view
 
-In the following code, the first code block creates a map and sets the map style, center and zoom values. In the second code block, a click event handler is created for the animate button. When this button is clicked the setCamera function is called with some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
+In the following code, the first code block creates a map and sets the enter and zoom map styles. In the second code block, a click event handler is created for the animate button. When this button is clicked, the `setCamera` function is called with some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) and [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
 
 <br/>
 
@@ -77,7 +77,7 @@ In the following code, the first code block creates a map and sets the map style
 
 ## Try out the code
 
-Take a look at the sample code above. You can edit the JavaScript code on the **JS tab** on the left and see the map view changes on the **Result tab** on the right. You can also click on the **Edit on CodePen** button and edit the code in CodePen.
+Look at the code samples. You can edit the JavaScript code inside the **JS tab** and see the map view changes on the **Result tab**. You can also click **Edit on CodePen**, in the top-right corner, and modify the code in CodePen.
 
 <a id="relatedReference"></a>
 
