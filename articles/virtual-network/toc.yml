@@ -95,8 +95,10 @@
     href: https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides
   items:
-  - name: Configure
+  - name: Plan and configure
     items:
+    - name: Virtual networks
+      href: virtual-network-vnet-plan-design-arm.md
     - name: Name resolution for VMs and cloud services
       href: virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: Use dynamic DNS with your own DNS server
@@ -189,21 +191,21 @@
         href: manage-public-ip-address-prefix.md
       - name: Add or remove IP addresses from NICs
         href: virtual-network-network-interface-addresses.md
-    - name: Plan Virtual networks
-      href: virtual-network-vnet-plan-design-arm.md
   - name: Security
     items:
-    - name: DDoS protection
+    - name: Manage DDoS protection
       href: manage-ddos-protection.md
     - name: Manage network security groups
-      href: manage-network-security-group.md    
-    - name: Use network security groups
+      href: manage-network-security-group.md
+    - name: Onboard partners to DDoS Protection Standard
+      href: ddos-protection-partner-onboarding.md     
+    - name: Filter network traffic with network security groups
       items:
       - name: Azure PowerShell
         href: tutorial-filter-network-traffic-powershell.md
       - name: Azure CLI
         href: tutorial-filter-network-traffic-cli.md
-    - name: Use route tables
+    - name: Route traffic using NVA
       items:
       - name: Azure PowerShell
         href: tutorial-create-route-table-powershell.md
