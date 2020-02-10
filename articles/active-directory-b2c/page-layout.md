@@ -28,12 +28,12 @@ Page layout packages are periodically updated to include fixes and improvements 
 - All pages
   - Accessibility fixes
   - You can now add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. Scenarios include:
-    - Use this on your CSS link to load the CSS at the same time as your HTML so that it doesn't 'flicker' between loading the files
-    - This attribute allows you to control the order in which your Script tags are fetched and executed before the page load
+    - Load linked CSS files at the same time as your HTML template, so that it doesn't 'flicker' between loading the files.
+    - Control the order in which your Script tags are fetched and executed before the page load.
   - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
   - Support for Chrome translate
-- Unified and self-asserted page
-  - The username/email and password fields now use the form HTML element.  This will now allow Edge and IE to properly save this information
+- Unified and self-asserted pages
+  - The username/email and password fields now use the form HTML element, which allows Edge and IE to properly save this information.
 
 ### 1.1.0
 
@@ -45,7 +45,7 @@ Page layout packages are periodically updated to include fixes and improvements 
   - 'Confirm Code' button removed
   - The input field for the code now only takes input up to six (6) characters
   - The page will automatically attempt to verify the code entered when a 6-digit code is entered, without any button having to be clicked
-  - If the code is wrong then the input field is automatically cleared
+  - If the code is wrong, then the input field is automatically cleared
   - After three (3) attempts with an incorrect code, B2C sends an error back to the relying party
   - Accessibility fixes
   - Default CSS removed
