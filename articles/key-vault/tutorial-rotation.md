@@ -12,59 +12,81 @@ ms.date: 01/26/2020
 ms.author: mbaldwin
 
 ---
-# Single User/Password Rotation Tutorial
-Single User/Password Rotation Tutorial
+# Automate the rotation of a single user/password secret
 
-The best option to authenticate to Azure services is by using Managed Identity. There are scenarios where Managed Identity is not an option and then access keys or secrets are used. In those scenarios access keys or secrets should be periodically rotated.
-This tutorial demonstrates how to automate periodic rotation (30 days before expiry) of secrets for databases and services with single user/password authentication. Below scenario would rotate SQL server password stored in key vault using function triggered by event grid notification.
+Although the best way to authenticate to Azure services is by using an [managed identity](managed-identity.md), there are some scenarios where this is not an option. In these cases, access keys or secrets are used. Access keys or secrets should be periodically rotated.
+
+This tutorial demonstrates how to automate the periodic rotation of secrets for databases and services with single user/password authentication. Specifically, this scenario rotates SQL server passwords stored in key vault using a function triggered by Event Grid notification:
 
 ![Rotation diagram](./media/rotate1.png)
 
-1. Key Vault publish near expiry event to Event Grid 30 days before expiration date
-1. Event Grid checks event subscriptions and calls (http post) Function App endpoint subscribed to this event
-1. Function App receives secret information, generates new random password and create new version for that secret with new password in Key Vault
-1. Function App updates SQL with new password
+1. Thirty days before 30 days before the expiration date of a secret, Key Vault publish the "near expiry" event to Event Grid .
+1. Event Grid checks the event subscriptions and, using http post, calls the Function App endpoint subscribed to this event.
+1. The function App receives secret information, generates new random password, and create a new version for the secret with a new password in Key Vault.
+1. The function App updates SQL with new password.
 
 Note: There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. In case of failure in any of the steps Event Grid retries for 2 hours.
 
-## Infrastructure setup
-Before required steps for rotation are demonstrated we need initial infrastructure setup to imitate common environment. 
-Create resource group with Key Vault, SQL Server and store admin password in Key Vault as secret. 
-This tutorial would use pre-created Azure Resource Manager template to create components. You can find entire code here(Basic Secret Rotation Template Sample).
-Components List:
-- Key Vault
-- SQL Server
+## Setup
 
-Azure Resource Manager template to create components: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json)
-- Create new resource group like below
-- Click Purchase
+## Create a key vault and SQL server
 
-![Purchase screen](./media/rotate2.png)
+Before we begin, we must create a Key Vault, create a SQL Server and database, and store the SQL Server admin password in Key Vault.
 
-For simplicity you can run below deployment to create all components and configuration at once and skip to step 3:
-Components List:
-- Key Vault
-- SQL Server
-- App Service Plan
-- Function App
-- Storage Account
-- Web App
-Azure Resource Manager template to create components: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fall%2Fazuredeploy.json)
+This tutorial uses a pre-created Azure Resource Manager template to create components. You can find entire code here: [Basic Secret Rotation Template Sample](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
+
+1. Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json)
+1. For "Resource Group", select "Create New" and give it the name "simplerotation".
+1. Select "Purchase".
+
+  ![Create new resource group](./media/rotate2.png)
+
+After completing these steps, you will have a key vault, a SQL server, and a SQL database. You can verify this in an Azure CLI terminal by running:
+
+```azurecli
+az resource list -o table
+```
+
+The results will look something this:
+
+```console
+Name                     ResourceGroup         Location    Type                               Status
+-----------------------  --------------------  ----------  ---------------------------------  --------
+simplerotation-kv             simplerotation             eastus      Microsoft.KeyVault/vaults
+simplerotation-sql            simplerotation             eastus      Microsoft.Sql/servers
+simplerotation-sql/master     simplerotation             eastus      Microsoft.Sql/servers/databases
+```
 
 ## Create Function App
+
+You must now create a Function App with a with system managed identity, as well as the additional required components: 
 
 Function app requires below components and configuration:
 - App Service Plan
 - Storage Account
-- Function App with System Managed Identity
 - Access policy to access secrets in Key Vault using Function App Managed Identity
 
-Azure Resource Manager template to create components:[Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json)
-- Select resource group like below
-- Click Purchase
+Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json)
+1. For "Resource Group", select "simplerotation".
+1. Select "Purchase".
 
-![Purchase screen](./media/rotate3.png)
+   ![Purchase screen](./media/rotate3.png)
 
+After completing the steps above, you will have a storage account, a server farm, and a Function App.  You can verify this in an Azure CLI terminal by running:
+
+```azurecli
+az resource list -o table
+```
+
+The results will look something this:
+Name                     ResourceGroup         Location    Type                               Status
+-----------------------  --------------------  ----------  ---------------------------------  --------
+simplerotation-kv             simplerotation             eastus      Microsoft.KeyVault/vaults
+simplerotation-sql            simplerotation             eastus      Microsoft.Sql/servers
+simplerotation-sql/master     simplerotation             eastus      Microsoft.Sql/servers/databases
+simplerotationstrg            simplerotation             eastus      Microsoft.Storage/storageAccounts
+simplerotation-plan           simplerotation             eastus      Microsoft.Web/serverFarms
+simplerotation-fn             simplerotation             eastus      Microsoft.Web/sites
 
 For information how to create Function App and using Managed Identity to access Key Vault, see [Create a function app from the Azure portal](../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](managed-identity.md)
 

@@ -47,7 +47,7 @@ You enable "soft-delete" to allow recovery of a deleted key vault, or objects st
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 ```azurecli
-az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
+az keyvault update -n ContosoVault --enable-soft-delete true
 ```
 
 ### New key vault
