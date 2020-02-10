@@ -66,7 +66,7 @@ Log entries are created only if there are requests made against the service endp
 - Timeout errors for both client and server
 - Failed GET requests with error code 304 (Not Modified)
 
-  All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
+All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
 
 ## Configuration
 
@@ -120,21 +120,19 @@ You can list the metric definition of your storage account, or the individual st
 
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account, or the resource ID of an individual storage service such as the as the blob, file, table or queue service. You can find these resource IDs in the **Properties** pages of your storage account on the Azure portal.
 
-  ```powershell
-    $resourceId = "<resource-ID>"
-    Get-AzMetricDefinition -ResourceId $resourceId
-  ```
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetricDefinition -ResourceId $resourceId
+```
 
 #### Read metric values
 
 You can read account-level metric values of your storage account, or the individual storage service such as the blob, file, table or queue service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) cmdlet.
 
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account, or the resource ID of an individual storage service such as the as the blob, file, table or queue service. You can find these resource IDs in the **Properties** pages of your storage account on the Azure portal.
-
-  ```powershell
-    $resourceId = "<resource-ID>"
-    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
-  ```
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -151,8 +149,6 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 #### Read account-level metric values
 
 You can read the metric values of your storage account, or the individual storage service such as the blob, file, table or queue service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) command.
- 
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account, or the resource ID of an individual storage service such as the as the blob, file, table or queue service. You can find these resource IDs in the **Properties** pages of your storage account on the Azure portal.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -302,10 +298,38 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing log data
 
+You can access Resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
+
+See [Azure Storage monitoring data reference](monitor-storage-reference.md) for a detailed reference of the fields that appear in these logs.
+
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com).  This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
 
-Data in Azure Monitor Logs is stored in tables. Azure Storage stores data in the following tables.
+### Access logs in a storage account
+
+Logs appear as blobs stored to a container in the target storage account. Data is collected and stored inside a single blob as a line delimited JSON payload. The name of the blob follows the following naming convention:
+
+`https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/blobServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
+
+Here's an example:
+
+`https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
+
+### Access logs in Event hub
+
+Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, navigate to your event hub, and then verify that the **incoming messages** count is greater than zero. 
+
+![Audit logs](media/storage-logs-in-azure-monitor/event-hub-log.png)
+
+You can access and read log data that is sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
+
+### Access logs in Log Analytics workspace
+
+You can access logs sent to a Log Analytics workspace, by using Azure Monitor log queries.
+
+See [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+
+Data is stored in the following tables.
 
 | Table | Description |
 |:---|:---|
@@ -313,8 +337,6 @@ Data in Azure Monitor Logs is stored in tables. Azure Storage stores data in the
 |StorageFileLogs | Logs that describe activity in file shares. |
 |StorageQueueLogs | Logs that describe activity in queues.|
 |StorageTableLogs| Logs that describe activity in tables.|
-
-See [Azure Storage monitoring data reference](monitor-storage-reference.md) for a detailed reference of the fields that appear in these logs.
 
 ### Azure Storage Log Analytics queries in Azure Monitor
 
@@ -368,6 +390,11 @@ Following are queries that you can use to help you monitor your Azure Storage ac
     | sort by count_ desc 
     | render piechart
     ```
+## FAQ
+
+**Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
+
+No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) for more details.
 
 ## Next steps
 

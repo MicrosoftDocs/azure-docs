@@ -78,6 +78,8 @@ Azure Storage provides the following transaction metrics in Azure Monitor.
 | SuccessE2ELatency | The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
 | Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 99.99 |
 
+<a id="metrics-dimensions" />
+
 ## Metrics dimensions
 
 Azure Storage supports following dimensions for metrics in Azure Monitor.
@@ -102,7 +104,23 @@ The following table lists the properties for Azure Storage resource logs when th
 
 ### Fields that describe the operation
 
-The following table contains properties that describe the operation.
+```json
+{
+    "time": "2019-02-28T19:10:21.2123117Z",
+    "resourceId": "/subscriptions/12345678-2222-3333-4444-555555555555/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
+    "category": "StorageWrite",
+    "operationName": "PutBlob",
+    "operationVersion": "2017-04-17",
+    "schemaVersion": "1.0",
+    "statusCode": 201,
+    "statusText": "Success",
+    "durationMs": 5,
+    "callerIpAddress": "192.168.0.1:11111",
+    "correlationId": "ad881411-201e-004e-1c99-cfd67d000000",
+    "location": "uswestcentral",
+    "uri": "http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10"
+}
+```
 
 | Property | Description |
 |:--- |:---|
@@ -123,7 +141,34 @@ The following table contains properties that describe the operation.
 
 ### Fields that describe how the operation was authenticated
 
-The following table contains properties that describe the operation.
+```json
+{
+    "identity": {
+        "authorization": [
+            {
+                "action": "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                "principals": [
+                    {
+                        "id": "fde5ba15-4355-4223-b811-cccccccccccc",
+                        "type": "User"
+                    }
+                ],
+                "roleAssignmentId": "ecf75cb8-491c-4a25-ad6e-aaaaaaaaaaaa",
+                "roleDefinitionId": "b7e6dc6d-f1e8-4753-8033-ffffffffffff"
+            }
+        ],
+        "requester": {
+            "appId": "691458b9-1327-4635-9f55-bbbbbbbbbbbb",
+            "audience": "https://storage.azure.com/",
+            "objectId": "fde5ba15-4355-4223-b811-cccccccccccc",
+            "tenantId": "72f988bf-86f1-41af-91ab-dddddddddddd",
+            "tokenIssuer": "https://sts.windows.net/72f988bf-86f1-41af-91ab-eeeeeeeeeeee/"
+           },
+        "type": "OAuth"
+    },
+}
+
+```
 
 | Property | Description |
 |:--- |:---|
@@ -144,7 +189,41 @@ The following table contains properties that describe the operation.
 
 ### Fields that describe the service
 
-The following table contains properties that describe the operation.
+```json
+{
+    "properties": {
+        "accountName": "testaccount1",
+        "requestUrl": "https://testaccount1.blob.core.windows.net:443/upload?restype=container&comp=list&prefix=&delimiter=%2F&marker=&maxresults=30&include=metadata&_=1551405598426",
+        "userAgentHeader": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134",
+        "referrerHeader": "blob:https://ms.portal.azure.com/6f50025f-3b88-488d-b29e-3c592a31ddc9",
+        "clientRequestId": "",
+        "etag": "",
+        "serverLatencyMs": 63,
+        "serviceType": "blob",
+        "operationCount": 0,
+        "requestHeaderSize": 2658,
+        "requestBodySize": 0,
+        "responseHeaderSize": 295,
+        "responseBodySize": 2018,
+        "contentLengthHeader": 0,
+        "requestMd5": "",
+        "serverMd5": "",
+        "lastModifiedTime": "",
+        "conditionsUsed": "",
+        "smbTreeConnectID" : "0x3",
+        "smbPersistentHandleID" : "0x6003f",
+        "smbVolatileHandleID" : "0xFFFFFFFF00000065",
+        "smbMessageID" : "0x3b165",
+        "smbCreditsConsumed" : "0x3",
+        "smbCommandDetail" : "0x2000 bytes at offset 0xf2000",
+        "smbFileId" : " 0x9223442405598953",
+        "smbSessionID" : "0x8530280128000049",
+        "smbCommandMajor" : "0x6",
+        "smbCommandMinor" : "DirectoryCloseAndDelete"
+    }
+
+}
+```
 
 | Property | Description |
 |:--- |:---|
