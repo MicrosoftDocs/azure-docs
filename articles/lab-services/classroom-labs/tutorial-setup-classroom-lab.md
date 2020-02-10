@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/23/2020
+ms.date: 02/10/2020
 ms.author: spelluru
 
 ---
@@ -53,7 +53,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
         > [!IMPORTANT]
         > Make a note of user name and password. They won't be shown again.
-    3. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
+    3. On the **Lab policies** page, select **Finish**. 
 
         ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
@@ -61,11 +61,11 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
-    2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-    1. Select **Reset password** to reset the password for the VM. 
-    1. Install and configure software on your template VM. 
-    1. **Stop** the VM.  
-    1. Enter a **description** for the template
+    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
+    2. Select **Reset password** to reset the password for the VM. 
+    3. Install and configure software on your template VM. 
+    4. **Stop** the VM.  
+    5. Enter a **description** for the template
 10. On **Template** page, select **Publish** on the toolbar. 
 
     ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
@@ -78,36 +78,15 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 11. You see the **status of publishing** the template on page. This process can take up to an hour. 
 
     ![Publish template - progress](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+4. Wait until the publishing is complete and then switch to the **Virtual machines pool** page by selecting **Virtual machines** on the left menu or by selecting **Virtual machines** tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
-
-    You do the following tasks on this page (don't do these steps for the tutorial. These steps are for your information only.): 
     
-    1. To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar.
-    2. To start all the VMs at once, select **Start all** on the toolbar. 
-    3. To start a specific VM, select the down arrow in the **Status**, and then select **Start**. You can also start a VM by selecting a VM in the first column, and then by selecting **Start** on the toolbar.
-
     For more information about creating and managing templates, and setting up and managing student virtual machines, see the following articles: 
     
     - [Create and manage classroom lab templates](how-to-create-manage-template.md)
     - [Set up and manage virtual machine pool](how-to-set-virtual-machine-passwords.md)
 
-## Add users to the lab
-
-1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
-2. Select **Add users** on the toolbar, and then select **Add by email addresses**. 
-
-    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
-1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
-
-    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
-
-    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
-
-    You will see names of users in the list after they are registered to the lab. 
-    
 ## Set a schedule for the lab
 Create a scheduled event for the lab so that VMs in the lab are automatically started/stopped at specific times. The user quota you specified earlier is the additional time assigned to each user outside this scheduled time. 
 
@@ -140,6 +119,23 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     ![Schedule in the calendar](../media/how-to-create-schedules/schedule-calendar.png)
 
     For more information about creating and managing schedules for a class, see [Create and manage schedule for classroom labs](how-to-create-schedules.md).
+
+
+## Add users to the lab
+
+1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
+2. Select **Add users** on the toolbar, and then select **Add by email addresses**. 
+
+    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
+1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+
+    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+
+    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
+
+    You will see names of users in the list after they are registered to the lab. 
+    
 
 ## Send invitation emails to students
 
