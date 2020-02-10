@@ -1,6 +1,6 @@
 ---
 title: We’re retiring Azure Classic VMs on March 1, 2023 
-description: Article provides a high level overview of Classic VM retirement
+description: Article provides a high-level overview of Classic VM retirement
 services: virtual-machines
 author: tanmaygore
 manager: vashan
@@ -18,7 +18,7 @@ In 2014, we launched IaaS on Azure Resource Manager, and have been enhancing cap
 If you use IaaS resources from ASM, please migrate by March 1, 2023. We encourage you to make the switch sooner to take advantage of these feature enhancements: 
 - Enables deploying complex applications through templates. 
 - Includes scalable, parallel deployment for virtual machines into availability sets. 
-- Provides lifecycle management of compute, network and storage independently. 
+- Provides lifecycle management of compute, network, and storage independently. 
 - Enables security by default with the enforcement of virtual machines in a virtual network.
 
 
@@ -36,7 +36,8 @@ The following Azure services and functionality will NOT be impacted by this reti
 
 
 ## What actions should I take? 
-You should migrate your existing VMs from classic (Azure Service Manager) to the Azure Resource Manager deployment model using our platform supported migration.  
+
+Start to migrate your existing VMs from classic (Azure Service Manager) to the Azure Resource Manager deployment model using our platform supported migration.  
 
 Learn more about migrating your classic [Linux](./linux/migration-classic-resource-manager-overview.md) and [Windows](./windows/migration-classic-resource-manager-overview.md) VMs to Azure Resource Manager. 
 
@@ -44,4 +45,4 @@ If you have questions, please [contact us](https://portal.azure.com/#blade/Micro
 
 ## Next steps
 
-Create a plan to migrate your classic [Linux](./linux/migration-classic-resource-manager-plan.md) or [Windows](./windows/migration-classic-resource-manager-plan.md) VMs to resource manager.
+Create a plan to migrate your classic [Linux](./linux/migration-classic-resource-manager-plan.md) or [Windows](./windows/migration-classic-resource-manager-plan.md) VMs to Resource Manager.
