@@ -1,5 +1,5 @@
 ---
-title: Use logs to troubleshoot data uploads
+title: Troubleshoot data uploads using logs
 titleSuffix: Azure Data Box
 description: Describes how to use the logs and troubleshoot issues seen when uploading data to Azure Data Box Disk.
 services: databox
