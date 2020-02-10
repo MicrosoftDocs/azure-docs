@@ -15,7 +15,6 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Enable cross-app SSO on iOS using ADAL

@@ -343,7 +343,7 @@ The result, which would grant access to read all device identities, would be:
 
 ## Supported X.509 certificates
 
-You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. Authentication using certificate thumbprints only verifies that the presented thumbprint matches the configured thumbprint. Authentication using certificate authority validates the certificate chain. 
+You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. Authentication using certificate thumbprints verifies that the presented thumbprint matches the configured thumbprint. Authentication using certificate authority validates the certificate chain. Either way, TLS handshake requires the device to have a valid certificate and private key. Refer to the TLS specification for details, for example: [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/).
 
 Supported certificates include:
 
@@ -458,6 +458,8 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub query language](iot-hub-devguide-query-language.md) describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+
+* [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/) provides more information about TLS authentication.
 
 ## Next steps
 

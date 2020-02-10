@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager volume groups | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage volume groups.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Use StorSimple Snapshot Manager to create and manage volume groups

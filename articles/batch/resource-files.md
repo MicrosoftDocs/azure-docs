@@ -2,13 +2,13 @@
 title: Creating and using resource files - Azure Batch
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 
 ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: lahugh
+ms.author: jushiman
 ---
 
 # Creating and using resource files

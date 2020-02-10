@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about logging so I can diagnose and troubleshoot my apps.
-ms.collection: M365-identity-device-management
 ---
 
 # Logging in MSAL applications

@@ -17,7 +17,6 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Mobile app that calls web APIs - move to production

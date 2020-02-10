@@ -79,7 +79,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 1. [Export package](#export-packaged-app-from-luis) for container from LUIS portal or LUIS APIs.
 1. Move package file into the required **input** directory on the [host computer](#the-host-computer). Do not rename, alter, overwrite, or decompress the LUIS package file.
-1. [Run the container](##run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Run the container](#run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
 1. Use LUIS portal's [active learning](luis-how-to-review-endpoint-utterances.md) on the **Review endpoint utterances** page to improve the app.

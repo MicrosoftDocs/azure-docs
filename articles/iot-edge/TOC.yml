@@ -215,7 +215,7 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: Azure IoT Edge
       href: /azure/iot-edge
@@ -223,6 +223,8 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure IoT Samples for C# (.NET)
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
   - name: Azure IoT Samples for Node.js
@@ -241,7 +243,7 @@
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Edge for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: Azure IoT Hub Toolkit for VS Code
+  - name: Azure IoT Hub for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: DeviceExplorer tool
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -375,7 +375,7 @@ The following example looks up the error message description based on the error 
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -399,7 +399,7 @@ The claims transformation looks up the text of the item and returns its value. I
 - Input claims:
     - **mapFromClaim**: B2C_V1_90001
 - Output claims:
-    - **restrictionValueClaim**: You cant sign in because you are a minor.
+    - **restrictionValueClaim**: You cannot sign in because you are a minor.
 
 ## LookupValue
 
@@ -495,6 +495,47 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 - Output claims:
     - **domain**: outlook.com
 
+## SetClaimsIfRegexMatch
+
+Checks that a string claim `claimToMatch` and `matchTo` input parameter are equal, and sets the output claims with the value present in `outputClaimIfMatched` input parameter, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| inputClaim | claimToMatch | string | The claim type, which is to be compared. |
+| InputParameter | matchTo | string | The regular expression to match. |
+| InputParameter | outputClaimIfMatched | string | The value to be set if strings are equal. |
+| OutputClaim | outputClaim | string | If regular expression is match, this output claim contains the value of `outputClaimIfMatched` input parameter. Or null, if no match. |
+| OutputClaim | regexCompareResultClaim | boolean | The regular expression match result output claim type, which is to be set as `true` or `false` based on the result of matching. |
+
+For example, checks whether the provided phone number is valid, based on phone number regular expression pattern.  
+
+```XML
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" TransformationClaimType="regexCompareResultClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **claimToMatch**: "64854114520"
+- Input parameters:
+    - **matchTo**: "^[0-9]{4,16}$"
+    - **outputClaimIfMatched**:  "isPhone"
+- Output claims:
+    - **outputClaim**: "isPhone"
+    - **regexCompareResultClaim**: true
+
 ## SetClaimsIfStringsAreEqual
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `stringMatchMsg` and `stringMatchMsgCode` input parameters, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
@@ -588,3 +629,188 @@ For example, the following claims transformation checks if the value of **ageGro
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true
 
+
+## StringContains
+
+Determine whether a specified substring occurs within the input claim. The result is a new boolean ClaimType with a value of `true` or `false`. `true` if the value parameter occurs within this string,  otherwise, `false`.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which is to be searched. |
+|InputParameter|contains|string|The value to search.|
+|InputParameter|ignoreCase|string|Specifies whether this comparison should ignore the case of the string being compared.|
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. A boolean indicator if the substring occurs within the input claim. |
+
+Use this claims transformation to check if a string claim type contains a substring. Following example, checks whether the `roles` string claim type contains the value of **admin**.
+
+```XML
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="contains" DataType="string" Value="admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **inputClaim**: "Admin, Approver, Editor"
+- Input parameters:
+    - **contains**: "admin,"
+    - **ignoreCase**: true
+- Output claims:
+    - **outputClaim**: true 
+
+## StringSubstring
+
+Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which contains the string. |
+| InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
+| InputParameter | length | int | The number of characters in the substring. |
+| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+
+For example, get the phone number country prefix.  
+
+
+```XML
+<ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="startIndex" DataType="int" Value="0" />
+  <InputParameter Id="length" DataType="int" Value="2" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phonePrefix" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### Example
+
+- Input claims:
+    - **inputClaim**: "+1644114520"
+- Input parameters:
+    - **startIndex**: 0
+    - **length**:  2
+- Output claims:
+    - **outputClaim**: "+1"
+
+## StringReplace
+
+Searches a claim type string for a specified value, and returns a new claim type string in which all occurrences of a specified string in the current string are replaced with another specified string.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which contains the string. |
+| InputParameter | oldValue | string | The string to be searched. |
+| InputParameter | newValue | string | The string to replace all occurrences of `oldValue` |
+| OutputClaim | outputClaim | boolean | A string that is equivalent to the current string except that all instances of oldValue are replaced with newValue. If oldValue is not found in the current instance, the method returns the current instance unchanged. |
+
+For example, normalize a phone number, by removing the `-` characters  
+
+
+```XML
+<ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="oldValue" DataType="string" Value="-" />
+  <InputParameter Id="newValue" DataType="string" Value="" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### Example
+
+- Input claims:
+    - **inputClaim**: "+164-411-452-054"
+- Input parameters:
+    - **oldValue**: "-"
+    - **length**:  ""
+- Output claims:
+    - **outputClaim**: "+164411452054"
+
+## StringJoin
+
+Concatenates the elements of a specified string collection claim type, using the specified separator between each element or member.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | A collection that contains the strings to concatenate. |
+| InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
+| OutputClaim | outputClaim | string | A string that consists of the members of the `inputClaim` string collection, delimited by the `delimiter` input parameter. |
+  
+The following example takes a string collection of user roles, and convert it to a comma delimiter string. You can user this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
+  <InputClaims>
+   <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter DataType="string" Id="delimiter" Value="," />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="rolesCommaDelimiterConverted" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputClaim**: [ "Admin", "Author", "Reader" ]
+- Input parameters:
+  - **delimiter**: ","
+- Output claims:
+  - **outputClaim**: "Admin,Author,Reader"
+
+
+## StringSplit
+
+Returns a string array that contains the substrings in this instance that are delimited by elements of a specified string.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | A string claim type that contains the sub strings to split. |
+| InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
+| OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
+  
+The following example takes a comma delimiter string of user roles, and convert it to a string collection.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+  <InputParameter DataType="string" Id="delimiter" Value="," />
+    </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="roles" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputClaim**: "Admin,Author,Reader"
+- Input parameters:
+  - **delimiter**: ","
+- Output claims:
+  - **outputClaim**: [ "Admin", "Author", "Reader" ]

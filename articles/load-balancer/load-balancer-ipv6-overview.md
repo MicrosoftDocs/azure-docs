@@ -19,6 +19,9 @@ ms.author: allensu
 
 
 >[!NOTE] 
+>This content has been superseded by [IPv6 for Azure VNet Overview](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
+
+>[!NOTE]
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:

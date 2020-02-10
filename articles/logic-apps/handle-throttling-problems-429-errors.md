@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, deli, logicappspm
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 02/14/2020
 ---
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed a specific amount of time. Throttling can create problems such as delayed data processing and reduced performance speed.
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app returns an ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429) when experiencing throttling, which happens when the number of requests exceed the rate at which the destination can handle over a specific amount of time. Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
 
 ![Throttling in SQL Server connector](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
 
@@ -24,9 +24,9 @@ Here are some common types of throttling that your logic app might experience:
 
 ## Logic app throttling
 
-The Azure Logic Apps service has its own [throughput limits](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). If your logic app exceeds these limits, throttling happens at the logic app's level, not the logic app's run level, Azure subscription level, or Azure resource group level.
+The Azure Logic Apps service has its own [throughput limits](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). So, if your logic app exceeds these limits, your logic app resource gets throttled, not just a specific instance or run.
 
-To find throttling errors at this level, check your logic app's **Metrics** pane in the Azure portal.
+To find throttling events at this level, check your logic app's **Metrics** pane in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -46,23 +46,27 @@ To handle throttling at this level, you have these options:
 
 * Enable high throughput mode.
 
-  Your logic app has a default limit on the number of actions that can run in a 5-minute rolling interval. To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
+  A logic app has a [default limit for the number of actions that can run over a 5-minute rolling interval](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
 
 * Disable array debatching ("split on") behavior in triggers.
 
-  If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) splits up the array items and starts a workflow instance for each array item, effectively triggering multiple concurrent runs up to the [**Split On** limit](logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To control throttling, turn off the **Split On** behavior and have your logic app process the entire array with a single call, rather than handle a single item per call.
+  If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) splits up the array items and starts a workflow instance for each array item, effectively triggering multiple concurrent runs up to the [**Split On** limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). To control throttling, turn off the **Split On** behavior and have your logic app process the entire array with a single call, rather than handle a single item per call.
 
 * Refactor actions into smaller logic apps.
 
-  Consider whether you can break down your logic app's actions into smaller logic apps so that each logic app runs a number of actions below the limit.
+  As mentioned earlier, a logic app is limited to a [default number of actions that can run over a 5-minute period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Although you can increase this limit by enabling [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), you might also consider whether you want to break down your logic app's actions into smaller logic apps so that the number of actions that run in each logic app remains under the limit. That way, you reduce the burden on a single logic app resource and distribute the load across multiple logic apps. This solution works better for actions that handle large data sets or spin up so many concurrently running actions, loop iterations, or actions inside each loop iteration that they exceed action execution limit.
 
-  Here's the first logic app that gets the tables and then calls another logic app for each table to get the rows:
+  For example, this logic app does all the work to get tables from a SQL Server database and gets the rows from each table. The **For each** loop concurrently iterates through each table so that the **Get rows** action returns the rows for each table. Based on the amounts of data in those tables, these actions might exceed the limit on action executions.
 
-  ![Create a logic app for one action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+  ![Logic app "before" refactoring](./media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png)
 
-  Here's the second logic app that's called by the first logic app to get the rows for each table:
+  After refactoring, the logic app is now a parent and child logic app. The parent gets the tables from SQL Server and then calls a child logic app for each table to get the rows:
 
-  ![Create another logic app for a different action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
+  ![Create logic app for one action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+
+  Here's the child logic app that's called by the parent logic app to get the rows for each table:
+
+  ![Create another logic app for a second action](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
 
 <a name="connector-throttling"></a>
 
@@ -78,7 +82,7 @@ To learn whether a trigger or action supports retry policies, check the trigger 
 
 Although the retry history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
 
-For logic apps that run in the public, multi-tenant Azure Logic Apps service, versus an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling happens at the *connection* level, not connector level.
+For logic apps in the public, multi-tenant Azure Logic Apps service, throttling happens at the *connection* level. So, for example, for logic apps that run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), throttling still happens for non-ISE connections because they run in the public, multi-tenant Logic Apps service. However, ISE connections, which are created by ISE connectors, aren't throttled because they run in your ISE.
 
 To handle throttling at this level, you have these options:
 
@@ -104,7 +108,7 @@ To handle throttling at this level, you have these options:
 
 While a connector has its own throttling limits, the destination service or system that's called by the connector might also have throttling limits. For example, some APIs in Microsoft Exchange Server have stricter throttling limits than the Office 365 Outlook connector.
 
-By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, the destination service or system requires that those calls happen in a specific order.
+By default, a logic app's instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance don't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at same time, but to succeed, those calls must arrive at the destination service or system before throttling starts to happen.
 
 For example, suppose you have an array that has 100 items. You use a "for each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20, which is the [default limit](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries build up and never get to run.
 
@@ -127,12 +131,18 @@ To handle throttling at this level, you have these options:
 
   * Create a parent logic app that calls a child or nested logic app for each action. That way, you have one parent logic app that controls the main workflow, a child logic app that iterates through the array items, and another child logic app that inserts the item.
 
+    If the parent app has to call different child apps based on the parent's outcome, you can use a condition action or switch action to determine which child app to call.
+
 * Set up batch processing.
 
   If the destination service supports batch operations, you can address throttling by processing items in groups or batches, rather than individually. To implement the batch processing solution, you create a "batch receiver" logic app and a "batch sender" logic app. The batch sender collects messages or items until your specified criteria is met, and then sends those messages or items in a single group. The batch receiver accepts that group and processes those messages or items. For more information, see [Batch process messages in groups](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-* Use webhook triggers or actions, rather than the polling versions.
+* Use the webhook versions for triggers and actions, rather than the polling versions.
 
-  When your logic app uses a webhook trigger or action, such as the [HTTP Webhook trigger](../connectors/connectors-native-webhook.md) or a specific connector webhook, your logic app *subscribes* to the destination service or system and waits until the specified event happens without having to periodically check for the event. If the destination service or system supports webhooks and provides a connector that provides webhook triggers or actions, this option is better than  
+  When your logic app uses a webhook trigger or action, such as the [HTTP Webhook trigger](../connectors/connectors-native-webhook.md) or a connector's webhook version if available, your logic app *subscribes* to the destination service or system and waits until the specified event happens without having to periodically check for the event. If the destination service or system supports webhooks and provides a connector that has a webhook version, this option is better than using the polling version, which always runs on a specified frequency and interval, or recurrence.
+
+  To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## Next steps
+
+* Learn more about [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md)

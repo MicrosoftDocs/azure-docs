@@ -74,7 +74,7 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
     b. Under **Select Principal**, choose the user-assigned managed identity you created.
 
-    ![Set Select Principal for Azure Key Vault access policy](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Set Select Principal for Azure Key Vault access policy](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     c. Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
 
@@ -95,6 +95,8 @@ You're now ready to create a new HDInsight cluster. Customer-managed key can onl
 ### Using the Azure portal
 
 During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
+
+![Create new cluster](./media/disk-encryption/create-cluster-portal.png)
 
 ### Using Azure CLI
 
@@ -171,4 +173,4 @@ HDInsight customer-managed keys is available in all public clouds and national c
 
 ## Next steps
 
-* [Overview of enterprise security in Azure HDInsight](/domain-joined/hdinsight-security-overview.md)
+* [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md)
