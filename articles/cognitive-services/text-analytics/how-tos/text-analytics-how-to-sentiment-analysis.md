@@ -74,7 +74,7 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 You can find an example C# application that calls this version of Sentiment Analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 ### Sentiment scoring
 
@@ -100,7 +100,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 [Sentiment Analysis v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 [Sentiment Analysis v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -114,7 +114,7 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
@@ -232,7 +232,7 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
 }
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 ### Sentiment Analysis v2 example response
 

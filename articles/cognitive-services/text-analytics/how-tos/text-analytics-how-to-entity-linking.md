@@ -68,7 +68,7 @@ Entity linking
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 ### Entity types
 
@@ -137,7 +137,7 @@ NER
 Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 [Named Entity Recognition (NER) v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -235,7 +235,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
 }
 ```
 
-#### [Version 2](#tab/version-2)
+#### [Version 2.1](#tab/version-2)
 
 ### Example NER v2 response
 ```json
