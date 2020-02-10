@@ -60,7 +60,7 @@ Use RStudio on a compute instance or Notebook VM to run this tutorial.
 
 1. Select **Create Project** to begin cloning the repository to RStudio.
 
-1. Once the files appear in the lower right pane, scroll down to the **vignettes/train-and--deploy-to-aci** to find the files needed in this tutorial.
+1. Once the files appear in the lower right pane, scroll down to the **vignettes/train-and-deploy-to-aci** folder to find the files needed in this tutorial.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file. 
