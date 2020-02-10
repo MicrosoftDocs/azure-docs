@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/19/2020
+ms.date: 02/18/2020
 ms.author: victorh
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Azure Firewall Manager policy is an Azure resource that contains collections for NAT rules, network rules, application rules, and Threat Intelligence rules. It's a global resource that can filter traffic across multiple Azure Firewall instances in Secured Virtual Hubs and Virtual Hub Networks. Policies work across regions and subscriptions.
+Firewall policy is an Azure resource that contains NAT, network, and application rule collections as well as Threat Intelligence settings. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
 
 ![Azure Firewall Manager policy](media/policy-overview/policy-overview.png)
 
@@ -45,10 +45,10 @@ Azure Firewall supports both traditional rules and policies. The following table
 
 |         |Policy  |Rules  |
 |---------|---------|---------|
-|Contains     |NAT, Network, Application rules, and Threat Intelligence|NAT, Network, and Application rules |
-|Protects     |Virtual hubs and VNets|VNets only|
+|Contains     |NAT, Network, Application rules, and Threat Intelligence settings|NAT, Network, and Application rules |
+|Protects     |Virtual hubs and Virtual Networks|Virtual Networks only|
 |Portal experience     |Central management using Firewall Manager|Standalone firewall experience|
-|Multiple firewall support     |Supported|Manually export and import rules|
+|Multiple firewall support     |Firewall Policy is a separate resource that can be used across firewalls|Manually export and import rules, or using thirs party management solutions |
 |Pricing     |Billed based on firewall association. See [Pricing](#pricing).|Free|
 |Supported deployment mechanisms     |Portal, REST API, templates, Azure PowerShell, and CLI|Portal, REST API, templates, PowerShell, and CLI. |
 |Release Status     |Public Preview|General Availability|
