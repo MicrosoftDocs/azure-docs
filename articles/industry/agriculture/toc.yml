@@ -40,3 +40,5 @@
 - name: Reference
   items:
   href: references-for-azure-farmbeats.md
+   - name: REST API
+     href: rest-api-in-azure-farmbeats.md
