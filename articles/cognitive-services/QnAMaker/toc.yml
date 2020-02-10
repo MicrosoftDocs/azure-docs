@@ -8,12 +8,14 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Create a new knowledge base
-    href: quickstarts/create-publish-knowledge-base.md
-  - name: Add questions with metadata
-    href: quickstarts/add-question-metadata-portal.md
-  - name: Get answer with Postman or cURL
-    href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+  - name: With QnA Maker portal
+    items:
+    - name: 1. Create knowledge base
+      href: quickstarts/create-publish-knowledge-base.md
+    - name: 2. Add questions with metadata
+      href: quickstarts/add-question-metadata-portal.md
+    - name: 3. Get answer with Postman or cURL
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
   - name: Using REST APIs
@@ -55,42 +57,48 @@
       - name: Python
         href: Quickstarts/get-answer-from-knowledge-base-python.md
 
-  - name: Using SDKs
-    items:
-    - name: C#
-      href: ./Quickstarts/create-publish-kb-csharp-sdk.md
-    - name: Node.js
-      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
-    - name: Python
-      href: ./Quickstarts/python-sdk.md
+  - name: Using SDK
+    href: ./Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
   - name: Create and answer from KB
     displayName: curl, publish, chit-chat, chit chat
     href: Tutorials/create-publish-query-in-portal.md
-  - name: Create and answer from KB using C#
-    href: Tutorials/create-publish-answer.md
   - name: Create a QnA Maker bot
     href: Tutorials/create-qna-bot.md
 - name: Concepts
   items:
-  - name: Knowledge base
-    href: Concepts/knowledge-base.md
-    displayName: metadata, pair
-  - name: Using LUIS and QnA Maker
-    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
-  - name: Development lifecycle of a knowledge base
-    href: Concepts/development-lifecycle-knowledge-base.md
-    displayName: version control, test, index, publish, monitor usage, create
+  - name: Azure resources
+    href: Concepts/azure-resources.md
+  - name: Design a knowledge base
+    items:
+    - name: For languages
+      href: Concepts/design-language-culture.md
+    - name: For client applications
+      href: Concepts/integration-with-other-applications.md
+  - name: Data sources and content
+    items:
+    - name: Importing from data sources
+      href: Concepts/knowledge-base.md
+    - name: Content types imported
+      href: Concepts/content-types.md
+    - name: Question and answer sets
+      href: Concepts/question-answer-set.md
+  - name: Knowledge base lifecycle
+    items:
+    - name: Development lifecycle
+      href: Concepts/development-lifecycle-knowledge-base.md
+      displayName: version control, test, index, publish, monitor usage, create
+  - name: Query knowledge base
+    items:
+    - name: Get answer
+      displayName: DefaultAnswer, Default answer
+      href: Concepts/query-knowledge-base.md
+    - name: Confidence score
+      href: Concepts/confidence-score.md
   - name: Best practices
     href: Concepts/best-practices.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
-  - name: Confidence score
-    displayName: DefaultAnswer, Default answer
-    href: Concepts/confidence-score.md
-  - name: Data sources supported
-    href: Concepts/data-sources-supported.md
-    displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
 - name: How-to guides
   items:
   - name: Edit knowledge base
@@ -113,6 +121,8 @@
     - name: Get answer using metadata
       href: How-To/metadata-generateanswer-usage.md
       displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+    - name: Set default answer
+      href: How-to/change-default-answer.md
     - name: Create bot with QnA Maker and LUIS
       href: Tutorials/integrate-qnamaker-luis.md
     - name: Language selection
@@ -189,7 +199,7 @@
       - name: Reference Documentation
         href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
       - name: NPM
-        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs
     - name: Python

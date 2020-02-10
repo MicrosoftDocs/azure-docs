@@ -102,7 +102,7 @@ Azure error message: The subscription is not registered to use namespace 'Micros
 1. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
 1. In the list of resource providers, against **Microsoft.Compute**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
-For more detailed instructions, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
+For more detailed instructions, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### Issue: Azure Databricks needs permissions to access resources in your organization that only an admin can grant.
 

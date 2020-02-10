@@ -106,7 +106,7 @@ To provide a higher level of security, you can restrict a number of Azure servic
 
 ### Restricting your storage account to a virtual network
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that will break your app.
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that will break your app.This functionality is currently available using the Premium Plan and a virtual network integration.
 
 [Learn more about storage account requirements.](./functions-create-function-app-portal.md#storage-account-requirements)
 
@@ -131,7 +131,7 @@ When running in a Premium plan, you can connect non-HTTP trigger functions to se
 You can also enable virtual network triggers using the following Azure CLI command:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
 Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.

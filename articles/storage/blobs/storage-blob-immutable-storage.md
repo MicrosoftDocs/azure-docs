@@ -72,7 +72,7 @@ The following limits apply to retention policies:
 
 Append blobs are comprised of data blocks and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed.  
+Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
 
 As this setting is part of a time-based retention policy, the append blobs still stay in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
@@ -88,7 +88,7 @@ Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow 
 > - South Central US
 > - West US 2
 >
-> At this time, we strongly advise that you do not to enable `allowProtectedAppendWrites` in any other regions besides those specified, as it may cause intermittent failures and affect compliance for append blobs. For more information on how to set and lock time-based retention policies, see [Enabling allow protected append blobs writes](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+> At this time, we strongly advise that you do not enable `allowProtectedAppendWrites` in any other regions besides those specified, as it may cause intermittent failures and affect compliance for append blobs. For more information on how to set and lock time-based retention policies, see [Enabling allow protected append blobs writes](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
 
 ## Legal holds
 
@@ -153,7 +153,7 @@ The Delete Container operation will fail if at least one blob exists within the 
 
 **What happens if I try to delete a storage account with a container that has a time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one container with a legal hold set or a **locked** time-based policy. A container with an unlocked time-based policy does not protect against storage account deletion. You must remove all legal holds and delete all **locked** containers before you can delete the storage account. For information on container deletion, see the preceding question. You can also apply further delete protections for your storage account with [Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
+The storage account deletion will fail if there is at least one container with a legal hold set or a **locked** time-based policy. A container with an unlocked time-based policy does not protect against storage account deletion. You must remove all legal holds and delete all **locked** containers before you can delete the storage account. For information on container deletion, see the preceding question. You can also apply further delete protections for your storage account with [Azure Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).
 
 **Can I move the data across different blob tiers (hot, cool, archive) when the blob is in the immutable state?**
 
@@ -176,4 +176,4 @@ Yes, if your compliance requirements allow for soft delete to be enabled. [Soft 
 - [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
 - [Set rules to automatically tier and delete blob data with lifecycle management](storage-lifecycle-management-concepts.md)
 - [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)
-- [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
+- [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).

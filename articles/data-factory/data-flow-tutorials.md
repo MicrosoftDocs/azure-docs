@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/08/2020
+ms.date: 02/06/2020
 ---
 
 # Mapping data flow video tutorials
@@ -38,6 +38,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Join transformation](https://www.youtube.com/watch?v=zukwayEXRtg)
 
+[Self-join pattern](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
+
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
@@ -55,6 +57,12 @@ As updates are constantly made to the product, some features have added or diffe
 [Unpivot transformation](http://youtu.be/KFYkxcpB8b0?hd=1)
 
 [Window Transformation](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
+
+[Filter Transformation](https://youtu.be/OhbKDOXSfeE)
+
+[Conditional Split Transformation](http://youtu.be/W1lQHojhKZw?hd=1)
+
+[Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
 
 ## Source and sink
 
@@ -117,3 +125,9 @@ As updates are constantly made to the product, some features have added or diffe
 [Data masking for sensitive data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
 
 [Logical Models vs. Physical Models](http://youtu.be/K5tgzLjEE9Q)
+
+[Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## Data flow expressions
+
+[Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

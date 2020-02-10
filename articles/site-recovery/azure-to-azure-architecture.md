@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/23/2020
 ms.author: raynew
 ---
 
@@ -142,7 +142,7 @@ Please note that details of network connectivity requirements can be found in  [
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD).<br/><br/> If Azure AD addresses are added in future you need to create new Network Security Group (NSG) rules.  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 
@@ -151,7 +151,7 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Reco
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD.<br/><br/> If Azure AD addresses are added in future you need to create new NSG rules.  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 

@@ -26,7 +26,7 @@ Indexers can run into a number of issues when indexing data into Azure Cognitive
 >
 > You can find out the IP address of your search service by pinging its fully qualified domain name (eg., `<your-search-service-name>.search.windows.net`).
 >
-> You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) for the particular region in which your Azure Cognitive Search service is present by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
+> You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
 
 ### Configure firewall rules
 

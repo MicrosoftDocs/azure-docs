@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
 ---
 
@@ -241,7 +241,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 
 ## Send telemetry to be processed
 
-The sensor defined in the spatial intelligence graph sends telemetry. In turn, the telemetry triggers the execution of the user-defined function that was uploaded. The data processor picks up the telemetry. Then an execution plan is created for the invocation of the user-defined function.
+The sensor defined in the spatial intelligence graph sends telemetry. In turn, the telemetry triggers the execution of the user-defined function that was uploaded. The data processor picks up the telemetry. Then, an execution plan is created for the invocation of the user-defined function.
 
 1. Retrieve the matchers for the sensor the reading was generated from.
 1. Depending on what matchers were evaluated successfully, retrieve the associated user-defined functions.

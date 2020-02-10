@@ -7,7 +7,7 @@ ms.custom: mvc
 ---
 # Create a function app in Azure that is deployed from GitHub
 
-This Azure Functions sample script creates a function app using the [consumption plan](../functions-scale.md#consumption-plan), along with its related resources. The script also configures your function code for  continuous deployment from a GitHub repository. 
+This Azure Functions sample script creates a function app using the [Consumption plan](../functions-scale.md#consumption-plan), along with its related resources. The script also configures your function code for  continuous deployment from a GitHub repository. 
 
 In this sample, you need:
 
@@ -36,7 +36,7 @@ Each command in the table links to command specific documentation. This script u
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan) and associates it with a Git or Mercurial repository. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [Consumption plan](../functions-scale.md#consumption-plan) and associates it with a Git or Mercurial repository. |
 
 ## Next steps
 

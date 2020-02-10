@@ -1,6 +1,6 @@
 ---
-title: Use PowerShell to resize a Windows VM in Azure 
-description: Resize a Windows virtual machine created in the Resource Manager deployment model, using Azure Powershell.
+title: Resize a Windows VM in Azure 
+description: Change the VM size used for an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,21 +14,29 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/13/2020
 ms.author: cynthn
 
 ---
 # Resize a Windows VM
 
-This article shows you how to move a VM to a different [VM size](sizes.md) using Azure Powershell.
+This article shows you how to move a VM to a different [VM size](sizes.md).
 
 After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
- 
+## Use the portal
 
-## Resize a Windows VM not in an availability set
+1. Open the [Azure portal](https://portal.azure.com).
+1. Open the page for the virtual machine.
+1. In the left menu, select **Size**.
+1. Pick a new size from the list of available sizes and then select **Resize**.
+
+
+If the virtual machine is currently running, changing its size will cause it to be restarted. Stopping the virtual machine may reveal additional sizes.
+
+## Use PowerShell to resize a VM not in an availability set
 
 Set some variables. Replace the values with your own information.
 
@@ -66,7 +74,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 > 
 > 
 
-## Resize a Windows VM in an availability set
+## Use PowerShell to resize a VM in an availability set
 
 If the new size for a VM in an availability set is not available on the hardware cluster currently hosting the VM, then all VMs in the availability set will need to be deallocated to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, perform the following steps.
 

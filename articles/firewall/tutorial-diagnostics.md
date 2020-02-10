@@ -11,7 +11,7 @@ ms.author: victorh
 ---
 # Tutorial: Monitor Azure Firewall logs and metrics
 
-You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal. 
+You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal.
 
 You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
 
@@ -47,7 +47,7 @@ It can take a few minutes for the data to appear in your logs after you complete
    * AzureFirewallNetworkRule
 
 3. To start collecting data, click **Turn on diagnostics**.
-4. The **Diagnostics settings** page provides the settings for the diagnostic logs. 
+4. The **Diagnostics settings** page provides the settings for the diagnostic logs.
 5. In this example, Azure Monitor logs stores the logs, so type **Firewall log analytics** for the name.
 6. Click **Send to Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
 7. Under **Log Analytics**, click **Configure**.
@@ -82,15 +82,15 @@ To enable diagnostic logging, use the following steps:
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Diagnostic logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) article.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Azure Activity Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), you can analyze your data with preconfigured dashboards that you can use as is or customize.
 
 ## View and analyze the network and application rule logs

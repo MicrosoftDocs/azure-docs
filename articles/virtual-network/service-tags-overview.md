@@ -22,7 +22,7 @@ A service tag represents a group of IP address prefixes from a given
 
 You can use service tags to define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **ApiManagement**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
 
-You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags]() of specific Azure services. 
+You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services. 
 
 ## Available service tags
 The following table includes all the service tags available for use in [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) rules.
@@ -38,7 +38,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. | Both | No | Yes |
-| **ApplicationInsightsAvailability** | Application Insights Availability. | Both | No | No |
+| **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web app front ends. | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
@@ -46,7 +46,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Outbound | No | No |
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). | Outbound | Yes | Yes |
+| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
 | **AzureCognitiveSearch** | Azure Cognitive Search (if using indexers with a skillset). | Both | No | No |
 | **AzureConnectors** | Azure Logic Apps connectors for probe/back-end connections. | Inbound | Yes | Yes |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
@@ -56,9 +56,10 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataLake** | Azure Data Lake. | Outbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
 | **AzureFrontDoor** | Azure Front Door. | Both | No | No |
+| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** and **AzureFrontDoor.Frontend** tags. Please also whitelist following IPs (this dependency will be removed soon): 13.107.6.181 & 13.107.9.181. | Outbound | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
-| **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
+| **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. This does not include traffic to your Azure Load Balancer resource. If you're not using Azure Load Balancer, you can override this rule. | Both | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Both | No | Yes |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has a dependency on the **Storage** tag. | Outbound | No | Yes |
 | **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
@@ -73,13 +74,13 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
-| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Both | No | Yes |
+| **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
-| **MicrosoftContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
+| **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>*Note:* Please also whitelist following IP (this dependency will be removed soon): 204.79.197.219. | Outbound | Yes | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
-| **ServiceFabric** | Azure Service Fabric. | Outbound | No | No |
+| **ServiceFabric** | Azure Service Fabric.<br/><br/>*Note:* This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET (endpoint eg. https:// westus.servicefabric.azure.com) | Both | No | No |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. | Outbound | Yes | Yes |
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |

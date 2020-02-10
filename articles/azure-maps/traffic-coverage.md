@@ -15,7 +15,7 @@ manager: timlt
 
 Azure Maps provides rich traffic information in the form of traffic **flow** and **incidents**. This data can be visualized on maps or used to generate smarter routes that factor in real driving conditions.
 
-However, Maps does not have the same level of information and accuracy for all countries or regions. The following table provides information about what kind of traffic information you can request from each country or region: 
+However, Maps doesn't have the same level of information and accuracy for all countries or regions. The following table provides information about what kind of traffic information you can request from each country or region: 
 
 ## Americas
 
@@ -42,6 +42,7 @@ However, Maps does not have the same level of information and accuracy for all c
 |Hong Kong SAR     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
+|Kazakhstan    |✓         |✓         |
 |Macao SAR     |✓         |✓         |
 |Malaysia     |✓         |✓         |
 |New Zealand     |✓         |✓         |

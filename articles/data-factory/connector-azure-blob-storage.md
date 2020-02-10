@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
+ms.date: 01/16/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -265,7 +265,7 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 Refer to [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md) for Azure Storage authentication in general. To use managed identities for Azure resources authentication, follow these steps:
 
-1. [Retrieve data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+1. [Retrieve data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of **managed identity object ID** generated along with your factory.
 
 2. Grant the managed identity proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
 

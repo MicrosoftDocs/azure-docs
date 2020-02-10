@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/04/2018
 ---

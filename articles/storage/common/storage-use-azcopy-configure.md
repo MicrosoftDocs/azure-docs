@@ -4,7 +4,7 @@ description: Configure, optimize, and troubleshoot AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -36,6 +36,14 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 ## Optimize performance
 
 You can benchmark performance, and then use commands and environment variables to find an optimal tradeoff between performance and resource consumption.
+
+This section helps you perform these optimization tasks:
+
+> [!div class="checklist"]
+> * Run benchmark tests
+> * Optimize throughput
+> * Optimize memory use 
+> * Optimize file synchronization
 
 ### Run benchmark tests
 
@@ -92,6 +100,14 @@ Express this value in gigabytes (GB).
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+### Optimize file synchronization
+
+The [sync](storage-ref-azcopy-sync.md) command identifies all files at the destination, and then compares file names and last modified timestamps before the starting the sync operation. If you have a large number of files, then you can improve performance by eliminating this up-front processing. 
+
+To accomplish this, use the [azcopy copy](storage-ref-azcopy-copy.md) command instead, and set the `--overwrite` flag to `ifSourceNewer`. AzCopy will compare files as they are copied without performing any up-front scans and comparisons. This provides a performance edge in cases where there are a large number of files to compare.
+
+The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](storage-ref-azcopy-sync.md) command with the `--delete-destination` flag set to a value of `true` or `prompt`. 
 
 ## Troubleshoot issues
 

@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/08/2019
+ms.date: 01/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -51,7 +51,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 		- SAP HANA-supported Azure VMs and [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) are listed on the [SAP website](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
 		- [SAP Product Availability Matrix](https://support.sap.com/en/).
 		- SAP notes for other SAP-specific products.	 
-	- We recommend strict three-tier designs for SAP production systems. We don't recommend combining ASCS and app servers on one VM. Using multi-SID cluster configurations for SAP Central Services is supported on Windows guest operating systems on Azure. But this configuration isn't supported for SAP Central Services on Linux operating systems on Azure. You can find documentation for the Windows guest OS scenario in these articles:
+	- We recommend strict three-tier designs for SAP production systems. We don't recommend combining ASCS and/or DBMS and/or app servers on one VM. Using multi-SID cluster configurations for SAP Central Services is supported on Windows guest operating systems on Azure. But this configuration isn't supported for SAP Central Services on Linux operating systems on Azure. You can find documentation for the Windows guest OS scenario in these articles:
 		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
 		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
 	- High availability and disaster recovery architecture.
@@ -133,7 +133,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         - If you don't need high availability for SAP Central Services and the DBMS, you can deploy these VMs into the same availability set as the SAP application layer.
         - If you protect SAP Central Services and the DBMS layer for high availability by using passive replication, place the two nodes for SAP Central Services in one separate availability set and the two DBMS nodes in another availability set.
         - If you deploy into Azure Availability Zones, you can't use availability sets. But you do need to make sure you deploy the active and passive Central Services nodes into two different Availability Zones. Use Availability Zones that have the lowest latency between them.
-          Keep in mind that you need to use [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) for the use case of establishing Windows or Pacemaker failover clusters for the DBMS and SAP Central Services layer across Availability Zones. You can't use [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) for zonal deployments.
+          Keep in mind that you need to use [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) for the use case of establishing Windows or Pacemaker failover clusters for the DBMS and SAP Central Services layer across Availability Zones. You can't use [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) for zonal deployments.
    5. Timeout settings.
         - Check the SAP NetWeaver developer traces of the SAP instances to make sure there are no connection breaks between the enqueue server and the SAP work processes. You can avoid these connection breaks by setting these two registry parameters:
             - HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. For more information, see [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).

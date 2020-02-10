@@ -40,6 +40,8 @@ At the end of this tutorial, you run two Python console apps:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## Receive messages in the simulated device app
 
 In this section, you create a Python console app to simulate the device and receive cloud-to-device messages from the IoT hub.
@@ -80,7 +82,7 @@ In this section, you create a Python console app to simulate the device and rece
     ```python
     def iothub_client_sample_run():
         try:
-            client = iothub_client_init()
+            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
             message_listener_thread = threading.Thread(target=message_listener, args=(client,))
             message_listener_thread.daemon = True

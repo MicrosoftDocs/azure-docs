@@ -1,11 +1,11 @@
 ---
 title: Deployment technologies in Azure Functions  
 description: Learn the different ways you can deploy code to Azure Functions.
-author: ColbyTresness
+author: georgewallace
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: cotresne
+ms.author: gwallace
 
 ---
 
@@ -36,7 +36,7 @@ Each plan has different behaviors. Not all deployment technologies are available
 | Portal editing |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
-<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
+<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
 
 ## Key concepts
 
@@ -113,7 +113,7 @@ You can deploy a Linux container image that contains your function app.
 >__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in two ways:
 >
 >* Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
->* Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-a-premium-plan).
+>* Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >To deploy to an existing app by using a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func deploy`](functions-run-local.md#publish) command.
 
@@ -186,7 +186,7 @@ The following table shows the operating systems and languages that support porta
 | PowerShell (Preview) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and dedicated plans.
+<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
 
 ## Deployment slots
 

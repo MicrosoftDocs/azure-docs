@@ -142,20 +142,20 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Use the Azure Storage REST API
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Manage Azure Storage encryption
-        items:
-        - name: Create an account that supports customer-managed keys
-          href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Configure customer-managed keys
-          items:  
-          - name: Portal
-            href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: PowerShell
-            href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: Azure CLI
-            href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Check the encryption key model for the account
-          href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Manage Azure Storage encryption
+      items:
+      - name: Create an account that supports customer-managed keys
+        href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Configure customer-managed keys
+        items:  
+        - name: Portal
+          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Azure CLI
+          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Check the encryption key model for the account
+        href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
       items:
       - name: .NET

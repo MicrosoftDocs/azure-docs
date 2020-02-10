@@ -39,7 +39,7 @@ You can start out creating and configuring resources using one configuration too
 
 ### <a name="models"></a>Deployment model
 
-There are currently two deployment models for Azure. When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+There are currently two deployment models for Azure. When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="planningtable"></a>Planning table
 
