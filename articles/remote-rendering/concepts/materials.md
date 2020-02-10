@@ -20,13 +20,13 @@ Materials are automatically created during [model conversion](../how-tos/convers
 
 Azure Remote Rendering has two distinct material types:
 
-* [PBR materials](../overview/features/pbr-materials.md) are used for surfaces that should be rendered as physically correct, as possible. Realistic lighting is computed for these materials using *physically based rendering* (PBR). To get the most out of this material type, it is important to provide high quality input data, such as roughness and normal maps.
+* [PBR materials](../overview/features/pbr-materials.md) are used for surfaces that should be rendered as physically correct, as possible. Realistic lighting is computed for these materials using *physically based rendering* (PBR). To get the most out of this material type, it is important to provide high-quality input data, such as roughness and normal maps.
 
-* [Color materials](../overview/features/color-materials.md) are used for cases where no additional lighting is desired. These materials are always full bright and are generally easier to set up. Color materials are used for data that should either have no lighting at all, or already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
+* [Color materials](../overview/features/color-materials.md) are used for cases where no additional lighting is desired. These materials are always full bright and are easier to set up. Color materials are used for data that should either have no lighting at all, or already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 
 ## Mesh vs. MeshComponent material assignment
 
-[Meshes](meshes.md) have one or more sub-meshes. Each sub-mesh references one material. You can change the material to use either directly on the mesh, or you can override which material to use for a sub-mesh on a [MeshComponent](meshes.md#MeshComponent).
+[Meshes](meshes.md) have one or more submeshes. Each submesh references one material. You can change the material to use either directly on the mesh, or you can override which material to use for a submesh on a [MeshComponent](meshes.md#MeshComponent).
 
 When you modify a material directly on the mesh resource, this change affects all instances of that mesh. Changing it on the MeshComponent, however, only affects that one mesh instance. Which method is more appropriate depends on the desired behavior, but modifying a MeshComponent is the more common approach.
 

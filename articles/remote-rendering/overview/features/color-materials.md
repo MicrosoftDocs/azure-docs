@@ -11,13 +11,13 @@ ms.topic: article
 
 *Color materials* are one of the supported [material types](../../concepts/materials.md) in Azure Remote Rendering. They are used for [meshes](../../concepts/meshes.md) that should not receive any kind of lighting, but rather be full bright at all times. This might be the case for 'glowing' materials, such as car dashboards, light bulbs, or for data that already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 
-Color materials are more efficient to render than [PBR materials](pbr-materials.md) due to their simpler shading model. The also support different transparency modes.
+Color materials are more efficient to render than [PBR materials](pbr-materials.md) because of their simpler shading model. They also support different transparency modes.
 
 ## Common material properties
 
 These properties are common to all materials:
 
-* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with 1 meaning fully opaque and 0 meaning fully transparent. Default is white.
+* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
 
   > [!NOTE]
   > Since color materials don't reflect the environment, a fully transparent color material becomes invisible. This is different for [PBR materials](pbr-materials.md).
@@ -44,7 +44,7 @@ The following properties are specific to color materials:
   
   1. **AlphaBlended:** This mode is similar to the transparency mode for PBR materials. It should be used for see-through materials like glass.
 
-  1. **Additive:** This is the simplest and most efficient transparency mode. The contribution of the material is simply added to the rendered image. This mode can be used to simulate glowing (but still transparent) objects, such as markers used for highlighting important objects.
+  1. **Additive:** This mode is the simplest and most efficient transparency mode. The contribution of the material is added to the rendered image. This mode can be used to simulate glowing (but still transparent) objects, such as markers used for highlighting important objects.
 
 ## Next steps
 

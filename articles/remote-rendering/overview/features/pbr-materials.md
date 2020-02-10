@@ -21,7 +21,7 @@ PBR materials are not a universal solution, though. There are materials that ref
 
 These properties are common to all materials:
 
-* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with 1 meaning fully opaque and 0 meaning fully transparent. Default is white.
+* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
 
   > [!NOTE]
   > When a PBR material is fully transparent, like a perfectly clean piece of glass, it still reflects the environment. Bright spots like the sun are still visible in the reflection. This is different for [color materials](color-materials.md).
@@ -38,9 +38,9 @@ These properties are common to all materials:
 
 ## PBR material properties
 
-The core idea of physically based rendering is to use *BaseColor*, *Metalness*, and *Roughness* properties to emulate a wide range of real-world materials. A detailed description of PBR is beyond the scope of this article, please refer [other sources](http://www.pbr-book.org) for [further details](https://en.wikipedia.org/wiki/Physically_based_rendering). The following properties are specific to PBR materials:
+The core idea of physically based rendering is to use *BaseColor*, *Metalness*, and *Roughness* properties to emulate a wide range of real-world materials. A detailed description of PBR is beyond the scope of this article. For more information about PBR, see [other sources](http://www.pbr-book.org). The following properties are specific to PBR materials:
 
-* **baseColor:** In PBR materials the *albedo color* is referred to as the *base color*. In Azure Remote Rendering the *albedo color* property is already present through the common material properties, so there is no additional base color property.
+* **baseColor:** In PBR materials, the *albedo color* is referred to as the *base color*. In Azure Remote Rendering the *albedo color* property is already present through the common material properties, so there is no additional base color property.
 
 * **roughness** and **roughnessMap:** Roughness defines how rough or smooth the surface is. Rough surfaces scatter the light in more directions than smooth surfaces, which make reflections blurry rather than sharp. The value range is from `0.0` to `1.0`. When `roughness` equals `0.0`, reflections will be sharp. When `roughness` equals `0.5`, reflections will become blurry.
 
@@ -52,7 +52,7 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
   ![metalness and roughness](./media/metalness-roughness.png)
 
-  In the picture above, the sphere in the bottom-right corner looks like a real metal material, the bottom-left looks like ceramic or plastic. The albedo color is also changing according to physical properties. With increasing roughness the material loses reflection sharpness.
+  In the picture above, the sphere in the bottom-right corner looks like a real metal material, the bottom-left looks like ceramic or plastic. The albedo color is also changing according to physical properties. With increasing roughness, the material loses reflection sharpness.
 
 * **normalMap:** To simulate fine grained detail, a [normal map](https://en.wikipedia.org/wiki/Normal_mapping) can be provided.
 
@@ -60,9 +60,9 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
   ![Occlusion Map](./media/boom-box-ao2.gif)
 
-* **transparent:** For PBR materials there is only one transparency setting: it is enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering pipeline is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
+* **transparent:** For PBR materials, there is only one transparency setting: it is enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering pipeline is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
 
-  Transparent geometry is very expensive to render. If you only need holes in a surface, for example for the leaves of a tree, it is better to use alpha clipping instead.
+  Transparent geometry is expensive to render. If you only need holes in a surface, for example for the leaves of a tree, it is better to use alpha clipping instead.
 
   ![Transparency](./media/transparency.png)
   Notice in the image above, how the right-most sphere is fully transparent, but the reflection is still visible.
@@ -72,10 +72,10 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
 ## Technical details
 
-Azure Remote Rendering uses the Cook-Torrance micro-facet BRDF with GGX NDF, Schlick Fresnel and a GGX Smith correlated visibility term with a Lambert diffuse term. This model is the de facto industry standard at the moment. For more in-depth details, refer to this article: [Physically based Rendering - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+Azure Remote Rendering uses the Cook-Torrance micro-facet BRDF with GGX NDF, Schlick Fresnel, and a GGX Smith correlated visibility term with a Lambert diffuse term. This model is the de facto industry standard at the moment. For more in-depth details, refer to this article: [Physically based Rendering - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
- An alternative to the *Metalness-Roughness* PBR model used in Azure Remote Rendering is the *Specular-Glossiness* PBR model. This can represent a broader range of materials. However, it is more expensive, and usually does not work well for real-time cases.
- It is not always possible to convert from *Specular-Glossiness* to *Metalness-Roughness* as there are *(Diffuse, Specular)* value pairs that cannot be converted to *(BaseColor, Metalness)*. The conversion in the other direction is simpler and more precise, since all *(BaseColor, Metalness)* pairs correspond to well defined *(Diffuse, Specular)* pairs.
+ An alternative to the *Metalness-Roughness* PBR model used in Azure Remote Rendering is the *Specular-Glossiness* PBR model. This model can represent a broader range of materials. However, it is more expensive, and usually does not work well for real-time cases.
+ It is not always possible to convert from *Specular-Glossiness* to *Metalness-Roughness* as there are *(Diffuse, Specular)* value pairs that cannot be converted to *(BaseColor, Metalness)*. The conversion in the other direction is simpler and more precise, since all *(BaseColor, Metalness)* pairs correspond to well-defined *(Diffuse, Specular)* pairs.
 
 ## Next steps
 
