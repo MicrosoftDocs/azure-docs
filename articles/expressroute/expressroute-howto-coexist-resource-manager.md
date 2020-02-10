@@ -38,7 +38,14 @@ The steps to configure both scenarios are covered in this article. This article 
 * **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
 * **VPN Gateway defaults to ASN 65515 if not specified.** Azure VPN Gateway supports the BGP routing protocol. You can specify ASN (AS Number) for a virtual network by adding the -Asn switch. If you don't specify this parameter, the default AS number is 65515. You can use any ASN for the configuration, but if you select something other than 65515, you must reset the gateway for the setting to take effect.
 * **The gateway subnet must be /27 or a shorter prefix**, (such as /26, /25), or you will receive an error message when you add the ExpressRoute virtual network gateway.
-
+* **Internal gateway subnet traffic must not be routed via an NVA**. Coexisting VPN and ExpressRoute gateways need to communicate with each other. If you are routing traffic towards a Network Virtual Appliance (NVA) using a User Defined Routed (UDR) on the gateway subnet, internal traffic between the gateways may get blocked. This condition can occur if the UDR includes a route with Address Prefix that matches that of the Virtual Network within which the gateway subnet resides. In this case its required to add a more specific route with the format “Address Prefix <GatewaySubnetPrefix>, NextHop: Virtual Network”. E.g. 
+  * Hub virtual network = 10.50.0.0/16
+  * GatewaySubnet = 10.50.1.0/26
+  * NVA Subnet = 10.50.2.0/24
+  * NVA IP = 10.50.2.5
+  * UDR applied to gateway subnet with a route of 10.50.0.0/16 next hop 10.50.2.5
+  * An additional route is needed in the GateWaySubnet route table of 10.50.1.0/26 next hop of VirtualNetwork
+  
 ## Configuration designs
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
 You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This connection applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
