@@ -3,7 +3,7 @@ title: Handle throttling problems, or '429 - Too many requests' errors
 description: How to work around throttling problems, or 'HTTP 429 Too many requests' errors, in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: klam, deli, logicappspm
 ms.topic: conceptual
 ms.date: 02/17/2020
 ---
