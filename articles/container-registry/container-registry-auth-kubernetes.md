@@ -1,6 +1,6 @@
 ---
-title: Access from Kubernetes cluster
-description: Learn how to provide pull access from Kubernetes to images in your Azure container registry by using a pull secret based on a service principal
+title: Authenticate from Kubernetes cluster
+description: Learn how to provide a Kubernetes cluster with access to images in your Azure container registry by creating a pull secret using a service principal
 ms.topic: article
 author: karol-ms
 ms.author: karolz
@@ -8,7 +8,7 @@ ms.reviewer: danlep
 ms.date: 02/10/2020
 ---
 
-# Pull images to a Kubernetes cluster from an Azure container registry 
+# Pull images from an Azure container registry to a Kubernetes cluster
 
 You can use an Azure container registry as a source of container images with any Kubernetes cluster, including "local" Kubernetes clusters such as [minikube](https://minikube.sigs.k8s.io/) and [kind](https://kind.sigs.k8s.io/). This article shows how to create a Kubernetes pull secret based on an Azure Active Directory service principal. Then, use the secret to pull images from an Azure container registry in a Kubernetes deployment.
 
