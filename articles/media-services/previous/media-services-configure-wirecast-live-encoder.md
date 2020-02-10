@@ -31,7 +31,7 @@ This article shows how to configure the [Telestream Wirecast](https://www.telest
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> Use the Wirecast version 13.0.02 or higher due to the TLS 1.2 requirement.
+> Encoders must support TLS 1.2 when using RTMPS protocols. Use the Wirecast version 13.0.02 or higher due to the TLS 1.2 requirement.
 
 ## Prerequisites
 * [Create an Azure Media Services account](media-services-portal-create-account.md)
