@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Windows 10 Enterprise multi-session FAQ
 
-This article will answer frequently asked questions and cover best practices for Windows 10 Enterprise multi-session.
+This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session.
  
 ## What is Windows 10 Enterprise multi-session? 
 
