@@ -971,6 +971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-answer.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/data-sources-supported.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
@@ -45085,10 +45090,10 @@
       "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
       "redirect_document_id": true
     },
-    { 
-      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md", 
-      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage", 
-      "redirect_document_id": false 
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md",
+      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/preview/howto-use-app-templates.md",
