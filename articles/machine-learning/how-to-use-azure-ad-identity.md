@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ---
 
-# Use AAD identity with your machine learning web service in Azure Kubernetes Service
+# Use Azure AD identity with your machine learning web service in Azure Kubernetes Service
 
 In this how-to, you learn how to assign an Azure Active Directory (AAD) identity to your deployed machine learning model in Azure Kubernetes Service. The [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) project allows applications to access cloud resources securely with AAD by using a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) and Kubernetes primitives. This allows your web service to securely access your Azure resources without having to embed credentials or manage tokens directly inside your `score.py` script. This article explains the steps to create and install an Azure Identity in your Azure Kubernetes Service cluster and assign the identity to your deployed web service.
 
@@ -67,7 +67,7 @@ In this how-to, you learn how to assign an Azure Active Directory (AAD) identity
 
 1. If the Azure Identity created in the previous step is not in the same resource group as your AKS cluster, follow [Set Permissions for MIC](https://github.com/Azure/aad-pod-identity#6-set-permissions-for-mic) following the steps shown in AAD Pod Identity project page.
 
-## Assign the Azure identity to the machine learning web service
+## Assign Azure Identity to machine learning web service
 
 The following steps use the Azure Identity created in the previous section, and assign it to your AKS web service through a **selector label**.
 
@@ -122,11 +122,11 @@ Once the pods are up and running, the web services for this deployment will now 
 
 [Assign your Azure Managed Identity with appropriate roles](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) to access other Azure resources. Ensure that the roles you are assigning have the correct **Data Actions**. For example, the [Storage Blob Data Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) will have read permissions to your Storage Blob while the generic [Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) might not.
 
-## Use your Azure Identity with your machine learning web service
+## Use Azure Identity with your machine learning web service
 
 Deploy a model to your AKS cluster. The `score.py` script can contain operations pointing to the Azure resources that your Azure Identity has access to. Ensure that you have installed your required client library dependencies for the resource that you are trying to access to. Below are a couple examples of how you can use your Azure Identity to access different Azure resources from your service.
 
-### Access Keyvault from your web service
+### Access Key Vault from your web service
 
 If you have given your Azure Identity read access to a secret inside a **Key Vault**, your `score.py` can access it using the following code.
 
@@ -146,7 +146,7 @@ secret_client = SecretClient(
 secret = secret_client.get_secret(my_secret_name)
 ```
 
-### Access Blob from your webservice
+### Access Blob from your web service
 
 If you have given your Azure Identity read access to data inside a **Storage Blob**, your `score.py` can access it using the following code.
 
