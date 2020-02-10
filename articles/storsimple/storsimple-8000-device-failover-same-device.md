@@ -1,5 +1,5 @@
 ---
-title: Fail over your StorSimple physical device to same device | Microsoft Docs
+title: Tutorial Fail over StorSimple physical device to same device | Microsoft Docs
 description: Learn how to fail over your StorSimple device to the same device.
 services: storsimple
 documentationcenter: ''
