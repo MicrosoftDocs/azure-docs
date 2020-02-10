@@ -129,7 +129,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Storage
 
-An ASE has 1 TB of storage for all of the apps within the ASE. An Isolated SKU App Service plan has a limit of 250 GB by default. It is possible to try and allocate beyond 1 TB through the use of multiple App Service plans i the same ASE. If you require more than the 250 GB limit in one App Service plan, contact to support to adjust the plan limit. When the plan limit is adjusted, there is still a limit of 1 TB across all of the App Service plans in the ASE.  
+An ASE has 1 TB of storage for all of the apps within the ASE. An Isolated SKU App Service plan has a limit of 250 GB by default. If you have 5 or more App Service plans, you need to be careful that you do not exceed the 1 TB limit of the ASE. If you require more than the 250 GB limit in one App Service plan, contact support to adjust the App Service plan limit to a maximum of 1 TB. When the plan limit is adjusted, there is still a limit of 1 TB across all of the App Service plans in the ASE. 
 
 ## Logging ##
 
