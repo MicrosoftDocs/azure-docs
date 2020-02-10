@@ -25,11 +25,11 @@ In this tutorial, you learn how to:
 
 - Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/generate) 
 and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks. These notebooks are used as an example of converting from experimentation to production.
-- Install nbconvert. Follow only the installation instructions under the Installing nbconvert section on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
+- Install nbconvert. Follow only the installation instructions under section __Installing nbconvert__ on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
 
 ## Remove all nonessential code
 
-Some code written during experimentation is only intended for exploratory purposes. Therefore, the first step to convert experimental code into production code is to remove this nonessential code. Removing nonessential code will also make the code more maintainable. In this section, you'll remove code from the Diabetes Ridge Regression Training notebook. The statements printing the shape of `X` and `y` and the cell calling `features.describe` are just for data exploration and can be removed. After removing nonessential code, `experimentation/Diabetes Ridge Regression Training.ipynb` should look like the following code without markdown:
+Some code written during experimentation is only intended for exploratory purposes. Therefore, the first step to convert experimental code into production code is to remove this nonessential code. Removing nonessential code will also make the code more maintainable. In this section, you'll remove code from the `experimentation/Diabetes Ridge Regression Training.ipynb` notebook. The statements printing the shape of `X` and `y` and the cell calling `features.describe` are just for data exploration and can be removed. After removing nonessential code, `experimentation/Diabetes Ridge Regression Training.ipynb` should look like the following code without markdown:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -86,7 +86,8 @@ Once the `train_model` function is created, replace the code under the headings 
 ```python
 reg = train_model(data, alpha)
 ```
-The previous statement calls the `train_model` function passing the `data` and `alpha` parameters and returns the model  
+
+The previous statement calls the `train_model` function passing the `data` and `alpha` parameters and returns the model.
 
 In `experimentation/Diabetes Ridge Regression Training.ipynb`, complete the following steps:
 
@@ -180,7 +181,7 @@ init()
 
 In `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete the following steps:
 
-1. Create a new function called `run`, which takes raw_data and request_headers as parameters and returns a dictionary of results as follows:
+1. Create a new function called `run`, which takes `raw_data` and `request_headers` as parameters and returns a dictionary of results as follows:
 
     ```python
     {"result": result.tolist()}
@@ -348,7 +349,7 @@ A unit test usually contains three main actions:
 - Act on an object
 - Assert what is expected
 
-A common condition for `train_model` is when `data` and an `alpha` value are passed. The expected result is that the `Ridge.train` and `Ridge.predict` functions should be called. Since machine learning training methods are usually not fast-running, the call to `Ridge.train` will be mocked. Because the return value of `Ridge.train` is a mocked object, we'll also mock `Ridge.predict`. The unit test for `train_model` testing the passing of `data` and an `alpha` value with the expected result of `Ridge.train` and `Ridge.predict` functions being called using mocking and the Pytest framework should look like the following code:
+A common condition for `train_model` is when `data` and an `alpha` value are passed. The expected result is that the `Ridge.train` and `Ridge.predict` functions should be called. Since machine learning training methods are often not fast-running, the call to `Ridge.train` will be mocked. Because the return value of `Ridge.train` is a mocked object, we'll also mock `Ridge.predict`. The unit test for `train_model` testing the passing of `data` and an `alpha` value with the expected result of `Ridge.train` and `Ridge.predict` functions being called using mocking and the Pytest framework should look like the following code:
 
 ```python
 import pytest
