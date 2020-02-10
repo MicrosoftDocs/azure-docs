@@ -15,17 +15,18 @@ You'll learn how to:
 
 > [!div class="checklist"]
 >
-> * Set up Azure blob storage for input and output
-> * Configure the conversion script with your credentials and storage information
-> * Run the conversion and get back the URI of the converted model
+> * Set up an Azure blob storage account for input and output
+> * Upload and convert a 3D model for use with Azure Remote Rendering
+> * Include the converted 3D model in an application for rendering
+
 
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
-* Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
 * Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
+* Optional: Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
 
 ## Overview
 
@@ -58,7 +59,7 @@ From the new screen, choose **Storage** on the left side and then **Storage acco
 
 ![Azure - add storage](media/azure-add-storage.png)
 
-This will bring up the following new screen with storage properties to fill out:
+Clicking this button will bring up the following new screen with storage properties to fill out:
 
 ![Azure Setup](media/azure-setup1.png)
 
@@ -101,19 +102,16 @@ You should now have two blob storage containers:
 
 ![Blob Storage Setup](./media/blob-setup.png)
 
-At this point, switch to the **Azure Storage Explorer** tool (which you installed earlier) – it provides information in one central location and makes it easier to configure Azure Remote Rendering.
+## Run the conversion
 
-After signing into the explorer, you will be presented with a tree structure. Navigate to your blob containers like in the image below:
+To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**. 
 
-(You may need to expand a few items in the tree to see everything.)
+In particular, this script
+* uploads a source model from local disk to input storage
+* calls the conversion API
+* retrieves a link to the converted model in the output storage
 
-![Azure Storage Explorer](./media/azure-explorer.png)
-
-As you can see, the tool displays all the information needed via the properties menu.
-
-## Conversion settings
-
-To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**. The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
+The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
 
 ```json
 {
@@ -138,26 +136,28 @@ To make it easier to run the model conversion service, we provide a utility scri
     }
 }
 ```
+The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [previous quickstart](render-model.md).
 
-Make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
+Inside the **azureStorageSettings** group, make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
-To fill out **azureSubscriptionId**, open Azure Storage Explorer and click on the user icon on the left-hand side. Scroll down the list of subscriptions until you find the account used for this tutorial. **The SubscriptionID is located under the account name:**
+To fill out **azureSubscriptionId**, go to the [Azure Portal](https://ms.portal.azure.com/#home) and navigate to the subscriptions:
 
-![Subscription ID](./media/subscription-id.png)
+![Subscription](./media/azure-subscription-button.png)
 
-Unfortunately the ID cannot be copied to clipboard from here, but the ID can also be gathered from the web portal.
+The next screen shows your subscription ID:
+
+![Subscription ID](./media/azure-subscription-id.png)
+
+You can click on the row to get to a screen where the subscription ID can be easily copied to clipboard. 
 
 Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 > [!NOTE]
-> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md) supports handling external files as well.
+> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md) supports handling external files as well. To upload files manually, refer to options in chapter [blob storage](../how-tos/conversion/blob-storage.md#uploading-an-input-model).
 
-## Running the conversion script
 
-The script is now ready to upload your model, call the conversion API, and retrieve a link to the converted model.
-
-Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the prerequisites. Then log into your subscription:
+Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [Prerequisites](#prerequisites). Then log into your subscription:
 
 ```powershell
 PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
@@ -172,14 +172,18 @@ PS> .\Conversion.ps1
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
 
-The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](render-model.md)) to have it render your custom model!
+The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](render-model.md)).
 
 ![Replace model in Unity](./media/replace-model-in-unity.png)
 
-## Re-creating a SAS URI
+ The sample should now load and render your custom model!
+
+## Optional: Re-creating a SAS URI
+
+For the following optional step, it is required to have the *Azure Storage Explorer* installed (see [Prerequisites](#prerequisites)), because relevant operations are only available with *Storage Explorer* tool, not through the portal.
 
 The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, open Azure Storage Explorer and navigate to the *arroutput* blob storage container.
-You will find the converted model file in there (either an *ezArchive* or and *arrAsset* file).
+You will find the converted model file in there as an *arrAsset* file.
 
 Right-click on the entry and select **Get Shared Access Signature**:
 
