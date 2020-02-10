@@ -1,7 +1,7 @@
 ---
-title: Monitor resource usage and query metrics 
+title: Operational logs
 titleSuffix: Azure Cognitive Search
-description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
+description: Collect and analyze log data by enabling a diagnostic setting, and then use the Kusto Query Language to explore results.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ---
 
-# Monitor resource consumption and query activity in Azure Cognitive Search
+# Collect and analyze log data for Azure Cognitive Search
 
 In the Overview page of your Azure Cognitive Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
 

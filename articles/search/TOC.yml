@@ -311,14 +311,22 @@
       href: search-pagination-page-layout.md
     - name: Relevance tuning (scoring profiles)
       href: index-add-scoring-profiles.md
-  - name: Manage and monitor
+  - name: Manage a service
     items:
     - name: Portal administration
       href: search-manage.md
     - name: PowerShell administration
       href: search-manage-powershell.md
-    - name: Monitor activity and logging
+  - name: Monitor and logging
+    items:
+    - name: Azure Monitor for search
       href: search-monitor-usage.md
+    - name: Create an alert
+      href: search-monitor-alerts.md 
+    - name: Log activity
+      href: search-monitor-logs.md 
+    - name: Measure metrics
+      href: search-monitor-metrics.md       
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot

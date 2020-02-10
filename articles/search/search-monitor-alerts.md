@@ -1,7 +1,7 @@
 ---
-title: Monitor resource usage and query metrics 
+title: Create alerts
 titleSuffix: Azure Cognitive Search
-description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
+description: Create and manage alerts for conditions on an Azure Cognitive Search service.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ---
 
-# Monitor resource consumption and query activity in Azure Cognitive Search
+# Create and manage alerts in Azure Cognitive Search
 
 In the Overview page of your Azure Cognitive Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
 
