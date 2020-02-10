@@ -37,7 +37,7 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 <br>*or*<br>
     - Convert an existing virtual network to a Hub Virtual Network. It is also possible to convert multiple virtual networks.
 
-4.	Configure User Define Routes to route traffic to your Hub Virtual Network firewall.
+4. Configure User Define Routes to route traffic to your Hub Virtual Network firewall.
 
 
 ### Secured virtual hubs
