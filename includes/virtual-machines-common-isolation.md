@@ -59,7 +59,7 @@ For details see below:
 **A**: No, only "isolation" feature is going to get retired. If you do not need isolation, you do not need to take any action.
 
 ### Q: Is the size D/DS15i_v2 going to get retired?
-**A**: Yes, the size is only available untill May 15,2021. For customers who have bought 3-year RIs on D/DS15_v2 before November 18, 2019 will have access to D/DS15i_v2 untill November 17, 2022.
+**A**: Yes, the size is only available until May 15,2021. For customers who have bought 3-year RIs on D/DS15_v2 before November 18, 2019 will have access to D/DS15i_v2 until November 17, 2022.
 
 ### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
 **A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
