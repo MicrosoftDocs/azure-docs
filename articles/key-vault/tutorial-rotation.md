@@ -66,7 +66,7 @@ Function app requires below components and configuration:
 - Storage Account
 - Access policy to access secrets in Key Vault using Function App Managed Identity
 
-Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json)
+1. Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json)
 1. For "Resource Group", select "simplerotation".
 1. Select "Purchase".
 
@@ -92,12 +92,12 @@ For information how to create Function App and using Managed Identity to access 
 
 ### Rotation function and deployment
 
-Rotation function is using event grid as a trigger, retrieves secret information and executes rotation:
+Create a rotation function that retrieves the secret  and executes rotation, using event grid as a trigger:
 
-```
+```csharp
 public static class SimpleRotationEventHandler
 {
-[FunctionName("SimpleRotation")]
+    [FunctionName("SimpleRotation")]
        public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
        {
             log.LogInformation("C# Event trigger function processed a request.");
@@ -113,48 +113,48 @@ public static class SimpleRotationEventHandler
 }
 ```
 
-Rotation method reads database information from secret, create new version of secret and updates database with new secret.
+This rotation method reads database information from the secret, create a new version of the secret, and updates the database with a new secret.
 
-```
-public class SeretRotator
+```csharp
+public class SecretRotator
     {
        private const string UserIdTagName = "UserID";
        private const string DataSourceTagName = "DataSource";
        private const int SecretExpirationDays = 31;
 
-public static void RotateSecret(ILogger log, string secretName, string secretVersion, string keyVaultName)
-{
-//Retrieve Current Secret
-       var kvUri = "https://" + keyVaultName + ".vault.azure.net";
-       	var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
-       KeyVaultSecret secret = client.GetSecret(secretName, secretVersion);
-       log.LogInformation("Secret Info Retrieved");
-	
-       //Retrieve Secret Info
-       var userId = secret.Properties.Tags.ContainsKey(UserIdTagName) ?  
-                    secret.Properties.Tags[UserIdTagName] : "";
-       var datasource = secret.Properties.Tags.ContainsKey(DataSourceTagName) ? 
-                        secret.Properties.Tags[DataSourceTagName] : "";
-       log.LogInformation($"Data Source Name: {datasource}");
-       log.LogInformation($"User Id Name: {userId}");
-	
-       //create new password
-       var randomPassword = CreateRandomPassword();
-       log.LogInformation("New Password Generated");
-	
-       //Check db connection using existing secret
-       CheckServiceConnection(secret);
-       log.LogInformation("Service Connection Validated");
-	            
-       //Create new secret with generated password
-       CreateNewSecretVersion(client, secret, randomPassword);
-       log.LogInformation("New Secret Version Generated");
-	
-              //Update db password
-       UpdateServicePassword(secret, randomPassword);
-       log.LogInformation("Password Changed");
-       log.LogInformation($"Secret Rotated Succesffuly");
-}
+    public static void RotateSecret(ILogger log, string secretName, string secretVersion, string keyVaultName)
+    {
+    //Retrieve Current Secret
+           var kvUri = "https://" + keyVaultName + ".vault.azure.net";
+           	var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+           KeyVaultSecret secret = client.GetSecret(secretName, secretVersion);
+           log.LogInformation("Secret Info Retrieved");
+    	
+           //Retrieve Secret Info
+           var userId = secret.Properties.Tags.ContainsKey(UserIdTagName) ?  
+                        secret.Properties.Tags[UserIdTagName] : "";
+           var datasource = secret.Properties.Tags.ContainsKey(DataSourceTagName) ? 
+                            secret.Properties.Tags[DataSourceTagName] : "";
+           log.LogInformation($"Data Source Name: {datasource}");
+           log.LogInformation($"User Id Name: {userId}");
+    	
+           //create new password
+           var randomPassword = CreateRandomPassword();
+           log.LogInformation("New Password Generated");
+    	
+           //Check db connection using existing secret
+           CheckServiceConnection(secret);
+           log.LogInformation("Service Connection Validated");
+    	            
+           //Create new secret with generated password
+           CreateNewSecretVersion(client, secret, randomPassword);
+           log.LogInformation("New Secret Version Generated");
+    	
+                  //Update db password
+           UpdateServicePassword(secret, randomPassword);
+           log.LogInformation("Password Changed");
+           log.LogInformation($"Secret Rotated Succesffuly");
+    }
 }
 ```
 
@@ -164,7 +164,7 @@ https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rot
 Download function app zip file:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
 
-Upload file simplerotationsample-fn.zip to Cloud Shell 
+Upload file simplerotationsample-fn.zip to Cloud Shell.
  
 Use below CLI command to deploy zip file to function app:
 
@@ -178,67 +178,65 @@ After deployment you should notice two functions under simplerotation-fn:
 
 ### Add event subscription for “SecretNearExpiry” event
 
-Copy function app eventgrid_extension key.
+Copy the function app eventgrid_extension key.
 
 ![Cloud Shell](./media/rotate5.png)
 
 ![Cloud Shell](./media/rotate6.png)
 
-Replace copied key and your subscription id in below command to create event grid subscription for SecretNearExpiry events.
+Use the copied eventgrid extension key and your subscription id in below command to create an event grid subscription for SecretNearExpiry events.
 
 ```azurecli
-az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/{subscriptionId}/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code={key}" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
+az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/<subscription-id>/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code=<extension-key>" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
 ```
 
 ### Add secret to Key Vault
-Set access policy to give permission to manage secrets for user
+Set your access policy to give "manage secrets" permission to users.
 
 ```azurecli
-az keyvault set-policy --upn "{email e.g. jalichwa@microsoft.com}" --name simplerotation-kv --secret-permissions set delete get list
+az keyvault set-policy --upn <email-address-of-user> --name simplerotation-kv --secret-permissions set delete get list
 ```
 
-Create new secret with tags containing sql database datasource and user id with expiration date for tomorrow. 
+Now create a new secret with tags containing sql database datasource and user id, with the expiration date set for tomorrow.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqluser --vault-name simplerotation-kv --value "Simple123" --tags "UserID=azureuser" "DataSource=simplerotation-sql.database.windows.net" --expires $tomorrowDate
 ```
 
-Creating secret with short expiration date would immediately publish SecretNearExpiry event which would trigger function to rotate the secret.
+Creating a secret with a short expiration date will immediately publish a SecretNearExpiry event, which will in turn trigger the function to rotate the secret.
 
 ### Test and verify
-After few minutes sqluser secret should automatically rotate. 
+After few minutes, sqluser secret should automatically rotate.
 
-To verify secret rotation verification, go to Key Vault>Secrets
+To verify secret rotation verification, go to Key Vault > Secrets
 
   ![Test and verify](./media/rotate7.png)
 
-Open sqluser secret to see initial and rotated version
+Open the "sqluser" secret and view the original and rotated version
 
    ![Test and verify](./media/rotate8.png)
 
-To verify SQL credentials, use a web application. The web application will get secret from key vault, extract sql database information and credentials from secret and test connection to sql.
-
 ## Create Web App
 
-Web app requires below components and configuration:
+To verify SQL credentials, create a web application. This web application will get the secret from key vault, extract sql database information and credentials from the secret, and test the connection to sql.
+
+The web app requires below components and configuration:
 - Web App with System Managed Identity
 - Access policy to access secrets in Key Vault using Web App Managed Identity
 
-Azure Resource Manager template to create components:
-[Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json)
-- Select ‘simplerotation’ resource group
-- Click Purchase
+1. Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json)
+1. Select ‘simplerotation’ resource group
+1. Click Purchase
 
 ### Deploy Web App
 
-Source code:
-https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp
+Source code for the web app is at https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp.To deploy the web app, do the following:
 
-1. Download function app zip file:
+1. Download the function app zip file from 
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
-1. Upload file simplerotationsample-app.zip to Cloud Shell
-1. Use below CLI command to deploy zip file to function app:
+1. Upload the file "simplerotationsample-app.zip" to Cloud Shell.
+1. Use this Azure CLI command to deploy the zip file to the function app:
 
    ```azurecli
    az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
@@ -246,10 +244,16 @@ https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simp
 
 #### Open web Application
 
-Go to deployed application and click URL
+Go to the deployed application and click "URL":
  
 ![Test and verify](./media/rotate10.png)
 
-Generated Secret Value should be shown with Database Connected as true.
+The Generated Secret Value should be shown with Database Connected as true.
 
 ![Test and verify](./media/rotate11.png)
+
+# Next Steps
+
+- Learn more about [Azure Key Vault with key rotation and auditing](key-vault-key-rotation-log-monitoring.md)
+- Learn more about [Azure Functions](../azure-functions/functions-overview.md)
+- Learn more about [Azure SQL Database](../sql-database/sql-database-technical-overview.md)
