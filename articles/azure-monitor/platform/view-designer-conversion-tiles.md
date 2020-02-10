@@ -11,120 +11,144 @@ ms.date: 02/07/2020
 ---
 
 # Azure Monitor view designer tile conversions
+[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks which provide additional functionality. This article provides details for converting different tiles to workbooks.
 
-## Donut & list
-View Designer has the Donut & List tile as shown below:
+## Donut & list tile
 
 ![Donut List](media/view-designer-conversion-tiles/donut-list.png)
 
-Recreating the tile in workbooks involves two separate visualizations, for the Donut portion there are two options.\
-Select **Add query** and paste the original query from View Designer into the cell
+Recreating the donut & list tile in workbooks involves two separate visualizations. For the donut portion there are two options.
+For both start by selecting **Add query** and paste the original query from view designer into the cell.
 
-**Option 1:** Select Pie Chart from the Visualization Dropdown
- ![Pie Chart Visualization Menu](media/view-designer-conversion-tiles/pie-chart.png)
-**Option 2:** Add a line to the KQL
-**Add:** `| render piechart`
-The Visualization setting should be set to **Set by query**
+**Option 1:** Select **Pie Chart** from the **Visualization** dropdown:
+ ![Pie chart visualization menu](media/view-designer-conversion-tiles/pie-chart.png)
+
+**Option 2:** Select **Set by query** from the **Visualization** dropdown and add `| render piechart` to the query:
+
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
-**Example:**\
-**Original:** `search * | summarize AggregatedValue = count() by Type | order by AggregatedValue desc`
-**Updated:** `search * | summarize AggregatedValue = count() by Type | order by AggregatedValue desc | render piechart`
 
-For creating a list and enabling sparklines, reference the section on [CommonSteps](view-designer-conversion-steps.md)
+For example:
 
-The following is an example of how the Donut & List tile might be reinterpreted in Workbooks
+```KQL
+//Original query
+search * | summarize AggregatedValue = count() by Type 
+| order by AggregatedValue desc
 
-![Donut List Workbooks](media/view-designer-conversion-tiles/donut-workbooks.png)
+//Updated query
+search * 
+| summarize AggregatedValue = count() by Type 
+| order by AggregatedValue desc 
+| render piechart
+```
 
-## Linechart & List
-The original Linechart & List in View Designer looks like the following:
- 
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
+
+Following is an example of how the donut & list tile might be reinterpreted in workbooks:
+
+![Donut list workbooks](media/view-designer-conversion-tiles/donut-workbooks.png)
+
+## Linechart & list tile
 ![Linechart List](media/view-designer-conversion-tiles/line-list.png) 
 
-To recreate the Linechart portion we update the query as follows:\
-**Original:** _search * | summarize AggregatedValue = count() by Type_\
-**Updated:** _search * **| make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type**_
+To recreate the linechart portion update the query as follows:
+
+```KQL
+//Original query
+search * 
+| summarize AggregatedValue = count() by Type
+
+//Updated query
+search * 
+| make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type
+```
 
 There are two options for visualizing the line chart
 
-**Option 1:** Select Line chart from the Visualization dropdown
+**Option 1:** Select **Line chart** from the **Visualization** dropdown:
  
  ![Linechart Menu](media/view-designer-conversion-tiles/line-visualization.png)
 
-**Option 2:** Add a line to the KQL
-Add: `| render linechart`
-The Visualization setting should be set to Set by query
+**Option 2:** Select **Set by query** from the **Visualization** dropdown and add `| render linechart` to the query:
 
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
 
-**Example:**
+For example:
 ```KQL
 search * 
 | make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type 
 | render linechart_
 ```
 
-For creating a list and enabling sparklines, reference the section on [Common Steps](view-designer-conversion-steps.md)
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
 
-The following is an example of how the Linechart & List tile might be reinterpreted in Workbooks
+Following is an example of how the linechart & list tile might be reinterpreted in workbooks:
 
 ![Linechart List Workbooks](media/view-designer-conversion-tiles/line-workbooks.png)
 
-## Number & List
-The original View Designer Number & List looks as such:
- ![Tile List](media/view-designer-conversion-tiles/tile-list-example.png)
-For the number tile, update the query as such:
+## Number & list tile
 
-**Original:** _search * | summarize AggregatedValue = count() by Computer | count_\
-**Updated:** _search *| summarize AggregatedValue = count() by Computer **| summarize Count = count()**_
+ ![Tile list](media/view-designer-conversion-tiles/tile-list-example.png)
 
-Then change the Visualization dropdown to Tiles
+For the number tile, update the query as follows:
+
+```KQL
+Original query:
+search * 
+| summarize AggregatedValue = count() by Computer | count
+
+//Updated query
+search *
+| summarize AggregatedValue = count() by Computer 
+| summarize Count = count()
+```
+
+Change the Visualization dropdown to **Tiles** and then select **Tile Settings**.
  ![Tile Visualization](media/view-designer-conversion-tiles/tile-visualization.png)
-Select Tile Settings
- ![Tile Settings](media/view-designer-conversion-tiles/tile-set.png)
 
-From the sidebar menu, set Visualization to Tiles.
-
-Underneath Tile Settings: 
-
-Leave the Title section blank, and change Left to Use Column: Count, and the Column Renderer as Big Number
-
+Leave the **Title** section blank and select **Left**. Change the value for **Use column:** to **Count**, and **Column Renderer** to **Big Number**:
 
 ![Tile Settings](media/view-designer-conversion-tiles/tile-settings.png)
-Advanced Settings \ Settings \ Chart title:  Computers sending data
- 
-For creating a list and enabling sparklines, reference the section on [Common Steps](view-designer-conversion-steps.md)
 
-The following is an example of how the Number & List tile might be reinterpreted in Workbooks
+ 
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
+
+Following is an example of how the number & list tile might be reinterpreted in workbooks:
 
 ![Number List Workbooks](media/view-designer-conversion-tiles/number-workbooks.png)
 
 ## Timeline & List
-The Timeline & List in View Designer is shown below:
 
  ![Timeline List](media/view-designer-conversion-tiles/time-list.png)
 
-For the timeline simple update your query:
+For the timeline update you query as follows:
 
-**Original:** `search * | sort by TimeGenerated desc`
-**Updated:** `search * | summarize Count = count() by Computer, bin(TimeGenerated,{TimeRange:grain})`
+```KQL
+Original query
+search * 
+| sort by TimeGenerated desc
 
-There are two options for visualizing as a bar chart
 
-**Option 1:** Select Bar chart from the Visualization dropdown
- ![Barchart Visualization](media/view-designer-conversion-tiles/bar-visualization.png)
+//Updated query
+search * 
+| summarize Count = count() by Computer, bin(TimeGenerated,{TimeRange:grain})
+```
+
+There are two options for visualizing the query as a bar chart:
+
+**Option 1:** Select **Bar chart** from the **Visualization** dropdown:
+ ![Barchart visualization](media/view-designer-conversion-tiles/bar-visualization.png)
  
-**Option 2:** Add a line to the KQL
-Add: | render barchart
-The Visualization setting should be set to Set by query
- ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
+**Option 2:** Select **Set by query** from the **Visualization** dropdown and add `| render barchart` to the query:
+
+ ![Visualization menu](media/view-designer-conversion-tiles/set-by-query.png)
 
  
-For creating a list and enabling sparklines, reference the section on [Common Steps](view-designer-conversion-steps.md)
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
 
-The following is an example of how the Timeline & List tile might be reinterpreted in Workbooks
+Following is an example of how the timeline & list tile might be reinterpreted in workbooks:
 
 ![Timeline List Workbooks](media/view-designer-conversion-tiles/time-workbooks.png)
 
+## Next steps
 
-### [Return to start](view-designer-overview.md)
+### [Overview of view designer to workbooks transition](view-designer-overview.md)
