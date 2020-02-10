@@ -173,7 +173,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $RestoreAsFileShareName $Del
 
 #### Scenario 1
 
-There are no multiple deleted versions with the same name as the fileshare you are trying to undelete.
+There are no multiple deleted versions with the same name as the file share you are trying to undelete.
 
 The following example undeletes the file share *share1* present in storage account *afsshare*.
 
