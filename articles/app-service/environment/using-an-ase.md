@@ -1,5 +1,5 @@
 ---
-title: Use and manage ASE
+title: Use and manage an App Service Environment
 description: How to create, publish, and scale apps in an Azure App Service environment. Find the common tasks in one document.
 author: ccompy
 
@@ -11,9 +11,9 @@ ms.custom: seodec18
 ---
 # Use an App Service environment #
 
-Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
+The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in a customer’s Azure virtual network. An ASE consists of:
 
-- **Front-ends**: The front-ends are where HTTP/HTTPS terminates in an App Service environment (ASE).
+- **Front-ends**: The front-ends are where HTTP/HTTPS terminates in an App Service environment.
 - **Workers**: The workers are the resources that host your apps.
 - **Database**: The database holds information that defines the environment.
 - **Storage**: The storage is used to host the customer-published apps.
@@ -75,7 +75,7 @@ To create an app in an ASE:
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you scale the App Service plan and thus scale all the apps in the same plan.
 
-When you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. If you perform several scale operations in sequence, the first infrastructure scale request is acted on and the others queue up. When the first scale operation completes, the other infrastructure requests all operate together. When the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation as it requests additional hardware. 
+When you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. If you do several scale operations in sequence, the first infrastructure scale request is acted on and the others queue up. When the first scale operation completes, the other infrastructure requests all operate together. When the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation as it requests additional hardware. 
 
 In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there is no such buffer, and resources are allocated upon need.
 
@@ -89,22 +89,22 @@ With an external ASE, you can configure IP-based SSL for your app in the same ma
 
 ## Front-end scaling ##
 
-When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front-ends. The front-ends automatically scale out at a rate of one front-ends for every total 15 instances in your App Service plans. For example, if you have three App Service plans of five instances each, you would have a total of 15 instances and three front-ends. If you scale to a total of 30 instances, then you have four front-ends, and so on. 
+When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front-ends. The front-ends automatically scale out at a rate of one front-ends for every total 15 App Service plan instances. If you have three App Service plans with five instances each, you would have a total of 15 instances and three front-ends. If you scale to a total of 30 instances, then you have four front-ends, and so on. 
 
-The number of front-ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front-ends for every five instances. You can also change the size of the front-ends. By default they are single core. You can change the size of the front-ends in the portal to two or four core sizes instead. There is a charge for changing the ratio or the front-ends sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to two core front-ends before adjusting the scale ratio. Changing the core size of your front-ends will cause an upgrade of your ASE and should be performed outside of regular business hours.
+The number of front-ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front-ends for every five instances. You can also change the size of the front-ends. By default they are single core. You can change the size of the front-ends in the portal to two or four core sizes instead. There is a charge for changing the ratio or the front-ends sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to two core front-ends before adjusting the scale ratio. Changing the core size of your front-ends will cause an upgrade of your ASE and should be done outside of regular business hours.
 
-Front-ends resources are the HTTP/HTTPS endpoint for the ASE. With the default front-ends configuration, memory usage per front-ends is consistently around 60 percent. Customer workloads don't run on a front-ends. The key factor for a front-ends with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
+Front-ends resources are the HTTP/HTTPS endpoint for the ASE. With the default front-end configuration, memory usage per front-end is consistently around 60 percent. The primary reason to scale your front-ends is CPU, which is primarily driven by HTTPS traffic.
 
 ## App access ##
 
-In an External ASE, the domain suffix used for app creation is *.&lt;asename&gt;.p.azurewebsites.net*. For example, if your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
+In an External ASE, the domain suffix used for app creation is *.&lt;asename&gt;.p.azurewebsites.net*. If your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 For more information on how to create an External ASE, see [Create an App Service environment][MakeExternalASE]
 
-In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.appserviceenvironment.net*. For example, if your ASE is named _ilb-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
+In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.appserviceenvironment.net*. If your ASE is named _ilb-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
@@ -127,7 +127,7 @@ With an External ASE, these publishing options all behave the same. For more inf
 
 The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you can't publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
-Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. For Azure DevOps, you can work around the problem by installing a self-hosted release agent in your internal network where it can reach the ILB. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
+Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. You can enable publishing to an ILB ASE from Azure DevOps by installing a self-hosted release agent in the VNet that contains the ILB ASE. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 
@@ -189,7 +189,7 @@ The upgradePreferences feature really makes the most sense when you have multipl
 
 The pricing SKU called **Isolated** is only for use with ASE. All App Service plans that are hosted in the ASE are in the Isolated pricing SKU. Isolated App Service plan rates can vary per region. 
 
-In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of one additional front-ends for every 15 App Service plan instances.  
+In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of one additional front-end for every 15 App Service plan instances.  
 
 If the default scale rate of one front-ends for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front-ends are added or the size of the front-ends.  When you adjust the ratio or size, you pay for the front-ends cores that would not be added by default.  
 
