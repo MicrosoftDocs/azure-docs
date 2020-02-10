@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # SAP HANA on Azure Large Instance migration to Azure Virtual Machines
-This article describes possible Azure Large Instance deployment scenarios and offers planning and migration approach to minimize down time.
+This article describes possible Azure Large Instance deployment scenarios and offers planning and migration approach with minimized transition downtime
 
 ## Overview
 Since the announcement of the Azure Large Instances for SAP HANA (HLI) in September 2016, many customers have adopted this hardware as a service for their in-memory compute platform.  In recent years, the Azure VM scalability extension combined with the support of HANA scale-out deployment model has exceeded most enterprise customers’ ERP database capacity demand.  We begin to see customers expressing the desire to migrate their SAP HANA workload from physical servers to Azure VMs.
@@ -37,7 +37,7 @@ This article makes the following assumptions:
 - Customers have validated that target VMs support your intended architecture. To see all the supported VM SKUs certified for SAP HANA deployment, please check the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
 - Customers have validated the design and migration plan.
 - Plan for disaster recovery node along with the primary site.  Customers won’t be able to use the HLI DR node for the primary site running on VMs after the migration.
-- Customers copied the required Backup files to target VMs, based on business recoverability and compliance requirements. This is to cover the point-in-time recovery need during the transition period.
+- Customers copied the required backup files to target VMs, based on business recoverability and compliance requirements. This is to cover the point-in-time recovery need during the transition period.
 - For HSR HA, customers need to set up and configure the STONITH device per SAP HANA HA guides for [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).  It’s not preconfigured like the HLI case.
 - This migration approach does not cover the HLI SKUs with Optane configuration.
 
@@ -77,31 +77,31 @@ In a customer’s HLI deployment, the network connectivity from Azure vnets has 
 ### Existing app layer Availability Set, Availability Zones, and Proximity Placement Group
 The current deployment model is done to satisfy certain service level objectives.  In this move, ensure the target infrastructure will meet or exceed the set goals.  
 More likely than not, customers SAP application servers are placed in an availability set.  If the current deployment service level is satisfactory and 
-•	If the replacement of the SAP HANA server is done via name resolution by exchanging the IPs for the DB hostname, nothing further needs to be done.  
-•	If you’re not using PPG, be sure to place all the application and DB servers in the same zone to minimize network latency.
-•	If you’re using PPG, refer to the section of this document Destination Planning, Availability Set, Availability Zones, and Proximity Placement Group (PPG)
+- If the replacement of the SAP HANA server is done via name resolution by exchanging the IPs for the DB hostname, nothing further needs to be done.  
+- If you’re not using PPG, be sure to place all the application and DB servers in the same zone to minimize network latency.
+- If you’re using PPG, refer to the section of this document Destination Planning, Availability Set, Availability Zones, and Proximity Placement Group (PPG)
 
 ### Storage replication discontinuance process (if used)
-If storage replication is being used as the DR solution, the replication will need to be terminated (unscheduled) after the SAP application has been shut down and the last SAP HANA catalog, log file, data Backups have been replicated onto the remote storage volumes.  This action is a precautionary tactic that we have a current database on the DR HLI in case a disaster happens during the physical to Azure VM transition.
+If storage replication is being used as the DR solution, the replication will need to be terminated (unscheduled) after the SAP application has been shut down and the last SAP HANA catalog, log file, data backups have been replicated onto the remote storage volumes.  This action is a precautionary tactic that we have a current database on the DR HLI in case a disaster happens during the physical to Azure VM transition.
 
-### Data Backups preservation consideration
-After the cutover to SAP HANA on Azure VM, all the snapshot-based data or log Backups on the HLI are NOT easily accessible or restorable to a VM if needed. For the early transition period, before the Azure-based Backup runs, build enough history to satisfy Point-in-Time recovery requirements, we recommend taking file level Backups in addition to snapshots on the HLI, days/weeks before cutover.  Have these Backups copied to an Azure Storage account accessible by the new SAP HANA VM. 
-In addition to backing up the HLI content, it’s also a prudent practice to have the full Backups of the SAP landscape readily accessible in case a rollback is needed.
+### Data backups preservation consideration
+After the cutover to SAP HANA on Azure VM, all the snapshot-based data or log backups on the HLI are NOT easily accessible or restorable to a VM if needed. For the early transition period, before the Azure-based backup build enough history to satisfy Point-in-Time recovery requirements, we recommend taking file level backups in addition to snapshots on the HLI, days/weeks before cutover.  Have these backups copied to an Azure Storage account accessible by the new SAP HANA VM. 
+In addition to backing up the HLI content, it’s also a prudent practice to have the full backups of the SAP landscape readily accessible in case a rollback is needed.
 
 ### Adjusting System Monitoring 
-Customers use many different tools to monitor and send alert notifications for systems within their SAP landscape.  This item is just a simple call-out to take the appropriate action when adding the new VM(s) incorporating any adjustment for monitoring and update the alert notification recipients if needed.
+Customers use many different tools to monitor and send alert notifications for systems within their SAP landscape.  This item is just a simple call-out for appropriate action when adding the new VM(s) incorporating any adjustment for monitoring and update the alert notification recipients if needed.
 
 ### Microsoft Operations Team Involvement 
 Open a ticket from the Azure portal bases on the existing HLI instance.  After the support ticket is created, a support engineer will contact you via email.  
 
 ### Engage Microsoft Account team
-Plan migration close to the anniversary renewal time of the HLI contract to minimize unnecessary over expense on compute resource as well it’s required for decommissioning an HLI blade.
+Plan migration close to the anniversary renewal time of the HLI contract to minimize unnecessary over expense on compute resource. To decommission the HLI blade, it’s required to coordinate contract termination and actual shut-down of the unit.
 
 ## Destination planning
 Standing up a new infrastructure to take the place of an existing one deserves some thinking to ensure the new addition will fit in the large scheme of things.  Below are some key points for contemplation.
 
 ### Resource availability in the Target region 
-The current SAP application server’s deployment region typically are in proximity with the associated HLIs.  However, HLIs are offered in fewer locations than available Azure regions.  In migrating from the physical HLI onto Azure VM, it presents the opportunity to ‘fine-tune’ the proximity distance of all related services for performance optimization.  While doing so, a key consideration would be to ensure the chosen region has the resources of interested.  For example, the availability of certain VM family or the offering of Azure Zones for high availability consideration.
+The current SAP application server’s deployment region typically are in proximity with the associated HLIs.  However, HLIs are offered in fewer locations than available Azure regions.  In migrating from the physical HLI onto Azure VM, it presents the opportunity to ‘fine-tune’ the proximity distance of all related services for performance optimization.  While doing so, a key consideration would be to ensure the chosen region has the resources of interest.  For example, the availability of certain VM family or the offering of Azure Zones for high availability consideration.
 
 ### Virtual network 
 The infrastructure architect will be confronted with a choice of whether to run the new HANA database inside the existing SAP application virtual network or to create a new one.  The primary deciding factor is the current networking layout for the SAP landscape.  In case a deployment infrastructure change is considered, for example, going from one-zone to two-zones deployment and taking advantage of PPG. This availability enhancement imposes architectural change. For more information, see the article [Azure PPG for optimal network latency with SAP application](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).   
@@ -114,23 +114,24 @@ This migration is also an opportunity to right size your HANA compute engine.  O
 
 ### Storage 
 Storage performance is one of the factors that impact SAP application user experience.  Base on a given VM SKU, there are minimum storage layout recommendation published [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). We recommend reviewing these minimum specs and compared against the existing HLI system statistics to ensure adequate IO capacity and performance for the new HANA VM.
+
 If you do configure PPG for the new HANA VM and its associated severs, submit a support ticket to inspect and ensure the collocation of the storage and the HANA VM.  
-Since your Backup solution may need to change, the storage cost should also be revisited to avoid operational spending surprises. 
+Since your backup solution may need to change, the storage cost should also be revisited to avoid operational spending surprises. 
 
 ### Storage replication for disaster recovery
-In HLI, storage replication was offered as the default option for the disaster recovery replication for HANA database. This feature is not the case with VM. Consider HSR, backup/restore or other supported solutions satisfying your business needs.
+In HLI, storage replication was offered as the default option for the disaster recovery replication for HANA database. This feature is not the default option with Azure VM. Consider HSR, backup/restore or other supported solutions satisfying your business needs.
 
 ### Availability Sets, Availability Zones, and Proximity Placement Groups 
-In consideration of minimizing distance between the application layer and SAP HANA to keep network latency at a minimum, the new database VM and the current SAP application servers should be placed in a Proximity Placement Group (PPG). Refer [Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to learn, how Azure Availability Set and Availability Zones work with PPG for SAP deployments.
+In consideration of minimizing distance between the application layer and SAP HANA to keep network latency at a minimum, the new database VM and the current SAP application servers should be placed in a Proximity Placement Group (PPG). Refer to [Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to learn, how Azure Availability Set and Availability Zones work with PPG for SAP deployments.
 If members of the target HANA system are deployed in more than one Azure Zone, customers should have a clear view of the latency profile of the chosen zones. The placement of SAP system components is optimal regarding proximal distance between SAP application and the database.  The public domain [Availability zone latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) helps make the measurement easier.  
 
 
 ### Backup strategy
-Many customers are already using third-party Backup solution for SAP HANA on HLI.  In that case only an additional protected VM and HANA databases need to be configured.  Ongoing HLI Backup jobs for the can now be unscheduled if the machine is being decommissioned after the migration.
-Azure Backup for SAP HANA on VM is now generally available.  See these links for detailed information about: [Backup](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database), [Restore](https://docs.microsoft.com/azure/backup/sap-hana-db-restore), [Manage](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) SAP HANA Backup in Azure VMs.
+Many customers are already using third-party backup solutions for SAP HANA on HLI.  In that case only an additional protected VM and HANA databases need to be configured.  Ongoing HLI backup jobs for the now be unscheduled if the machine is being decommissioned after the migration.
+Azure backup for SAP HANA on VM is now generally available.  See these links for detailed information about: [Backup](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database), [Restore](https://docs.microsoft.com/azure/backup/sap-hana-db-restore), [Manage](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) SAP HANA backup in Azure VMs.
 
 ### DR strategy
-If your service level objectives accommodate a longer recovery time of a simple Backup to blob storage and restore in place or to a new VM, it is the simplest and least expensive DR strategy.  
+If your service level objectives accommodate a longer recovery time of a simple backup to blob storage and restore in place or to a new VM, it is the simplest and least expensive DR strategy.  
 Like the large instance platform where HANA DR typically is done with HSR; On Azure VM, HSR is also the most natural and native SAP HANA DR solution.  Regardless of whether the source deployment is single instance, clustered with or without automatic failover, or multi-nodes scale-out HANA, a target HSR replica of the source infrastructure is required in the DR region. 
 This HSR target DR replica will be established after the primary HLI to VM migration is complete.  The DR HANA instance will register to the primary SAP HANA on VM instance as a secondary replication site.  
 
@@ -172,20 +173,20 @@ If the target VM hostname changed, and differ from the HLI hostname, SAP applica
 Although the migration from HLI to VM makes no material change to the database content as compared to a heterogeneous migration, we still recommend validating key functionalities and performance aspect of the new setup.  
 
 ### Cutover plan
-Although this migration is straight forward, it however involves the decommissioning of an existing DB.  Careful planning to preserve the source system with its associated content and Backup images are critical in case fallback is necessary.  Good planning does offer a speedier reversal.   
+Although this migration is straight forward, it however involves the decommissioning of an existing DB.  Careful planning to preserve the source system with its associated content and backup images are critical in case fallback is necessary.  Good planning does offer a speedier reversal.   
 
 
 ## Post migration
 The migration job is not done until we have safely decoupled any HLI-dependent services or connectivity to ensure data integrity is preserved.  Also, shutdown unnecessary services.  This section calls out a few top-of-mind items.
 
 ### Decommissioning the HLI
-After a successful migration of the HANA DB to Azure VM, no production business transactions should be conducted on the HLI DB.  However, keeping the HLI up and running for a period equal to its local Backup data retention window is a safe practice ensuring speedier data recovery if necessary.  Only then should the HLI blade be decommissioned.  In addition to the technical undertaking, customers in their best interest, should contractually conclude HLI commitments with Microsoft.  Customers should contact their Microsoft representatives to work through the HLI decommissioning process.
+After a successful migration of the HANA DB to Azure VM, no production business transactions should be conducted on the HLI DB.  However, keeping the HLI up and running for a period equal to its local backup data retention window is a safe practice ensuring speedier data recovery if necessary.  Only then should the HLI blade be decommissioned.  In addition to the technical undertaking, customers in their best interest, should contractually conclude HLI commitments with Microsoft.  Customers should contact their Microsoft representatives to work through the HLI decommissioning process.
 
 ### Remove any proxy (ex: Iptables, BIGIP) configured for HLI 
 If a proxy service like that of an IPTables is used to route on-premises traffic to and from the HLI, that service is no longer needed after the successful migration to VM.  However, this connectivity service should be retained for as long as the HLI blade is still standing-by as discussed in the decommissioning topic.  This service can be shut down after the HLI blade is fully decommissioned. 
 
 ### Remove Global Reach for HLI 
-Global Reach is typically used to connect customer’s ExpressRoute gateway with the HLI ExpressRoute gateway enabling customer’s on-premise traffic to reach the HLI tenant directly without the need of a proxy service.  Like the case with the IPTables proxy service, Global Reach should be kept until the HLI blade is fully decommissioned.
+Global Reach is typically used to connect customer’s ExpressRoute gateway with the HLI ExpressRoute gateway enabling customer’s on-premise traffic to reach the HLI tenant directly without the need of a proxy service.  Like the case with the IPTables proxy service, GlobalReach should be kept until the HLI blade is fully decommissioned.
 
 ### Operating system subscription – move/reuse
 As the VM servers are stood up and the HLI blades are decommissioned, the OS subscriptions can be replaced or reused to avoid double paying of OS licenses.
