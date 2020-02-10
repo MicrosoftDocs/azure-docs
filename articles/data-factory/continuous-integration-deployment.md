@@ -291,7 +291,7 @@ function Get-SortedTriggers {
         [string] $DataFactoryName,
         [string] $ResourceGroupName
     )
-    $triggers = Get-AzDataFactoryV2Trigger -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $triggers = Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
     $triggerDict = @{}
     $visited = @{}
     $stack = new-object System.Collections.Stack
@@ -310,7 +310,7 @@ function Get-SortedLinkedServices {
         [string] $DataFactoryName,
         [string] $ResourceGroupName
     )
-    $linkedServices = Get-AzDataFactoryV2LinkedService -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $linkedServices = Get-AzDataFactoryV2LinkedService -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
     $LinkedServiceHasDependencies = @('HDInsightLinkedService', 'HDInsightOnDemandLinkedService', 'AzureBatchLinkedService')
     $Akv = 'AzureKeyVaultLinkedService'
     $HighOrderList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]
