@@ -38,7 +38,7 @@ The following Azure services and functionality will NOT be impacted by this reti
 ## What actions should I take? 
 You should migrate your existing VMs from classic (Azure Service Manager) to the Azure Resource Manager deployment model using our platform supported migration.  
 
-Learn more about migrating your classic [Linux]((https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-overview) and [Windows VMs]((https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) to Azure Resource Manager. 
+Learn more about migrating your classic [Linux](./linux/migration-classic-resource-manager-overview.md) and [Windows](./windows/migration-classic-resource-manager-overview.md) VMs to Azure Resource Manager. 
 
 If you have questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
