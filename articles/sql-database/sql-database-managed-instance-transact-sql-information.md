@@ -533,7 +533,7 @@ A managed instance places verbose information in error logs. There are many inte
 
 **Date:** Jan 2020
 
-If failover group spans across instances in different Azure subscriptions or resource groups, manual failover cannot be initiated from the primary instance in the failvoer group.
+If failover group spans across instances in different Azure subscriptions or resource groups, manual failover cannot be initiated from the primary instance in the failover group.
 
 **Workaround**: Initiate failover via portal from the geo-secondary instance.
 
