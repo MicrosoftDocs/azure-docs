@@ -28,6 +28,7 @@ The management experience for Azure AD roles in Privileged Identity Management h
 
 With the update being currently rolled out, we are merging the two into a single management experience, and in it you get the same functionality for Azure AD roles as for Azure resource roles. This article informs you of the updated features and any requirements.
 
+
 ## Time-bound assignments
 
 Previously in Privileged Identity Management for Azure AD roles, you were familiar with role assignments with two possible states – *eligible* and *permanent*. Now you can set a start and end time for each type of assignment. This addition gives you four possible states in which you can place an assignment:
