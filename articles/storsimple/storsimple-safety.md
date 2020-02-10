@@ -1,5 +1,5 @@
 ---
-title: Safety for your StorSimple device | Microsoft Docs
+title: Safely install and operate StorSimple device | Microsoft Docs
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device.
 services: storsimple
 documentationcenter: ''
