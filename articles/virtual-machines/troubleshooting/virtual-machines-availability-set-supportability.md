@@ -1,17 +1,10 @@
 ---
 title: Supportability of adding Azure VMs to an existing availability set | Microsoft Docs
 description: This article provides a supportability matrix about which VM series you can mix in the same availability set
-services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
 manager: dcscontentpm
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-machines
-ms.workload: virtual-machines
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
