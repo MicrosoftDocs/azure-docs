@@ -12,7 +12,7 @@ ms.author: cynthn
 ---
 # Azure classic CLI commands 
 
-> !IMPORTANT]
+> [!IMPORTANT]
 > This topic describes how to install the Azure classic CLI. The classic CLI is deprecated and should only be used with the classic deployment model.> For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
 This article provides syntax and options for Azure classic command-line interface (CLI) commands you'd commonly use to create and manage Azure resources. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
@@ -32,8 +32,8 @@ Use the following command to enable Azure CLI Resource Manager mode commands.
 
 > [!NOTE]
 > The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
-> 
-> 
+>
+
 
 ## Account information
 Your Azure subscription information is used by the tool to connect to your account.
