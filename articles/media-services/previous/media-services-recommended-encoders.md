@@ -37,7 +37,7 @@ Azure Media Services recommends using one of following live encoders that have R
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast (version 13.0.02 or higher due to the TLS 1.2 requirement)
+- Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 
   Encoders must support TLS 1.2 when using RTMPS protocols.
 - Teradek Slice 756
