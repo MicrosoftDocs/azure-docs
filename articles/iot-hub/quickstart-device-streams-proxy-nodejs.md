@@ -31,9 +31,9 @@ In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (R
 
 You can verify the current version of Node.js on your development machine by using the following command:
 
-    ```cmd/sh
-   node --version
-    ```
+```cmd/sh
+node --version
+```
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -44,7 +44,7 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 
 ### Add Azure IoT Extension and verify software version
 
-Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
+Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
