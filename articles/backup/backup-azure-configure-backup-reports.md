@@ -23,9 +23,9 @@ Today, Azure Backup provides a reporting solution that leverages Azure Log Analy
 
 1. **Create a Log Analytics (LA) Workspace (or use an existing one):**
 
-You will need to setup one or more LA Workspaces to store your backup reporting data. The location and subscription in which this LA workspace can be created is independent of the location and subscription in which your vaults exist. 
+You will need to set up one or more LA Workspaces to store your backup reporting data. The location and subscription in which this LA workspace can be created is independent of the location and subscription in which your vaults exist. 
 
-Please refer to the following article: [Create a Log Analytics Workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) to setup an LA Workspace.
+Refer to the following article: [Create a Log Analytics Workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) to set up an LA Workspace.
 
 By default, the data in an LA Workspace is retained for 30 days. To change the retention period, you may refer to the following article: [Manage usage and costs with Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
 
@@ -37,7 +37,7 @@ In the monitoring section of your Recovery Services vault, select Diagnostic set
 
 ![Diagnostics Settings Blade](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup also provides a built-in Azure Policy which automates the configuration of diagnostic settings for all vaults in a given scope. Please refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
+Azure Backup also provides a built-in Azure Policy, which automates the configuration of diagnostic settings for all vaults in a given scope. Refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
 
 3. **View Reports on the Azure portal:**
 
@@ -45,9 +45,9 @@ Once you have configured your vaults to send data to LA, you can view your backu
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicking this redirects you to the Backup Report Workbook which opens up in Azure Monitor context. Below is a description of the various tabs that the report contains:
+Clicking this link redirects you to the Backup Report Workbook which opens up in Azure Monitor context. Below is a description of the various tabs that the report contains:
 
-1. **Summary** - The Summary tab provides a high level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, you can navigate to the respective tabs.
+1. **Summary** - The Summary tab provides a high-level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, you can navigate to the respective tabs.
 
 ![Summary tab](./media/backup-azure-configure-backup-reports/summary.png)
 
@@ -55,7 +55,7 @@ Clicking this redirects you to the Backup Report Workbook which opens up in Azur
 
 ![Backup Items tab](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-3. **Usage** - The Usage tab helps you view key billing parameters for your backups. The information shown in this tab is at a billing entity level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you are using SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage related information at the level of the virtual machine that these databases are contained in.
+3. **Usage** - The Usage tab helps you view key billing parameters for your backups. The information shown in this tab is at a billing entity level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you are using SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine that these databases are contained in.
 
 ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
@@ -82,7 +82,7 @@ If you are an Azure Lighthouse user with delegated access to subscriptions acros
 ## Conventions used in Backup Reports
 
 * Filters work from left to right and top to bottom on each tab.
-* Data for the current partial day is not shown in the reports. Thus, when the selected value of Time Range is, say, 'Last 7 days', this shows records for the last 7 completed days (which does not include the current day).
+* Data for the current partial day is not shown in the reports. Thus, when the selected value of Time Range is, say, 'Last 7 days', the report shows records for the last 7 completed days (which does not include the current day).
 * The report shows details of Jobs (apart from log jobs) that were **triggered** in the selected time range. 
 * The values shown for Cloud Storage and Protected Instances, are as of the **end** of the selected time range.
 * The Backup Items displayed in the reports are those that exist as of the **end** of the selected time range. Backup Items which were deleted in the middle of the selected time range are not displayed. The same convention applies for Backup Policies as well.
