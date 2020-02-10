@@ -911,9 +911,9 @@
     items:
     - name: Convert views to workbooks
       items:
-      - name: Conversion overview
+      - name: Overview
         href: platform/view-designer-conversion-overview.md
-      - name: Conversion options
+      - name: Options
         href: platform/view-designer-conversion-options.md
       - name: Common steps
         href: platform/view-designer-conversion-steps.md

@@ -10,15 +10,17 @@ ms.date: 02/07/2020
 
 ---
 
-# View designer to workbooks conversion steps
+# View designer to workbooks conversion common tasks
+[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks which provide additional functionality. This article details tasks that are common in converting views to workbooks.
 
-## Quick Start with preset View Designer Templates
 
-Workbooks in Log Analytics workspaces already have templates made to match some of the views in view designer. Under the **View Designer Guides** category, select the **View Designer Transition Guide** to learn about your options or select one of the many preset templates.
+## Quick start with preset view designer templates
+
+Workbooks in Log Analytics workspaces already have templates made to match some of the views in view designer. Under the **View Designer Guides** category, select **View Designer Transition Guide** to learn about your options or select one of the preset templates.
 
 ![Example templates](media/view-designer-conversion-steps/templates.png)
 
-## Enabling Time Range Filter
+## Enabling time range filter
 View designer has a built-in default time range filter, however, in workbooks this setting is not enabled by default. Workbooks do allow users to create their own time range filters that might be more applicable to their data logs. The steps to generate the filter are listed below:
 
 Select the **Add parameters** option. The default **Style** is set to *Pills*.
@@ -35,81 +37,80 @@ From the sidebar menu, in the **Parameter name** textbox, type *TimeRange*. Set 
 
 Save the parameter in the upper left corner of the sidebar menu. You can leave the dropdown as *unset* by default or select a default **TimeRange** value, such as *24 hours*. Select **Done Editing**.
 
-Parameters can be used in queries by adding curly braces {} around your parameter name.
-
-More details on parameters can be found in the [Workbooks documentation on parameters](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md).
+Parameters can be used in queries by adding curly braces {} around your parameter name. More details on parameters can be found in the [Workbooks documentation on parameters](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md).
 
 ## Updating queries with the TimeRange Parameter
 
-### Option 1: Select TimeRange from the Time Range Dropdown for each query
+### Option 1: Select TimeRange from the Time Range dropdown
 
 ![Time Parameter](media/view-designer-conversion-steps/time-parameter.png)
 
 ### Option 2: Update your log queries
 
-In your query add the line: _\| where TimeGenerated {TimeRange}_.
+In your query add the line: `| where TimeGenerated {TimeRange}`.
 
 For example:
 
-**Original:** _search * \| summarize count() by Type_
-**Updated:** _search * \| where TimeGenerated {TimeRange} \| summarize count() by Type_
+```KQL
+//Original query
+search * \| summarize count() by Type
+
+//Updatedquery 
+search * \| where TimeGenerated {TimeRange} \| summarize count() by Type
+```
 
 ## Including a List
-Most of the View Designer views include a list, this standard list can be re-produced utilizing the following steps.
+Most of the view designer views include a list, and you can reproduce this standard list in a workbook.
 
-![Tile List]((media/view-designer-conversion-steps/tile-list.png)
+![Tile list](media/view-designer-conversion-steps/tile-list.png)
 
-You will need to add a visualization by clicking **Add query** from the cell options
+Add a visualization by clicking **Add query** from the cell options.
 
-![Add Param]((media/view-designer-conversion-steps/add-param.png)
+![Add Param](media/view-designer-conversion-steps/add-param.png)
 
-View Designer employs a default query that matches the syntax from the Original example. This can be updated by changing the query to the updated form.
+View designer employs a default query that matches the syntax from the Original example. This can be updated by changing the query to the updated form.
 
-**Original:** _search * | summarize **AggregatedValue** = count() by Type_\
-**Updated:** _search * | summarize **Count** = count() by Type_
+```KQL
+//Original query
+search * | summarize AggregatedValue = count() by Type
+
+//Updated query
+search * | summarize Count = count() by Type
+```
 
 This will generate a list that looks similar to the following:
 
 ![List Example](media/view-designer-conversion-steps/list-example.png)
 
 ## Enabling sparklines
-A common feature for grids is to add sparklines to summarize various data patterns over time. View Designer offers the Enable Sparklines feature for all lists, as does Workbooks.
-
-To include sparklines in your data that match View Designer, you will need to join the data with your original query. You will need to add the following line
+A common feature for grids is to add sparklines to summarize various data patterns over time. View designer offers the **Enable Sparklines** feature for all lists, as does workbooks. To include sparklines in your data that match view designer,join the data with your original query as in the following example:
 
 ```KQL
-_| join kind = inner (search * 
-| make-series Trend = count() default=0 on TimeGenerated from{TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type) on Type_
-```
-Then under **Column Settings**
-![Column Settings](media/view-designer-conversion-steps/column-settings.png)
-
-Update the **Column renderer** dropdown to be a spark area.
-![Sparklines](media/view-designer-conversion-steps/sparkline.png)
-
-Then save the settings and re-running the query will now update your table to include a sparkline.
-
-For example:
-
-```KQL
-//Original
+//Original query
 _search *
 | summarize AggregatedValue = count() by Type) on Type_
-```
-```KQL
-// Updated
+
+// Updated query
 _search * 
 | summarize AggregatedValue = count() by Type
 | join kind = inner (search * 
-    | make-series Trend = count() default=0 on TimeGenerated from \{TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type) on Type
-| project Type, AggregatedValue, Trend_
+    | make-series Trend = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type) on Type
+| project Type, AggregatedValue, Trend
 ```
 
-Resulting grid will look similar to below:
-![Sparkline Example]((media/view-designer-conversion-steps/sparkline-example.png)
+Select **Column Settings**.
+![Column Settings](media/view-designer-conversion-steps/column-settings.png)
 
-## Advanced Cell Settings
-To mirror view designer, some common steps such as changing the size of workbook cells or adding pins and external links to logs might be utilized.
+Update the **Column renderer** dropdown to be a *Spark area*.
+![Sparklines](media/view-designer-conversion-steps/sparkline.png)
+
+Save the settings and run the query again to update your table to include a sparkline.
+
+The resulting grid will look similar to following:
+![Sparkline example](media/view-designer-conversion-steps/sparkline-example.png)
+
+## Advanced cell settings
+To mirror view designer, you can perform tasks such as changing the size of workbook cells or adding pins and external links to logs.
 
 To access **Advanced Settings** select the gear icon at the bottom of each cell.
 
@@ -121,25 +122,26 @@ This will display a menu with various options:
 
 To add a pin and a link to an external query select the corresponding checkboxes. To add a title to your cell, type the desired title into the **Chart title** section.
 
-By default any workbooks cell is set to take up the entire page width, but users can adjust this by scaling the cell down, by clicking under the **Style** tab of the Advanced Settings menu
+By default any workbooks cell is set to take up the entire page width, but you can adjust this by scaling the cell down under the **Style** tab of the **Advanced Settings** menu
 
 ![Advanced settings style](media/view-designer-conversion-steps/advanced-settings-style.png)
 
  
-## Additional Parameters
+## Additional parameters
+Select **Add Parameter** to create a new parameter in your workbook. 
 
-Similar to the **TimeRange** Filter, you select **Add Parameter**
-For selecting a Subscription, type “Subscription” into the **Parameter name** field in the side menu and select *Subscription Picker* from the **Parameter type** dropdown
+To select a Subscription, type *Subscription* into the **Parameter name** field in the side menu and select *Subscription Picker* from the **Parameter type** dropdown
 
-![Subscription Menu]((media/view-designer-conversion-steps/subscription-filter.png)
+![Subscription Menu](media/view-designer-conversion-steps/subscription-filter.png)
 
-For selecting a Resource, type *Resource* into the **Parameter name** field 
-in the side menu and select “Resource Picker” from the **Parameter type** dropdown.
+To select a Resource, type *Resource* into the **Parameter name** field in the side menu and select *Resource Picker* from the **Parameter type** dropdown.
 
-![Resource Menu]((media/view-designer-conversion-steps/resource-filter.png)
+![Resource Menu](media/view-designer-conversion-steps/resource-filter.png)
 
 This will insert dropdowns to let you access your various subscriptions and resources.
 
-![Subscription Resource Dropdown]((media/view-designer-conversion-steps/subscription-resource.png)
+![Subscription Resource Dropdown](media/view-designer-conversion-steps/subscription-resource.png)
 
-### [Next Section: Tile Conversions](view-designer-conversion-tiles.md)
+
+## Next steps
+- [Tile conversions](view-designer-conversion-tiles.md)
