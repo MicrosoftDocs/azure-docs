@@ -8,25 +8,25 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/10/2020
 ms.custom: seodec18
 ---
 
 # Data storage and ingress in Azure Time Series Insights Preview
 
-This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It describes the underlying storage structure, file format, and Time Series ID property. It also discusses the underlying ingress process, best practices, and current preview limitations.
+This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It describes the underlying storage structure, file format, and Time Series ID property. The underlying ingress process, best practices, and current preview limitations are also described.
 
 ## Data ingress
 
 Your Azure Time Series Insights environment contains an *ingestion engine* to collect, process, and store time-series data. 
 
-There are some considerations to take into account to ensure all incoming data is processed, to achieve high ingress scale, and minimize ingestion latency (the time taken by Time Series Insights to read and process data from the event source) when [planning your environment](time-series-insights-update-plan.md).
+There are some considerations to be mindful of to ensure all incoming data is processed, to achieve high ingress scale, and minimize *ingestion latency* (the time taken by Time Series Insights to read and process data from the event source) when [planning your environment](time-series-insights-update-plan.md).
 
 Time Series Insights Preview data ingress policies determine where data can be sourced from and what format the data should have.
 
 ### Ingress policies
 
-Data ingress involves how data is sent to an Azure Time Series Insights Preview environment. 
+*Data ingress* involves how data is sent to an Azure Time Series Insights Preview environment. 
 
 Key configuration, formatting, and best practices are summarized below.
 
@@ -42,13 +42,13 @@ Azure Time Series Insights Preview supports a maximum of two event sources per i
 > [!IMPORTANT] 
 > * You may experience high initial latency when attaching an event source to your Preview environment. 
 > Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
-> * High latency will subside after event source data is first ingested. Contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
+> * High latency will subside after event source data is first ingested. Submit a support ticket through the Azure portal if you experience ongoing high latency.
 
 #### Supported data format and types
 
 Azure Time Series Insights supports UTF-8 encoded JSON sent from Azure IoT Hub or Azure Event Hubs. 
 
-Below is the list of supported data types.
+The supported data types are:
 
 | Data type | Description |
 |---|---|
@@ -59,9 +59,9 @@ Below is the list of supported data types.
 
 #### Objects and arrays
 
-You can send complex types such as objects and arrays as part of your event payload, but your data will undergo a flattening process when stored. 
+You may send complex types such as objects and arrays as part of your event payload, but your data will undergo a flattening process when stored. 
 
-Detailed information describing how to shape your JSON events, sending complex type, and nested object flattening is available in [How to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+Detailed information describing how to shape your JSON events, send complex type, and nested object flattening is available in [How to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md) to assist with planning and optimization.
 
 ### Ingress best practices
 
@@ -77,6 +77,9 @@ We recommend that you employ the following best practices:
 
 Azure Time Series Insights Preview ingress limitations are described below.
 
+> [!TIP]
+> Read [Plan your Preview environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) for a comprehensive list of all Preview limits.
+
 #### Per environment limitations
 
 In general, ingress rates are viewed as the factor of the number of devices that are in your organization, event emission frequency, and the size of each event:
@@ -87,13 +90,13 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
 > [!TIP] 
 > * Environment support for ingesting speeds up to 16 MBps can be provided by request.
-> * Contact us if you require higher throughput by submitting a support ticket in the Azure portal.
+> * Contact us if you require higher throughput by submitting a support ticket through Azure Portal.
  
 * **Example 1:**
 
     Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Event Hub with four partitions as the Time Series Insights event source.
 
-    * The ingestion rate for their Time Series Insights environment would be: 100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps.
+    * The ingestion rate for their Time Series Insights environment would be: **100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps**.
     * The ingestion rate per partition would be 0.25 MBps.
     * Contoso Shipping’s ingestion rate would be within the preview scale limitation.
 
@@ -101,9 +104,9 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
     Contoso Fleet Analytics has 60,000 devices that emit an event every second. They are using an IoT Hub 24 partition count of 4 as the Time Series Insights event source. The size of an event is 200 bytes.
 
-    * The environment ingestion rate would be: 20,000 devices * 200 bytes/event * 1 event/sec = 4 MBps.
+    * The environment ingestion rate would be: **20,000 devices * 200 bytes/event * 1 event/sec = 4 MBps**.
     * The per partition rate would be 1 MBps.
-    * Contoso Fleet Analytics would need to submit a request to Time Series Insights via the Azure portal for a dedicated environment to achieve this scale.
+    * Contoso Fleet Analytics can submit a request to Time Series Insights through Azure Portal to increase the ingestion rate for their environment.
 
 #### Hub partitions and per partition limits
 
@@ -122,20 +125,18 @@ Azure Time Series Insights Preview currently has a general **per partition limit
 
 #### IoT Hub-specific considerations
 
-When a device is created in IoT Hub, it is permanently assigned to a partition. In doing so, IoT Hub is able to guarantee event ordering (since the assignment never changes).
+When a device is created in IoT Hub, it's permanently assigned to a partition. In doing so, IoT Hub is able to guarantee event ordering (since the assignment never changes).
 
-This has implications for Time Series Insights instances that are ingesting data sent from IoT Hub downstream.
-
-When messages from multiple devices are forwarded to the hub using the same gateway device ID, they may arrive in the same partition at the same time potentially exceeding the per partition scale limits. 
+A fixed partition assignment also impacts Time Series Insights instances that are ingesting data sent from IoT Hub downstream. When messages from multiple devices are forwarded to the hub using the same gateway device ID, they may arrive in the same partition at the same time potentially exceeding the per partition scale limits. 
 
 **Impact**:
 
-* If a single partition experiences a sustained rate of ingestion over the Preview limit, there is the potential that the Time Series Insights reader will not ever catch up before the IoT Hub data retention period has been exceeded. This would cause a loss of data.
+* If a single partition experiences a sustained rate of ingestion over the Preview limit, it's possible that Time Series Insights will not sync all device telemetry before the IoT Hub data retention period has been exceeded. As a result, sent data can be lost if the ingestion limits are consistently exceeded.
 
-We recommend the following: 
+To mitigate that circumstance, we recommend the following best practices:
 
-* Calculate your per environment and per partition ingestion rate before deploying your solution.
-* Ensure that your IoT Hub devices (and thus partitions) are load-balanced to the furthest extend possible.
+* Calculate your per environment and per partition ingestion rates before deploying your solution.
+* Ensure that your IoT Hub devices are load-balanced to the furthest extent possible.
 
 > [!IMPORTANT]
 > For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub devices in use to be sure that the rate falls below the 0.5 MBps per partition limitation in preview.
@@ -185,7 +186,9 @@ Azure Time Series Insights Preview publishes up to two copies of each event in y
 > [!NOTE]
 > You can also use Spark, Hadoop, and other familiar tools to process the raw Parquet files. 
 
-Time Series Insights Preview also re-partitions the Parquet files to optimize for the Time Series Insights query. This repartitioned copy of the data is also saved. During public review, data is stored indefinitely in your Azure Storage account.
+Time Series Insights Preview also repartitions the Parquet files to optimize for the Time Series Insights query. This repartitioned copy of the data is also saved. 
+
+During public Preview, data is stored indefinitely in your Azure Storage account.
 
 #### Writing and editing Time Series Insights blobs
 
