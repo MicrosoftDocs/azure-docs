@@ -34,13 +34,13 @@ Check whether there is `certs` subdirectory under OPENSSLDIR. In the example abo
 
 ## Examples
 
-1. OPENSSLDIR is `/opt/ssl`. There is `certs` subdirectory with many `.crt` or `.pem` files.
+- OPENSSLDIR is `/opt/ssl`. There is `certs` subdirectory with many `.crt` or `.pem` files.
 Set environment variable `SSL_CERT_DIR` to point at `/opt/ssl/certs` before running a program that uses the Speech SDK. For example:
 ```bash
 SSL_CERT_DIR=/opt/ssl/certs ./helloworld
 ```
 
-2. OPENSSLDIR is `/etc/pki/tls`. There is a certificate bundle file, for example `ca-bundle.pem` or `ca-bundle.crt`.
+- OPENSSLDIR is `/etc/pki/tls`. There is a certificate bundle file, for example `ca-bundle.pem` or `ca-bundle.crt`.
 Set environment variable `SSL_CERT_FILE` to point at `/etc/pki/tls/ca-bundle.pem` before running a program that uses the Speech SDK. For example:
 ```bash
 SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
