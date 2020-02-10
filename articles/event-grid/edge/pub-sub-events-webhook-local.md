@@ -59,8 +59,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -74,21 +73,17 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         }
     ```    
  1. Click **Save**
- 1. Continue to the next section to add the Azure Functions module before deploying them together.
+ 1. Continue to the next section to add the Azure Event Grid Subscriber module before deploying them together.
 
     >[!IMPORTANT]
-    > In this tutorial, you will deploy the Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable the client authentication and allow only HTTPs subscribers. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
+    > In this tutorial, you will deploy the Event Grid module with client authentication disabled. For production workloads, we recommend that you enable the client authentication. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
     > 
     > If you are using an Azure VM as an edge device, add an inbound port rule to allow inbound traffic on the port 4438. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## Deploy Azure Function IoT Edge module
+## Deploy Event Grid Subscriber IoT Edge module
 
-This section shows you how to deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
-
->[!IMPORTANT]
->In this section, you will deploy a sample Azure Function-based subscribing module. It can of course be any custom IoT Module that can listen for HTTP POST requests.
-
+This section shows you how to deploy another IoT module which would act as an event handler to which events can be delivered.
 
 ### Add modules
 
@@ -97,23 +92,8 @@ This section shows you how to deploy the Azure Functions IoT module, which would
 1. Provide the name, image, and container create options of the container:
 
    * **Name**: subscriber
-   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Container Create Options**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Container Create Options**: None
 1. Click **Save**
 1. Click **Next** to continue to the routes section
 
@@ -186,7 +166,7 @@ Subscribers can register for events published to a topic. To receive any event, 
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -194,7 +174,7 @@ Subscribers can register for events published to a topic. To receive any event, 
     ```
 
     >[!NOTE]
-    > The **endpointType** property specifies that the subscriber is a **Webhook**.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample you deployed earlier.
+    > The **endpointType** property specifies that the subscriber is a **Webhook**.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Subscriber sample you deployed earlier.
 2. Run the following command to create a subscription for the topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
@@ -218,7 +198,7 @@ Subscribers can register for events published to a topic. To receive any event, 
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -270,7 +250,7 @@ Subscribers can register for events published to a topic. To receive any event, 
     Sample output:
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -284,7 +264,6 @@ Subscribers can register for events published to a topic. To receive any event, 
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## Cleanup resources
