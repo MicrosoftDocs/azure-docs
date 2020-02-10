@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
