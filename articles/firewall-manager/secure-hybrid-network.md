@@ -75,7 +75,7 @@ First, create the resource group to contain the resources for this tutorial:
 Now, create the VNet:
 
 > [!NOTE]
-> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
@@ -254,7 +254,7 @@ Create the on-premises to hub virtual network connection. This step is similar t
 
 After about five minutes or so, the status of both connections should be **Connected**.
 
-![Gateway connections](media/tutorial-hybrid-portal/gateway-connections.png)
+![Gateway connections](media/secure-hybrid-network/gateway-connections.png)
 
 ## Peer the hub and spoke virtual networks
 
@@ -414,7 +414,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 3. Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>.
 
    You should see the **VM-spoke-01** web page:
-   ![VM-Spoke-01 web page](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
+   ![VM-Spoke-01 web page](media/secure-hybrid-network/VM-Spoke-01-web.png)
 
 4. From the **VM-Onprem** virtual machine, open a remote desktop to **VM-spoke-01** at the private IP address.
 
@@ -442,7 +442,3 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
-Next, you can monitor the Azure Firewall logs.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
