@@ -164,6 +164,24 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 </azvpnprofile>
 ```
 
+### How do I add custom routes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destionation>\</mask>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<includeroutes>
+		<route>
+			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ## Next steps
 
 For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
