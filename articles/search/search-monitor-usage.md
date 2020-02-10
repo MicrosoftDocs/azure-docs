@@ -11,24 +11,52 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ---
 
-# Monitor resource consumption and query activity in Azure Cognitive Search
+# Monitor service and user activity of Azure Cognitive Search
 
-In the Overview page of your Azure Cognitive Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
+Many services, including Azure Cognitive Search, leverage [Azure Monitor](../azure-monitor/) for alerts, metrics, and logging diagnostic data. In this article, learn about built-in monitoring and what you can configure or extend to create an efficient communication system for proactive responses to problems as they emerge.
 
-Setting up logs is useful for self-diagnostics and preserving operational history. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. If you want control over and access to log information, you should set up one of the solutions described in this article.
+## Azure Monitor
 
-In this article, learn about your monitoring options, how to enable logging and log storage, and how to view log contents.
+The following example helps you locate Azure Monitor features in the portal.
 
-## Metrics at a glance
++ **Monitoring** tab shows metrics at a glance from the main overview page
++ **Activity log** shows recent operations related to the resource, such as service provisioning, de-provisioning, and key management
++ **Monitoring options** contain configurable monitoring features. Alerts, metrics, and diagnostic logs can be configured when you need them. Once data is stored, you can query or visualize the information for insights.
 
-**Usage** and **Monitoring** sections built into the Overview page report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
+![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
+ "Azure Monitor integration in a search service")
+
+### Precision of reported numbers
+
+Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general idea of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
+
+## Use system APIs
+
+Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
+
++ [GET Services Statistics](/rest/api/searchservice/get-service-statistics)
++ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
++ [GET Document Counts](/rest/api/searchservice/count-documents)
++ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
+
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+
+## Activity logs
+
+The **Activity log** collects information from Azure Resource Manager. Examples of information found in the Activity log include creating or deleting a service, updating a resource group, checking for name availability, or getting a service access key to handle a request.
+
+For in-service tasks - such as queries, indexing, or creating objects - you'll see generic notifications like *Get Admin Key* and *Get Query keys* for each request, but not the specific action itself. For information of this grain, you must configure diagnostic logging.
+
+You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
+
+## Usage and Monitoring tabs
+
+Tabbed pages built into the Overview page report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
 The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md). The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
 
 ![Usage status relative to effective limits](./media/search-monitor-usage/usage-tab.png
  "Usage status relative to effective limits")
-
-## Queries per second (QPS) and other metrics
 
 The **Monitoring** tab shows moving averages for metrics like search *Queries Per Second* (QPS), aggregated per minute. 
 *Search latency* is the amount of time the search service needed to process search queries, aggregated per minute. *Throttled search queries percentage* (not shown) is the percentage of search queries that were throttled, also aggregated per minute.
@@ -37,15 +65,7 @@ These numbers are approximate and are intended to give you a general idea of how
 
 ![Queries per second activity](./media/search-monitor-usage/monitoring-tab.png "Queries per second activity")
 
-## Activity logs
-
-The **Activity log** collects information from Azure Resource Manager. Examples of information found in the Activity log include creating or deleting a service, updating a resource group, checking for name availability, or getting a service access key to handle a request. 
-
-You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
-
-For in-service tasks like creating an index or deleting a data source, you'll see generic notifications like "Get Admin Key" for each request, but not the specific action itself. For this level of information, you must enable an add-on monitoring solution.
-
-## Add-on monitoring solutions
+## Configurable features
 
 Azure Cognitive Search does not store any data beyond the objects it manages, which means log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
 
@@ -61,7 +81,7 @@ Both Azure Monitor logs and Blob storage are available as a free service so that
 
 The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Cognitive Search operations.
 
-## Enable logging
+<!-- ## Enable operational logging
 
 Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Cognitive Search are the objects it creates and manages, so logs must be stored elsewhere.
 
@@ -124,9 +144,9 @@ Blobs containing your search service traffic logs are structured as described in
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
 | Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
 | Documents |int |42 |Number of documents processed |
-| IndexName |string |"testindex" |Name of the index associated with the operation |
+| IndexName |string |"testindex" |Name of the index associated with the operation | -->
 
-## Metrics schema
+<!-- ## Metrics schema
 
 Metrics are captured for query requests.
 
@@ -147,9 +167,9 @@ All metrics are reported in one-minute intervals. Every metric exposes minimum, 
 For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
 Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute. -->
 
-## Download and open in Visual Studio Code
+<!-- ## Download and open in Visual Studio Code
 
 You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
 
@@ -159,17 +179,7 @@ You can use any JSON editor to view the log file. If you don't have one, we reco
 
 3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
 
-Once the file is downloaded, open it in a JSON editor to view the contents.
-
-## Use system APIs
-Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
-
-* [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
-* [Get Index Statistics](/rest/api/searchservice/get-index-statistics)
-* [Count Documents](/rest/api/searchservice/count-documents)
-* [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
-
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+Once the file is downloaded, open it in a JSON editor to view the contents. -->
 
 ## Next steps
 

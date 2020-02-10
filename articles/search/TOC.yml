@@ -313,9 +313,9 @@
       href: index-add-scoring-profiles.md
   - name: Manage a service
     items:
-    - name: Portal administration
+    - name: Portal
       href: search-manage.md
-    - name: PowerShell administration
+    - name: PowerShell
       href: search-manage-powershell.md
   - name: Monitor and logging
     items:
@@ -325,7 +325,7 @@
       href: search-monitor-alerts.md 
     - name: Log activity
       href: search-monitor-logs.md 
-    - name: Measure metrics
+    - name: Monitor metrics
       href: search-monitor-metrics.md       
     - name: Search traffic analytics
       href: search-traffic-analytics.md

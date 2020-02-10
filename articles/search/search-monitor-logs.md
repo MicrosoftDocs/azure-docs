@@ -19,7 +19,7 @@ Setting up logs is useful for self-diagnostics and preserving operational histor
 
 In this article, learn about your monitoring options, how to enable logging and log storage, and how to view log contents.
 
-## Metrics at a glance
+<!-- ## Metrics at a glance
 
 **Usage** and **Monitoring** sections built into the Overview page report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
@@ -43,7 +43,7 @@ The **Activity log** collects information from Azure Resource Manager. Examples 
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
-For in-service tasks like creating an index or deleting a data source, you'll see generic notifications like "Get Admin Key" for each request, but not the specific action itself. For this level of information, you must enable an add-on monitoring solution.
+For in-service tasks like creating an index or deleting a data source, you'll see generic notifications like "Get Admin Key" for each request, but not the specific action itself. For this level of information, you must enable an add-on monitoring solution. -->
 
 ## Add-on monitoring solutions
 
@@ -126,7 +126,7 @@ Blobs containing your search service traffic logs are structured as described in
 | Documents |int |42 |Number of documents processed |
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
-## Metrics schema
+<!-- ## Metrics schema
 
 Metrics are captured for query requests.
 
@@ -147,7 +147,7 @@ All metrics are reported in one-minute intervals. Every metric exposes minimum, 
 For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
 Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute. -->
 
 ## Download and open in Visual Studio Code
 
@@ -161,7 +161,7 @@ You can use any JSON editor to view the log file. If you don't have one, we reco
 
 Once the file is downloaded, open it in a JSON editor to view the contents.
 
-## Use system APIs
+<!-- ## Use system APIs
 Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
@@ -169,7 +169,7 @@ Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic a
 * [Count Documents](/rest/api/searchservice/count-documents)
 * [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview). -->
 
 ## Next steps
 
