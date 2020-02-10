@@ -23,6 +23,7 @@ ms.service: media-services
 ---
 
 # Recommended on-premises encoders
+
 When live streaming with Azure Media Services, you can specify how you want your channel to receive the input stream. If you choose to use an on premises encoder with a live encoding channel, your encoder should push a high-quality single-bitrate stream as output. If you choose to use an on premises encoder with a pass through channel, your encoder should push a multi-bitrate stream as output with all desired output qualities. For more information, see [Live streaming with on premises encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Encoder requirements
@@ -32,10 +33,13 @@ Encoders must support TLS 1.2 when using HTTPS or RTMPS protocols.
 ## Live encoders that output RTMP 
 
 Azure Media Services recommends using one of following live encoders that have RTMP as output:
+
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
 - Telestream Wirecast (version 13.0.02 or higher due to the TLS 1.2 requirement)
+
+  Encoders must support TLS 1.2 when using RTMPS protocols.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -47,10 +51,13 @@ Azure Media Services recommends using one of following live encoders that have R
 ## Live encoders that output fragmented MP4 
 
 Azure Media Services recommends using one of the following live encoders that have multi-bitrate fragmented-MP4 (Smooth Streaming) as output:
+
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live (version 2.14.15 and higher due to the TLS 1.2 requirement)
+
+  Encoders must support TLS 1.2 when using HTTPS protocols.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
