@@ -67,7 +67,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
 ## Clone the sample application
 
-Now let's clone a [SQL API](sql-api-sdk-python.md) app from GitHub, set the connection string, and run it. This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azure-cosmos/#history).
+Now let's clone a SQL API app from GitHub, set the connection string, and run it. This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azure-cosmos/#history).
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

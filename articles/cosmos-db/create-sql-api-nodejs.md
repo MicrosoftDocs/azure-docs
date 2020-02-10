@@ -70,7 +70,7 @@ Now let's clone a Node.js app from GitHub, set the connection string, and run it
 
 This step is optional. If you're interested in learning how the Azure Cosmos database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-If you're familiar with the previous version of the [SQL JavaScript SDK](sql-api-sdk-node.md), you may be used to seeing the terms *collection* and *document*. Because Azure Cosmos DB supports [multiple API models](introduction.md), [version 2.0+ of the JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) uses the generic terms *container*, which may be a collection, graph, or table, and *item* to describe the content of the container.
+If you're familiar with the previous version of the SQL JavaScript SDK, you may be used to seeing the terms *collection* and *document*. Because Azure Cosmos DB supports [multiple API models](introduction.md), [version 2.0+ of the JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) uses the generic terms *container*, which may be a collection, graph, or table, and *item* to describe the content of the container.
 
 The following snippets are all taken from the *app.js* file.
 
@@ -124,7 +124,7 @@ The following snippets are all taken from the *app.js* file.
 
 ## Update your connection string
 
-Now go back to the Azure portal to get the connection string details of your Azure Cosmos DB account. Copy the connection string into the app so that it can connect to your database.
+Now go back to the Azure portal to get the connection string details of your Azure Cosmos account. Copy the connection string into the app so that it can connect to your database.
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation, and then select **Read-write Keys**. Use the copy buttons on the right side of the screen to copy the URI and Primary Key into the *config.js* file in the next step.
 
