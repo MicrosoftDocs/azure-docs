@@ -1,26 +1,24 @@
 ---
-title: "Quickstart: Convert text-to-speech, Python - Speech service"
+title: "Convert text-to-speech, Python - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
+description: In this article, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
 ---
 
-# Quickstart: Convert text-to-speech using Python
+# Convert text-to-speech using Python
 
-In this quickstart, you'll learn how to convert text-to-speech using Python and the text-to-speech REST API. The request body in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
+In this article, you'll learn how to convert text-to-speech using Python and the text-to-speech REST API. The request body in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
+This article requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
 
 ## Prerequisites
-
-This quickstart requires:
 
 * Python 2.7.x or 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
