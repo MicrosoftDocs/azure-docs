@@ -44,7 +44,7 @@ This article helps you troubleshoot Point-to-Site connectivity issues from Mac O
 4. The **Local ID** can be blank.
 5. Click the **Authentication Setting** button and verify that "Username" is selected from the dropdown.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verify that the correct credentials are entered.
 
 ## <a name="additional"></a>Additional steps
