@@ -55,16 +55,16 @@ Unlike load balancer outbound SNAT, NAT has no restrictions on which private IP 
 NAT is compatible with the following standard SKU resources:
 
 - [Load balancer](../load-balancer/load-balancer-overview.md)
-- [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
-- [Public IP prefix](../virtual-network/public-ip-address-prefix)
+- [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+- [Public IP prefix](../virtual-network/public-ip-address-prefix.md)
 
 When used together on a subnet, NAT provides all outbound originated Internet connectivity.
 
 Inbound traffic for Azure virtual machines and virtual machine scale sets is provided by:
 
 - [Load balancer](../load-balancer/load-balancer-overview.md)
-- [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
-- [Public IP prefix](../virtual-network/public-ip-address-prefix)
+- [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+- [Public IP prefix](../virtual-network/public-ip-address-prefix.md)
 
 NAT and compatible features are aware of the direction the flow was started. Inbound and outbound scenarios coexist and receive the correct network address translations.
 
