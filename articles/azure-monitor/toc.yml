@@ -913,7 +913,7 @@
       items:
       - name: Overview
         href: platform/view-designer-conversion-overview.md
-      - name: Olptions
+      - name: Options
         href: platform/view-designer-conversion-options.md
       - name: Common tasks
         href: platform/view-designer-conversion-steps.md

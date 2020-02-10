@@ -8,7 +8,7 @@ ms.subservice: visualization
 ms.topic: conceptual
 ms.date: 02/07/2020
 
----
+---l
 
 # View designer to workbooks conversion common tasks
 [View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks which provide additional functionality. This article details tasks that are common in converting views to workbooks.
@@ -51,13 +51,13 @@ In your query add the line: `| where TimeGenerated {TimeRange}`.
 
 For example:
 
-**Original query**
+### Original query
 ```KQL
 search * 
 | summarize count() by Type
 ```
 
-**Updated query**
+### Updated query
 ```KQL
 search * 
 | where TimeGenerated {TimeRange} 
