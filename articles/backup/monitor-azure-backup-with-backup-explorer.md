@@ -8,9 +8,9 @@ ms.date: 02/03/2020
 
 # Monitor your backups with Backup Explorer
 
-As organizations back up more and more machines to the cloud, it becomes important to monitor these backups efficiently. The best way to begin is to create and use a central location for viewing operational information across a large estate.
+As organizations back up more and more machines to the cloud, it becomes increasingly important to monitor these backups efficiently. The best way to begin is to create and use a central location for viewing operational information across a large estate.
 
-Backup Explorer is a built-in Azure Monitor workbook that gives Azure Backup customers a reliable central location. Backup Explorer provides a single place for monitoring operational activities across the entire Backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. Broadly, Backup Explorer provides the following capabilities:
+Backup Explorer is a built-in Azure Monitor workbook that gives Azure Backup customers this single, convenient central location. Backup Explorer helps you monitor operational activities across the entire Backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. Broadly, Backup Explorer provides the following capabilities:
 
 * **At-scale perspective**: Get an aggregated view of the backup items, jobs, alerts, policies, and resources that aren't yet configured for backup across the entire estate. 
 * **Drill-down analysis**: Display detailed information about each of your jobs, alerts, policies, and backup items, all in one place.
@@ -54,14 +54,14 @@ You can filter and view each of your backup items by subscription, vault, and ot
 
 ### The Jobs tab
 
-By going to the **Jobs** tab, you can view the details of all the jobs that were triggered over the last 7 days. Here, you can filter by *Job Operation*, *Job Status*, and *Error Code* (in the case of failed jobs).
+By going to the **Jobs** tab, you can view the details of all the jobs that were triggered over the last 7 days. Here, you can filter by *Job Operation*, *Job Status*, and *Error Code* (for failed jobs).
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### The Alerts tab
 
-By selecting the **Alerts** tab, you can view details of all alerts that were generated on your vaults over the last 7 days. You can filter alerts by type (*Backup Failure* or *Restore Failure*), by current status (*Active* or *Resolved*), and severity (*Critical*, *Warning*, or *Information*). You can also select a link to go the Azure VM and take any necessary action.
+By selecting the **Alerts** tab, you can view details of all alerts that were generated on your vaults over the last 7 days. You can filter alerts by type (*Backup Failure* or *Restore Failure*), current status (*Active* or *Resolved*), and severity (*Critical*, *Warning*, or *Information*). You can also select a link to go the Azure VM and take any necessary action.
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
@@ -92,7 +92,7 @@ You can select the "pin" icon at the top of each table or chart to pin it to you
 
 ## Cross-tenant views
 
-If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across all selected subscriptions. To learn more, see [What is Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
+If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
 
 ## Next steps
 
