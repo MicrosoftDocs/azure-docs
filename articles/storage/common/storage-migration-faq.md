@@ -37,40 +37,32 @@ resources with Resource Manager templates and Azure PowerShell](../../azure-reso
 
 No. There is no charge for this process.
 
-**How do I back up my entire storage account to another storage account?**
+**How can I download 1-2 TB of data from the Azure portal?**
 
-There is no option to back up an entire storage account directly. But
-you can manually move the container in that storage account to another
-account by using AzCopy or Storage Explorer. The following steps show
-how to use AzCopy to move the container:  
+Use AzCopy to download the data. For more information, see [Transfer data
+with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
-1.  Install the [AzCopy](storage-use-azcopy.md) command-line tool. This tool helps you move the VHD file between storage accounts.
+**How can I download a VHD to a local machine, other than by using the download option in the portal?**
 
-2.  After you install AzCopy on Windows by using the installer, open a
-    Command Prompt window and then browse to the AzCopy installation
-    folder on your computer. By default, AzCopy is installed to
-    **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** or
-    **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to download a VHD.
 
-3.  Run the following command to move the container. You must replace
-    the text with the actual values.   
+**How do I download data to a Linux-based computer from an Azure storage account, or upload data from a Linux machine?**
 
-            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-            /SourceKey:key1 /DestKey:key2 /S
+You can use the Azure CLI.
 
-    - `/Source`: Provide the URI for the source storage account (up to the container).  
-    - `/Dest`: Provide the URI for the target storage account (up to the container).  
-    - `/SourceKey`: Provide the primary key for the source storage account. You can copy this key from the Azure portal by selecting the storage account.  
-    - `/DestKey`: Provide the primary key for the target storage account. You can copy this key from the portal by selecting the storage account.
+- Download a single blob:
 
-After you run this command, the container files are moved to the
-target storage account.
+      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-> [!NOTE]
-> The AzCopy CLI does not work together with the **Pattern** switch when you copy from one Azure blob to another.
->
-> You can directly copy and edit the AzCopy command, and cross-check to make sure that **Pattern** matches the source. Also make sure that **/S** wildcards are in effect. For more information, see [AzCopy parameters](storage-use-azcopy.md).
+- Upload a single blob:
+
+      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+
+**How do I migrate Blobs from one storage account to another?**
+
+ You can do this using our [Blob migration script](../scripts/storage-common-transfer-between-storage-accounts.md).
+ 
+## Migration or backup
 
 **How do I move data from one storage container to another?**
 
@@ -111,16 +103,6 @@ Use AzCopy to copy the data. For more information, see [Transfer data with AzCop
 **How can I move data from on-premises to Azure Files?**
 
 Use AzCopy to move data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
-
-**How do I back up Azure file storage?**
-
-There is no backup solution. However, Azure Files also supports asynchronous copy. So, you can copy files:
-
-- From a share to another share within a storage account or to a different storage account.
-
-- From a share to a blob container within a storage account or to a different storage account.
-
-For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md).
 
 **How do I move managed disks to another storage account?**
 
@@ -167,18 +149,9 @@ Follow these steps:
 
 For more information about how to deploy a virtual machine from a managed disk, see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
-**How can I download 1-2 TB of data from the Azure portal?**
-
-Use AzCopy to download the data. For more information, see [Transfer data
-with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
-
 **How do I move or download data from a storage account?**
 
 Use AzCopy to download the data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
-
-**How can I download a VHD to a local machine, other than by using the download option in the portal?**
-
-You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to download a VHD.
 
 **How do I move from a premium storage account to a standard storage account?**
 
@@ -215,22 +188,50 @@ You can use the **Move-AzureStorageAccount** cmdlet. This cmdlet has multiple st
 
 If you have virtual machines, you must take additional steps before you migrate the storage account data. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
-**How do I download data to a Linux-based computer from an Azure storage account, or upload data from a Linux machine?**
+**How do I back up my entire storage account to another storage account?**
 
-You can use the Azure CLI.
+There is no option to back up an entire storage account directly. But
+you can manually move the container in that storage account to another
+account by using AzCopy or Storage Explorer. The following steps show
+how to use AzCopy to move the container:  
 
-- Download a single blob:
+1.  Install the [AzCopy](storage-use-azcopy.md) command-line tool. This tool helps you move the VHD file between storage accounts.
 
-      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+2.  After you install AzCopy on Windows by using the installer, open a
+    Command Prompt window and then browse to the AzCopy installation
+    folder on your computer. By default, AzCopy is installed to
+    **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** or
+    **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
-- Upload a single blob:
+3.  Run the following command to move the container. You must replace
+    the text with the actual values.   
 
-      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+            /SourceKey:key1 /DestKey:key2 /S
 
-**How do I migrate Blobs from one storage account to another?**
+    - `/Source`: Provide the URI for the source storage account (up to the container).  
+    - `/Dest`: Provide the URI for the target storage account (up to the container).  
+    - `/SourceKey`: Provide the primary key for the source storage account. You can copy this key from the Azure portal by selecting the storage account.  
+    - `/DestKey`: Provide the primary key for the target storage account. You can copy this key from the portal by selecting the storage account.
 
- You can do this using our [Blob migration script](../scripts/storage-common-transfer-between-storage-accounts.md).
+After you run this command, the container files are moved to the
+target storage account.
 
+> [!NOTE]
+> The AzCopy CLI does not work together with the **Pattern** switch when you copy from one Azure blob to another.
+>
+> You can directly copy and edit the AzCopy command, and cross-check to make sure that **Pattern** matches the source. Also make sure that **/S** wildcards are in effect. For more information, see [AzCopy parameters](storage-use-azcopy.md).
+
+**How do I back up Azure file storage?**
+
+There is no backup solution. However, Azure Files also supports asynchronous copy. So, you can copy files:
+
+- From a share to another share within a storage account or to a different storage account.
+
+- From a share to a blob container within a storage account or to a different storage account.
+
+For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md).
 ## Configuration
 
 **How do I change the secondary location to the Europe region for a storage account?**
