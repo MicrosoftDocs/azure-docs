@@ -227,7 +227,7 @@ Your application's business logic will dictate this step, some common authorizat
 
 Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the client credential flow ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this call is coming from an application and does not have a user backing it. These tokens are handled largely the same, with some differences:
 
-* App-only tokens will not have a `scp` claim, and may instead have a `roles` claim. This is where application permission (as opposed to delegated permissions) will be recorded. For more information about delegated and application permissions, see permission and consent ([v1.0](../azuread-dev/v1-permissions-and-consent.md),  [v2.0](v2-permissions-and-consent.md)).
+* App-only tokens will not have a `scp` claim, and may instead have a `roles` claim. This is where application permission (as opposed to delegated permissions) will be recorded. For more information about delegated and application permissions, see permission and consent ([v1.0](../azuread-dev/v1-permissions-consent.md),  [v2.0](v2-permissions-and-consent.md)).
 * Many human-specific claims will be missing, such as `name` or `upn`.
 * The `sub` and `oid` claims will be the same. 
 
@@ -265,4 +265,4 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 ## Next steps
 
 * Learn about [`id_tokens` in Azure AD](id-tokens.md).
-* Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-and-consent.md), [v2.0](v2-permissions-and-consent.md)).
+* Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
