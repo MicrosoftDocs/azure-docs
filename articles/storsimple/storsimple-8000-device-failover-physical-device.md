@@ -1,5 +1,5 @@
 ---
-title: Failover, disaster recovery to another StorSimple physical device
+title: Failover, disaster recovery to another StorSimple 8000 device
 description: Learn how to fail over your StorSimple 8000 series physical device to another physical device.
 services: storsimple
 documentationcenter: ''

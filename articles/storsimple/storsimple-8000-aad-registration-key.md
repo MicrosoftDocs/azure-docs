@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication for StorSimple Device Manager and devices
+title: Azure AD authentication for StorSimple 8000 in Device Manager
 description: Explains how to use AAD based authentication for your service, generate new registration key, and perform manual registration of the devices.
 author: alkohli
 ms.service: storsimple
