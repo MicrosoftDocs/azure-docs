@@ -35,7 +35,7 @@ More information about Azure AD Identity Protection can be found in the article 
 
 > [!div class="checklist"]
 > * Enable Azure MFA registration
-> * Enable risk-based password changes
+> * Enable risk-based password chang1es
 > * Enable risk-based Multi-Factor Authentication
 
 ## Prerequisites
