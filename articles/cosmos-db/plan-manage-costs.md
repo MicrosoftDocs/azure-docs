@@ -11,7 +11,7 @@ ms.date: 02/02/2020
 
 # Plan and manage costs for Azure Cosmos DB
 
-This article describes how you can plan for and manage costs for Azure Cosmos DB. First, you use the Azure pricing calculator to help plan for Azure Cosmos DB costs before you add any resources within the service to estimate costs. Next, as you add Azure resources, you can review the estimated costs. After you’ve started using Azure Cosmos DB resources, use the cost management features to set budgets and monitor costs. You can also review the forecasted costs and identify spending trends to identify areas where you might want to act.
+This article describes how you can plan and manage costs for Azure Cosmos DB. First, you use the Azure Cosmos DB capacity calculator to help plan for costs before you add any resources. Next, as you add the Azure resources, you can review the estimated costs. After you’ve started using Azure Cosmos DB resources, use the cost management features to set budgets and monitor costs. You can also review the forecasted costs and identify spending trends to identify areas where you might want to act.
 
 Understand that the costs for Azure Cosmos DB are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you’re billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Cosmos DB. After you’re familiar with managing costs for Azure Cosmos DB, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
@@ -46,7 +46,7 @@ You can create [budgets](../cost-management/tutorial-acm-create-budgets.md) to m
 
 ## Monitor costs
 
-As you use resources with Azure Cosmos DB, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (request units, bytes, megabytes, and so on.) As soon as usage of Azure Cosmos DB starts, costs are incurred and you can see them in the [cost analysis](../cost-management/quick-acm-cost-analysis.md) pane in the Azure portal.
+As you use resources with Azure Cosmos DB, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Cosmos DB starts, costs are incurred and you can see them in the [cost analysis](../cost-management/quick-acm-cost-analysis.md) pane in the Azure portal.
 
 When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and tables for different time intervals. Some examples are by day, current, prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you’ve created budgets, you can also easily see where they exceeded.To view Azure Cosmos DB costs in cost analysis:
 
