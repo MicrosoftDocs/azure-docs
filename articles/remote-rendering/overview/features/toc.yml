@@ -6,8 +6,10 @@
   href: late-stage-reprojection.md
 - name: Lights
   href: lights.md
-- name: Materials
-  href: materials.md
+- name: PBR materials
+  href: pbr-materials.md
+- name: Color materials
+  href: color-materials.md
 - name: Outline rendering
   href: outlines.md
 - name: Single sided rendering
