@@ -73,9 +73,9 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-define-device-type.md
+        - url: ../iot-central/core/tutorial-connect-pnp-device.md
           itemType: tutorial
-          text: Define the type for your device
+          text: Connect a device
       # footerLink
       footerLink:
         url: ../iot-central/core/index.yml

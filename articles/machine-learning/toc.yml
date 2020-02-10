@@ -26,6 +26,9 @@
     - name: Create an automated ML experiment
       displayName: automl, automated, auto ml, portal, ui
       href: tutorial-first-experiment-automated-ml.md
+    - name: Forecast demand with automated ML (Bike share data)
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-automated-ml-forecast.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -288,7 +291,7 @@
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
     - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
+      displayName: log, monitor, metrics, Databricks
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics

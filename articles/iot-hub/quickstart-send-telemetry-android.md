@@ -27,6 +27,8 @@ In this quickstart, you send telemetry to an Azure IoT Hub from an Android appli
 
 * [A sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample). This sample is part of the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
+* Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### Add Azure IoT Extension
