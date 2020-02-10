@@ -19,9 +19,9 @@ By default the remotely rendered objects are lit using a [sky light](sky.md). Fo
 
 ## Common light component properties
 
-All light types derived from the abstract base class `LightComponent` and share these properties:
+All light types derive from the abstract base class `LightComponent` and share these properties:
 
-**Color:** The color of the light. Alpha is ignored.
+**Color:** The color of the light in [Gamma space](https://en.wikipedia.org/wiki/SRGB). Alpha is ignored.
 
 **Intensity:** The brightness of the light. For point and spot lights, intensity also defines how far the light shines.
 
