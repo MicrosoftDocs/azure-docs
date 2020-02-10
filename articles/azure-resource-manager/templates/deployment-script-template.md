@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 02/07/2020
 ms.author: jgao
 
 ---
@@ -24,7 +24,7 @@ Learn how to use deployment scripts in Azure Resource templates. With a new reso
 The benefits of deployment script:
 
 - Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
-- You can specify the script language and platform. Currently, only Azure PowerShell deployment scripts on the Linux environment are supported.
+- You can specify the script language and platform. Currently, only Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
 - Allow specifying the identities that are used to execute the scripts. Currently, only [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
@@ -52,7 +52,7 @@ The benefits of deployment script:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell version 2.7.0, 2.8.0 or 3.0.0**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+- **Azure PowerShell version 3.0.0, 2.8.0 or 2.7.0** or **Azure CLI version 2.0.80, 2.0.79, 2.0.78 or 2.0.77**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
 
 ## Resource schema
 
@@ -62,9 +62,9 @@ The following json is an example.  The latest template schema can be found [here
 {
   "type": "Microsoft.Resources/deploymentScripts",
   "apiVersion": "2019-10-01-preview",
-  "name": "myDeploymentScript",
+  "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
-  "kind": "AzurePowerShell",
+  "kind": "AzurePowerShell", // or AzureCLI
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
@@ -73,7 +73,7 @@ The following json is an example.  The latest template schema can be found [here
   },
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -97,13 +97,13 @@ The following json is an example.  The latest template schema can be found [here
 Property value details:
 
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
-- **kind**: Specify the type of script. Currently, only Azure PowerShell script is support. The value is **AzurePowerShell**.
+- **kind**: Specify the type of script. Currently, only Azure PowerShell and Azure CLI scripts are support. The value are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- **azPowerShellVersion**: Specify the Azure PowerShell module version to be used. Deployment script currently supports version 2.7.0, 2.8.0, and 3.0.0.
+- **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. Deployment script currently supports Azure PowerShell version 2.7.0, 2.8.0, 3.0.0 and Azure CLI version 2.0.80, 2.0.79, 2.0.78, 2.0.77.
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
-- **primaryScriptUri**: Specify a publicly accessible Url to the primary powershell script with supported PowerShell file extension.
-- **supportingScriptUris**: Specify an array of publicly accessible Urls to supporting powershell files that will be called in either `ScriptContent` or `PrimaryScriptUri`.
+- **primaryScriptUri**: Specify a publicly accessible Url to the primary deployment script with supported file extensions.
+- **supportingScriptUris**: Specify an array of publicly accessible Urls to supporting files that are called in either `ScriptContent` or `PrimaryScriptUri`.
 - **timeout**: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
 - **cleanupPreference**. Specify the preference of cleaning up deployment resources when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 - **retentionInterval**: Specify the interval for which the service retains the deployment script resources after the deployment script execution reaches a terminal state. The deployment script resources will be deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The default value is **P1D**, which means seven days. This property is used when cleanupPreference is set to *OnExpiration*. The *OnExpiration* property is not enabled currently. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
@@ -169,7 +169,7 @@ Supporting script files can be called from both inline scripts and primary scrip
 
 The supporting files are copied to azscripts/azscriptinput at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
-## Work with outputs from deployment scripts
+## Work with outputs from PowerShell deployment scripts
 
 The following template shows how to pass values between two deploymentScripts resources:
 
@@ -180,6 +180,14 @@ In the first resource, you define a variable called **$DeploymentScriptOutputs**
 ```json
 reference('<ResourceName>').output.text
 ```
+
+## Work with outputs from CLI deployment scripts
+
+Different than the Powershell version, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_DEPLOYMENTS_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is ran from a Resource Manager template, this environment variable is set automatically for you by the Bash shell that we created.
+
+Deployment script outputs must be saved in AZ_DEPLOYMENTS_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, if you want to store an array of strings, you must do: { “MyResult”: [ “foo”, “bar”] }, storing just the array results in an error, meaning if the file content is: [ “foo”, “bar” ] it will be treating as invalid.
+
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 
 ## Debug deployment scripts
 
@@ -258,6 +266,13 @@ Deployment script execution is an idempotent operation. If none of the deploymen
 > Write the deployment scripts that are idempotent. This ensures that if they run again accidentally, it will not cause system changes. For example, if the deployment script is used to create an Azure resource, verify the resource doesn't exist before creating it, so the script will succeed or you don't create the resource again.
 
 ## Configure development environment
+
+
+•	You can pull the image by running:
+o	docker pull mcr.microsoft.com/azure-cli:{version}
+o	Also, is worth mentioning that this is not a custom image we built, we use the ones available in mcr.
+
+
 
 Currently, deployment script supports Azure PowerShell version 2.7.0, 2.8.0, and 3.0.0.  If you have a Windows computer, you can install one of the supported Azure PowerShell versions and start developing and testing deployment scripts.  If you don't have a Windows computer or you don't have one of these Azure PowerShell versions installed, you can use a pre-configured docker container image. The following procedure shows you how to configure the docker image on Windows. For Linux and Mac, you can find the information on the Internet.
 
