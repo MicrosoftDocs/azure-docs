@@ -75,10 +75,6 @@ You can also perform the following workspace management tasks:
 | Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Create a Notebook VM |   | **&check;** | |     |
 
-> [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US**, **East US 2**, **North Europe** or **UK South**, with support for other regions coming soon.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
-
 ## <a name='create-workspace'></a> Create a workspace
 
 When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
