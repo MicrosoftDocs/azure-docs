@@ -64,7 +64,7 @@ The counter tile under the drop-down lists rolls-up the total number of storage 
 Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage metrics that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage workbooks](#detailed-storage-workbooks) section below. 
 
 >[!NOTE]
->For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+>For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/monitor-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 The default **Availability** threshold is:
 

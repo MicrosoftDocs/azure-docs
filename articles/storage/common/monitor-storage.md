@@ -319,7 +319,7 @@ Here's an example:
 
 Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, navigate to your event hub, and then verify that the **incoming messages** count is greater than zero. 
 
-![Audit logs](media/storage-logs-in-azure-monitor/event-hub-log.png)
+![Audit logs](media/monitor-storage/event-hub-log.png)
 
 You can access and read log data that is sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
 
