@@ -1,10 +1,10 @@
 ---
-title: Azure Monitor view designer to workbooks conversion options
+title: Azure Monitor view designer to workbooks tile conversions
 description: 
 author: austonli
 ms.author: aul
 ms.service: azure-monitor
-ms.subservice: visualization
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/07/2020
 
@@ -44,7 +44,7 @@ search *
 | render piechart
 ```
 
-For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-tasks.md).
 
 Following is an example of how the donut & list tile might be reinterpreted in workbooks:
 
@@ -84,7 +84,7 @@ search *
 | render linechart_
 ```
 
-For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-tasks.md).
 
 Following is an example of how the linechart & list tile might be reinterpreted in workbooks:
 
@@ -117,7 +117,7 @@ Leave the **Title** section blank and select **Left**. Change the value for **Us
 ![Tile Settings](media/view-designer-conversion-tiles/tile-settings.png)
 
  
-For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-tasks.md).
 
 Following is an example of how the number & list tile might be reinterpreted in workbooks:
 
@@ -151,7 +151,7 @@ There are two options for visualizing the query as a bar chart:
  ![Visualization menu](media/view-designer-conversion-tiles/set-by-query.png)
 
  
-For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-steps.md).
+For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-tasks.md).
 
 Following is an example of how the timeline & list tile might be reinterpreted in workbooks:
 

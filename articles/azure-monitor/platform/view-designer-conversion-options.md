@@ -4,7 +4,7 @@ description:
 author: austonli
 ms.author: aul
 ms.service: azure-monitor
-ms.subservice: visualization
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/07/2020
 
@@ -40,4 +40,4 @@ With workbooks, we allow the user to choose to query one or both sections of the
 ![Convert](media/view-designer-conversion-options/convert-donut.png)
 
 
-### [Common steps converting views to workbooks](view-designer-conversion-steps.md)
+### [Common tasks converting views to workbooks](view-designer-conversion-tasks.md)
