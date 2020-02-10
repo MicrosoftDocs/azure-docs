@@ -45,7 +45,7 @@ To create an app in an ASE:
 
 1. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
-	a. From the Azure portal left side menu select **Create a resource > Web App**.
+	a. From the Azure portal left side menu, select **Create a resource > Web App**.
 
 	b. Select the subscription.
 	,
@@ -87,27 +87,31 @@ App Service has the ability to allocate a dedicated IP address to an app. The ca
 
 With an external ASE, you can configure IP-based SSL for your app in the same manner that you do in the multitenant App Service. There is always one spare address in the ASE up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
 
-## Front-end scaling ##
+## Front end scaling ##
 
 When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. The front ends automatically scale out at a rate of one front end for every total 15 instances in your App Service plans. For example, if you have three App Service plans of five instances each, you would have a total of 15 instances and three front ends. If you scale to a total of 30 instances, then you have four front ends, and so on. 
 
-The number of front ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change that in the portal to two or four core instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to 2 core front ends before adjusting the scale ratio. Changing the core size of your front ends will cause an upgrade of your ASE and should be performed outside of regular business hours.
+The number of front ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change the size of the front ends in the portal to two or four core sizes instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to two core front ends before adjusting the scale ratio. Changing the core size of your front ends will cause an upgrade of your ASE and should be performed outside of regular business hours.
 
-Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
+Front end resources are the HTTP/HTTPS endpoint for the ASE. With the default front end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
 ## App access ##
 
-In an External ASE, the domain that's used when you create apps is different from the multitenant App Service. It includes the name of the ASE. For more information on how to create an External ASE, see [Create an App Service environment][MakeExternalASE]. The domain name in an External ASE looks like *.&lt;asename&gt;.p.azurewebsites.net*. For example, if your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
+In an External ASE, the domain suffix used for app creation is *.&lt;asename&gt;.p.azurewebsites.net*. For example, if your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-The URL contoso.scm.external-ase.p.azurewebsites.net is used to access the Kudu console or for publishing your app by using web deploy. For information on the Kudu console, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
+For more information on how to create an External ASE, see [Create an App Service environment][MakeExternalASE]
 
-In an ILB ASE, the domain name is *.&lt;asename&gt;.appserviceenvironment.net*. For more information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE]. If you specify the ASE name name _ilb-ase_, the apps in that ASE use that domain during app creation. For the app named _contoso_, the URLs are:
+In an ILB ASE, the domain suffix used for app creation is *.&lt;asename&gt;.appserviceenvironment.net*. For example, if your ASE is named _ilb-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
+
+For more information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE]. 
+
+The scm URL is used to access the Kudu console or for publishing your app by using web deploy. For information on the Kudu console, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
 
 ## Publishing ##
 
@@ -185,13 +189,13 @@ The upgradePreferences feature really makes the most sense when you have multipl
 
 The pricing SKU called **Isolated** is only for use with ASE. All App Service plans that are hosted in the ASE are in the Isolated pricing SKU. Isolated App Service plan rates can vary per region. 
 
-In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of 1 additional front-end for every 15 App Service plan instances.  
+In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of 1 additional front end for every 15 App Service plan instances.  
 
-If the default scale rate of one front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front-ends are added or the size of the front-ends.  When you adjust the ratio or size, you pay for the front-end cores that would not be added by default.  
+If the default scale rate of one front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front ends are added or the size of the front ends.  When you adjust the ratio or size, you pay for the front end cores that would not be added by default.  
 
 For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 
-If you adjusted the size of the front-ends to 2 cores but do not adjust the ratio, then you pay for the extra cores.  An ASE is created with two front-ends, so even below the automatic scaling threshold you would pay for two extra cores if you increased the size to two core front-ends.
+If you adjusted the size of the front ends to two cores but do not adjust the ratio, then you pay for the extra cores.  An ASE is created with two front ends, so even below the automatic scaling threshold you would pay for two extra cores if you increased the size to two core front ends.
 
 For more information, see [Azure App Service pricing][Pricing].
 
