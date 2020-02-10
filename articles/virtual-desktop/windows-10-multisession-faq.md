@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/11/2020
 ms.author: helohr
 ---
 # Windows 10 Enterprise multi-session FAQ
