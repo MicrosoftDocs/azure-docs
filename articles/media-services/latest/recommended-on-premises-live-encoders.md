@@ -26,7 +26,7 @@ ms.service: media-services
 
 In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. The Live Event receives live input streams in one of two ways.
 
-* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not enabled to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass-through channel. We don't recommend this configuration because it doesn't allow for adaptive bitrate streaming to the client.
+* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not enabled to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass-through channel. We don't recommend this configuration because it doesn't allow for adaptive bitrate streaming to the client. We recommend the live encoder to send multi-bitrate streams to a pass-through channel.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
@@ -43,7 +43,8 @@ Encoders must support TLS 1.2 when using HTTPS or RTMPS protocols.
 
 Media Services recommends using one of following live encoders that have RTMP as output. The supported URL schemes are `rtmp://` or `rtmps://`.
 
-When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
+When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.<br/>
+When streaming via RTMPS, check firewall and/or proxy settings to confirm that outbound TCP ports 2935 and 2936 are open.
 
 > [!NOTE]
 > Encoders must support TLS 1.2 when using RTMPS protocols.
@@ -55,7 +56,7 @@ When streaming via RTMP, check firewall and/or proxy settings to confirm that ou
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
-- Telestream Wirecast (version 13.0.02 or higher due to the TLS 1.2 requirement)
+- Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
