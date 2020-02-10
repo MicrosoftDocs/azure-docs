@@ -106,7 +106,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
     * The environment ingestion rate would be: **20,000 devices * 200 bytes/event * 1 event/sec = 4 MBps**.
     * The per partition rate would be 1 MBps.
-    * Contoso Fleet Analytics can submit a request to Time Series Insights through Azure Portal to increase the ingestion rate for their environment.
+    * Contoso Fleet Analytics can submit a request to Time Series Insights through Azure portal to increase the ingestion rate for their environment.
 
 #### Hub partitions and per partition limits
 
