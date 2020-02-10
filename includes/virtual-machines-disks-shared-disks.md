@@ -10,15 +10,9 @@
  ms.custom: include file
 ---
 
-Azure shared disks (preview) is a new feature for Azure managed disks that enables you to attach an Azure managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. 
+Azure shared disks (preview) is a new feature for Azure managed disks that enables attaching an Azure managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
 
-VMs in the cluster can read or write to your attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is a well-known industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
-
-## How it works
-
-Managed disks with shared disks enabled offer shared block storage that can be accessed by multiple VMs, this is exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
-
-Managed disks with shared disks enabled do not natively offer a fully-managed file system that can be accessed using SMB. You will need to use a clustered manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication as well as write locking.
+Managed disks with shared disks enabled offer shared block storage that can be accessed by multiple VMs, this is exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM. Managed disks with shared disks enabled do not natively offer a fully-managed file system that can be accessed using SMB. You will need to use a clustered manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication as well as write locking.
 
 ## Limitations
 
@@ -29,8 +23,6 @@ Managed disks with shared disks enabled do not natively offer a fully-managed fi
 [!INCLUDE [virtual-machines-disks-shared-disk-sizes](virtual-machines-disks-shared-disk-sizes.md)]
 
 ## Sample workloads
-
-There could be a number of clustered servers, file systems, and database servers running in your on-premises production environment. The following common workloads may run on your clustered systems:
 
 ### Windows
 
@@ -43,7 +35,6 @@ Some popular applications running on WSFC include:
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
 - SAP ASCS/SCS
-- Other 3rd-party applications.
 
 ### Linux
 
@@ -53,20 +44,20 @@ Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.cl
 
 The following diagram illustrates a sample 2-node clustered database application that leverages SCSI PR to enable failover from one node to the other.
 
-![shared-disk-two-node-cluster-diagram.png](media/virtual-machines-disks-shared-disks/shared-disk-two-node-cluster-diagram.png)
+![shared-disk-updated-two-node-cluster-diagram.png](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 The flow is as follows:
 
 1. The clustered application running on both Azure VM1 and VM2 registers its intent to read or write to the disk.
 1. The application instance on VM1 then takes exclusive reservation to write to the disk.
 1. This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 will not succeed.
-1. If the application instance on VM1 goes down, the instance on VM2 can now initiate a database failover and take-over of the disk (simple or hostile).
-1. This reservation is now enforced on the Azure disk and the disk will no longer accept writes from the application on VM1. It will only accept writes from the application on VM2.
+1. If the application instance on VM1 goes down, the instance on VM2 can now initiate a database failover and take-over of the disk.
+1. This reservation is now enforced on the Azure disk and the disk will no longer accept writes from VM1. It will only accept writes from VM2.
 1. The clustered application can complete the database failover and serve requests from VM2.
 
 The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from the disk for running parallel processes, such as training of machine learning models.
 
-![shared-disk-machine-learning-trainer-model.png](media/virtual-machines-disks-shared-disks/shared-disk-machine-learning-trainer-model.png)
+![shared-disk-updated-machine-learning-trainer-model.png](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 The flow is as follows:
 
