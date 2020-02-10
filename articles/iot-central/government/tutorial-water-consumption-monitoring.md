@@ -53,7 +53,7 @@ This template includes a sample water consumption device template, a simulated d
 1. Select **Create app** to open the **New application** creation form with the following fields:
     * **Application name**: By default, the application uses *Water consumption monitoring* followed by a unique ID string that Azure IoT Central generates. Optionally, choose a friendly application name. You can change the application name later, too.
     * **URL**: Azure IoT Central autogenerates a URL based on the application name. You can choose to update the URL to your liking. You can change the URL later, too.
-    * If you have an Azure subscription, enter your **Directory**, **Azure subscription**, and **Location**. If you don't have a subscription, you can select the **7-day free trial** option and complete the required contact information.
+    * If you have an Azure subscription, enter your **Directory**, **Azure subscription**, and **Location** information. If you don't have a subscription, you can select the **7-day free trial** option and complete the required contact information.
 
     For more information about directories and subscriptions, see [Create an application quickstart](../core/quick-deploy-iot-central.md).
 
@@ -172,7 +172,7 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
     ![Smart Valve 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
 
-1. On the **Commands** tab, you can see the three device commands **Close valve**, **Open valve**, and **Set valve position** that are capabilities defined in the **Smart Valve** device template.
+1. On the **Commands** tab, you can see the three device commands (**Close valve**, **Open valve**, and **Set valve position**) that are capabilities defined in the **Smart Valve** device template.
 
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
@@ -206,9 +206,8 @@ Now let's create an email action.
 To add an action to the rule:
 
 1. Select **+ Email**.
-1. Enter *High pH alert* as the friendly **Display name** for the action.
-    * Enter the email address associated with your Azure IoT Central account in **To**.
-
+1. Enter **High pH alert** as the friendly **Display name** for the action.
+1. Enter the email address associated with your Azure IoT Central account in **To**.
 1. Optionally, enter a note to include in the text of the email.
 1. Select **Done** to complete the action.
 1. Select **Save** to save and activate the new rule.
@@ -227,7 +226,7 @@ To create a new rule:
 In Azure IoT Central, jobs allow you to trigger device or cloud property updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. Azure IoT Central automates the workflow for you.
 
 1. Select **Jobs** on the left pane.
-2. Select **+ New**, and configure one or more jobs.
+1. Select **+ New**, and configure one or more jobs.
 
 ## Customize your application
 
@@ -238,7 +237,7 @@ As a builder, you can change several settings to customize the user experience i
 1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
 1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
 
-   ![Azure IoT Central customize your application](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
+   ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
 1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
 1. Finally, you can also change the **Theme** by selecting the **Settings** icon in the upper-right corner of the application.
@@ -248,7 +247,7 @@ As a builder, you can change several settings to customize the user experience i
 If you're not going to continue to use this application, delete it.
 
 1. Select **Administration** on the left pane of your Azure IoT Central application.
-2. Select **Application settings**, and then select **Delete** at the bottom of the page.
+1. Select **Application settings**, and then select **Delete** at the bottom of the page.
 
 ## Next steps
 
