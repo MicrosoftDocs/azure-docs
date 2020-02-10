@@ -15,22 +15,6 @@ ms.author: victorh
 
 There's more than one way to deploy Azure Firewall Manager Preview, but the following general process is recommended.
 
-## Prerequisites
-
-> [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
->From a PowerShell command prompt, run the following commands:
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->It takes up to 30 minutes for the feature registration to complete. Run the following command to check your >registration status:
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
-
-
 ## General deployment process
 
 1. Create your hub and spoke architecture
