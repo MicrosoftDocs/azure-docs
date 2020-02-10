@@ -26,7 +26,7 @@ Azure Remote Rendering has two distinct material types:
 
 ## Mesh vs. MeshComponent material assignment
 
-[Meshes](meshes.md) have one or more submeshes. Each submesh references one material. You can change the material to use either directly on the mesh, or you can override which material to use for a submesh on a [MeshComponent](meshes.md#MeshComponent).
+[Meshes](meshes.md) have one or more submeshes. Each submesh references one material. You can change the material to use either directly on the mesh, or you can override which material to use for a submesh on a [MeshComponent](meshes.md#meshcomponent).
 
 When you modify a material directly on the mesh resource, this change affects all instances of that mesh. Changing it on the MeshComponent, however, only affects that one mesh instance. Which method is more appropriate depends on the desired behavior, but modifying a MeshComponent is the more common approach.
 
