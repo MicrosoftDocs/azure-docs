@@ -35,7 +35,7 @@ This article describes the differences between self-hosted and managed versions 
 You can build your developer portal in two ways:
 
 - **Managed version** - by editing and customizing the portal, which is built into your API Management instance and is accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize the managed portal.
-- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. You also need to upgrade the portal to the latest version yourself. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][4]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is also featured in the self-hosted version.
+- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. You also need to upgrade the portal to the latest version yourself. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][3]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is also featured in the self-hosted version.
 
 ## Portal architectural concepts
 
@@ -100,7 +100,7 @@ Deprecation of the legacy portals will be announced separately. If you have ques
 
 ### Functionality I need isn't supported in the portal
 
-Use the self-hosted version and [implement your own widget][4].
+Use the self-hosted version and [implement your own widget][3].
 
 ### How can I automate portal deployments?
 
@@ -228,14 +228,12 @@ Learn more about the new developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
 - [Set up self-hosted version of the portal][2]
-- [Implement your own widget][4]
+- [Implement your own widget][3]
 
 Browse other resources:
 
 - [GitHub repository with the source code][1]
-- [Public roadmap of the project][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend
