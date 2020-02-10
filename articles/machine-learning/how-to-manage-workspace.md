@@ -56,6 +56,9 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
  
  1. To view the new workspace, select **Go to resource**.
 
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors such as `Unexpected status code: 500` when attempting to use the workspace.
+
 ### Download a configuration file
 
 1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
@@ -101,7 +104,6 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 Use the Delete button at the top of the workspace you wish to delete.
 
   ![Delete button](./media/how-to-manage-workspace/delete-workspace.png)
-
 
 ## Clean up resources
 
