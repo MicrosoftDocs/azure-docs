@@ -18,9 +18,9 @@ In this how-to, you learn how to assign an Azure Active Directory (AAD) identity
 
 ## Prerequisites
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
-- Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+- Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
 - An Azure Machine Learning web service deployed to your AKS cluster.
 
@@ -120,7 +120,7 @@ Once the pods are up and running, the web services for this deployment will now 
 
 ## Assign the appropriate roles to your Azure Identity
 
-[Assign your Azure Managed Identity with appropriate roles](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) to access other Azure resources. Ensure that the roles you are assigning have the correct **Data Actions**. For example, the [Storage Blob Data Reader Role](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) will have read permissions to your Storage Blob while the generic [Reader Role](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) might not.
+[Assign your Azure Managed Identity with appropriate roles](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) to access other Azure resources. Ensure that the roles you are assigning have the correct **Data Actions**. For example, the [Storage Blob Data Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) will have read permissions to your Storage Blob while the generic [Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) might not.
 
 ## Use your Azure Identity with your machine learning web service
 
