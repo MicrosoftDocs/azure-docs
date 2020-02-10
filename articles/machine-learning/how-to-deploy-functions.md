@@ -115,7 +115,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with the value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `package.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -174,7 +174,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 1. Create the storage account to use for the blob trigger storage and get it's connection string. Replace `<triggerStorage>` with the name you want to use.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
