@@ -1,4 +1,4 @@
-- name: Create an account for Azure Remote Rendering
+- name: Create an Azure Remote Rendering account
   href: create-an-account.md
 - name: Get service access tokens
   href: tokens.md
