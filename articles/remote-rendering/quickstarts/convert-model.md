@@ -142,7 +142,7 @@ The configuration within the **accountSettings** group (account ID and key) shou
 Inside the **azureStorageSettings** group, make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
-To fill out **azureSubscriptionId**, go to the [Azure Portal](https://ms.portal.azure.com/#home) and navigate to the subscriptions:
+To fill out **azureSubscriptionId**, go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate to the subscriptions:
 
 ![Subscription](./media/azure-subscription-button.png)
 
