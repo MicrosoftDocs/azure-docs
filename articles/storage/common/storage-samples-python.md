@@ -4,7 +4,7 @@ description: View, download, and run sample code and applications for Azure Stor
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/06/2019
+ms.date: 02/11/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
@@ -17,7 +17,7 @@ The following tables provide an overview of our samples repository and the scena
 ## Blob samples
 
 | &nbsp; | &nbsp; |
-|----------|----------|
+|--------|--------|
 | [Blob Service client authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L45) | [Container client authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L50) |
 | [Blob client authorization from connection string blob](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L56) | [Create Blob Service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L66) |
 | [Create blob client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L75) | [Create blob client SAS URL](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_authentication.py#L80) |
@@ -43,7 +43,7 @@ The following tables provide an overview of our samples repository and the scena
 ## File samples
 
 | &nbsp; | &nbsp; |
-|----------|----------|
+|--------|--------|
 | [Create Share service client from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_authentication.py#L42) | [Create Share service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_authentication.py#L49) |
 | [Generate SAS token](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_authentication.py#L59) | [Create file](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L48) |
 | [Upload file](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L54) | [Download file](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_client.py#L60) |
@@ -62,30 +62,31 @@ The following tables provide an overview of our samples repository and the scena
 | [List files in directory](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L87) | |
 
 
-## Queue samples (v2.1)
+## Queue samples
 
-| **Scenario** | **Sample Code** |
-|--------------|-----------------|
-| Add Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L94) |
-| Client-Side Encryption | [Managing storage account keys in Azure Key Vault with Python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
-| Create Queues | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L75) |
-| Delete Message/Queue | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L144) |
-| Peek Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L110) |
-| Queue ACL/Metadata/Stats | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L148) |
-| Queue Service Properties | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
-| Update Message | [Getting Started with Azure Queue Service in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
+| &nbsp; | &nbsp; |
+|--------|--------|
+| [Authorization from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_authentication.py#L50) | [Create queue service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_authentication.py#L60) |
+| [Create queue service client token](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_authentication.py#L69) | [Create queue](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_hello_world.py#L45) |
+| [Delete queue](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_hello_world.py#L62) | [Create queue client from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L35) |
+| [Set access policy](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L47) | [Generate queue client SAS token](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L61) |
+| [Create queue client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L72) | [Set queue metadata](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L95) |
+| [Get queue properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L100) | [Send messages](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L117) |
+| [Receive messages](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L125) | [Delete message](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L165) |
+| [Clear messages](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L173) | [Peek message](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L197) |
+| [Update message](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_message.py#L222) | [Set queue service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L35) |
+| [Get queue service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L67) | [Create queue](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L76) |
+| [List queues](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L81) | [Delete queue](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L94) |
+| [Get queue client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L103) | &nbsp; |
 
-## Table samples (v2.1)
+## Table samples (SDK v2.1)
 
-| **Scenario** | **Sample Code** |
-|--------------|-----------------|
-| Create Table | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
-| Delete Entity/Table | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79) |
-| Insert/Merge/Replace Entity | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57) |
-| Query Entities | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62) |
-| Query Tables | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) |
-| Table ACL/Properties | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_advanced_samples.py#L138) |
-| Update Entity | [Getting Started with Azure Table Service in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L68) |
+| &nbsp; | &nbsp; |
+|--------|--------|
+| [Create Table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) | [Delete Entity/Table](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79) |
+| [Insert/Merge/Replace Entity](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57) | [Query Entities](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62) |
+| [Query Tables](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py) | [Table ACL/Properties](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_advanced_samples.py#L138) |
+| [Update Entity](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L68) | &nbsp; |
 
 ## Azure code sample libraries
 
@@ -97,8 +98,6 @@ To view the complete sample libraries, go to:
 * [Azure queue code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
 
 You can browse and clone the GitHub repository for each library.
-
-[!INCLUDE [storage-python-samples-include](../../../includes/storage-python-samples-include.md)]
 
 ## Getting started guides
 
