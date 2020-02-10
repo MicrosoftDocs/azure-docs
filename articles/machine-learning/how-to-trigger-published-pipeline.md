@@ -71,15 +71,15 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 
     ```json
     "DataPathAssignments": { 
-                            "input_datapath": { 
-                            "DataStoreName": "<datastore-name>", 
+         "input_datapath": { 
+                            "DataStoreName": "<datastore-name>", 
                             "RelativePath": "@triggerBody()?['Name']" 
-                            } 
-                            }, 
-                            "ExperimentName": "MyRestPipeline", 
-                            "ParameterAssignments": { 
-                                "input_string": "sample_string3" 
-                            },
+    } 
+    }, 
+    "ExperimentName": "MyRestPipeline", 
+    "ParameterAssignments": { 
+    "input_string": "sample_string3" 
+    },
     ```
 
     Use the `DataStoreName` you added to your workspace as a [Prerequisite](#prerequisites).
