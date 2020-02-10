@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/18/2020
 ms.author: victorh
 ---
 
@@ -18,7 +18,7 @@ Azure Firewall Manager can provide security management for two network architect
    An [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) is a Microsoft-managed resource that lets you easily create hub and spoke architectures. When security and routing policies are associated with such a hub, it's referred to as a *[secured virtual hub](secured-virtual-hub.md)*. 
 - **hub virtual network**
 
-   This is a standard Azure virtual network that you create and manages yourself. You create the *hub virtual network* that contains the firewall, and peer the spoke virtual networks that contain your workload servers and services.
+   This is a standard Azure virtual network that you create and manages yourself. You create the *hub virtual network* that contains the firewall, and peer the spoke virtual networks that contain your workload servers and services. It's also possible to manage firewalls in standalone virtual networks that are not peered to any spoke.
 
 ## Comparison
 
