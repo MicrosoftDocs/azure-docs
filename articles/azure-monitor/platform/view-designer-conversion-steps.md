@@ -51,12 +51,17 @@ In your query add the line: `| where TimeGenerated {TimeRange}`.
 
 For example:
 
+**Original query**
 ```KQL
-//Original query
-search * \| summarize count() by Type
+search * 
+| summarize count() by Type
+```
 
-//Updatedquery 
-search * \| where TimeGenerated {TimeRange} \| summarize count() by Type
+**Updated query**
+```KQL
+search * 
+| where TimeGenerated {TimeRange} 
+| summarize count() by Type
 ```
 
 ## Including a List
@@ -70,11 +75,14 @@ Add a visualization by clicking **Add query** from the cell options.
 
 View designer employs a default query that matches the syntax from the Original example. This can be updated by changing the query to the updated form.
 
+**Original query**
 ```KQL
-//Original query
-search * | summarize AggregatedValue = count() by Type
+search * 
+| summarize AggregatedValue = count() by Type
+```
 
-//Updated query
+**Updated query**
+```KQL
 search * | summarize Count = count() by Type
 ```
 
@@ -85,13 +93,15 @@ This will generate a list that looks similar to the following:
 ## Enabling sparklines
 A common feature for grids is to add sparklines to summarize various data patterns over time. View designer offers the **Enable Sparklines** feature for all lists, as does workbooks. To include sparklines in your data that match view designer,join the data with your original query as in the following example:
 
+Original query
 ```KQL
-//Original query
-_search *
-| summarize AggregatedValue = count() by Type) on Type_
+search *
+| summarize AggregatedValue = count() by Type) on Type
+```
 
-// Updated query
-_search * 
+Updated query
+```KQL
+search * 
 | summarize AggregatedValue = count() by Type
 | join kind = inner (search * 
     | make-series Trend = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type) on Type
