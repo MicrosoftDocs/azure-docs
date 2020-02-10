@@ -2,18 +2,14 @@
 title: Create client-side performance traces
 description: Best practices for client-side performance profiling using WPF
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.service: azure-remote-rendering
 ---
 
 # Create client-side performance traces
 
-There are many reasons why the performance of Azure Remote Rendering may not be as good as desired. Apart from pure rendering performance on the cloud server, especially the quality of the network connection has a significant influence on the experience. To profile the server's performance, refer to chapter [Server-side performance queries](../overview/features/concepts-performance-queries.md).
+There are many reasons why the performance of Azure Remote Rendering may not be as good as desired. Apart from pure rendering performance on the cloud server, especially the quality of the network connection has a significant influence on the experience. To profile the server's performance, refer to chapter [Server-side performance queries](../overview/features/performance-queries.md).
 
 This chapter focuses on how to identify potential client-side bottlenecks through *performance traces*.
 
@@ -128,4 +124,4 @@ The image above shows views of various ARR-specific events plus a view of the ov
 
 ## Next steps
 
-* [Server-side performance queries](../overview/features/concepts-performance-queries.md)
+* [Server-side performance queries](../overview/features/performance-queries.md)
