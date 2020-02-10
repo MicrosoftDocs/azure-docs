@@ -90,7 +90,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
 > [!TIP] 
 > * Environment support for ingesting speeds up to 16 MBps can be provided by request.
-> * Contact us if you require higher throughput by submitting a support ticket through Azure Portal.
+> * Contact us if you require higher throughput by submitting a support ticket through Azure portal.
  
 * **Example 1:**
 
