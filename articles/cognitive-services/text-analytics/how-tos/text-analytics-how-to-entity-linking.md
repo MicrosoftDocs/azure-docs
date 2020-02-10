@@ -121,7 +121,8 @@ Each document must be under 5,120 characters, and you can have up to 1,000 items
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following links to quickly structure and send one. 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
 #### [Version 3.0-preview](#tab/version-3)
 
