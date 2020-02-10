@@ -24,11 +24,11 @@ Some example uses for an *emptyDir* volume:
 
 Data in an *emptyDir* volume is persisted through container crashes. Containers that are restarted, however, are not guaranteed to persist the data in an *emptyDir* volume. If you stop a container group, the *emptyDir* volume is not persisted.
 
-The maximum size of a Linux emptyDir volume is 50 GB.
+The maximum size of a Linux *emptyDir* volume is 50 GB.
 
 ## Mount an emptyDir volume
 
-To mount an emptyDir volume in a container instance, you can deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups) or a [YAML file](container-instances-reference-yaml.md).
+To mount an emptyDir volume in a container instance, you can deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups), a [YAML file](container-instances-reference-yaml.md), or other programmatic methods to deploy a container group.
 
 First, populate the `volumes` array in the container group `properties` section of the file. Next, for each container in the container group in which you'd like to mount the *emptyDir* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
