@@ -178,3 +178,7 @@ The ID attribute of the **ContentDefinition** element specifies the type of page
 | **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign up page, except for the password entry fields. |
 | **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page** - Handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. |
 
+
+See the following article for example of customize the user interface using content definitions:
+
+- [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](custom-policy-ui-customization.md)
