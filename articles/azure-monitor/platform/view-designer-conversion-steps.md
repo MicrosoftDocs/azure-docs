@@ -39,7 +39,7 @@ Save the parameter in the upper left corner of the sidebar menu. You can leave t
 
 Parameters can be used in queries by adding curly braces {} around your parameter name. More details on parameters can be found in the [Workbooks documentation on parameters](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md).
 
-## Updating queries with the TimeRange Parameter
+## Updating queries with the TimeRange parameter
 
 ### Option 1: Select TimeRange from the Time Range dropdown
 
@@ -51,13 +51,13 @@ In your query add the line: `| where TimeGenerated {TimeRange}`.
 
 For example:
 
-### Original query
+#### Original query
 ```KQL
 search * 
 | summarize count() by Type
 ```
 
-### Updated query
+#### Updated query
 ```KQL
 search * 
 | where TimeGenerated {TimeRange} 
