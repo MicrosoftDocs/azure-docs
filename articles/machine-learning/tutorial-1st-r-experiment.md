@@ -15,9 +15,17 @@ ms.date: 02/07/2020
 # Tutorial: Create a logistic regression model in R with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial you'll create a logistic regression model using **caret** to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
+In this tutorial you'll create a logistic regression model to predict the likelihood of a fatality in an automobile accident using R with Azure Machine Learning. After completing this tutorial, you'll have the practical knowledge of the Azure Machine Learning R SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you perform the following tasks:
+> [!div class="checklist"]
+> * Connect your workspace
+> * Load data and prepare for training
+> * Upload data to the datastore so it is available for remote training
+> * Create a compute resource
+> * Train a caret model to predict probability of fatality
+> * Deploy a prediction endpoint
+> * Test the model from R
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -363,5 +371,6 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
+* Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
+* Explore the rest of the vignettes in the **vignettes** folder in the cloned project.
