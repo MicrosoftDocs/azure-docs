@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
 ---
 
@@ -93,7 +93,7 @@ Enter the following command at a command-line to run the program. It will send t
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-go.md).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

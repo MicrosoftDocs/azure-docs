@@ -40,7 +40,7 @@ You must have the following resources installed:
 To install the aks-preview 0.4.14 extension or later, use the following Azure CLI commands:
 
 ```azurecli
-az extension update --name aks-preview
+az extension add --name aks-preview
 az extension list
 ```
 
