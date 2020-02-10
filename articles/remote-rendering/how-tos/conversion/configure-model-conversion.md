@@ -115,12 +115,7 @@ This parameter can be set to false when ray-cast support is not required.
 
 ### Converting from older FBX formats, which don't carry a metalness value
 
-* `fbxAssumeMetallic` - 
-
- By default, FBX materials with a highly specular material are treated as if they were metallic, and
-            /// the diffuse color dissolves away.
-            /// This parameter can be set to false to preserve diffuse color when there is a bright specular value.
-
+* `fbxAssumeMetallic` - Older versions of the FBX format define their materials using a Phong material model. The conversion process has to infer how these materials map to the renderer's [PBR model](../../concepts/materials.md#pbr-material), and usually this works well. However, an ambiguity can arise when a material has no textures, high specular values, and a colorful (i.e. non-grey) albedo color. In this circumstance, the conversion has to choose between prioritizing the high specular values, defining a highly reflective, metallic material where the albedo color dissolves away, or prioritizing the albedo color, defining something like a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in cases where ambiguity applies. This parameter can be set to false to make the opposite assumption.
 
 ### Coordinate system overriding
 
