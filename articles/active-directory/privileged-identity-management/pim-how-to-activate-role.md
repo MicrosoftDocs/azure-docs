@@ -57,11 +57,11 @@ When you need to assume an Azure AD role, you can request activation by using th
 
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
 
-    ![Verify my identity with MFA before role activation](./media/pim-how-to-activate-role/resources-my-roles-mfa.png)
+    ![Verify my identity with MFA before role activation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. Select **Verify my identity** and follow the instructions to provide additional security verification.
 
-    ![Screen to provide security verification such as a PIN code](./media/pim-how-to-activate-role/resources-mfa-enter-code.png)
+    ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. If you want to specify a reduced scope, select **Scope** to open the filter pane. On the filter pane, you can specify the Azure AD resources that you need access to. It's a best practice to request access to only the resources you need.
 
@@ -69,7 +69,7 @@ When you need to assume an Azure AD role, you can request activation by using th
 
 1. In the **Reason** box, enter the reason for the activation request.
 
-    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-how-to-activate-role/activate-done.png)
+    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-how-to-activate-role/activation-done.png)
 
 1. Select **Activate**.
 
@@ -77,7 +77,7 @@ When you need to assume an Azure AD role, you can request activation by using th
 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
-    ![Activation request is pending approval notification](./media/pim-how-to-activate-role/resources-my-roles-activate-notification.png)
+    ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## Use a role immediately after activation
 
@@ -119,7 +119,7 @@ If you do not require activation of a role that requires approval, you can cance
 
     When you select Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
-   ![My request list with Cancel action highlighted](./media/pim-how-to-activate-role/resources-my-requests-cancel.png)
+   ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## Troubleshoot
 
