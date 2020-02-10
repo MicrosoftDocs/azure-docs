@@ -41,6 +41,7 @@ You need:
 * A blob storage container for your output data
 * A model to convert, see [sample models](../samples/sample-model.md)
   * See the list of [supported source formats](../how-tos/conversion/model-conversion.md#supported-source-formats)
+  * To use the sample conversion script, prefer a self-contained source model file with no external dependencies (textures, meshes)
 
 ## Azure setup
 
@@ -59,7 +60,7 @@ From the new screen, choose **Storage** on the left side and then **Storage acco
 
 ![Azure - add storage](media/azure-add-storage.png)
 
-Clicking this button will bring up the following new screen with storage properties to fill out:
+Clicking this button will bring up the following screen with storage properties to fill out:
 
 ![Azure Setup](media/azure-setup1.png)
 
@@ -107,9 +108,9 @@ You should now have two blob storage containers:
 To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**. 
 
 In particular, this script
-* uploads a source model from local disk to input storage
-* calls the conversion API
-* retrieves a link to the converted model in the output storage
+1. uploads a source model from local disk to input storage
+1. calls the conversion API
+1. retrieves a link to the converted model in the output storage
 
 The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
 
@@ -157,7 +158,7 @@ Change **modelLocation** to point to the file on your disk that you intend to co
 > The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md) supports handling external files as well. To upload files manually, refer to options in chapter [blob storage](../how-tos/conversion/blob-storage.md#uploading-an-input-model).
 
 
-Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [Prerequisites](#prerequisites). Then log into your subscription:
+Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription:
 
 ```powershell
 PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
@@ -180,7 +181,7 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 
 ## Optional: Re-creating a SAS URI
 
-For the following optional step, it is required to have the *Azure Storage Explorer* installed (see [Prerequisites](#prerequisites)), because relevant operations are only available with *Storage Explorer* tool, not through the portal.
+For the following optional step, it is required to have the *Azure Storage Explorer* installed (see [prerequisites](#prerequisites)), because relevant operations are only available with *Storage Explorer*, not through the portal.
 
 The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, open Azure Storage Explorer and navigate to the *arroutput* blob storage container.
 You will find the converted model file in there as an *arrAsset* file.
