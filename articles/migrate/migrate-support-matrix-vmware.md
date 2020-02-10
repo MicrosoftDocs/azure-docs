@@ -37,7 +37,7 @@ In addition to discovering machines, Azure Migrate: Server Assessment can discov
 **Machine operating system** | All Windows and Linux versions.
 **vCenter credentials** | A vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **VM credentials** | Currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
-**VMware tools** | VMware tools must be installed and running on VMs you want to discover.
+**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/> If your VMware tools version is between 9.10 - 10.2.0, please ensure you upgrade it to beyond 10.2.0.
 **Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
 **Limits** | For app-discovery  you can discover up to 10000 per appliance. 
 

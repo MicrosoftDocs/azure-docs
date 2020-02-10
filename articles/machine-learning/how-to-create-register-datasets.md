@@ -170,7 +170,9 @@ To create a dataset in the studio:
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, or public URLs.
 1. Select **Tabular** or **File** for Dataset type.
-1. Select **Next** to review the **Settings and preview**, **Schema** and **Confirm details** forms; they are intelligently populated based on file type. Use these forms to check your selections and to further configure your dataset prior to creation.  
+1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset. 
+1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
+1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-create-portal-experiments.md#profile). 
 1. Select **Create** to complete your dataset creation.
 
 ## Register datasets
