@@ -2,14 +2,14 @@
 title: Microsoft identity platform videos | Azure
 description: A list of videos about the Microsoft identity platform
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
-ms.author: twhitney
+ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 ---
@@ -28,6 +28,18 @@ Learn about the Microsoft identity platform and the Microsoft Authentication lib
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        Introduction to the MSAL libraries
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
         How MSAL makes authentication easier

@@ -388,7 +388,7 @@
               href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
             - name: 404001 DeviceNotFound
               href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-            - name: 404003 DeviceNotOnline
+            - name: 404103 DeviceNotOnline
               href: iot-hub-troubleshoot-error-404103-devicenotonline.md
             - name: 404104 DeviceConnectionClosedRemotely
               href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
@@ -412,15 +412,15 @@
       href: /cli/azure/iot
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iot
+    - name: .NET (Device)
+      href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
-    - name: .NET (Devices)
-      href: /dotnet/api/microsoft.azure.devices.client
+    - name: Java (Device)
+      href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
       href: /java/api/com.microsoft.azure.sdk.iot.service
-    - name: Java (Devices)
-      href: /java/api/com.microsoft.azure.sdk.iot.device
-    - name: Node.js (Devices)
+    - name: Node.js (Device)
       href: https://docs.microsoft.com/javascript/api/azure-iot-device/
     - name: Node.js (Service)
       href: https://docs.microsoft.com/javascript/api/azure-iothub/
