@@ -102,7 +102,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     3. ***Programming Tips for Direct Mode***
 
-        [Review the Cosmos DB Async Java SDK Troubleshooting document](https://docs.microsoft.com/en-us/azure/cosmos-db/troubleshoot-java-async-sdk) as a baseline for resolving any Async Java SDK issues.
+        [Review the Cosmos DB Async Java SDK Troubleshooting document](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-java-async-sdk) as a baseline for resolving any Async Java SDK issues.
 
         Some important programming tips when using Direct mode:
 
@@ -110,7 +110,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
         + **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex data processing are best placed in a separate thread. A request that pulls in data from another data store (i.e. because the thread utilizes Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an additional thread that awaits a response from the other data store.
 
-            + The underlying network IO in the Async Java SDK is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](https://docs.microsoft.com/en-us/azure/cosmos-db/troubleshoot-java-async-sdk#invalid-coding-pattern-blocking-netty-io-thread).
+            + The underlying network IO in the Async Java SDK is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-java-async-sdk#invalid-coding-pattern-blocking-netty-io-thread).
 
         + **Data modeling** - *The Cosmos DB SLA assumes document size <1KB.* Optimizing your data model and programming to favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than 1KB, the recommended approach is for Cosmos DB documents to link to data in Azure Blob Storage.
 
