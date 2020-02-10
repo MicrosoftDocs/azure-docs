@@ -13,10 +13,10 @@ ms.service: azure-remote-rendering
 
 # Overriding materials during model conversion
 
+During conversion, the material settings in the source model are used to define the [PBR materials](../../concepts/materials.md#pbr-material) used by the renderer.
+Sometimes the default conversion does not give the desired results, and adjustments need to be made.
 When a model is converted for use in Azure Remote Rendering, a material-override file can be provided to customize how material conversion is done, on a per-material basis.
-By default, the settings in the source model are used to define the **physically-based rendering** (**PBR**) materials used by the renderer.
-Sometimes this conversion is not perfect, 
-See the section on [configuring model conversion](configure-model-conversion.md) for instructions about providing the material override filename.
+See the section on [configuring model conversion](configure-model-conversion.md) for instructions about declaring the material override filename.
 
 ## The override file used during conversion
 
@@ -37,7 +37,7 @@ In this case, a `box_materials_override.json` file can be created as follows:
 ]
 ```
 
-The `box_materials_override.json` file is placed in the input container, and add a `ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
+The `box_materials_override.json` file is placed in the input container, and a `ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
 
 ```json
 {
