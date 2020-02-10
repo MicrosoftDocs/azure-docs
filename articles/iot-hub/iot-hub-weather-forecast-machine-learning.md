@@ -56,7 +56,7 @@ In this section you get the weather prediction model from the Azure AI Gallery a
 
 1. Click **Open in Studio (classic)** to open the model in Microsoft Azure Machine Learning Studio (classic).
 
-   ![Open the weather prediction model in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Open the weather prediction model in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
 ### Add an R-script module to clean temperature and humidity data
 
@@ -66,11 +66,11 @@ For the model to behave correctly, the temperature and humidity data must be con
 
    ![Select Execute R Script module](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
-1. Drag the **Execute R Script** module near the **Clean Missing Data** module and the existing **Execute R Script** module on the experiment canvas. Connect the inputs and outputs as shown.
+1. Drag the **Execute R Script** module near the **Clean Missing Data** module and the existing **Execute R Script** module on the diagram. Delete the connection between the **Clean Missing Data** and the **Execute R Script** modules and then connect the inputs and outputs of the new module as shown.
 
    ![Add Execute R Script module](media/iot-hub-weather-forecast-machine-learning/add-r-script-module.png)
 
-1. Select the new **Execute R Script** module to open its properties window. Copy and paste the following code into the **R Script** box. Make sure **CRAN R** is selected for the R version.
+1. Select the new **Execute R Script** module to open its properties window. Copy and paste the following code into the **R Script** box.
 
    ```r
    # Map 1-based optional input ports to variables
@@ -91,17 +91,17 @@ For the model to behave correctly, the temperature and humidity data must be con
 
 ### Deploy predictive web service
 
+In this section, you validate the model, set up a predictive web service based on the model, and then deploy the web service.
+
 1. Click **Run** to validate the steps in the model. This step might take a few minutes to complete.
 
    ![Run the experiment to validate the steps](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Click **SET UP WEB SERVICE** > **Predictive Web Service**.
+1. Click **SET UP WEB SERVICE** > **Predictive Web Service**. The predictive experiment diagram opens.
 
    ![Deploy the weather prediction model in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
-1. In the diagram, drag the **Web service input** module somewhere near the **Score Model** module.
-
-1. Connect the **Web service input** module to the **Score Model** module.
+1. In the diagram, delete the connection between the **Web service input** module and the **Weather Dataset** at the top. Then drag the **Web service input** module somewhere near the **Score Model** module and connect it as shown:
 
    ![Connect two modules in Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 
@@ -114,7 +114,7 @@ For the model to behave correctly, the temperature and humidity data must be con
    > [!Note]
    > Make sure that you download the **Excel 2010 or earlier workbook** even if you are running a later version of Excel on your computer.
 
-   ![Download the Excel for the REQUEST RESPONSE endpoint](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
+   ![Download the Excel for the REQUEST RESPONSE endpoint](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
 1. Open the Excel workbook, make a note of the **WEB SERVICE URL** and **ACCESS KEY**.
 
