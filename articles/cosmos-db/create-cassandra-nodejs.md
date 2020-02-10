@@ -27,7 +27,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition, you need:
-* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) version v0.10.29 or higher
 * [Git](https://git-scm.com/)
 
 ## Create a database account
@@ -187,6 +187,9 @@ Now go back to the Azure portal to get your connection string information and co
 2. Open `uprofile.js` and change the `path\to\cert` to point to your new certificate.
 
 3. Save `uprofile.js`.
+
+> [!NOTE]
+> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format. See [here](https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format).
 
 ## Run the Node.js app
 
