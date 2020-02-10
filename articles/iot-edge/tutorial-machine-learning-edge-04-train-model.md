@@ -4,7 +4,7 @@ description: 'In this tutorial, you will train a machine learning model using Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/5/2020
+ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -129,7 +129,7 @@ Now that the project is created, you can run the notebooks.
 
     ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. At this point, you can run the cells. It is optimal to run all the cells so that the code in the cells runs sequentially. Select **Run All** from the **Cell** menu. Scroll back up through the notebook and review how the cell operations are completed.
+1. At this point, you can run the rest of the cells. It is optimal to run all the cells so that the code in the cells runs sequentially. Select **Run All** from the **Cell** menu. Scroll back up through the notebook and review how the cell operations are completed.
 
     In the **Explore the data** section, you can review cells in the **Sensor readings and RUL** subsection that render scatterplots of sensor measurements.
 
