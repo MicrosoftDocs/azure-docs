@@ -87,7 +87,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - Internal -->
-[openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
+[openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: azure-ad-integration-cli.md
