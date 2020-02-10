@@ -20,7 +20,7 @@ In this quickstart, you deploy a Java Spring Boot application to Azure Service F
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-#### [Mac](#tab/mac)
+#### [MacOS](#tab/macos)
 
 - [Java environment and Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
