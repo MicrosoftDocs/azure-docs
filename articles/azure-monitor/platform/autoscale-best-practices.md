@@ -107,7 +107,7 @@ Similarly, when autoscale switches back to the default profile, it first checks 
 
 ### Considerations for scaling when multiple rules are configured in a profile
 
-There are cases where you may have to set multiple rules in a profile. The following autoscale rules are used by services when multiple rules are set.
+There are cases where you may have to set multiple rules in a profile. The following autoscale rules are used by the autoscale engine when multiple rules are set.
 
 On *scale-out*, autoscale runs if any rule is met.
 On *scale-in*, autoscale require all rules to be met.
@@ -127,13 +127,13 @@ Then the follow occurs:
 On the other hand, if CPU is 25% and memory is 51% autoscale does **not** scale-in. In order to scale-in, CPU must be 29% and Memory 49%.
 
 ### Always select a safe default instance count
-The default instance count is important autoscale scales your service to that count when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
+The default instance count is important because autoscale scales your service to that count when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
 
 ### Configure autoscale notifications
 Autoscale will post to the Activity Log if any of the following conditions occur:
 
-* Autoscale issues a scale operation
-* Autoscale service successfully completes a scale action
+* Autoscale issues a scale operation.
+* Autoscale service successfully completes a scale action.
 * Autoscale service fails to take a scale action.
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.

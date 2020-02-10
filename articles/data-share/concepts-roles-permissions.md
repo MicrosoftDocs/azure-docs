@@ -86,7 +86,7 @@ To learn more about how to add a role assignment, refer to [this documentation,]
 
 ## Resource provider registration 
 
-To view Azure Data Share invitation for the first time in your Azure tenant, you may need to manually register the Microsoft.DataShare resource provider into your Azure subscription. Follow these steps to register the Microsoft.DataShare resource provider into your Azure Subscription. 
+To view Azure Data Share invitation for the first time in your Azure tenant, you may need to manually register the Microsoft.DataShare resource provider into your Azure subscription. Follow these steps to register the Microsoft.DataShare resource provider into your Azure Subscription. You need *Contributor* access to the Azure subscription to register resource provider.
 
 1. In the Azure portal, navigate to **Subscriptions**.
 1. Select the subscription that you're using for Azure Data Share.
