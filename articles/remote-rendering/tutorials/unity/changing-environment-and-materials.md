@@ -30,7 +30,7 @@ This tutorial assumes that you are familiar with [the previous tutorial](working
 
 ## Change the environment map
 
-Azure Remote Rendering supports the use of [sky boxes](../../overview/features/sky.md) (sometimes also called 'environment maps') to simulate ambient lighting. This is especially useful when your objects use *[Physically Based Rendering](../../concepts/materials.md#pbr-material)*, as our sample models do. ARR also comes with a variety of built-in sky textures, that we will use in this tutorial.
+Azure Remote Rendering supports the use of [sky boxes](../../overview/features/sky.md) (sometimes also called 'environment maps') to simulate ambient lighting. This is especially useful when your objects use *[Physically Based Rendering](../../overview/features/pbr-materials.md)*, as our sample models do. ARR also comes with a variety of built-in sky textures, that we will use in this tutorial.
 
 Create a new script called **RemoteSky** and add it to a new GameObject. Open the script file and replace it with the following code:
 
