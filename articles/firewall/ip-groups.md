@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 02/19/2020
 ms.author: victorh
 ---
 
@@ -38,10 +38,10 @@ The following IPv4 address format examples are valid to use in IP Groups:
 An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group (preview)](create-ip-group.md).
 
 ## Browse IP Groups
-1. In the Azure portal search bar, type **IP Groups** and select it. Select **Add** to create an IP Group  or you can see the list of all created IP Groups. 
-2. Select an IP Group to open the **Manage** page. You can edit, add, or delete IP addresses or IP Groups.
+1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
+2. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
 
--- screenshot --
+   ![IP Groups overview](media/ip-groups/overview.png)
 
 ## Manage an IP Group
 
@@ -57,7 +57,7 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
--- screenshot --
+![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
 
 ## Region availability
 
