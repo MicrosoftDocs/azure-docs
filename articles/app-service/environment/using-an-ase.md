@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
 
-- **Front ends**: The front ends are where HTTP/HTTPS terminates in an App Service environment (ASE).
+- **Front-ends**: The front-ends are where HTTP/HTTPS terminates in an App Service environment (ASE).
 - **Workers**: The workers are the resources that host your apps.
 - **Database**: The database holds information that defines the environment.
 - **Storage**: The storage is used to host the customer-published apps.
@@ -87,13 +87,13 @@ App Service has the ability to allocate a dedicated IP address to an app. The ca
 
 With an external ASE, you can configure IP-based SSL for your app in the same manner that you do in the multitenant App Service. There is always one spare address in the ASE up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
 
-## Front end scaling ##
+## Front-end scaling ##
 
-When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. The front ends automatically scale out at a rate of one front end for every total 15 instances in your App Service plans. For example, if you have three App Service plans of five instances each, you would have a total of 15 instances and three front ends. If you scale to a total of 30 instances, then you have four front ends, and so on. 
+When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front-ends. The front-ends automatically scale out at a rate of one front-ends for every total 15 instances in your App Service plans. For example, if you have three App Service plans of five instances each, you would have a total of 15 instances and three front-ends. If you scale to a total of 30 instances, then you have four front-ends, and so on. 
 
-The number of front ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change the size of the front ends in the portal to two or four core sizes instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to two core front ends before adjusting the scale ratio. Changing the core size of your front ends will cause an upgrade of your ASE and should be performed outside of regular business hours.
+The number of front-ends that are allocated by default are good for a moderate load. You can change the ratio to as low as one front-ends for every five instances. You can also change the size of the front-ends. By default they are single core. You can change the size of the front-ends in the portal to two or four core sizes instead. There is a charge for changing the ratio or the front-ends sizes. For more information, see [Azure App Service pricing][Pricing]. If you are looking to improve the load capacity of your ASE, you will get more improvement by first scaling to two core front-ends before adjusting the scale ratio. Changing the core size of your front-ends will cause an upgrade of your ASE and should be performed outside of regular business hours.
 
-Front end resources are the HTTP/HTTPS endpoint for the ASE. With the default front end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
+Front-ends resources are the HTTP/HTTPS endpoint for the ASE. With the default front-ends configuration, memory usage per front-ends is consistently around 60 percent. Customer workloads don't run on a front-ends. The key factor for a front-ends with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
 ## App access ##
 
@@ -133,7 +133,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Storage
 
-An ASE has 1 TB of storage for all of the apps within the ASE. An Isolated SKU App Service plan has a limit of 250 GB by default. If you have 5 or more App Service plans, you need to be careful that you do not exceed the 1 TB limit of the ASE. If you require more than the 250 GB limit in one App Service plan, contact support to adjust the App Service plan limit to a maximum of 1 TB. When the plan limit is adjusted, there is still a limit of 1 TB across all of the App Service plans in the ASE. 
+An ASE has 1 TB of storage for all of the apps within the ASE. An Isolated SKU App Service plan has a limit of 250 GB by default. If you have five or more App Service plans, you need to be careful that you do not exceed the 1 TB limit of the ASE. If you require more than the 250 GB limit in one App Service plan, contact support to adjust the App Service plan limit to a maximum of 1 TB. When the plan limit is adjusted, there is still a limit of 1 TB across all of the App Service plans in the ASE. 
 
 ## Logging ##
 
@@ -189,13 +189,13 @@ The upgradePreferences feature really makes the most sense when you have multipl
 
 The pricing SKU called **Isolated** is only for use with ASE. All App Service plans that are hosted in the ASE are in the Isolated pricing SKU. Isolated App Service plan rates can vary per region. 
 
-In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of 1 additional front end for every 15 App Service plan instances.  
+In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of one additional front-ends for every 15 App Service plan instances.  
 
-If the default scale rate of one front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front ends are added or the size of the front ends.  When you adjust the ratio or size, you pay for the front end cores that would not be added by default.  
+If the default scale rate of one front-ends for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front-ends are added or the size of the front-ends.  When you adjust the ratio or size, you pay for the front-ends cores that would not be added by default.  
 
-For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
+For example, if you adjust the scale ratio to 10, a front-end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front-end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front-end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 
-If you adjusted the size of the front ends to two cores but do not adjust the ratio, then you pay for the extra cores.  An ASE is created with two front ends, so even below the automatic scaling threshold you would pay for two extra cores if you increased the size to two core front ends.
+If you adjusted the size of the front-ends to two cores but do not adjust the ratio, then you pay for the extra cores.  An ASE is created with two front-ends, so even below the automatic scaling threshold you would pay for two extra cores if you increased the size to two core front-ends.
 
 For more information, see [Azure App Service pricing][Pricing].
 
