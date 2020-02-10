@@ -131,6 +131,8 @@
           href: how-to-enable-virtual-network.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
+        - name: Use Azure AD identity in AKS deployments
+          href: how-to-use-azure-ad-identity.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
       - name: Set up authentication
