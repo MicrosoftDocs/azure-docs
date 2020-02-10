@@ -37,6 +37,7 @@ The contents of the file should satisfy the following json schema:
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
         "generateCollisionMesh" : { "type" : "boolean", "default" : true },
         "unlitMaterials" : { "type" : "boolean", "default" : false },
+        "fbxAssumeMetallic" : { "type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
@@ -111,6 +112,15 @@ This parameter can be set to false when ray-cast support is not required.
 ### Unlit materials
 
 * `unlitMaterials` - To override all materials in the scene to work as a constantly shaded surface that is independent of lighting. That is, all materials are created as [color materials](../../concepts/materials.md#color-material) as opposed to [PBR materials](../../concepts/materials.md#pbr-material).
+
+### Converting from older FBX formats, which don't carry a metalness value
+
+* `fbxAssumeMetallic` - 
+
+ By default, FBX materials with a highly specular material are treated as if they were metallic, and
+            /// the diffuse color dissolves away.
+            /// This parameter can be set to false to preserve diffuse color when there is a bright specular value.
+
 
 ### Coordinate system overriding
 
