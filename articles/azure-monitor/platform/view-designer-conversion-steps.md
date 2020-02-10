@@ -47,17 +47,15 @@ Parameters can be used in queries by adding curly braces {} around your paramete
 
 ### Option 2: Update your log queries
 
-In your query add the line: `| where TimeGenerated {TimeRange}`.
+In your query add the line: `| where TimeGenerated {TimeRange}` as in the following example:
 
-For example:
-
-#### Original query
+Original query
 ```KQL
 search * 
 | summarize count() by Type
 ```
 
-#### Updated query
+Updated query
 ```KQL
 search * 
 | where TimeGenerated {TimeRange} 
@@ -73,17 +71,18 @@ Add a visualization by clicking **Add query** from the cell options.
 
 ![Add Param](media/view-designer-conversion-steps/add-param.png)
 
-View designer employs a default query that matches the syntax from the Original example. This can be updated by changing the query to the updated form.
+View designer employs a default query that matches the syntax from the Original example. This can be updated by changing the query to the updated form as in the following example:
 
-**Original query**
+Original query
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Type
 ```
 
-**Updated query**
+Updated query
 ```KQL
-search * | summarize Count = count() by Type
+search * 
+| summarize Count = count() by Type
 ```
 
 This will generate a list that looks similar to the following:

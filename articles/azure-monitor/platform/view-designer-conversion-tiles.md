@@ -27,14 +27,17 @@ For both start by selecting **Add query** and paste the original query from view
 
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
 
-For example:
+**Example**
 
+Original query
 ```KQL
-//Original query
-search * | summarize AggregatedValue = count() by Type 
+search * 
+| summarize AggregatedValue = count() by Type 
 | order by AggregatedValue desc
+```
 
-//Updated query
+Updated query
+```KQL
 search * 
 | summarize AggregatedValue = count() by Type 
 | order by AggregatedValue desc 
@@ -52,12 +55,13 @@ Following is an example of how the donut & list tile might be reinterpreted in w
 
 To recreate the linechart portion update the query as follows:
 
+Original query
 ```KQL
-//Original query
 search * 
 | summarize AggregatedValue = count() by Type
 
-//Updated query
+Updated query
+```KQL
 search * 
 | make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type
 ```
@@ -72,7 +76,8 @@ There are two options for visualizing the line chart
 
  ![Visualization Menu](media/view-designer-conversion-tiles/set-by-query.png)
 
-For example:
+**Example**
+
 ```KQL
 search * 
 | make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type 
@@ -91,12 +96,14 @@ Following is an example of how the linechart & list tile might be reinterpreted 
 
 For the number tile, update the query as follows:
 
+Original query
 ```KQL
-Original query:
 search * 
 | summarize AggregatedValue = count() by Computer | count
+```
 
-//Updated query
+Updated query
+```KQL
 search *
 | summarize AggregatedValue = count() by Computer 
 | summarize Count = count()
@@ -120,15 +127,16 @@ Following is an example of how the number & list tile might be reinterpreted in 
 
  ![Timeline List](media/view-designer-conversion-tiles/time-list.png)
 
-For the timeline update you query as follows:
+For the timeline update your query as follows:
 
-```KQL
 Original query
+```KQL
 search * 
 | sort by TimeGenerated desc
+```
 
-
-//Updated query
+Updated query
+```KQL
 search * 
 | summarize Count = count() by Computer, bin(TimeGenerated,{TimeRange:grain})
 ```
