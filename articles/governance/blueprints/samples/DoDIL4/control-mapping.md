@@ -1,7 +1,7 @@
 ---
-title: Sample - DoD Impact Level 4 blueprint - Control mapping
+title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 02/05/2020
+ms.date: 02/09/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
