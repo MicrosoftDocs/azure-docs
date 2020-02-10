@@ -9,6 +9,8 @@
   items:
   - name: Secure your cloud network - portal
     href: secure-cloud-network.md
+  - name: Secure your hybrid network - portal
+    href: secure-hybrid-network.md
 - name: Concepts
   items:
   - name: What is a secured virtual hub?
