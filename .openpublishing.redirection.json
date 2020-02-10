@@ -38622,7 +38622,7 @@
     },
     {
       "source_path": "articles/billing/billing-set-up-alerts.md",
-      "redirect_url": "/azure/billing/billing-getting-started",
+      "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
       "redirect_document_id": false
     },
     {
