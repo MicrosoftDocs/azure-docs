@@ -19,9 +19,12 @@ Migrating from another identity provider to Azure Active Directory B2C (Azure AD
 
 ## Bulk import
 
-In the bulk import flow, your migration application reads user accounts in the old identity provider and creates corresponding accounts in your Azure AD B2C directory.
+In the bulk import flow, your migration application performs these steps for each user account:
 
-Use the bulk import flow in either of these scenarios:
+1. Read the user account from the old identity provider, including its current credentials (username and password).
+1. Create a corresponding account in your Azure AD B2C directory with the current credentials.
+
+Use the bulk import flow in either of these two situations:
 
 - You have access to a user's plaintext credentials (their username and password).
 - The credentials are encrypted, but you can decrypt them.
@@ -30,27 +33,34 @@ For information about programmatically creating user accounts, see [Manage Azure
 
 ## Seamless migration
 
-The seamless migration flow applies when a user's password in the old identity provider is not accessible. For example:
+Use the seamless migration flow if plaintext passwords in the old identity provider are not accessible. For example, when:
 
-- The password is stored in a one-way encrypted format, such has with a hash function.
-- The password is stored in an identity provider that you can't access. Your legacy identity provider validates the user credential by calling a web service.
+- The password is stored in a one-way encrypted format, such as with a hash function.
+- The password is stored by the legacy identity provider in a way that you can't access. For example, when the identity provider validates credentials by calling a web service.
 
-As with the bulk import flow, your migration application reads the user accounts in the old identity provider and creates corresponding accounts in the Azure AD B2C directory, but does not set a password. The first time a migrated user signs in, their password is validated against the legacy identity provider, and if it matches, that password is set for the user in Azure AD B2C.
+The seamless migration flow still requires bulk migration of user accounts, but then uses a [custom policy](restful-technical-profile.md) to query a [REST API](rest-api-claims-exchange-dotnet.md) (which you create) to set each users' password at first sign-in.
 
-The seamless migration approach uses a [custom policy](restful-technical-profile.md) to query a [REST API](rest-api-claims-exchange-dotnet.md) that you create.
+The seamless migration flow thus has two phases: *bulk import* and *set credentials*.
 
-When a user with a migrated account first signs in, the custom policy performs the following steps:
+### Phase 1: Bulk import
 
-1. Read the Azure AD B2C user account that corresponds to the email address entered.
+1. Your migration application reads the user accounts from the old identity provider.
+1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *does not set passwords*.
+
+### Phase 2: Set credentials
+
+After bulk migration of the accounts is complete, your custom policy and REST API then perform the following when a user signs in:
+
+1. Read the Azure AD B2C user account corresponding to the email address entered.
 1. Check whether the account is flagged for migration by evaluating a boolean extension attribute.
     - If the extension attribute returns `True`, call your REST API to validate the password against the legacy identity provider.
-      1. If the REST API determines the password is incorrect, return a friendly error to the user.
-      1. If the REST API determines the password is correct, write the password into the Azure AD B2C account and change the boolean extension attribute to `False`.
+      - If the REST API determines the password is incorrect, return a friendly error to the user.
+      - If the REST API determines the password is correct, write the password to the Azure AD B2C account and change the boolean extension attribute to `False`.
     - If the boolean extension attribute returns `False`, continue the sign-in process as normal.
 
-![Seamless migration](./media/user-migration/diagram-01-seamless-migration.png)
-
 To see an example custom policy and REST API, see the [seamless user migration sample](https://aka.ms/b2c-account-seamless-migration) on GitHub.
+
+![Flowchart diagram of the seamless migration approach to user migration](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagram: Seamless migration flow*
 
 ## Best practices
 
