@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 02/10/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -81,8 +81,22 @@ For each deployment name, the location is immutable. You can't create a deployme
 For subscription-level deployments, there are some important considerations when using template functions:
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Or, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
+* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. Don't provide a value for the resource group parameter.
+
+  For example, to get the resource ID for a policy definition, use:
+  
+  ```json
+  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  ```
+  
+  The returned resource ID has the following format:
+
+  ```json
+  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+  Or, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
 
 ## Create resource groups
 
@@ -93,7 +107,7 @@ The following template creates an empty resource group.
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
       "type": "string"
@@ -121,7 +135,7 @@ Use the [copy element](create-multiple-instances.md) with resource groups to cre
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgNamePrefix": {
       "type": "string"
@@ -162,7 +176,7 @@ The following example creates a resource group, and deploys a storage account to
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
       "type": "string"
