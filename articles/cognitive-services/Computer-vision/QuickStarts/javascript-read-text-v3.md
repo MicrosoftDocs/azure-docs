@@ -64,12 +64,18 @@ To create and run the sample, do the following steps:
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
 
+        const params = {
+            language: language,
+        };
+
+        const searchParams = new URLSearchParams(params);
+
         // This operation requires two REST API calls. One to submit the image
         // for processing, the other to retrieve the text found in the image.
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase,
+            url: uriBase + "?" + searchParams.toString(),
 
             // Request headers.
             beforeSend: function(jqXHR){
@@ -80,7 +86,7 @@ To create and run the sample, do the following steps:
             type: "POST",
 
             // Request body.
-            data: JSON.stringify({url: sourceImageUrl, language: language}),
+            data: JSON.stringify({url: sourceImageUrl}),
         })
 
         .done(function(data, textStatus, jqXHR) {
