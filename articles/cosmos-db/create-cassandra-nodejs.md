@@ -200,7 +200,7 @@ Now go back to the Azure portal to get your connection string information and co
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.
 >
-> You should now have a properly formatted .cer file.
+> You should now have a properly formatted .cer file. Ensure that the path in `uprofile.js` points to this file.
 
 ## Run the Node.js app
 
