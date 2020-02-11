@@ -345,7 +345,7 @@
       - name: SQL Workbench/J
         href: /azure/databricks/bi/workbenchj
         maintainContext: true
-    - name: Partner data Integrations
+    - name: Partner data integrations
       items:
       - name: Partner integrations overview
         href: /azure/databricks/integrations/ingestion/index
