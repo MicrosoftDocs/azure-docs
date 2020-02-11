@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
+> * Create and edit budgets with PowerShell
 > * Edit a budget
 
 ## Prerequisites
@@ -162,6 +163,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
+> * Create and edit budgets with PowerShell
 > * Edit a budget
 
 Advance to the next tutorial to create a recurring export for your cost management data.
