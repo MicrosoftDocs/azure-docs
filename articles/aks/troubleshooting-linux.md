@@ -14,13 +14,22 @@ ms.author: aleldeib
 
 Resource exhaustion on Linux machines is a common issue and can manifest through a wide variety of symptoms. This document provides a high-level overview of the tools available to help diagnose such issues.
 
-Many of these tools accept an interval on which to produce rolling output. This output format typically makes spotting patterns much easier. Where accepted, the example invocation will include `[interval]`
+Many of these tools accept an interval on which to produce rolling output. This output format typically makes spotting patterns much easier. Where accepted, the example invocation will include `[interval]`.
 
-This document draws heavily on Brendan Gregg's "Linux Performance Analysis in 60 seconds".
+Many of these tools have an extensive history and wide set of configuration options. This page provides only a simple subset of invocations to highlight common problems. The canonical source of information is always the reference documentation for each particular tool. That documentation will be much more thorough than what is provided here.
 
-## Guidance
+This document draws heavily on Brendan Gregg's ["Linux Performance Analysis in 60 seconds"](http://www.brendangregg.com/blog/2015-12-03/linux-perf-60s-video.html).
 
-Be systematic in your approach to investigating performance issues. Two common approaches are USE (utilization, saturation, errors) and RED (rate, errors, duration). RED is typically used in the context of services for request-based monitoring. USE is typically used for monitoring resources: for each resource in a machine, a user should monitor utilization, saturation, and errors. The four main kinds of resources on any machine are cpu, memory, disk, and network.
+### Guidance
+
+Be systematic in your approach to investigating performance issues. Two common approaches are USE (utilization, saturation, errors) and RED (rate, errors, duration). RED is typically used in the context of services for request-based monitoring. USE is typically used for monitoring resources: for each resource in a machine, monitor utilization, saturation, and errors. The four main kinds of resources on any machine are cpu, memory, disk, and network. High utilization, saturation, or error rates for any of these resources indicates a possible problem with the system. When a problem exists, investigate the root cause: why is disk IO latency high? Are the disks or virtual machine SKU throttled? What processes are writing to the devices, and to what files?
+
+Some examples of common issues and indicators to diagnose them:
+- IOPS throttling: use iostat to measure per-device IOPS. Ensure no individual disk is above its limit, and the sum for all disks is less than the limit for the virtual machine.
+- Throughput throttling: use iostat as for IOPS, but measuring read/write throughput. Ensure both per-device and aggregate throughput are below their limits.
+- SNAT exhaustion: this can manifest as high active (outbound) connections in SAR. 
+- Packet loss: this can be measured by proxy via TCP retransmit count relative to sent/received count. Both `sar` and `netstat` can show this information.
+
 
 ## General
 
@@ -47,7 +56,7 @@ $ dmesg | tail
 $ dmesg --level=err | tail
 ```
 
-dmesg dumps the kernel buffer, which may be useful for debugging situations such as OOMKill, which will be visible in the dmesg logs. The kernel ring buffer data is one component of what eventually ends up in Linux syslogs.
+dmesg dumps the kernel buffer. Events like OOMKill add an entry to the kernel buffer. Finding an OOMKill or other resource exhaustion messages in dmesg logs is a strong indicator of a problem.
 
 ### top
 
@@ -156,7 +165,7 @@ On an Azure VM:
 
 Non-zero values of await or avgqu-sz are also good indicators of IO contention.
 
-### Network
+## Network
 
 ### sar
 
@@ -202,3 +211,102 @@ This invocation of `sar` uses the `TCP,ETCP` keywords to examine TCP connections
 
 As `sar` takes an interval, it prints rolling output and then prints final rows of output containing the average results from the invocation.
 
+### netstat
+
+```
+$ netstat -s
+Ip:
+    71046295 total packets received
+    78 forwarded
+    0 incoming packets discarded
+    71046066 incoming packets delivered
+    83774622 requests sent out
+    40 outgoing packets dropped
+Icmp:
+    103 ICMP messages received
+    0 input ICMP message failed.
+    ICMP input histogram:
+        destination unreachable: 103
+    412802 ICMP messages sent
+    0 ICMP messages failed
+    ICMP output histogram:
+        destination unreachable: 412802
+IcmpMsg:
+        InType3: 103
+        OutType3: 412802
+Tcp:
+    11487089 active connections openings
+    592 passive connection openings
+    1137 failed connection attempts
+    404 connection resets received
+    17 connections established
+    70880911 segments received
+    95242567 segments send out
+    176658 segments retransmited
+    3 bad segments received.
+    163295 resets sent
+Udp:
+    164968 packets received
+    84 packets to unknown port received.
+    0 packet receive errors
+    165082 packets sent
+UdpLite:
+TcpExt:
+    5 resets received for embryonic SYN_RECV sockets
+    1670559 TCP sockets finished time wait in fast timer
+    95 packets rejects in established connections because of timestamp
+    756870 delayed acks sent
+    2236 delayed acks further delayed because of locked socket
+    Quick ack mode was activated 479 times
+    11983969 packet headers predicted
+    25061447 acknowledgments not containing data payload received
+    5596263 predicted acknowledgments
+    19 times recovered from packet loss by selective acknowledgements
+    Detected reordering 114 times using SACK
+    Detected reordering 4 times using time stamp
+    5 congestion windows fully recovered without slow start
+    1 congestion windows partially recovered using Hoe heuristic
+    5 congestion windows recovered without slow start by DSACK
+    111 congestion windows recovered without slow start after partial ack
+    73 fast retransmits
+    26 retransmits in slow start
+    311 other TCP timeouts
+    TCPLossProbes: 198845
+    TCPLossProbeRecovery: 147
+    480 DSACKs sent for old packets
+    175310 DSACKs received
+    316 connections reset due to unexpected data
+    272 connections reset due to early user close
+    5 connections aborted due to timeout
+    TCPDSACKIgnoredNoUndo: 8498
+    TCPSpuriousRTOs: 1
+    TCPSackShifted: 3
+    TCPSackMerged: 9
+    TCPSackShiftFallback: 177
+    IPReversePathFilter: 4
+    TCPRcvCoalesce: 1501457
+    TCPOFOQueue: 9898
+    TCPChallengeACK: 342
+    TCPSYNChallenge: 3
+    TCPSpuriousRtxHostQueues: 17
+    TCPAutoCorking: 2315642
+    TCPFromZeroWindowAdv: 483
+    TCPToZeroWindowAdv: 483
+    TCPWantZeroWindowAdv: 115
+    TCPSynRetrans: 885
+    TCPOrigDataSent: 51140171
+    TCPHystartTrainDetect: 349
+    TCPHystartTrainCwnd: 7045
+    TCPHystartDelayDetect: 26
+    TCPHystartDelayCwnd: 862
+    TCPACKSkippedPAWS: 3
+    TCPACKSkippedSeq: 4
+    TCPKeepAlive: 62517
+IpExt:
+    InOctets: 36416951539
+    OutOctets: 41520580596
+    InNoECTPkts: 86631440
+    InECT0Pkts: 14
+```
+
+`netstat` can introspect a wide variety of network stats, here invoked with summary output. There are many useful fields here depending on the issue. One useful field in the TCP section is "failed connection attempts". This may be an indication of SNAT port exhaustion or other issues making outbound connections. A high rate of retransmited segments (also under the TCP section) may indicate issues with packet delivery. 
