@@ -13,8 +13,6 @@ This document lists some of the most common Microsoft Azure limits, which are al
 
 To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](../../billing/billing-getting-started.md).
 
-For limits on resource names, see [Naming rules and restrictions for Azure resources](resource-name-rules.md).
-
 ## Managing limits
 
 If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md). The limits can't be raised above the maximum limit value shown in the following tables. If there's no maximum limit column, the resource doesn't have adjustable limits.
@@ -29,11 +27,13 @@ As a result, decide what your Azure resource group quotas must be for your workl
 
 ## General limits
 
+For limits on resource names, see [Naming rules and restrictions for Azure resources](resource-name-rules.md).
+
+For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](request-limits-and-throttling.md).
+
 ### Subscription limits
 
 The following limits apply when you use Azure Resource Manager and Azure resource groups.
-
-For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](request-limits-and-throttling.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
