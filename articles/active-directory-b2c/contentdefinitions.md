@@ -33,7 +33,7 @@ The following example shows the content definition identifier and the definition
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
@@ -73,7 +73,7 @@ The **ContentDefinition** element contains the following elements:
 
 ### DataUri
 
-The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  The following table lists of the page identifiers you can use.
+The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  The following table lists the values and descriptions of the page identifiers you can use.
 
 | Value |	Description |
 | ----- | ----------- |
@@ -142,11 +142,11 @@ The ID attribute of the **ContentDefinition** element specifies the type of page
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page** - Displays an error page when an exception or an error is encountered. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identity provider selection page** - Lists identity providers that users can choose from during sign-in. The options are usually enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identity provider selection for sign-up** - Lists identity providers that users can choose from during sign-up. The options are usually enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
-| **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Forgot password page** - Displays a form that users must complete to initiate a password reset. |
-| **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-in page** - Displays a form for signing in with a local account that's based on an email address or a user name. The form can contain a text input box and password entry box. |
-| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-up page** - Displays a form for signing up for a local account that's based on an email address or a user name. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
+| **api.localaccountpasswordreset** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Forgot password page** - Displays a form that users must complete to initiate a password reset. |
+| **api.localaccountsignin** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-in page** - Displays a form for signing in with a local account that's based on an email address or a user name. The form can contain a text input box and password entry box. |
+| **api.localaccountsignup** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-up page** - Displays a form for signing up for a local account that's based on an email address or a user name. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page** - Verifies phone numbers, by using text or voice, during sign-up or sign-in. |
-| **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Social account sign-up page** - Displays a form that users must complete when they sign up by using an existing account from a social identity provider. This page is similar to the preceding social account sign up page, except for the password entry fields. |
-| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign up page, except for the password entry fields. |
-| **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page** - Handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. |
+| **api.selfasserted** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Social account sign-up page** - Displays a form that users must complete when they sign up by using an existing account from a social identity provider. This page is similar to the preceding social account sign up page, except for the password entry fields. |
+| **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign up page, except for the password entry fields. |
+| **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page** - Handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. |
 

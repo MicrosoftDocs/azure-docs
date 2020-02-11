@@ -13,7 +13,7 @@ ms.date: 05/15/2019
 ms.author: juliako
 ---
 
-# Frequently asked questions
+# Video Indexer frequently asked questions
 
 This article answers frequently asked questions about Video Indexer.
 

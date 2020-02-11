@@ -1,18 +1,10 @@
 ---
-title: Portal prep for StorSimple Virtual Array | Microsoft Docs
+title: Portal prep for StorSimple Virtual Array
 description: First tutorial to deploy StorSimple virtual array involves preparing the Azure portal
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017

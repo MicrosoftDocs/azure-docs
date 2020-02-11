@@ -73,7 +73,7 @@ Configuration parameters are provided as JSON:
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -83,18 +83,13 @@ Configuration parameters are provided as JSON:
 Use these optional properties to configure transcription:
 
 | Parameter | Description |
-|-----------|------------|
-|`ProfanityFilterMode`|Specifies how to handle profanity in recognition results
-||**`Masked`** - Default. Replaces profanity with asterisks<br>`None` - Disables profanity filtering<br>`Removed` - Removes all profanity from the result<br>`Tags` - Adds profanity tags
-|`PunctuationMode`|Specifies to handle punctuation in recognition results
-||`Automatic` - The service inserts punctuation<br>`Dictated` - Dictated (spoken) punctuation<br>**`DictatedAndAutomatic`** - Default. Dictated and automatic punctuation<br>`None` - Disables punctuation
-|`AddWordLevelTimestamps`|Specifies if word level timestamps should be added to the output
-||`True` - Enables word level timestamps<br>**`False`** - Default. Disable word level timestamps
-|`AddSentiment`|Specifies if sentiment analysis is added to the utterance
-||`True` - Enables sentiment per utterance<br>**`False`** - Default. Disable sentiment
-|`AddDiarization`|Specifies if diarization analysis is carried out. If `true`, the input is expected to be mono channel audio containing a maximum of two voices. `AddWordLevelTimestamps` needs to be set to `true`
-||`True` - Enables diarization<br>**`False`** - Default. Disable diarization
-|`TranscriptionResultsContainerUrl`|Optional SAS token to a writeable container in Azure. The result will be stored in this container
+|-----------|-------------|
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `Masked` which replaces profanity with asterisks, `Removed` which removes all profanity from the result, or `Tags` which adds "profanity" tags. The default setting is `Masked`. |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `Dictated` which implies explicit punctuation, `Automatic` which lets the decoder deal with punctuation, or `DictatedAndAutomatic` which implies dictated punctuation marks or automatic. |
+| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
+| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
+| `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
+|`TranscriptionResultsContainerUrl`|Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result will be stored in this container.
 
 ### Storage
 
@@ -120,29 +115,29 @@ For mono input audio, one transcription result file is being created. For stereo
           "Display": string
         }
       ]
-      SegmentResults:[                                     'for each individual segment'
+      SegmentResults:[                                      'for each individual segment'
         {
-          "RecognitionStatus": Success | Failure
+          "RecognitionStatus": "Success | Failure"
           "ChannelNumber": null
-          "SpeakerId": null | "1 | 2"                     'null if no diarization
-                                                            or stereo input file, the
-                                                            speakerId as a string if
-                                                            diarization requested for
-                                                            mono audio file'
-          "Offset": number                                'time in milliseconds'
-          "Duration": number                              'time in milliseconds'
-          "OffsetInSeconds" : number                      'Real number. Two decimal places'
-          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "SpeakerId": null | "1 | 2"                       'null if no diarization
+                                                             or stereo input file, the
+                                                             speakerId as a string if
+                                                             diarization requested for
+                                                             mono audio file'
+          "Offset": number                                  'time in milliseconds'
+          "Duration": number                                'time in milliseconds'
+          "OffsetInSeconds" : number                        'Real number. Two decimal places'
+          "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
             {
-              "Confidence": number                        'between 0 and 1'
+              "Confidence": number                          'between 0 and 1'
               "Lexical": string
               "ITN": string
               "MaskedITN": string
               "Display": string
               "Sentiment":
-                {                                          'this is omitted if sentiment is
-                                                            not requested'
+                {                                           'this is omitted if sentiment is
+                                                             not requested'
                   "Negative": number                        'between 0 and 1'
                   "Neutral": number                         'between 0 and 1'
                   "Positive": number                        'between 0 and 1'
@@ -150,11 +145,11 @@ For mono input audio, one transcription result file is being created. For stereo
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                         'time in milliseconds'
-                  "Duration": number                       'time in milliseconds'
-                  "OffsetInSeconds": number                'Real number. Two decimal places'
-                  "DurationInSeconds": number              'Real number. Two decimal places'
-                  "Confidence": number                     'between 0 and 1'
+                  "Offset": number                          'time in milliseconds'
+                  "Duration": number                        'time in milliseconds'
+                  "OffsetInSeconds": number                 'Real number. Two decimal places'
+                  "DurationInSeconds": number               'Real number. Two decimal places'
+                  "Confidence": number                      'between 0 and 1'
                 }
               ]
             }

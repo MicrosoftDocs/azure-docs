@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/12/2019
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -19,27 +19,16 @@ An Automation credential asset holds an object, which contains security credenti
 > [!NOTE]
 > Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset.
 
-## Azure Classic PowerShell cmdlets
+## Azure PowerShell Az cmdlets
 
-The cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [Azure PowerShell module](/powershell/azure/overview), which is available for use in Automation runbooks and DSC configurations.
-
-| Cmdlets | Description |
-|:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Retrieves information about a credential asset. You can only retrieve the credential itself from **Get-AutomationPSCredential** activity. |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Creates a new Automation credential. |
-| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Removes an Automation credential. |
-| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Sets the properties for an existing Automation credential. |
-
-## AzureRM PowerShell cmdlets
-
-For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [AzureRM.Automation module](/powershell/azure/overview), which is available for use in Automation runbooks and DSC configurations.
+For Azure PowerShell Az module, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell. They ship as part of the [AzureAz.Automation module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), which is available for use in Automation runbooks and DSC configurations.
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Retrieves information about a credential asset. This does not return a PSCredential object.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Creates a new Automation credential. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Removes an Automation credential. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Sets the properties for an existing Automation credential. |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Retrieves information about a credential asset. This does not return a PSCredential object.  |
+| [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Creates a new Automation credential. |
+| [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Removes an Automation credential. |
+| [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Sets the properties for an existing Automation credential. |
 
 ## Activities
 
@@ -68,8 +57,8 @@ The function in the following table is used to access credentials in a Python2 r
 ### To create a new credential asset with the Azure portal
 
 1. From your automation account, select **Credentials** under **Shared Resources**.
-1. Click **+ Add a credential**.
-1. Complete the form and click **Create** to save the new credential.
+1. Select **Add a credential**.
+1. Complete the form and select **Create** to save the new credential.
 
 > [!NOTE]
 > User accounts that use multi-factor authentication are not supported for use in Azure Automation.
@@ -90,7 +79,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 You retrieve a credential asset in a runbook or DSC configuration with the **Get-AutomationPSCredential** activity. This returns a [PSCredential object](/dotnet/api/system.management.automation.pscredential) that you can use with an activity or cmdlet that requires a PSCredential parameter. You can also retrieve the properties of the credential object to use individually. The object has a property for the username and the secure password, or you can use the **GetNetworkCredential** method to return a [NetworkCredential](/dotnet/api/system.net.networkcredential) object that will provide an unsecured version of the password.
 
 > [!NOTE]
-> **Get-AzureRmAutomationCredential** does not return a **PSCredential** that can be used for authentication. It only provides information about the credential. If you need to use a credential in a runbook you must use the **Get-AutomationPSCredential** to retrieve the **PSCredential** object.
+> **Get-AzAutomationCredential** does not return a **PSCredential** that can be used for authentication. It only provides information about the credential. If you need to use a credential in a runbook you must use the **Get-AutomationPSCredential** to retrieve the **PSCredential** object.
 
 ### Textual runbook sample
 
@@ -103,7 +92,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve it with [Get-AutomationConnection](../automation-connections.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.3.0). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve it with [Get-AzAutomationConnection](../automation-connections.md).
 
 ```azurepowershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
@@ -122,7 +111,7 @@ You add a **Get-AutomationPSCredential** activity to a graphical runbook by righ
 
 ![Add credential to canvas](../media/credentials/credential-add-canvas.png)
 
-The following image shows an example of using a credential in a graphical runbook.  In this case, it's being used to provide authentication for a runbook to Azure resources as described in [Authenticate Runbooks with Azure AD User account](../automation-create-aduser-account.md).  The first activity retrieves the credential that has access to the Azure subscription.  The **Add-AzureAccount** activity then uses this credential to provide authentication for any activities that come after it.  A [pipeline link](../automation-graphical-authoring-intro.md#links-and-workflow) is here since **Get-AutomationPSCredential** is expecting a single object.  
+The following image shows an example of using a credential in a graphical runbook. In this case, it's being used to provide authentication for a runbook to Azure resources as described in [Authenticate Runbooks with Azure AD User account](../automation-create-aduser-account.md). The first activity retrieves the credential that has access to the Azure subscription. The **Connect-AzureRmAccount** activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#links-and-workflow) is here since **Get-AutomationPSCredential** is expecting a single object.  
 
 ![Add credential to canvas](../media/credentials/get-credential.png)
 

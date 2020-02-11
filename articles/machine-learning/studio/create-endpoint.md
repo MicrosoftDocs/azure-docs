@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/15/2019
 ---

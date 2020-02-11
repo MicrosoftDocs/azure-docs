@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -27,7 +27,7 @@ The following sections will highlight how workload groups provide the ability to
 
 Workload isolation means resources are reserved, exclusively, for a workload group.  Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group. 
 
-Configuring workload isolation implicitly defines a guaranteed level of concurrency. With a MIN_PERCENTAGE_RESOURCE set to 30% and REQUEST_MIN_RESOURCE_GRANT_PERCENT set to 2%, a 15-concurrency level is guaranteed for the workload group.  Consider the below method for determining guaranteed concurrency:
+Configuring workload isolation implicitly defines a guaranteed level of concurrency. For example, a workload group with a `MIN_PERCENTAGE_RESOURCE` set to 30% and `REQUEST_MIN_RESOURCE_GRANT_PERCENT` set to 2% is guaranteed 15 concurrency.  The level of concurrency is guaranteed because 15-2% slots of resources are reserved within the workload group at all times (regardless of how `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` is configured).  If `REQUEST_MAX_RESOURCE_GRANT_PERCENT` is greater than `REQUEST_MIN_RESOURCE_GRANT_PERCENT` and `CAP_PERCENTAGE_RESOURCE` is greater than `MIN_PERCENTAGE_RESOURCE` additional resources are added per request.  If `REQUEST_MAX_RESOURCE_GRANT_PERCENT` and `REQUEST_MIN_RESOURCE_GRANT_PERCENT` are equal and `CAP_PERCENTAGE_RESOURCE` is greater than `MIN_PERCENTAGE_RESOURCE`, additional concurrency is possible.  Consider the below method for determining guaranteed concurrency:
 
 [Guaranteed Concurrency] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 

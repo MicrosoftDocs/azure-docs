@@ -1,6 +1,6 @@
 ---
-title: Resize a VM in a lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to resize a virtual machine in Azure DevTest Labs
+title: Resize a VM in a lab in Azure DevTest Labs
+description: Learn how to change the size of a virtual machine (VM) in Azure DevTest Labs based on your needs for CPU, network, or disk performance.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---

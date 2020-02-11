@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 01/20/2020
 
 #Customer intent: I want to use Azure Data Factory to integrate with Azure Data Explorer.
 ---
@@ -41,6 +41,14 @@ For a detailed walk-through of the command activity, see [use Azure Data Factory
 ### Copy in bulk from a database template
 
 The [Copy in bulk from a database to Azure Data Explorer by using the Azure Data Factory template](data-factory-template.md) is a predefined Azure Data Factory pipeline. The template is used to create many pipelines per database or per table for faster data copying. 
+
+### Mapping data flows 
+
+[Azure Data Factory mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations that allow data engineers to develop graphical data transformation logic without writing code. To create a data flow and ingest data to Azure Data Explorer, use the following method:
+
+1. Create the [mapping data flow](/azure/data-factory/data-flow-create).
+1. [Export the data into Azure Blob](/azure/data-factory/data-flow-sink). 
+1. Define [Event Grid](/azure/data-explorer/ingest-data-event-grid) or [ADF copy activity](/azure/data-explorer/data-factory-load-data) to ingest the data to Azure Data Explorer.
 
 ## Select between Copy and Azure Data Explorer Command activities when copy data 
 

@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Multiclass Logistic Regression module
@@ -55,9 +55,6 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 9. Run the pipeline.
 
-## Results
-
-After training is complete, you can see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
 
 
 ## Next steps

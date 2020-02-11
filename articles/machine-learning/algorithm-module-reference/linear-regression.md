@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Linear Regression module
@@ -85,7 +85,6 @@ This module supports two methods for fitting a regression model, with different 
 
 After training is complete:
 
-+ To view the model's parameters, right-click the trainer output and select **Visualize**.
 
 + To make predictions, connect the trained model to the [Score Model](./score-model.md) module, along with a dataset of new values. 
 

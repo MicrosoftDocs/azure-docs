@@ -15,7 +15,6 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Add app roles in your application and receive them in the token
@@ -41,7 +40,7 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.
 
      > [!NOTE]
-     > Each app role definition in this manifest must have a different valid GUID for the `id` property. 
+     > Each app role definition in this manifest must have a different valid GUID within the context of the manifest for the `id` property.    
      > 
      > The `value` property of each app role definition should exactly match the strings that are used in the code in the application. The `value` property can't contain spaces. If it does, you'll receive an error when you save the manifest.
      

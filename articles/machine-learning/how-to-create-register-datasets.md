@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 # Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 
@@ -47,7 +47,7 @@ To create and work with datasets, you need:
 
 There are two dataset types, based on how users consume them in training:
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame. You can create a `TabularDataset` object from .csv, .tsv, and parquet files, and from SQL query results. For a complete list, see [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame. You can create a `TabularDataset` object from .csv, .tsv, .parquet, .jsonl files, and from SQL query results. For a complete list, see [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
 * The [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) class references single or multiple files in your datastores or public URLs. By this method, you can download or mount the files to your compute as a FileDataset object. The files can be in any format, which enables a wider range of machine learning scenarios, including deep learning.
 
@@ -72,7 +72,7 @@ To create datasets from an [Azure datastore](how-to-access-data.md) by using the
 
 #### Create a TabularDataset
 
-You can create TabularDatasets through the SDK or by using Azure Machine Learning Studio. You can specify a time stamp from a column in the data or from the path pattern that the data is stored in to enable a time series trait. This specification allows for easy and efficient filtering by time.
+You can create TabularDatasets through the SDK or by using Azure Machine Learning studio. 
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -170,12 +170,14 @@ To create a dataset in the studio:
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, or public URLs.
 1. Select **Tabular** or **File** for Dataset type.
-1. Select **Next** to review the **Settings and preview**, **Schema** and **Confirm details** forms; they are intelligently populated based on file type. Use these forms to check your selections and to further configure your dataset prior to creation.  
+1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset. 
+1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
+1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-create-portal-experiments.md#profile). 
 1. Select **Create** to complete your dataset creation.
 
 ## Register datasets
 
-To complete the creation process, register your datasets with a workspace. Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace in order to share them with others and reuse them across various experiments:
+To complete the creation process, register your datasets with a workspace. Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) method to register datasets with your workspace in order to share them with others and reuse them across various experiments:
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
@@ -184,7 +186,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 ```
 
 > [!Note]
-> Datasets created through Azure Machine Learning Studio are automatically registered to the workspace.
+> Datasets created through Azure Machine Learning studio are automatically registered to the workspace.
 
 ## Create datasets with Azure Open Datasets
 
@@ -194,16 +196,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
 
-Most classes inherit from and return an instance of `TabularDataset`. Examples of these classes include `PublicHolidays`, `BostonSafety`, and `UsPopulationZip`. To create a `TabularDataset` from these types of classes, use the constructor with no arguments. When you register a dataset created from Open Datasets, no data is immediately downloaded, but the data will be accessed later when requested (during training, for example) from a central storage location. 
-
-```python
-from azureml.opendatasets import UsPopulationZip
-
-tabular_dataset = UsPopulationZip()
-tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
-```
-
-You can retrieve certain classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset only by using either the `get_tabular_dataset()` or `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes:
+You can retrieve certain classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset **only** by using one of `get_tabular_dataset()` or `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes.
 
 ```python
 from azureml.opendatasets import MNIST
@@ -217,6 +210,8 @@ from azureml.opendatasets import Diabetes
 # Diabetes class can return ONLY return TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
+
+When you register a dataset created from Open Datasets, no data is immediately downloaded, but the data will be accessed later when requested (during training, for example) from a central storage location.
 
 ### Use the UI
 
@@ -249,7 +244,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'new titanic training data',
                                  create_new_version = True)
 ```
-
 
 ## Access datasets in your script
 

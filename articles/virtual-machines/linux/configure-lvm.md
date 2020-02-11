@@ -169,7 +169,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL, CentOS & Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

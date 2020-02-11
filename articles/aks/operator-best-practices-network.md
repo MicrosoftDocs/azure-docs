@@ -19,7 +19,7 @@ This best practices article focuses on network connectivity and security for clu
 > [!div class="checklist"]
 > * Compare the kubenet and Azure CNI network modes in AKS
 > * Plan for required IP addressing and connectivity
-> * Distribute traffic using load balancers, ingress controllers, or a web application firewalls (WAF)
+> * Distribute traffic using load balancers, ingress controllers, or a web application firewall (WAF)
 > * Securely connect to cluster nodes
 
 ## Choose the appropriate network model
@@ -43,7 +43,7 @@ When you use Azure CNI networking, the virtual network resource is in a separate
 
 For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation].
 
-As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale up events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet. This additional address space is especially important if you use Windows Server containers (currently in preview in AKS), as those node pools require an upgrade to apply the latest security patches. For more information on Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
+As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale out events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet. This additional address space is especially important if you use Windows Server containers (currently in preview in AKS), as those node pools require an upgrade to apply the latest security patches. For more information on Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 To calculate the IP address required, see [Configure Azure CNI networking in AKS][advanced-networking].
 

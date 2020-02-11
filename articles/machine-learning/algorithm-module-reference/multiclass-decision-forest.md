@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Multiclass Decision Forest module
@@ -71,12 +71,6 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
 11. Run the pipeline.
 
-## Results
-
-After training is complete:
-
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
-+ To see the rules for each node, click each tree to drill down into the splits.
 
 
 ## Next steps

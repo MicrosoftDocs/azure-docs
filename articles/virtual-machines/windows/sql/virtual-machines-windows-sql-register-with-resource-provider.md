@@ -156,20 +156,20 @@ Register SQL Server VM in lightweight mode with PowerShell:
 
 If the SQL IaaS Extension has already been installed to the VM manually, then you can register the SQL Server VM in full mode without restarting the SQL Server service. **However, if the SQL IaaS extension has not been installed, registering in full mode will install the SQL IaaS extension in full mode and restart the SQL Server service. Please proceed with caution.**
 
-Below is the code snippet to register with SQL VM resource provider in full mode. To register in full management mode, use the following PowerShell command:
+
+To register your SQL Server VM directly in full mode (and possibly restart your SQL Server service), use the following PowerShell command: 
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
   # Register with SQL VM resource provider in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
-
 
 ### NoAgent management mode 
 
-SQL Server 2008 and 2008 R2 installed on Windows Server 2008 can be registered with the SQL VM resource provider in the [NoAgent mode](#management-modes). This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
+SQL Server 2008 and 2008 R2 installed on Windows Server 2008 (_not R2_) can be registered with the SQL VM resource provider in the [NoAgent mode](#management-modes). This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
 
 Specify either `AHUB` or `PAYG` as the **sqlLicenseType**, and either `SQL2008-WS2008` or `SQL2008R2-WS2008` as the **sqlImageOffer**. 
 
@@ -178,17 +178,37 @@ To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 inst
 
 # [AZ CLI](#tab/bash)
 
-Register SQL Server VM in NoAgent mode with the Az CLI: 
+Register your SQL Server 2008 VM in NoAgent mode with the Az CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
    --image-sku Enterprise --image-offer SQL2008-WS2008R2
  ```
+ 
+ 
+Register your SQL Server 2008 R2 VM in NoAgent mode with the Az CLI: 
+
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type PAYG --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+ ```
 
 # [PowerShell](#tab/powershell)
 
-Register SQL Server VM in NoAgent mode with PowerShell: 
+Register SQL Server 2008 VM in NoAgent mode with PowerShell: 
+
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
+  ```
+  
+  Register SQL Server 2008 R2 VM in NoAgent mode with PowerShell: 
 
 
   ```powershell-interactive
@@ -247,10 +267,9 @@ Run the following PowerShell code snippet:
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Update to full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-     -LicenseType PAYG -SqlManagementType Full
+        
+  # Register with SQL VM resource provider in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
 
 ---
@@ -414,11 +433,11 @@ No. Registering with the SQL VM resource provider is not available in the Azure 
 
 **Can I register a VM with the SQL VM resource provider before SQL Server is installed?**
 
-No. A VM should have at least one SQL Server instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
+No. A VM should have at least one SQL Server (Database Engine) instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
 
 **Can I register a VM with the SQL VM resource provider if there are multiple SQL Server instances?**
 
-Yes. The SQL VM resource provider will register only one SQL Server instance. The SQL VM resource provider will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
+Yes. The SQL VM resource provider will register only one SQL Server (Database Engine) instance. The SQL VM resource provider will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
 
 **Can I register a SQL Server failover cluster instance with the SQL VM resource provider?**
 
