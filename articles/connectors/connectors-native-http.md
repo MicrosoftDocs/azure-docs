@@ -45,9 +45,12 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
 
-   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
+
+   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see these topics:
+
+   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
@@ -75,9 +78,12 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the target endpoint.
 
-   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
+
+   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see these topics:
+
+   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 

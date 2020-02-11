@@ -102,7 +102,6 @@ Use the Delete button at the top of the workspace you wish to delete.
 
   ![Delete button](./media/how-to-manage-workspace/delete-workspace.png)
 
-
 ## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
@@ -112,6 +111,11 @@ Use the Delete button at the top of the workspace you wish to delete.
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### Moving the workspace
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 ## Next steps
 

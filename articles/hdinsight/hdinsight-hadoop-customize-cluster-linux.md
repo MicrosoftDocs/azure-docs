@@ -152,9 +152,9 @@ This section explains the different ways you can use script actions when you cre
 
 ### Use a script action during cluster creation from the Azure portal
 
-1. Start to create a cluster as described in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). During cluster creation, you arrive at step 6, **Script actions**. Navigate to **Optional** > **+ Submit new**.
+1. Start to create a cluster as described in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). From the **Configuration + pricing** tab, select **+ Add script action**.
 
-    ![Azure portal cluster script action](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
+    ![Azure portal cluster script action](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
 1. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
@@ -176,9 +176,9 @@ This section explains the different ways you can use script actions when you cre
 
     ![HDInsight multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    When you're done adding scripts, select the __Select__ button and then the __Next__ button to continue to the __Cluster summary__ section.
+    When you're done adding scripts, you return to the **Configuration + pricing** tab.
 
-1. To create the cluster, select __Create__ from the __Cluster summary__ selection.
+1. Complete the remaining cluster creation steps as usual.
 
 ### Use a script action from Azure Resource Manager templates
 

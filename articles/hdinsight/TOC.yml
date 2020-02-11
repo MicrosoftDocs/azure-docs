@@ -38,7 +38,9 @@
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
     - name: High availability components
-      href: ./hdinsight-high-availability-components.md     
+      href: ./hdinsight-high-availability-components.md   
+    - name: Apache Ambari in Azure HDInsight
+      href: ./apache-ambari-usage.md  
     - name: Machine learning in HDInsight
       href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
@@ -344,6 +346,8 @@
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
+      - name: Manage Jar dependencies
+        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
