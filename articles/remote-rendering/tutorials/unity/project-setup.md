@@ -41,11 +41,11 @@ For this tutorial you need:
 
 1. Install the latest NuGet packages:
 
-    ```powershell
+    ```ps
     nuget.exe install com.microsoft.azure.remote_rendering -ExcludeVersion
     ```
 
-    ```powershell
+    ```ps
     nuget.exe install ScriptableRenderPipeline -ExcludeVersion
     ```
 
@@ -155,7 +155,7 @@ public class RemoteRendering : MonoBehaviour
     // fill out the variables below with your account details
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // See the documentation for the list of available regions.
     public string AccountDomain = "westus2.mixedreality.azure.com";
     public string AccountId = "<enter your account id here>";
     public string AccountKey = "<enter your account key here>";

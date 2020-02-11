@@ -41,9 +41,11 @@ The samples and tutorials require that you provide the account ID and a key. For
     "accountSettings": {
         "arrAccountId": "<fill in the account ID from the Azure portal>",
         "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions: currently either westus2 or westeurope>"
+        "region": "<select from available regions>"
     },
 ```
+
+See the [list of available regions](../reference/regions.md) for filling out the *region* option.
 
 The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the portal as described in the following steps:
 
