@@ -104,7 +104,7 @@ var pca = PublicClientApplicationBuilder
 
 For a list of all methods that are available on `PublicClientApplicationBuilder`, see the [Methods list](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
 
-For a description of all options that are exposed in `PublicClientApplicationOptions`, see the[reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
+For a description of all options that are exposed in `PublicClientApplicationOptions`, see the [reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
 ## Tasks for Xamarin iOS
 
@@ -245,28 +245,28 @@ To register your app's URL scheme, follow these steps:
 1. Prefix `CFBundleURLSchemes` with `msauth`. 
 1. Add `CFBundleURLName` to the end. Follow this pattern: 
 
-    `$"msauth.(BundleId)"`
+   `$"msauth.(BundleId)"`
 
-    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
+   Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
     
-    > [!NOTE]
-    > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
+   > [!NOTE]
+   > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
     
-    ```XML
-     <key>CFBundleURLTypes</key>
-        <array>
-          <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLName</key>
-            <string>com.yourcompany.xforms</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-              <string>msauth.com.yourcompany.xforms</string>
-            </array>
-          </dict>
-        </array>
-    ```
+   ```XML
+    <key>CFBundleURLTypes</key>
+       <array>
+         <dict>
+           <key>CFBundleTypeRole</key>
+           <string>Editor</string>
+           <key>CFBundleURLName</key>
+           <string>com.yourcompany.xforms</string>
+           <key>CFBundleURLSchemes</key>
+           <array>
+             <string>msauth.com.yourcompany.xforms</string>
+           </array>
+         </dict>
+       </array>
+   ```
     
 #### Step 5: Add to the LSApplicationQueriesSchemes section
 
