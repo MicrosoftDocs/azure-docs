@@ -86,7 +86,7 @@
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
 - name: VM restart issues 
-   items:
+  items:
   - name: Restarting or resizing a VM
     href: restart-resize-error-troubleshooting.md
   - name: Restarting, Shutting Down, or Stopping services
