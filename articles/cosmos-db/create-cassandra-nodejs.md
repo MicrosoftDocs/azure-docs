@@ -189,21 +189,40 @@ Now go back to the Azure portal to get your connection string information and co
 3. Save `uprofile.js`.
 
 > [!NOTE]
-> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format. See [here](https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format).
+> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below.
+> 
+> Double-click on the .crt file to open it into the certificate display. 
+>
+> ![View and verify the output](./media/create-cassandra-nodejs/crt_cer1.gif)
+>
+> Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
+>
+> ![View and verify the output](./media/create-cassandra-nodejs/crt_cer2.gif)
+>
+> Select Browse (to locate a destination) and type in a filename.
+> Select Next then Finished.
+>
+> You should now have a properly formatted .cer file.
 
 ## Run the Node.js app
 
-1. In the git terminal window, run `npm install` to install the required npm modules.
+1. In the git terminal window, ensure you are in the sample directory you cloned earlier:
 
-2. Run `node uprofile.js` to start your node application.
+    ```bash
+    cd azure-cosmos-db-cassandra-nodejs-getting-started
+    ```
 
-3. Verify the results as expected from the command line.
+2. Run `npm install` to install the required npm modules.
+
+3. Run `node uprofile.js` to start your node application.
+
+4. Verify the results as expected from the command line.
 
     ![View and verify the output](./media/create-cassandra-nodejs/output.png)
 
     Press CTRL + C to stop execution of the program and close the console window. 
 
-4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
+5. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
     ![View the data in Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
 
