@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data using Azure portal & SSMS'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to Azure SQL Data Warehouse.
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to a data warehouse in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -44,24 +44,20 @@ An Azure SQL Data Warehouse is created with a defined set of [compute resources]
 
 Follow these steps to create a blank SQL Data Warehouse. 
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Create a resource** in the the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
+1. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
 
     ![create data warehouse](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-3. Fill out the SQL Data Warehouse form with the following information:   
+1. Fill out the **Project Details** section with the following information:   
 
-   | Setting | Suggested value | Description | 
+   | Setting | Example | Description | 
    | ------- | --------------- | ----------- | 
-   | **Database name** | SampleDW | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | SampleRG | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-   | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database.|
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
 
-    ![create data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
+1. Under **SQL pool details**, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new server. Fill out the form with the following information: 
 
     | Setting | Suggested value | Description | 
     | ------- | --------------- | ----------- |
@@ -72,65 +68,49 @@ Follow these steps to create a blank SQL Data Warehouse.
 
     ![create database server](media/load-data-wideworldimportersdw/create-database-server.png)
 
-5. Click **Select**.
+1. Provide a name for your SQL pool, and select the desired performance tier. The slider by default is set to **DW1000c**. Move the slider up and down to choose the desired performance scale. 
 
-6. Click **Performance tier** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
+    ![create database server](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-7. For this tutorial, select the **Gen1** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+1. On the **Additional Settings** page, set the **Use existing data** to None, and leave the **Collation** at the default of *SQL_Latin1_General_CP1_CI_AS*. 
 
-    ![configure performance](media/load-data-wideworldimportersdw/configure-performance.png)
+1. Select **Review + create** to review your settings, and then select **Create** to create your data warehouse. You can monitor your progress by opening the **deployment in progress** page from the **Notifications** menu. 
 
-8. Click **Apply**.
-9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations)
-
-11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
-
-    ![click create](media/load-data-wideworldimportersdw/click-create.png)
-
-12. On the toolbar, click **Notifications** to monitor the deployment process.
-    
      ![notification](media/load-data-wideworldimportersdw/notification.png)
+
 
 ## Create a server-level firewall rule
 
-The SQL Data Warehouse service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address. 
+The Azure Synapse Analytics service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address. 
 
 > [!NOTE]
-> SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> The Azure Synapse Analytics data warehouse  communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **SampleDW** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **sample-svr.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open the server settings, click the server name.
+1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the data warehouse resource. 
 
-    ![find server name](media/load-data-wideworldimportersdw/find-server-name.png) 
+    ![go to your resource](media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
 
-3. To open the server settings, click the server name.
+
+1. Select **Show firewall settings**. The **Firewall settings** page for the data warehouse server opens. 
 
     ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 
-5. Click **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
+1. On the **Firewalls and virtual networks** page, select **Add client IP** to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
     ![server firewall rule](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-4.  To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+1. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
-
-6. Click **OK** and then close the **Firewall settings** page.
-
-You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
+You can now connect to the SQL server and its data warehouses using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
 
 ## Get the fully qualified server name
 
-Get the fully qualified server name for your SQL server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
+The fully qualified server name is what is used to connect to the server. Go to your data warehouse resource in the Azure portal and view the fully qualified name under **Server name**: 
 
     ![connection information](media/load-data-wideworldimportersdw/find-server-name.png)  
 
@@ -145,7 +125,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
     | Setting      | Suggested value | Description | 
     | ------------ | --------------- | ----------- | 
     | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | For example, **sample-svr.database.windows.net** is a fully qualified server name. |
+    | Server name | The fully qualified server name | For example, **sqlpoolservername.database.windows.net** is a fully qualified server name. |
     | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
     | Login | The server admin account | This is the account that you specified when you created the server. |
     | Password | The password for your server admin account | This is the password that you specified when you created the server. |
