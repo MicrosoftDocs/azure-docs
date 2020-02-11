@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/05/2020
+ms.date: 02/10/2020
 ms.author: danlep
 ---
 
@@ -31,23 +31,23 @@ Scenarios for creating an access token include:
 
 ## Concepts
 
-To configure repository-scoped permissions, you create an *access token* and an associated *scope map*. 
+To configure repository-scoped permissions, you create an *access token* with an associated *scope map*. 
 
-* An **access token** with a generated password provides credentials to authenticate with the registry. Associated with each token are permitted *actions* you scope to one or more repositories - for example, to read repository data to allow pulling images. 
+* An **access token** with a generated password provides credentials to authenticate with the registry. You can set an expiration date for a token password, or disable a token at any time.  
 
-  After authenticating with a token, a user or system can then perform the actions on the repository. You can set an expiration date for a token password, or disable a token at any time. 
+  Associated with each token are permitted *actions* on one or more repositories. After authenticating with a token, a user or system can then perform the actions.
 
-* **Actions** on a specified repository include one or more of the following.
+* **Actions** on a repository include one or more of the following.
 
   |Action  |Description  | Example |
   |---------|---------|--------|
-  |`content/read`     |  Read data from the repository |  Pull an artifact |
-  |`metadata/read`    | Read metadata from the repository   | List tags or show manifest metadata |
-  |`content/write`     |  Write data to the repository     | Use with `content/read` to push an artifact |
-  |`metadata/write`     |  Write metadata to the repository  | Update manifest attributes |
   |`content/delete`    | Remove data from the repository  | Delete a repository or a manifest |
+  |`content/read`     |  Read data from the repository |  Pull an artifact |
+  |`content/write`     |  Write data to the repository     | Use with `content/read` to push an artifact |
+  |`metadata/read`    | Read metadata from the repository   | List tags or show manifest metadata |
+  |`metadata/write`     |  Write metadata to the repository  | Update manifest attributes |
 
-* A **scope map** groups repository permissions you apply to a token, or can reapply to other tokens. A scope map helps you configure multiple tokens with identical access to a set of repositories. Azure Container Registry also provides several system-defined scope maps that you can apply when creating access tokens.
+* A **scope map** groups repository permissions you apply to each token, or can reapply to other tokens. A scope map helps you configure multiple tokens with identical access to a set of repositories. Azure Container Registry also provides several system-defined scope maps that you can apply to tokens.
 
 The following image shows the relationship between tokens and scope maps. 
 
@@ -112,7 +112,7 @@ The output includes details about the scope map the command created. You can use
 
 An alternative way to create an access token is to specify an existing scope map. If you don't already have a scope map, first create one by specifying repositories and associated actions. Then, specify the scope map when creating a token. 
 
-To create a scope map, use the [az acr scope-map create][az-acr-scope-map-create] command. The following example command creates a scope map with the same permissions on the `samples/hello-world` repository used in the previous example. 
+To create a scope map, use the [az acr scope-map create][az-acr-scope-map-create] command. The following command creates a scope map with the same permissions on the `samples/hello-world` repository used previously. 
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
@@ -172,11 +172,11 @@ When a user or system uses a token to authenticate with the target registry, it 
 
 |Action  |How to authenticate  |
   |---------|---------|
-  |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI  |
-  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` in Azure CLI   |
-  |`content/write`     |  `docker login`<br/><br/>`az acr login` in Azure CLI     |
-  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` in Azure CLI |
   |`content/delete`    | `az acr repository delete` in Azure CLI |
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI  |
+  |`content/write`     |  `docker login`<br/><br/>`az acr login` in Azure CLI     |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` in Azure CLI   |
+  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` in Azure CLI |
 
 ## Examples: Use token
 
