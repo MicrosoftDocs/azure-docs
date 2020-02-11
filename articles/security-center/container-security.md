@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 ms.author: memildin
 
 ---
@@ -29,7 +29,7 @@ This article describes how Security Center helps you improve, monitor, and maint
 
 For instructions on how to use these features, see [Monitoring the security of your containers](monitor-container-security.md).
 
-## Vulnerability management - scanning container images (Preview)
+## Vulnerability management - scanning container images
 To monitor your ARM-based Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](/azure/security-center/security-center-pricing)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
 
 When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).

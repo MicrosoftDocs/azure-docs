@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 02/11/2020
 ms.author: memildin
 ---
 
@@ -94,15 +94,17 @@ Azure Security Center covers the following three aspects of container security:
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 
-## Hardening your containers' hosts
+## Hardening your containers' Docker hosts
 
-Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations, and generates security recommendations that reflect industry standards.
+>[!TIP] To harden your Azure Kubernetes Service clusters, check the **Recommendations** page for any of the [Kubernetes Service recommendations](recommendations-reference.md#recs-containers).
 
-To view Azure Security Center's security recommendations for your containers' hosts:
+Security Center constantly monitors the configuration of your Docker hosts, and generates security recommendations that reflect industry standards.
+
+To view Azure Security Center's security recommendations for your containers' Docker hosts:
 
 1. From the Security Center navigation bar, open **Compute & apps** and select the **Containers** tab.
 
-1. Optionally, filter the list of your container resources to container hosts or Kubernetes hosts.
+1. Optionally, filter the list of your container resources to container hosts hosts.
 
     ![Container resources filter](media/monitor-container-security/container-resources-filter.png)
 
