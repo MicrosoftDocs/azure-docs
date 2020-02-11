@@ -177,44 +177,32 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
 
 ## Specify the job query
 
-Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  This how-to guide helps you author and test several queries over Twitter data.
+Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). This how-to guide helps you author and test several queries over Twitter data.
 
 To compare the number of mentions among topics, you can use a [Tumbling window](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) to get the count of mentions by topic every five seconds.
 
 1. In your job **Overview**, select **Edit query** near the top right of the Query box. Azure lists the inputs and outputs that are configured for the job and lets you create a query to transform the input stream as it is sent to the output.
 
-2. In the **Query** page, click the dots next to the `TwitterStream` input and then select **Sample data from input**.
+2. Change the query in the query editor to the following:
 
-    ![Menu options to use sample data for the Streaming Analytics job entry, with "Sample data from input" selected](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-sample-data-from-input.png)
+   ```sql
+   SELECT *
+   FROM TwitterStream
+   ```
 
-    This opens a blade that lets you specify how much sample data to get, defined in terms of how long to read the input stream.
+3. Event data from the messages should appear in the **Input preview** window below your query. Ensure the **View** is set to **JSON**. If you do not see any data, ensure that your data generator is sending events to your event hub, and that you've selected **GZip** as the compression type for the input.
 
-4. Set **Minutes** to 3 and then click **OK**. 
-    
-    ![Options for sampling the input stream, with "3 minutes" selected.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
+4. Select **Test query** and notice the results in the **Test results** window below your query.
 
-    Azure samples 3 minutes' worth of data from the input stream and notifies you when the sample data is ready. (This takes a short while.) 
+5. Change the query in the code editor to the following and select **Test query**:
 
-    The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you have to create a new set of sample data. 
-
-5. Change the query in the code editor to the following:
-
-    ```
-    SELECT System.Timestamp as Time, Topic, COUNT(*)
+   ```sql
+   SELECT System.Timestamp as Time, Topic, COUNT(*)
     FROM TwitterStream TIMESTAMP BY CreatedAt
     GROUP BY TUMBLINGWINDOW(s, 5), Topic
     ```
 
-    If didn't use `TwitterStream` as the alias for the input, substitute your alias for `TwitterStream` in the query.  
-
-    This query uses the **TIMESTAMP BY** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field isn't specified, the windowing operation is performed by using the time that each event arrived at the event hub. Learn more in the "Arrival Time vs Application Time" section of [Stream Analytics Query Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
-
-    This query also accesses a timestamp for the end of each window by using the **System.Timestamp** property.
-
-5. Click **Test**. The query runs against the data that you sampled.
-    
-6. Click **Save**. This saves the query as part of the Streaming Analytics job. (It doesn't save the sample data.)
-
+6. 
 
 ## Experiment using different fields from the stream 
 
