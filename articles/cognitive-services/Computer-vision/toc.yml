@@ -57,7 +57,7 @@
         href: QuickStarts/node-thumb.md
       - name: Python
         href: QuickStarts/python-thumb.md
-    - name: Extract text (Read API)
+    - name: Extract text (Computer Vision 2.0 and 2.1 - Read API)
       items:
       - name: C#
         href: QuickStarts/CSharp-hand-text.md
@@ -67,6 +67,16 @@
         href: QuickStarts/javascript-hand-text.md
       - name: Python
         href: QuickStarts/python-hand-text.md
+    - name: Extract text (Computer Vision 3.0 Preview - Read API)
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-read-text-v3.md
+      - name: Java
+        href: QuickStarts/java-read-text-v3.md
+      - name: JavaScript
+        href: QuickStarts/javascript-read-text-v3.md
+      - name: Python
+        href: QuickStarts/python-read-text-v3.md
     - name: Extract printed text (OCR)
       items:
       - name: C#

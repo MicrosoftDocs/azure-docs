@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Computer Vision 2.0 and 2.1 - Extract printed and handwritten text - REST, C#"
+title: "Quickstart: Computer Vision 3.0 Preview - Extract printed and handwritten text in English or Spanish - REST, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with C#.
 services: cognitive-services
@@ -13,9 +13,11 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed and handwritten text using the Computer Vision 2.0 and 2.1 REST API and C#
+# Quickstart: Extract printed and handwritten text in English or Spanish using the Computer Vision 3.0 Preview REST API and C#
 
-In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
+In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision 3.0 Preview REST API. Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Preview provides even better accuracy and starts to support Spanish and English languages.
+
+With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
 
 > [!IMPORTANT]
 > The [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Read method returns a URI in the `Operation-Location` response header field. You can then use this URI, which represents the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) method, in order to check the status and return the results of the Batch Read method call.
@@ -37,7 +39,7 @@ To create the sample in Visual Studio, do the following steps:
     1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
     1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
 1. Run the program.
-1. At the prompt, enter the path to a local image.
+1. At the prompt, enter the path to a local image and the language to recognize.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -47,6 +49,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CSHttpClientSample
 {
@@ -55,24 +58,69 @@ namespace CSHttpClientSample
         // Add your Computer Vision subscription key and endpoint to your environment variables.
         static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
+        // An endpoint should have a format like "https://westus.api.cognitive.microsoft.com"
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
-        
-        // the Batch Read method endpoint
-        static string uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
-        static async Task Main()
+        // the Batch Read method endpoint
+        static string uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+
+        static void PrintUsage()
         {
             // Get the path and filename to process from the user.
-            Console.WriteLine("Text Recognition:");
-            Console.Write(
-                "Enter the path to an image with text you wish to read: ");
-            string imageFilePath = Console.ReadLine();
+            Console.WriteLine("Cognitive Service Batch Read File Sample");
+            Console.WriteLine("Usage: ");
+            Console.WriteLine("    From Azure Cogntivie Service, retrieve your endpoint and subscription key.");
+            Console.WriteLine("    Set environment variable COMPUTER_VISION_ENDPOINT, such as \"https://westus2.api.cognitive.microsoft.com\"");
+            Console.WriteLine("    Set environment variable COMPUTER_VISION_SUBSCRIPTION_KEY, such as \"1234567890abcdef1234567890abcdef\"\n");
+            Console.WriteLine("    Run the program without argument to enter a file name and a language manually.");
+            Console.WriteLine("    Or run the program with a file name for an image file (bmp/jpg/png/tiff) or a PDF file, plus the language. The language can be \"en\" or \"es\".");
+            Console.WriteLine("       For example: dotnet Program.dll sample.jpg en");
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            PrintUsage();
+
+            if (string.IsNullOrEmpty(subscriptionKey) || string.IsNullOrEmpty(endpoint))
+            {
+                Console.Error.WriteLine("Please set environment variables COMPUTER_VISION_ENDPOINT and COMPUTER_VISION_SUBSCRIPTION_KEY.");
+                return;
+            }
+
+            string imageFilePath;
+            string language;
+            if (args.Length == 0)
+            {
+                Console.Write(
+                    "Enter the path to an image (bmp/jpg/png/tiff) or PDF with text you wish to read: ");
+                imageFilePath = Console.ReadLine();
+            }
+            else
+            {
+                imageFilePath = args[0];
+            }
+
+            if (args.Length <= 1)
+            {
+                Console.Write(
+                    "Enter the language to read: \"en\" or \"es\": ");
+                language = Console.ReadLine();
+            }
+            else
+            {
+                language = args[1];
+            }
+
+            Console.WriteLine($"Endpoint:     [{endpoint}]");
+            Console.WriteLine($"Subscription: [{subscriptionKey}]");
+            Console.WriteLine($"URL:          [{uriBase}]");
 
             if (File.Exists(imageFilePath))
             {
                 // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
-                await ReadText(imageFilePath);
+                ReadText(imageFilePath, language).Wait();
             }
             else
             {
@@ -87,7 +135,7 @@ namespace CSHttpClientSample
         /// the Computer Vision REST API.
         /// </summary>
         /// <param name="imageFilePath">The image file with text.</param>
-        static async Task ReadText(string imageFilePath)
+        static async Task ReadText(string imageFilePath, string language)
         {
             try
             {
@@ -97,8 +145,12 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Assemble the URI for the REST API method.
-                string uri = uriBase;
+                var builder = new UriBuilder(uriBase);
+                builder.Port = -1;
+                var query = HttpUtility.ParseQueryString(builder.Query);
+                query["language"] = language;
+                builder.Query = query.ToString();
+                string url = builder.ToString();
 
                 HttpResponseMessage response;
 
@@ -125,7 +177,7 @@ namespace CSHttpClientSample
 
                     // The first REST API method, Batch Read, starts
                     // the async process to analyze the written text in the image.
-                    response = await client.PostAsync(uri, content);
+                    response = await client.PostAsync(url, content);
                 }
 
                 // The response header for the Batch Read method contains the URI
@@ -162,9 +214,9 @@ namespace CSHttpClientSample
                     contentString = await response.Content.ReadAsStringAsync();
                     ++i;
                 }
-                while (i < 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1);
+                while (i < 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1);
 
-                if (i == 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1)
+                if (i == 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1)
                 {
                     Console.WriteLine("\nTimeout error.\n");
                     return;
@@ -202,105 +254,72 @@ namespace CSHttpClientSample
 
 ## Examine the response
 
-A successful response is returned in JSON. The sample application parses and displays a successful response in the console window, similar to the following example:
+A successful response is returned in JSON. The sample application parses and displays a successful response in the console window, similar to the following example when "es" language is specified:
 
 ```json
 {
-  "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 349.59,
-      "width": 3200,
-      "height": 3200,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [202,618,2047,643,2046,840,200,813],
-          "text": "Our greatest glory is not",
-          "words": [
-            {
-              "boundingBox": [204,627,481,628,481,830,204,829],
-              "text": "Our"
-            },
-            {
-              "boundingBox": [519,628,1057,630,1057,832,518,830],
-              "text": "greatest"
-            },
-            {
-              "boundingBox": [1114,630,1549,631,1548,833,1114,832],
-              "text": "glory"
-            },
-            {
-              "boundingBox": [1586,631,1785,632,1784,834,1586,833],
-              "text": "is"
-            },
-            {
-              "boundingBox": [1822,632,2115,633,2115,835,1822,834],
-              "text": "not"
-            }
-          ]
-        },
-        {
-          "boundingBox": [420,1273,2954,1250,2958,1488,422,1511],
-          "text": "but in rising every time we fall",
-          "words": [
-            {
-              "boundingBox": [423,1269,634,1268,635,1507,424,1508],
-              "text": "but"
-            },
-            {
-              "boundingBox": [667,1268,808,1268,809,1506,668,1507],
-              "text": "in"
-            },
-            {
-              "boundingBox": [874,1267,1289,1265,1290,1504,875,1506],
-              "text": "rising"
-            },
-            {
-              "boundingBox": [1331,1265,1771,1263,1772,1502,1332,1504],
-              "text": "every"
-            },
-            {
-              "boundingBox": [1812, 1263, 2178, 1261, 2179, 1500, 1813, 1502],
-              "text": "time"
-            },
-            {
-              "boundingBox": [2219, 1261, 2510, 1260, 2511, 1498, 2220, 1500],
-              "text": "we"
-            },
-            {
-              "boundingBox": [2551, 1260, 3016, 1258, 3017, 1496, 2552, 1498],
-              "text": "fall"
-            }
-          ]
-        },
-        {
-          "boundingBox": [1612, 903, 2744, 935, 2738, 1139, 1607, 1107],
-          "text": "in never failing ,",
-          "words": [
-            {
-              "boundingBox": [1611, 934, 1707, 933, 1708, 1147, 1613, 1147],
-              "text": "in"
-            },
-            {
-              "boundingBox": [1753, 933, 2132, 930, 2133, 1144, 1754, 1146],
-              "text": "never"
-            },
-            {
-              "boundingBox": [2162, 930, 2673, 927, 2674, 1140, 2164, 1144],
-              "text": "failing"
-            },
-            {
-              "boundingBox": [2703, 926, 2788, 926, 2790, 1139, 2705, 1140],
-              "text": ",",
-              "confidence": "Low"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "status": "succeeded",
+  "createdDateTime": "2020-02-11T16:44:36Z",
+  "lastUpdatedDateTime": "2020-02-11T16:44:36Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "es",
+        "angle": -0.8011,
+        "width": 401,
+        "height": 119,
+        "unit": "pixel",
+        "lines": [
+          {
+            "language": "es",
+            "boundingBox": [
+              15,
+              42,
+              372,
+              38,
+              373,
+              91,
+              15,
+              97
+            ],
+            "text": "¡Buenos días!",
+            "words": [
+              {
+                "boundingBox": [
+                  15,
+                  43,
+                  243,
+                  40,
+                  244,
+                  93,
+                  17,
+                  98
+                ],
+                "text": "¡Buenos",
+                "confidence": 0.56
+              },
+              {
+                "boundingBox": [
+                  254,
+                  40,
+                  370,
+                  38,
+                  371,
+                  91,
+                  255,
+                  93
+                ],
+                "text": "días!",
+                "confidence": 0.872
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
