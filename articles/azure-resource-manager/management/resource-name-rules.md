@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/11/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -522,6 +522,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | workspaces | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+
+## Microsoft.Portal
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | dashboards | resource group | 1-160 | Alphanumerics and hyphens. |
 
 ## Microsoft.PowerBI
 
