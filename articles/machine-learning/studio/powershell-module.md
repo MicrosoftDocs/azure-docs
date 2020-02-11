@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 04/25/2019
 ---
 # PowerShell modules for Azure Machine Learning Studio (classic)
