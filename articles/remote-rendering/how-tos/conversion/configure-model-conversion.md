@@ -208,7 +208,7 @@ Due to the nature of photogrammetry data, materials do not need to go through a 
 * The `unlitMaterials` flag turns all materials into unlit [color materials](../../overview/features/color-materials.md) at conversion time
 * The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](#example) above.
 
-### Use case: Visualization of compact machines, etc
+### Use case: Visualization of compact machines, etc.
 
 These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
 
