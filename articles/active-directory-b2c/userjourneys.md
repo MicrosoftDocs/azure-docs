@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -158,11 +158,17 @@ Preconditions can check multiple preconditions. The following example checks whe
 
 An orchestration step of type `ClaimsProviderSelection` or `CombinedSignInAndSignUp` may contain a list of claims providers that a user can sign in with. The order of the elements inside the `ClaimsProviderSelections` elements controls the order of the identity providers presented to the user.
 
-The **ClaimsProviderSelection** element contains the following element:
+The **ClaimsProviderSelections** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 1:n | Provides the list of claims providers that can be selected.|
+
+The **ClaimsProviderSelections** element contains the following attributes: 
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| DisplayOption| No | Controls the behavior of a case where a single claims provider selection is available. Possible values: `DoNotShowSingleProvider` (default) , the user is redirected immediately to the federated identity provider. Or `ShowSingleProvider` Azure AD B2C presents the sign-in page with the single identity provider selection. To use this attribute, the [content definition version](page-layout.md) must be `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` and above.| 
 
 The **ClaimsProviderSelection** element contains the following attributes: 
 

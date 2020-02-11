@@ -1,25 +1,25 @@
 ---
 title: Resource classes for workload management 
-description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
+description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Workload management with resource classes in Azure SQL Data Warehouse
+# Workload management with resource classes in Azure Synapse Analytics
 
-Guidance for using resource classes to manage memory and concurrency for queries in your Azure SQL Data Warehouse.  
+Guidance for using resource classes to manage memory and concurrency for SQL Analytics queries in Azure Synapse.  
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in SQL Analytics that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -77,7 +77,7 @@ The memory allocation for each resource class is as follows.
 
 By default, each user is a member of the dynamic resource class **smallrc**.
 
-The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Data Warehouse instance with a new server.
+The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Analytics instance with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
@@ -589,5 +589,5 @@ GO
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse](./sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Analytics](./sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
