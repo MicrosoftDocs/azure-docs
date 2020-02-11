@@ -89,6 +89,7 @@ For more information on the details of bindings, see [Azure Functions triggers a
 
 With the queue binding specified in *function.json*, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
+::: zone pivot="programming-language-python"     
 Update *HttpExample\\\_\_init\_\_.py* to match the following code, adding the `msg` parameter to the function definition and `msg.set(name)` under the `if name:` statement.
 
 ```python
@@ -119,24 +120,23 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
 ```
 
 The `msg` parameter is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). Its `set` method writes a string message to the queue, in this case the name passed to the function in the URL query string.
+::: zone-end  
+
+::: zone pivot="programming-language-javascript"  
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone-end  
+
+::: zone pivot="programming-language-typescript"  
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+::: zone-end  
+
+::: zone pivot="programming-language-csharp"  
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+::: zone-end 
 
 Observe that you *don't* need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
-## Run the function locally
-
-1. In a terminal or command prompt, navigate to your function project folder, *LocalFunctionProj*.
-
-1. Start the Azure Functions runtime host by using the following command.
-
-    ```
-    func host start
-    ```
-
-1. Once startup is complete and you see the URL for the `HttpExample` endpoint, copy its URL to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions` as in the previous article.
-
-    If you don't see the `HttpExample` endpoint appear, stop the host with **Ctrl**+**C** and check the output for errors. For example, the host won't activate the endpoint if there's an error in *function.json*. Also check that you are running `func host start` from the functions project folder and not the *HttpExample* folder.
-
-1. When you're done, stop the host with **Ctrl**+**C**.
+[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
 [!INCLUDE [functions-extension-bundles-info](../../includes/functions-extension-bundles-info.md)]
 

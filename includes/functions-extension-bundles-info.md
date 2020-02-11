@@ -1,3 +1,11 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 02/09/2020
+ms.author: glenga
+---
+
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 > [!TIP]
 > During startup, the host downloads and installs the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) and other Microsoft binding extensions. This installation happens because binding extensions are enabled by default in the *host.json* file with the following properties:

@@ -263,41 +263,7 @@ You can change `scriptFile` to invoke a different Python file if desired.
 Each binding requires a direction, a type, and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
 ::: zone-end  
 
-## Run the function locally
-
-Start the function by starting the local Azure Functions runtime host in the *LocalFunctionProj* folder:
-
-::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
-```
-func start
-```
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-```
-npm install
-npm start
-```
-::: zone-end
-
-The following output should appear. (If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run the previous command again.)
-
-```output
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-Http Functions:
-
-        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-```
-
-Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
-
-![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-
-The terminal in which you ran `func start` also shows log output as you make requests.
-
-When you're ready, **Ctrl**+**C** to stop the functions host.
+[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
 ## Create supporting Azure resources for your function
 
@@ -335,41 +301,41 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     
 1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
 
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python"  
 If you are using Python 3.6, also change `--runtime-version` to `3.6`.
 
     
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-::: zone-end
+::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 If you are using Node.js 8, also change `--runtime-version` to `8`.
 
     
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-::: zone-end
+::: zone-end  
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp"  
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-::: zone-end
+::: zone-end  
     
-::: zone pivot="programming-language-powershell"
+::: zone pivot="programming-language-powershell"  
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime powershell --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-::: zone-end
+::: zone-end  
 
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
     
 ## Deploy the function project to Azure
 
-::: zone pivot="programming-language-typescript"
+::: zone pivot="programming-language-typescript"  
 Before you use Core Tools to deploy your project to Azure, you create a production-ready build of JavaScript files from the TypeScript source files.
 
 The following command prepares your TypeScript project for deployment:
@@ -377,7 +343,7 @@ The following command prepares your TypeScript project for deployment:
 ```
 npm run build:production 
 ```
-::: zone-end
+::: zone-end  
 
 With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
 
