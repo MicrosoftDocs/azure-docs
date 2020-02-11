@@ -59,7 +59,7 @@ conceptualContent:
           text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
         - itemType: quickstart
-          text: text: Synthesize speech with long-form audio
+          text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
       footerLink:
         text: See more
@@ -165,38 +165,38 @@ conceptualContent:
 
 additionalContent:
   sections:
-    items:
-    - title: SDKs
-      links:
-      - text: C++
-        url: https://aka.ms/csspeech/cppref
-      - text: C#
-        url: https://aka.ms/csspeech/csharpref
-      - text: Java
-        url: https://aka.ms/csspeech/javaref
-      - text: JavaScript
-        url: https://aka.ms/csspeech/javascriptref
-      - text: Objective-C
-        url: https://aka.ms/csspeech/objectivecref
-      - text: Python
-        url: https://aka.ms/csspeech/pythonref
-    - title: REST APIs
-      links:
-      - text: Speech-to-text REST API
-        url: rest-speech-to-text.md
-      - text: Batch transcription REST API
-        url: batch-transcription.md
-      - text: Text-to-speech REST API
-        url: rest-text-to-speech.md
-      - text: Conversation transcription REST APIs
-        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-    - title: Support
-      links:
-      - text: Support and help
-        url: support.md
-      - text: GitHub issues
-        url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-      - text: Stack Overflow
-        url: https://aka.ms/SOspeechquestions
-      - text: UserVoice forum
-        url: https://cognitive.uservoice.com/forums/912208-speech-service
+    - items:
+      - title: SDKs
+        links:
+        - text: C++
+          url: https://aka.ms/csspeech/cppref
+        - text: C#
+          url: https://aka.ms/csspeech/csharpref
+        - text: Java
+          url: https://aka.ms/csspeech/javaref
+        - text: JavaScript
+          url: https://aka.ms/csspeech/javascriptref
+        - text: Objective-C
+          url: https://aka.ms/csspeech/objectivecref
+        - text: Python
+          url: https://aka.ms/csspeech/pythonref
+      - title: REST APIs
+        links:
+        - text: Speech-to-text REST API
+          url: rest-speech-to-text.md
+        - text: Batch transcription REST API
+          url: batch-transcription.md
+        - text: Text-to-speech REST API
+          url: rest-text-to-speech.md
+        - text: Conversation transcription REST APIs
+          url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+      - title: Support
+        links:
+        - text: Support and help
+          url: support.md
+        - text: GitHub issues
+          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+        - text: Stack Overflow
+          url: https://aka.ms/SOspeechquestions
+        - text: UserVoice forum
+          url: https://cognitive.uservoice.com/forums/912208-speech-service
