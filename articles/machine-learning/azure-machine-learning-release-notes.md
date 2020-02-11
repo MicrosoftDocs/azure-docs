@@ -72,7 +72,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Breaking changes**
   + **Semantic Versioning 2.0.0**
-    + Starting with version 1.1 Azure ML Python SDK adopts Semantic Versioning 2.0.0 [Read more here](https://semver.org/). All subsequent versions will follow new numbering scheme and semantic versioning contract. 
+    + Starting with version 1.1 Azure ML Python SDK adopts Semantic Versioning 2.0.0. [Read more here](https://semver.org/). All subsequent versions will follow new numbering scheme and semantic versioning contract. 
   
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
