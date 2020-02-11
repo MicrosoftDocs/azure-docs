@@ -31,7 +31,7 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 <br>*or*<br>
     - Create a virtual network and add virtual network connections and peer spoke virtual networks to it using virtual network peering
 
-3. Select security providers and associate firewall policy. Curently, only Azure Firewall is a supported provider.
+3. Select security providers and associate firewall policy. Currently, only Azure Firewall is a supported provider.
 
    - This is done while you create a Hub Virtual Network
 <br>*or*<br>
