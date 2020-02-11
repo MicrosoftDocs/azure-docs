@@ -325,24 +325,24 @@ To register a scheme for your app:
 
 1. Add your bundle identifier to the end of your scheme. Follow this pattern: 
 
-  `$"msauth.(BundleId)"`
+   `$"msauth.(BundleId)"`
 
-  Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
+   Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
   
-  > [!NOTE]
-  > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
+   > [!NOTE]
+   > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
   
-  ```XML
-  <key>CFBundleURLTypes</key>
-  <array>
-      <dict>
-          <key>CFBundleURLSchemes</key>
-          <array>
-              <string>msauth.[BUNDLE_ID]</string>
-          </array>
-      </dict>
-  </array>
-  ```
+   ```XML
+   <key>CFBundleURLTypes</key>
+   <array>
+       <dict>
+           <key>CFBundleURLSchemes</key>
+           <array>
+               <string>msauth.[BUNDLE_ID]</string>
+           </array>
+       </dict>
+   </array>
+   ```
 
 #### Step 3: Add LSApplicationQueriesSchemes
 
