@@ -1,21 +1,21 @@
 ---
-title: FedRAMP High blueprint sample controls
-description: Control mapping of the FedRAMP High blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 01/31/2020
+title: DoD Impact Level 4 blueprint sample controls
+description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
+ms.date: 02/09/2020
 ms.topic: sample
 ---
-# Control mapping of the FedRAMP High blueprint sample
+# Control mapping of the DoD Impact Level 4 blueprint sample
 
-The following article details how the Azure Blueprints FedRAMP High blueprint sample maps to the
-FedRAMP High controls. For more information about the controls, see
-[FedRAMP Security Controls Baseline](https://www.fedramp.gov/).
+The following article details how the Azure Blueprints Department of Defense Impact Level 4 (DoD IL4) blueprint sample maps to the
+DoD Impact Level 4 controls. For more information about the controls, see
+[DoD Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). 
+The Defense Information Systems Agency (DISA) is an agency of the US Department of Defense (DoD) that is responsible for developing and maintaining the DoD Cloud Computing Security Requirements Guide (SRG). The SRG defines the baseline security requirements for cloud service providers (CSPs) that host DoD information, systems, and applications, and for DoD's use of cloud services.  
 
-The following mappings are to the **FedRAMP High** controls. Use the navigation on the right to jump
+The following mappings are to the **DoD Impact Level 4** controls. Use the navigation on the right to jump
 directly to a specific control mapping. Many of the mapped controls are implemented with an
 [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open
 **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the
-**\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit
-requirements** built-in policy initiative.
+**\[Preview\]: DoD Impact Level 4** built-in policy initiative.
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
@@ -28,7 +28,7 @@ requirements** built-in policy initiative.
 > in Azure Policy is only a partial view of your overall compliance status. The associations between
 > controls and Azure Policy definitions for this compliance blueprint sample may change over time.
 > To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-h/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
 
 ## AC-2 Account Management
 
@@ -382,7 +382,7 @@ contained within the information system.
 
 - Network Security Group Rules for Internet facing virtual machines should be hardened
 - Access through Internet facing endpoint should be restricted
-- Web ports should be restricted on Network Security Groups associated to your VM
+- The NSGs rules for web applications on IaaS should be hardened
 - Audit unrestricted network access to storage accounts
 
 ## SC-7 (3) Boundary Protection | Access Points
@@ -520,12 +520,12 @@ exfiltration of information.
 
 ## Next steps
 
-Now that you've reviewed the control mapping of the FedRAMP High blueprint, visit the following
+Now that you've reviewed the control mapping of the DoD Impact Level 4 blueprint, visit the following
 articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
-> [FedRAMP High blueprint - Overview](./index.md)
-> [FedRAMP High blueprint - Deploy steps](./deploy.md)
+> [DoD Impact Level 4 blueprint - Overview](./index.md)
+> [DoD Impact Level 4 blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 
