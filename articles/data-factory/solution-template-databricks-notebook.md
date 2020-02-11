@@ -1,5 +1,5 @@
 ---
-title: ETL with Azure Databricks
+title: Transformation with Azure Databricks
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
 services: data-factory
 ms.author: abnarain
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 12/10/2018
 ---
 
-# ETL with Azure Databricks
+# Transformation with Azure Databricks
 
 In this tutorial, you create an end-to-end pipeline containing **Validation**, **Copy**, and **Notebook** activities in Data Factory.
 
@@ -33,7 +33,7 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
 2. Ensure you have an **Azure Databricks workspace** or create a new one.
 
-3. **Import the notebook for ETL**. 
+3. **Import the notebook for Transformation**. 
     1. In your Azure Databricks, reference following screenshots for importing a **Transformation** notebook to the Databricks workspace. It does not have to be in the same location as below, but remember the path that you choose for later.
    
        ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)    
@@ -68,7 +68,7 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
       print e \# Otherwise print the whole stack trace.  
     ```
 
-5.  Generate a **Databricks access token** for Data Factory to access Databricks. **Save the access token** for later use in creating a Databricks linked service, which looks something like 'dapi32db32cbb4w6eee18b7d87e45exxxxxx'
+5.  Generate a **Databricks access token** for Data Factory to access Databricks. **Save the access token** for later use in creating a Databricks linked service, which looks something like 'dapi32db32cbb4w6eee18b7d87e45exxxxxx'.
 
     ![4](media/solution-template-Databricks-notebook/Databricks-tutorial-image04.png)
 
@@ -76,7 +76,7 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
 ## How to use this template
 
-1.  Go to **ETL with Azure Databricks** template. Create new linked services for following connections. 
+1.  Go to **Transformation with Azure Databricks** template. Create new linked services for following connections. 
     
     ![Connections setting](media/solution-template-Databricks-notebook/connections-preview.png)
 
@@ -117,8 +117,7 @@ In the new pipeline created, most settings have been configured automatically wi
 
     ![14](media/solution-template-Databricks-notebook/Databricks-tutorial-image14.png)
 
-1.  A Notebook activity **ETL** is created, and the linked service created in previous step is selected.
-
+1.  A Notebook activity **Transformation** is created, and the linked service created in previous step is selected.
     ![16](media/solution-template-Databricks-notebook/Databricks-tutorial-image16.png)
 
      1. Select **Settings** tab. For *Notebook path*, the template defines a path by default. You may need to browse and select the correct notebook path uploaded in **Prerequisite** 2. 
