@@ -1,11 +1,11 @@
 ---
  title: include file
  description: include file
- services: iot-accelerators
+ services: iot-central
  author: dominicbetts
- ms.service: iot-accelerators
+ ms.service: iot-central
  ms.topic: include
- ms.date: 02/07/2019
+ ms.date: 02/11/2020
  ms.author: dobett
  ms.custom: include file
 ---
