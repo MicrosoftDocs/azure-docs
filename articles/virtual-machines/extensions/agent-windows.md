@@ -57,7 +57,7 @@ If you do not have the Agents installed, you cannot use some Azure services, suc
 ### Manual installation
 The Windows VM agent can be manually installed with a Windows installer package. Manual installation may be necessary when you create a custom VM image that is deployed to Azure. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). The VM Agent is supported on Windows Server 2008 R2 and later.
 
-> [NOTE!]
+> [!NOTE]
 > It is important to update the AllowExtensionOperations option after manually installing the VMAgent on a VM that was deployed from image without ProvisionVMAgent enable.
 
 ```powershell

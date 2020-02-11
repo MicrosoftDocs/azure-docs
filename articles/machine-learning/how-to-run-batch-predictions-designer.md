@@ -5,101 +5,137 @@ description: Learn how to train a model and set up a batch prediction pipeline u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.reviewer: trbye
-ms.author: trbye
-author: trevorbye
-ms.date: 11/19/2019
+ms.topic: how-to
+ms.author: peterlu
+author: peterclu
+ms.date: 01/13/2020
 ms.custom: Ignite2019
 ---
 
 # Run batch predictions using Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this how-to, you learn how to use the designer to train a model and set up a batch prediction pipeline and web service. Batch prediction allows for continuous and on-demand scoring of trained models on large data sets, optionally configured as a web service that can be triggered from any HTTP library. 
+In this article, you learn how to use the designer to create a batch prediction pipeline. Batch prediction lets you continuously score large datasets on-demand using a web service that can be triggered from any HTTP library.
 
-For setting up batch scoring services using the SDK, see the accompanying [how-to](how-to-use-parallel-run-step.md).
-
-In this how-to, you learn the following tasks:
+In this how-to, you learn to do the following tasks:
 
 > [!div class="checklist"]
-> * Create a basic ML experiment in a pipeline
-> * Create a parameterized batch inference pipeline
-> * Manage and run pipelines manually or from a REST endpoint
+> * Create and publish a batch inference pipeline
+> * Consume a pipeline endpoint
+> * Manage endpoint versions
+
+To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](how-to-run-batch-predictions.md).
 
 ## Prerequisites
 
-1. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
-
-1. Create a [workspace](tutorial-1st-experiment-sdk-setup.md).
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-
-This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
-
-## Create a pipeline
-
-To create a batch inference pipeline, you first need a machine learning experiment. To create one, navigate to the **Designer** tab in your workspace and create a new pipeline by selecting the **Easy-to-use prebuilt modules** option.
-
-![Designer home](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-1.png)
-
-The following is a simple machine learning model for demonstration purposes. The data is a registered Dataset created from the Azure Open Datasets diabetes data. See the [how-to section](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) for registering Datasets from Azure Open Datasets. The data is split into training and validation sets, and a boosted decision tree is trained and scored. The pipeline must be run at least once to be able to create an inferencing pipeline. Click the **Run** button to run the pipeline.
-
-![Create simple experiment](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-2.png)
+This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ## Create a batch inference pipeline
 
-Now that the pipeline has been run, there is a new option available next to **Run** and **Publish** called **Create inference pipeline**. Click the dropdown and select **Batch inference pipeline**.
+Your training pipeline must be run at least once to be able to create an inferencing pipeline.
 
-![Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-5.png)
+1. Go to the **Designer** tab in your workspace.
 
-The result is a default batch inference pipeline. This includes a node for your original pipeline experiment setup, a node for raw data for scoring, and a node to score the raw data against your original pipeline.
+1. Select the training pipeline that trains the model want to use to make prediction.
 
-![Default batch inference pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-6.png)
+1. **Run** the pipeline.
 
-You can add other nodes to change the behavior of the batch inferencing process. In this example, you add a node for randomly sampling from the input data before scoring. Create a **Partition and Sample** node and place it between the raw data and scoring nodes. Next, click on the **Partition and Sample** node to gain access to the settings and parameters.
+    ![Run the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-![New node](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-7.png)
+Now that the training pipeline has been run, you can create a batch inference pipeline.
 
-The *Rate of sampling* parameter controls what percent of the original data set to take a random sample from. This is a parameter that will be useful to adjust frequently, so you enable it as a pipeline parameter. Pipeline parameters can be changed at runtime, and can be specified in a payload object when rerunning the pipeline from a REST endpoint. 
+1. Next to **Run**, select the new dropdown **Create inference pipeline**.
 
-To enable this field as a pipeline parameter, click the ellipses above the field and then click **Add to pipeline parameter**. 
+1. Select **Batch inference pipeline**.
 
-![Sample settings](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-8.png)
+    ![Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    
+The result is a default batch inference pipeline. 
 
-Next, give the parameter a name and default value. The name will be used to identify the parameter, and specify it in a REST call.
+### Add a pipeline parameter
 
-![Pipeline parameter](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-9.png)
+To create predictions on new data, you can either manually connect a different dataset in this pipeline draft view or create a parameter for your dataset. Parameters let you change the behavior of the batch inferencing process at runtime.
 
-## Deploy batch inferencing pipeline
+In this section, you create a dataset parameter to specify a different dataset to make predictions on.
 
-Now you are ready to deploy the pipeline. Click the **Deploy** button, which opens the interface to set up an endpoint. Click the dropdown and select **New PipelineEndpoint**.
+1. Select the dataset module.
 
-![Pipeline deploy](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-10.png)
+1. A pane will appear to the right of the canvas. At the bottom of the pane, select **Set as pipeline parameter**.
+   
+    Enter a name for the parameter, or accept the default value.
 
-Give the endpoint a name and optional description. Near the bottom you see the `sample-rate` parameter you configured with a default value of 0.8. When you're ready, click **Deploy**.
+## Publish your batch inferencing pipeline
 
-![Setup endpoint](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-11.png)
+Now you're ready to deploy the inferencing pipeline. This will deploy the pipeline and make it available for others to use.
 
-## Manage endpoints 
+1. Select the **Publish** button.
 
-After deployment is complete, go to the **Endpoints** tab and click the name of the endpoint you just created.
+1. In the dialog that appears, expand the drop-down for **PipelineEndpoint**, and select **New PipelineEndpoint**.
 
-![Endpoint link](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-12.png)
+1. Provide an endpoint name and optional description.
 
-This screen shows all published pipelines under the specific endpoint. Click on your inferencing pipeline.
+    Near the bottom of the dialog, you can see the parameter you configured with a default value of the dataset ID used during training.
 
-![Inference pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-13.png)
+1. Select **Publish**.
 
-The pipeline details page shows you detailed run history and connection string information for your pipeline. Click the **Run** button to create a manual run of the pipeline.
+![Publish a pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
-![Pipeline details](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-14.png)
 
-In the run setup, you can provide a description for the run, and change the value for any pipeline parameters. This time, rerun the inferencing pipeline with a sample rate of 0.9. Click **Run** to run the pipeline.
+## Consume an endpoint
 
-![Pipeline run](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-15.png)
+Now, you have a published pipeline with a dataset parameter. The pipeline will use the trained model created in the training pipeline to score the dataset you provide as a parameter.
 
-The **Consume** tab contains the REST endpoint for rerunning your pipeline. To make a rest call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
+### Submit a pipeline run 
+
+In this section, you will set up a manual pipeline run and alter the pipeline parameter to score new data. 
+
+1. After the deployment is complete, go to the **Endpoints** section.
+
+1. Select **Pipeline endpoints**.
+
+1. Select the name of the endpoint you created.
+
+![Endpoint link](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
+
+1. Select **Published pipelines**.
+
+    This screen shows all published pipelines published under this endpoint.
+
+1. Select the pipeline you published.
+
+    The pipeline details page shows you a detailed run history and connection string information for your pipeline. 
+    
+1. Select **Run** to create a manual run of the pipeline.
+
+    ![Pipeline details](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
+    
+1. Change the parameter to use a different dataset.
+    
+1. Select **Run** to run the pipeline.
+
+### Use the REST endpoint
+
+You can find information on how to consume pipeline endpoints and published pipeline in the **Endpoints** section.
+
+You can find the REST endpoint of a pipeline endpoint in the run overview panel. By calling the endpoint, you are consuming its default published pipeline.
+
+You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and find the REST endpoint of it. 
+
+![Rest endpoint details](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+
+To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
+
+## Versioning endpoints
+
+The designer assigns a version to each subsequent pipeline that you publish to an endpoint. You can specify the pipeline version that you want to execute as a parameter in your REST call. If you don't specify a version number, the designer will use the default pipeline.
+
+When you publish a pipeline, you can choose to make it the new default pipeline for that endpoint.
+
+![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+
+You can also set a new default pipeline in the **Published pipelines** tab of your endpoint.
+
+![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## Next steps
 

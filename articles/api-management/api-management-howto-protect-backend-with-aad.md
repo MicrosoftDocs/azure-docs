@@ -43,7 +43,7 @@ Here is a quick overview of the steps:
 
 To protect an API with Azure AD, the first step is to register an application in Azure AD that represents the API. 
 
-1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **API registrations**.
+1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **APP registrations**.
 
 1. Select **New registration**. 
 

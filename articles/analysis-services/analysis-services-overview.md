@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -30,7 +30,7 @@ Azure Analysis Services integrates with many Azure services enabling you to buil
 
 ## The right tier when you need it
 
-Azure Analysis Services is available in **Developer**, **Basic**, and **Standard** tiers. Within each tier, plan costs vary according to processing power, QPUs, and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you can't downgrade from a higher tier to a lower tier.
+Azure Analysis Services is available in **Developer**, **Basic**, and **Standard** tiers. Within each tier, plan costs vary according to processing power, Query Processing Units (QPUs), and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you can't downgrade from a higher tier to a lower tier.
 
 ### Developer tier
 
@@ -43,7 +43,7 @@ This tier is recommended for evaluation, development, and test scenarios. A sing
 
 ### Basic tier
 
-The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
+The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
@@ -229,7 +229,7 @@ Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](ht
 
 Documentation specific to Azure Analysis Services is included here. Use the table of contents on the left side of your browser screen to find articles. 
 
-Because Azure Analysis Services tabular models are much the same as tabular models in SQL Server Analysis Services, there's an extensive library of shared conceptual, procedural, developer, and reference articles in [SQL Server Analysis Services Documentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Articles in the SQL Server Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title.
+Because Azure Analysis Services tabular models are much the same as tabular models in SQL Server Analysis Services, there's an extensive library of shared data modeling tutorials, conceptual, procedural, developer, and reference articles in [SQL Server Analysis Services documentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Articles in the SQL Server Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title.
 
 ![Shared documentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

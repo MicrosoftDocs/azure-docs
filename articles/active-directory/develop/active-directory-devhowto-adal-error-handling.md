@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients

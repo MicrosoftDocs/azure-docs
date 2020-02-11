@@ -76,11 +76,11 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 When training is complete:
 
-+ To view a set of accuracy metrics for the best model, right-click the module, select **Sweep results**, and then select **Visualize**.
++ To view a set of accuracy metrics for the best model, right-click the module, and then select **Visualize**.
 
     The output includes all accuracy metrics that apply to the model type, but the metric that you selected for ranking determines which model is considered "best."
 
-+ To use the model for scoring in other pipelines without having to repeat the tuning process, right-click the model output and select **Save as Trained Model**. 
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 
 ## Technical notes

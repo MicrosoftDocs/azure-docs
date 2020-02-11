@@ -3,7 +3,7 @@ title: "Quickstart: Language Understanding (LUIS) authoring client library"
 description: Get started with the LUIS client library with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
 ms.topic: quickstart
 ms.date: 01/14/2020
-zone_pivot_groups: programming-languages-set-eight
+zone_pivot_groups: programming-languages-set-diberry-3core
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library
 
@@ -15,6 +15,11 @@ Get started with the Language Understanding (LUIS) client library. Follow these 
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Get intent with Python SDK](./includes/sdk-python-authoring.md)]
+::: zone-end
+
+
+::: zone pivot="programming-language-nodejs"
+[!INCLUDE [Get intent with Node.js SDK](./includes/sdk-nodejs-authoring.md)]
 ::: zone-end
 
 ## Next steps

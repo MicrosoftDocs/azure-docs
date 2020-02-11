@@ -213,6 +213,10 @@ The following list explains the lifecycle events schema:
 * **`metadataVersion`**:  Version of the metadata.
 * **`topic`**: Event grid topic resource.
 
+## How to test locally
+
+To test locally, read [Azure Function Event Grid Trigger Local Debugging](../functions-debug-event-grid-trigger-local.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
