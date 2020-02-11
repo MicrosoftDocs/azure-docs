@@ -29,7 +29,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 
 |HSM Vendor Name|Supported HSM models|Supported HSM-key transfer method|
 |---|---|---|
-|Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li><li>SafeNet Luna HSM 5 & 6 family (Key Export variant only)</li></ul>| [Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
 |nCipher|<ul><li>nShield family of HSMs</li></ul>|[Use legacy BYOK method](hsm-protected-keys-legacy.md)|
 
 
