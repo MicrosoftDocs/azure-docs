@@ -27,7 +27,7 @@ To pin individual item, you will need to enable the pin icon for your specific s
 ![Pin step](media/view-designer-conversion-access/pin-step.png)
 
 
-You may also wish to pin multiple visualizations from the Workbook or the entire Workbook content to a dashboard. To pin the entire workbook, select **Edit** in the top toolbar to toggle **Edit Mode**. A pin icon will appear, allowing you to either pin the entire Workbook item or all of the individual steps and visualizations within the workbook.
+You may also wish to pin multiple visualizations from the Workbook or the entire Workbook content to a dashboard. To pin the entire workbook, select **Edit** in the top toolbar to toggle **Edit Mode**. A pin icon will appear, allowing you to either pin the entire Workbook item or all of the individual steps and visualizations in the workbook.
 
 ![Pin all](media/view-designer-conversion-access/pin-all.png)
 

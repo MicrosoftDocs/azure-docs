@@ -909,35 +909,6 @@
       href: platform/rest-api-walkthrough.md
   - name: Visualize data
     items:
-    - name: Convert views to workbooks
-      items:
-      - name: Overview
-        href: platform/view-designer-conversion-overview.md
-      - name: Options
-        href: platform/view-designer-conversion-options.md
-        
-      - name: Common tasks
-        href: platform/view-designer-conversion-tasks.md
-      - name: Tile conversions
-        href: platform/view-designer-conversion-tiles.md
-      - name: Examples
-        href: platform/view-designer-conversion-examples.md
-    - name: Views
-      items:
-      - name: View Designer
-        href: platform/view-designer.md
-      - name: Tile reference
-        href: platform/view-designer-tiles.md
-      - name: Visualization part reference
-        href: platform/view-designer-parts.md
-      - name: Filters
-        href: platform/view-designer-filters.md
-    - name: Power BI
-      items:
-      - name: Export log data
-        href: platform/powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md 
     - name: Workbooks
       items:
       - name: Overview
@@ -964,6 +935,36 @@
             href: platform/workbooks-time.md
           - name: Text parameters
             href: platform/workbooks-text.md
+    - name: Views
+      items:
+      - name: Convert views to workbooks
+        items:
+        - name: Conversion overview
+          href: platform/view-designer-conversion-overview.md
+        - name: Conversion options
+          href: platform/view-designer-conversion-options.md
+        - name: Overview and access
+          href: platform/view-designer-conversion-access.md
+          - name: Common tasks
+          href: platform/view-designer-conversion-tasks.md
+        - name: Tile conversions
+          href: platform/view-designer-conversion-tiles.md
+        - name: Examples
+          href: platform/view-designer-conversion-examples.md
+      - name: View Designer
+        href: platform/view-designer.md
+      - name: Tile reference
+        href: platform/view-designer-tiles.md
+      - name: Visualization part reference
+        href: platform/view-designer-parts.md
+      - name: Filters
+        href: platform/view-designer-filters.md
+    - name: Power BI
+      items:
+      - name: Export log data
+        href: platform/powerbi.md
+      - name: Export application data
+        href: app/export-power-bi.md 
     - name: Dashboards
       items:
       - name: Dashboard using log data
