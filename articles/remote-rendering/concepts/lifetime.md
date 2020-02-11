@@ -23,7 +23,7 @@ The lifetime of objects is fully under user control. It is not related to the li
 
 Most resources can only be created indirectly, typically by loading them from a file. When the same file is loaded multiple times, Azure Remote Rendering will return the same reference, and not load the data again.
 
-Many resources are immutable, for instance [meshes](meshes.md) and [textures](textures.md). Some resources are mutable, though, for example [materials](../overview/features/materials.md). Since resources are often shared, modifying a resource may affect multiple objects. For instance, changing the color of a material will change the color of all objects that use meshes, which in turn reference that material.
+Many resources are immutable, for instance [meshes](meshes.md) and [textures](textures.md). Some resources are mutable, though, for example [materials](materials.md). Since resources are often shared, modifying a resource may affect multiple objects. For instance, changing the color of a material will change the color of all objects that use meshes, which in turn reference that material.
 
 ## General lifetime
 

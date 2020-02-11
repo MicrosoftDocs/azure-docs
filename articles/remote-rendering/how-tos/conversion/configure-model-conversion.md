@@ -110,7 +110,7 @@ This parameter can be set to false when ray-cast support is not required.
 
 ### Unlit materials
 
-* `unlitMaterials` - To override all materials in the scene to work as a constantly shaded surface that is independent of lighting. That is, all materials are created as [color materials](../../concepts/materials.md#color-material) as opposed to [PBR materials](../../concepts/materials.md#pbr-material).
+* `unlitMaterials` - To override all materials in the scene to work as a constantly shaded surface that is independent of lighting. That is, all materials are created as [color materials](../../overview/features/color-materials.md) as opposed to [PBR materials](../../overview/features/pbr-materials.md).
 
 ### Coordinate system overriding
 
@@ -176,9 +176,9 @@ The respective memory footprints of the distinct formats are as follows:
 Here are some notes regarding best practices for component format changes:
 * `position` : There are rare cases where reduced floating point accuracy is sufficient. **16_16_16_16_FLOAT** introduces noticeable quantization of the position, even for small models. Position format should always be left to **32_32_32_FLOAT**.
 * `normal`, `tangent`, `binormal` : Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there is no reason to use increased accuracy through format **16_16_16_16_FLOAT**. There are many use cases where these components can be set to **NONE**:
-  * A normal, tangent, and binormal vector is only required when the material is lit. That is, when any material in the mesh is using [PBR material type](../../concepts/materials.md#pbr-material).
+  * A normal, tangent, and binormal vector is only required when the material is lit. That is, when any material in the mesh is using [PBR materials](../../overview/features/pbr-materials.md).
   * tangent and binormal are only needed when any of the lit materials uses a normal map texture.
-  * [Color materials](../../concepts/materials.md#color-material) do not need normals, tangents, or binormals
+  * [Color materials](../../overview/features/color-materials.md) do not need normals, tangents, or binormals
   * the mentioned material criteria also apply for materials that are assigned during runtime.
 * `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when texture coordinates stay in small range (0..1) and if the textures are not too large. With only 11 bits of mantissa, a 16-bit float component can only address textures up to size 2048 per-pixel accurate. When using the half precision on texture coordinates when not appropriate, the texture mapping might be off.
 
@@ -205,10 +205,10 @@ Models that originate from photogrammetry data typically do not come with a dedi
 
 Due to the nature of photogrammetry data, materials do not need to go through a dynamic lighting pipeline in the renderer since the lighting is already baked into the textures. This fact can be utilized to gain slightly better performance and also a better memory footprint:
 
-* The `unlitMaterials` flag turns all materials into [unlit color materials](../../concepts/materials.md#color-material) at conversion time
+* The `unlitMaterials` flag turns all materials into unlit [color materials](../../overview/features/color-materials.md) at conversion time
 * The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](#example) above.
 
-### Use case: Visualization of compact machines, etc
+### Use case: Visualization of compact machines, etc.
 
 These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
 
@@ -218,6 +218,6 @@ These types of use cases are typically characterized by much detail compacted to
 
 ## Next steps
 
-* [Color materials](../../concepts/materials.md#color-material)
-* [PBR materials](../../concepts/materials.md#pbr-material)
+* [Color materials](../../overview/features/color-materials.md)
+* [PBR materials](../../overview/features/pbr-materials.md)
 * [Customized material overrides](override-materials.md)

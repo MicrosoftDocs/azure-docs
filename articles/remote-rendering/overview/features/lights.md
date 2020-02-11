@@ -12,7 +12,7 @@ ms.topic: article
 By default the remotely rendered objects are lit using a [sky light](sky.md). For most applications this is already sufficient, but you can add further light sources to the scene.
 
 > [!IMPORTANT]
-> Only [PBR materials](../../concepts/materials.md#pbr-material) are affected by light sources. [Color materials](../../concepts/materials.md#color-material) always appear fully bright.
+> Only [PBR materials](pbr-materials.md) are affected by light sources. [Color materials](color-materials.md) always appear fully bright.
 
 > [!NOTE]
 > Casting shadows is currently not supported. Azure Remote Rendering is optimized to render huge amounts of geometry, utilizing multiple GPUs if necessary. Traditional approaches for shadow casting do not work well in such scenarios.
