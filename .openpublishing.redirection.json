@@ -48030,13 +48030,20 @@
       "source_path": "articles/cognitive-services/Computer-vision/vs-computer-vision-connected-service.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/cognitive-services/Face/vs-face-connected-service.md",
       "redirect_url": "/azure/cognitive-services/face/",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
+      "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
       "redirect_document_id": false
     }
   ]
