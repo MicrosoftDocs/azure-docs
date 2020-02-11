@@ -47,7 +47,7 @@ python -m pip install azure-cognitiveservices-search-entitysearch
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Create a variable for your subscription key, and instantiate the client by creating a new `CognitiveServicesCredentials` object with it.
+2. Create a variable for your subscription key and endpoint. Instantiate the client by creating a new `CognitiveServicesCredentials` object with your key.
     
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
