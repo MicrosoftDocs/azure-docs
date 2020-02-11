@@ -15,7 +15,7 @@ Textures are an immutable [shared resource](../concepts/lifetime.md). Textures c
 
 Different texture types have different use cases:
 
-* **2D Textures** are mainly used in [materials](../overview/features/materials.md).
+* **2D Textures** are mainly used in [materials](materials.md).
 * **Cubemaps** can be used for the [sky](../overview/features/sky.md).
 
 ## Supported texture formats
@@ -48,7 +48,7 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-The URI may point to a [builtin or external file](../concepts/sdk-concepts.md#built-in-and-external-resources). Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the [roughness map](../overview/features/materials.md#roughness) of a [PBR material](../overview/features/materials.md) must be grayscale.
+The URI may point to a [builtin or external file](../concepts/sdk-concepts.md#built-in-and-external-resources). Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 
 ## Next steps
 
