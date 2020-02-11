@@ -31,6 +31,10 @@ Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Use [Cognitive Services sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code) to learn and use the most common tasks.
 
+### REST specifications
+
+The [LUIS REST specifications](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cognitiveservices/data-plane/LUIS), along with all [Azure REST specifications](https://github.com/Azure/azure-rest-api-specs), are publicly available on GitHub.
+
 ### REST APIs
 
 Both authoring and prediction endpoint APIS are available from REST APIs:
@@ -95,7 +99,7 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- manage parent and child apps
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
-
+* [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - an integrated development tool for developers and multi-disciplinary teams to build bots and conversational experiences with the Microsoft Bot Framework
 
 ## Next steps
 
