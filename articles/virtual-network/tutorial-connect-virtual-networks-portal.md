@@ -1,5 +1,5 @@
 ---
-title: Connect virtual networks with virtual network peering - tutorial - Azure portal | Microsoft Docs
+title: Connect virtual networks with peering - tutorial - Azure portal
 description: In this tutorial, you learn how to connect virtual networks with virtual network peering, using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
