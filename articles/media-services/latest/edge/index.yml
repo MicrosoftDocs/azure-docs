@@ -1,0 +1,48 @@
+### YamlMime:Landing
+
+title: Azure Media Services IoT Edge documentation # < 60 chars
+summary: Learn how to use Azure Media Services IoT Edge. # < 160 chars
+
+metadata:
+  title: Azure Media Services IoT Edge documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure Media Services IoT Edge. # Required; article description that is displayed in search results. < 160 chars.
+  services: media-services
+  ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author:  #Required; your GitHub user alias, with correct capitalization.
+  ms.author:  #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/12/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Media Services on IoT Edge
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What's Media Services on IoT Edge?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Media Services concepts
+            url: media-graph-concept.md
+          - text: Media Services on IoT Edge FAQs
+            url: faqs.md
+   # Card
+  - title: Scenarios
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Media Graphs in the cloud for RTSP ingest
+          url: media-graph-cloud-tutorial.md
+        - text: Media Services on IoT Edge for ingestion
+          url: media-graph-edge-ingestion-tutorial.md  
+        - text: Media Services on IoT Edge for ingestion and motion detection
+          url: media-graph-edge-ingestion-motion-detection-tutorial.md            
+ 
+  
