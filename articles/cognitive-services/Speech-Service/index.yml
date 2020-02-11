@@ -166,7 +166,7 @@ conceptualContent:
 additionalContent:
   sections:
     - items:
-      - title: SDKs
+      - title: Software development kits (SDKs)
         links:
         - text: C++
           url: https://aka.ms/csspeech/cppref
