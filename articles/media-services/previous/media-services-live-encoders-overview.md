@@ -23,9 +23,6 @@ This topic lists on-premises live encoders that you can use to capture your live
 > [!NOTE]
 > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
 
-## Flash Media Live Encoder
-For information on how to configure the [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring FMLE](media-services-configure-fmle-live-encoder.md).
-
 ## Haivision KB Encoder
 For information on how to configure the [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Haivision KB Encoder](media-services-configure-kb-live-encoder.md).
 

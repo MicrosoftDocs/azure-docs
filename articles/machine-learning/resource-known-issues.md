@@ -312,3 +312,8 @@ Experiments can be archived by using [Experiment.archive](https://docs.microsoft
 method, or from Experiment tab view in Azure Machine Learning studio client. This action hides the experiment from list queries and views, but does not delete it.
 
 Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
+
+## Moving the workspace
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
