@@ -8,16 +8,16 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/11/2020
 ---
 # Preview features in Azure Cognitive Search
 
 This article lists features currently in preview. Features that transition from preview to general availability are removed from this list. You can check [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md) for announcements regarding general availability.
 
-While some preview features might be available in the portal and .NET SDK, the REST API always has preview features. 
+While some preview features might be available in the portal and .NET SDK, the REST API always has preview features.
 
-+ For search operations, the current preview API version is [`2019-05-06-Preview`](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview)
-+ For management operations, the current preview version is [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)
++ For search operations, [**`2019-05-06-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview) is the current preview version.
++ For management operations, [**`2019-10-01-Preview`**](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) is the current preview version.
 
 > [!IMPORTANT]
 > Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -46,7 +46,10 @@ Indexer preview features are available in preview Search API.
 
 ## Management features
 
-+ [Private Endpoint support](service-create-private-endpoint.md) through [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) of the Management REST API. You can create a service that has restrictions on how its endpoint is accessed.
+|||
+|-|-|
+[Private Endpoint support](service-create-private-endpoint.md) | You can create a virtual network with a secure client (such as a virtual machine), and then create a search service that uses Private Endpoint. |
+| IP access restriction | Using [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) of the Management REST API, you can create a service that has restrictions on which IP addresses are allowed access. |
 
 ## Earlier preview features
 

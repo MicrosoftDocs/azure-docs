@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 ---
 
 # Manage your Azure Cognitive Search service with PowerShell
@@ -20,17 +20,21 @@ ms.date: 11/04/2019
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure Azure Cognitive Search. The **Az.Search** module extends Azure PowerShell] with full parity to the [Azure Cognitive Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement). With Azure PowerShell and **Az.Search**, you can perform the following tasks:
+You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure Azure Cognitive Search. 
+
+The **Az.Search** module extends [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/) with full parity to the [Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement) and the ability to perform the following tasks:
 
 > [!div class="checklist"]
-> * [List all of the search services in your subscription](#list-search-services)
-> * [Get information about a specific search service](#get-search-service-information)
+> * [List search services in a subscription](#list-search-services)
+> * [Return service information](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
 > * [Regenerate admin API-keys](#regenerate-admin-keys)
 > * [Create or delete query api-keys](#create-or-delete-query-keys)
-> * [Scale a service by increasing or decreasing replicas and partitions](#scale-replicas-and-partitions)
+> * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 
-PowerShell cannot be used to change the name, region, or tier of your service. Dedicated resources are allocated when a service is created. Changing the underlying hardware (location or node type) requires a new service. There are no tools or APIs for transferring content from one service to another. All content management is through [REST](https://docs.microsoft.com/rest/api/searchservice/) or [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs, and if you want to move indexes, you will need to recreate and reload them on a new service. 
+PowerShell cannot be used to change the name, region, or tier of your service. Dedicated resources are allocated when a service is created. Changing the underlying hardware (location or node type) requires a new service. 
+
+There are no tools or APIs for transferring content from one service to another. All content management is through [REST](https://docs.microsoft.com/rest/api/searchservice/) or [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs, and if you want to move indexes, you will need to recreate and reload them on a new service. 
 
 While there are no dedicated PowerShell commands for content management, you can write PowerShell script that calls REST or .NET to create and load indexes. The **Az.Search** module by itself does not provide these operations.
 
