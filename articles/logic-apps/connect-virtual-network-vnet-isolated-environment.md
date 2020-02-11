@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/13/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -103,7 +103,7 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 | Intersubnet communication | Inbound & Outbound | 80, 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
 | Communication from Azure Logic Apps | Outbound | 80, 443 | VirtualNetwork | Internet | The port depends on the external service with which the Logic Apps service communicates |
 | Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage dependency | Outbound | 80, 443 | VirtualNetwork | Storage | |
+| Azure Storage dependency | Outbound | 80, 443, 445 | VirtualNetwork | Storage | |
 | Communication to Azure Logic Apps | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet | VirtualNetwork | The IP address for the computer or service that calls any request triggers or webhooks in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers. |
 | Logic app run history | Inbound | 443 | Internal ISE: <br>VirtualNetwork <p><p>External ISE: <br>Internet | VirtualNetwork | The IP address for the computer from where you want to view your logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
 | Connection management | Outbound | 443 | VirtualNetwork  | AppService | |
