@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL - Hyperscale (Citus) online"
+title: "Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online via the Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
@@ -11,12 +11,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 02/13/2020
 ---
 
-# Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL - Hyperscale (Citus) online using DMS
+# Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal
 
-You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/) with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL - Hyperscale (Citus) by using the online migration activity in Azure Database Migration Service.
+You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ To complete this tutorial, you need to:
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.6 can only migrate to Azure Database for PostgreSQL 9.6, 10, or 11, but not to Azure Database for PostgreSQL 9.5.
 
-* [Create an instance in Azure Database for PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
+* [Create an Azure Database for PostgreSQL server](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
@@ -54,7 +54,7 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because Azure Database Migration Service lacks internet connectivity.
 
-* Ensure that your virtual network Network Security Group (NSG) rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Ensure that the Network Security Group (NSG) rules for your virtual network don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow Azure Database Migration Service to access the source PostgreSQL Server, which by default is TCP port 5432.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
@@ -86,9 +86,12 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     For more information about using the pg_dump utility, see the examples in the [pg-dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html#PG-DUMP-EXAMPLES) tutorial.
 
-2. Create an empty database in your target environment, which is Azure Database for PostgreSQL - Hyperscale (Citus).
+2. Create an empty database in your target environment, which is Azure Database for PostgreSQL.
 
-    Refer to the article [Create an Azure Database for PostgreSQL server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) for details on how to connect and create a database.
+    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+
+    > [!NOTE]
+    > An instance of Azure Database for PostgreSQL - Hyperscale (Citus) has only a single database: **citus**.
 
 3. Import the schema into the target database you created by restoring the schema dump file.
 
@@ -102,7 +105,7 @@ To complete all the database objects like table schemas, indexes and stored proc
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental citus < dvdrentalSchema.sql
     ```
 
-4. To extract the drop foreign key script and add it at the destination (Hyperscale - Citus)), in PgAdmin or in psql, run the script below.
+4. To extract the drop foreign key script and add it at the destination (Azure Database for PostgreSQL), in PgAdmin or in psql, run the following script.
 
    > [!IMPORTANT]
    > Foreign keys in your schema will cause the initial load and continuous sync of the migration to fail.
@@ -138,7 +141,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 6. To disable triggers in target database, run the script below.
 
    > [!IMPORTANT]
-   > Triggers (insert or update) in the data enforce data integrity in the target ahead of the data being replicated  from the source. As a result it's recommended that you disable triggers in all the tables **at the target** during migration, and then re-enable the triggers after migration is complete.
+   > Triggers (insert or update) in the data enforce data integrity in the target ahead of the data being replicated  from the source. As a result, it's recommended that you disable triggers in all the tables **at the target** during migration, and then re-enable the triggers after migration is complete.
 
     ```
     select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
@@ -173,7 +176,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 4. Select an existing virtual network or create a new one.
 
-    The virtual network provides Azure Database Migration Service with access to the source PostgreSQL server and the target Hyperscale (Citus) instance.
+    The virtual network provides Azure Database Migration Service with access to the source PostgreSQL server and the target Azure Database for PostgreSQL instance.
 
     For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
@@ -218,9 +221,11 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Add Source Details screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-source-details.png)
 
+2. Select **Save**.
+
 ## Specify target details
 
-1. Select **Save**, and then on the **Target details** screen, specify the connection details for the target Hyperscale (Citus) server, which is the pre-provisioned instance of Hyperscale (Citus) to which the **DVD Rentals** schema was deployed by using pg_dump.
+1. On the **Target details** screen, specify the connection details for the target Hyperscale (Citus) server, which is the pre-provisioned instance of Hyperscale (Citus) to which the **DVD Rentals** schema was deployed by using pg_dump.
 
     ![Target details screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-target-details.png)
 

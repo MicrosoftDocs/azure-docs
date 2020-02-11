@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 02/13/2020
 ---
 
 # Tutorial: Migrate RDS PostgreSQL to Azure DB for PostgreSQL - Single server online using DMS
@@ -45,7 +45,7 @@ To complete this tutorial, you need to:
 
     In addition, the RDS PostgreSQL version must match the Azure Database for PostgreSQL version. For example, RDS PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
-* Create an instance of [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Refer to this [section](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) of the document for detail on how to connect to the PostgreSQL Server using pgAdmin.
+* Create an instance of [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) or [Azure Database for PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal). Refer to this [section](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) of the document for detail on how to connect to the PostgreSQL Server using pgAdmin.
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 * Ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -82,7 +82,7 @@ To complete this tutorial, you need to:
 2. Create an empty database in the target service, which is Azure Database for PostgreSQL. To connect and create a database, refer to one of the following articles:
 
     * [Create an Azure Database for PostgreSQL server by using the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)
-    * [Create an Azure Database for PostgreSQL using the Azure CLI](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-azure-cli)
+    * [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server using the Azure portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 
 3. Import the schema to target service, which is Azure Database for PostgreSQL. To restore the schema dump file, run the following command:
 
