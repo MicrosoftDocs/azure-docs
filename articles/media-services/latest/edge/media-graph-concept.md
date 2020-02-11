@@ -83,7 +83,7 @@ Below is a list of currently limitations and configurations. For more informatio
 
 ### Billing
 
-During the private preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
+During the preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
 
 There may be billing for other resources during preview including storage. For more information, see [Billing and availability](faqs.md#billing-and-availability) in the [Media Graph FAQ](faqs.md).
 
