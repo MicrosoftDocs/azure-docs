@@ -657,6 +657,8 @@
         href: data-lake-storage-directory-file-acl-java.md
       - name: Python
         href: data-lake-storage-directory-file-acl-python.md
+      - name: JavaScript
+        href: data-lake-storage-directory-file-acl-javascript.md
       - name: PowerShell
         href: data-lake-storage-directory-file-acl-powershell.md
       - name: CLI
@@ -683,8 +685,6 @@
         href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use with Hadoop File System CLI
       href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Use with Power BI
-      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: .NET

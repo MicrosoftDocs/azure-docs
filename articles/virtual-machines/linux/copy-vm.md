@@ -151,5 +151,4 @@ az vm create --resource-group myResourceGroup \
 
 ## Next steps
 
-To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for
-the Azure Resource Manager](../azure-cli-arm-commands.md).
+To learn how to use a [shared image gallery](shared-images.md) to manage VM images.

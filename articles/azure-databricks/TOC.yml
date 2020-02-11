@@ -320,26 +320,45 @@
     - name: FileStore
       href: /azure/databricks/data/filestore
       maintainContext: true
-  - name: Business intelligence tools
+  - name: Integrations
     items:
-    - name: Connect BI tools
-      href: /azure/databricks/bi/jdbc-odbc-bi
+    - name: Integrations overview
+      href: /azure/databricks/integrations/index
       maintainContext: true
-    - name: Tableau
-      href: /azure/databricks/bi/tableau
-      maintainContext: true
-    - name: Power BI
-      href: /azure/databricks/bi/power-bi
-      maintainContext: true
-    - name: Alteryx
-      href: /azure/databricks/bi/alteryx
-      maintainContext: true
-    - name: Looker
-      href: /azure/databricks/bi/looker
-      maintainContext: true
-    - name: SQL Workbench/J
-      href: /azure/databricks/bi/workbenchj
-      maintainContext: true
+    - name: Business intelligence tools
+      items:
+      - name: Connect BI tools
+        href: /azure/databricks/bi/jdbc-odbc-bi
+        maintainContext: true
+      - name: Tableau
+        href: /azure/databricks/bi/tableau
+        maintainContext: true
+      - name: Power BI
+        href: /azure/databricks/bi/power-bi
+        maintainContext: true
+      - name: Alteryx
+        href: /azure/databricks/bi/alteryx
+        maintainContext: true
+      - name: Looker
+        href: /azure/databricks/bi/looker
+        maintainContext: true
+      - name: SQL Workbench/J
+        href: /azure/databricks/bi/workbenchj
+        maintainContext: true
+    - name: Partner data integrations
+      items:
+      - name: Partner integrations overview
+        href: /azure/databricks/integrations/ingestion/index
+      - name: Qlik integration
+        href: /azure/databricks/integrations/ingestion/qlik
+      - name: Fivetran integration
+        href: /azure/databricks/integrations/ingestion/fivetran
+      - name: InfoWorks integration
+        href: /azure/databricks/integrations/ingestion/infoworks
+      - name: StreamSets integration
+        href: /azure/databricks/integrations/ingestion/streamsets
+      - name: Syncsort integration
+        href: /azure/databricks/integrations/ingestion/syncsort
   - name: Delta Lake
     items:
     - name: Introduction to Delta Lake
@@ -1087,9 +1106,20 @@
       - name: Enable Azure Data Lake Storage credential passthrough
         href: /azure/databricks/administration-guide/access-control/credential-passthrough
         maintainContext: true
-    - name: Manage workspace storage
-      href: /azure/databricks/administration-guide/workspace-storage/storage
-      maintainContext: true
+    - name: Manage workspace objects and behavior
+      items:
+      - name: Manage workspaces overview
+        href: /azure/databricks/administration-guide/workspace/index
+        maintainContext: true
+      - name: Manage workspace storage
+        href: /azure/databricks/administration-guide/workspace/storage
+        maintainContext: true
+      - name: Manage workspace security headers
+        href: /azure/databricks/administration-guide/workspace/security
+        maintainContext: true
+      - name: Manage access to notebook features
+        href: /azure/databricks/administration-guide/workspace/notebooks
+        maintainContext: true
     - name: Enable cluster configurations
       items:
       - name: Cluster configuration overview
@@ -1149,6 +1179,9 @@
         maintainContext: true 
       - name: Analyze user interface performance issues
         href: /azure/databricks/kb/cloud/har-log-analysis
+        maintainContext: true
+      - name: Jobs are not progressing in the workspace
+        href: /azure/databricks/kb/cloud/azure-vnet-jobs-not-progressing
         maintainContext: true
     - name: Clusters
       items:
@@ -1248,6 +1281,9 @@
         maintainContext: true
       - name: Unable to read files in WASB 
         href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+        maintainContext: true
+      - name: Optimize read performance from JDBC data sources
+        href: /azure/databricks/kb/data-sources/jdbc-optimize-read
         maintainContext: true
     - name: DBFS
       items:
@@ -1603,6 +1639,9 @@
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
         maintainContext: true
+      - name: February 2020
+        href: /azure/databricks/release-notes/product/2020/february
+        maintainContext: true
       - name: January 2020
         href: /azure/databricks/release-notes/product/2020/january
         maintainContext: true
@@ -1750,10 +1789,7 @@
             maintainContext: true 
           - name: Databricks Runtime 5.2 ML
             href: /azure/databricks/release-notes/runtime/5.2ml
-            maintainContext: true 
-          - name: Databricks Runtime 3.5
-            href: /azure/databricks/release-notes/runtime/3.5
-            maintainContext: true 
+            maintainContext: true
         - name: Unsupported
           items:
           - name: Unsupported runtime releases
@@ -1786,6 +1822,9 @@
           - name: Databricks Runtime 4.0
             href: /azure/databricks/release-notes/runtime/4.0
             maintainContext: true
+          - name: Databricks Runtime 3.5 LTS
+            href: /azure/databricks/release-notes/runtime/3.5
+            maintainContext: true 
           - name: Databricks Runtime 3.4
             href: /azure/databricks/release-notes/runtime/3.4
             maintainContext: true 
@@ -1798,6 +1837,9 @@
     - name: Release types
       href: /azure/databricks/release-notes/release-types
       maintainContext: true 
+  - name: Azure Databricks status page
+    href: /azure/databricks/status
+    maintainContext: true 
   - name: R developer's guide 
     href: /azure/machine-learning/r-developers-guide
   - name: Azure Roadmap
