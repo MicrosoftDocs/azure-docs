@@ -16,7 +16,7 @@ Resource exhaustion on Linux machines is a common issue and can manifest through
 
 Many of these tools accept an interval on which to produce rolling output. This output format typically makes spotting patterns much easier. Where accepted, the example invocation will include `[interval]`
 
-This document draws heavily on Brendan Gregg's "Linux Performance Analysis in 60s".
+This document draws heavily on Brendan Gregg's "Linux Performance Analysis in 60 seconds".
 
 ## Guidance
 
@@ -36,9 +36,9 @@ uptime provides system uptime and 1, 5, and 15-minute load averages. These load 
 - 1-minute average > 5-minute average means load is increasing.
 - 1-minute average < 5-minute average means load is decreasing.
 
-uptime can also illuminate why information is not available: a recent restart may have resolved the issue, or it may have mitigated before the user was able to run the command on the machine. Low uptime or decreasing load averages would highlight this problem.
+uptime can also illuminate why information is not available: the issue may have resolved on its own or by a restart before the user could access the machine.
 
-:oad averages higher than the number of CPU threads available may indicate a performance issue with a given workload.
+Load averages higher than the number of CPU threads available may indicate a performance issue with a given workload.
 
 ### dmesg
 
@@ -198,7 +198,7 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-This invocation of `sar` uses the `TCP,ETCP` keywords to examine TCP connections. The third column of the last row, "retrans", is the number of TCP retransmits per second. High values for this field indicate an unreliable network connection. In The first and third rows, "active" means a connection originated from the local device, while "remote" indicates an incoming connection.  On Azure, high "active" values may be useful when troubleshooting issues like SNAT port exhaustion, which occurs due to high TCP connection rate originating from the local machine. 
+This invocation of `sar` uses the `TCP,ETCP` keywords to examine TCP connections. The third column of the last row, "retrans", is the number of TCP retransmits per second. High values for this field indicate an unreliable network connection. In The first and third rows, "active" means a connection originated from the local device, while "remote" indicates an incoming connection.  On Azure, high "active" values may be useful when troubleshooting issues like SNAT port exhaustion, which occurs when the local machine makes many outbound TCP connections.
 
 As `sar` takes an interval, it prints rolling output and then prints final rows of output containing the average results from the invocation.
 
