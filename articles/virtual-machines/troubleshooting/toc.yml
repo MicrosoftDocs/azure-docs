@@ -6,6 +6,8 @@
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
+  - name: Availability sets
+    href: virtual-machines-availability-set-supportability.md
 - name: RDP
   href: rdp.md
   items:
