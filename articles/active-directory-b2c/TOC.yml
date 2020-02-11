@@ -81,6 +81,9 @@
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
+    - name: Register a Graph application
+      href: microsoft-graph-get-started.md
+      displayName: migrate, migration, microsoft graph
     - name: Add a web API application
       href: add-web-application.md
     - name: Add a native client application
@@ -348,6 +351,9 @@
       displayName: migrate, b2clogin, owin
   - name: Automation
     items:
+    - name: Azure Monitor
+      href: azure-monitor.md
+      displayName: log, logs, logging, usage, events
     - name: Export usage report
       href: view-usage-reports.md
     - name: Account management
@@ -372,8 +378,6 @@
     items:
     - name: Migrate users
       href: user-migration.md
-    - name: Migrate users with external identities
-      href: migrate-social-identities.md
 - name: Reference
   items:
   - name: Identity Experience Framework release notes
@@ -382,6 +386,7 @@
     href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
   - name: Cookie definitions
     href: cookie-definitions.md
+    displayName: cookies, SameSite
   - name: Error codes
     href: error-codes.md
   - name: Microsoft Graph API operations

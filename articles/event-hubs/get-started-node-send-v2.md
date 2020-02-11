@@ -1,25 +1,25 @@
 ---
-title: Send and receive events using Node.js - Azure Event Hubs
-description: This article provides a walkthrough for creating a Node.js application that sends events from Azure event hubs.
+title: Send or receive events from Azure Event Hubs using Node.js (latest)
+description: This article provides a walkthrough for creating a Node.js application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs version 5 package. 
 services: event-hubs
 author: spelluru
 
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.date: 01/09/2020
+ms.topic: quickstart
+ms.date: 01/30/2020
 ms.author: spelluru
 
 ---
 
-# Send events to or receive events from event hubs by using Node.js
+# Send events to or receive events from event hubs by using Node.js  (azure/event-hubs version 5)
 
 Azure Event Hubs is a big data streaming platform and event-ingestion service that can receive and process millions of events per second. Event hubs can process and store events, data, or telemetry that's produced by distributed software and devices. Data that's sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. For more information, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This quickstart describes how to create Node.js applications that can send events to or receive events from an event hub.
 
 > [!IMPORTANT]
-> This quickstart uses version 5 of the Azure Event Hubs JavaScript SDK. For a quickstart that uses version 2 of the JavaScript SDK, see [Quickstart: Send events to or receive events from event hubs by using Node.js](event-hubs-node-get-started-send.md). If you're using version 2 of the SDK, we recommend that you migrate your code to the latest version. For more information, see the [migration guide](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
+> This quickstart uses version 5 of the Azure Event Hubs JavaScript SDK. For a quick start that uses version 2 of the JavaScript SDK, see [this article](event-hubs-node-get-started-send.md). 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To complete this quickstart, you need the following prerequisites:
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 - Node.js version 8.x or later. Download the latest [long-term support (LTS) version](https://nodejs.org).  
 - Visual Studio Code (recommended) or any other integrated development environment (IDE).  
-- An active Event Hubs namespace and event hub. To create them, do the following: 
+- An active Event Hubs namespace and event hub. To create them, do the following steps: 
 
    1. In the [Azure portal](https://portal.azure.com), create a namespace of type *Event Hubs*, and then obtain the management credentials that your application needs to communicate with the event hub. 
    1. To create the namespace and event hub, follow the instructions at [Quickstart: Create an event hub by using the Azure portal](event-hubs-create.md).
@@ -110,7 +110,7 @@ Congratulations! You have now sent events to an event hub.
 In this section, you receive events from an event hub by using an Azure Blob storage checkpoint store in a Node.js application. It performs metadata checkpoints on received messages at regular intervals in an Azure Storage blob. This approach makes it easy to continue receiving messages later from where you left off.
 
 ### Create an Azure storage account and a blob container
-To create an Azure storage account and a blob container in it, do the following:
+To create an Azure storage account and a blob container in it, do the following actions:
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
@@ -172,7 +172,7 @@ Be sure to record the connection string and container name for later use in the 
       console.log("Error occurred: ", err);
     });    
     ```
-1. In the code, use real values to replace the following:
+1. In the code, use real values to replace the following values:
     - `EVENT HUBS NAMESPACE CONNECTION STRING`
     - `EVENT HUB NAME`
     - `AZURE STORAGE CONNECTION STRING`

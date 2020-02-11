@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -84,51 +84,15 @@ Audit logs are published to the same pipeline as other activities for Azure Acti
 
 ### Enable reporting API access
 
-To allow script- or application-based access to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
+To allow script- or application-based access to the Azure AD reporting API, you need an application registered in your Azure AD B2C tenant with the following API permissions. You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
-* Microsoft Graph > Application permissions > AuditLog.Read.All
+* Microsoft Graph > Application permissions > AuditLog > AuditLog.Read.All
 
-You can enable these permissions on an existing Azure Active Directory application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
+Follow the steps in the following article to register an application with the required permissions:
 
-Follow these steps register an application, grant it the required Microsoft Graph API permissions, and then create a client secret.
+[Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md)
 
-### Register application in Azure Active Directory
-
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### Assign API access permissions
-
-#### [Applications](#tab/applications/)
-
-1. On the **Registered app** overview page, select **Settings**.
-1. Under **API ACCESS**, select **Required permissions**.
-1. Select **Add**, and then **Select an API**.
-1. Select **Microsoft Graph**, and then **Select**.
-1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
-1. Select the **Select** button, and then select **Done**.
-1. Select **Grant permissions**, and then select **Yes**.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
-
-1. Under **Manage**, select **API permissions**.
-1. Under **Configured permissions**, select **Add a permission**.
-1. Select the **Microsoft APIs** tab.
-1. Select **Microsoft Graph**.
-1. Select **Application permissions**.
-1. Expand **AuditLog** and then select the **AuditLog.Read.All** check box.
-1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for (your tenant name)**.
-1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
-1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the *AuditLog.Read.All* permission. It might take a few minutes for the permissions to propagate.
-
-* * *
-
-### Create client secret
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
-
-You now have an application with the required API access, an application ID, and a key that you can use in your automation scripts. See the PowerShell script section later in this article for an example of how you can get activity events with a script.
+After you've registered an application with the appropriate permissions, see the PowerShell script section later in this article for an example of how you can get activity events with a script.
 
 ### Access the API
 
@@ -254,4 +218,4 @@ Here's the JSON representation of the example activity event shown earlier in th
 
 ## Next steps
 
-You can automate other administration tasks, for example, [manage users with .NET](manage-user-accounts-graph-api.md).
+You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).

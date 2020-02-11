@@ -1,7 +1,7 @@
 ---
-title: Manage Azure AD B2C resources with Microsoft Graph
+title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
-description: An introduction and steps for preparing to manage Azure AD B2C resources by using the Microsoft Graph API.
+description: Prepare for managing Azure AD B2C resources with Microsoft Graph by registering an application that's granted the required Graph API permissions.
 services: B2C
 author: mmacy
 manager: celestedg
@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -56,7 +56,7 @@ You now have an application that has permission to *create*, *read*, *update*, a
 
 ## Add password update permissions
 
-The *Read and write directory data* permission that you granted earlier does **NOT** include the ability to update their passwords.
+The *Read and write directory data* permission does **NOT** include the ability to update user account passwords.
 
 If you want your application or script to update user's passwords, grant it the *User administrator* role:
 
@@ -68,14 +68,18 @@ If you want your application or script to update user's passwords, grant it the 
 1. In the **Select** text box, enter the name of the application you registered earlier, for example, *managementapp1*. Select your application when it appears in the search results.
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
+<<<<<<< HEAD
 Your Azure AD B2C application now has the permissions required to update their passwords in your B2C tenant.
 
+=======
+>>>>>>> 7d1e19a351e11317a12964973a09fb545f28a3dd
 ## Next steps
 
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API.
 
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
 * [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Get audit logs with the Azure AD reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
 [ms-graph]: https://docs.microsoft.com/graph/
