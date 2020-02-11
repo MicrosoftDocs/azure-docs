@@ -945,7 +945,7 @@
           href: platform/view-designer-conversion-options.md
         - name: Overview and access
           href: platform/view-designer-conversion-access.md
-          - name: Common tasks
+        - name: Common tasks
           href: platform/view-designer-conversion-tasks.md
         - name: Tile conversions
           href: platform/view-designer-conversion-tiles.md
