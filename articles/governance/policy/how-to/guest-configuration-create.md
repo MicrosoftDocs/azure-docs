@@ -13,7 +13,7 @@ condition that the machine should be in. If the evaluation of the configuration 
 effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
 
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
-settings inside machines. Remediation of settings inside machines isn't yet available.
+settings inside machines. If a setting is non-compliant, you can use remediation of settings inside machines, to change the setting to the desired state.
 
 Use the following actions to create your own configuration for validating the state of an Azure
 machine.
