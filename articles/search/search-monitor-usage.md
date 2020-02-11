@@ -1,5 +1,5 @@
 ---
-title: Monitor resource usage and query metrics 
+title: Monitor operations and activity
 titleSuffix: Azure Cognitive Search
 description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
 
@@ -11,35 +11,26 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ---
 
-# Monitor service and user activity of Azure Cognitive Search
+# Monitor operations and activity of Azure Cognitive Search
 
-Many services, including Azure Cognitive Search, leverage [Azure Monitor](../azure-monitor/) for alerts, metrics, and logging diagnostic data. In this article, learn about built-in monitoring and what you can configure or extend to create an efficient communication system for proactive responses to problems as they emerge.
+Many services, including Azure Cognitive Search, leverage [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for alerts, metrics, and logging diagnostic data. For Azure Cognitive Search, the built-in monitoring infrastructure is used primarily for resource-level monitoring (service health) and query monitoring.
 
-## Azure Monitor
+In this article, learn about built-in monitoring and what you can configure or extend to create an efficient communication system for proactive responses to problems as they emerge.
+
+## Locate relevant pages and links
 
 The following example helps you locate Azure Monitor features in the portal.
 
-+ **Monitoring** tab shows metrics at a glance from the main overview page
-+ **Activity log** shows recent operations related to the resource, such as service provisioning, de-provisioning, and key management
-+ **Monitoring options** contain configurable monitoring features. Alerts, metrics, and diagnostic logs can be configured when you need them. Once data is stored, you can query or visualize the information for insights.
++ **Monitoring** tab, located in the main overview page, shows key metrics at a glance.
++ **Activity log**, just below Overview, shows resource-level actions, such as service provisioning and notifications of authorized access.
++ **Monitoring**, further down the list, contains configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
 ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integration in a search service")
 
 ### Precision of reported numbers
 
-Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general idea of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
-
-## Use system APIs
-
-Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
-
-+ [GET Services Statistics](/rest/api/searchservice/get-service-statistics)
-+ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
-+ [GET Document Counts](/rest/api/searchservice/count-documents)
-+ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
-
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
 
 ## Activity logs
 
@@ -80,6 +71,17 @@ The following table compares options for storing logs and adding in-depth monito
 Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
 
 The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Cognitive Search operations.
+
+## Use system APIs
+
+Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
+
++ [GET Services Statistics](/rest/api/searchservice/get-service-statistics)
++ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
++ [GET Document Counts](/rest/api/searchservice/count-documents)
++ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
+
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 <!-- ## Enable operational logging
 

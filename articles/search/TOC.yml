@@ -319,14 +319,14 @@
       href: search-manage-powershell.md
   - name: Monitor and logging
     items:
-    - name: Azure Monitor for search
+    - name: Fundamentals
       href: search-monitor-usage.md
-    - name: Create an alert
-      href: search-monitor-alerts.md 
-    - name: Log activity
-      href: search-monitor-logs.md 
-    - name: Monitor metrics
-      href: search-monitor-metrics.md       
+    - name: Monitor indexing
+      href: search-monitor-indexing.md  
+    - name: Monitor query activity
+      href: search-monitor-queries.md 
+    - name: Diagnostic logging
+      href: search-monitor-logs.md   
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
