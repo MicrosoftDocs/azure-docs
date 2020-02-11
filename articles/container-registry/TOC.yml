@@ -84,12 +84,14 @@
         items:
         - name: Authentication overview
           href: container-registry-authentication.md
-        - name: Service principal authentication
+        - name: Authenticate with service principal
           href: container-registry-auth-service-principal.md
-        - name: Managed identity authentication
+        - name: Authenticate with managed identity
           href: container-registry-authentication-managed-identity.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
+        - name: Authenticate from Kubernetes with pull secret
+          href: container-registry-auth-kubernetes.md
         - name: Authenticate from Azure Kubernetes Service (AKS)
           href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
       - name: Role-based access control
