@@ -15,12 +15,12 @@ ms.author: ambapat
 
 # Import HSM-protected keys to Key Vault (preview)
 
+> [!NOTE]
+> This feature is currently in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions. 
+
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
-
-> [!NOTE]
-> This feature is currently in preview and only available in **East US 2 EUAP** and **Central US EUAP** regions.
 
 This functionality is not available for Azure China 21Vianet.
 This import method is only available for [supported HSMs](#supported-hsms). 
@@ -56,7 +56,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 |HSM Vendor Name|Supported HSM models|Additional details|
 |---|---|---|
 |Thales|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li><li>SafeNet Luna HSM 5 & 6 family (Key Export variant only)</li>| [SafeNet Luna BYOK tool and documentation](https://safenet.gemalto.com/blah-blah)|
-|nCipher|nShield family of HSMs|[Use legacy BYOK procedure](hsm-protected-keys-legacy.md)|
+|nCipher|<ul><li>nShield family of HSMs using legacy BYOK procedure</li></ul>|[Use legacy BYOK procedure](hsm-protected-keys-legacy.md)|
 
 
 ## Generate and transfer your key to Azure Key Vault HSM
