@@ -1,5 +1,5 @@
 ---
-title: "Administrator roles: classic subscription, RBAC, and Azure AD"
+title: "Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles"
 description: Describes the different roles in Azure - Classic subscription administrator roles, Azure role-based access control (RBAC) roles, and Azure Active Directory (Azure AD) administrator roles 
 services: active-directory
 documentationcenter: ''
