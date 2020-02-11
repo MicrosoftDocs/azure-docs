@@ -8,7 +8,7 @@ manager: borisb2015
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 02/10/2020
 ms.author: alsin
 ---
 

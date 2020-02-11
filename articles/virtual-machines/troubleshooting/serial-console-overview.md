@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
 ---
 
@@ -86,9 +86,9 @@ As mentioned above, Serial Console requires VM Contributor or greater access to 
 ```
 
 ### To create and use the role:
-*	Save the JSON at a known location – e.g. ~/serialconsolerole.json.
-*	Use the following Az CLI command to create the role definition: az role definition create --role-definition serialconsolerole.json -o=json
-*	If you need to update the role, use the following command: az role definition update --role-definition serialconsolerole.json -o=json
+*	Save the JSON at a known location – e.g. `~/serialconsolerole.json`.
+*	Use the following Az CLI command to create the role definition: `az role definition create --role-definition serialconsolerole.json -o=json`
+*	If you need to update the role, use the following command: `az role definition update --role-definition serialconsolerole.json -o=json`
 *	The role will show up in Access Control (IAM) in the portal (may take a few minutes to propagate)
 *	You may add users to the VM and the boot diagnostics storage account with the custom role role
     *	Note that the user must be granted the custom role on the VM *and* the boot diagnostics storage account
