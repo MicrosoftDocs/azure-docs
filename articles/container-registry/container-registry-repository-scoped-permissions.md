@@ -29,9 +29,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
 
 * A **token** along with a generated password lets the user authenticate with the registry. You can set an expiration date for a token password, or disable a token at any time.  
 
-  After authenticating with a token, a user or service can perform *actions* scoped to one or more repositories.
-
-* **Actions** you scope to a repository include one or more of the following.
+  After authenticating with a token, the user or service can perform one or more *actions* scoped to one or more repositories.
 
   |Action  |Description  | Example |
   |---------|---------|--------|
@@ -41,7 +39,9 @@ To configure repository-scoped permissions, you create a *token* with an associa
   |`metadata/read`    | Read metadata from the repository   | List tags or show manifest metadata |
   |`metadata/write`     |  Write metadata to the repository  | Update manifest attributes |
 
-* A **scope map** groups the repository permissions you apply to a token, or can reapply to other tokens. A scope map helps you configure multiple tokens with identical access to a set of repositories. Azure Container Registry also provides several system-defined scope maps.
+* A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. A scope map helps you configure multiple tokens with identical permissions to a set of repositories. 
+
+  If you update a scope map you created, the permissions of the associated tokens are updated. Azure Container Registry also provides several system-defined scope maps, with fixed permissions across all repositories.
 
 The following image shows the relationship between tokens and scope maps. 
 
@@ -133,9 +133,9 @@ The following example creates a token, and creates a scope map with the followin
 
 1. In the portal, navigate to your container registry.
 1. Under **Services**, select **Tokens (Preview) > +Add**.
+  ![Create token in portal](media/container-registry-repository-scoped-permissions/portal-token-add.png)
 1. Enter a token name.
 1. Under **Scope map**, select **Create new**.
-   ![Create token in portal](media/container-registry-repository-scoped-permissions/portal-token-add.png)
 1. Configure the scope map:
     1. Enter a name and description for the scope map. 
     1. Under **Repositories**, enter `samples/hello-world`, and under **Permissions**, select  `content/read` and `content/write`. Then select **+Add**.  
@@ -394,7 +394,7 @@ az acr token update --name MyToken --registry myregistry \
 
 In the portal, select the token in the **Tokens (Preview)** screen, and select **Disabled** under **Status**.
 
-To delete a token to permanently invalidate access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command. In the portal, select the token in the **Tokens (Preview)** screen, and select **Discard**.
+To delete a token to permanently invalidate,  access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command. In the portal, select the token in the **Tokens (Preview)** screen, and select **Discard**.
 
 ## Next steps
 
