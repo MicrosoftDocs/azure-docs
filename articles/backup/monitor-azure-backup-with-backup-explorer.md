@@ -10,7 +10,7 @@ ms.date: 02/03/2020
 
 As organizations back up more and more machines to the cloud, it becomes increasingly important to monitor these backups efficiently. The best way to begin is to create and use a central location for viewing operational information across a large estate.
 
-Backup Explorer is a built-in Azure Monitor workbook that gives Azure Backup customers this single, convenient central location. Backup Explorer helps you monitor operational activities across the entire Backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. Broadly, Backup Explorer provides the following capabilities:
+Backup Explorer is a built-in Azure Monitor workbook that gives Azure Backup customers this single, central location. Backup Explorer helps you monitor operational activities across the entire Backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. Broadly, Backup Explorer provides the following capabilities:
 
 * **At-scale perspective**: Get an aggregated view of the backup items, jobs, alerts, policies, and resources that aren't yet configured for backup across the entire estate. 
 * **Drill-down analysis**: Display detailed information about each of your jobs, alerts, policies, and backup items, all in one place.
@@ -84,7 +84,7 @@ The **Backup Not Enabled** pane displays a table with a list of unprotected mach
 
 ## Export to Excel
 
-You can export the contents of any table or chart as an Excel spreadsheet. The contents are exported as is, with existing filters applied. To export additional table rows, you can increase the number of rows to be displayed on the page by using the **Rows Per Page** drop-down list at the top of each tab.
+You can export the contents of any table or chart as an Excel spreadsheet. The contents are exported as is, with your existing filters applied. To export additional table rows, you can increase the number of rows to be displayed on the page by using the **Rows Per Page** drop-down list at the top of each tab.
 
 ## Pin to the dashboard
 
