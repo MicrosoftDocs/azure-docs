@@ -208,7 +208,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     }
     ```
 
-1. Create a new file in your resources META-INF dicrectory called *spring.factories* and add.
+1. Create a new file in your resources META-INF directory called *spring.factories* and add.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
