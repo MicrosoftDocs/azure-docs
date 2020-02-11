@@ -94,6 +94,11 @@ If the identity tenant is a just-in-time (JIT) or viral tenant (meaning it's a s
 
 As of November 18, 2019, guest users in your directory (defined as user accounts where the **userType** property equals **Guest**) are blocked from using the AzureAD PowerShell V1 module. Going forward, a user will need to either be a member user (where **userType** equals **Member**) or use the AzureAD PowerShell V2 module.
 
+## In an Azure US Government tenant, I can't invite a B2B collaboration guest user
+
+B2B collaboration is limited to certain tenants in the Azure US Government cloud. For details and limitations, see Azure Active Directory Premium P1 and P2 [Variations](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-active-directory-premium-p1-and-p2) in the  Azure Government Security + Identity article.
+
+
 ## Next steps
 
 [Get support for B2B collaboration](get-support.md)
