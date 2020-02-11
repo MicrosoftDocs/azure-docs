@@ -30,9 +30,9 @@
   - name: Access controls
     items: 
      - name: Grant
-       href: 
+       href: concept-conditional-access-grant.md
      - name: Session
-       href: 
+       href: concept-conditional-access-session.md
   - name: Report-only mode
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
