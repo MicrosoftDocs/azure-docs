@@ -80,7 +80,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     * ***ConnectionPolicy Configuration options for Direct mode***
 
-        As a first step, use the following recommended configuration settings below. Please contact the [Azure Cosmos DB team](mailto:cosmosdbpm@microsoft.com) for guidance if you run into any issues. 
+        As a first step, use the following recommended configuration settings below. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
         If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
 
