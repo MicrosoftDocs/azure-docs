@@ -102,7 +102,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-### \_\_init\_\_.py
+#### \_\_init\_\_.py
 
 *\_\_init\_\_.py* contains a `main()` Python function that's triggered according to the configuration in *function.json*.
 
@@ -135,7 +135,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). The return object, defined as `$return` in *function.json*, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
 
-### function.json
+#### function.json
 
 *function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. You can change `scriptFile` to invoke a different Python file if desired.
 
@@ -194,7 +194,7 @@ When you're ready, **Ctrl**+**C** to stop the functions host.
 
 ## Create supporting Azure resources for your function
 
-To deploy your function code to Azure, you need to create three resources:
+Before you can deploy your function code to Azure, you need to create three resources:
 
 - A resource group, which is a logical container for related resources.
 - An Azure Storage account, which maintains state and other information about your projects.

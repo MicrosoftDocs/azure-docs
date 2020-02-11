@@ -55,7 +55,7 @@ To run this sample you will need:
 >    - Leave **Redirect URI** blank for now, and select **Register**.
 > 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
 > 1. Select the **Authentication** from the menu, and then add the following information:
->    - In **Redirect URIs**, add `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/me`.
+>    - In **Redirect URIs**, add `https://localhost:8080/msal4jsample/secure/aad` and `https://localhost:8080/msal4jsample/graph/me`.
 >    - Select **Save**.
 > 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
 >
@@ -69,7 +69,7 @@ To run this sample you will need:
 >
 > For the code sample for this quickstart to work, you need to:
 >
-> 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `http://localhost:8080/msal4jsamples/graph/me`.
+> 1. Add reply URLs as `https://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
 > 1. Create a Client Secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
@@ -85,23 +85,36 @@ To run this sample you will need:
 
  1. Extract the zip file to a local folder.
  1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
-
  1. Open the application.properties file, which can be found in src/main/resources/ folder and replace the value of the fields *aad.clientId*, *aad.authority* and *aad.secretKey* with the respective values of **Application Id**, **Tenant Id** and **Client Secret** as the following:
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
     aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
     ```
 
-> [!div renderon="docs"]
-> Where:
->
-> - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
+    > [!div renderon="docs"]
+    > Where:
+    >
+    > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
+    > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
+    > - `Enter_the_Tenant_Info_Here` - is the **Directory (tenant) ID** value of the application you registered.
+
+ 1. To use https with localhost, fill in the server.ssl.key properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
+
+   ```
+   Example: 
+   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+
+   server.ssl.key-store-type=PKCS12  
+   server.ssl.key-store=classpath:keystore.p12  
+   server.ssl.key-store-password=password  
+   server.ssl.key-alias=testCert 
+   ```
+
+   Put the generated keystore file in the "resources" folder.
 
 #### Step 4: Run the code sample
 
@@ -111,11 +124,11 @@ Run it directly from your IDE by using the embedded spring boot server or packag
 
 ##### Running from IDE
 
-If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is http://localhost:8080
+If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8080.
 
 1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
 
-1. After the user is authenticated, they are redirected to *http://localhost:8080/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
+1. After the user is authenticated, they are redirected to *https://localhost:8080/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
     - *Sign Out*: Signs the current user out of the application and redirects them to the home page.
     - *Show User Info*: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request containing the token, which returns basic information about the signed-in user.
 
