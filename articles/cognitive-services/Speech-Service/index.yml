@@ -64,153 +64,104 @@ conceptualContent:
       footerLink:
         text: See more
         url: text-to-speech.md
-
-
-- title: Intent recognition
-  linkLists:
-    - linkListType: quickstart
+    - title: Intent recognition
       links:
-        - text: Recognize speech, intents, and entities
+        - itemType: quickstart
+          text: Recognize speech, intents, and entities
           url: quickstarts/intent-recognition.md
-    - linkListType: how-to-guide
-      links:
-        - text: Recognize speech intents with LUIS and C#
+        - itemType: how-to-guide
+          text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
-    - linkListType: reference
-      links:
-        - text: Language Understanding (LUIS) portal
+        - itemType: reference
+          text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
-        - text: LUIS developer resources
-          url: ../luis/developer-reference-resource.md
-        - text: Language support
-          url: ../luis/luis-language-support.md#languages-supported
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
-
-- title: Speech translation
-  linkLists:
-    - linkListType: overview
+    - title: Speech translation
       links:
-      - text: What is speech translation?
+      - itemType: quickstart
+        text: Translate speech-to-text
+        url: quickstarts/translate-speech-to-text.md
+      - itemType: quickstart
+        text: Translate speech into multiple target languages
+        url: quickstarts/translate-speech-to-text-multiple-languages.md
+      - itemType: quickstart
+        text: Translate speech-to-speech
+        url: quickstarts/translate-speech-to-speech.md
+      footerLink:
+        text: See more
         url: speech-translation.md
-    - linkListType: learn
+    - title: Conversation scenarios
       links:
-      - text: Translate speech in real time
-        url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
-    - linkListType: quickstart
-      links:
-        - text: Translate speech-to-text
-          url: quickstarts/translate-speech-to-text.md
-        - text: Translate speech into multiple target languages
-          url: quickstarts/translate-speech-to-text-multiple-languages.md
-        - text: Translate speech-to-speech
-          url: quickstarts/translate-speech-to-speech.md
-    - linkListType: tutorial
-      links:
-        - text: Translate and synthesize text with REST APIs
-          url: ../translator/tutorial-build-flask-app-translation-synthesis.md
-    - linkListType: reference
-      links:
-        - text: Language support
-          url: language-support.md#speech-translation
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-
-- title: Conversation scenarios
-  linkLists:
-    - linkListType: overview
-      links:
-      - text: Conversation transcription
-        url: conversation-transcription.md
-      - text: Multi-device conversation
-        url: multi-device-conversation.md
-    - linkListType: quickstart
-      links:
-        - text: Start and join a conversation
-          url: quickstarts/multi-device-conversation.md
-    - linkListType: how-to-guide
-      links:
-        - text: Call center scenario
-          url: call-center-transcription.md
-        - text: Real time conversation transcription
+        - itemType: overview
+          text: Conversation transcription
+          url: conversation-transcription.md
+        - itemType: how-to-guide
+          text: Real time conversation transcription
           url: how-to-use-conversation-transcription.md
-        - text: Asynchronous conversation transcription
-          url: how-to-async-conversation-transcription.md
-    - linkListType: reference
+        - itemType: overview
+          text: Multi-device conversation
+          url: multi-device-conversation.md
+        - itemType: quickstart
+          text: Start and join a conversation
+          url: quickstarts/multi-device-conversation.md
+    - title: Voice assistants
       links:
-        - text: Language support
-          url: conversation-transcription.md#language-support
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-
-- title: Voice assistants
-  linkLists:
-    - linkListType: overview
-      links:
-      - text: About voice assistants
-        url: voice-assistants.md
-      - text: About direct line speech
-        url: direct-line-speech.md
-    - linkListType: quickstart
-      links:
-        - text: Custom commands (Preview)
+        - itemType: overview
+          text: About direct line speech
+          url: direct-line-speech.md
+        - itemType: quickstart
+          text: Custom commands (Preview)
           url: custom-commands.md
-    - linkListType: tutorial
-      links:
-        - text: Voice enable your bot with Speech SDK
+        - itemType: tutorial
+          text: Voice enable your bot with Speech SDK
           url: tutorial-voice-enable-your-bot-speech-sdk.md
-
-- title: Devices
-  linkLists:
-    - linkListType: overview
+      footerLink:
+        text: See more
+        url: voice-assistants.md
+    - title: Devices
       links:
-        - text: About the Speech Devices SDK
-          url: speech-devices-sdk.md
-    - linkListType: quickstart
+      - itemType: quickstart
+        text: Use Speech Device SDK (Windows)
+        url: speech-devices-sdk-windows-quickstart.md
+      - itemType: quickstart
+        text: Use Speech Device SDK (Linux)
+        url: speech-devices-sdk-linux-quickstart.md
+      - itemType: quickstart
+        text: Use Speech Device SDK (Android)
+        url: speech-devices-sdk-android-quickstart.md
+      footerLink:
+        text: See more
+        url: speech-devices-sdk.md
+    - title: Migration
       links:
-        - text: Use Speech Device SDK (Windows)
-          url: speech-devices-sdk-windows-quickstart.md
-        - text: Use Speech Device SDK (Linux)
-          url: speech-devices-sdk-linux-quickstart.md
-        - text: Use Speech Device SDK (Android)
-          url: speech-devices-sdk-android-quickstart.md
-
-- title: Migration
-  linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Migrate from Bing Speech
+        - itemType: how-to-guide
+          text: Migrate from Bing Speech
           url: how-to-migrate-from-bing-speech.md
-        - text: Migrate from the Custom Speech service
+        - itemType: how-to-guide
+          text: Migrate from the Custom Speech service
           url: how-to-migrate-from-custom-speech-service.md
-        - text: Migrate from the Translator Speech API
+        - itemType: how-to-guide
+          text: Migrate from the Translator Speech API
           url: how-to-migrate-from-translator-speech-api.md
-
-- title: Hosting
-  linkLists:
-    - linkListType: how-to-guide
+    - title: Hosting
       links:
-        - text: Create an Azure Speech resource
-          url: get-started.md#create-a-speech-resource-in-azure
-        - text: Deploy Speech service containers
+        - itemType: how-to-guide
+          text: Deploy Speech service containers
           url: speech-container-howto.md
-        - text: Configure containers
+        - itemType: how-to-guide
+          text: Configure containers
           url: speech-container-configuration.md
-        - text: Deploy Speech service containers with Kubernetes
+        - itemType: how-to-guide
+          text: Deploy Speech service containers with Kubernetes
           url: speech-container-howto-on-premises.md
-        - text: Deploy Speech service containers on Azure Container Instances
+        - itemType: how-to-guide
+          text: Deploy Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
-    - linkListType: reference
-      links:
-        - text: Supported regions
+        - itemType: reference
+          text: Supported regions
           url: regions.md
-        - text: Sovereign clouds
+        - itemType: reference
+          text: Sovereign clouds
           url: sovereign-clouds.md
-
-- title: Support
-  linkLists:
-    - linkListType: reference
-      links:
 
 additionalContent:
   sections:
@@ -231,18 +182,14 @@ additionalContent:
         url: https://aka.ms/csspeech/pythonref
     - title: REST APIs
       links:
-      - text: C++
-        url: https://aka.ms/csspeech/cppref
-      - text: C#
-        url: https://aka.ms/csspeech/csharpref
-      - text: Java
-        url: https://aka.ms/csspeech/javaref
-      - text: JavaScript
-        url: https://aka.ms/csspeech/javascriptref
-      - text: Objective-C
-        url: https://aka.ms/csspeech/objectivecref
-      - text: Python
-        url: https://aka.ms/csspeech/pythonref
+      - text: Speech-to-text REST API
+        url: rest-speech-to-text.md
+      - text: Batch transcription REST API
+        url: batch-transcription.md
+      - text: Text-to-speech REST API
+        url: rest-text-to-speech.md
+      - text: Conversation transcription REST APIs
+        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
     - title: Support
       links:
       - text: Support and help
