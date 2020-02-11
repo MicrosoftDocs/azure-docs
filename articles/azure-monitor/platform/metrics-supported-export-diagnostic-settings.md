@@ -46,7 +46,7 @@ The table contains the following columns.
 > The table below may have a horizontal scroll bar at the bottom. If you believe you are missing information, check to see that the scroll bar is all the way to the left.  
 
 
-| Exportable via Diagnostic Settings?  | Effected by NULL / 0 |  ResourceType  |  Metric  |  MetricDisplayName  |  Unit  |  AggregationType | 
+| Exportable via Diagnostic Settings?  | Emits NULLs |  ResourceType  |  Metric  |  MetricDisplayName  |  Unit  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | ****Yes****  | No |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Memory: Cleaner Current Price  |  Count  |  Average | 
 | ****Yes****  | No |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Memory: Cleaner Memory nonshrinkable  |  Bytes  |  Average | 
