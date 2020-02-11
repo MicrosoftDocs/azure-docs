@@ -34,6 +34,11 @@ Azure also offers Red Hat Gold Images. These images may be useful to customers w
 > [!NOTE]
 > Note on double billing: Double billing is incurred when a user pays twice for RHEL subscriptions. This usually happens when a customer uses subscription-manager to attach an entitlement on a RHEL PAYG VM. For example, a customer that uses subscription-manager to attach an entitlement for SAP packages on a RHEL PAYG image will indirectly be double-billed because they will pay twice for RHEL - once through the PAYG premium fee and once through their SAP subscription. This will not happen to BYOS image users.
 
+### Generation 2 images
+Generation 2 VMs provide some newer features compared to Generation 1 VMs. Details are laid out in the [Generation 2 documentation](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). The key difference from a RHEL image perspective is that Generation 2 VMs use a UEFI instead of BIOS firmware interface, and use a GUID Partition Table (GPT) instead of a master boot record (MBR) on boot time. This allows for, among other things, OS disk sizes larger than 2TB. In addition, the [Mv2 series VMs](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series) run only on Generation 2 images.
+
+RHEL Generation 2 images are available in the marketplace. Look for "gen2" in the image SKU when listing all images using the Azure CLI, and go to the "Advanced" tab in the VM deploy process to deploy a Generation 2 VM.
+
 ## Red Hat Update Infrastructure (RHUI)
 Azure provides Red Hat Update Infrastructure only for PAYG RHEL virtual machines (VMs). RHUI is effectively a mirror of the Red Hat CDNs but is only accessible to the Azure PAYG RHEL VMs. You will have access to the appropriate packages depending on which RHEL image you have deployed. For example, a RHEL for SAP image will have access to the SAP packages in addition to base RHEL packages.
 
