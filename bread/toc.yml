@@ -839,6 +839,3 @@
     - name: Reservations
       tocHref: /azure/cost-management-billing/reservations/
       topicHref: /azure/cost-management-billing/reservations/
-    - name: Cloudyn
-      tocHref: /azure/cost-management-billing/cloudyn/
-      topicHref: /azure/cost-management-billing/cloudyn/
