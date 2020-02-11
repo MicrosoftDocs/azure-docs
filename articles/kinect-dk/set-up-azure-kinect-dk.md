@@ -5,8 +5,14 @@ author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 02/12/2020
 keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power, viewer, sensor, streaming, setup, SDK, firmware
+ms.custom: 
+- CI 114092
+- CSSTroubleshooting
+audience: ITPro
+manager: dcscontentpm
+ms.localizationpriority: high
 
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect DK device before starting my development.
 
