@@ -1,11 +1,11 @@
 - name: Azure
-  tocHref: /
-  topicHref: /
+  tocHref: /azure/
+  topicHref: /azure/index
   items:
   - name: Cost Management and Billing
-    tocHref: /cost-management-billing/
-    topicHref: /cost-management-billing/
+    tocHref: /azure/cost-management-billing/
+    topicHref: /azure/cost-management-billing/index
     items:
     - name: Cloudyn
-      tocHref: /cost-management-billing/cloudyn/
-      topicHref: /cost-management-billing/cloudyn/
+      tocHref: /azure/cost-management-billing/cloudyn/
+      topicHref: /azure/cost-management-billing/cloudyn/index

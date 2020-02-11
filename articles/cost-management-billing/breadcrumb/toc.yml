@@ -1,23 +1,23 @@
 - name: Azure
-  tocHref: /
-  topicHref: /
+  tocHref: /azure/
+  topicHref: /azure/index
   items:
   - name: Cost Management and Billing
-    tocHref: /cost-management-billing/
-    topicHref: /cost-management-billing/
+    tocHref: /azure/cost-management-billing/
+    topicHref: /azure/cost-management-billing/index
     items:
     - name: Get started
-      tocHref: /cost-management-billing/understand/
-      topicHref: /cost-management-billing/understand/
+      tocHref: /azure/cost-management-billing/understand/
+      topicHref: /azure/cost-management-billing/understand/index
     - name: Manage Azure costs and usage
-      tocHref: /cost-management-billing/costs/
-      topicHref: /cost-management-billing/costs/
+      tocHref: /azure/cost-management-billing/costs/
+      topicHref: /azure/cost-management-billing/costs/index
     - name: Manage Azure accounts and subscriptions
-      tocHref: /cost-management-billing/manage/
-      topicHref: /cost-management-billing/manage/
+      tocHref: /azure/cost-management-billing/manage/
+      topicHref: /azure/cost-management-billing/manage/index
     - name: Reservations
-      tocHref: /cost-management-billing/reservations/
-      topicHref: /cost-management-billing/reservations/
+      tocHref: /azure/cost-management-billing/reservations/
+      topicHref: /azure/cost-management-billing/reservations/index
     - name: Cloudyn
-      tocHref: /cost-management-billing/cloudyn/
-      topicHref: /cost-management-billing/cloudyn/
+      tocHref: /azure/cost-management-billing/cloudyn/
+      topicHref: /azure/cost-management-billing/cloudyn/index
