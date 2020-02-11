@@ -193,11 +193,11 @@ Now go back to the Azure portal to get your connection string information and co
 > 
 > Double-click on the .crt file to open it into the certificate display. 
 >
-> ![View and verify the output](./media/create-cassandra-nodejs/crt_cer1.gif)
+> ![View and verify the output](./media/create-cassandra-nodejs/crtcer1.gif)
 >
 > Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
 >
-> ![View and verify the output](./media/create-cassandra-nodejs/crt_cer2.gif)
+> ![View and verify the output](./media/create-cassandra-nodejs/crtcer2.gif)
 >
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.
