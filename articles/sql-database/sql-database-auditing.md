@@ -57,7 +57,7 @@ An auditing policy can be defined for a specific database or as a default server
    >
    > Otherwise, we recommended that you enable only server-level blob auditing and leave the database-level auditing disabled for all databases.
 
-## <a id="subheading-2"></a>Set up auditing for your database
+## <a id="subheading-2"></a>Set up auditing for your server
 
 The following section describes the configuration of auditing using the Azure portal.
 
