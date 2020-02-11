@@ -87,13 +87,9 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
 5. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 
-   * Windows
-      `C:\ProgramData\iotedge\hsm\certs`
-      `C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
 
-   * Linux
-      `/var/lib/iotedge/hsm/certs`
-      `/var/lib/iotedge/hsm/cert_keys`
+   * Linux: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
 
 ## Next steps
 
