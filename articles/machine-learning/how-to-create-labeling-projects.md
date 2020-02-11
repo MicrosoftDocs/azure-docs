@@ -121,7 +121,7 @@ For bounding boxes, important questions include:
 
 ## Initialize the labeling project
 
-After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
+After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
 ## Manage teams and people
 
@@ -135,7 +135,7 @@ To send an email to the team, select the team to view the **Team details** page.
 
 ## Run and monitor the project
 
-After you initialize the project, Azure will begin running it. Select the project on the main **Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
+After you initialize the project, Azure will begin running it. Select the project on the main **Data Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
@@ -144,6 +144,25 @@ Use the **Team** tab to assign or unassign teams to the project.
 To pause or restart the project, select the **Pause**/**Start** button. You can only label data when the project is running.
 
 You can label data directly from the **Project details** page by selecting **Label data**.
+
+## Add labels to a project
+
+During the labeling process, you may find that additional labels are needed to classify your images.  For example, you may want to add an "Unknown" or "Other" label to indicate confusing images.
+
+Use these steps to add one or more labels to a project:
+
+1. Select the project on the main **Data Labeling** page.
+1. At the top of the page, select **Pause** to stop labelers from their activity.
+1. Select the **Details** tab.
+1. In the list on the left, select **Label classes**.
+1. At the top of the list, select **+ Add Labels**
+    ![Add a label](media/how-to-create-labeling-projects/add-label.png)
+1. In the form, add your new label and choose how to proceed.  Since you've changed the available labels for an image, you choose how to treat the already labeled data:
+    * Start over, removing all existing labels.  Choose this option if you want to wipe out all existing labels so that the full set can be used to tag all images.
+    * Start over, keeping all existing labels.  Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that had been labeled.
+    * Continue, keeping all existing labels. Choose this option to keep all data already labeled as is, and start using the new label for data not yet classified.
+1. Modify your instructions page as necessary for the new label(s).
+1. Once you have added all new labels, at the top of the page select **Start**  to restart the project.  
 
 ## Export the labels
 

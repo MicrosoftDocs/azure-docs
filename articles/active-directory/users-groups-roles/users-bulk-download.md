@@ -5,14 +5,14 @@ description: Download user records in bulk in the Azure admin center in Azure Ac
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
@@ -35,7 +35,7 @@ To download the list of users from the Azure AD admin center, you must be signed
 
    The download file will contain the filtered list of users.
 
-   The following user attributes will be included: 
+   The following user attributes are included:
 
    - userPrincipalName
    - displayName
@@ -46,7 +46,6 @@ To download the list of users from the Azure AD admin center, you must be signed
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress

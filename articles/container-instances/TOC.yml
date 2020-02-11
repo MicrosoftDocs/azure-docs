@@ -63,6 +63,8 @@
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts
       href: container-instances-dedicated-hosts.md
+    - name: Use Logic Apps connector
+      href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks

@@ -76,7 +76,7 @@ Learn more about [Helm and how it works][helm].
 
 [helm]: https://docs.helm.sh
 [helm-chart]: https://helm.sh/docs/topics/charts/
-[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-dependency-update]: https://helm.sh/docs/topics/charts/#managing-dependencies-with-the-dependencies-field
+[helm-repo-add]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
 [helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

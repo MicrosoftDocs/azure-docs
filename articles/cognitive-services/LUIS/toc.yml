@@ -22,16 +22,12 @@
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
-  - name: Use .NET SDK
+  - name: Use SDK
     items:
-    - name: Create and manage app
-      href: sdk-csharp-quickstart-authoring-app.md
+    - name: Authoring app
+      href: sdk-authoring.md
     - name: Query prediction endpoint
-      href: sdk-csharp-quickstart-query-prediction-endpoint.md
-  - name: Use Python SDK
-    items:
-    - name: Create and manage app
-      href: sdk-python-quickstart-authoring-app.md
+      href: sdk-query-prediction-endpoint.md
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -72,21 +68,11 @@
   - name: Use with bot
     items:
     - name: With C#
-      items:
-      - name: 1. Create basic bot
-        href: luis-csharp-tutorial-bf-v4.md
-        displayName: bot framework, framework, sdk, abs
-      - name: 2. Add telemetry to Application Insights
-        href: luis-tutorial-bot-csharp-appinsights.md
-        displayName: Application insight, kusto
+      href: luis-csharp-tutorial-bf-v4.md
+      displayName: bot framework, framework, sdk, abs
     - name: With Node.js
-      items:
-      - name: 1. Create basic bot
-        displayName: bot framework, framework, sdk, abs
-        href: luis-nodejs-tutorial-bf-v4.md
-      - name: 2. Add telemetry to Application Insights
-        displayName: Application insight, kusto
-        href: luis-tutorial-bot-nodejs-appinsights.md
+      displayName: bot framework, framework, sdk, abs
+      href: luis-nodejs-tutorial-bf-v4.md
 - name: Concepts
   items:
   - name: Development lifecycle
@@ -318,7 +304,9 @@
     href: reference-pattern-syntax.md
   - name: Sentiment
     href: luis-reference-prebuilt-sentiment.md
-  - name: Developer resources
+- name: Developer reference
+  items:
+  - name: Overview
     href: developer-reference-resource.md
     displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
   - name: Azure CLI
@@ -371,9 +359,9 @@
     - name: Node.js
       items:
       - name: NPM - authoring
-        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring
       - name: NPM - runtime
-        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis
     - name: Python

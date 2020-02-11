@@ -1,5 +1,5 @@
 ---
-title: "Example: Identify faces in images - Face API"
+title: "Example: Identify faces in images - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance.
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # Example: Identify faces in images
 
-This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance. The samples are written in C# by using the Azure Cognitive Services Face API client library.
+This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance. The samples are written in C# by using the Azure Cognitive Services Face client library.
 
 ## Preparation
 
@@ -127,7 +127,7 @@ while(true)
 
 ## Step 4: Identify a face against a defined PersonGroup
 
-When the Face API performs identifications, it computes the similarity of a test face among all the faces within a group. It returns the most comparable persons for the testing face. This process is done through the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API or the IdentifyAsync method of the client library.
+When the Face service performs identifications, it computes the similarity of a test face among all the faces within a group. It returns the most comparable persons for the testing face. This process is done through the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API or the IdentifyAsync method of the client library.
 
 The testing face must be detected by using the previous steps. Then the face ID is passed to the identification API as a second argument. Multiple face IDs can be identified at once. The result contains all the identified results. By default, the identification process returns only one person that matches the test face best. If you prefer, specify the optional parameter maxNumOfCandidatesReturned to let the identification process return more candidates.
 

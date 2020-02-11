@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/13/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -103,19 +103,9 @@ Select a minimum of one and a maximum of three categories, which will be used to
 
 Enter the version number of your offer. Customers will see this version listed on the offer's detail page.
 
-### Standard Contract
+### Terms and conditions
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace.
-
-Rather than crafting custom terms and conditions, you can choose to offer your software under the Standard Contract, which customers only need to vet and accept once.
-
-The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178
-
-To use the Standard Contract, check the **Use Standard Contract?** box.
-
-#### Terms of use
-
-If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
+Provide your own legal terms and conditions in the **Terms and conditions** field. You can also provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 ## Offer listing
 
@@ -146,8 +136,26 @@ Some tips for writing your description:
   - Customer needs or pain that the product addresses
 - Keep in mind that the first few sentences might be displayed in search engine results.  
 - Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible. 
+- Use industry-specific vocabulary or benefit-based wording as much as possible.
 - Consider using HTML tags to format your description and make it more engaging.
+
+To make your offer description more engaging, use the rich text editor to format your description.
+
+![Using the rich text editor](./media/text-editor2.png)
+
+Use the following instructions to use the rich text editor:
+
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
+
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
+
+- To add a bulleted or numbered list to the text, use the options below:
+
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
+
+- To add or remove indentation to the text, use the options below:
+
+     ![Using the rich text editor to indent](./media/text-editor5.png)
 
 ### Search keywords
 
@@ -365,7 +373,7 @@ If your offer requires the Premium edition of Microsoft Dynamics 365 Business Ce
 
 ### Key usage scenario
 
-You must pload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+You must upload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ### App tests automation
 

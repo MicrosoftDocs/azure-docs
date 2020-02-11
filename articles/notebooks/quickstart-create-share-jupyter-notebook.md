@@ -7,19 +7,22 @@ ms.date: 12/04/2018
 
 # Quickstart: Create and share a notebook in Azure Notebooks Preview
 
-In this quickstart, you learn how to quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
+In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others. Jupyter lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+## Prerequisites
+None.
 
 ## Create a new project and notebook
 
-1. Go to the [Azure Notebooks site (https://notebooks.azure.com)](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. Go to the [Azure Notebooks site (https://notebooks.azure.com)](https://notebooks.azure.com) and sign in. For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. From your public profile page, select **My Projects** at the top of the page:
 
     ![My Projects link on the top of the browser window](media/quickstarts/my-projects-link.png)
 
-1. On the **My Projects** page, select **+ New Project** (keyboard shortcut: n); the button may appear only as **+** if the browser window is narrow:
+1. On the **My Projects** page, select **+ New Project** (keyboard shortcut: n). The button may appear only as **+** if the browser window is narrow:
 
     ![New Project command on My Projects page](media/quickstarts/new-project-command.png)
 
@@ -97,4 +100,4 @@ On the project page, you can also use the **Share** menu to obtain a link, creat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

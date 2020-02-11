@@ -14,7 +14,6 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory consent framework

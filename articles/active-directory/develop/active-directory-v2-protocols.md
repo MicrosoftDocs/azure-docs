@@ -14,7 +14,6 @@ ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform

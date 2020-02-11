@@ -35,7 +35,7 @@ This article walks through the following four steps to configure and then manage
 
 4. **For all future module deployments, set environment variables for any module communicating through the proxy.**
 
-   Once your IoT Edge device is set up and connected to IoT Hub through the proxy server, you need to maintain the connection in all future module deployments. For detailed steps, see the [Configure deployment manifests](#configure-deployment-manifests) section of this article. 
+   Once your IoT Edge device is set up and connected to IoT Hub through the proxy server, you need to maintain the connection in all future module deployments. For detailed steps, see the [Configure deployment manifests](#configure-deployment-manifests) section of this article.
 
    This step is an ongoing process performed remotely so that every new module or deployment update maintains the device's ability to communicate through the proxy server.
 
@@ -65,7 +65,7 @@ If you're installing the IoT Edge runtime on a Windows device, you need to go th
 
 The following steps demonstrate an example of a windows installation using the `-proxy` argument:
 
-1. The Invoke-WebRequest command needs proxy information to access the installer script. Then the Deploy-IoTEdge command needs the proxy information to download the installation files. 
+1. The Invoke-WebRequest command needs proxy information to access the installer script. Then the Deploy-IoTEdge command needs the proxy information to download the installation files.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
@@ -161,13 +161,13 @@ Restart-Service iotedge
 
 The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
 
-This step takes place once on the IoT Edge device during initial device setup. 
+This step takes place once on the IoT Edge device during initial device setup.
 
-1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file. 
+1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file.
 
-2. In the config.yaml file, find the **Edge Agent module spec** section. The IoT Edge agent definition includes an **env** parameter where you can add environment variables. 
+2. In the config.yaml file, find the **Edge Agent module spec** section. The IoT Edge agent definition includes an **env** parameter where you can add environment variables.
 
-3. Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces. 
+3. Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces.
 
    ```yaml
    https_proxy: "<proxy URL>"
@@ -181,7 +181,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
    ![edgeAgent definition with environment variables](./media/how-to-configure-proxy-support/edgeagent-edited.png)
 
-5. Save the changes to config.yaml and close the editor. Restart IoT Edge for the changes to take effect. 
+5. Save the changes to config.yaml and close the editor. Restart IoT Edge for the changes to take effect.
 
    * Linux:
 
