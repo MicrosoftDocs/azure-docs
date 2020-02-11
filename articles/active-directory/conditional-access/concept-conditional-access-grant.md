@@ -1,12 +1,12 @@
 ---
-title: Conditions in Conditional Access policy - Azure Active Directory
-description: What are conditions in an Azure AD Conditional Access policy
+title: Grant controls in Conditional Access policy - Azure Active Directory
+description: What are grant controls in an Azure AD Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -37,7 +37,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require approved client app](app-based-conditional-access.md)
 - [Require app protection policy](app-protection-based-conditional-access)
 
-When administrators choose to combine these options they can choose the following methods:
+When administrators choose to combine these options, they can choose the following methods:
 
 - Require all the selected controls (control **AND** control)
 - Require one of the selected controls (control **OR** control)
@@ -49,4 +49,5 @@ By default Conditional Access requires all selected controls.
 - [Conditional Access: Session controls](concept-conditional-access-session.md)
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
 - [Report-only mode](concept-conditional-access-report-only.md)

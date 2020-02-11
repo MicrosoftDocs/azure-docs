@@ -1,12 +1,12 @@
 ---
 title: Users and groups in Conditional Access policy - Azure Active Directory
-description: What are conditions in an Azure AD Conditional Access policy
+description: Who are users and groups in an Azure AD Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,9 +33,9 @@ The following options are available to include when creating a Conditional Acces
    - All users that exist in the directory including B2B guests.
 - Select users and groups
    - All guest and external users (preview)
-      - This selection includes any B2B guests and external users including any user with the attribute set to guest. This selection also applies to any external user signed-in from a different organization like a Cloud Solution Provider (CSP). 
+      - This selection includes any B2B guests and external users including any user with the `user type` attribute set to `guest`. This selection also applies to any external user signed-in from a different organization like a Cloud Solution Provider (CSP). 
    - Directory roles (preview)
-      - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example organizations may create a more restrictive policy on users assigned the global administrator role.
+      - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role.
    - Users and groups
       - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 
@@ -49,9 +49,9 @@ Exclusions are commonly used for emergency access or break-glass accounts. More 
 The following options are available to exclude when creating a Conditional Access policy.
 
 - All guest and external users (preview)
-   - This selection includes any B2B guests and external users including any user with the attribute set to guest. This selection also applies to any external user signed-in from a different organization like a Cloud Solution Provider (CSP). 
+   - This selection includes any B2B guests and external users including any user with the `user type` attribute set to `guest`. This selection also applies to any external user signed-in from a different organization like a Cloud Solution Provider (CSP). 
 - Directory roles (preview)
-   - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example organizations may create a more restrictive policy on users assigned the global administrator role.
+   - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role.
 - Users and groups
    - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 

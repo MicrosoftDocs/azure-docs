@@ -1,12 +1,12 @@
 ---
-title: Client apps in Conditional Access policy - Azure Active Directory
-description: What are cloud apps and actions in an Azure AD Conditional Access policy
+title: Cloud apps or actions in Conditional Access policy - Azure Active Directory
+description: What are cloud apps or actions in an Azure AD Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
