@@ -12,7 +12,7 @@
     href: troubleshoot-deploy-vm-linux.md
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
-- name:VM restart issues 
+- name: VM restart issues 
    items:
   - name: Restarting or resizing a VM
     href: restart-resize-error-troubleshooting.md
@@ -22,10 +22,10 @@
   items:
   - name: New VM deployments
     items:
-      - name: Linux
-        href: troubleshoot-deployment-new-vm-linux.md
-      - name: Windows
-        href: troubleshoot-deployment-new-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deployment-new-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deployment-new-vm-windows.md
   - name: Redeploy a VM
     items:
     - name: Linux
@@ -181,7 +181,7 @@
         href: how-to-use-perfinsights-linux.md
 - name: VM extension issues
   items:
-  - name: About Azure Extensions
+  - name: Azure Extensions overview
     href: /azure/virtual-machines/extensions/overview.md
   - name: Troubleshoot extension issues
     href: /azure/virtual-machines/extensions/troubleshoot.md
@@ -200,9 +200,8 @@
   - name: Activation problem with forced tunneling
     href: custom-routes-enable-kms-activation.md
 - name: Remote troubleshooting tools
+  href: remote-tools-troubleshoot-azure-vm-issues.md
   items:
-  - name: Remote troubleshooting tools
-    href: remote-tools-troubleshoot-azure-vm-issues.md
   - name: Serial Console
     items:
     - name: Serial Console overview
@@ -253,6 +252,8 @@
   items:
 - name: Planned Maintenance
   items:
+  - name: Overview
+    href: /azure/virtual-machines/maintenance-notifications
 - name: Common error messages
   items:
   - name: Common error messages
