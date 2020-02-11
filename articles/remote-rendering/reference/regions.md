@@ -13,7 +13,7 @@ This page lists the currently available regions for use with Azure Remote Render
 
 | Name | Region | URL |
 |-----------|:-----------|:-----------|
-| West US 2 | westus2 | [https://remoterendering.westus2.mixedreality.azure.com](https://remoterendering.westus2.mixedreality.azure.com) |
-| East US | eastus | [https://remoterendering.eastus.mixedreality.azure.com](https://remoterendering.eastus.mixedreality.azure.com) |
-| West Europe | westeurope | [https://remoterendering.westeurope.mixedreality.azure.com](https://remoterendering.westeurope.mixedreality.azure.com) |
-| Southeast Asia | southeastasia | [https://remoterendering.southeastasia.mixedreality.azure.com](https://remoterendering.southeastasia.mixedreality.azure.com) |
+| West US 2 | westus2 | `https://remoterendering.westus2.mixedreality.azure.com` |
+| East US | eastus | `https://remoterendering.eastus.mixedreality.azure.com` |
+| West Europe | westeurope | `https://remoterendering.westeurope.mixedreality.azure.com` |
+| Southeast Asia | southeastasia | `https://remoterendering.southeastasia.mixedreality.azure.com` |
