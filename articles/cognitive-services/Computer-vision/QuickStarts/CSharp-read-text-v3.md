@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Quickstart: Extract printed and handwritten text in English or Spanish using the Computer Vision 3.0 Preview REST API and C#
 
-In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision 3.0 Preview REST API. Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Preview provides even better accuracy and starts to support Spanish and English languages.
+In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision 3.0 Preview REST API. Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Preview provides even better accuracy and supports both Spanish and English languages.
 
 With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
 
