@@ -18,10 +18,62 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-02-18
+
+### Azure Machine Learning SDK for Python v1.1.0rc1
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
+  + **azureml-automl-core**
+    + The error logging has been improved.
+  + **azureml-automl-runtime**
+    + Fixed the issue with forecasting when the data set contains short grains with long time gaps.
+    + Fixed the issue when the auto max horizon is turned on and the date column contains dates in form of strings. We added proper conversion and sensible error if conversion to date is not possible
+    + Using native NumPy and SciPy for serializing and deserializing intermediate data for FileCacheStore (used for local AutoML runs)
+    + Fixed a bug where failed child runs could get stuck in Running state.
+  + **azureml-cli-common**
+    + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
+  + **azureml-contrib-fairlearn**
+    + Add upload/list/download functionality for group metric fairness Assets for internal use
+  + **azureml-core**
+    + ==**START OF REPLACE**== - Added `--grant-workspace-msi-access` as an additional parameter for the Datastore CLI for registering Azure Blob Container which will allow you to register Blob Container that is behind a VNet ==**END OF REPLACE**==
+    + ==**START OF REPLACE**== -Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
+    + Fixed the issue in aks.py _deploy
+    + Validates the integrity of models being uploaded to avoid silent storage failures.
+  + **azureml-interpret**
+    + added azureml-style exceptions to azureml-interpret
+    + fixed DeepScoringExplainer serialization for keras models
+  + **azureml-pipeline-core**
+    + Pipeline batch scoring notebook now uses ParallelRunStep
+  + **azureml-pipeline-steps**
+    + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-tensorboard**
+    + updated azureml-tensorboard to support tensorflow 2.0
+  + **azureml-train-automl-client**
+    + fixed FeaturizationConfig overriding issue that filters custom featurization config.
+  + **azureml-train-automl-runtime**
+    + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Supporting PyTorch version 1.4 in the PyTorch Estimator
+  
 ## 2020-02-04
 
 ### Azure Machine Learning SDK for Python v1.1.0rc0
 
++ **Breaking changes**
+  + **Semantic Versioning 2.0.0**
+    + Starting with version 1.1 Azure ML Python SDK adopts Semantic Versioning 2.0.0 [Read more here.](https://semver.org/). All subsequent versions will follow new numbering scheme and semantic versioning contract. 
+  
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
     + Increased speed of featurization.
