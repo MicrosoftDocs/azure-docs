@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -88,7 +88,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     ![Create an access review - Upon completion settings](./media/create-access-review/upon-completion-settings.png)
 
-1. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
+1. If you want to automatically remove,  access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
 1. Use the **Should reviewer not respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
 
@@ -122,6 +122,20 @@ Once you have specified the settings for an access review, click **Start**. The 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
 If you have assigned guests as reviewers and they have not accepted the invite, they will not receive an email from access reviews because they must first accept the invite prior to reviewing.
+
+## Access review status table
+
+| Status | Definition |
+|--------|------------|
+|NotStarted | Review was created, user discovery is waiting to start. |
+|Initializing   | User discovery is in progress to identify all users that are part of the review. |
+|Starting | Review is starting. If email notifications are enabled, emails are being sent to reviewers. |
+|InProgress | Review has started. If email notifications are enabled emails have been sent to reviewers. Reviewers can submit decisions until the due date. |
+|Completing | Review is being completed and emails are being sent to the review owner. |
+|AutoReviewing | Review is in a system reviewing stage. The system is recording decisions for users who were not reviewed based on recommendations or pre-configured decisions. |
+|AutoReviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled. |
+|Applying | There will be no change in access for users who were approved. |
+|Applied | Denied users, if any, have been removed from the resource or directory. |
 
 ## Create reviews via APIs
 

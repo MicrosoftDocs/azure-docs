@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
+        - name: Plan and manage costs
+          href: plan-manage-costs.md
         - name: Pricing model
           href: how-pricing-works.md
         - name: Total Cost of Ownership (TCO) 
@@ -1047,6 +1049,9 @@
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
         href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+        maintainContext: true
+      - name: Spring Data developer guide
+        href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md

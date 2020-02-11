@@ -62,9 +62,7 @@ You centrally track your migration journey from within the Azure Migrate project
 [Learn how to](how-to-delete-project.md) delete a project. 
 
 
-## Do machines retain domain identity after migration?
 
-Assuming that domain services are [integrated into Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/), then domain membership, and machine identity in the domain, is retained after migration. 
 
 ## Next steps
 Read the [Azure Migrate overview](migrate-services-overview.md).
