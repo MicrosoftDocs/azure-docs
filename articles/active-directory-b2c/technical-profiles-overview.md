@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -44,17 +44,18 @@ All types of technical profiles share the same concept. You send input claims, r
 
 ![Diagram illustrating the technical profile flow](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
+1. **Single sign-on (SSO) session management** - [SSO session management](custom-policy-reference-sso.md) controls interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. 
 1. **InputClaimsTransformation** - Input claims of every  input [claims transformation](claimstransformations.md) are picked up from the claims bag, and after execution, the output claims are put back in the claims bag. The output claims of an input claims transformation can be input claims of a subsequent input claims transformation.
-2. **InputClaims** - Claims are picked up from the claims bag and are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure Active Directory uses input claim as a unique identifier to read, update, or delete an account.
-3. **Technical profile execution** - The technical profile exchanges the claims with the configured party. For example:
+1. **InputClaims** - Claims are picked up from the claims bag and are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure Active Directory uses input claim as a unique identifier to read, update, or delete an account.
+1. **Technical profile execution** - The technical profile exchanges the claims with the configured party. For example:
     - Redirect the user to the identity provider to complete the sign-in. After successful sign-in, the user returns back and the technical profile execution continues.
     - Call a REST API while sending parameters as InputClaims and getting information back as OutputClaims.
     - Create or update the user account.
     - Sends and verifies the MFA text message.
-4. **ValidationTechnicalProfiles** - For a [self asserted technical profile](self-asserted-technical-profile.md), you can call an input [validation technical profile](validation-technical-profile.md). The validation technical profile validates the data profiled by the user and returns an error message or Ok, with or without output claims. For example, before Azure AD B2C creates a new account, it checks whether the user already exists in the directory services. You can call a REST API technical profile to add your own business logic.<p>The scope of the output claims of a validation technical profile is limited to the technical profile that invokes the validation technical profile and other validation technical profiles under same technical profile. If you want to use the output claims in the next orchestration step, you need to add the output claims to the technical profile that invokes the validation technical profile.
-5. **OutputClaims** - Claims are returned back to the claims bag. You can use those claims in the next orchestrations step, or output claims transformations.
-6. **OutputClaimsTransformations** - Input claims of every output [claims transformation](claimstransformations.md) are picked up from the claims bag. The output claims of the technical profile from the previous steps can be input claims of an output claims transformation. After execution, the output claims are put back in the claims bag. The output claims of an output claims transformation can also be input claims of a subsequent output claims transformation.
-7. **Single sign-on (SSO) session management** - [SSO session management](custom-policy-reference-sso.md) controls interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again.
+1. **ValidationTechnicalProfiles** - For a [self asserted technical profile](self-asserted-technical-profile.md), you can call an input [validation technical profile](validation-technical-profile.md). The validation technical profile validates the data profiled by the user and returns an error message or Ok, with or without output claims. For example, before Azure AD B2C creates a new account, it checks whether the user already exists in the directory services. You can call a REST API technical profile to add your own business logic.<p>The scope of the output claims of a validation technical profile is limited to the technical profile that invokes the validation technical profile and other validation technical profiles under same technical profile. If you want to use the output claims in the next orchestration step, you need to add the output claims to the technical profile that invokes the validation technical profile.
+1. **OutputClaims** - Claims are returned back to the claims bag. You can use those claims in the next orchestrations step, or output claims transformations.
+1. **OutputClaimsTransformations** - Input claims of every output [claims transformation](claimstransformations.md) are picked up from the claims bag. The output claims of the technical profile from the previous steps can be input claims of an output claims transformation. After execution, the output claims are put back in the claims bag. The output claims of an output claims transformation can also be input claims of a subsequent output claims transformation.
+1. **Single sign-on (SSO) session management** - Persists technical profile's data to the session, using [SSO session management](custom-policy-reference-sso.md).
 
 A technical profile can inherit from another technical profile to change settings or add new functionality.  The **IncludeTechnicalProfile** element is a reference to the base technical profile from which a technical profile is derived.
 
