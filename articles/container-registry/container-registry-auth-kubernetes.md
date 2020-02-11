@@ -2,7 +2,7 @@
 title: Authenticate from Kubernetes cluster
 description: Learn how to provide a Kubernetes cluster with access to images in your Azure container registry by creating a pull secret using a service principal
 ms.topic: article
-author: karol-ms
+author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
 ms.date: 02/10/2020
