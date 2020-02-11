@@ -528,7 +528,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | dashboards | resource group | 1-160 | Alphanumerics and hyphens. |
+> | dashboards | resource group | 3-160 | Alphanumerics and hyphens.<br><br>To use restricted characters, add a tag named **hidden-title** with the dashboard name you want to use. The portal displays that name when showing the dashboard. |
 
 ## Microsoft.PowerBI
 
