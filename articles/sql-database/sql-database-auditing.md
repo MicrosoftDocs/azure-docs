@@ -38,11 +38,11 @@ You can use SQL database auditing to:
 >
 > - All storage kinds (v1, v2, blob) are supported.
 > - All storage replication configurations are supported.
+. - Storage behind a VNet and Firewall is supported.
 > - **Premium storage** is currently **not supported**.
-> - **Storage in VNet** is currently **not supported**.
-> - **Storage behind a Firewall** is currently **not supported**.
 > - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
-
+> - Enabling auditing on an paused **Azure SQL Data Warehouse** is not supported. To enable auditing, un-pause the Data Warehouse.
+   
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
 An auditing policy can be defined for a specific database or as a default server policy:
@@ -64,33 +64,22 @@ An auditing policy can be defined for a specific database or as a default server
 
 The following section describes the configuration of auditing using the Azure portal.
 
+  > [!NOTE]
+   >You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your SQL database/server pane.
-
-    <a id="auditing-screenshot"></a>
-    ![Navigation pane][1]
-
 3. If you prefer to set up a server auditing policy, you can select the **View server settings** link on the database auditing page. You can then view or modify the server auditing settings. Server auditing policies  apply to all existing and newly created databases on this server.
 
     ![Navigation pane][2]
 
-4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**.
-
-    If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
+4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**. Please note that if server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
     ![Navigation pane][3]
 
-5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
-  
-  > [!NOTE]
-   >Customer wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
-  
-  > [!WARNING]
-   > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
+### <a id="audit-storage-destination">Audit to Storage destination</a>
 
-    ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
-
-6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
+To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
 
    > [!IMPORTANT]
    > - The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
@@ -98,23 +87,24 @@ The following section describes the configuration of auditing using the Azure po
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
+To configure a storage account under VNet or Firewall you will need an **Active Directory admin** on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account and create a server managed identity with [storage blob data contributor](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) RBAC. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
+
+We recommend you to be [User Access Administrator](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#user-access-administrator) in order to grand to the managed identify the role 'storage blob data contributor'. To learn more about permissions and role-based access control, see [What is role-based access control (RBAC) for Azure resources?](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) and [Add or remove role assignments using Azure RBAC and the Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal)
+
+### <a id="audit-log-analytics-destination">Audit to Log Analytics destination</a>
+  
+To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
 
     ![Log Analytics workspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    
+  > [!WARNING]
+   > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
 
-8. To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
+### <a id="audit-event-hub-destination">Audit to Event Hub destination</a>
+
+To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
     ![Event hub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
-
-9. Click **Save**.
-10. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
-11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
-
-> [!IMPORTANT]
-> Enabling auditing on an paused Azure SQL Data Warehouse is not possible. To enable it, un-pause the Data Warehouse.
-
-> [!WARNING]
-> Enabling auditing on a server that has an Azure SQL Data Warehouse on it **will result in the Data Warehouse being resumed and re-paused again** which may incur in billing charges.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
@@ -221,6 +211,9 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 ## Additional Information
 
+- If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
+
+- After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 - For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
@@ -228,7 +221,6 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 - Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription:
   - **Premium Storage** is currently **not supported** by Append Blobs.
-  - **Storage in VNet** is currently **not supported**.
 
 - The default auditing policy includes all actions and the following set of action groups, which will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
 
