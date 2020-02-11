@@ -44,9 +44,9 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 
 ## Kubernetes cluster using clusterMonitoringUser role
 
-To eliminate having to configure authentication to control access to the Live Data (preview) feature, Azure Kubernetes Service now includes a new cluster role binding called **clusterMonitoringUser** that has all the permissions necessary to access the Kubernetes API. In order to utilize the Live Data (preview) feature with this cluster role binding, you need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource to utilize this feature with that cluster role binding. 
+To eliminate having to configure authentication to control access to the Live Data (preview) feature, Azure Kubernetes Service now includes a new cluster role called **clusterMonitoringUser** that has all the permissions necessary to access the Kubernetes API. In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource to utilize this feature with that cluster role binding. 
 
-AKS released this binding in January 2020, so new clusters that are created starting in January will include it. Azure Monitor for containers when enabled, is configured to authenticate using this binding by default. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster that performs a PUT operation on the cluster, such as updating the cluster’s version.
+AKS released this binding in January 2020, so new clusters that are created starting in January will include it. Azure Monitor for containers when enabled, is configured to authenticate using this user by default. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster that performs a PUT operation on the cluster, such as updating the cluster’s version.
 
 ## Kubernetes cluster without RBAC enabled
 
