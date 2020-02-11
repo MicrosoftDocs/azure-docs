@@ -378,6 +378,8 @@
         href: v2-admin-consent.md
       - name: Application consent experiences
         href: application-consent-experience.md
+    - name: Conditional access
+      href: v2-conditional-access-dev-guide.md    
     - name: National Clouds
       items:
       - name: Overview
