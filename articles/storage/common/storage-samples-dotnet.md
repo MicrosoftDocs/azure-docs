@@ -10,7 +10,7 @@ ms.subservice: common
 ms.topic: sample
 ---
 
-# Azure Storage samples using .NET
+# Azure Storage samples using v12 .NET client libraries
 
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
@@ -20,7 +20,7 @@ The following table provides an overview of our samples repository and the scena
 ## Blob samples
 
 | &nbsp; | &nbsp; |
-|--------|--------|
+|:-------|-------:|
 | [Upload a file to a blob](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L22) | [Download a blob to a file](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L64) |
 | [Download our sample image](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L107) | [List all the blobs in a container](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L127) |
 | [Trigger a recoverable error](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L173) | [Authenticate with DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01a_HelloWorld.cs#L210) |
@@ -46,7 +46,7 @@ The following table provides an overview of our samples repository and the scena
 ## File samples
 
 | &nbsp; | &nbsp; |
-|--------|--------|
+|:-------|-------:|
 
 
 ## Queue samples (v11)
