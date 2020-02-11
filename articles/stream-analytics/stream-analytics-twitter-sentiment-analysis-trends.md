@@ -197,25 +197,12 @@ To compare the number of mentions among topics, you can use a [Tumbling window](
 5. Change the query in the code editor to the following and select **Test query**:
 
    ```sql
-   SELECT System.Timestamp as Time, Topic, COUNT(*)
-    FROM TwitterStream TIMESTAMP BY CreatedAt
-    GROUP BY TUMBLINGWINDOW(s, 5), Topic
-    ```
+   SELECT System.Timestamp as Time, text
+   FROM TwitterStream
+   WHERE text LIKE '%Azure%'
+   ```
 
-6. 
-
-## Experiment using different fields from the stream 
-
-The following table lists the fields that are part of the JSON streaming data. Feel free to experiment in the query editor.
-
-|JSON property | Definition|
-|--- | ---|
-|CreatedAt | The time that the tweet was created|
-|Topic | The topic that matches the specified keyword|
-|SentimentScore | The sentiment score from Sentiment140|
-|Author | The Twitter handle that sent the tweet|
-|Text | The full body of the tweet|
-
+6. This query returns all tweets that include the keyword *Azure*.
 
 ## Create an output sink
 
@@ -225,81 +212,26 @@ In this how-to guide, you write the aggregated tweet events from the job query t
 
 ## Specify the job output
 
-1. In the **Job Topology** section, click the **Output** box. 
+1. Under the **Job Topology** section on the left navigation menu, select **Outputs**. 
 
-2. In the **Outputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
+2. In the **Outputs** page, click **+&nbsp;Add** and **Blob storage/Data Lake Storage Gen2**:
 
    * **Output alias**: Use the name `TwitterStream-Output`. 
-   * **Sink**: Select **Blob storage**.
-   * **Import options**: Select **Use blob storage from current subscription**.
-   * **Storage account**. Select **Create a new storage account.**
-   * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
-   * **Container**. Enter `socialtwitter`.
-     The storage account name and container name are used together to provide a URI for the blob storage, like this: 
-
-     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
-    
-     !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
-    
-4. Click **Create**. 
-
-    Azure creates the storage account and generates a key automatically. 
-
-5. Close the **Outputs** blade. 
-
+   * **Import options**: Select **Select storage from your subscriptions**.
+   * **Storage account**. Select your storage account.
+   * **Container**. Select **Create new** and enter `socialtwitter`.
+   
+4. Select **Save**.   
 
 ## Start the job
 
 A job input, query, and output are specified. You are ready to start the Stream Analytics job.
 
-1. Make sure that the TwitterWpfClient application is running. 
+1. Make sure the TwitterClientCore application is running. 
 
-2. In the job blade, click **Start**.
+2. In the job overview, select **Start**.
 
-    ![Start the Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
-
-3. In the **Start job** blade, for **Job output start time**, select **Now** and then click **Start**. 
-
-    !["Start job" blade for the Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
-
-    Azure notifies you when the job has started, and in the job blade, the status is displayed as **Running**.
-
-    ![Job running](./media/stream-analytics-twitter-sentiment-analysis-trends/jobrunning.png)
-
-## View output for sentiment analysis
-
-After your job has started running and is processing the real-time Twitter stream, you can view the output for sentiment analysis.
-
-You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
-
-![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
-
-
-## Create another query to identify trending topics
-
-Another query you can use to understand Twitter sentiment is based on a [Sliding Window](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). To identify trending topics, you look for topics that cross a threshold value for mentions in a specified amount of time.
-
-For the purposes of this how-to, you check for topics that are mentioned more than 20 times in the last 5 seconds.
-
-1. In the job blade, click **Stop** to stop the job. 
-
-2. In the **Job Topology** section, click the **Query** box. 
-
-3. Change the query to the following:
-
-    ```    
-    SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
-    FROM TwitterStream TIMESTAMP BY CreatedAt
-    GROUP BY SLIDINGWINDOW(s, 5), topic
-    HAVING COUNT(*) > 20
-    ```
-
-4. Click **Save**.
-
-5. Make sure that the TwitterWpfClient application is running. 
-
-6. Click **Start** to restart the job using the new query.
-
+3. On the **Start job** page, for **Job output start time**, select **Now** and then select **Start**.
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
