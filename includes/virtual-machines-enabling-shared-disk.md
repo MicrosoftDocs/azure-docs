@@ -20,7 +20,7 @@
 
 ## Deploy an Azure shared disk
 
-To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value `>1`. This will make the disk shareable across multiple VMs.
+To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value `>1`. This makes the disk shareable across multiple VMs.
 
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
@@ -68,7 +68,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 
 ### Using Azure shared disks with your VMs
 
-Once you have deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
+Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!IMPORTANT]
 > Your VMs and their disks must be using the same [proximity placement group](../articles/virtual-machines/windows/proximity-placement-groups.md).
@@ -134,7 +134,7 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-You will also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
+You also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
 
 If any commands you expect to be in the list are missing, contact us at SharedDiskFeedback@microsoft .com
 

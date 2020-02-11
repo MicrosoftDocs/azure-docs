@@ -25,4 +25,4 @@ The following table illustrates the allowed maximum values for `maxShares` by di
 |P30, P40, P50     |5         |
 |P60, P70, P80     |10         |
 
-The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a P15 disk is 1100 whether maxShares = 1 or maxShares > 1.
+The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a P15 disk are 1100 whether maxShares = 1 or maxShares > 1.
