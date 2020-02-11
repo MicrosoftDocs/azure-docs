@@ -67,7 +67,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
 
 ### To log in
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## Configure forced tunneling
 

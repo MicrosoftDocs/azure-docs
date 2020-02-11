@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 03/28/2017
 ---
 # How to prepare your model for deployment in Azure Machine Learning Studio (classic)

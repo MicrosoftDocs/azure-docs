@@ -8,7 +8,7 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 02/10/2020
 ---
 
 # Azure Data Factory FAQ
@@ -192,6 +192,9 @@ Use the Copy activity to stage data from any of the other connectors, and then e
 ### Is the self-hosted integration runtime available for data flows?
 
 Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+
+### Does the data flow compute engine serve multiple tenants?
+Clusters are never shared. We guarantee isolation for each job run in production runs. In case of debug scenario one person gets one cluster, and all debugs will go to that cluster which are initiated by that user.
 
 ## Wrangling data flows
 
