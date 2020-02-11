@@ -91,7 +91,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md). Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
 
 ### Considerations for specific scenarios
 
@@ -125,7 +125,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 In Web API 1, we catch the error `error=interaction_required`, and send back the `claims` challenge to the desktop app. At that point, the desktop app can make a new `acquireToken()` call and append the `claims`challenge as an extra query string parameter. This new request requires the user to do multi-factor authentication and then send this new token back to Web API 1 and complete the on-behalf-of flow.
 
-To try out this scenario, see our [.NET code sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof). It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app.
+To try out this scenario, see our [.NET code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app.
 
 ## Scenario: App accessing multiple services
 
@@ -174,11 +174,11 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Our app needs to catch the `error=interaction_required`. The application can then use either `acquireTokenPopup()` or `acquireTokenRedirect()` on the same resource. The user is forced to do a multi-factor authentication. After the user completes the multi-factor authentication, the app is issued a fresh access token for the requested resource.
 
-To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). This code sample uses the Conditional Access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your Web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) for guidance on an Angular SPA
+To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). This code sample uses the Conditional Access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your Web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) for guidance on an Angular SPA
 
 ## See also
 
-* To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-* For more Azure AD code samples, see [GitHub repo of code samples](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
+* To learn more about the capabilities, see [Conditional Access in Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* For more Azure AD code samples, see [samples](sample-v2-code.md).
 * For more info on the MSAL SDK's and access the reference documentation, see [Microsoft Authentication Library overview](msal-overview.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).
