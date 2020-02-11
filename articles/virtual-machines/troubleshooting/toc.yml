@@ -270,10 +270,11 @@
   - name: Install Windows VM agent offline
     href: install-vm-agent-offline.md
 - name: Backup and Restore
-    - name: CLI
-      href: troubleshoot-recovery-disks-linux.md
-    - name: Azure portal
-      href: troubleshoot-recovery-disks-portal-linux.md
+  items:
+  - name: CLI
+    href: troubleshoot-recovery-disks-linux.md
+  - name: Azure portal
+    href: troubleshoot-recovery-disks-portal-linux.md
 - name: Boot errors Linux
   href: boot-error-troubleshoot-linux.md
   items:
