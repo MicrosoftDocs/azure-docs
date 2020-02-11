@@ -68,11 +68,6 @@ If you want your application or script to update user's passwords, grant it the 
 1. In the **Select** text box, enter the name of the application you registered earlier, for example, *managementapp1*. Select your application when it appears in the search results.
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
-<<<<<<< HEAD
-Your Azure AD B2C application now has the permissions required to update their passwords in your B2C tenant.
-
-=======
->>>>>>> 7d1e19a351e11317a12964973a09fb545f28a3dd
 ## Next steps
 
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API.

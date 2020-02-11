@@ -32,7 +32,7 @@ For information about programmatically creating user accounts, see [Manage Azure
 
 The seamless migration flow applies when a user's password in the old identity provider is not accessible. For example:
 
-- The password is stored in an encrypted format.
+- The password is stored in a one-way encrypted format, such has with a hash function.
 - The password is stored in an identity provider that you can't access. Your legacy identity provider validates the user credential by calling a web service.
 
 As with the bulk import flow, your migration application reads the user accounts in the old identity provider and creates corresponding accounts in the Azure AD B2C directory, but does not set a password. The first time a migrated user signs in, their password is validated against the legacy identity provider, and if it matches, that password is set for the user in Azure AD B2C.

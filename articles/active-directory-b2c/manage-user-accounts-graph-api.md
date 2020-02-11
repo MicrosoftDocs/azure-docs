@@ -50,7 +50,7 @@ A customer account, which could be a consumer, partner, or citizen, can be assoc
 - **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 - **Federated** identity - Also known as a *social* or *enterprise* accounts, the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
-A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
+A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password.
 
 In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity][graph-objectIdentity]. The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities.
 
