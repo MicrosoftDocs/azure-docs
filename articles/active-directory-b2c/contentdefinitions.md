@@ -73,7 +73,7 @@ The **ContentDefinition** element contains the following elements:
 
 ### DataUri
 
-The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  The following table lists of the page identifiers you can use.
+The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  The following table lists the values and descriptions of the page identifiers you can use.
 
 | Value |	Description |
 | ----- | ----------- |
