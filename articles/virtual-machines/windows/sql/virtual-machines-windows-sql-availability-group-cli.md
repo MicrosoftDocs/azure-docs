@@ -53,6 +53,8 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 ## Step 2: Define Windows failover cluster metadata
 The Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) command group manages the metadata of the Windows Server Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the Active Directory domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) to define the metadata for WSFC so that when the first SQL Server VM is added, the cluster is created as defined. 
 
+Note that this process does not run validation. Without validation, it is not considered a supported solution.
+
 The following code snippet defines the metadata for the cluster:
 ```azurecli-interactive
 # Define the cluster metadata
