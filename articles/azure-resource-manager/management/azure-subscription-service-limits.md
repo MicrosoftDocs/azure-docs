@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 
 tags: billing
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/10/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -24,8 +24,6 @@ For limits on resource names, see [Naming rules and restrictions for Azure resou
 ## Limits and Azure Resource Manager
 
 You can combine multiple Azure resources into a single Azure resource group. When you use resource groups, limits that once were global become managed at a regional level with Azure Resource Manager. For more information about Azure resource groups, see [Azure Resource Manager overview](overview.md).
-
-In the following list of limits, a new table reflects any differences in limits when you use Azure Resource Manager. For example, there's a **Subscription limits** table and a **Subscription limits - Azure Resource Manager** table. When a limit applies to both scenarios, it's only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
 > [!NOTE]
 > Quotas for resources in Azure resource groups are per-region accessible by your subscription, not per-subscription as the service management quotas are. Let's use vCPU quotas as an example. To request a quota increase with support for vCPUs, you must decide how many vCPUs you want to use in which regions. You then make a specific request for Azure resource group vCPU quotas for the amounts and regions that you want. If you need to use 30 vCPUs in West Europe to run your application there, you specifically request 30 vCPUs in West Europe. Your vCPU quota isn't increased in any other region--only West Europe has the 30-vCPU quota.
@@ -111,13 +109,7 @@ In the following list of limits, a new table reflects any differences in limits 
 
 ### Subscription limits
 
-#### Subscription limits - Azure Service Management (classic deployment model)
-
-[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
-
-#### Subscription limits - Azure Resource Manager
-
-The following limits apply when you use Azure Resource Manager and Azure resource groups. Limits that haven't changed with Azure Resource Manager aren't listed. See the previous table for those limits.
+The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](request-limits-and-throttling.md).
 
@@ -481,6 +473,12 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 ### SQL Data Warehouse limits
 
 For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+
+### Classic deployment model limits
+
+If you use classic deployment model instead of the Azure Resource Manager deployment model, the following limits apply.
+
+[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
 
 ## See also
 

@@ -33,7 +33,7 @@ Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
 
 If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
-[!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [PowerShell login](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="variables"></a>1. Declare your variables
 
