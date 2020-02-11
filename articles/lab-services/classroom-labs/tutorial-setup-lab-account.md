@@ -18,14 +18,13 @@ ms.author: spelluru
 
 ---
 # Tutorial: Set up a lab account with Azure Lab Services
-In Azure Lab Services, a lab account serves as the central account in which your organization's labs are managed. In your lab account, give permission to others to create labs, and set policies that apply to all labs under the lab account. In this tutorial, learn how to create a lab account as a lab administrator. 
+In Azure Lab Services, a lab account serves as the central account in which your organization's labs are managed. In your lab account, give permission to others to create labs, and set policies that apply to all labs under the lab account. In this tutorial, learn how to create a lab account. 
 
 In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
 > * Create a lab account
 > * Add a user to the Lab Creator role
-> * Specify Marketplace images available for lab owners
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -33,17 +32,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Select **Lab Services** in the **DEVOPS** section. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
+2. Select **All Services** on the left menu. Select **DevOps** from **Categories**. Then, select **Lab Services**. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
 
     ![All Services -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. On the **Lab Services** page, select **Add** on the toolbar. 
+3. On the **Lab Services** page, select **Add** on the toolbar or select **Create lab account** button on the page. 
 
     ![Select Add on the Lab Accounts page](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. On the ***Basics** tab of the *Create a lab account** page, do the following actions: 
+4. On the **Basics** tab of the **Create a lab account** page, do the following actions: 
     1. For **Lab account name**, enter a name. 
     2. Select the **Azure subscription** in which you want to create the lab account.
-    3. For **Resource group**, select **Create new**, and enter a name for the resource group.
-    4. For **Location**, select a location/region in which you want the lab account to be created. 
+    3. For **Resource group**, select an existing resource group or select **Create new**, and enter a name for the resource group.
+    4. For **Location**, select a location/region in which you want to create the lab account. 
+
+        ![Lab account - basics page](../media/tutorial-setup-lab-account/lab-account-basics-page.png)
     5. Select **Review + create**.
     6. Review the summary, and select **Create**. 
 
