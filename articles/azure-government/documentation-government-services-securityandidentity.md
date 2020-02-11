@@ -145,7 +145,7 @@ The following Azure Active Directory Premium P1 features are currently not avail
 - Group-Based Licensing
 - Azure Active Directory Domain Services
 - Cloud App Security
-- B2B Collaboration is available only in certain Azure US Government tenants ([find out how to tell if B2B collaboration is available in your tenant](https://docs.microsoft.com/en-us/azure/active-directory/b2b/current-limitations#how-can-I-tell-if-B2B-collaboration-is-available-in-my-tenant)). This feature is not available in other Azure Government tenants ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)).
+- B2B Collaboration is available only in certain Azure US Government tenants ([find out how to tell if B2B collaboration is available in your tenant](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-I-tell-if-B2B-collaboration-is-available-in-my-tenant)). This feature is not available in other Azure Government tenants ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)).
 
 The following features have known limitations in Azure Government:
 
