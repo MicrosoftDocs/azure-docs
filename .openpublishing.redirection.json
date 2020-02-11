@@ -11992,12 +11992,17 @@
     },
     {
       "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/templates/hyperledger-fabric-consortium-blockchain.md",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
@@ -47900,6 +47905,11 @@
       "source_path": "articles/mysql/concepts-aad-authentication.md",
       "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/tutorial-mfa-applications.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/load-balancer/quickstart-create-basic-load-balancer-portal.md",
