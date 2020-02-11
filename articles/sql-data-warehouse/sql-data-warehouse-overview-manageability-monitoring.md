@@ -1,6 +1,6 @@
 ---
 title: Manageability and monitoring - overview 
-description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore) in Azure SQL Data Warehouse.
+description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore) with SQL pool.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Manageability and monitoring with Azure SQL Data Warehouse
+# Manageability and monitoring with SQL pool
 
-Take a look through what's available to help you manage and monitor SQL Data Warehouse. The following articles highlight ways to optimize performance and usage of your data warehouse.
+SQL Analytics allows you to provision a data warehouse via SQL pool. The articles that follow will help you to manage and monitor your data warehouse. You'll also learn ways to optimize the data warehouse's usage and performance.
 
 ## Overview
 
@@ -28,4 +28,4 @@ Take a look through what's available to help you manage and monitor SQL Data War
 
 
 ## Next steps
-For How-to guides, see [Monitor and tune your data warehouse](sql-data-warehouse-manage-monitor.md).
+For How-to guides, see [Monitor and tune your SQL pool](sql-data-warehouse-manage-monitor.md).
