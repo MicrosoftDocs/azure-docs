@@ -96,7 +96,7 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 
 ## In an Azure US Government tenant, I can't invite a B2B collaboration guest user
 
-B2B collaboration is limited to certain tenants in the Azure US Government cloud. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+Within the Azure US Government cloud, B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure US Government cloud or that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
 
 ## Next steps
