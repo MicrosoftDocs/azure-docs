@@ -22,9 +22,8 @@ This module also outputs a definition of the transformation used to convert to i
 ## How to configure Convert to Indicator Values
 
 1.  Find the **Convert to Indicator Values** and drag it to your pipeline draft. You can find this module under **Data Transformation** category.
-
-> ![NOTE]
-> You can use the [Edit Metadata](edit-metadata.md) module before the **Convert to Indiciator Values** module to mark the target column(s) as categorical.
+    > [!NOTE]
+    > You can use the [Edit Metadata](edit-metadata.md) module before the **Convert to Indiciator Values** module to mark the target column(s) as categorical.
 
 1. Connect the **Convert to Indicator Values** module to the dataset containing the columns you want to convert. 
 
@@ -108,7 +107,7 @@ This section contains implementation details, tips, and answers to frequently as
 
     | Make       | Highway mpg -25 | Highway mpg -26 | Highway mpg -27 | Highway mpg -28 | Highway mpg -29 | Highway mpg -30 |
     | ---------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
-    | Alfa R | 0               | 0               | 0               | 0               | 0               | 1               |
+    | Car1 | 0               | 0               | 0               | 0               | 0               | 1               |
 
 - To avoid adding too many dimensions to your dataset. We recommend that you first check the number of values in the column, and bin or quantize the data appropriately.  
 
