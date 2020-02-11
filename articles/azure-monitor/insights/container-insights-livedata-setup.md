@@ -54,7 +54,7 @@ If you have a Kubernetes cluster that is not configured with Kubernetes RBAC aut
 
 ## Configure Kubernetes RBAC authentication
 
-When you enable Kubernetes RBAC authorization, two users are utilized: **clusterUser** and **clusterAdmin** to access the Kubernetes API. This is similar to running `az aks get-credentials -n {cluster_name} -g {rg_name}` without the administrative option. This means the **clusterUser** has to be granted access to the end points in Kubernetes API.
+When you enable Kubernetes RBAC authorization, two users are utilized: **clusterUser** and **clusterAdmin** to access the Kubernetes API. This is similar to running `az aks get-credentials -n {cluster_name} -g {rg_name}` without the administrative option. This means the **clusterUser** needs to be granted access to the end points in Kubernetes API.
 
 The following example steps demonstrate how to configure cluster role binding from this yaml configuration template.
 
@@ -99,7 +99,7 @@ The following example steps demonstrate how to configure cluster role binding fr
 
 An AKS cluster configured to use Azure Active Directory (AD) for user authentication utilizes the login credentials of the person accessing this feature. In this configuration, you can sign in to an AKS cluster by using your Azure AD authentication token.
 
-Azure AD client registration must be reconfigured to allow the Azure portal to redirect authorization pages as a trusted redirect URL. Users from Azure AD are then granted access directly to the same Kubernetes API endpoints through **ClusterRoles** and **ClusterRoleBindings**. 
+Azure AD client registration must be re-configured to allow the Azure portal to redirect authorization pages as a trusted redirect URL. Users from Azure AD are then granted access directly to the same Kubernetes API endpoints through **ClusterRoles** and **ClusterRoleBindings**. 
 
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
