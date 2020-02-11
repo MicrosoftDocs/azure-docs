@@ -11,14 +11,9 @@ ms.topic: how-to
 
 The [model conversion](model-conversion.md) service is controlled through a [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer). This article describes the conversion service API details.
 
-## Environments
+## Regions
 
-The following environments are available:
-
-| Environment | Base URL |
-|-----------|:-----------|
-| Production West US 2 | `https://remoterendering.westus2.mixedreality.azure.com` |
-| Production West Europe | `https://remoterendering.westeurope.mixedreality.azure.com` |
+See the [list of available regions](../../reference/regions.md) for the base URLs to send the requests to.
 
 ## Common headers
 

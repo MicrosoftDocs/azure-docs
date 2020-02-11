@@ -35,7 +35,7 @@ Details about SAS can be found at the [SAS documentation](https://docs.microsoft
 
 A SAS URI can be generated using one of:
 
-- az powershell module
+- az PowerShell module
   - see the [example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [az command line](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
@@ -48,7 +48,7 @@ To start converting a model, you need to upload it, using one of the following o
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
 - [Azure command line](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
-- [Azure powershell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
   - see the [Example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
 - [Using the Azure Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
