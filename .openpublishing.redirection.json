@@ -11992,12 +11992,17 @@
     },
     {
       "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/templates/hyperledger-fabric-consortium-blockchain.md",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
@@ -24508,6 +24513,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-sap-high-availability-multi-sid.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-multi-sid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-azure-slave-plugin-for-hudson-classic.md",
+      "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
     {
@@ -41725,6 +41735,11 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/virtual-machines/virtual-machines-availability-set-supportability.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/windows/classic/configure-availability-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic",
@@ -48040,13 +48055,20 @@
       "source_path": "articles/cognitive-services/Computer-vision/vs-computer-vision-connected-service.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/cognitive-services/Face/vs-face-connected-service.md",
       "redirect_url": "/azure/cognitive-services/face/",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
+      "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
       "redirect_document_id": false
     }
   ]

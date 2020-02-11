@@ -654,6 +654,8 @@
         href: data-lake-storage-directory-file-acl-java.md
       - name: Python
         href: data-lake-storage-directory-file-acl-python.md
+      - name: JavaScript
+        href: data-lake-storage-directory-file-acl-javascript.md
       - name: PowerShell
         href: data-lake-storage-directory-file-acl-powershell.md
       - name: CLI
