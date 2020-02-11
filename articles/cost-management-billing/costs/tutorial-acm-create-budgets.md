@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
+> * Create and edit budgets with PowerShell
 > * Edit a budget
 
 ## Prerequisites
@@ -86,6 +87,36 @@ After you create a budget, it is shown in cost analysis. Viewing your budget aga
 
 In the preceding example, you created a budget for a subscription. You can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
 
+## Create and edit budgets with PowerShell
+
+EA customers can create and edit budgets programmatically using the Azure PowerShell module.  To download the latest version of Azure PowerShell, run the following command:
+
+```azurepowershell-interactive
+install-module -name AzureRm 
+```
+
+The following example commands create a budget.
+
+```azurepowershell-interactive
+#Sign into Azure Powershell with your account
+
+Connect-AzureRmAccount
+
+#Select a subscription to to monitor with a budget
+
+select-AzureRmSubscription -Subscription "Your Subscription"
+
+#Create an action group email receiver and corresponding action group
+
+$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+
+#Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
+
+New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+```
+
+
 ## Costs in budget evaluations
 
 Budget cost evaluations now include reserved instance and purchase data. If the charges apply to you, then you might receive alerts as charges are incorporated into your evaluations. We recommend that you sign in to the [Azure portal](https://portal.azure.com) to verify that budget thresholds are properly configured to account for the new costs. Your Azure billed charges aren't changed. Budgets now evaluate against a more complete set of your costs. If the charges don't apply to you, then your budget behavior remains unchanged.
@@ -132,6 +163,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
+> * Create and edit budgets with PowerShell
 > * Edit a budget
 
 Advance to the next tutorial to create a recurring export for your cost management data.
