@@ -137,7 +137,7 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
     }
 }
 ```
-The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [previous quickstart](render-model.md).
+The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
 Inside the **azureStorageSettings** group, make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
@@ -173,7 +173,7 @@ PS> .\Conversion.ps1
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
 
-The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](render-model.md)).
+The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [Render a model with Unity quickstart](render-model.md)).
 
 ![Replace model in Unity](./media/replace-model-in-unity.png)
 
