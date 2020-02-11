@@ -128,6 +128,10 @@ Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN t
 
 Yes.
 
+### Can network traffic be NATed through the Azure Virtual WAN?
+
+No, Virtual WAN requires all network addresses connected to be unique (no overlap address spaces).
+
 ### Does Virtual WAN require ExpressRoute from each site?
 
 No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via internet links from the device to an Azure Virtual WAN hub. Your sites may be connected to a provider network using an ExpressRoute circuit. For Sites that are connected using ExpressRoute in a virtual hub, sites can have branch to branch traffic flow between VPN and ExpressRoute.
