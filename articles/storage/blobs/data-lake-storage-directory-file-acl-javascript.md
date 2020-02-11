@@ -107,7 +107,7 @@ This example renames a sub-directory to the name `my-directory-renamed`.
 async function RenameDirectory(fileSystemClient) {
 
   const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
-  directoryClient.move("my-directory-renamed");
+  await directoryClient.move("my-directory-renamed");
 
 }
 ```
@@ -115,10 +115,10 @@ async function RenameDirectory(fileSystemClient) {
 This example moves a directory named `my-directory-renamed` to a sub-directory of a directory named `my-directory-2`. 
 
 ```javascript
-function MoveDirectory(fileSystemClient) {
+async function MoveDirectory(fileSystemClient) {
 
   const directoryClient = fileSystemClient.getDirectoryClient("my-directory-renamed"); 
-  directoryClient.move("my-directory-2/my-directory-renamed");      
+  await directoryClient.move("my-directory-2/my-directory-renamed");      
 
 }
 ```
