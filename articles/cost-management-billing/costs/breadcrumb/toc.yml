@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /
+  topicHref: /
+  items:
+  - name: Cost Management and Billing
+    tocHref: /cost-management-billing/
+    topicHref: /cost-management-billing/
+    items:
+    - name: Manage Azure costs and usage
+      tocHref: /cost-management-billing/costs/
+      topicHref: /cost-management-billing/costs/
