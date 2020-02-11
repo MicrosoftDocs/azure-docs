@@ -8,7 +8,7 @@ ms.date: 02/03/2020
 
 # Monitor your backups with Backup Explorer
 
-As organizations back up more and more machines to the cloud, it becomes increasingly important to monitor these backups efficiently. The best way to begin is to create and use a central location for viewing operational information across a large estate.
+As organizations back up more and more machines to the cloud, it becomes increasingly important to monitor these backups efficiently. The best way to begin is to use a central location for viewing operational information across a large estate.
 
 Backup Explorer is a built-in Azure Monitor workbook that gives Azure Backup customers this single, central location. Backup Explorer helps you monitor operational activities across the entire Backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. Broadly, Backup Explorer provides the following capabilities:
 
@@ -54,21 +54,21 @@ You can filter and view each of your backup items by subscription, vault, and ot
 
 ### The Jobs tab
 
-By going to the **Jobs** tab, you can view the details of all the jobs that were triggered over the last 7 days. Here, you can filter by *Job Operation*, *Job Status*, and *Error Code* (for failed jobs).
+Select the **Jobs** tab to view the details of all the jobs that were triggered over the last 7 days. Here, you can filter by *Job Operation*, *Job Status*, and *Error Code* (for failed jobs).
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### The Alerts tab
 
-By selecting the **Alerts** tab, you can view details of all alerts that were generated on your vaults over the last 7 days. You can filter alerts by type (*Backup Failure* or *Restore Failure*), current status (*Active* or *Resolved*), and severity (*Critical*, *Warning*, or *Information*). You can also select a link to go the Azure VM and take any necessary action.
+Select the **Alerts** tab to view details of all alerts that were generated on your vaults over the last 7 days. You can filter alerts by type (*Backup Failure* or *Restore Failure*), current status (*Active* or *Resolved*), and severity (*Critical*, *Warning*, or *Information*). You can also select a link to go the Azure VM and take any necessary action.
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 
 ### The Policies tab
 
-By selecting the **Policies** tab, you can view key information about all the backup policies that have been created across your backup estate. You can view the number of items associated with each policy, along with the retention range and backup frequency specified by the policy.
+You can select the **Policies** tab to view key information about all the backup policies that have been created across your backup estate. You can view the number of items associated with each policy, along with the retention range and backup frequency specified by the policy.
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
