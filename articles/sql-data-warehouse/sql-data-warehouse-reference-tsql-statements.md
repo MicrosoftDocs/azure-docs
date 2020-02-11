@@ -116,4 +116,4 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL language elements in SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in SQL Analytics](sql-dat-warehouse-reference-tsql-system-views.md).
+For more reference information, see [T-SQL language elements in SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in SQL Analytics](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views).
