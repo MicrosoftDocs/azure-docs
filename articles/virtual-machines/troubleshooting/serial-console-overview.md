@@ -34,7 +34,7 @@ To access the Serial Console on your VM or virtual machine scale set instance, y
 - The Azure account accessing Serial Console must have [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for both the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
 > [!NOTE]
-> - Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
+> Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
 
 ## Get started with the Serial Console
 The Serial Console for VMs and virtual machine scale set is accessible only through the Azure portal:
