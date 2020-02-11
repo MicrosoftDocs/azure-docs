@@ -365,7 +365,7 @@ TOKEN_PWD=$(az acr token credential generate \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 
-To use the Azure portal to generate a token password, see the steps in [Create token - portal](#create-access-token---portal) earlier in this article.
+To use the Azure portal to generate a token password, see the steps in [Create token - portal](#create-token---portal) earlier in this article.
 
 ### Update token with new scope map
 
