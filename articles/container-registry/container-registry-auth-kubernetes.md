@@ -44,7 +44,7 @@ where:
 
 | Value | Description |
 | :--- | :--- |
-| `secret-name` | Name of the image pulls secret, for example, *acr-secret* |
+| `secret-name` | Name of the image pull secret, for example, *acr-secret* |
 | `namespace` | Kubernetes namespace to put the secret into <br/> Only needed if you want to place the secret in a namespace other than the default namespace |
 | `container-registry-name` | Name of your Azure container registry |
 | `service-principal-ID` | ID of the service principal that will be used by Kubernetes to access your registry |
