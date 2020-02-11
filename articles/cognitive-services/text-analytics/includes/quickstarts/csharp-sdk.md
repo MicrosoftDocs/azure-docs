@@ -38,7 +38,7 @@ Using the Visual Studio IDE, create a new .NET Core console app. This will creat
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.TextAnalytics`. Select version `1.0.0-preview.2`, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 Open the *program.cs* file and add the following `using` directives:
 
@@ -109,6 +109,7 @@ If you're using version `3.0-preview`, you can use an optional `TextAnalyticsCli
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity Recognition](#named-entity-recognition-ner)
+* [Personal Identifiable Information](#personal-identifiable-information-pii)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -143,15 +144,19 @@ Create a new function called `SentimentAnalysisExample()` that takes the client 
 ```csharp
 static void SentimentAnalysisExample(TextAnalyticsClient client)
 {
-    var response = client.AnalyzeSentiment("I had the best day of my life. I wish you were there with me.");
-    Console.WriteLine($"Document sentiment: {response.Value.DocumentSentiment.SentimentClass}\n");
-    foreach (var sentence in response.Value.SentenceSentiments)
+    string InputText = "I had the best day of my life. I wish you were there with me.";
+    var response = client.AnalyzeSentiment(InputText);
+    Console.WriteLine($"Document sentiment: {response.Value.Sentiment}\n");
+
+    var si = new StringInfo(InputText);
+    foreach (var sentence in response.Value.Sentences)
     {
         Console.WriteLine($"\tSentence [offset {sentence.Offset}, length {sentence.Length}]");
-        Console.WriteLine($"\tSentence sentiment: {sentence.SentimentClass}");
-        Console.WriteLine($"\tPositive score: {sentence.PositiveScore:0.00}");
-        Console.WriteLine($"\tNegative score: {sentence.NegativeScore:0.00}");
-        Console.WriteLine($"\tNeutral score: {sentence.NeutralScore:0.00}\n");
+        Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.Offset, sentence.Length)}\"");
+        Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
+        Console.WriteLine($"\tPositive score: {sentence.SentimentScores.Positive:0.00}");
+        Console.WriteLine($"\tNegative score: {sentence.SentimentScores.Negative:0.00}");
+        Console.WriteLine($"\tNeutral score: {sentence.SentimentScores.Neutral:0.00}\n");
     }
 }
 ```
@@ -162,12 +167,14 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 Document sentiment: Positive
 
         Sentence [offset 0, length 30]
+        Text: "I had the best day of my life."
         Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
         Sentence [offset 31, length 30]
+        Text: "I wish you were there with me."
         Sentence sentiment: Neutral
         Positive score: 0.21
         Negative score: 0.02
@@ -202,7 +209,7 @@ Create a new function called `LanguageDetectionExample()` that takes the client 
 static void LanguageDetectionExample(TextAnalyticsClient client)
 {
     var response = client.DetectLanguage("Ce document est rédigé en Français.");
-    var detectedLanguage = response.Value.PrimaryLanguage;
+    var detectedLanguage = response.Value;
     Console.WriteLine("Language:");
     Console.WriteLine($"\t{detectedLanguage.Name},\tISO-6391: {detectedLanguage.Iso6391Name}\n");
 }
@@ -232,7 +239,7 @@ Language: English
 
 ---
 
-## Named Entity recognition (NER)
+## Named Entity Recognition (NER)
 
 #### [Version 3.0-preview](#tab/version-3)
 
@@ -252,9 +259,9 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
 {
     var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
     Console.WriteLine("Named Entities:");
-    foreach(var entity in response.Value.NamedEntities)
+    foreach(var entity in response.Value)
     {
-        Console.WriteLine($"\tText: {entity.Text},\tType: {entity.Type},\tSub-Type: {entity.SubType ?? "N/A"}");
+        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
         Console.WriteLine($"\t\tOffset: {entity.Offset},\tLength: {entity.Length},\tScore: {entity.Score:F3}\n");
     }
 }
@@ -264,25 +271,26 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
 
 ```console
 Named Entities:
-        Text: Seattle,  Type: Location, Sub-Type: N/A
-                Offset: 26,     Length: 7,      Score: 0.806
+        Text: Seattle,  Category: Location,     Sub-Category: GPE
+                Offset: 26,     Length: 7,      Score: 0.920
 
-        Text: last week,        Type: DateTime, Sub-Type: N/A
+        Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
-## Using NER to detect personal information
+## Personal Identifiable Information (PII)
 
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 
 ```csharp
 static void EntityPIIExample(TextAnalyticsClient client)
 {
-    var response = client.RecognizePiiEntities("Insurance policy for SSN on file 123-12-1234 is here by approved.");
+    string input = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
+    var response = client.RecognizePiiEntities(input);
     Console.WriteLine("Personally Identifiable Information Entities:");
-    foreach(var entity in response.Value.NamedEntities)
+    foreach(var entity in response.Value)
     {
-        Console.WriteLine($"\tText: {entity.Text},\tType: {entity.Type},\tSub-Type: {entity.SubType ?? "N/A"}");
+        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
         Console.WriteLine($"\t\tOffset: {entity.Offset},\tLength: {entity.Length},\tScore: {entity.Score:F3}\n");
     }
 }
@@ -292,7 +300,7 @@ static void EntityPIIExample(TextAnalyticsClient client)
 
 ```console
 Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Type: U.S. Social Security Number (SSN),        Sub-Type: N/A
+        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category: None
                 Offset: 33,     Length: 11,     Score: 0.850
 ```
 
@@ -311,9 +319,9 @@ static void EntityLinkingExample(TextAnalyticsClient client)
         "chief executive officer, president and chief software architect, " +
         "while also being the largest individual shareholder until May 2014.");
     Console.WriteLine("Linked Entities:");
-    foreach (var entity in response.Value.LinkedEntities)
+    foreach (var entity in response.Value)
     {
-        Console.WriteLine($"\tName: {entity.Name},\tID: {entity.Id},\tURL: {entity.Uri}\tData Source: {entity.DataSource}");
+        Console.WriteLine($"\tName: {entity.Name},\tID: {entity.Id},\tURL: {entity.Url}\tData Source: {entity.DataSource}");
         Console.WriteLine("\tMatches:");
         foreach (var match in entity.Matches)
         {
@@ -391,7 +399,7 @@ static void KeyPhraseExtractionExample(TextAnalyticsClient client)
     // Printing key phrases
     Console.WriteLine("Key phrases:");
 
-    foreach (string keyphrase in response.Value.KeyPhrases)
+    foreach (string keyphrase in response.Value)
     {
         Console.WriteLine($"\t{keyphrase}");
     }
