@@ -1,15 +1,15 @@
 ---
 title: Limits
 description: Code limitations for SDK features
-author: erscor
-ms.author: erscor
+author: erscorms
+ms.author: erscorms
 ms.date: 02/11/2020
 ms.topic: conceptual
 ---
 
 # Limits
 
-A number of features have size of count limitations due to internal details of the client SDK.
+A number of features have size or count limitations due to internal details of the running system.
 
 ## Azure Frontend
 
@@ -18,9 +18,9 @@ A number of features have size of count limitations due to internal details of t
 
 ## Objects
 
-* Total allowable objects of a single type (Entity, CutPlaneComponent, etc.): 16777215.
-* Total allowable cut planes: 8.
+* Total allowable objects of a single type (Entity, CutPlaneComponent, etc.): 16,777,215.
+* Total allowable active cut planes: 8.
 
 ## Materials
 
-* Total allowable materials in an asset: 65535.
+* Total allowable materials in an asset: 65,535.
