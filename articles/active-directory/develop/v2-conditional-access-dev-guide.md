@@ -33,6 +33,10 @@ For developers building apps for Azure AD, this article shows how you can use Co
 
 Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
 
+> [!NOTE]
+> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+> Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+
 ## How does Conditional Access impact an app?
 
 ### App types impacted
