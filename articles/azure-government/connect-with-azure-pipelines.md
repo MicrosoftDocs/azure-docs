@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/25/2018
-ms.author: yujhong
+ms.author: femila
 ---
 
 # Deploy an app in Azure Government with Azure Pipelines
