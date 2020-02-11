@@ -52,6 +52,30 @@ tools:
       imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
       url: https://docs.microsoft.com/rest/api/compute/virtualmachines
 
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: Other resources # < 60 chars (optional)
+      summary: Additional resources for working with Azure virtual machines # < 160 chars (optional)
+      items:
+        # Card
+        - title: Learn
+          links:
+            - text: Browse learning modules
+              url: https://docs.microsoft.com/en-us/learn/browse/?products=azure-virtual-machines
+        # Card
+        - title: Template gallery
+          links:
+            - text: Browse the quickstart template gallery
+              url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+        # Card
+        - title: Troubleshoot
+          links:
+            - text: Information for troubleshooting errors
+              url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/
+
 
 
 
