@@ -17,7 +17,7 @@ These initiative parameters are each provided to each of the grouped policy defi
 maximizes reuse of the existing policy definitions while limiting the number of assignments created
 to implement them as needed.
 
-:::code language="json" source="./pattern-group-with-initiative.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json":::
 
 ### Explanation
 
@@ -27,7 +27,7 @@ An initiative can define it's own parameters that are then passed to the grouped
 In this example, both **costCenterValue** and **productNameValue** are defined as initiative
 parameters. The values are provided when the initiative is assigned.
 
-:::code language="json" source="./pattern-group-with-initiative.json" range="5-18":::
+:::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="5-18":::
 
 #### Includes policy definitions
 
@@ -37,7 +37,7 @@ takes two parameters: **tagName** and **tagValue**. **tagName** is defined with 
 **tagValue** uses the parameter **costCenterValue** defined by the initiative. This passthrough of
 values improves reuse.
 
-:::code language="json" source="./pattern-group-with-initiative.json" range="30-40":::
+:::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 
 ## Next steps
 

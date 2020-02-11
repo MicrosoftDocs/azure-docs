@@ -16,11 +16,11 @@ This policy definition enables you to define allowed regions that meet your orga
 geo-location requirements. The allowed resources are defined in parameter **listOfAllowedLocations**
 (_array_). Resources that match the definition are [denied](../concepts/effects.md#deny).
 
-:::code language="json" source="./pattern-fields.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-fields.json":::
 
 ### Explanation
 
-:::code language="json" source="./pattern-fields.json" range="18-36" highlight="3,7,11":::
+:::code language="json" source="~/policy-templates/patterns/pattern-fields.json" range="18-36" highlight="3,7,11":::
 
 The **field** operator is used three times within the
 [logical operator](../concepts/definition-structure.md#logical-operators) **allOf**.

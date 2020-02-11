@@ -19,13 +19,13 @@ updated. When that resource is a _Microsoft.Network/virtualNetworks_, the policy
 watcher in the location of the new or updated resource. If a matching network watcher isn't located,
 the Resource Manager template is deployed to create the missing resource.
 
-:::code language="json" source="./pattern-deploy-resources.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
 ### Explanation
 
 #### existenceCondition
 
-:::code language="json" source="./pattern-deploy-resources.json" range="18-23":::
+:::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
 The **properties.policyRule.then.details** block tells Azure Policy what to look for related to the
 created or updated resource in the **properties.policyRule.if** block. In this example, a network
@@ -36,7 +36,7 @@ location of the new or updated resource. Using the `field()` function allows the
 
 #### roleDefinitionIds
 
-:::code language="json" source="./pattern-deploy-resources.json" range="24-26":::
+:::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="24-26":::
 
 The **roleDefinitionIds** _array_ property in the **properties.policyRule.then.details** block tells
 the policy definition which rights the managed identity needs to deploy the included Resource
@@ -55,14 +55,14 @@ three core components:
 - **template** - This property includes the template itself. In this example, the **location**
   template parameter sets the location of the new network watcher resource.
 
-  :::code language="json" source="./pattern-deploy-resources.json" range="30-44":::
+  :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
 - **parameters** - This property defines parameters that are provided to the **template**. The
   parameter names must match what are defined in **template**. In this example, the parameter is
   named **location** to match. The value of **location** uses the `field()` function again to get
   the value of the evaluated resource, which is the virtual network in the **policyRule.if** block.
 
-  :::code language="json" source="./pattern-deploy-resources.json" range="45-49":::
+  :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 
 ## Next steps
 

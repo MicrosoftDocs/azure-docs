@@ -24,11 +24,11 @@ evaluation happens when the resource is created or updated. As a
 [modify](../concepts/effects.md#modify) effect, the remediation may be run on existing resources
 through a [remediation task](../how-to/remediate-resources.md).
 
-:::code language="json" source="./pattern-value-operator.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json":::
 
 ### Explanation
 
-:::code language="json" source="./pattern-value-operator.json" range="20-30" highlight="7,8":::
+:::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json" range="20-30" highlight="7,8":::
 
 The **value** operator is used within the **policyRule.if** block within **properties**. In this
 example, the [logical operator](../concepts/definition-structure.md#logical-operators) **allOf** is

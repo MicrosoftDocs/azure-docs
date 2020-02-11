@@ -16,11 +16,11 @@ This policy definition checks to see if the tag defined in parameter **tagName**
 evaluated resource. If the tag doesn't yet exist, the [modify](../concepts/effects.md#modify) effect
 is triggered to add the tag with the value in parameter **tagValue**.
 
-:::code language="json" source="./pattern-effect-details-1.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json":::
 
 ### Sample 1: Explanation
 
-:::code language="json" source="./pattern-effect-details-1.json" range="30-34":::
+:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="30-34":::
 
 An **modify** effect requires the **policyRule.then.details** block that defines
 **roleDefinitionIds** and **operations**. These parameters inform Azure Policy what roles are needed
@@ -35,11 +35,11 @@ This policy definition audits each virtual machine for when an extension, define
 virtual machine to see if an instance exists that matches the defined parameters. This example
 checks the **extensions** type.
 
-:::code language="json" source="./pattern-effect-details-2.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-2.json":::
 
 ### Sample 2: Explanation
 
-:::code language="json" source="./pattern-effect-details-2.json" range="45-58":::
+:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-2.json" range="45-58":::
 
 An **auditIfNotExists** effect requires the **policyRule.then.details** block to define both a
 **type** and the **existenceCondition** to look for. The **existenceCondition** uses policy language

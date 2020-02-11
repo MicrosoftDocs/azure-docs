@@ -17,11 +17,11 @@ This policy definition evaluates CosmosDB accounts to see if automatic failovers
 locations are configured. When they aren't, the [audit](../concepts/effects.md#audit) triggers
 and creates a log entry when the non-compliant resource is created or updated.
 
-:::code language="json" source="./pattern-logical-operators-1.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
 ### Sample 1: Explanation
 
-:::code language="json" source="./pattern-logical-operators-1.json" range="6-22" highlight="3":::
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json" range="6-22" highlight="3":::
 
 The **policyRule.if** block uses a single **allOf** to ensure that all three conditions are true.
 Only when all of these conditions evaluate to true does the **audit** effect trigger.
@@ -31,11 +31,11 @@ Only when all of these conditions evaluate to true does the **audit** effect tri
 This policy definition evaluates resources for a naming pattern. If a resource doesn't match, it's
 [denied](../concepts/effects.md#deny).
 
-:::code language="json" source="./pattern-logical-operators-2.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json":::
 
 ### Sample 2: Explanation
 
-:::code language="json" source="./pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
 This **policyRule.if** block also includes a single **allOf**, but each condition is wrapped with
 the **not** logical operator. The conditional inside the **not** logical operator evaluates first

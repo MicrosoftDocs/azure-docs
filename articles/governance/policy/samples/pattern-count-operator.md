@@ -13,7 +13,7 @@ The [count](../concepts/definition-structure.md#count) operator evaluates member
 This policy definition [audits](../concepts/effects.md#audit) Network Security Groups configured to
 allow inbound Remote Desktop Protocol (RDP) traffic.
 
-:::code language="json" source="./pattern-count-operator.json":::
+:::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json":::
 
 ### Explanation
 
@@ -29,7 +29,7 @@ highlighted in the snippet below.
 - The count condition in this example is **greater**. Count evaluates as true when one or more
   members of the alias _array_ matches the _where_ clause.
 
-:::code language="json" source="./pattern-count-operator.json" range="12-32" highlight="3,4,20":::
+:::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json" range="12-32" highlight="3,4,20":::
 
 ## Next steps
 
