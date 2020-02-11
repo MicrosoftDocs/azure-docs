@@ -55,7 +55,7 @@ To start converting a model, you need to upload it, using one of the following o
 
 ## Get a SAS URI for the converted model
 
-This step is similar to [Retrieving SAS for the storage containers](#retrieving-sas-for-the-storage-containers). However, this time you need to retrieve a SAS URI for the model file, that was written to the output container.
+This step is similar to [retrieving SAS for the storage containers](#retrieve-sas-for-the-storage-containers). However, this time you need to retrieve a SAS URI for the model file, that was written to the output container.
 
 For example, to retrieve a SAS URI via the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), right-click on the model file and select "Get Shared Access Signature".
 
