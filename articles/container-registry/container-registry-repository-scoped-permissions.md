@@ -47,7 +47,7 @@ To configure repository-scoped permissions, you create an *access token* with an
   |`metadata/read`    | Read metadata from the repository   | List tags or show manifest metadata |
   |`metadata/write`     |  Write metadata to the repository  | Update manifest attributes |
 
-* A **scope map** groups repository permissions you apply to each token, or can reapply to other tokens. A scope map helps you configure multiple tokens with identical access to a set of repositories. Azure Container Registry also provides several system-defined scope maps that you can apply to tokens.
+* A **scope map** groups repository permissions you apply to a token, or can reapply to other tokens. A scope map helps you configure multiple tokens with identical access to a set of repositories. Azure Container Registry also provides several system-defined scope maps that you can apply to tokens.
 
 The following image shows the relationship between tokens and scope maps. 
 
