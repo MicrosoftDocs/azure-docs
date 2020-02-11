@@ -31,14 +31,14 @@ $ uptime
  19:32:33 up 17 days, 12:36,  0 users,  load average: 0.21, 0.77, 0.69
 ```
 
-uptime provides system uptime and 1, 5, and 15 minute load averages. These load averages roughly correspond to threads doing work or waiting for uninterruptible work to complete. In absolute these numbers can be difficult to interpret, but measured over time they can tell us useful information:
+uptime provides system uptime and 1, 5, and 15-minute load averages. These load averages roughly correspond to threads doing work or waiting for uninterruptible work to complete. In absolute these numbers can be difficult to interpret, but measured over time they can tell us useful information:
 
-- 1 min average > 5 minute average means load is increasing.
-- 1 min average < 5 minute average means load is decreasing.
+- 1-minute average > 5-minute average means load is increasing.
+- 1-minute average < 5-minute average means load is decreasing.
 
-uptime can also illuminate why information is not available: a recent restart may have resolved the issue, or it may have mitigated before the user was able to run the command on the machine. Low uptime or decreasing load averages would highlight this.
+uptime can also illuminate why information is not available: a recent restart may have resolved the issue, or it may have mitigated before the user was able to run the command on the machine. Low uptime or decreasing load averages would highlight this problem.
 
-load averages higher than the number of CPU threads available may indicate a performance issue with a given workload.
+:oad averages higher than the number of CPU threads available may indicate a performance issue with a given workload.
 
 ### dmesg
 
@@ -93,7 +93,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat` prints similar CPU information to top, but broken down by CPU thread. This can be useful for detecting highly imbalanced CPU usage, for example when a single threaded application uses one core at 100% utilization. This may be more difficult to spot when aggregated over all CPUs in the system.
+`mpstat` prints similar CPU information to top, but broken down by CPU thread. Seeing all cores at once can be useful for detecting highly imbalanced CPU usage, for example when a single threaded application uses one core at 100% utilization. This problem may be more difficult to spot when aggregated over all CPUs in the system.
 
 ### vmstat
 
@@ -138,7 +138,7 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat` provides extremely powerful insights into disk utilization. This invocation passes `-x` for extended statistics, `-y` to skip the initial output printing system averages since boot, and `1 1` to specify we want 1 seconds interval, ending after one block of output. 
+`iostat` provides deep insights into disk utilization. This invocation passes `-x` for extended statistics, `-y` to skip the initial output printing system averages since boot, and `1 1` to specify we want 1-second interval, ending after one block of output. 
 
 `iostat` exposes many useful statistics:
 
@@ -176,7 +176,7 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar` is an extremely powerful tool for a wide range of analysis. While this example uses its ability to measure network stats, it is equally powerful for measuring CPU and memory consumption. This example invokes `sar` with `-n` flag to specify the `DEV` (network device) keyword, displaying network throughput by device.
+`sar` is a powerful tool for a wide range of analysis. While this example uses its ability to measure network stats, it is equally powerful for measuring CPU and memory consumption. This example invokes `sar` with `-n` flag to specify the `DEV` (network device) keyword, displaying network throughput by device.
 
 - The sum of `rxKb/s` and `txKb/s` is total throughput for a given device. When this value exceeds the limit for the provisioned Azure NIC, workloads on the machine will experience increased network latency.
 - `%ifutil` measures utilization for a given device. As this value approaches 100%, workloads will experience increased network latency.
@@ -198,7 +198,7 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-This invocation of `sar` uses the `TCP,ETCP` keywords to examine TCP connections. The third column of the last row, "retrans", is the number of TCP retransmits per second. High values for this field indicate an unreliable network connection. In The first and third rows, "active" means a connection originated from the local device, while "remote" indicates an incoming connection.  On Azure, this may be useful when troubleshooting issues like SNAT port exhaustion due to high TCP connection rate; this would appear as high "active" value in the `sar` output. 
+This invocation of `sar` uses the `TCP,ETCP` keywords to examine TCP connections. The third column of the last row, "retrans", is the number of TCP retransmits per second. High values for this field indicate an unreliable network connection. In The first and third rows, "active" means a connection originated from the local device, while "remote" indicates an incoming connection.  On Azure, high "active" values may be useful when troubleshooting issues like SNAT port exhaustion, which occurs due to high TCP connection rate originating from the local machine. 
 
 As `sar` takes an interval, it prints rolling output and then prints final rows of output containing the average results from the invocation.
 
