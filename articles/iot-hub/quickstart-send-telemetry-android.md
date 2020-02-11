@@ -23,7 +23,7 @@ In this quickstart, you send telemetry to an Azure IoT Hub from an Android appli
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Android Studio](https://developer.android.com/studio/). For more information, see [android-installation](https://developer.android.com/studio/install). Android SDK 27 is used by the sample in this article.
+* [Android Studio with Android SDK 27](https://developer.android.com/studio/). For more information, see [android-installation](https://developer.android.com/studio/install). Android SDK 27 is used by the sample in this article.
 
 * [A sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample). This sample is part of the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
@@ -33,11 +33,11 @@ In this quickstart, you send telemetry to an Azure IoT Hub from an Android appli
 
 ### Add Azure IoT Extension
 
-* Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
-   ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
-   ```
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## Create an IoT hub
 

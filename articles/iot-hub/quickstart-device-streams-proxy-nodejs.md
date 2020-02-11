@@ -19,9 +19,7 @@ In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (R
 
 ## Prerequisites
 
-* Completion of [Enable SSH and RDP over IoT Hub device streams by using a C proxy application](./quickstart-device-streams-proxy-c.md), or
-
-* Completion of [Enable SSH and RDP over IoT Hub device streams by using a C# proxy application](./quickstart-device-streams-proxy-csharp.md).
+* Completion of [Enable SSH and RDP over IoT Hub device streams by using a C proxy application](./quickstart-device-streams-proxy-c.md) or [Enable SSH and RDP over IoT Hub device streams by using a C# proxy application](./quickstart-device-streams-proxy-csharp.md).
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -42,13 +40,13 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### Add Azure IoT Extension and verify software version
+### Add Azure IoT Extension
 
 Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
-    ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    ```
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## Create an IoT hub
 

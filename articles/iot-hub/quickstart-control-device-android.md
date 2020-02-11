@@ -23,7 +23,7 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Android studio](https://developer.android.com/studio/). For more information, see [Install Android Studio](https://developer.android.com/studio/install).
+* [Android Studio with Android SDK 27](https://developer.android.com/studio/). For more information, see [Install Android Studio](https://developer.android.com/studio/install).
 
 * [Git](https://git-scm.com/download/).
 
@@ -39,9 +39,9 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
-   ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
-   ```
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## Create an IoT hub
 

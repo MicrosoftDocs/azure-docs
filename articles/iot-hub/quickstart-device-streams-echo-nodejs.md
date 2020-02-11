@@ -19,9 +19,7 @@ In this quickstart, you run a service-side application and set up communication 
 
 ## Prerequisites
 
-* Completion of [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md), or
-
-* Completion of [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md).
+* Completion of [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md) or [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md).
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -42,7 +40,7 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### Add Azure IoT Extension and verify software version
+### Add Azure IoT Extension
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
 
