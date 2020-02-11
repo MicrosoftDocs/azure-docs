@@ -46,7 +46,7 @@ The following sections describe how to deploy a DR solution using Zerto Virtual 
 To enable Zerto Virtual Replication from your on-premises environment to your AVS Private Cloud, complete the following prerequisites.
 
 1. [Set up a Site-to-Site VPN connection between your on-premises network and your AVS Private Cloud](set-up-vpn.md).
-2. [Set up DNS lookup so that your AVS Private Cloud management components are forwarded to AVS Private Cloud DNS servers](on-premises-dns-setup.md). To enable forwarding of DNS lookup, create a forwarding zone entry in your on-premises DNS server for `*.AVS.io` to AVS DNS servers.
+2. [Set up DNS lookup so that your AVS Private Cloud management components are forwarded to AVS Private Cloud DNS servers](on-premises-dns-setup.md). To enable forwarding of DNS lookup, create a forwarding zone entry in your on-premises DNS server for `*.cloudsimple.io` to AVS DNS servers.
 3. Set up DNS lookup so that on-premises vCenter components are forwarded to on-premises DNS servers. The DNS servers must be reachable from your AVS Private Cloud over Site-to-Site VPN. For assistance, submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), providing the following information. 
 
     * On-premises DNS domain name

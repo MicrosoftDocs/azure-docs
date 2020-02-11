@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 02/10/2020
 ---
 # Resource functions for Azure Resource Manager templates
 
@@ -106,7 +106,7 @@ The following example returns the resource ID for a resource group lock.
 list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 ```
 
-The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys` and `listSecrets`. 
+The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys` and `listSecrets`.
 
 ### Parameters
 
@@ -114,7 +114,7 @@ The syntax for this function varies by name of the list operations. Each impleme
 |:--- |:--- |:--- |:--- |
 | resourceName or resourceIdentifier |Yes |string |Unique identifier for the resource. |
 | apiVersion |Yes |string |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
-| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. | 
+| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
 
@@ -148,7 +148,7 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft.DataShare/accounts/shares | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) | 
+| Microsoft.DataShare/accounts/shares | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
@@ -281,7 +281,7 @@ If you use a **list** function in a resource that is conditionally deployed, the
 
 ### List example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account. 
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account.
 
 To get the SAS token, pass an object for the expiry time. The expiry time must be in the future. This example is intended to show how you use the list functions. Typically, you would use the SAS token in a resource value rather than return it as an output value. Output values are stored in the deployment history and aren't secure.
 
@@ -365,7 +365,7 @@ Returns information about a resource provider and its supported resource types. 
 
 ### Return value
 
-Each supported type is returned in the following format: 
+Each supported type is returned in the following format:
 
 ```json
 {
@@ -454,11 +454,11 @@ Typically, you use the **reference** function to return a particular value from 
 ```json
 "outputs": {
     "BlobUri": {
-        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')).primaryEndpoints.blob]",
+        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]",
         "type" : "string"
     },
     "FQDN": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')).dnsSettings.fqdn]",
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]",
         "type" : "string"
     }
 }
@@ -517,7 +517,7 @@ When referencing a resource that isn't deployed in the same template, provide th
 To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource identifier.
 
 ```json
-"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))]"
+"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
 ```
 
 When constructing a fully qualified reference to a resource, the order to combine segments from the type and name isn't simply a concatenation of the two. Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
@@ -550,7 +550,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageAccountName": { 
+      "storageAccountName": {
           "type": "string"
       }
   },
@@ -580,7 +580,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
       }
     }
 }
-``` 
+```
 
 The preceding example returns the two objects. The properties object is in the following format:
 
@@ -667,7 +667,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 resourceGroup()
 ```
 
-Returns an object that represents the current resource group. 
+Returns an object that represents the current resource group.
 
 ### Return value
 
@@ -747,14 +747,14 @@ The preceding example returns an object in the following format:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. 
+Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |string (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
-| resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. |
+| resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. Only provide this value when deploying at the scope of a resource group. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
@@ -763,7 +763,7 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-The resource ID is returned in the following format:
+When the template is deployed at the scope of a resource group, the resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -773,6 +773,12 @@ When used in a [subscription-level deployment](deploy-to-subscription.md), the r
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+When used in a [management group-level deployment](deploy-to-management-group.md) or tenant-level deployment, the resource ID is returned in the following format:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 To get the ID in other formats, see:
@@ -898,7 +904,7 @@ The output from the preceding example with the default values is:
 subscription()
 ```
 
-Returns details about the subscription for the current deployment. 
+Returns details about the subscription for the current deployment.
 
 ### Return value
 
@@ -919,7 +925,7 @@ When using nested templates to deploy to multiple subscriptions, you can specify
 
 ### Subscription example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) shows the subscription function called in the outputs section. 
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) shows the subscription function called in the outputs section.
 
 ```json
 {
