@@ -20,6 +20,14 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
 > Use of account keys is recommended for quick on-boarding, but during development/prototyping only. It is strongly recommended not to ship your application to production using an embedded account key in it, and to instead use the user-based or service-based Azure AD authentication approaches.
 > This is described in the [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) service.
 
+## Role-based access control
+
+To help control the level of access granted to applications, services or Azure AD users of your service, the following roles have been created for you to assign as needed against your Azure Spatial Anchors accounts:
+
+* **Remote Rendering Administrator**: Provides user with conversion, manage session, rendering, and diagnostics capabilities for Azure Remote Rendering.
+* **Remote Rendering Client**: Provides user with manage session, rendering, and diagnostics capabilities for Azure Remote Rendering.
+
+
 ## AzureFrontendAccountInfo
 
 AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend instance in the SDK.
@@ -53,7 +61,7 @@ Each opened/created ```AzureSession``` will keep a reference to the frontend tha
 
 Deallocating a session will not stop the VM on Azure, `AzureSession.StopAsync` must be explicitly called.
 
-Once a session has been created and its state has been marked as ready, it can be connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
+Once a session has been created and its state has been marked as ready, it can connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
 
 ### Threading
 
