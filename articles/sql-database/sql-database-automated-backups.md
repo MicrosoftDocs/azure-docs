@@ -78,9 +78,9 @@ Azure SQL Database will compute your total in-retention backup storage as a cumu
 The minimum retention period for every database is 7 days, and the backup is retained even after a database is dropped. While dropping and recreating a database frequently may save on storage and compute costs, it may increase backup storage costs as we retain a backup for each dropped database for the minimum retention period of 7 days. 
 
 
-### Monitoring consumption
+### Monitor consumption
 
-Each type of backup (full, differential and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backups storage consumption for a single database. This feature is currently unavailable for a managed instance.   
+Each type of backup (full, differential and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backups storage consumption for a single database. This feature is currently unavailable for managed instances.
 
 ![Monitor database backup consumption on the database monitoring blade of the Azure portal](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -97,7 +97,6 @@ The excess backup storage consumption will depend on the workload and size of th
 
 > [!IMPORTANT]
 > For analytical, data mart \ data warehouse workloads it is strongly recommended to use [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and also consider bulk load operations with row count around one million to reduce the excess backup storage consumption.
-
 
 
 ## Storage costs
@@ -120,7 +119,7 @@ Now, a more complex example. Suppose the database has its retention increased to
 
 ### Monitor costs
 
-To understand the backup storage costs, gop to  **Cost management + Billing** from the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service you're interested in. 
+To understand the backup storage costs, go to **Cost management + Billing** from the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service you're interested in. 
 
 Add a filter for **Service name**, and then choose **sql database** from the drop down. Use the **meter subcategory** filter to choose the billing counter for your service. For a single database or an elastic pool, choose **single/elastic pool pitr backup storage**. For a managed instance, choose **mi pitr backup storage**. **Storage** and **compute** subcategories may interest you as well, though they are not associated with backup storage costs. 
 
