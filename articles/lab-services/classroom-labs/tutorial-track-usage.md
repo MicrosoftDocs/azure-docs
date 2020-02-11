@@ -28,7 +28,7 @@ In this tutorial, you do the following actions:
 > * Manage student VMs 
 
 
-## View users registered with the lab
+## View registered users
 
 1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
@@ -39,7 +39,7 @@ In this tutorial, you do the following actions:
 
     For more details about adding and managing users for the lab, see [Add and manage lab users](how-to-configure-student-usage.md).
 
-## View the usage of VMs in the lab 
+## View the usage of VMs
 
 1. Select **Virtual machines** on menu to the left. 
 2. Confirm that you see the status of VMs and the number of hours the VMs have been running. The time that a lab owner spends on a student VM doesn't count against the usage time shown in the last column. 

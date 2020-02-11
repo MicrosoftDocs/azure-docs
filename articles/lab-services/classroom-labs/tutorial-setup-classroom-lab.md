@@ -136,7 +136,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     You will see names of users in the list after they are registered to the lab. 
     
 
-## Send invitation emails to students
+## Send invitation emails to users
 
 1. Switch to the **Users** view if you are not on the page already, and select **Invite all** on the toolbar. 
 
