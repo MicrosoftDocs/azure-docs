@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/03/2020
+ ms.date: 02/11/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -24,3 +24,5 @@ The following table illustrates the allowed maximum values for `maxShares` by di
 |P15, P20     |2         |
 |P30, P40, P50     |5         |
 |P60, P70, P80     |10         |
+
+The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a P15 disk is 1100 whether maxShares = 1 or maxShares > 1.

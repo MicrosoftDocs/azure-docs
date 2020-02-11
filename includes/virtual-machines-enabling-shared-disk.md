@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/03/2020
+ ms.date: 02/11/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -70,14 +70,28 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 
 Once you have deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
-```azurepowershell-interactive
-$vm = New-AzVm -ResourceGroupName "mySharedDiskRG" -Name "myVM" -Location "WestCentralUS" -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" 
+> [!IMPORTANT]
+> Your VMs and their disks must be using the same [proximity placement group](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
-$dataDisk = Get-AzDisk -ResourceGroupName "mySharedDiskRG" -DiskName "mySharedDisk"
+```azurepowershell-interactive
+
+$resourceGroup = "myResourceGroup"
+$location = "WestCentralUS"
+$ppgName = "myPPG"
+New-AzResourceGroup -Name $resourceGroup -Location $location
+$ppg = New-AzProximityPlacementGroup `
+   -Location $location `
+   -Name $ppgName `
+   -ResourceGroupName $resourceGroup `
+   -ProximityPlacementGroupType Standard
+
+$vm = New-AzVm -ResourceGroupName $resourceGroup -Name "myVM" -Location $location -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -ProximityPlacementGroup $ppg.Id
+
+$dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup -DiskName "mySharedDisk"
 
 $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
 
-update-AzVm -VM $vm -ResourceGroupName "mySharedDiskRG"
+update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 ```
 
 ## Supported SCSI PR commands
