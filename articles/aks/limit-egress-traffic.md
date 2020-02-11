@@ -59,7 +59,7 @@ The following outbound ports / network rules are required for an AKS cluster:
 The following FQDN / application rules are required:
 
 > [!IMPORTANT]
-> *.blob.core.windows.net and aksrepos.azurecr.io were previously, but are no longer required FQDN rules for egress lockdown.  You need to upgrade your AKS cluster to remove these rules.
+> ***.blob.core.windows.net and aksrepos.azurecr.io** are no longer required FQDN rules for egress lockdown.  For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command to remove these rules.
 
 - Azure Global
 
