@@ -4,14 +4,14 @@ description: Learn how to use blue-green deployment with Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/03/2020
 ms.author: brendm
 
 ---
 
 # Set up a staging environment in Azure Spring Cloud
 
-This article discusses how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. It also shows you how to put that staging deployment into production without changing the production deployment directly.
+This article discusses how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. Blue/green deployment is an Azure DevOps Continuous Delivery pattern that relies on keeping an existing (blue) version live, while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment directly.
 
 ## Prerequisites
 

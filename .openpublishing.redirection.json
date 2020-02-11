@@ -971,6 +971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-answer.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/data-sources-supported.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
@@ -11987,12 +11992,17 @@
     },
     {
       "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/templates/hyperledger-fabric-consortium-blockchain.md",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
       "redirect_document_id": false
     },
     {
@@ -24506,6 +24516,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-azure-slave-plugin-for-hudson-classic.md",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-sap-planning-guide.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/planning-guide",
       "redirect_document_id": false
@@ -28463,6 +28478,11 @@
     {
       "source_path": "articles/data-factory/data-factory-web-table-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-web-table-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/data-factory/concepts-data-flow-json.md",
+      "redirect_url": "/azure/data-factory/format-json",
       "redirect_document_id": true
     },
     {
@@ -35897,8 +35917,38 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-provisioning.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/plan-auto-user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-auto-user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/plan-cloud-hr-provision.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/plan-cloud-hr-provision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/provisioning-agent-release-version-history.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/provisioning-agent-release-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/sap-successfactors-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/sap-successfactors-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/skip-out-of-scope-deletions.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/skip-out-of-scope-deletions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/configure-automatic-user-provisioning-portal.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
@@ -35941,6 +35991,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/use-scim-to-provision-users-and-groups.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/workday-attribute-reference.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/workday-attribute-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
       "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure",
       "redirect_document_id": true
@@ -35961,14 +36021,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/user-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
       "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/customize-application-attributes",
+      "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/customize-application-attributes.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-group-policy.md",
@@ -35982,18 +36057,33 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-provisioning-reporting.md",
-      "redirect_url": "/azure/active-directory/manage-apps/check-status-user-account-provisioning",
+      "redirect_url": "/azure/active-directory/app-provisioning/check-status-user-account-provisioning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/check-status-user-account-provisioning.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/check-status-user-account-provisioning",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-scoping-filters.md",
-      "redirect_url": "/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings.md",
-      "redirect_url": "/azure/active-directory/manage-apps/functions-for-customizing-application-data",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/functions-for-customizing-application-data.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/functions-for-customizing-application-data",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
@@ -36122,33 +36212,73 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-no-users-provisioned.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned.md",
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-storage-limit.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-wrong-users-provisioned.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md",
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-configure-api.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-configure-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-quarantine-status.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-quarantine-status",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish-specific-user.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
@@ -38482,7 +38612,7 @@
     },
     {
       "source_path": "articles/billing/billing-set-up-alerts.md",
-      "redirect_url": "/azure/billing/billing-getting-started",
+      "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
       "redirect_document_id": false
     },
     {
@@ -41583,6 +41713,11 @@
     {
       "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/virtual-machines-availability-set-supportability.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability",
       "redirect_document_id": false
     },
     {
@@ -44970,10 +45105,10 @@
       "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
       "redirect_document_id": true
     },
-    { 
-      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md", 
-      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage", 
-      "redirect_document_id": false 
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md",
+      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/preview/howto-use-app-templates.md",
@@ -47900,13 +48035,20 @@
       "source_path": "articles/cognitive-services/Computer-vision/vs-computer-vision-connected-service.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/cognitive-services/Face/vs-face-connected-service.md",
       "redirect_url": "/azure/cognitive-services/face/",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
+      "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
       "redirect_document_id": false
     }
   ]

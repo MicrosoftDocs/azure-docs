@@ -48,17 +48,9 @@ Form Recognizer also includes a model for reading English sales receipts from th
 
 Form Recognizer can also extract text and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR). 
 
-## Where do I start?
+## Get started
 
-**Step 1:** Request access:
-
-Form Recognizer is available in a limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the scenario in which you'll use Form Recognizer.
-
-**Step 2:** Create a Form Recognizer resource in the Azure portal:
-
-When you're granted access to use Form Recognizer, you'll receive a Welcome email with several links and resources. Use the "Azure portal" link in that message to open the Azure portal and create a Form Recognizer resource.
-
-**Step 3:** Extract data from your forms:
+Follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 * Custom - train a model to your forms
   * Train without labels
@@ -73,9 +65,7 @@ When you're granted access to use Form Recognizer, you'll receive a Welcome emai
 * Layout - extract text and table structure from forms
   * [Quickstart: Extract layout data using Python](quickstarts/python-layout.md)
 
-We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-**Step 4:** Review the REST APIs:
+### Review the REST APIs
 
 You'll use the following APIs to train models and extract structured data from forms.
 

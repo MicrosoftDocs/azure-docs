@@ -1,12 +1,12 @@
 ---
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
-services: container-service
 author: mlearned 
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
 ---
 
@@ -103,6 +103,8 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Access to resources secured by service endpoints                                             | Supported | Supported |
 | Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported |
 | Default Azure DNS and Private Zones                                                          | Supported | Supported |
+
+Regarding DNS, with both kubenet and Azure CNI plugins DNS is offered by CoreDNS, a daemon set running in AKS. For more information on CoreDNS on Kubernetes see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS is configured per default to forward unknown domains to the node DNS servers, in other words, to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
 
 ### Support scope between network models
 
