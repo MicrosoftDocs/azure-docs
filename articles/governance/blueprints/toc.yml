@@ -56,13 +56,13 @@
     items:
     - name: Overview
       displayName: standards, DoD, IL4
-      href: ./samples/DoDIL4/index.md
+      href: ./samples/dod-impact-level-4/index.md
     - name: Control mapping
       displayName: standards, DoD, IL4
-      href: ./samples/DoDIL4/control-mapping.md
+      href: ./samples/dod-impact-level-4/control-mapping.md
     - name: Steps to deploy
       displayName: standards, DoD, IL4
-      href: ./samples/DoDIL4/deploy.md
+      href: ./samples/dod-impact-level-4/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview
