@@ -84,7 +84,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 
    ![storageaccount](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-To configure a storage account under VNet or Firewall you will need an **Active Directory admin** on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
+To configure a storage account under VNet or Firewall you will need an [Active Directory admin](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
 
 We recommend you to be [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) in order to grant to the managed identify the role 'storage blob data contributor'. To learn more about permissions and role-based access control, see [What is role-based access control (RBAC) for Azure resources?](https://docs.microsoft.com/azure/role-based-access-control/overview) and [Add or remove role assignments using Azure RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
