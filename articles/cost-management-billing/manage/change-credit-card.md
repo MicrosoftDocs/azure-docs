@@ -18,7 +18,7 @@ This document applies to customers who signed up for Azure online with a credit 
 
 In the Azure portal, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
-If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), your payment methods are associated with billing profiles. Learn how to [change the default payment method for a billing profile](#change-payment-method-for-a-billing-profile). Only the user who signed up for Azure can update the payment method.
+If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), your payment methods are associated with billing profiles. Learn how to [change the default payment method for a Microsoft Customer Agreement](#change-payment-method-for-a-Microsoft-Customer-Agreement). Only the user who signed up for Azure can update the payment method.
 
 **Want to switch to pay by invoice (check/wire transfer)?** See [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
 
@@ -47,7 +47,7 @@ If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-custom
 
 If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-## Update existing credit card
+## Update existing credit card details
 
 If your credit card gets renewed and the number stays the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
 
@@ -101,7 +101,7 @@ If more than one of your subscriptions have the same active payment method, then
 
 If your credit card is the active payment method for any of your Microsoft subscriptions, you can't remove it from your Azure account. Change the active payment method for all subscriptions linked to this credit card and try again
 
-## Change payment method for a billing profile
+## Add new credit card for a Microsoft Customer Agreement
 
 To change the payment method for a billing profile, you must be the person who signed up for Azure.
 
@@ -110,19 +110,33 @@ If you'd like to switch the default payment method to check/wire transfer, learn
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.
 1. In the menu on the left, click on **Billing profiles**.
-
-    ![screenshot that shows billing profile in menu](./media/change-credit-card/billing-profile.png)
-
 1. Select a billing profile.
 1. In the menu on the left, select **Payment methods**.
 
-   ![Screenshot that shows payment methods in menu](./media/change-credit-card/billing-profile-payment-methods.png)
+   ![Screenshot that shows payment methods in menu](./media/change-credit-card/payment-methods-tab-mca.png)
 
-1. Above the default payment method, click **Change**.
+1. In the **Default payment method** section, click **Change**.
 
-    ![Screenshot that shows change button](./media/change-credit-card/customer-led-switch-credit-card.png)
+    ![Screenshot that shows change button](./media/change-credit-card/change-payment-method-mca.png)
 
-1. Select an existing card or add a new one.
+1. Select an existing card from the credit card drop-down or add a new one by clicking the blue "Add new payment method" link.
+
+## Update existing credit card details for a Microsoft Customer Agreement
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search on **Cost Management + Billing**.
+1. In the menu on the left, click on **Billing profiles**.
+1. Select a billing profile.
+1. In the menu on the left, select **Payment methods**.
+
+   ![Screenshot that shows payment methods in menu](./media/change-credit-card/payment-methods-tab-mca.png)
+
+1. In the **Your credit cards**  section, find the credit card you want to edit.
+1. Select the ellipsis (`...`) at the end of the row.
+
+    ![Screenshot that shows the ellipsis](./media/change-credit-card/edit-delete-credit-card-mca.png)
+
+1. Select **Edit**.
 
 ## Troubleshooting
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
