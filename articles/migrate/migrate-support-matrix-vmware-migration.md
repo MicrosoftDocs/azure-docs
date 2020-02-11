@@ -118,7 +118,7 @@ When you set up the replication appliance using the OVA template provided in the
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware.
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about [URLs](migrate-replication-appliance.md#url-access) and [ports]() the replication appliance needs to access.
+- Learn about [URLs](migrate-replication-appliance.md#url-access) and [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
 
 ## Agent-based-ports
 
