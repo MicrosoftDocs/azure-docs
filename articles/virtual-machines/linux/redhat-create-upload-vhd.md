@@ -3,7 +3,7 @@ title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: szark
+ms.author: mimckitt
 
 ---
 # Prepare a Red Hat-based virtual machine for Azure
@@ -151,7 +151,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-		NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
 
 1. Ensure that the network service will start at boot time by running the following command:
 
@@ -405,7 +406,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
 
 1. Ensure that the network service will start at boot time by running the following command:
 
@@ -663,7 +665,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
 
 1. Ensure that the network service will start at boot time by running the following command:
 
@@ -880,7 +883,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
         EOF
 
         # Deprovision and prepare for Azure if you are creating a generalized image
@@ -911,7 +915,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 In some cases, Linux installers might not include the drivers for Hyper-V in the initial RAM disk (initrd or initramfs) unless Linux detects that it is running in a Hyper-V environment.
 
-When you're using a different virtualization system (that is, Virtualbox, Xen, etc.) to prepare your Linux image, you might need to rebuild initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial RAM disk. This is a known issue at least on systems that are based on the upstream Red Hat distribution.
+When you're using a different virtualization system (that is, VirtualBox, Xen, etc.) to prepare your Linux image, you might need to rebuild initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial RAM disk. This is a known issue at least on systems that are based on the upstream Red Hat distribution.
 
 To resolve this issue, add Hyper-V modules to initramfs and rebuild it:
 

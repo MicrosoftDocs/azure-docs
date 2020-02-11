@@ -32,6 +32,11 @@ Execute the following Maven command in the Cloud Shell prompt to create a new ap
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
 ```
+Then change your working directory to the project folder:
+
+```bash
+cd helloworld
+```
 
 ## Configure the Maven plugin
 

@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 01/07/2019
 ms.author: juliako
 ---
 
@@ -25,6 +25,36 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## December 2019
+
+### Update transcript with the new API
+
+Update a specific section in the transcript using the [Update-Video-Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) API.
+
+### Fix account configuration from the Video Indexer portal
+
+You can now update Media Services connection configuration in order to self-help with issues like: incorrect Azure Media Services resource, and `____`. To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
+
+### Custom vision account configuration
+
+Configure the custom vision account on paid accounts using the Video Indexer portal (previously, this was only supported by API). To do that, sign in to the Video Indexer portal, choose Model Customization > Animated characters > Configure. 
+
+### Scenes, shots and keyframes – now in one insight pane
+
+Scenes, shots, and keyframes are now merged into one insight for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of. 
+
+### Video name too long notification
+
+When video name is longer than 80 characters, Video Indexer will show a descriptive error on upload.
+
+### Streaming endpoint is disabled notification
+
+When streaming endpoint is disabled, Video Indexer will show a descriptive error on the player page.
+
+### Error handling improvement
+
+Status code 409 will now be returned from [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) and [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) APIs in case a video is actively indexed, to prevent overriding the current re-index changes by accident.
 
 ## November 2019
  
@@ -61,7 +91,7 @@ Multiple advancements announced at IBC 2019:
     Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc. For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * Topic inferencing enhancement - now covering level 2
     
-    The topic inferencing model now support deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+    The topic inferencing model now supports deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## August 2019
  

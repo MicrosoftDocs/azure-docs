@@ -72,6 +72,9 @@ az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
+
 ## Create the Spring Cloud application
 
 The following command creates a Spring Cloud application in your subscription.  This creates an empty Spring Cloud service to which we can upload our application.
@@ -132,12 +135,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > The kpack logs will only show the latest deployment if that deployment was built from source using kpack.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## Assign a public endpoint to gateway
 
 1. Open the **Application Dashboard** page.
 2. Select the `gateway` application to show the **Application Details** page.
 3. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes. 
 4. Enter the assigned public IP into your browser to view your running application.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## Next steps
 

@@ -47,15 +47,15 @@ Redis .NET Core clients use the latest TLS version by default.
 
 ### Java
 
-Redis Java clients use TLS 1.0 on Java version 6 or earlier. Jedis, Lettuce, and Radisson can't connect to Azure Cache for Redis if TLS 1.0 is disabled on the cache. There's currently no known workaround.
+Redis Java clients use TLS 1.0 on Java version 6 or earlier. Jedis, Lettuce, and Redisson can't connect to Azure Cache for Redis if TLS 1.0 is disabled on the cache. Upgrade your Java framework to use new TLS versions.
 
-On Java 7 or later, Redis clients don't use TLS 1.2 by default but can be configured for it. Lettuce and Radisson don't support this configuration right now. They'll break if the cache accepts only TLS 1.2 connections. Jedis allows you to specify the underlying TLS settings with the following code snippet:
+For Java 7, Redis clients don't use TLS 1.2 by default but can be configured for it. Jedis allows you to specify the underlying TLS settings with the following code snippet:
 
 ``` Java
 SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 SSLParameters sslParameters = new SSLParameters();
 sslParameters.setEndpointIdentificationAlgorithm("HTTPS");
-sslParameters.setProtocols(new String[]{"TLSv1", "TLSv1.1", "TLSv1.2"});
+sslParameters.setProtocols(new String[]{"TLSv1.2"});
  
 URI uri = URI.create("rediss://host:port");
 JedisShardInfo shardInfo = new JedisShardInfo(uri, sslSocketFactory, sslParameters, null);
@@ -64,6 +64,10 @@ shardInfo.setPassword("cachePassword");
  
 Jedis jedis = new Jedis(shardInfo);
 ```
+
+The Lettuce and Redisson clients don't yet support specifying the TLS version, so they'll break if the cache accepts only TLS 1.2 connections. Fixes for these clients are being reviewed, so check with those packages for an updated version with this support.
+
+In Java 8, TLS 1.2 is used by default and shouldn't require updates to your client configuration in most cases. To be safe, test your application.
 
 ### Node.js
 

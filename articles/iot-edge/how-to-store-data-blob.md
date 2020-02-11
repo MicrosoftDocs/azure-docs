@@ -1,9 +1,8 @@
 ---
 title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs 
 description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
-author: arduppal
-manager: brymat
-ms.author: arduppal
+author: kgremban
+ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 12/13/2019
 ms.topic: conceptual
@@ -16,6 +15,7 @@ services: iot-edge
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:
+
 * where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
 * when devices are located in a place with limited connectivity.
 * when you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
@@ -28,38 +28,37 @@ This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features
 
 **deviceToCloudUpload** is a configurable functionality. This function automatically uploads the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 
-- Turn ON/OFF the deviceToCloudUpload feature.
-- Choose the order in which the data is copied to Azure like NewestFirst or OldestFirst.
-- Specify the Azure Storage account to which you want your data uploaded.
-- Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
-- Choose the ability to delete the blobs immediately, after upload to cloud storage is finished
-- Do full blob upload (using `Put Blob` operation) and block level upload (using `Put Block`, `Put Block List` and `Append Block` operations).
+* Turn ON/OFF the deviceToCloudUpload feature.
+* Choose the order in which the data is copied to Azure like NewestFirst or OldestFirst.
+* Specify the Azure Storage account to which you want your data uploaded.
+* Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
+* Choose the ability to delete the blobs immediately, after upload to cloud storage is finished
+* Do full blob upload (using `Put Blob` operation) and block level upload (using `Put Block`, `Put Block List` and `Append Block` operations).
 
 This module uses block level upload, when your blob consists of blocks. Here are some of the common scenarios:
 
-- Your application updates some blocks of a previously uploaded block blob or appends new blocks to an append blob, this module uploads only the updated blocks and not the whole blob.
-- The module is uploading blob and internet connection goes away, when the connectivity is back again it uploads only the remaining blocks and not the whole blob.
- 
+* Your application updates some blocks of a previously uploaded block blob or appends new blocks to an append blob, this module uploads only the updated blocks and not the whole blob.
+* The module is uploading blob and internet connection goes away, when the connectivity is back again it uploads only the remaining blocks and not the whole blob.
+
 If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again once the module comes back online.
 
 **deviceAutoDelete** is a configurable functionality. This function automatically deletes your blobs from the local storage when the specified duration (measured in minutes) expires. It allows you to:
 
-- Turn ON/OFF the deviceAutoDelete feature.
-- Specify the time in minutes (deleteAfterMinutes) after which the blobs will be automatically deleted.
-- Choose the ability to retain the blob while it's uploading if the deleteAfterMinutes value expires.
-
+* Turn ON/OFF the deviceAutoDelete feature.
+* Specify the time in minutes (deleteAfterMinutes) after which the blobs will be automatically deleted.
+* Choose the ability to retain the blob while it's uploading if the deleteAfterMinutes value expires.
 
 ## Prerequisites
 
 An Azure IoT Edge device:
 
-- You can use your development machine or a virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* You can use your development machine or a virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
-- Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported operating systems and architectures. The Azure Blob Storage on IoT Edge module supports following architectures:
-    - Windows AMD64
-    - Linux AMD64
-    - Linux ARM32
-    - Linux ARM64 (preview)
+* Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported operating systems and architectures. The Azure Blob Storage on IoT Edge module supports following architectures:
+  * Windows AMD64
+  * Linux AMD64
+  * Linux ARM32
+  * Linux ARM64 (preview)
 
 Cloud resources:
 
@@ -166,15 +165,15 @@ The Azure Blob Storage documentation includes quickstart sample code in several 
 
 The following quickstart samples use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
 
-- [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-    - We have a known issue while using this SDK because this version of the module does not return blob creation time. Hence few methods like list blobs does not work. As a workaround set explicitly API version on the blob client to '2017-04-17'. <br>Example:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
-    - [Append Blob Sample](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
-- [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
-- [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
-- [Go](../storage/blobs/storage-quickstart-blobs-go.md)
-- [PHP](../storage/blobs/storage-quickstart-blobs-php.md)
+* [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Python](../storage/blobs/storage-quickstart-blobs-python.md)
+  * Versions before V2.1 of the Python SDK have a known issue where the module does not return blob creation time. Because of that issue, some methods like list blobs does not work. As a workaround, explicitly set the API version on the blob client to '2017-04-17'. Example:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
+  * [Append Blob Sample](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
+* [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
+* [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
+* [Go](../storage/blobs/storage-quickstart-blobs-go.md)
+* [PHP](../storage/blobs/storage-quickstart-blobs-php.md)
 
 ## Connect to your local storage with Azure Storage Explorer
 
@@ -206,65 +205,65 @@ Because not all Azure Blob Storage operations are supported by Azure Blob Storag
 
 Supported:
 
-- List containers
+* List containers
 
 Unsupported:
 
-- Get and set blob service properties
-- Preflight blob request
-- Get blob service stats
-- Get account information
+* Get and set blob service properties
+* Preflight blob request
+* Get blob service stats
+* Get account information
 
 ### Containers
 
 Supported:
 
-- Create and delete container
-- Get container properties and metadata
-- List blobs
-- Get and set container ACL
-- Set container metadata
+* Create and delete container
+* Get container properties and metadata
+* List blobs
+* Get and set container ACL
+* Set container metadata
 
 Unsupported:
 
-- Lease container
+* Lease container
 
 ### Blobs
 
 Supported:
 
-- Put, get, and delete blob
-- Get and set blob properties
-- Get and set blob metadata
+* Put, get, and delete blob
+* Get and set blob properties
+* Get and set blob metadata
 
 Unsupported:
 
-- Lease blob
-- Snapshot blob
-- Copy and abort copy blob
-- Undelete blob
-- Set blob tier
+* Lease blob
+* Snapshot blob
+* Copy and abort copy blob
+* Undelete blob
+* Set blob tier
 
 ### Block blobs
 
 Supported:
 
-- Put block
-- Put and get block list
+* Put block
+* Put and get block list
 
 Unsupported:
 
-- Put block from URL
+* Put block from URL
 
 ### Append blobs
 
 Supported:
 
-- Append block
+* Append block
 
 Unsupported:
 
-- Append block from URL
+* Append block from URL
 
 ## Event Grid on IoT Edge Integration
 > [!CAUTION]

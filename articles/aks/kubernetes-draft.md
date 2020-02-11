@@ -3,7 +3,6 @@ title: Develop on Azure Kubernetes Service (AKS) with Draft
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
 author: zr-msft
-
 ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
@@ -22,7 +21,7 @@ This article shows you how to use Draft package and run an application on AKS.
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installed and configured. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
-* [Helm installed](https://github.com/helm/helm#install).
+* [Helm v2 installed][helm-install].
 * [Draft installed][draft-documentation].
 
 ## Create an Azure Kubernetes Service cluster
@@ -328,6 +327,7 @@ For more information about using Draft, see the Draft documentation on GitHub.
 [example-java-hello-l7]: https://github.com/Azure/draft/blob/master/examples/example-java/src/main/java/helloworld/Hello.java#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
-[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac

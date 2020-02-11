@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: cosmos-db
- author: rimman
+ author: SnehaGunda
+ ms.author: sngun
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 04/08/2019
- ms.author: rimman
  ms.custom: include file
 ---
 

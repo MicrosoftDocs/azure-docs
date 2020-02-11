@@ -20,7 +20,7 @@ ms.author: TomSh
 
 ---
 # Azure security technical capabilities
-This article provides an introduction to security services in Azure that help you protect you data, resources, and applications in the cloud and meet the security needs of your business.
+This article provides an introduction to security services in Azure that help you protect your data, resources, and applications in the cloud and meet the security needs of your business.
 
 ## Azure platform
 
