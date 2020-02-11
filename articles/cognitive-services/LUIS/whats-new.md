@@ -1,16 +1,8 @@
 ---
 title: What's New - Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
-author: diberry
-manager: nitinme
-ms.custom: experiment-luis-0519
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.author: diberry
 ---
 
 # What's new in Language Understanding
@@ -80,6 +72,10 @@ The following features were released at the Build 2019 Conference:
 [Bot Framework](https://blog.botframework.com/)
 
 ## Videos
+
+### 2019 Ignite videos
+
+[Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 ### 2019 Build videos
 
