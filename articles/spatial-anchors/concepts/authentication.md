@@ -91,6 +91,13 @@ For applications targeting Azure Active Directory users, the recommended approac
 
 1. Configuration in Azure portal
     1.	Register your application in Azure AD as **Native application**. As part of registering, you will need to determine whether your application should be multi-tenant or not, and provide the redirect URLs allowed for your application.
+        1.  Switch to the **API permissions** tab
+        2.  Hit **Add a permission**
+            1.  Select **Mixed Reality Resource Provider** under **APIs my organization uses** tab
+            2.  Select **Delegated permissions**
+            3.  Check the box for **mixedreality.signin** under **mixedreality**
+            4.  Hit **Add permissions**
+        3.  Hit **Grant admin consent**
     2.	Grant your application or users access to your resource:
         1.	Navigate to your Spatial Anchors resource in Azure portal
         2.	Switch to the **Access control (IAM)** tab
