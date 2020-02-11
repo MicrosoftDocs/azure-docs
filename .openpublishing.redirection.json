@@ -971,6 +971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-answer.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/data-sources-supported.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
@@ -24506,6 +24511,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-azure-slave-plugin-for-hudson-classic.md",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-sap-planning-guide.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/planning-guide",
       "redirect_document_id": false
@@ -38597,7 +38607,7 @@
     },
     {
       "source_path": "articles/billing/billing-set-up-alerts.md",
-      "redirect_url": "/azure/billing/billing-getting-started",
+      "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
       "redirect_document_id": false
     },
     {
@@ -41698,6 +41708,11 @@
     {
       "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/virtual-machines-availability-set-supportability.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability",
       "redirect_document_id": false
     },
     {
@@ -45085,10 +45100,10 @@
       "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
       "redirect_document_id": true
     },
-    { 
-      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md", 
-      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage", 
-      "redirect_document_id": false 
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-use-power-bi.md",
+      "redirect_url": "https://docs.microsoft.com/power-query/connectors/datalakestorage",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/preview/howto-use-app-templates.md",
