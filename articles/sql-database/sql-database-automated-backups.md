@@ -75,10 +75,12 @@ Backups that are older than the retention period are automatically purged based 
 
 Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline which is responsible for aggregating this hourly usage to calculate your consumption at the end of each month. After the database is dropped, consumption decreases as backups age. Once the backups become older than the retention period, the billing stops. 
 
+The minimum retention period for every database is 7 days, and the backup is retained even after a database is dropped. While dropping and recreating a database frequently may save on storage and compute costs, it may increase backup storage costs as we retain a backup for each dropped database for the minimum retention period of 7 days. 
+
 
 ### Monitoring consumption
 
-Each type of backup (full, differential and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backups storage consumption.  
+Each type of backup (full, differential and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backups storage consumption for a single database. This feature is currently unavailable for a managed instance.   
 
 ![Monitor database backup consumption on the database monitoring blade of the Azure portal](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -97,8 +99,10 @@ The excess backup storage consumption will depend on the workload and size of th
 > For analytical, data mart \ data warehouse workloads it is strongly recommended to use [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and also consider bulk load operations with row count around one million to reduce the excess backup storage consumption.
 
 
+
 ## Storage costs
 
+The price for storage varies if you're using the DTU model or the vCore model. 
 
 ### DTU Model
 
@@ -114,11 +118,14 @@ Let's assume the database has accumulated 744 GB of backup storage and this amou
 
 Now, a more complex example. Suppose the database has its retention increased to 14 days in the middle of the month and this (hypothetically) results in the total backup storage doubling to 1488 GB. SQL DB would report 1 GB of usage for hours 1-372, and then report the usage as 2 GB for hours 373-744. This would be aggregated to be a final bill of 1116 GB/mo. 
 
-You can use Azure subscription cost analysis to determine your current spending on backup storage.
+### Monitor costs
+
+To understand the backup storage costs, gop to  **Cost management + Billing** from the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service you're interested in. 
+
+Add a filter for **Service name**, and then choose **sql database** from the drop down. Use the **meter subcategory** filter to choose the billing counter for your service. For a single database or an elastic pool, choose **single/elastic pool pitr backup storage**. For a managed instance, choose **mi pitr backup storage**. **Storage** and **compute** subcategories may interest you as well, though they are not associated with backup storage costs. 
 
 ![Backup storage cost analysis](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-For example, to understand the backup storage costs for managed instance, please go to your subscription in Azure portal and open the Cost Analysis blade. Select the meter subcategory **mi pitr backup storage** to see your current backup cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - compute gen5** to compare backup storage cost with other cost categories.
 
 ## Backup retention
 
