@@ -12,7 +12,7 @@ To view Live Data (preview) with Azure Monitor for containers from Azure Kuberne
 
 This feature supports the following methods to control access to the logs, events, and metrics:
 
-- AKS configured with the cluster role binding *[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)*, which contains the permissions required to access access the Live Data (preview) feature. Clusters created after January 2020 include this new cluster role binding by default and requires no configuration.
+- AKS configured with the cluster role binding **[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**, which contains the permissions required to access access the Live Data (preview) feature. Clusters created after January 2020 include this new cluster role binding by default and requires no configuration.
 
    >[!NOTE]
    > You need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource to utilize this feature with that cluster role binding.
