@@ -24,13 +24,13 @@ Azure Media Services: Live Video Analytics (code name) is a product that extends
 
 LVA uses a new Media Services entity called **Media Graph** to deploy into different topologies. This entity is described in greater detail in  [Concept: Media Graph](media-graph-concept.md).
 
-## Private Preview
+## Preview
 
-Microsoft is conducting this Private Preview (invitation only) in order to allow customers early evaluation access to the product, and provide a community to facilitate the exchange of technical feedback, ideas, and best practices between engineering teams and community members.
+Microsoft is conducting this preview in order to allow customers early evaluation access to the product, and provide a community to facilitate the exchange of technical feedback, ideas, and best practices between engineering teams and community members.
 
 ### Scenarios
 
-The Private Preview release of LVA will initially support 2 scenarios:
+The preview release of LVA will initially support 2 scenarios:
 
 1. [Cloud ingestion](media-graph-cloud-tutorial.md) - Ingest from a RTSP camera directly into cloud storage
 1. [Edge ingestion](edge-setup.md) - Ingest from a RTSP camera via an edge device (on the same network). You can configure ingest to be:
@@ -62,7 +62,7 @@ Below is a list of currently limitations and configurations. For more informatio
 
 ### Billing
 
-During the private preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
+During the preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
 
 There may be billing for other resources during preview including storage. For more information, see [Billing and availability](faqs.md#billing-and-availability) in the [Live Video Analytics FAQ](faqs.md).
 
