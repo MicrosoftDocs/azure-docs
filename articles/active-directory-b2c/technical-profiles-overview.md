@@ -35,7 +35,7 @@ A technical profile enables these types of scenarios:
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
-- **Application insights**
+- **Application Insights**
 - [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password. 
 
 ## Technical profile flow
@@ -44,7 +44,7 @@ All types of technical profiles share the same concept. You send input claims, r
 
 ![Diagram illustrating the technical profile flow](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Single sign-on (SSO) session management** - [SSO session management](custom-policy-reference-sso.md) controls interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. 
+1. **Single sign-on (SSO) session management** - Restores technical profile's session data, using [SSO session management](custom-policy-reference-sso.md). 
 1. **InputClaimsTransformation** - Input claims of every  input [claims transformation](claimstransformations.md) are picked up from the claims bag, and after execution, the output claims are put back in the claims bag. The output claims of an input claims transformation can be input claims of a subsequent input claims transformation.
 1. **InputClaims** - Claims are picked up from the claims bag and are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure Active Directory uses input claim as a unique identifier to read, update, or delete an account.
 1. **Technical profile execution** - The technical profile exchanges the claims with the configured party. For example:
@@ -57,7 +57,10 @@ All types of technical profiles share the same concept. You send input claims, r
 1. **OutputClaimsTransformations** - Input claims of every output [claims transformation](claimstransformations.md) are picked up from the claims bag. The output claims of the technical profile from the previous steps can be input claims of an output claims transformation. After execution, the output claims are put back in the claims bag. The output claims of an output claims transformation can also be input claims of a subsequent output claims transformation.
 1. **Single sign-on (SSO) session management** - Persists technical profile's data to the session, using [SSO session management](custom-policy-reference-sso.md).
 
-A technical profile can inherit from another technical profile to change settings or add new functionality.  The **IncludeTechnicalProfile** element is a reference to the base technical profile from which a technical profile is derived.
+
+## Technical profile inclusion
+
+A technical profile can include another technical profile to change settings or add new functionality.  The **IncludeTechnicalProfile** element is a reference to the base technical profile from which a technical profile is derived. 
 
 For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical profile includes the **AAD-UserReadUsingAlternativeSecurityId**. This technical profile sets the **RaiseErrorIfClaimsPrincipalDoesNotExist** metadata item to `true`, and raises an error if a social account does not exist in the directory. **AAD-UserReadUsingAlternativeSecurityId-NoError** overrides this behavior and disables the error message if the user has not existed.
 
@@ -94,7 +97,7 @@ For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical pr
 </TechnicalProfile>
 ```
 
-Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and  **AAD-UserReadUsingAlternativeSecurityId** don't specify the required **Protocol** element because it's specified in the **AAD-Common** technical profile.
+Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and  **AAD-UserReadUsingAlternativeSecurityId** don't specify the required **Protocol** element, because it's specified in the **AAD-Common** technical profile.
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -103,16 +106,3 @@ Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and  **AAD-UserReadUsing
   ...
 </TechnicalProfile>
 ```
-
-A technical profile may include or inherit another technical profile, which may include another one. There is no limit on the number of levels. Depending on the business requirements, your user journey may call **AAD-UserReadUsingAlternativeSecurityId** that raises an error if a user social account doesn't exist, or **AAD-UserReadUsingAlternativeSecurityId-NoError** which doesn't raise an error.
-
-
-
-
-
-
-
-
-
-
-
