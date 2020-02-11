@@ -123,7 +123,7 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 
 ## VMs not registered with the resource provider
 
-If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, then the SQL Server license type will be pay-as-you-go. If you provisioned a SQL Server VM by using a bring-your-own-license image from Azure Marketplace, then the license type will be AHUB. All SQL Server VMs provisioned from default (pay-as-you-go) or bring-your-own-license Azure Marketplace images will automatically be registered with the SQL VM resource provider, so they can change the [license type](#change-the-license-for-vms-already-registered-with-the-resource-provider).
+If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, then the SQL Server license type will be pay-as-you-go. If you provisioned a SQL Server VM by using a bring-your-own-license image from Azure Marketplace, then the license type will be AHUB. All SQL Server VMs provisioned from default (pay-as-you-go) or bring-your-own-license Azure Marketplace images will automatically be registered with the SQL VM resource provider, so they can change the [license type](#vms-already-registered-with-the-resource-provider).
 
 You are only eligible to self-install SQL Server on an Azure VM via Azure Hybrid Benefit. You should [register these VMs with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) by setting the SQL Server license as Azure Hybrid Benefit, to indicate the Azure Hybrid Benefit usage according to Microsoft Product Terms.
 
