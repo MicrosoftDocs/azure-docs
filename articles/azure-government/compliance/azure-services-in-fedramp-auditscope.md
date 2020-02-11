@@ -272,5 +272,5 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-**&ast;** Some services such as the Azure portal and Azure Resource Manager do not store or process DoD CC SRG IIL 5 content, however still inherit the IIL5 control set.
+**&ast;** Some services such as the Azure portal and Azure Resource Manager do not store or process DoD CC SRG IL 5 content, however still inherit the IL5 control set.
 
