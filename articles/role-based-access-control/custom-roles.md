@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
@@ -115,7 +115,10 @@ The following list describes the limits custom roles.
 - Each directory can have up to **5000** custom roles.
 - Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, can have up to 2000 custom roles for each directory.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
+- You can only define one management group in `AssignableScopes` of a custom role.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
+
+For more information about custom role limits, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#limitations).
 
 ## Next steps
 - [Create custom roles for Azure resources using Azure PowerShell](custom-roles-powershell.md)
