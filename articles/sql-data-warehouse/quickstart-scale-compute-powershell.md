@@ -54,18 +54,18 @@ Follow these steps to find location information for your data warehouse.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Azure Synapse Analytics (formerly SQL DW)** in the left navigation page of the Azure portal.
-3. Select **mySampleDataWarehouse** from the **Azure Synapse Analytics (formerly SQL DW)** page. This opens the data warehouse.
+3. Select **mySampleDataWarehouse** from the **Azure Synapse Analytics (formerly SQL DW)** page to open the data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name, which will be used as the database name. Remember, a data warehouse is one type of database. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
+4. Write down the data warehouse name, which will be used as the database name. Remember, a data warehouse is one type of database. Also write down the server name, and the resource group. You will use the server name and the resource group name in the pause and resume commands.
 5. Use only the first part of the server name in the PowerShell cmdlets. In the preceding image, the full server name is sqlpoolservername.database.windows.net. We use **sqlpoolservername** as the server name in the PowerShell cmdlet.
 
 ## Scale compute
 
 In SQL pool, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
 
-To change data warehouse units, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database **mySampleDataWarehouse** which is hosted in the Resource group **resourcegroupname** on server **sqlpoolservername**.
+To change data warehouse units, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database **mySampleDataWarehouse**, which is hosted in the Resource group **resourcegroupname** on server **sqlpoolservername**.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -73,7 +73,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## Check data warehouse state
 
-To see the current state of the data warehouse, use the [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell cmdlet. This gets the state of the **mySampleDataWarehouse** database in ResourceGroup **resourcegroupname** and server **sqlpoolservername.database.windows.net**.
+To see the current state of the data warehouse, use the [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell cmdlet. This cmdlet shows the state of the **mySampleDataWarehouse** database in ResourceGroup **resourcegroupname** and server **sqlpoolservername.database.windows.net**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
