@@ -241,7 +241,9 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md   
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Shared disks
+      href: disks-shared-disks.md
     - name: Ephemeral OS disks
       href: ephemeral-os-disks.md
   - name: Networking
@@ -547,6 +549,8 @@
       href: detach-disk.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable shared disks
+      href: disks-enabling-shared-disk.md
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
     - name: Resize a disk
