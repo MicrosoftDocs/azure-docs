@@ -26,6 +26,9 @@
     - name: Create an automated ML experiment
       displayName: automl, automated, auto ml, portal, ui
       href: tutorial-first-experiment-automated-ml.md
+    - name: Forecast demand with automated ML (Bike share data)
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-automated-ml-forecast.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -51,6 +54,9 @@
       - name: Batch score a classification model
         displayName: pipelines
         href: tutorial-pipeline-batch-scoring-classification.md
+    - name: Go from experiment to production
+      displayName: mlops, mlopspython, production
+      href: tutorial-convert-ml-experiment-to-production.md
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
@@ -125,6 +131,8 @@
           href: how-to-enable-virtual-network.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
+        - name: Use Azure AD identity in AKS deployments
+          href: how-to-use-azure-ad-identity.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
       - name: Set up authentication
@@ -349,6 +357,8 @@
       href: how-to-create-your-first-pipeline.md
     - name: Schedule a pipeline (Python)
       href: how-to-schedule-pipelines.md
+    - name: Trigger a pipeline
+      href: how-to-trigger-published-pipeline.md
     - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
     - name: Debug pipelines in Application Insights
