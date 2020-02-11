@@ -10,55 +10,6 @@
   - name: Language and region support
     href: language-support.md
     displayName: "languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice"
-- name: Speech SDK
-  expanded: false
-  items:
-  - name: Overview
-    items:
-    - name: About the Speech SDK
-      href: speech-sdk.md
-    - name: Scenario availability
-      href: scenario-availability.md
-    - name: Ship an application
-      href: ship-application.md
-  - name: Quickstart
-    items:
-    - name: Create a project
-      href: quickstarts/create-project.md
-    - name: Setup Speech SDK
-      href: quickstarts/setup-platform.md
-      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
-  - name: How-to guides
-    items:
-    - name: Enable logging
-      href: how-to-use-logging.md
-    - name: Track memory usage
-      href: how-to-track-speech-sdk-memory-usage.md
-    - name: Configure OpenSSL for Linux
-      href: how-to-configure-openssl-linux.md
-      displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
-  - name: Samples
-    items:
-    - name: Speech SDK samples (GitHub)
-      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-    - name: Speech Devices SDK samples (GitHub)
-      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-  - name: Reference
-    items:
-    - name: C++
-      href: https://aka.ms/csspeech/cppref
-    - name: C#
-      href: https://aka.ms/csspeech/csharpref
-    - name: Java
-      href: https://aka.ms/csspeech/javaref
-    - name: JavaScript
-      href: https://aka.ms/csspeech/javascriptref
-    - name: Objective-C
-      href: https://aka.ms/csspeech/objectivecref
-    - name: Python
-      href: https://aka.ms/csspeech/pythonref
-    - name: Speech SDK Release notes
-      href: releasenotes.md
 - name: Speech-to-text
   expanded: false
   items:
@@ -533,6 +484,55 @@
         - name: Azure container instances
           href: deploy-speech-on-container-instances.md
           displayName: "ACI,azure container instances,container instances,containers"
+- name: Speech SDK
+  expanded: false
+  items:
+  - name: Overview
+    items:
+    - name: About the Speech SDK
+      href: speech-sdk.md
+    - name: Scenario availability
+      href: scenario-availability.md
+    - name: Ship an application
+      href: ship-application.md
+  - name: Quickstart
+    items:
+    - name: Create a project
+      href: quickstarts/create-project.md
+    - name: Setup Speech SDK
+      href: quickstarts/setup-platform.md
+      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
+  - name: How-to guides
+    items:
+    - name: Enable logging
+      href: how-to-use-logging.md
+    - name: Track memory usage
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Configure OpenSSL for Linux
+      href: how-to-configure-openssl-linux.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
+  - name: Samples
+    items:
+    - name: Speech SDK samples (GitHub)
+      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+    - name: Speech Devices SDK samples (GitHub)
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+  - name: Reference
+    items:
+    - name: C++
+      href: https://aka.ms/csspeech/cppref
+    - name: C#
+      href: https://aka.ms/csspeech/csharpref
+    - name: Java
+      href: https://aka.ms/csspeech/javaref
+    - name: JavaScript
+      href: https://aka.ms/csspeech/javascriptref
+    - name: Objective-C
+      href: https://aka.ms/csspeech/objectivecref
+    - name: Python
+      href: https://aka.ms/csspeech/pythonref
+    - name: Speech SDK Release notes
+      href: releasenotes.md
 - name: Devices
   expanded: false
   items:
