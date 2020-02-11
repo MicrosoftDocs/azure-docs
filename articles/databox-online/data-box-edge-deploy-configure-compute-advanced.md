@@ -1,5 +1,5 @@
 ---
-title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Data Box Edge | Microsoft Docs
+title: "Tutorial: Use compute to transform data for advanced deployment on Azure Stack Edge"
 description: Learn how to configure compute role on Data Box Edge and use it to transform data for advanced deployment flow before sending to Azure.
 services: databox
 author: alkohli

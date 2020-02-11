@@ -1,5 +1,5 @@
 ---
-title: Log support ticket for Azure Data Box Edge, Azure Data Box Gateway | Microsoft Docs
+title: Log support ticket for Azure Stack Edge, Azure Data Box Gateway
 description: Learn how to log support request for issues related to your Data Box Edge or Data Box Gateway orders.
 services: databox
 author: alkohli

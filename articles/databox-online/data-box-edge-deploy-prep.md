@@ -1,5 +1,5 @@
 ---
-title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Data Box Edge | Microsoft Docs
+title: "Tutorial: Prepare Azure portal, datacenter to deploy Azure Stack Edge"
 description: The first tutorial about deploying Azure Data Box Edge involves preparing the Azure portal.
 services: databox
 author: alkohli

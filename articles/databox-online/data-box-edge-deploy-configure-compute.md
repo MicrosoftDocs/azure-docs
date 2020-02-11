@@ -1,5 +1,5 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Data Box Edge | Microsoft Docs
+title: "Tutorial: Filter, analyze data with compute on Azure Stack Edge"
 description: Learn how to configure compute role on Data Box Edge and use it to transform data before sending to Azure.
 services: databox
 author: alkohli

@@ -1,5 +1,5 @@
 ---
-title: Manage compute network on Azure Data Box Edge to access modules| Microsoft Docs 
+title: Manage compute network on Azure Stack Edge to access modules 
 description: Describes how to extend the compute network on your Data Box Edge to access modules via an external IP.
 services: databox
 author: alkohli

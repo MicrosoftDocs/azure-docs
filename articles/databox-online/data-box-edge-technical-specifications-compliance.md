@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box Edge technical specifications and compliance| Microsoft Docs
+title: Azure Stack Edge technical specifications and compliance
 description: Learn about the technical specifications and compliance for your Azure Data Box Edge
 services: databox
 author: alkohli
