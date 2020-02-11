@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
 ---
 
@@ -34,7 +34,7 @@ To access the Serial Console on your VM or virtual machine scale set instance, y
 - The Azure account accessing Serial Console must have [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for both the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
 > [!NOTE]
-> - Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
+> Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
 
 ## Get started with the Serial Console
 The Serial Console for VMs and virtual machine scale set is accessible only through the Azure portal:
@@ -62,6 +62,37 @@ Serial Console is available for virtual machine scale sets, accessible on each i
   1. From the **Support + troubleshooting** section, select **Serial console**. A new pane with the serial console opens and starts the connection.
 
      ![Linux virtual machine scale set Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+## Serial Console RBAC role
+As mentioned above, Serial Console requires VM Contributor or greater access to your VM or virtual machine scale set. If you do not want to grant VM Contributor to a user but still want to enable a user to access Serial Console, you may do so with the following role:
+
+```
+{
+  "Name": "Serial Console Role",
+  "IsCustom": true,
+  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
+  "Actions": [
+      "Microsoft.Compute/virtualMachines/*/write",
+      "Microsoft.Compute/virtualMachines/*/read",
+      "Microsoft.Storage/storageAccounts/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<subscriptionId>"
+  ]
+}
+```
+
+### To create and use the role:
+*	Save the JSON at a known location – e.g. `~/serialconsolerole.json`.
+*	Use the following Az CLI command to create the role definition: `az role definition create --role-definition serialconsolerole.json -o=json`
+*	If you need to update the role, use the following command: `az role definition update --role-definition serialconsolerole.json -o=json`
+*	The role will show up in Access Control (IAM) in the portal (may take a few minutes to propagate)
+*	You may add users to the VM and the boot diagnostics storage account with the custom role role
+    *	Note that the user must be granted the custom role on the VM *and* the boot diagnostics storage account
+
 
 ## Advanced uses for Serial Console
 Aside from console access to your VM, you can also use the Azure Serial Console for the following:
