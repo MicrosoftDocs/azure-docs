@@ -1,0 +1,45 @@
+### YamlMime:Landing
+
+title: Text-to-speech documentation
+summary: Explore the Text-to-speech documentation.
+metadata:
+  title: Text-to-speech documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+
+landingContent:
+- title: Text-to-speech
+  linkLists:
+    - linkListType: overview
+      links:
+      - text: What is text-to-speech?
+        url: text-to-speech.md
+    - linkListType: quickstart
+      links:
+        - text: Synthesize speech into an audio file
+          url: quickstarts/text-to-speech-audio-file.md
+        - text: Synthesize speech to a speaker
+          url: quickstarts/text-to-speech.md
+        - text: Synthesize speech with long-form audio
+          url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - linkListType: how-to-guide
+      links:
+        - text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md
+        - text: Improve synthesis with Audio Content creation
+          url: how-to-audio-content-creation.md
+        - text: Improve synthesis with Custom Voice
+          url: how-to-custom-voice.md
+    - linkListType: reference
+      links:
+        - text: Language support
+          url: language-support.md#text-to-speech
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

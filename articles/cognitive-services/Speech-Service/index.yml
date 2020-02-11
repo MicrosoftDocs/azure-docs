@@ -49,7 +49,7 @@ conceptualContent:
           url: quickstarts/from-blob.md
       footerLink:
         text: See more
-        url: speech-to-text.md
+        url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
         - itemType: quickstart
@@ -63,7 +63,7 @@ conceptualContent:
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
       footerLink:
         text: See more
-        url: text-to-speech.md
+        url: index-text-to-speech.yml
     - title: Intent recognition
       links:
         - itemType: quickstart
@@ -117,6 +117,26 @@ conceptualContent:
       footerLink:
         text: See more
         url: voice-assistants.md
+    - title: Hosting
+      links:
+        - itemType: how-to-guide
+          text: Deploy Speech service containers
+          url: speech-container-howto.md
+        - itemType: how-to-guide
+          text: Configure containers
+          url: speech-container-configuration.md
+        - itemType: how-to-guide
+          text: Deploy Speech service containers with Kubernetes
+          url: speech-container-howto-on-premises.md
+        - itemType: how-to-guide
+          text: Deploy Speech service containers on Azure Container Instances
+          url: deploy-speech-on-container-instances.md
+        - itemType: reference
+          text: Supported regions
+          url: regions.md
+        - itemType: reference
+          text: Sovereign clouds
+          url: sovereign-clouds.md
     - title: Devices
       links:
       - itemType: quickstart
@@ -142,27 +162,7 @@ conceptualContent:
         - itemType: how-to-guide
           text: Migrate from the Translator Speech API
           url: how-to-migrate-from-translator-speech-api.md
-    - title: Hosting
-      links:
-        - itemType: how-to-guide
-          text: Deploy Speech service containers
-          url: speech-container-howto.md
-        - itemType: how-to-guide
-          text: Configure containers
-          url: speech-container-configuration.md
-        - itemType: how-to-guide
-          text: Deploy Speech service containers with Kubernetes
-          url: speech-container-howto-on-premises.md
-        - itemType: how-to-guide
-          text: Deploy Speech service containers on Azure Container Instances
-          url: deploy-speech-on-container-instances.md
-        - itemType: reference
-          text: Supported regions
-          url: regions.md
-        - itemType: reference
-          text: Sovereign clouds
-          url: sovereign-clouds.md
-
+    
 additionalContent:
   sections:
     - items:
