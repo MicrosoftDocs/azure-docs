@@ -381,7 +381,7 @@
     href: custom-policy-developer-notes.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
-  - name: Page layout version
+  - name: Page layout versions
     href: page-layout.md
   - name: Cookie definitions
     href: cookie-definitions.md

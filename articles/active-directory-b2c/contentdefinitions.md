@@ -1,5 +1,6 @@
 ---
-title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
+title: ContentDefinitions
+titleSuffix: Azure AD B2C
 description: Specify the ContentDefinitions element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -52,7 +53,6 @@ The metadata of the **LocalAccountSignUpWithLogonEmail** self-asserted technical
   ...
 ```
 
-
 ## ContentDefinition
 
 The **ContentDefinition** element contains the following attribute:
@@ -73,25 +73,24 @@ The **ContentDefinition** element contains the following elements:
 
 ### DataUri
 
-The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`. The following table lists of the page identifiers you can use.  
+The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`. The following table lists the page identifiers you can use.
 
-| Value | Description |
+| Page identifier | Description |
 | ----- | ----------- |
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
 | `providerselection` |	Lists the identity providers that users can choose from during sign-in. |
-| `unifiedssp`	| Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
+| `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
 | `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
-| `selfasserted:` |	Displays a form that enables users to create or update their profile. |
-
+| `selfasserted` | Displays a form that enables users to create or update their profile. |
 
 ## Select a page layout
 
-You can enable [JavaScript client-side code](javascript-samples.md) by inserting `contract` between `elements` and the page type, for example: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.  
+You can enable [JavaScript client-side code](javascript-samples.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, you’ll want to be sure the elements you’re basing your JavaScript on are immutable. Otherwise, any changes could cause unexpected behavior on your user pages. To prevent these issues, you can enforce the use of a page layout and specify a page layout version. Doing this ensures that all the content definitions that you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you still need to specify the page layout version for your pages.
+The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version. Doing so ensures that all content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you still need to specify the page layout version for your pages.
 
 The following example shows the **DataUri** of `selfasserted` version `1.2.0`:
 
@@ -108,7 +107,7 @@ The following example shows the **DataUri** of `selfasserted` version `1.2.0`:
 
 #### Migrating to page layout
 
-The format of the value must contain the word `contract` as following  _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value, use following table to migrate to the new format.  
+The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value, use following table to migrate to the new format.
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
@@ -122,9 +121,6 @@ The format of the value must contain the word `contract` as following  _urn:com:
 | `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
-
-
-
 
 ### LocalizedResourcesReferences
 
@@ -178,7 +174,8 @@ The ID attribute of the **ContentDefinition** element specifies the type of page
 | **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign up page, except for the password entry fields. |
 | **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page** - Handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. |
 
+## Next steps
 
-See the following article for example of customize the user interface using content definitions:
+For an example of customizing the user interface by using content definitions, see:
 
-- [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](custom-policy-ui-customization.md)
+[Customize the user interface of your application using a custom policy](custom-policy-ui-customization.md)

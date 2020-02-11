@@ -18,19 +18,27 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](custom-policy-overview.md) or enable it in the portal for user flows, select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
+Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies.
 
-If you intend to enable [JavaScript](javascript-samples.md) client-side code, you’ll want to be sure the elements you’re basing your JavaScript on are immutable. Otherwise, any changes could cause unexpected behavior on your user pages. To prevent these issues, you can enforce the use of a page layout and specify a page layout version. Doing this ensures that all the content definitions that you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
+To enable JavaScript for your applications:
 
-In the user flow **Properties**, you can enable JavaScript, which also enforces the use of a page layout. You can then set the page layout version for the user flow as described in the next section.
+* Enable it on the user flow by using the Azure portal
+* Select a [page layout](page-layout.md)
+* Use [b2clogin.com](b2clogin.md) in your requests
+
+If you intend to enable [JavaScript](javascript-samples.md) client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
+
+## Enable JavaScript
+
+In the user flow **Properties**, you can enable JavaScript. Enabling JavaScript also enforces the use of a page layout. You can then set the page layout version for the user flow as described in the next section.
 
 ![User flow properties page with Enable JavaScript setting highlighted](media/user-flow-javascript-overview/javascript-settings.png)
 
-### Select a page layout version
+## Select a page layout version
 
 Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **LAYOUT NAME**, select a user flow page and choose the **Page Layout Version**.
 
-For information about the different page layout versions, see the [Version change log](page-layout.md).
+For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 
 ![Page layout settings in portal showing page layout version dropdown](media/user-flow-javascript-overview/page-layout-version.png)
 
