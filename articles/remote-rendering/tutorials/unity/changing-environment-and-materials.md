@@ -380,4 +380,4 @@ Run this code and hover over your model. If your model has proper UV coordinates
 That concludes our introduction series on how to use Azure Remote Rendering with Unity. As a next step you should familiarize yourself with [the fundamental concepts](../../concepts/sdk-concepts.md) of ARR to build a deeper understanding. There are also various features like [lights](../../overview/features/lights.md), [outline rendering](../../overview/features/outlines.md), [hierarchical state overrides](../../overview/features/override-hierarchical-state.md), and [materials](../../concepts/materials.md) that you should explore in more detail.
 
 > [!div class="nextstepaction"]
-> [Unity SDK concepts](../../how-tos/unity/unity-concepts.md)
+> [SDK overview for Unity](../../how-tos/unity/unity-concepts.md)

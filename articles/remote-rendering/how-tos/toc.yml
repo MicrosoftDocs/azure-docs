@@ -1,10 +1,10 @@
-- name: Create an account
+- name: Create an Azure Remote Rendering account
   href: create-an-account.md
 - name: Get service access tokens
   href: tokens.md
 - name: Azure Frontend APIs
   href: frontend-apis.md
-- name: Manage sessions
+- name: The session management REST API
   href: session-rest-api.md
 - name: Convert models
   href: conversion/toc.yml

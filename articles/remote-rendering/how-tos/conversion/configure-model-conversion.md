@@ -1,5 +1,5 @@
 ---
-title: Configuring the model conversion
+title: Configure the model conversion
 description: Description of all model conversion parameters
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Configuring the model conversion
+# Configure the model conversion
 
 This chapter documents the user-facing options in the configuration file for the model conversion.
 

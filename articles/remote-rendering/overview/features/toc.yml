@@ -12,7 +12,7 @@
   href: color-materials.md
 - name: Outline rendering
   href: outlines.md
-- name: Single sided rendering
+- name: Single-sided rendering
   href: single-sided-rendering.md
 - name: Spatial queries
   href: spatial-queries.md

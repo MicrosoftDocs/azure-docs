@@ -1,5 +1,5 @@
 ---
-title: Outlines
+title: Outline rendering
 description: Explains how to do selection outline rendering
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Outlines
+# Outline rendering
 
 Selected objects can be highlighted visually by adding outline rendering via the [Hierarchical state override component](../../overview/features/override-hierarchical-state.md). This chapter explains how global parameters for outline rendering are changed through the client API.
 

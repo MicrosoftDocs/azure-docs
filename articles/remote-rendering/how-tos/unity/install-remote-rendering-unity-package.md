@@ -1,5 +1,5 @@
 ---
-title: Installing the Remote Rendering Unity package
+title: Install the Remote Rendering package for Unity
 description: Explains how to use Remote Rendering inside Unity
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Installing the Remote Rendering Unity package
+# Install the Remote Rendering package for Unity
 
 We use a Unity package to encapsulate the Azure Remote Rendering integration into Unity.
 
