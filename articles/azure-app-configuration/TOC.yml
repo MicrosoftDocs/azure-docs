@@ -86,7 +86,7 @@
     - name: Configuration
       items:
         - name: Azure CLI
-          href: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+          href: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core provider
           href: https://go.microsoft.com/fwlink/?linkid=2074664
         - name: .NET Framework builder
