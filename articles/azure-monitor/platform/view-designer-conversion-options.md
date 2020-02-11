@@ -40,4 +40,5 @@ With workbooks, we allow the user to choose to query one or both sections of the
 ![Convert](media/view-designer-conversion-options/convert-donut.png)
 
 
-### [Common tasks converting views to workbooks](view-designer-conversion-tasks.md)
+## Next steps
+- [Accessing workbooks & permissions](view-designer-conversion-access.md)

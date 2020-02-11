@@ -915,8 +915,9 @@
         href: platform/view-designer-conversion-overview.md
       - name: Options
         href: platform/view-designer-conversion-options.md
+        
       - name: Common tasks
-        href: platform/view-designer-conversion-steps.md
+        href: platform/view-designer-conversion-tasks.md
       - name: Tile conversions
         href: platform/view-designer-conversion-tiles.md
       - name: Examples

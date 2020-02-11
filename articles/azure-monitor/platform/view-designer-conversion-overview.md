@@ -30,6 +30,15 @@ View designer offers the ability to generate different query-based views and vis
 
 Workbooks is a platform that unlocks the full potential of your data. workbooks not only retain all the capabilities, but also supports additional functionality through text, metrics, parameters, and much more. For example, workbooks allow users to consolidate dense grids and add search bars to easily filter and analyze the data. 
 
+### Advantages of using Workbooks over View Designer
+
+* Supports both logs and metrics.
+* Allows both personal views for individual access control and shared workbooks views.
+* Custom layout options with tabs, sizing, and scaling controls.
+* Support for querying across multiple Log Analytics workspaces, Application Insights applications, and subscriptions.
+* Enables custom parameters that dynamically update associated charts and visualizations.
+* Template gallery support from public GitHub.
+
 While this guide offers simple steps to directly recreate several of the commonly used view designer views, workbooks allow users to have the freedom to create and design any of their own custom visualizations and metrics. The following screenshot is from the [Workspace usage template](https://go.microsoft.com/fwlink/?linkid=874159&resourceId=Azure%20Monitor&featureName=Workbooks&itemId=community-Workbooks%2FAzure%20Monitor%20-%20Workspaces%2FWorkspace%20Usage&workbookTemplateName=Workspace%20Usage&func=NavigateToPortalFeature&type=workbook) and shows an example of what workbooks are capable of creating:
 
 
