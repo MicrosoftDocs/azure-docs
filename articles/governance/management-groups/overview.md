@@ -123,7 +123,7 @@ The following chart shows the list of roles and the supported actions on managem
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.
 
-## Custom RBAC role definition and assignment (Preview)
+## Custom RBAC role definition and assignment
 
 Custom RBAC role support for management groups is currently in preview with some [limitations](#limitations).  You can define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
 
