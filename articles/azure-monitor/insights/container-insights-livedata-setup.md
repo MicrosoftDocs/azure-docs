@@ -1,18 +1,18 @@
 ---
-title: Setup Azure Monitor for containers Live Data (preview) | Microsoft Docs
-description: This article describes how to setup the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
+title: Set up Azure Monitor for containers Live Data (preview) | Microsoft Docs
+description: This article describes how to set up the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 ms.topic: conceptual
 ms.date: 02/11/2019
 
 ---
 
-# How to setup the Live Data (preview) feature
+# How to set up the Live Data (preview) feature
 
-To view Live Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.
+To view Live Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real-time access to your data through the Kubernetes API directly in the Azure portal.
 
 This feature supports the following methods to control access to the logs, events, and metrics:
 
-- AKS configured with the cluster role binding **[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**, which contains the permissions required to access access the Live Data (preview) feature. Clusters created after January 2020 include this new cluster role binding by default and requires no configuration.
+- AKS configured with the cluster role binding **[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**, which contains the permissions required to access the Live Data (preview) feature.
 - AKS without Kubernetes RBAC authorization enabled
 - AKS enabled with Kubernetes RBAC authorization
 - AKS enabled with Azure Active Directory (AD) SAML-based single-sign on
@@ -21,7 +21,7 @@ These instructions require both administrative access to your Kubernetes cluster
 
 This article explains how to configure authentication to control access to the Live Data (preview) feature from the cluster:
 
-- Role based access control (RBAC) enabled AKS cluster
+- Role-based access control (RBAC) enabled AKS cluster
 - Azure Active Directory integrated AKS cluster. 
 
 >[!NOTE]
@@ -32,7 +32,7 @@ This article explains how to configure authentication to control access to the L
 
 ## Authentication model
 
-The Live Data (preview) features utilizes the Kubernetes API, identical to the `kubectl` command-line tool. The Kubernetes API endpoints utilize a self-signed certificate, which your browser will be unable to validate. This feature utilizes a internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
+The Live Data (preview) features utilizes the Kubernetes API, identical to the `kubectl` command-line tool. The Kubernetes API endpoints utilize a self-signed certificate, which your browser will be unable to validate. This feature utilizes an internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
 
 The Azure portal prompts you to validate your login credentials for an Azure Active Directory cluster, and redirect you to the client registration setup during cluster creation (and re-configured in this article). This behavior is similar to the authentication process required by `kubectl`. 
 
@@ -50,7 +50,7 @@ AKS released this binding in January 2020, so new clusters that are created star
 
 ## Kubernetes cluster without RBAC enabled
 
-If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, you do not need to follow these steps. This is because you have administrative permissions by default in an non-RBAC configuration.
+If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, you do not need to follow these steps. This is because you have administrative permissions by default in a non-RBAC configuration.
 
 ## Configure Kubernetes RBAC authentication
 
@@ -95,7 +95,7 @@ The following example steps demonstrate how to configure cluster role binding fr
 >[!NOTE] 
 > If you have applied a previous version of the `LogReaderRBAC.yaml` file to your cluster, update it by copying and pasting the new code shown in step 1 above, and then run the command shown in step 2 to apply it to your cluster.
 
-## Configure AD integrated authentication 
+## Configure AD-integrated authentication 
 
 An AKS cluster configured to use Azure Active Directory (AD) for user authentication utilizes the login credentials of the person accessing this feature. In this configuration, you can sign in to an AKS cluster by using your Azure AD authentication token.
 
