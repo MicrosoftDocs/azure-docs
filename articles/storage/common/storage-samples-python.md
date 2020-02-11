@@ -491,6 +491,8 @@ The following tables provide an overview of our samples repository and the scena
    :::column span="":::
       [List queues](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L81)
    :::column-end:::
+:::row-end:::
+:::row:::
    :::column span="2":::
       [Get queue client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/samples/queue_samples_service.py#L103)
    :::column-end:::
