@@ -24,7 +24,7 @@ This article describes possible Azure Large Instance deployment scenarios and of
 Since the announcement of the Azure Large Instances for SAP HANA (HLI) in September 2016, many customers have adopted this hardware as a service for their in-memory compute platform.  In recent years, the Azure VM scalability extension combined with the support of HANA scale-out deployment model has exceeded most enterprise customers’ ERP database capacity demand.  We begin to see customers expressing the desire to migrate their SAP HANA workload from physical servers to Azure VMs.
 This guide is not a step-by-step configuration document but rather, it describes the common deployment models and offers planning, migration advises with the intention to call out necessary considerations for preparation to minimize transition downtime.
 
-## Assumption
+## Assumptions
 This article makes the following assumptions:
 - The only interest considered is a homogenous HANA database compute service migration from Hana Large Instance (HLI) to Azure VM without significant software upgrade or patching. These minor updates include the use of a more recent OS version or HANA version explicitly stated as supported by relevant SAP notes. 
 - All updates/upgrades activities if desired need to be performed before or after the migration.  For example, SAP HANA MCOS converting to MDC deployment. 
