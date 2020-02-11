@@ -76,13 +76,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
         ![Illustration of the Direct mode architecture](./media/performance-tips-async-java/rntbdtransportclient.png)
 
-        The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The previous diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
+        The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
 
     * ***ConnectionPolicy Configuration options for Direct mode***
 
         As a first step, use the following recommended configuration settings below. Please contact Azure Cosmos DB team for guidance before making any changes. 
 
-        If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to -1 (that is, no timeout).
+        If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
 
 
         | Configuration option       | Default    |
