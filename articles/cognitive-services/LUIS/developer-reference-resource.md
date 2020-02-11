@@ -2,12 +2,12 @@
 title: Developer resources - Language Understanding
 description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 ms.topic: reference
-ms.date: 02/09/2020
+ms.date: 02/11/2020
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
 
-SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions. 
+SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 
 ## Azure resource management
 
@@ -39,6 +39,29 @@ Both authoring and prediction endpoint APIS are available from REST APIs:
 |--|--|
 |Authoring|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |Prediction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+
+### REST Endpoints
+
+LUIS currently has 2 types of endpoints:
+
+* authoring on the training endpoint
+* query prediction on the runtime endpoint.
+
+|Purpose|URL|
+|--|--|
+|Authoring on training endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|V2 Runtime - all predictions on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|V3 Runtime - versions prediction on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V3 Runtime - slot prediction on runtime endpoint|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+
+The following table explains the parameters, denoted with curly braces `{}`, in the previous table.
+
+|Parameter|Purpose|
+|--|--|
+|`your-resource-name`|Azure resource name|
+|`q` or `query`|utterance text sent from client application such as chat bot|
+|`version`|10 character version name|
+|`slot`| `production` or `staging`|
 
 ### Language-based SDKs
 
