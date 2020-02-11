@@ -48,8 +48,6 @@ In this section, you create an event hub namespace and add an event hub to that 
 2. On the **Create Namespace** page, enter a namespace name. You can use any name for the namespace, but the name must be valid for a URL, and it must be unique across Azure. 
     
 3. Select a pricing tier and subscription, and create or choose a resource group. Then, choose a location and select **Create**. 
-
-    ![Create an event hub namespace](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-namespace.png)
  
 4. When the namespace has finished deploying, navigate to your resource group and find the event hub namespace in your list of Azure resources. 
 
@@ -151,8 +149,6 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
-    ![Creating a new Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
-
 3. Select **Create**. Then navigate to your job when the deployment is finished.
 
 ## Specify the job input
@@ -170,8 +166,6 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
    |Event compression type| GZip | The data compression type.|
 
    Leave the remaining default values and select **Save**.
-
-   ![Creating a new Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 ## Specify the job query
 
