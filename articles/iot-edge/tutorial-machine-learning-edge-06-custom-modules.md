@@ -4,12 +4,11 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/7/2020
+ms.date: 2/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ---
-
 # Tutorial: Create and deploy custom IoT Edge modules
 
 > [!NOTE]
@@ -43,7 +42,7 @@ To accomplish these tasks, we use three custom modules:
     * **writeAvro:** sends messages to "avroModuleInput"
     * **toIotHub:** sends messages to $upstream, which passes the messages to the connected IoT Hub
 
-The diagram below shows the modules, inputs, outputs, and the IoT Edge Hub routes for the full solution:
+The following diagram shows the modules, inputs, outputs, and the IoT Edge Hub routes for the full solution:
 
 ![IoT Edge three modules architecture diagram](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
@@ -89,48 +88,37 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
        }
        ```
 
-     * **Modules:** This section contains the set of user-defined modules that go with this solution. You will notice that this section currently contains two modules: SimulatedTemperatureSensor and turbofanRulClassifier. The SimulatedTemperatureSensor was installed by the Visual Studio Code template, but we don’t need it for this solution. You can delete the SimulatedTemperatureSensor module definition from the modules section. Note that the turbofanRulClassifier module definition points to the image in your container registry. As we add more modules to the solution, they will show up in this section.
+     * **Modules:** This section contains the set of user-defined modules that go with this solution. The turbofanRulClassifier module definition points to the image in your container registry. As we add more modules to the solution, they will show up in this section.
 
        ```json
-       "modules": {
-         "SimulatedTemperatureSensor": {
-           "version": "1.0",
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-             "createOptions": {}
-           }
-         },
-         "turbofanRulClassifier": {
-           "version": "1.0",
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "<your registry>.azurecr.io/edgemlsample:1",
-             "createOptions": {}
-           }
-         }
-       }
+        "modules": {
+          "turbofanRulClassifier": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "turbofandemo2cd74296.azurecr.io/edgemlsample:1",
+              "createOptions": {}
+            }
+          }
+        }
        ```
 
      * **Routes:** we will be working with routes quite a bit in this tutorial. Routes define how modules communicate with each other. The two routes defined by the template do not match with the routing we need. The first route sends all the data from any output of the classifier to the IoT Hub ($upstream). The other route is for SimulatedTemperatureSensor, which we just deleted. Delete the two default routes.
 
        ```json
-       "$edgeHub": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "routes": {
-             "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
-           },
-           "storeAndForwardConfiguration": {
-             "timeToLiveSecs": 7200
-           }
-         }
-       }
+        "$edgeHub": {
+          "properties.desired": {
+            "schemaVersion": "1.0",
+            "routes": {
+              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/* INTO $upstream"
+            },
+            "storeAndForwardConfiguration": {
+              "timeToLiveSecs": 7200
+            }
+          }
+        }
        ```
 
    * **deployment.debug.template.json:** this file is the debug version of deployment.template.json. We should mirror all of the changes from the deployment.template.json into this file.
@@ -156,7 +144,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 * **Send message to the Avro Writer module:** to preserve all the data sent by the downstream device, the Router module sends the entire message received from the classifier to the Avro Writer module, which will persist and upload the data using IoT Hub file upload.
 
 > [!NOTE]
-> The description of the module responsibilities may make the processing seem sequential, but the flow is message/event based. This is why we need an orchestration module like our Router module.
+> The description of the module responsibilities may make the processing seem sequential, but the flow is defined by messages based on discordant events. This is why we need an orchestration module like our Router module.
 
 ### Create the module
 
