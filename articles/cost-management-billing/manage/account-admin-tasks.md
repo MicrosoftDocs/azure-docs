@@ -2,14 +2,14 @@
 title: Account Administrator tasks in the Azure portal
 description: Describes how to perform payment operations in Azure portal
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 02/10/2020
 ms.author: banders
 ---
 # Account Administrator tasks in the Azure portal
