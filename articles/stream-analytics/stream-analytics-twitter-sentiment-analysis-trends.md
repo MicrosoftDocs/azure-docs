@@ -117,8 +117,6 @@ If you do not already have a Twitter application that you can use for this how-t
 
 3. In the application page, select the **Keys and Tokens** tab and copy the values for **Consumer API Key** and **Consumer API Secret Key**. Also, select **Create** under **Access Token and Access Token Secret** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
-    ![Twitter application details](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Twitter application details")
-
    Save the values that you retrieved for the Twitter application. You need the values later.
 
 > [!NOTE]
