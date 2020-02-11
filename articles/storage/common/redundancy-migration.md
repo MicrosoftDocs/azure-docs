@@ -154,7 +154,7 @@ You can also upgrade your ZRS Classic storage account to ZRS by using the Azure 
 
 To upgrade to ZRS in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**:
 
-![Upgrade ZRS Classic to ZRS in the Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
+![Upgrade ZRS Classic to ZRS in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # [PowerShell](#tab/powershell)
 
