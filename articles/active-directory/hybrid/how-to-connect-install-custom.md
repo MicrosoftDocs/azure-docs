@@ -160,7 +160,7 @@ This screen allows you to select the optional features for your specific scenari
 >
 >For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../azuread-dev/active-directory-acs-migration.md)
 >
->To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+>To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ![Optional features](./media/how-to-connect-install-custom/optional2.png)
 
