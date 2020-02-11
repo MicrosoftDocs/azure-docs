@@ -39,7 +39,7 @@ You can set the API scopes that you want the access token to include when it's b
 
 ## Acquire a token with a pop-up window
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 The following code combines the previously described pattern with the methods for a pop-up experience:
 
@@ -66,7 +66,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### Angular
+# [Angular](#tab/angular)
 
 The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
@@ -106,11 +106,13 @@ ngOnDestroy() {
  }
 ```
 
+---
+
 Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
 
 ## Acquire a token with a redirect
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 The following pattern is as described earlier but shown with a redirect method to acquire tokens interactively. You'll need to register the redirect callback as mentioned earlier.
 
@@ -139,6 +141,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## Request optional claims
+
 You can use optional claims for the following purposes:
 
 - Include additional claims in tokens for your application.
@@ -147,7 +150,6 @@ You can use optional claims for the following purposes:
 
 To request optional claims in `IdToken`, you can send a stringified claims object to the `claimsRequest` field of the `AuthenticationParameters.ts` class.
 
-### JavaScript
 ```javascript
 "optionalClaims":  
    {
@@ -165,12 +167,14 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 To learn more, see [Optional claims](active-directory-optional-claims.md).
 
-
-### Angular
+# [Angular](#tab/angular)
 
 This code is the same as described earlier.
+
+---
 
 ## Next steps
 
