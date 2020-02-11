@@ -38,6 +38,19 @@ You can use Azure file shares on a Windows installation that is running either i
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites 
+* **Set Active Account & Subscription**: Must set the active account and subscription for the storage account in current session before executing below commands.
+
+    ```powershell
+    # Raise a login prompt to get azure account credentials.
+    Add-AzAccount
+    
+    # Get all subscriptions to which account has access.
+    Get-AzSubscription
+    
+    # Set the context of current session to correct subscription. Change the xxxxx to GUID from above output.
+    Get-AzSubscription -SubscriptionID xxxxx | Set-AzContext
+    ```
+    
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
