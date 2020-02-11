@@ -1,0 +1,36 @@
+- name: Azure Media Services IoT Edge Documentation
+  href: index.yml
+- name: Switch to Azure Media Services documentation
+  href: ../media-services-overview.md
+- name: Overview
+  items:
+  - name: What is Media Services on IoT Edge?
+    href: overview.md  
+- name: Tutorials
+  items:
+  - name: Media Graphs in the cloud for RTSP ingest
+    href: media-graph-cloud-tutorial.md
+  - name: Media Services on IoT Edge for ingestion
+    href: media-graph-edge-ingestion-tutorial.md  
+  - name: Media Services on IoT Edge for ingestion and motion detection
+    href: media-graph-edge-ingestion-motion-detection-tutorial.md
+- name: Samples
+  href: https://github.com/Azure-Samples/media-services-lva-private-preview
+- name: Concepts
+  items:
+  - name: Concepts
+    href: media-graph-concept.md
+  - name: Media Services on IoT Edge FAQs
+    href: faqs.md
+- name: How-to guides
+  items:
+  - name: Set up Media Graph on IoT Edge
+    href: edge-setup.md
+- name: Reference
+  items:
+  - name: REST API
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01
+  - name: Reference
+    href: reference.md
+  - name: Release notes
+    href:

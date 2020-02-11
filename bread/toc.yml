@@ -615,6 +615,10 @@
       - name: v3
         tocHref: /azure/media-services/latest/
         topicHref: /azure/media-services/latest/
+        items:
+          - name: edge
+            tocHref: /azure/media-services/latest/edge
+            topicHref: /azure/media-services/latest/edge            
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/

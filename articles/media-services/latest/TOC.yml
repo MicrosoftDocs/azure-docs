@@ -1,5 +1,7 @@
 - name: Media Services Documentation
   href: ./index.yml
+- name: Switch to Media Services on IoT Edge documentation
+  href: edge/media-graph-cloud-tutorial.md  
 - name: Overview
   items:
   - name: About Media Services
