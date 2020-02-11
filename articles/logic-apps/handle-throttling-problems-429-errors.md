@@ -102,9 +102,17 @@ To handle throttling at this level, you have these options:
 
   ![Create and use a different connections for each action](./media/handle-throttling-problems-429-errors/create-connection-per-action.png)
 
-* Change the concurrency or parallelism on a "For each" loop.
+* Change the concurrency or parallelism on a ["For each" loop](../logic-apps/logic-apps-control-flow-loops#foreach-loop.md).
 
-  By default, "For each" loop iterations all run at the same time (concurrently or in parallel). If you have a connector that's getting throttled inside a "For each" loop, you can reduce the number of loop iterations that run in parallel. For more information, see [Add loops to repeat actions - For each](../logic-apps/logic-apps-control-flow-loops#foreach-loop.md) and [Set up sequential "For each" loops](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop).
+  By default, "For each" loop iterations all run at the same time. If you have a connector that's getting throttled inside a "For each" loop, you can reduce the number of loop iterations that run in parallel. For more information, see these topics:
+  
+  * ["For each" loops - change concurrency or run sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop)
+
+  * [Workflow Definition Language schema - For each loops](../logic-apps/logic-apps-workflow-actions-triggers.md#foreach-action)
+
+  * [Workflow Definition Language schema - Change "For each" loop concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)
+
+  * [Workflow Definition Language schema - Run "For each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)
 
 <a name="destination-throttling"></a>
 
