@@ -5,7 +5,7 @@ description: Azure Machine Learning Studio (classic)  is a drag-and-drop tool fo
 
 services: machine-learning
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
