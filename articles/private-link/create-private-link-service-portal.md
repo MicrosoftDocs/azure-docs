@@ -1,11 +1,11 @@
 ---
 
-title: 'Quickstart - Create an Azure Private Link service by using the Azure portal'
+title: 'Quickstart - Create a Private Link service by using the Azure portal'
 titlesuffix: Azure Private Link
-description: Learn how to create an Azure Private Link service using the Azure portal in this quickstart
+description: Learn how to create a Private Link service by using the Azure portal in this quickstart
 services: private-link
 author: malopMSFT
-# Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service using the Azure portal
+# Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
@@ -13,9 +13,9 @@ ms.author: allensu
 
 ---
 
-# Quickstart: Create an Azure Private Link service using the Azure portal
+# Quickstart: Create a Private Link service by using the Azure portal
 
-An Azure Private Link service refers to your own service that is managed by Private Link. You can give Private Link access to the service or resource that operates behind Azure Load Balancer. Consumers of your service can access it privately from their own virtual networks. In this quickstart, you learn how to create a Private Link service using the Azure portal.
+An Azure Private Link service refers to your own service that is managed by Private Link. You can give Private Link access to the service or resource that operates behind Azure Load Balancer. Consumers of your service can access it privately from their own virtual networks. In this quickstart, you learn how to create a Private Link service by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -47,7 +47,7 @@ In this section, you create a virtual network. You also create the subnet to hos
 
 Use the portal to create a standard internal load balancer. The name and IP address you specify are automatically configured as the load balancer's front end.
 
-1. In the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
 
 1. On the **Basics** tab of the **Create load balancer** page, enter or select the following information:
 
@@ -77,7 +77,7 @@ A back-end address pool contains the IP addresses of the virtual NICs connected 
 
 1. Select **All Services** from the leftmost menu.
 1. Select **All resources**, and then select **myLoadBalancer** from the resources list.
-1. Under **Settings**, select **Backend pools**, then select **Add**.
+1. Under **Settings**, select **Backend pools**, and then select **Add**.
 1. On the **Add a backend pool** page, enter **myBackendPool** as the name for your back-end pool, and then select **Add**.
 
 #### Create a health probe
@@ -132,7 +132,7 @@ To create a load balancer rule:
 
 In this section, you create a Private Link service behind a standard load balancer.
 
-1. On the upper-left part of the page in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**. You can also use the portal's search box to search for "Private Link".
+1. On the upper-left part of the page in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**. You can also use the portal's search box to search for Private Link.
 
 1. In **Private Link Center - Overview** > **Expose your own service so others can connect**, select **Start**.
 
@@ -172,11 +172,11 @@ In this section, you create a Private Link service behind a standard load balanc
 
 When you're done using the Private Link service, delete the resource group to clean up the resources used in this quickstart.
 
-1. Enter **myResourceGroupLB** in the search box at the top of the portal, and select "myResourceGroupLB" from the search results.
+1. Enter **myResourceGroupLB** in the search box at the top of the portal, and select **myResourceGroupLB** from the search results.
 1. Select **Delete resource group**.
 1. In **TYPE THE RESOURCE GROUP NAME**, enter **myResourceGroup**.
 1. Select **Delete**.
 
 ## Next steps
 
-In this quickstart, you created an internal Azure load balancer and a Private Link service. To learn more about how to create private endpoints, see [Create Private Endpoints using Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+In this quickstart, you created an internal Azure load balancer and a Private Link service. You can also learn how to [create a private endpoint by using the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
