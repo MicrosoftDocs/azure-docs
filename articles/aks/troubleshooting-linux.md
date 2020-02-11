@@ -16,7 +16,11 @@ Resource exhaustion on Linux machines is a common issue and can manifest through
 
 Many of these tools accept an interval on which to produce rolling output. This output format typically makes spotting patterns much easier. Where accepted, the example invocation will include `[interval]`
 
-This document draws heavily on Brenan Gregg's "Linux Performance Analysis in 60s".
+This document draws heavily on Brendan Gregg's "Linux Performance Analysis in 60s".
+
+## Guidance
+
+Be systematic in your approach to investigating performance issues. Two common approaches are USE (utilization, saturation, errors) and RED (rate, errors, duration). RED is typically used in the context of services for request-based monitoring. USE is typically used for monitoring resources: for each resource in a machine, a user should monitor utilization, saturation, and errors. The four main kinds of resources on any machine are cpu, memory, disk, and network.
 
 ## General
 
@@ -43,7 +47,7 @@ $ dmesg | tail
 $ dmesg --level=err | tail
 ```
 
-dmesg dumps the kernel buffer, which may be useful for debugging situations such as OOMKill, which will be visible in the mesg logs. The kernel ring buffer data is one component of what eventually ends up in Linux syslogs.
+dmesg dumps the kernel buffer, which may be useful for debugging situations such as OOMKill, which will be visible in the dmesg logs. The kernel ring buffer data is one component of what eventually ends up in Linux syslogs.
 
 ### top
 
@@ -61,13 +65,13 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-top provides a broad overview of current system state. The headers provide some useful aggregate information:
+`top` provides a broad overview of current system state. The headers provide some useful aggregate information:
 
 - state of tasks: running, sleeping, stopped.
 - CPU utilization, in this case mostly showing idle time.
 - total, free, and used system memory.
 
-top may miss short-lived processes; alternatives like htop and atop provide similar interfaces while fixing some of these shortcomings.
+`top` may miss short-lived processes; alternatives like `htop` and `atop` provide similar interfaces while fixing some of these shortcomings.
 
 ## CPU
 
@@ -89,7 +93,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-mpstat prints similar CPU information to top, but broken down by CPU thread. This can be useful for detecting highly imbalanced CPU usage, for example when a single threaded application uses one core at 100% utilization. This may be more difficult to spot when aggregated over all CPUs in the system.
+`mpstat` prints similar CPU information to top, but broken down by CPU thread. This can be useful for detecting highly imbalanced CPU usage, for example when a single threaded application uses one core at 100% utilization. This may be more difficult to spot when aggregated over all CPUs in the system.
 
 ### vmstat
 
@@ -100,7 +104,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-vmstat provides similar information mpstat and top, enumerating number of processes waiting on CPU (r column), memory statistics, and percent of CPU time spent in each work state.
+`vmstat` provides similar information `mpstat` and `top`, enumerating number of processes waiting on CPU (r column), memory statistics, and percent of CPU time spent in each work state.
 
 ## Memory
 
@@ -113,7 +117,7 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-free presents basic information about total memory as well as used and free memory. vmstat may be more useful even for basic memory analysis due to its ability to provide rolling output.
+`free` presents basic information about total memory as well as used and free memory. `vmstat` may be more useful even for basic memory analysis due to its ability to provide rolling output.
 
 ## Disk
 
@@ -134,21 +138,21 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-iostat provides extremely powerful insights into disk utilization. This invocation passes `-x` for extended statistics, `-y` to skip the initial output printing system averages since boot, and `1 1` to specify we want 1 seconds interval, ending after one block of output. 
+`iostat` provides extremely powerful insights into disk utilization. This invocation passes `-x` for extended statistics, `-y` to skip the initial output printing system averages since boot, and `1 1` to specify we want 1 seconds interval, ending after one block of output. 
 
-iostat exposes many useful statistics:
+`iostat` exposes many useful statistics:
 
-- r/s and w/s are reads per second and writes per second. The sum of these values is IOPS.
-- rkB/s and wkB/s are kilobytes read/written per second. The sum of these values is throughput.
-- await is the average iowait time in milliseconds for queued requests.
-- avgqu-sz is the average queue size over the provided interval.
+- `r/s` and `w/s` are reads per second and writes per second. The sum of these values is IOPS.
+- `rkB/s` and `wkB/s` are kilobytes read/written per second. The sum of these values is throughput.
+- `await` is the average iowait time in milliseconds for queued requests.
+- `avgqu-sz` is the average queue size over the provided interval.
 
 On an Azure VM:
 
-- the sum of r/s and w/s for an individual block device may not exceed that disk's SKU limits.
-- the sum of rkB/s and wkB/s  for an individual block device may not exceed that disk's SKU limits
-- the sum of r/s and w/s for all block devices may not exceed the limits for the VM SKU.
-- the sum of  rkB/s and wkB/s for all block devices may not exceed the limits for the VM SKU.
+- the sum of `r/s` and `w/s` for an individual block device may not exceed that disk's SKU limits.
+- the sum of `rkB/s` and `wkB/s`  for an individual block device may not exceed that disk's SKU limits
+- the sum of `r/s` and `w/s` for all block devices may not exceed the limits for the VM SKU.
+- the sum of  `rkB/s` and `wkB/s for all block devices may not exceed the limits for the VM SKU.
 
 Non-zero values of await or avgqu-sz are also good indicators of IO contention.
 
@@ -172,10 +176,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-sar is an extremely powerful tool for a wide range of analysis. While this example uses its ability to measure network stats, it is equally powerful for measuring CPU and memory consumption. This example invokes sar with `-n` flag to specify the `DEV` (network device) keyword, displaying network throughput by device.
+`sar` is an extremely powerful tool for a wide range of analysis. While this example uses its ability to measure network stats, it is equally powerful for measuring CPU and memory consumption. This example invokes `sar` with `-n` flag to specify the `DEV` (network device) keyword, displaying network throughput by device.
 
-- The sum of rxKb/s and txKb/s is total throughput for a given device. When this value exceeds the limit for the provisioned Azure NIC, workloads on the machine will experience increased network latency.
-- %ifutil measures utilization for a given device. As this value approaches 100%, workloads will experience increased network latency.
+- The sum of `rxKb/s` and `txKb/s` is total throughput for a given device. When this value exceeds the limit for the provisioned Azure NIC, workloads on the machine will experience increased network latency.
+- `%ifutil` measures utilization for a given device. As this value approaches 100%, workloads will experience increased network latency.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -194,7 +198,7 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-This invocation of sar uses the `TCP,ETCP` keywords to examine TCP connections. The third column of the last row, "retrans", is the number of TCP retransmits per second. High values for this field indicate an unreliable network connection. In The first and third rows, "active" means a connection originated from the local device, while "remote" indicates an incoming connection.  On Azure, this may be useful when troubleshooting issues like SNAT port exhaustion due to high TCP connection rate; this would appear as high "active" value in the sar output. 
+This invocation of `sar` uses the `TCP,ETCP` keywords to examine TCP connections. The third column of the last row, "retrans", is the number of TCP retransmits per second. High values for this field indicate an unreliable network connection. In The first and third rows, "active" means a connection originated from the local device, while "remote" indicates an incoming connection.  On Azure, this may be useful when troubleshooting issues like SNAT port exhaustion due to high TCP connection rate; this would appear as high "active" value in the `sar` output. 
 
-As sar takes an interval, it prints rolling output and then prints final rows of output containing the average results from the invocation.
+As `sar` takes an interval, it prints rolling output and then prints final rows of output containing the average results from the invocation.
 
