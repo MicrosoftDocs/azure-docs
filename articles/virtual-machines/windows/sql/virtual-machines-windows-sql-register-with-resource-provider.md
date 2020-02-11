@@ -121,7 +121,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### Lightweight management mode
 
-If the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) has not been installed on the VM, then the recommendation is to register with the SQL VM resource provider in lightweight mode. This will install the SQL IaaS extension in [lightweight mode](#management-modes) and prevent the SQL Server service from restarting. You can then upgrade to full mode at any time, but doing so will restart the SQL Server service so it is recommended to wait until a scheduled maintenance window. You need to provide the type of SQL Server license as either pay-as-you-go (`PAYG`) to pay per usage, or Azure Hybrid Benefit (`AHUB`) to use your own license.
+If the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) has not been installed on the VM, then the recommendation is to register with the SQL VM resource provider in lightweight mode. This will install the SQL IaaS extension in [lightweight mode](#management-modes) and prevent the SQL Server service from restarting. You can then upgrade to full mode at any time, but doing so will restart the SQL Server service so it is recommended to wait until a scheduled maintenance window. 
+
+Provide SQL Server license type as either pay-as-you-go (`PAYG`) to pay per usage, Azure Hybrid Benefit (`AHUB`) to use your own license, or disaster recovery (`DR`) to activate the [free DR replica license](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
 
 Failover Cluster Instances and multi-instance deployments can only be registered with the SQL VM resource provider in lightweight mode. 
 
