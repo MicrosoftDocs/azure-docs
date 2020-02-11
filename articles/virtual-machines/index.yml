@@ -1,4 +1,4 @@
-### YamlMime:YamlDocument
+﻿### YamlMime:YamlDocument
 documentType: LandingData
 title: Virtual Machines Documentation
 metadata:
@@ -30,6 +30,16 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/virtual-machines/linux
+    - title: Troubleshoot Windows Virtual Machines
+      href: /azure/virtual-machines/troubleshooting
+      image: 
+        src:  media/index/virtual-machines.svg
+        href: /azure/virtual-machines/troubleshooting
+    - title: Troubleshoot Linux Virtual Machines
+      href: /azure/virtual-machines/troubleshooting/linux-index
+      image: 
+        src:  media/index/virtual-machines.svg
+        href: /azure/virtual-machines/troubleshooting
 - title: 5-Minute Linux quickstarts
   items:
   - type: paragraph
