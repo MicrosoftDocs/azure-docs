@@ -77,7 +77,7 @@
       - name: v3.0-preview
         href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1
       - name: v2
-        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
+        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
     - name: v3.0-preview
