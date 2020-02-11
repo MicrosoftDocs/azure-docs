@@ -6,25 +6,105 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/21/2019
+ms.date: 02/06/2020
 ms.author: aahi
 ---
 
 ## Personal information entity types:
 
+### Person
+Recognize person names in text.
+
+Languages:
+* Public preview: `English`
+
+| Subtype name | Description                                               | Available starting with model version |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+
+### Organization  
+
+Recognize organizations, corporations, agencies, companies, clubs and other groups of people.
+
+Languages: 
+
+* Public preview: `English`
+
+| Subtype name | Description                                                                                       | Available starting with model version|
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+
 ### Phone Number
 
-Phone numbers. 
+Phone numbers (US Phone numbers only). 
 
 Languages:
 
 * Public preview: `English`
 
-| Subtype name           | Description                                           |
-|------------------------|-------------------------------------------------------|
-| N/A                    | Phone numbers, for example `+1 123-123-123`.          |
-| EU Phone number        | Phone numbers specific to the European union.         |
-| EU Mobile Phone number | Mobile phone numbers specific to the European union. |
+| Subtype name | Description                                    | Available starting with model version |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/A          | US phone numbers, for example `(312) 555-0176` | `2020-02-01`                           |
+
+### Email
+
+Email address. 
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                      | Available starting with model version |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/A          | Email address, for example `support@contoso.com` | `2020-02-01`                           |
+
+### URL
+
+Internet URLs.
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                                          | Available starting with model version |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/A          | URLs to websites, for example `https://www.bing.com` | `2020-02-01`                           |
+
+### IP Address
+
+Internet Protocol Address
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                              | Available starting with model version |
+|--------------|------------------------------------------|----------------------------------------|
+| N/A          | Network address for example `10.0.0.101` | `2020-02-01`                           |
+
+### Quantity 
+
+Numeric quantities
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                   | Available starting with model version |
+|--------------|-------------------------------|----------------------------------------|
+| Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
+
+### DateTime
+
+Date and Time entities
+
+Languages:
+
+* Public preview: `English`
+
+| Subtype name | Description                   | Available starting with model version |
+|--------------|-------------------------------|----------------------------------------|
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### EU GPS Coordinates
 
@@ -34,13 +114,15 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name | Description                               |
-|--------------|-------------------------------------------|
-| N/A          | GPS coordinates within the European Union |
+| Subtype name | Description                               | Available starting with model version |
+|--------------|-------------------------------------------|----------------------------------------|
+| N/A          | GPS coordinates within the European Union | `2019-10-01`                           |
 
 ### Azure information
 
 Identifiable Azure information including authentication information, and connection strings. 
+
+* Available starting with model version `2019-10-01`.
 
 Languages:
 
@@ -61,6 +143,8 @@ Languages:
 | SQL Server Connection String          | Connection string for a SQL server.                                         |
 
 ### Identification
+
+* Available starting with model version `2019-10-01`.
 
 Languages:
 
