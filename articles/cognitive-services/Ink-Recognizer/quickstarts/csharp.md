@@ -48,7 +48,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 2. Create variables for your subscription key and endpoint, and the example JSON file. The endpoint will later be combined with `inkRecognitionUrl` to access the API. 
 
-    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/Vision/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## Create a function to send requests
 
