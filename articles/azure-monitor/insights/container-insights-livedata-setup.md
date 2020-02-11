@@ -2,7 +2,7 @@
 title: Setup Azure Monitor for containers Live Data (preview) | Microsoft Docs
 description: This article describes how to setup the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 02/11/2019
 
 ---
 
@@ -10,11 +10,20 @@ ms.date: 10/16/2019
 
 To view Live Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.
 
-This feature supports three different methods to control access to the logs, events, and metrics:
+This feature supports the following methods to control access to the logs, events, and metrics:
+
+- AKS configured with the cluster role binding *[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)*, which contains the permissions required to access access the Live Data (preview) feature. Clusters created after January 2020 include this new cluster role binding.
+
+   >[!NOTE]
+   > You need to be a member of the Contributor role on the AKS cluster resource can use this credential to access the feature.
+   >
 
 - AKS without Kubernetes RBAC authorization enabled
 - AKS enabled with Kubernetes RBAC authorization
 - AKS enabled with Azure Active Directory (AD) SAML-based single-sign on
+
+If they have made a new cluster, and they are still seeing an error message to apply the YAML, they should they can check the cluster user exists and if they aren't getting a 404 error, they can run the command shared by Nick in the screenshot.
+
 
 These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD.  
 
