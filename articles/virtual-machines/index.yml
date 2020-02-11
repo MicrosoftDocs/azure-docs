@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
-title: Virtual Machines Documentation # < 60 chars
-summary: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure.  < 160 chars
+title: Virtual Machines Documentation
+summary: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. 
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
