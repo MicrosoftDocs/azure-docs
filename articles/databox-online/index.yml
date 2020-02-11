@@ -4,7 +4,7 @@ title: Azure Stack Edge and Azure Data Box Gateway documentation - Online transf
 summary: Use Azure Data Box Gateway and Azure Stack Edge devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use Azure Stack Edge to filter, analyze, and transform your data before it moves to Azure. Azure Data Box Edge was recently rebranded as Azure Stack Edge. # < 160 chars
 
 metadata:
-  title: Azure Stack Edge and Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Data transfer with Azure Stack Edge & Azure Data Box Gateway # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Data Box Gateway, Azure Stack Edge (Data Box Edge rebranded) Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
