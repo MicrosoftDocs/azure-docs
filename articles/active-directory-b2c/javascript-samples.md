@@ -1,5 +1,6 @@
 ---
-title: JavaScript samples - Azure Active Directory B2C | Microsoft Docs
+title: JavaScript samples
+titleSuffix: Azure AD B2C
 description: Learn about using JavaScript in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -17,14 +18,22 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can add your own JavaScript client-side code to your Azure Active Directory B2C (Azure AD B2C) applications. To enable JavaScript for your applications, you must add an element to your [custom policy](custom-policy-overview.md), select a [page layout](page-layout.md), and use [b2clogin.com](b2clogin.md) in your requests. This article describes how you can change your custom policy to enable script execution.
+You can add your own JavaScript client-side code to your Azure Active Directory B2C (Azure AD B2C) applications.
+
+To enable JavaScript for your applications:
+
+* Add an element to your [custom policy](custom-policy-overview.md)
+* Select a [page layout](page-layout.md)
+* Use [b2clogin.com](b2clogin.md) in your requests
+
+This article describes how you can change your custom policy to enable script execution.
 
 > [!NOTE]
 > If you want to enable JavaScript for user flows, see [JavaScript and page layout versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## Prerequisites
 
-### Select a page layout 
+### Select a page layout
 
 * Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
 
