@@ -4,16 +4,16 @@
   href: index.md
 - name: Troubleshoot deployment failures
   items:
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
   - name: Allocation failures
     href: allocation-failure.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
   - name: Availability sets
     href: virtual-machines-availability-set-supportability.md
-  - name: Linux
-    href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deploy-vm-windows.md
 - name: VM restart issues 
   items:
   - name: Restarting or resizing a VM
@@ -183,17 +183,17 @@
         href: how-to-use-perfinsights-linux.md
 - name: VM extension issues
   items:
-  - name: Azure Extensions overview
-    href: /azure/virtual-machines/extensions/overview.md
+  - name: Azure extension overview
+    href: /azure/virtual-machines/extensions/overview
   - name: Troubleshoot extension issues
-    href: /azure/virtual-machines/extensions/troubleshoot.md
+    href: /azure/virtual-machines/extensions/troubleshoot
   - name: Install Windows VM agent offline
     href: install-vm-agent-offline.md
 - name: Backup and Restore
   items:
-  - name: Repair a Windows VM by using the Azure Virtual Machine repair commands
+  - name: Repair a Windows VM using commands
     href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
-  - name: Repair a Linux VM by using the Azure Virtual Machine repair commands
+  - name: Repair a Linux VM using commands
     href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
 - name: Windows Activation issues
   items:
@@ -231,25 +231,23 @@
 - name: Cannot start or stop VM
   items:
   - name: Start/Stop VMs using Azure Automation
-    href: /azure/automation/troubleshoot/start-stop-vm.md
+    href: /azure/automation/troubleshoot/start-stop-vm
 - name: Azure Disk Encryption Issues
   items:
 - name: Quota increases
   items:
-  - name: Increase compute vCPU limits
-    items:
-    - name: Resource Manager deployment model 
-      items: 
-      - name: Increase VM series vCPU limit
-        href: /azure/azure-portal/supportability/per-vm-quota-requests.md
-      - name: Increase total regional vCPU limit
-        href: /azure/azure-portal/supportability/regional-quota-requests.md
-      - name: Increase spot quota limit
-        href: /azure/azure-portal/supportability/low-priority-quota.md
-    - name: Classic deployment model
-      href:  /azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests.md
-  - name: Increase networking limits
-    href:  /azure/azure-portal/supportability/networking-quota-requests.md
+  - name: Resource Manager deployment model 
+    items: 
+    - name: Increase VM series vCPU limit
+      href: /azure/azure-portal/supportability/per-vm-quota-requests
+    - name: Increase total regional vCPU limit
+      href: /azure/azure-portal/supportability/regional-quota-requests
+    - name: Increase spot quota limit
+      href: /azure/azure-portal/supportability/low-priority-quota
+  - name: Classic deployment model
+    href:  /azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests
+  - name: Increase networking limit
+    href:  /azure/azure-portal/supportability/networking-quota-requests
 - name: Migration and Move issues
   items:
 - name: Planned Maintenance
