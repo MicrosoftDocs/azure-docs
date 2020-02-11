@@ -52,7 +52,8 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
-# Replace with your own subscription key and service region (e.g., "westus").
+# Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+# from here: https://aka.ms/speech/sdkregion).
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
