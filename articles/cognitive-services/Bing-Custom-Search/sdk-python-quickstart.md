@@ -46,12 +46,13 @@ from msrest.authentication import CognitiveServicesCredentials
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-custom-endpoint'
     ```
 
 2. Create an instance of `CustomSearchClient`, using a `CognitiveServicesCredentials` object with the subscription key. 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Send a search request with `client.custom_instance.search()`. Append your search term to the `query` parameter, and set `custom_config` to your Custom Configuration ID to use your search instance. You can get your ID from the [Bing Custom Search portal](https://www.customsearch.ai/), by clicking the **Production** tab.
