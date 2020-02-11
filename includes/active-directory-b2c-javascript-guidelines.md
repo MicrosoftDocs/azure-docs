@@ -1,3 +1,11 @@
+---
+author: mmacy
+ms.service: active-directory-b2c
+ms.subservice: B2C
+ms.topic: include
+ms.date: 02/11/2020
+ms.author: marsma
+---
 ## Guidelines for using JavaScript
 
 Follow these guidelines when you customize the interface of your application using JavaScript:
