@@ -115,7 +115,7 @@ az aks update \
 
 You can manually scale your cluster after disabling the cluster autoscaler by using the [az aks scale][az-aks-scale] command. If you use the horizontal pod autoscaler, that feature continues to run with the cluster autoscaler disabled, but pods may end up unable to be scheduled if all node resources are in use.
 
-## Re-enable a disabled cluster autoscaler
+## Enabling existing AKS cluster for first time or Re-enable a disabled cluster autoscaler 
 
 If you wish to re-enable the cluster autoscaler on an existing cluster, you can re-enable it using the [az aks update][az-aks-update] command, specifying the *--enable-cluster-autoscaler*, *--min-count*, and *--max-count* parameters.
 
