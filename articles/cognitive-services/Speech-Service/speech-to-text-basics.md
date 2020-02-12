@@ -95,7 +95,7 @@ audio_input = speechsdk.AudioConfig(filename=audio_filename)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 ```
 
-## Speech recognition
+## Recognize speech
 
 The [Recognizer class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python) for the Speech SDK for Python exposes a few methods that you can use for speech recognition.
 
