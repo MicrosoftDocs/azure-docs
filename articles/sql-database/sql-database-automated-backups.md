@@ -75,7 +75,9 @@ Backups that are older than the retention period are automatically purged based 
 
 Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline which is responsible for aggregating this hourly usage to calculate your consumption at the end of each month. After the database is dropped, consumption decreases as backups age. Once the backups become older than the retention period, the billing stops. 
 
-The minimum retention period for every database is 7 days, and the backup is retained even after a database is dropped. While dropping and recreating a database frequently may save on storage and compute costs, it may increase backup storage costs as we retain a backup for each dropped database for the minimum retention period of 7 days. 
+   > [!IMPORTANT]
+   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and recreating a database frequently may save on storage and compute costs, it may increase backup storage costs as we retain a backup for the specified retention period (which is 7 days at minimum) for each dropped database, every time its dropped. 
+
 
 
 ### Monitor consumption
