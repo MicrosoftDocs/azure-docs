@@ -37,7 +37,7 @@ The following table and graphic provides a high-level view of the components use
 1. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/about-public-peering.md).
 
    > [!NOTE]
-   > Replication isn't supported over a site-to-site VPN from an on-premises site or Azure ExpressRoute [private peering](concepts-expressroute-with-site-recovery#on-premises-to-azure-replication-with-expressroute).
+   > Replication isn't supported over a site-to-site VPN from an on-premises site or Azure ExpressRoute [private peering](concepts-expressroute-with-site-recovery.md#on-premises-to-azure-replication-with-expressroute).
 
 **Physical to Azure replication process**
 
