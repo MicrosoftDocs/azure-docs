@@ -28,7 +28,7 @@ Other benefits and capabilities of this feature allow you to, for example, set u
 
 ## Prepare the self-hosted IR
 
-To use this feature, you first create a data factory and set up your an Azure-SSIS IR in it. If you have not already done so, follow the instructions in [Set up an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure).
+To use this feature, you first create a data factory and set up an Azure-SSIS IR in it. If you have not already done so, follow the instructions in [Set up an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure).
 
 You then set up your self-hosted IR in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create a self-hosted IR](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
