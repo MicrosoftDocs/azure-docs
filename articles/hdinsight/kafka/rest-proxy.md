@@ -18,6 +18,8 @@ The Kafka REST Proxy enables you to interact with your Kafka cluster via a REST 
 
 Without a REST proxy, Kafka clients need to be in the same VNet as the Kafka cluster or a peered VNet. The REST proxy enables you to connect data producers or consumers located anywhere. Deploying the REST proxy creates a new public endpoint for your cluster, which you can find in your portal settings.
 
+![Kafka REST proxy architecture](./media/rest-proxy/rest-proxy-architecture.png)
+
 For the full specification of operations supported by the API, please see [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ### Security
