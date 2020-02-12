@@ -31,7 +31,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
     compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
 
 - **Active Directory Domain Services (AD DS, also referred as AD)**
-    Active Directory Domain Services (AD DS) (preview) provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with Active Directory through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD DS is commonly adopted by enterpises in on-premises and use AD credentials as the identity for access control. For more information, see [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    Active directory (AD) (preview) provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with Active Directory through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD is commonly adopted by enterpises in on-premises and use AD credentials as the identity for access control. For more information, see [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Azure Role Based Access Control (RBAC)**  
     Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is role-based access control (RBAC) in Azure?](../../role-based-access-control/overview.md).
@@ -42,11 +42,11 @@ Identity-based authentication and support for NTFS ACLs on Azure Files is best l
 
 ### Replace on-premises file servers
 
-Deprecating and replacing scattered on-premises file servers is a common problem that every enterprise encounters in their IT modernization journey. Azure file shares with AD DS (preview) authentication is the best fit here, when you can migrate the data to Azure Files. A complete migration will allow you to take advantage of the high availability and scalability benefits while also minimizing the client side changes, especially complicated AD domain infrastructure. It provides a seamless migration experience to end users, so they can continue to access their data with the same credentials using their existing domain joined machines.
+Deprecating and replacing scattered on-premises file servers is a common problem that every enterprise encounters in their IT modernization journey. Azure file shares with AD (preview) authentication is the best fit here, when you can migrate the data to Azure Files. A complete migration will allow you to take advantage of the high availability and scalability benefits while also minimizing the client side changes, especially complicated AD domain infrastructure. It provides a seamless migration experience to end users, so they can continue to access their data with the same credentials using their existing domain joined machines.
 
 ### Lift and shift applications to Azure
 
-When you "lift and shift" applications to the cloud, you want to keep the same authentication model for your data. As we extend the identity-based access control experience to Azure file shares, it eliminates the need to change your application to modern auth methods and expedite cloud adoption. Azure file shares provides the option to integrate with either Azure AD DS (GA) or AD DS (preview) for authentication. If your plan is to be 100% cloud native and minimize the efforts managing cloud infrastructures, Azure AD DS would be a better fit as a fully managed domain service. If you need full compatibility with AD DS (GA) capabilities, you may want to consider extending your AD environment to cloud by self-hosting domain controllers on VMs. Either way, we provide the flexibility to choose the domain services that suits your business needs.
+When you "lift and shift" applications to the cloud, you want to keep the same authentication model for your data. As we extend the identity-based access control experience to Azure file shares, it eliminates the need to change your application to modern auth methods and expedite cloud adoption. Azure file shares provides the option to integrate with either Azure AD DS (GA) or AD (preview) for authentication. If your plan is to be 100% cloud native and minimize the efforts managing cloud infrastructures, Azure AD DS would be a better fit as a fully managed domain service. If you need full compatibility with AD DS (GA) capabilities, you may want to consider extending your AD environment to cloud by self-hosting domain controllers on VMs. Either way, we provide the flexibility to choose the domain services that suits your business needs.
 
 ### Backup and disaster recovery (DR)
 
@@ -54,18 +54,18 @@ If you are keeping your primary file storage on-premises, Azure file shares can 
 
 ## Supported scenarios
 
-The following table summarizes the supported Azure file shares authentication scenarios for Azure AD DS (GA) and AD DS (preview). We recommend selecting the domain service that you adopted for your client environment for integration with Azure Files. If you have AD DS (preview) already setup on-premises or on Azure where your devices are domain joined to AD, you should choose to leverage AD DS (preview) for Azure file shares authentication. Similarly, if you've already adopted Azure AD DS (GA), you should use that for Azure file shares authentication.
+The following table summarizes the supported Azure file shares authentication scenarios for Azure AD DS (GA) and AD (preview). We recommend selecting the domain service that you adopted for your client environment for integration with Azure Files. If you have AD (preview) already setup on-premises or on Azure where your devices are domain joined to AD, you should choose to leverage AD (preview) for Azure file shares authentication. Similarly, if you've already adopted Azure AD DS (GA), you should use that for Azure file shares authentication.
 
 
-|Azure AD DS (GA) authentication  |AD DS (preview) authentication  |
+|Azure AD DS (GA) authentication  |AD (preview) authentication  |
 |---------|---------|
 |Azure AD DS domain joined Windows machines can access Azure file shares with Azure AD credentials over SMB.     |AD domain joined Windows machines can access Azure file shares with AD credentials that are synched to Azure AD over SMB.         |
 
 ### Unsupported scenarios
 
-- Azure AD DS (GA) and AD DS (preview) authentication for SMB access are not supported for Linux VMs.
-- Azure AD DS (GA) or AD DS (preview) authentication for SMB access and NTFS DACL persistence is not supported on Azure file shares managed by Azure File Sync.
-- Azure AD DS (GA) and AD DS (preview) authentication do not support authentication against computer accounts. You can consider using a service logon account instead.
+- Azure AD DS (GA) and AD (preview) authentication for SMB access are not supported for Linux VMs.
+- Azure AD DS (GA) or AD (preview) authentication for SMB access and NTFS DACL persistence is not supported on Azure file shares managed by Azure File Sync.
+- Azure AD DS (GA) and AD (preview) authentication do not support authentication against computer accounts. You can consider using a service logon account instead.
 - Azure AD DS (GA) authentication does not support authentication against Azure AD cloud joined devices.
 
 ## Advantages of Azure AD Domain Service authentication
@@ -81,7 +81,7 @@ Azure AD Domain Service authentication for Azure Files offers several benefits o
     You can use Azure file shares to back up your existing on-premises file shares. Azure Files preserves your ACLs along with your data when you back up a file share to Azure file shares over SMB.
 
 ## How it works
-Azure file shares supports kerberos authentication for integration with either Azure AD DS (GA) or AD DS (preview). Before you can enable authentication on Azure file shares, you must first setup your domain environment. For Azure AD DS (GA) authentication, you should enable Azure AD Domain Services and domain join the VMs you plan to access file data from. Your domain-joined VM must reside in the same virtual network (VNET) as your Azure AD Domain Services. Similarly, for AD DS (preview) authentication, you need to setup your Active Directory domain controller and domain join your machines or VMs.
+Azure file shares supports kerberos authentication for integration with either Azure AD DS (GA) or AD (preview). Before you can enable authentication on Azure file shares, you must first setup your domain environment. For Azure AD DS (GA) authentication, you should enable Azure AD Domain Services and domain join the VMs you plan to access file data from. Your domain-joined VM must reside in the same virtual network (VNET) as your Azure AD Domain Services. Similarly, for AD (preview) authentication, you need to setup your Active Directory domain controller and domain join your machines or VMs.
 
 When an identity associated with an application running on a VM attempts to access data in Azure file shares, the request is sent to Azure AD Domain Services to authenticate the identity. If authentication is successful, Azure AD Domain Services returns a Kerberos token. The application sends a request that includes the Kerberos token, and Azure file shares use that token to authorize the request. Azure file shares receives the token only and does not persist Azure AD credentials.
 
@@ -89,11 +89,11 @@ When an identity associated with an application running on a VM attempts to acce
 
 ### Enable identity-based authentication
 
-You can enable identity-based authentication with either Azure AD DS (GA) or AD DS (preview) for Azure file shares on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up you file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md) and guidance for AD DS (preview) in our other article <link here>.
+You can enable identity-based authentication with either Azure AD DS (GA) or AD (preview) for Azure file shares on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up you file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md) and guidance for AD (preview) in our other article, [Enable active directory over SMB for Azure file shares](storage-files-active-directory-domain-services-enable.md).
 
 ### Configure share-level permissions for Azure Files
 
-Once either Azure AD DS (GA) or AD DS (preview) authentication is enabled, you can use built-in RBAC roles or configure custom roles for Azure AD identities and assign access rights to any file shares in your storage accounts. the assigned permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory or file-level permissions for Azure file shares.
+Once either Azure AD DS (GA) or AD (preview) authentication is enabled, you can use built-in RBAC roles or configure custom roles for Azure AD identities and assign access rights to any file shares in your storage accounts. the assigned permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory or file-level permissions for Azure file shares.
 
 ### Configure directory or file-level permissions for Azure Files
 
