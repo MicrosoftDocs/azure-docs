@@ -64,7 +64,7 @@
   items:
   - name: Self-service password reset
     items:
-    - name: Deploy self-service password reset
+    - name: Deployment guide
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
       href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
-    - name: Deploy cloud-based MFA
+    - name: Deployment guide
       href: howto-mfa-getstarted.md
     - name: Per user MFA
       href: howto-mfa-userstates.md
