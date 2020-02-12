@@ -24,7 +24,7 @@ To control access and protect data in Azure Logic Apps, you can set up security 
 
 If your logic app uses a request-based trigger, which receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Secure Sockets Layer (SSL) protocol.
 
-Here are the ways that you can secure access to this trigger type:
+Here are options that can help you secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
 * [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
@@ -57,7 +57,7 @@ For more information about securing access with SAS, see these sections in this 
 
 #### Regenerate access keys
 
-To generate a new secure access key at any time, use the Azure REST API or Azure portal. All previously generated URLs that use the old key are invalidated and no longer have authorization to trigger the logic app. The URLs that you retrieve after regeneration are signed with the new access key.
+To generate a new security access key at any time, use the Azure REST API or Azure portal. All previously generated URLs that use the old key are invalidated and no longer have authorization to trigger the logic app. The URLs that you retrieve after regeneration are signed with the new access key.
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app that has the key you want to regenerate.
 
@@ -87,7 +87,7 @@ When you generate or list callback URLs for a request-based trigger, you can spe
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-In the body, include the `KeyType` property as either `Primary` or `Secondary`. This property returns a URL that's signed by the specified secure key.
+In the body, include the `KeyType` property as either `Primary` or `Secondary`. This property returns a URL that's signed by the specified security key.
 
 <a name="restrict-inbound-ip"></a>
 
@@ -186,7 +186,7 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 * [Restrict access by IP address range](#restrict-ip).
 
-  This option lets you secure access to run history based on the requests from a specific IP address range.
+  This option helps you secure access to run history based on the requests from a specific IP address range.
 
 * [Hide data from run history by using obfuscation](#obfuscate).
 
@@ -255,21 +255,21 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 ### Hide data from run history by using obfuscation
 
-Many triggers and actions have settings to hide inputs, outputs, or both from a logic app's run history. Here are some [considerations to review](#obfuscation-considerations) when you use these settings to secure this data.
+Many triggers and actions have settings to hide inputs, outputs, or both from a logic app's run history. Here are some [considerations to review](#obfuscation-considerations) when you use these settings to help you secure this data.
 
-#### Secure inputs and outputs in the designer
+#### Hide inputs and outputs in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
    ![Open logic app in Logic App Designer](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. On the trigger or action where you want to secure data, select the ellipses (**...**) button, and then select **Settings**.
+1. On the trigger or action where you want to hide sensitive data, select the ellipses (**...**) button, and then select **Settings**.
 
    ![Open trigger or action settings](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. Turn on either **Secure Inputs**, **Secure Outputs**, or both. When you're finished, select **Done**.
 
-   ![Turn on secure inputs or outputs](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
+   ![Turn on "Secure Inputs" or "Secure Outputs"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
    The action or trigger now shows a lock icon in the title bar.
 
@@ -285,7 +285,7 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
    1. On the **Logic app run** pane, expand the actions that you want to review.
 
-      If you chose to secure both inputs and outputs, those values now appear hidden.
+      If you chose to obscure both inputs and outputs, those values now appear hidden.
 
       ![Hidden inputs and outputs in run history](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
@@ -298,7 +298,7 @@ In the underlying trigger or action definition, add or update the `runtimeConfig
 * `"inputs"`: Secures inputs in run history.
 * `"outputs"`: Secures outputs in run history.
 
-Here are some [considerations to review](#obfuscation-considerations) when you use these settings to secure this data.
+Here are some [considerations to review](#obfuscation-considerations) when you use these settings to help you secure this data.
 
 ```json
 "<trigger-or-action-name>": {
@@ -322,13 +322,13 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 #### Considerations when hiding inputs and outputs
 
-* When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
+* When you obscure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
-* To secure outputs from an action that secures inputs or explicitly uses secured outputs, manually turn on **Secure Outputs** in that action.
+* To hide outputs from an action that obscures inputs or explicitly obscures outputs, manually turn on **Secure Outputs** in that action.
 
-* Make sure that you turn on **Secure Inputs** or **Secure Outputs** in downstream actions where you expect the run history to secure that data.
+* Make sure that you turn on **Secure Inputs** or **Secure Outputs** in downstream actions where you expect the run history to obscure that data.
 
   **Secure Outputs setting**
 
@@ -356,7 +356,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can avoid hard-coded data by using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to deploy your logic app, protect sensitive data by defining secured parameters, and pass that data as separate inputs through the [template's parameters](../azure-resource-manager/templates/template-parameters.md) by using a [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
-For example, if you authenticate HTTP actions with [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), you can define and secure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, if you authenticate HTTP actions with [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's 
@@ -567,7 +567,7 @@ This example template that has multiple secured parameter definitions that use t
 
 ## Access to services and systems called from logic apps
 
-Here are some ways that you can secure endpoints that receive calls or requests from your logic app:
+Here are some ways that you can help secure endpoints that receive calls or requests from your logic app:
 
 * Add authentication to outbound requests.
 
@@ -587,13 +587,13 @@ Here are some ways that you can secure endpoints that receive calls or requests 
 
   All calls to endpoints from logic apps originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
 
-* Secure connections to on-premises systems.
+* Improve security for connections to on-premises systems.
 
-  Azure Logic Apps provides integration with these services for secure and reliable on-premises communication.
+  Azure Logic Apps provides integration with these services to help provide more secure and reliable on-premises communication.
 
   * On-premises data gateway
 
-    Many managed connectors in Azure Logic Apps provide secure connections to on-premises systems, such as File System, SQL, SharePoint, and DB2. The gateway sends data from on-premises sources on encrypted channels through the Azure Service Bus. All traffic originates as secure outbound traffic from the gateway agent. Learn [how the on-premises data gateway works](logic-apps-gateway-install.md#gateway-cloud-service).
+    Many managed connectors in Azure Logic Apps facilitate secured connections to on-premises systems, such as File System, SQL, SharePoint, and DB2. The gateway sends data from on-premises sources on encrypted channels through the Azure Service Bus. All traffic originates as secured outbound traffic from the gateway agent. Learn [how the on-premises data gateway works](logic-apps-gateway-install.md#gateway-cloud-service).
 
   * Connect through Azure API Management
 
@@ -684,9 +684,9 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 For more information about securing services by using client certificate authentication, see these topics:
 
-* [Secure APIs using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
-* [Secure back-end services using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Secure your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
+* [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
+* [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
+* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 

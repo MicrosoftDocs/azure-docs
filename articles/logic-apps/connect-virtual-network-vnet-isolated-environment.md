@@ -10,7 +10,7 @@ ms.date: 02/13/2020
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
 
-For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a private and isolated environment that uses dedicated storage and other resources that are kept separate from the public, "global", multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
+For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is an isolated environment that uses dedicated storage and other resources that are kept separate from the public, "global", multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 
 When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys the Logic Apps service into your virtual network. When you create a logic app or integration account, select your ISE as their location. Your logic app or integration account can then directly access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
 
@@ -49,7 +49,7 @@ This article shows you how to complete these tasks:
 
   * Make sure that your virtual network [enables access for your ISE](#enable-access) so that your ISE can work correctly and stay accessible.
 
-  * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
+  * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services that's facilitated by the connectivity provider, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
 
     **Name**: <*route-name*><br>
     **Address prefix**: 0.0.0.0/0<br>
@@ -79,11 +79,14 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 
 * If you created a new Azure virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you [open the ports in this table](#network-ports-for-ise).
+* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports in this table](#network-ports-for-ise) on the virtual network where you have NSGs or want to set up NSGs.
 
-  If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols. NSG security rules describe the ports that you must have open and the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints keep those ports accessible to the IP addresses.
-
-* If you have previously existing NSGs, make sure that you [open the ports in this table](#network-ports-for-ise). If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+  > [!NOTE]
+  > If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), 
+  > you need to use *both* the TCP and UDP protocols. NSG security rules describe the ports 
+  > that you must open for the IP addresses that need access to those ports. Make sure that 
+  > any firewalls, routers, or other items that exist between these endpoints also keep those 
+  > ports accessible to those IP addresses.
 
 <a name="network-ports-for-ise"></a>
 
