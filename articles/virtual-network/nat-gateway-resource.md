@@ -23,10 +23,10 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT flows">
+  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
 </p>
 
-*Figure: Virtual Network NAT flows*
+*Figure: Virtual Network NAT for outbound to Internet*
 
 
 >[!NOTE] 
@@ -53,7 +53,7 @@ The resource is designed to be simple as you can see from the following Azure Re
 The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it is writeable.
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT">
+  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT object model">
 </p>
 
 *Figure: Virtual Network NAT object model*
@@ -144,10 +144,10 @@ When you create a zone-isolated NAT gateway, you must also use zonal IP addresse
 
 Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource. Zone isolation is creating by creating a zonal "stack" per availability zone. If you cross zones with a zonal NAT gateway or use a regional NAT gateway with zonal VMs, a zonal promise can't exist.
 
-When you deploy virtual machine scale sets to use with NAT, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT won't provide a zonal promise.  NAT doesn't support zone-redundancy.
+When you deploy virtual machine scale sets to use with NAT, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT won't provide a zonal promise.  NAT doesn't support zone-redundancy.  Only regional or zone-isolation is supported.
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="512" title="Virtual Network NAT with availability zones">
+  <img src="media/nat-overview/az-directions2.svg" width="512" title="zone-spanning Virtual Network NAT">
 </p>
 
 *Figure: zone-spanning Virtual Network NAT*
