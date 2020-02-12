@@ -39,6 +39,12 @@
     href: virtual-network-disaster-recovery-guidance.md
   - name: Connectivity
     items:
+    - name: NAT
+      items:
+      - name: Overview
+        href: nat-overview.md
+      - name: Resource
+        href: nat-gateway-resource.md
     - name: Backend Connectivity Interoperability
       items:
       - name: Preface and Test Setup
