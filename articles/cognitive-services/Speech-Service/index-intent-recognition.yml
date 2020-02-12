@@ -25,8 +25,6 @@ landingContent:
       links:
         - text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
-- title: Reference
-  linkLists:
     - linkListType: reference
       links:
         - text: Language Understanding (LUIS) portal

@@ -21,12 +21,14 @@ landingContent:
       links:
         - text: Create an Azure Speech resource
           url: get-started.md#create-a-speech-resource-in-azure
+        - text: Configure containers
+          url: speech-container-configuration.md
+- title: Step-by-step guides
+  linkLists:
     - linkListType: deploy
       links:
         - text: Speech service containers
           url: speech-container-howto.md
-        - text: Configure containers
-          url: speech-container-configuration.md
         - text: Speech service containers with Kubernetes
           url: speech-container-howto-on-premises.md
         - text: Speech service containers on Azure Container Instances

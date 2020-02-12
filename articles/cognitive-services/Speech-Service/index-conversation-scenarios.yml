@@ -23,43 +23,29 @@ landingContent:
         url: conversation-transcription.md
     - linkListType: how-to-guide
       links:
-        - text: Call center scenario
+        - text: Handle call center scenarios
           url: call-center-transcription.md
         - text: Real time conversation transcription
           url: how-to-use-conversation-transcription.md
         - text: Asynchronous conversation transcription
           url: how-to-async-conversation-transcription.md
-- title: Reference
-  linkLists:
-    - linkListType: reference
-      links:
-        - text: Language support
-          url: conversation-transcription.md#language-support
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-- title: Mult
+- title: Multi-device conversation
   linkLists:
     - linkListType: get-started
       links:
-      - text: Multi-device conversation
+      - text: About Multi-device conversation
         url: multi-device-conversation.md
     - linkListType: quickstart
       links:
         - text: Start and join a conversation
           url: quickstarts/multi-device-conversation.md
-    - linkListType: how-to-guide
-      links:
-        - text: Call center scenario
-          url: call-center-transcription.md
-        - text: Real time conversation transcription
-          url: how-to-use-conversation-transcription.md
-        - text: Asynchronous conversation transcription
-          url: how-to-async-conversation-transcription.md
 - title: Reference
   linkLists:
     - linkListType: reference
       links:
-        - text: Language support
+        - text: Conversation Transcription language support
           url: conversation-transcription.md#language-support
+        - text: Multi-device conversation language support
+          url: multi-device-conversation.md#language-support
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
