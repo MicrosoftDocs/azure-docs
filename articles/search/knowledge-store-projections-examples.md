@@ -17,22 +17,25 @@ ms.date: 01/15/2020
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
-Projections are the physical expression of enriched documents in a knowledge store. Effective use of your enriched documents require structure.In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across projection types you create. To create a projection, you either use a shaper skill to create a custom object that contains all the data you intend to project, or, you use the inline shaping syntax for inputs to define the projections. This document gives you an example of each options, you can choose to use either of the options for projections you create.
+Projections are the physical expression of enriched documents in a knowledge store. Effective use of your enriched documents require structure. In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across projection types you create. 
+
+To create a projection, you must shape the data using either a shaper skill to create a custom object or use the inline shaping syntax. A data shape contains all the data you intend to project. This document gives you an example of each option, you can choose to use either of the options for projections you create.
 
 
-Knowledge store projections support three types of projections
-1. Tables
-2. Objects
-3. Files
+There are three types of projections:
++ Tables
++ Objects
++ Files
 
 Table projections are stored in Azure Table storage. Object and file projections are written to blob storage, object projections are saved as JSON files and can contain content from the document and any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
 
 To understand the intersection between data shaping and projections, we'll use the following skillset as the basis for exploring various configurations. This skillset processes raw image and text content. Projections will be defined from the contents of the document and the outputs of the skills, for the scenarios we want to support.
 
+Alternatively, you can download and use a [REST API sample](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json) with all the calls in this walkthrough.
+
 > [!IMPORTANT] 
 > When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any Cognitive Services charges.
 
-If you view the skillset JSON in the portal, or GET the skillset using the REST API, you will see a skillset similar to the following snippet.
 
 ```json
 {
@@ -202,7 +205,7 @@ Power BI can read from tables and discover relationships based on the keys that 
 
 ### Using a Shaper skill to create a custom shape
 
-Create a custom shape that you can project into table storage. Without a custom shape, a projection can only reference a sigle node (one projection per output). Creating a custom shape lets you aggregate various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. In this example, the custom shape combines metadata and identified entites and key phrases. The object is called pbiShape and is parented under `/document`. 
+Create a custom shape that you can project into table storage. Without a custom shape, a projection can only reference a single node (one projection per output). Creating a custom shape lets you aggregate various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. In this example, the custom shape combines metadata and identified entities and key phrases. The object is called pbiShape and is parented under `/document`. 
 
 > [!IMPORTANT] 
 > Source paths for enrichments are required to be well formed JSON objects, before they can be projected. The enrichment tree can represent enrichments that are not well formed JSON, for example when a enrichment is parented to a primitve like a string. Note how `KeyPhrases` and `Entities` are wrapped into a valid JSON object with the `sourceContext`, this is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
@@ -320,7 +323,7 @@ Save the updated skillset and run the indexer, you now have a working projection
 
 Object projections do not have the same limitations as table projections, are better suited for projecting large documents. In this example, we project the entire document to an object projection. Object projections are limited to a single projection in a container.
 To define an object projection, we will use the ```objects``` array in the projections. You can generate a new shape using the shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
-Inline shaping is the ability for you to create a new shape in the defintion of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a similar shaper would produce. Inline shaping is useful if you are defining a shape the you do not plan to reuse.
+Inline shaping is the ability for you to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a similar shaper would produce. Inline shaping is useful if you are defining a shape that you do not plan to reuse.
 The projections property is an array, for this example we are adding a new projection instance to the array. Update the knowledgeStore definition with the projections defined inline, you do not need a shaper skill when using inline projections.
 
 ```json
@@ -375,7 +378,7 @@ The projections property is an array, for this example we are adding a new proje
 ```
 ## File Projections
 
-File projections are images that are either extracted from the source document or outputs of enrichments that can be projected out of the enrichment process. File projections, similar to object projections are implemented as blobs and contain the image. To generate a file projection, we use the ```files``` array in the projection object. This example projects all images extracted from the document to a container called samplefile.
+File projections are images that are either extracted from the source document or outputs of enrichments that can be projected out of the enrichment process. File projections, similar to object projections are implemented as blobs and contain the image. To generate a file projection, we use the ```files``` array in the projection object. This example projects all images extracted from the document to a container called `samplefile`.
 
 ```json
 "knowledgeStore" : {
@@ -397,13 +400,13 @@ File projections are images that are either extracted from the source document o
 
 ## Projecting to multiple types
 
-A more complex scenario might require you to project content across projection types. For example, if you need to project some data like key phrases and enitirties to tables, save the OCR results of text and layout text as objects and project the images as files. This update to the skillset will:
+A more complex scenario might require you to project content across projection types. For example, if you need to project some data like key phrases and entities to tables, save the OCR results of text and layout text as objects and project the images as files. This update to the skillset will:
 
-1. Create a table with a row for each document
-2. Create a table related to the document table with each key phrases identified as a row in this table
-3. Create a table related to the document table with each entity identified as a row in this table
-4. Create a object projection with the layout text for each image
-5. Create a file projection, projecting each extrated image
+1. Create a table with a row for each document.
+2. Create a table related to the document table with each key phrase identified as a row in this table.
+3. Create a table related to the document table with each entity identified as a row in this table.
+4. Create an object projection with the layout text for each image.
+5. Create a file projection, projecting each extracted image.
 6. Create a cross reference table that contains references to the document table, object projection with the layout text and the file projection.
 
 Start by adding a new shaper skill to the skill array that creates a shaped object. 
@@ -534,7 +537,7 @@ Object projections require a container name for each projection, object projecti
 
 ### Relationships
 
-This example also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files) of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in the tbles being related, but no relationships between the tables and the OCR text projections. Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard and another projection group for using the data to train a AI model for a skill.
+This example also highlights another feature of projections, by defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files) of projections, allowing you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. If you do not want the data related, define the projections in different projection objects, for example the following snippet will result in the tables being related, but no relationships between the tables and the OCR text projections. Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard and another projection group for using the data to train a AI model for a skill.
 When building projections of different types, file and object projections are generated first and the paths are added to the tables.
 
 ```json
