@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Speech devices documentation
-summary: Explore the Speech devices documentation.
+summary: The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits.
 metadata:
   title: Speech devices documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -17,7 +17,7 @@ metadata:
 landingContent:
 - title: Devices
   linkLists:
-    - linkListType: overview
+    - linkListType: get-started
       links:
         - text: About the Speech Devices SDK
           url: speech-devices-sdk.md
@@ -29,3 +29,14 @@ landingContent:
           url: speech-devices-sdk-linux-quickstart.md
         - text: Use Speech Device SDK (Android)
           url: speech-devices-sdk-android-quickstart.md
+- title: Reference
+  linkLists:
+    - linkListType: whats-new
+      links:
+        - text: Release notes
+          url: devices-sdk-release-notes.md
+    - linkListType: how-to-guide
+      links:
+        - text: Troubleshoot
+          url: speech-devices-sdk-troubleshooting.md
+

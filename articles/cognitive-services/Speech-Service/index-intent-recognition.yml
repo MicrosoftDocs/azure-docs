@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Intent recognition documentation
-summary: Explore the Intent recognition documentation.
+summary: Intent recognition with the Speech and Language Understanding (LUIS) services, enables real-time transcription of audio streams into text, while identifying intent and entities.
 metadata:
   title: Intent recognition documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -15,9 +15,9 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: Intent recognition
+- title: Get started
   linkLists:
-    - linkListType: quickstart
+    - linkListType: get-started
       links:
         - text: Recognize speech, intents, and entities
           url: quickstarts/intent-recognition.md
@@ -25,6 +25,8 @@ landingContent:
       links:
         - text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
+- title: Reference
+  linkLists:
     - linkListType: reference
       links:
         - text: Language Understanding (LUIS) portal

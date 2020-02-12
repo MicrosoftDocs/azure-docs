@@ -31,6 +31,10 @@ landingContent:
           url: quickstarts/from-blob.md
 - title: Customization
   linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Create, publish, and use a Tenant model
+          url: tutorial-tenant-model.md
     - linkListType: how-to-guide
       links:
         - text: Improve accuracy with Phrase Lists
@@ -39,10 +43,6 @@ landingContent:
           url: tutorial-tenant-model.md
         - text: Improve accuracy with Custom Speech
           url: how-to-custom-speech.md
-    - linkListType: tutorial
-      links:
-        - text: Create, publish, and use a Tenant model
-          url: tutorial-tenant-model.md
 - title: Reference
   linkLists:
     - linkListType: reference

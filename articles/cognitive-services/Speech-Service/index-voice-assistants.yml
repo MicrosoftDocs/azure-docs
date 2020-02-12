@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Voice assistants documentation
-summary: Explore the Voice assistants documentation.
+summary: Voice assistants using the Speech service empowers developers to create natural, human-like conversational interfaces for their applications and experiences.
 metadata:
   title: Voice assistants documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -15,19 +15,31 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: Voice assistants
+- title: Get started
   linkLists:
-    - linkListType: overview
+    - linkListType: get-started
       links:
       - text: About voice assistants
         url: voice-assistants.md
       - text: About direct line speech
         url: direct-line-speech.md
+- title: Customization
+  linkLists:
     - linkListType: quickstart
       links:
         - text: Custom commands (Preview)
           url: custom-commands.md
+        - text: Custom Commands with the Speech SDK
+          url: how-to-custom-speech-commands-fulfill-sdk.md
     - linkListType: tutorial
       links:
         - text: Voice enable your bot with Speech SDK
           url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Voice assistants FAQ
+          url: faq-voice-assistants.md
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

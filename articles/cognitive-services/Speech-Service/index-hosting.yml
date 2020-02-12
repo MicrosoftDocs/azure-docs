@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Hosting documentation
-summary: Explore the Hosting documentation.
+summary: Speech service containers are available for both Speech-to-text and Text-to-speech scenarios, encompassing standard or customized models.
 metadata:
   title: Hosting documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -15,20 +15,24 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: Hosting
+- title: Get started
   linkLists:
     - linkListType: how-to-guide
       links:
         - text: Create an Azure Speech resource
           url: get-started.md#create-a-speech-resource-in-azure
-        - text: Deploy Speech service containers
+    - linkListType: deploy
+      links:
+        - text: Speech service containers
           url: speech-container-howto.md
         - text: Configure containers
           url: speech-container-configuration.md
-        - text: Deploy Speech service containers with Kubernetes
+        - text: Speech service containers with Kubernetes
           url: speech-container-howto-on-premises.md
-        - text: Deploy Speech service containers on Azure Container Instances
+        - text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
+- title: Reference
+  linkLists:
     - linkListType: reference
       links:
         - text: Supported regions
