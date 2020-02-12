@@ -372,6 +372,8 @@
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
+      - name: Can't create Jupyter notebook
+        href: ./spark/troubleshoot-jupyter-notebook-convert.md
       - name: OutOfMemoryError exception
         href: ./spark/apache-spark-troubleshoot-outofmemory.md
       - name: Apache Spark job fails - NoClassDefFoundError
