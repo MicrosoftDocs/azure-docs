@@ -64,7 +64,7 @@ Configure and test Azure AD SSO with Coda using a test user called **B.Simon**. 
 
 To configure and test Azure AD SSO with Coda, complete the following building blocks:
 
-1. **[Begin Configuration of Coda SSO](#begin-configure-coda-sso)** - to begin configuration of SSO in Coda.
+1. **[Begin configuration of Coda SSO](#begin-configuration-of-coda-sso)** - to begin configuration of SSO in Coda.
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
@@ -72,25 +72,25 @@ To configure and test Azure AD SSO with Coda, complete the following building bl
    * **[Create Coda test user](#create-coda-test-user)** - to have a counterpart of B.Simon in Coda that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Begin Configuration of Coda SSO
+## Begin configuration of Coda SSO
 
 Follow these steps in Coda to begin.
 
 1. Open your Organization Settings panel in Coda.
 
-   ![Open Organization Settings](media/coda-tutorial/org_settings.png)
+   ![Open Organization Settings](media/coda-tutorial/org-settings.png)
 
 1. Ensure your Organization has GDrive Integration turned off. If it is currently enabled, contact [Coda support team](mailto:support@coda.io) to help you migrate off of GDrive.
 
-   ![GDrive Disabled](media/coda-tutorial/gdrive_off.png)
+   ![GDrive Disabled](media/coda-tutorial/gdrive-off.png)
 
 1. Select the "Configure SAML" option under "Authenticate with SSO (SAML)".
 
-   ![Saml Settings](media/coda-tutorial/saml_settings_link.png)
+   ![Saml Settings](media/coda-tutorial/saml-settings-link.png)
 
 1. Note the "Entity ID" and "SAML Response URL" fields which you'll need in subsequent steps.
 
-   ![Fields for Azure](media/coda-tutorial/azure_settings.png)
+   ![Fields for Azure](media/coda-tutorial/azure-settings.png)
 
 ## Configure Azure AD SSO
 
