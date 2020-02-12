@@ -35421,6 +35421,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/technical-reference.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditions.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
       "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
       "redirect_document_id": false
