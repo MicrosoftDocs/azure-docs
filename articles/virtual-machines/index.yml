@@ -54,11 +54,11 @@ tools:
     - title: Azure CLI
       # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      url: https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
+      url: https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest
     # Card
     - title: Azure PowerShell
       imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
-      url: https://docs.microsoft.com/en-us/powershell/module/az.compute#virtual_machines
+      url: https://docs.microsoft.com/powershell/module/az.compute#virtual_machines
     # Card
     - title: REST API
       imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
@@ -76,7 +76,7 @@ additionalContent:
         - title: Learn
           links:
             - text: Browse learning modules
-              url: https://docs.microsoft.com/en-us/learn/browse/?products=azure-virtual-machines
+              url: https://docs.microsoft.com/learn/browse/?products=azure-virtual-machines
         # Card
         - title: Template gallery
           links:
