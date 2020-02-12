@@ -100,7 +100,7 @@ In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketp
 
 #### Azure portal
 
-Below are the steps to create a generation 2 (Gen2) VM in Azure Portal.
+Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Select **Create a resource**.
