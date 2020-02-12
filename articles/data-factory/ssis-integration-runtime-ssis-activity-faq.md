@@ -139,7 +139,7 @@ Make sure your Self-Hosted integration runtime is installed and started. More de
 
 ### Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: The requested OLE DB provider ... is not registered. If the 64-bit driver is not installed, run the package in 32-bit mode..."
 
-Make sure the corresponding provider used by your OLE DB connectors in your package are installed on Self-Hosted integration runtime machine properly. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Make sure the corresponding provider used by your OLE DB connectors in your package are installed on Self-Hosted integration runtime machine properly. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Could not load file or assembly 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference.'..."
 
@@ -154,7 +154,7 @@ One potential cause is your Self-Hosted integration runtime is not installed or 
 
 ### Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
 
-Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### Multiple Package executions are triggered unexpectedly
 
