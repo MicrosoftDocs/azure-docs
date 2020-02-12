@@ -35,7 +35,7 @@ The following sections explain the advantages and disadvantages of each approach
 
 You can scale the resources in Azure Cosmos DB Cassandra API account by using Azure portal. To learn more, see the article on [Provision throughput on containers and databases](set-throughput.md). This article explains the relative benefits of setting throughput at either [database](set-throughput.md#set-throughput-on-a-database) or [container](set-throughput.md#set-throughput-on-a-container) level in the Azure portal. The terms "database" and "container" mentioned in these articles map to "keyspace" and "table" respectively for the Cassandra API.
 
-The advantage of this method is that it is a straightforward turnkey way to manage throughput capacity in the database. However, the disadvantage is that in many cases, your approach to scaling may require certain levels of automation to be both cost effective and high performing. We discuss relevant scenarios and methods below.
+The advantage of this method is that it is a straightforward turnkey way to manage throughput capacity on the database. However, the disadvantage is that in many cases, your approach to scaling may require certain levels of automation to be both cost-effective and high performing. The next sections explain the relevant scenarios and methods.
 
 ## Using the Control Plane
 
