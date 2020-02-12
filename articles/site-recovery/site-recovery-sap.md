@@ -110,7 +110,7 @@ To start replicating all the SAP application virtual machines to the Azure disas
 
 * For guidance on protecting Active Directory and DNS, learn [how to protect Active Directory and DNS](site-recovery-active-directory.md).
 
-* For guidance on protecting database tier running on SQL server, learn [how to protect SQL Server](site-recovery-sql.md).
+* For guidance on protecting database tier running on SQL Server, learn [how to protect SQL Server](site-recovery-sql.md).
 
 ## Networking configuration
 
