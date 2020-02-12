@@ -42,7 +42,7 @@ Let's use "522" as our metro ID, which is the metro ID for the  "Seattle–Tacom
 
     ![Create a request in Postman](./media/how-to-request-transit-data/postman-new.png)
 
-3. Select the GET HTTP method on the builder tab and enter the following URL to create a GET request. Replace {subscription-key}, with your Azure Maps primary key.
+3. Select the **GET** HTTP method on the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
