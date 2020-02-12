@@ -1,5 +1,5 @@
 ---
-title: Monitor query requests
+title: Monitor queries
 titleSuffix: Azure Cognitive Search
 description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in diagnostic logs.
 
@@ -15,7 +15,7 @@ ms.date: 02/12/2020
 
 This article explains how to measure query performance and volume using metrics. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
 
-Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a diagnostic setting that specifies a storage option.
+Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option.
 
 > [!Tip]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).

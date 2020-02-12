@@ -1,5 +1,5 @@
 ---
-title: Operational logs
+title: Collect log data
 titleSuffix: Azure Cognitive Search
 description: Collect and analyze log data by enabling a diagnostic setting, and then use the Kusto Query Language to explore results.
 
@@ -51,7 +51,7 @@ Each setting specifies how and what is collected. Besides storage, you can choos
 
    If you are also using Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
 
-   ![Configure data collecction](./media/search-monitor-usage/configure-storage.png "Configure data collection")
+   ![Configure data collection](./media/search-monitor-usage/configure-storage.png "Configure data collection")
 
 1. Save the setting.
 
@@ -95,7 +95,7 @@ For Blob storage, each blob has one root object called **records** containing an
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
 | Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
 | Documents |int |42 |Number of documents processed |
-| IndexName |string |"testindex" |Name of the index associated with the operation |
+| IndexName |string |"test-index" |Name of the index associated with the operation |
 
 ## Metrics schema
 
@@ -115,11 +115,21 @@ Metrics are captured for query requests. For more information, see [Monitor quer
 
 All metrics are reported in one-minute intervals. Every metric exposes minimum, maximum and average values per minute.
 
-For the **Search Queries Per Second** metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
-
-For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
+For the **Search Queries Per Second** metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
 For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+
+## View log files
+
+You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
+
+1. In Azure portal, open your Storage account. 
+
+2. In the left-navigation pane, click **Blobs**. You should see **insights-logs-operationlogs** and **insights-metrics-pt1m**. These containers are created by Azure Cognitive Search when the log data is exported to Blob storage.
+
+3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
+
+Once the file is downloaded, open it in a JSON editor to view the contents.
 
 ## Next steps
 

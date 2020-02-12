@@ -1,5 +1,5 @@
 ---
-title: Monitor indexing operations
+title: Monitor indexing
 titleSuffix: Azure Cognitive Search
 description: Monitor the duration and status of indexing and indexers, and set up alerts for notification or corrective action should problems arise.
 

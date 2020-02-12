@@ -13,7 +13,7 @@ ms.date: 02/11/2020
 
 # Monitor operations and activity of Azure Cognitive Search
 
-This article introduces monitoring at the service (resource) level, at the workload level (queries and indexing), and suggests a framework for monitoring user access. 
+This article introduces monitoring at the service (resource) level, at the workload level (queries and indexing), and suggests a framework for monitoring user access.
 
 Across the spectrum, you'll use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as service APIs that return statistics, counts, and status. Understanding the range of capabilities will help you configure or create an effective communication system for proactive responses to problems as they emerge.
 
@@ -34,7 +34,7 @@ The following screenshot helps you locate Azure Monitor features in the portal.
 
 Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
 
-## Activity logs
+## Activity logs and service health
 
 The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
@@ -42,7 +42,7 @@ For in-service tasks - such as queries, indexing, or creating objects - you'll s
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
-## Resource consumption
+## Monitor resource consumption
 
 Tabbed pages built into the Overview page report out on resource consumption. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
@@ -53,17 +53,19 @@ The following illustration is for the free service, which is capped at 3 objects
 ![Usage status relative to tier limits](./media/search-monitor-usage/usage-tab.png
  "Usage status relative to tier limits")
 
-## View log files
+## Monitor workloads
 
-You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
+Logged events includes those related to indexing and queries. The approach and tasks vary for each one. In contrast with queries, the status of a given index or indexer is stored with the object and returned through search service APIs. For more information, see [Monitor indexing](search-monitor-indexing.md) and [Monitor queries](search-monitor-queries.md).
 
-1. In Azure portal, open your Storage account. 
+## Monitor user access
 
-2. In the left-navigation pane, click **Blobs**. You should see **insights-logs-operationlogs** and **insights-metrics-pt1m**. These containers are created by Azure Cognitive Search when the log data is exported to Blob storage.
+Because search indexes are a component of a larger client application, there is no built-in, per-user methodology for controlling access to an index. Requests are assumed to come from a client application, for either admin or query requests. Admin read-write operations include creating, updating, deleting objects across the entire service. Read-only operations are queries against the documents collection, scoped to a single index. 
 
-3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
+As such, what you'll see in the logs are references to calls using admin keys or query keys. The appropriate key is included in requests originating from client code. The service is not equipped to handle identity tokens or impersonation.
 
-Once the file is downloaded, open it in a JSON editor to view the contents.
+When business requirements do exist for per-user authorization, the recommendation is integration with Azure Active Directory. You can use $filter and user identities to [trim search results](search-security-trimming-for-azure-search-with-aad.md) of documents that a user should not see. 
+
+There is no way to log this information separately from the query string that includes the $filter parameter. See [Monitor queries](search-monitor-queries.md) for details on reporting query strings.
 
 ## Next steps
 
