@@ -10,7 +10,7 @@ ms.author: thvankra
 
 # Elastically scale an Azure Cosmos DB Cassandra API account
 
-There are variety of options to explore the elastic nature of the Azure Cosmos DB API for Cassandra. To understand how to scale effectively in Cosmos DB, it is important to understand request units (RUs), and how to ensure they are provisioned properly to account for the performance demands in your system. To learn more about RUs, first consult our article on [request units](https://docs.microsoft.com/azure/cosmos-db/request-units). 
+There are a variety of options to explore the elastic nature of the Azure Cosmos DB's API for Cassandra. To understand how to scale effectively in Azure Cosmos DB, it is important to understand how to provision the right amount of request units (RU/s) to account for the performance demands in your system. To learn more about request units, see the [request units](request-units.md) article. 
 
 ![Database operations consume Request Units](./media/request-units/request-units.png)
 
