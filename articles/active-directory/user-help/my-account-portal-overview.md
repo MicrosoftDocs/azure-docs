@@ -2,7 +2,7 @@
 title: What is the My Account portal? - Azure AD
 description: How to get to the My Account portal and its features, including setting up and managing your Security info, Devices, Password, Organizations, Privacy, and My Sign-ins.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
 ms.date: 01/15/2020
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # What is the My Account portal?
@@ -48,7 +47,7 @@ You can get to the **My Account** portal (https://myprofile.microsoft.com), from
 
 - [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
-- [Go to the Office **My Account** page](https://portal.office.com/account/#home)
+- [Go to the Office **My Account** page](https://portal.office.com/account/)
 
 - [Go to the Office **My installs** page](https://portal.office.com/account/#installs)
 

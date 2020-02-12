@@ -178,8 +178,6 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
-    - name: Logic Apps playbooks
-      href: security-center-playbooks.md
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
 

@@ -37,7 +37,7 @@ In addition to discovering machines, Azure Migrate: Server Assessment can discov
 **Machine operating system** | All Windows and Linux versions.
 **vCenter credentials** | A vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **VM credentials** | Currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
-**VMware tools** | VMware tools must be installed and running on VMs you want to discover.
+**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/> If your VMware tools version is between 9.10 - 10.2.0, please ensure you upgrade it to beyond 10.2.0.
 **Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
 **Limits** | For app-discovery  you can discover up to 10000 per appliance. 
 
@@ -47,7 +47,7 @@ In addition to discovering machines, Azure Migrate: Server Assessment can discov
 --- | ---
 **vCenter Server** | Machines you want to discovery and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
 **Permissions (assessment)** | vCenter Server read-only account.
-**Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for Virtual machines > Guest Operations.
+**Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines > Guest Operations**.
 **Permissions (dependency visualization)** | Center Server account with read-only access, and privileges enabled for **Virtual machines** > **Guest Operations**.
 
 
@@ -62,8 +62,9 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), 5671 and 5672 (AMQP) to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
+ESXi Hosts | **Required only for [application discovery](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) and [agentless dependency visualization](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization)** <br/><br/> The appliance connects to ESXi hosts on TCP port 443 to discover applications and run agentless dependency visualization on the VMs running on the hosts.
 
 ## Agent-based dependency visualization
 
@@ -90,10 +91,10 @@ This option is currently in preview. [Learn more](how-to-create-group-machine-de
 **VM support** | Currently supported for VMware VMs only.
 **Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit)
 **Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Windows account** |  Visualization needs a user account with Guest access.
+**Windows account** |  Visualization needs a local or a domain Administrator account.
 **Linux account** | Visualization needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **VM agents** | No agent needed on the VMs.
-**VMware tools** | VMware tools must be installed and running on VMs you want to analyze.
+**VMware tools** | VMware tools must be installed and running on VMs you want to analyze. <br/> If your VMware tools version is between 9.10 - 10.2.0, please ensure you upgrade it to beyond 10.2.0.
 **vCenter credentials** | A vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 

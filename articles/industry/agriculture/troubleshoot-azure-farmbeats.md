@@ -40,6 +40,38 @@ To download the **deployer.log** file, do the following:
 
 To understand how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.  
 
+### Can't view telemetry data after ingesting historical/streaming data from your sensors
+
+**Symptom**: Devices or sensors are deployed, and you've created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
+
+**Corrective action**:
+
+1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, please follow the [steps here](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+2. Ensure that you have used the correct Telemetry message format:
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
+
 ### Don't have the Azure Event Hubs connection string
 
 **Corrective action**:

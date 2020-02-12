@@ -168,24 +168,24 @@ Multi-model endpoints use a shared container to host multiple models. This helps
 
 For an E2E example which shows how to use multiple models behind a single containerized endpoint, see [this example](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## Prepare to deploy
+## Prepare deployment artifacts
 
-To deploy the model, you need the following items:
+To deploy the model, you need the following:
 
-* **An entry script**. This script accepts requests, scores the requests by using the model, and returns the results.
+* **Entry script & source code dependencies**. This script accepts requests, scores the requests by using the model, and returns the results.
 
     > [!IMPORTANT]
     > * The entry script is specific to your model. It must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
     >
     >   If the request data is in a format that's not usable by your model, the script can transform it into an acceptable format. It can also transform the response before returning it to the client.
     >
-    > * The Azure Machine Learning SDK doesn't provide a way for web services or IoT Edge deployments to access your data store or datasets. If your deployed model needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
+    > * Web services and IoT Edge deployments are not able to access workspace datastores or datasets. If your deployed service needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
     >   An alternative that might work for your scenario is [batch prediction](how-to-use-parallel-run-step.md), which does provide access to data stores during scoring.
 
-* **Dependencies**, like helper scripts or Python/Conda packages required to run the entry script or model.
+* **Inference environment**. The base image with installed package dependencies required to run the model.
 
-* **The deployment configuration** for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
+* **Deployment configuration** for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
 
 These items are encapsulated into an *inference configuration* and a *deployment configuration*. The inference configuration references the entry script and other dependencies. You define these configurations programmatically when you use the SDK to perform the deployment. You define them in JSON files when you use the CLI.
 
@@ -216,17 +216,23 @@ The following table describes the value of AZUREML_MODEL_DIR depending on the nu
 | Single model | The path to the folder containing the model. |
 | Multiple models | The path to the folder containing all models. Models are located by name and version in this folder (`$MODEL_NAME/$VERSION`) |
 
-To get the path to a file in a model, combine the environment variable with the filename you're looking for.
-The filenames of the model files are preserved during registration and deployment. 
+During model registration and deployment, Models are placed in the AZUREML_MODEL_DIR path, and their original filenames are preserved.
+
+To get the path to a model file in your entry script, combine the environment variable with the file path you're looking for.
 
 **Single model example**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Multiple model example**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### get_model_path
@@ -475,7 +481,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### 2. Define your InferenceConfig
+### 2. Define your inference environment
 
 The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
@@ -537,41 +543,6 @@ The classes for local, Azure Container Instances, and AKS web services can be im
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-#### Profiling
-
-Before you deploy your model as a service, you might want to profile it to determine optimal CPU and memory requirements. You can use either the SDK or the CLI to profile your model. The following examples show how to profile a model by using the SDK.
-
-> [!IMPORTANT]
-> When you use profiling, the inference configuration that you provide can't reference an Azure Machine Learning environment. Instead, define the software dependencies by using the `conda_file` parameter of the `InferenceConfig` object.
-
-```python
-import json
-test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-This code displays a result similar to the following output:
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-Model profiling results are emitted as a `Run` object.
-
-For information on using profiling from the CLI, see [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
-
-For more information, see these documents:
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [Inference configuration file schema](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## Deploy to target
 

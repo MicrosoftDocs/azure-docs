@@ -17,7 +17,7 @@ This article explains how to work with Azure Queue storage bindings in Azure Fun
 
 ## Packages - Functions 1.x
 
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
+The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) Nuget package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -25,7 +25,7 @@ The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https:/
 
 ## Packages - Functions 2.x and higher
 
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub repository.
+The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) Nuget package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -36,17 +36,7 @@ Functions expect a *base64* encoded string. Any adjustments to the encoding type
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
 
-## Trigger - example
-
-See the language-specific example:
-
-* [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
-
-### Trigger - C# example
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -63,7 +53,7 @@ public static class QueueFunctions
 }
 ```
 
-### Trigger - C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows a queue trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -118,7 +108,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
 
-### Trigger - JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -163,23 +153,7 @@ module.exports = async function (context, message) {
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
 
-### Trigger - Java example
-
-The following Java example shows a storage queue trigger functions which logs the triggered message placed into queue `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-### Trigger - Python example
+# [Python](#tab/python)
 
 The following example demonstrates how to read a queue message passed to a function via a trigger.
 
@@ -200,7 +174,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
 
 ```python
 import logging
@@ -227,7 +201,27 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## Trigger - attributes
+# [Java](#tab/java)
+
+The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+ ---
+
+## Trigger - attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
 
@@ -257,7 +251,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   }
   ```
 
-  For a complete example, see [Trigger - C# example](#trigger---c-example).
+  For a complete example, see [Trigger - C# example](#trigger).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -283,6 +277,47 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The "AzureWebJobsStorage" app setting.
 
+# [C# Script](#tab/csharp-script)
+
+Attributes are not supported by C# Script.
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by Java Script.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
+# [Java](#tab/java)
+
+The `QueueTrigger` annotation gives you access to the queue that triggers the function. The following example makes the queue message available to the function via the `message` parameter.
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`queueName`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+---
+
 ## Trigger - configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
@@ -299,7 +334,9 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
 
-In C# and C# script, access the message data by using a method parameter such as `string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+# [C#](#tab/csharp)
+
+Access the message data by using a method parameter such as `string paramName`. You can bind to any of the following types:
 
 * Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
 * `string`
@@ -308,7 +345,30 @@ In C# and C# script, access the message data by using a method parameter such as
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-In JavaScript, use `context.bindings.<name>` to access the queue item payload. If the payload is JSON, it's deserialized into an object. This payload is also passed as the second parameter to the function.
+# [C# Script](#tab/csharp-script)
+
+Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+# [JavaScript](#tab/javascript)
+
+The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
+
+# [Python](#tab/python)
+
+Access the queue message via the parameter typed as [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+
+# [Java](#tab/java)
+
+The [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
+
+---
 
 ## Trigger - message metadata
 
@@ -361,22 +421,12 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 Use the Azure Queue storage output binding to write messages to a queue.
 
-## Output - example
-
-See the language-specific example:
-
-* [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-* [Python](#output---python-example)
-
-### Output - C# example
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -389,7 +439,7 @@ public static class QueueFunctions
 }
 ```
 
-### Output - C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows an HTTP trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a **CustomQueueMessage** object payload for each HTTP request received.
 
@@ -450,7 +500,7 @@ public static void Run(
 }
 ```
 
-### Output - JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
@@ -500,25 +550,7 @@ module.exports = function(context) {
 };
 ```
 
-### Output - Java example
-
- The following example shows a Java function that creates a queue message when triggered by an HTTP request.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
-
-### Output - Python example
+# [Python](#tab/python)
 
 The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way.
 
@@ -581,7 +613,29 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-## Output - attributes
+# [Java](#tab/java)
+
+ The following example shows a Java function that creates a queue message for when triggered by an  HTTP request.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where `T` is any native Java type of a POJO.
+
+---
+
+## Output - attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
@@ -607,9 +661,54 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
+
+# [C# Script](#tab/csharp-script)
+
+Attributes are not supported by C# Script.
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by Java Script.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
+# [Java](#tab/java)
+
+The `QueueOutput` annotation allows you access to write a message an output of a function. The following example shows an HTTP-triggered function that creates a queue message.
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`queueName`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+The parameter associated with the `QueueOutput` annotation is typed as an [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) instance.
+
+---
 
 ## Output - configuration
 
@@ -627,7 +726,9 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-In C# and C# script, write a single queue message by using a method parameter such as `out T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+# [C#](#tab/csharp)
+
+Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
 * An object serializable as JSON
 * `string`
@@ -641,8 +742,43 @@ In C# and C# script, write multiple queue messages by using one of the following
 * `ICollector<T>` or `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-In JavaScript functions, use `context.bindings.<name>` to access the output queue message. You can use a string or a JSON-serializable object for the queue item payload.
+# [C# Script](#tab/csharp-script)
 
+Write a single queue message by using a method parameter such as `out T paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+
+* An object serializable as JSON
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+In C# and C# script, write multiple queue messages by using one of the following types: 
+
+* `ICollector<T>` or `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+# [JavaScript](#tab/javascript)
+
+The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+
+# [Python](#tab/python)
+
+There are two options for outputting an Event Hub message from a function:
+
+- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Queue storage message.
+
+- **Imperative**: Pass a value to the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Queue storage message.
+
+# [Java](#tab/java)
+
+There are two options for outputting an Event Hub message from a function by using the [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation:
+
+- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Event Hub message.
+
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Event Hub message.
+
+---
 
 ## Exceptions and return codes
 
@@ -675,7 +811,6 @@ This section describes the global configuration settings available for this bind
     }
 }
 ```
-
 
 |Property  |Default | Description |
 |---------|---------|---------|

@@ -43,6 +43,7 @@ Let's add some code that works as a skeleton for our project. Make note that you
 using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 
 namespace HelloWorld
 {
@@ -69,6 +70,8 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 > The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ```csharp
+// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+// from here: https://aka.ms/speech/sdkregion).
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
@@ -145,6 +148,7 @@ At this point, your code should look like this:
 using System;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 
 namespace HelloWorld
 {

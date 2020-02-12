@@ -14,7 +14,7 @@ ms.date: 07/18/2019
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 > [!NOTE]
-> Some of the standard propertis will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the property in the output.
+> Some of the standard properties will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the property in the output.
 
 ## TimeGenerated and timestamp
 The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.

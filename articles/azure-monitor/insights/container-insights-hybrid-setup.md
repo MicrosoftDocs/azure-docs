@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/24/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -34,7 +34,7 @@ Before you start, make sure that you have the following:
     |*.blob.core.windows.net |Port 443 |  
     |*.dc.services.visualstudio.com |Port 443 |
 
-* The containerized agent requires `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+* The containerized agent requires Kubelet’s `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet’s cAdvisor if it’s not configured already.
 
 * The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.
 
@@ -285,12 +285,12 @@ If you encounter an error while attempting to enable monitoring for your hybrid 
 * OmsAgent Health service is running
 * The Log Analytics workspace Id and key configured on the containerized agent match with the workspace the Insight is configured with.
 * Validate all the Linux worker nodes have `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
-* Validate `cAdvisor port: 10255` is opened on all nodes in the cluster.
+* Validate `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
 
 To execute with Azure PowerShell, use the following commands in the folder that contains the script:
 
 ```powershell
-.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile> -clusterContextInKubeconfig <clusterContext>
 ```
 
 ## Next steps

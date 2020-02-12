@@ -114,7 +114,7 @@ If you share code with other projects, remember to remove your instrumentation k
 All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
-Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices, and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
+Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices, and HTTPS web pages. 
 
 ## Does the SDK create temporary local storage?
 
@@ -172,7 +172,18 @@ By default `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` is used for persisting
 
 The folder prefix `appInsights-node` can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### OpenCensus Python
 
+By default OpenCensus Python SDK uses the current user folder `%username%/.opencensus/.azure/`. Permissions to access this folder are restricted to the current user and Administrators. (See [implementation](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) here.) The folder with your persisted data will be named after the Python file that generated the telemetry.
+
+You may change the location of your storage file by passing in the `storage_path` parameter in the constructor of the exporter you are using.
+
+```python
+AzureLogHandler(
+  connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000',
+  storage_path='<your-path-here>',
+)
+```
 
 ## How do I send data to Application Insights using TLS 1.2?
 

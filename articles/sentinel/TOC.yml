@@ -110,6 +110,8 @@
       href: connect-azure-stack.md  
   - name: Multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
+  - name: Set up customer-managed keys (CMK)
+    href: customer-managed-keys.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
   - name: Hunting

@@ -170,8 +170,22 @@ $diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName
 
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Empty -DiskSizeInGB $diskSizeinGiB -StorageAccountType $diskSKU -Lun $diskLUN -DiskEncryptionSetId $diskEncryptionSet.Id 
 
-Update-AzVM -ResourceGroupName $rgName -VM $vm
+Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
+```
+
+#### Encrypt existing unattached managed disks 
+
+Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
+
+```PowerShell
+$rgName = "yourResourceGroupName"
+$diskName = "yourDiskName"
+$diskEncryptionSetName = "yourDiskEncryptionSetName"
+ 
+$diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $diskEncryptionSetName
+ 
+New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
@@ -234,3 +248,6 @@ New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -
 
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [Replicate machines with customer-managed keys enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
+- [Set up disaster recovery of VMware VMs to Azure with PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
+- [Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

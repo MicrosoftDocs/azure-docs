@@ -82,11 +82,7 @@
       - name: 4 - Verify throughput and latency metrics
         href: storage-blob-scalable-app-verify-metrics.md
     - name: Host a static website
-      items:
-      - name: 1 - Create a static website
-        href: storage-blob-static-website-host.md
-      - name: 2 - Enable a custom domain with SSL
-        href: storage-blob-static-website-custom-domain.md
+      href: storage-blob-static-website-host.md
     - name: Design applications for high availability
       items:
       - name: 1 - Make your application highly available
@@ -383,10 +379,12 @@
       - name: Use the Azure Storage emulator
         href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Host a static website
-      href: storage-blob-static-website-how-to.md
-    - name: Map Azure CDN to a custom domain for access over HTTPS
-      href: storage-https-custom-domain-cdn.md
-    - name: Configure a custom domain
+      items:
+      - name: Host a static website
+        href: storage-blob-static-website-how-to.md
+      - name: Integrate with Azure CDN
+        href: static-website-content-delivery-network.md
+    - name: Use a custom domain
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
@@ -619,18 +617,6 @@
     items:
     - name: Analyze data with Databricks
       href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Manage blobs without code
-      items:
-      - name: PowerShell
-        href: storage-quickstart-blobs-powershell.md
-      - name: CLI
-        href: storage-quickstart-blobs-cli.md
-    - name: Develop with blobs
-      items:
-      - name: .NET
-        href: storage-quickstart-blobs-dotnet.md
-      - name: Python
-        href: storage-quickstart-blobs-python.md
   - name: Tutorials
     items:
     - name: Extract, transform, and load data using Azure Databricks
@@ -657,36 +643,12 @@
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Best practices
       href: data-lake-storage-best-practices.md
-    - name: Access tiers
-      items:
-      - name: Access tiers
-        href: storage-blob-storage-tiers.md
-      - name: Managing the Azure Blob Storage Lifecycle
-        href: storage-lifecycle-management-concepts.md
-    - name: Security
-      items:
-      - name: Storage security overview
-        href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Access control
-        href: data-lake-storage-access-control.md
-    - name: Logging
-      items:
-      - name: Storage analytics
-        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Storage analytics logs
-        href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Event handling
-      href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Access control (directories and files)
+      href: data-lake-storage-access-control.md
   - name: How to
     items:
-    - name: Create and manage storage accounts
-      items:
-      - name: Create a storage account for your Data Lake
-        href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage data with Storage Explorer
-        href: ../blobs/data-lake-storage-explorer.md
-      - name: Upgrade a storage account
-        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Create a storage account for your Data Lake
+      href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage directories, files, and ACLs
       items:
       - name: .NET
@@ -695,48 +657,14 @@
         href: data-lake-storage-directory-file-acl-java.md
       - name: Python
         href: data-lake-storage-directory-file-acl-python.md
+      - name: JavaScript
+        href: data-lake-storage-directory-file-acl-javascript.md
       - name: PowerShell
         href: data-lake-storage-directory-file-acl-powershell.md
       - name: CLI
         href: data-lake-storage-directory-file-acl-cli.md
       - name: Storage Explorer
-        href: data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Transfer data
-      items:
-      - name: AzCopy
-        items:
-        - name: Get started
-          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use with Data Lake Storage Gen2
-          href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Configure, optimize, troubleshoot
-          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Use Distcp
-        href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Use Azure Data Factory
-        href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Secure data
-      items:
-      - name: Configure firewalls and virtual networks
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Configure customer-managed keys for service encryption
-        items:
-        - name: Portal
-          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage access rights with RBAC
-        items:
-        - name: Portal
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Set file and directory-level permissions
-        href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+        href: data-lake-storage-explorer.md
     - name: Optimize performance
       items:
       - name: Overview
@@ -757,47 +685,18 @@
         href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use with Hadoop File System CLI
       href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Use with Power BI
-      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
-    - name: Azure CLI
-      href: /cli/azure/storage
     - name: .NET
-      items:
-      - name: Blobs (version 12.x)
-        href: /dotnet/api/azure.storage.blobs
-      - name: Data Movement
-        href: /dotnet/api/microsoft.azure.storage.datamovement
-      - name: Storage Resource Provider
-        href: /dotnet/api/overview/azure/storage/management
+      href: /dotnet/api/azure.storage.files.datalake
     - name: Java
-      items:
-      - name: Blobs (version 12.x)
-        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html
-      - name: Blobs (version 8.x)
-        href: /java/api/com.microsoft.azure.storage.blob
-      - name: Storage Resource Provider
-        href: /java/api/overview/azure/storage/management
-    - name: JavaScript (version 12.x)
-      href: /javascript/api/@azure/storage-blob/
-    - name: Python (version 12.x)
-      href: /python/api/azure-storage-blob/
+      href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html
+    - name: Python
+      href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
+    - name: Javascript
+      href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
     - name: REST
-      items:
-      - name: Blobs, Queues, Tables, and Files
-        href: /rest/api/storageservices
-      - name: Data Lake Storage Gen2
-        href: /rest/api/storageservices/data-lake-storage-gen2
-      - name: Resource provider
-        href: /rest/api/storagerp
-      - name: Import/Export
-        href: /rest/api/storageimportexport
-    - name: Resource Manager template
-      displayName: ARM
-      href: /azure/templates/microsoft.storage/allversions
+      href: /rest/api/storageservices/data-lake-storage-gen2
   - name: Resources
     items:
     - name: Known issues

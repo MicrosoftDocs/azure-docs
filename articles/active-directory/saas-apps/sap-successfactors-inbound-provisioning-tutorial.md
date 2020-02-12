@@ -16,7 +16,7 @@ ms.date: 12/05/2019
 ms.author: chmutali
 ---
 # Tutorial: Configure SAP SuccessFactors to Active Directory user provisioning (Preview)
-The objective of this tutorial is to show the steps you need to perform to provision users from SuccessFactors Employee Central into Active Directory (AD) and Azure AD, with optional write-back of email address to SuccessFactors. This integration is in public preview and supports retrieving more than [70+ user attributes](../manage-apps/sap-successfactors-attribute-reference.md) from SuccessFactors Employee Central.
+The objective of this tutorial is to show the steps you need to perform to provision users from SuccessFactors Employee Central into Active Directory (AD) and Azure AD, with optional write-back of email address to SuccessFactors. This integration is in public preview and supports retrieving more than [70+ user attributes](../app-provisioning/sap-successfactors-attribute-reference.md) from SuccessFactors Employee Central.
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors need an on-premises AD account and optionally an Azure AD account. If the users from SuccessFactors only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure SAP SuccessFactors to Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) user provisioning. 
@@ -24,17 +24,17 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 ## Overview
 
-The [Azure Active Directory user provisioning service](../manage-apps/user-provisioning.md) integrates with the [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) in order to manage the identity life cycle of users. 
+The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) in order to manage the identity life cycle of users. 
 
 The SuccessFactors user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md), with write-back of the email address to SuccessFactors.
+* **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of the email address to SuccessFactors.
 
-* **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
+* **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee rehires** - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
+* **Employee rehires** - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
 ### Who is this user provisioning solution best suited for?
 
@@ -76,7 +76,7 @@ Configuring Cloud HR driven user provisioning from SuccessFactors to AD requires
 * Number of SuccessFactors to AD user provisioning apps to deploy
 * Matching ID, Attribute mapping, transformation and scoping filters
 
-Please refer to the [cloud HR deployment plan](../manage-apps/plan-cloud-hr-provision.md) for comprehensive guidelines around these topics. 
+Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines around these topics. 
 
 ## Configuring SuccessFactors for the integration
 
@@ -109,7 +109,7 @@ Work with your SuccessFactors admin team or implementation partner to create or 
   > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
-  >For the complete list of attributes retrieved by this provisioning app, please refer to [SuccessFactors Attribute Reference](../manage-apps/sap-successfactors-attribute-reference.md)
+  >For the complete list of attributes retrieved by this provisioning app, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 * Click on **Done**. Click **Save Changes**.
 
@@ -291,14 +291,14 @@ In this section, you will configure how user data flows from SuccessFactors to A
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from SuccessFactors. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
    > [!CAUTION] 
-   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your SuccessFactors to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../manage-apps/skip-out-of-scope-deletions.md)
+   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your SuccessFactors to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
 1. In the **Attribute mappings** section, you can define how individual SuccessFactors attributes map to Active Directory attributes.
 
   >[!NOTE]
-  >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../manage-apps/sap-successfactors-attribute-reference.md)
+  >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 
 1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
@@ -310,7 +310,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
          * **Constant** - Write a static, constant string value to the AD attribute
 
-         * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more SuccessFactors attributes. [For more info, see this article on expressions](../manage-apps/functions-for-customizing-application-data.md).
+         * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more SuccessFactors attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Source attribute** - The user attribute from SuccessFactors
 
@@ -340,7 +340,7 @@ Once your attribute mapping configuration is complete, you can now [enable and l
 Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
 
 > [!TIP]
-> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
+> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or SuccessFactors data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
 
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
@@ -348,7 +348,7 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the SuccessFactors tenant. You can check the progress bar to the track the progress of the sync cycle. 
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. 
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of SuccessFactors and then subsequently added or updated to Active Directory. 
 
 5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
@@ -357,9 +357,9 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 ## Next steps
 
-* [Learn more about supported SuccessFactors Attributes for inbound provisioning](../manage-apps/sap-successfactors-attribute-reference.md)
+* [Learn more about supported SuccessFactors Attributes for inbound provisioning](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Learn how to configure email writeback to SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-* [Learn how to export and import your provisioning configurations](../manage-apps/export-import-provisioning-configuration.md)
+* [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)

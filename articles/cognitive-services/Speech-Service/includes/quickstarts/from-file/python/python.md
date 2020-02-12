@@ -2,13 +2,13 @@
 title: 'Quickstart: Recognize speech from an audio file, Python - Speech service'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: chlandsi
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: chlandsi
+ms.date: 01/30/2020
+ms.author: dapine
 ---
 
 ## Prerequisites
@@ -18,8 +18,8 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -52,7 +52,8 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
-# Replace with your own subscription key and service region (e.g., "westus").
+# Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+# from here: https://aka.ms/speech/sdkregion).
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 

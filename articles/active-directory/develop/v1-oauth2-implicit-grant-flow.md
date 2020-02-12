@@ -18,7 +18,6 @@ ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)

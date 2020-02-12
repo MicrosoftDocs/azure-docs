@@ -3,7 +3,7 @@ title: Using shared device mode with MSAL Android | Azure
 description: Learn how to prepare an Android device to run in shared mode and run a firstline worker app.
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -16,7 +16,6 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use shared-device mode in your Android application
