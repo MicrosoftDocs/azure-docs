@@ -67,22 +67,73 @@ speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-## Create a recognizer
+## Initialize a recognizer
 
-[`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)
+After you've created a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python), you'll need to pass it your `speech_config`. This ensures that the credentials that the service requires to validate your request are provided.
 
-When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python), you'll need to pass it your `speech_config`. This ensures that the credentials that the service requires to validate your request are provided.
+If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) should look like:
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 ```
 
-Additionally, you can specify the audio input device that's used to recognize speech.
+If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) and  provide the `audio_config` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python).
 
 > [!TIP]
-> [Learn how to get the device ID for your audio input device.](how-to-select-audio-input-devices.md)
+> [Learn how to get the device ID for your audio input device](how-to-select-audio-input-devices.md).
 
 ```Python
 audio_config = AudioConfig(device_name="<device id>");
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 ```
+
+If you don't want to use a microphone, and want to provide an audio file, you'll still need to provide an `audio_config`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python), instead of providing the `device_name`, you'll use the `filename` parameter.
+
+```Python
+audio_filename = "whatstheweatherlike.wav"
+audio_input = speechsdk.AudioConfig(filename=audio_filename)
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+```
+
+## Speech recognition
+
+The [Recognizer class](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python) for the Speech SDK for Python exposes a few methods that you can use for speech recognition.
+
+* Single-shot recognition (sync) - Performs recognition in a blocking (synchronous) mode. Returns after a single utterance is recognized. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. The task returns the recognition text as result.
+* Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+* Continuous recognition (sync) - Synchronously initiates continuous recognition. The client must connect to `EventSignal` to receive recognition results. To stop recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--).
+* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. User has to connect to EventSignal to receive recognition results. To stop asynchronous continuous recognition, call [stop_continuous_recognition_async()](To stop recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--).
+
+### Single-shot recognition
+
+Here's an example of synchronous single-shot recognition using [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once):
+
+```Python
+result = speech_recognizer.recognize_once()
+```
+
+Here's an example of synchronous single-shot recognition using [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture):
+
+```Python
+result = speech_recognizer.recognize_once_async()
+```
+
+Regardless of whether you've used the synchronous or asynchronous method, you'll need to write some code to iterate through the result. This sample does a few things with the [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python):
+
+* Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`
+* If there is no recognition match, informs the user: `speechsdk.ResultReason.NoMatch `
+* If an error is encountered, prints the error message: `speechsdk.ResultReason.Canceled`
+
+```Python
+if result.reason == speechsdk.ResultReason.RecognizedSpeech:
+    print("Recognized: {}".format(result.text))
+elif result.reason == speechsdk.ResultReason.NoMatch:
+    print("No speech could be recognized: {}".format(result.no_match_details))
+elif result.reason == speechsdk.ResultReason.Canceled:
+    cancellation_details = result.cancellation_details
+    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
+    if cancellation_details.reason == speechsdk.CancellationReason.Error:
+        print("Error details: {}".format(cancellation_details.error_details))
+```
+
+### Continuous recognition
