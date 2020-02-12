@@ -976,6 +976,8 @@
         href: nomadic-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
+      - name: NS1 SSO For Azure
+        href: ns1-sso-for-azure-tutorial.md
       - name: Nuclino
         href: nuclino-tutorial.md
       - name: O.C. Tanner - AppreciateHub
