@@ -29,6 +29,10 @@ Requiring managed devices for cloud app access ties **Azure AD Conditional Acces
 - **[Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - This article provides you with a conceptual overview of Conditional Access and the related terminology.
 - **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - This article gives you an overview of the various options you have to get devices under organizational control. 
 
+>[!IMPORTANT] 
+> We recommend using Azure AD device based Conditional Access policy to get the best enforcement after initial device authentication. This includes closing sessions if the device falls out of compliance and device code flow.
+
+
 ## Scenario description
 
 Mastering the balance between security and productivity is a challenge. The proliferation of supported devices to access your cloud resources helps to improve the productivity of your users. On the flip side, you probably don't want certain resources in your environment to be accessed by devices with an unknown protection level. For the affected resources, you should require that users can only access them using a managed device. 
