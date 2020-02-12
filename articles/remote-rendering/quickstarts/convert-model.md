@@ -137,6 +137,7 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
     }
 }
 ```
+
 The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
 Inside the **azureStorageSettings** group, make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.

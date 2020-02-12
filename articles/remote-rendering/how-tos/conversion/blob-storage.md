@@ -20,6 +20,9 @@ The [model conversion](model-conversion.md) service requires you to store input 
 - Retrieve a stored access signature with write access for your output storage container
 - Upload your model to the input container
 
+> [!TIP]
+> For step-by-step instructions how to set up your storage account, have a look at [Quickstart: Convert a model for rendering](../../quickstarts/convert-model.md)
+
 The creation of the storage account and the blob containers can be done with one of the following tools:
 
 - [Azure portal](https://portal.azure.com)
