@@ -4,7 +4,7 @@ description: View, download, and run sample code and applications for Azure Stor
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/06/2019
+ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
@@ -269,7 +269,7 @@ The following table provides an overview of our samples repository and the scena
 ### Troubleshooting 
 :::row:::
    :::column span="2":::
-      [Trigger a recoverable error](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188)
+      [Trigger a recoverable error using a queue client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188)
    :::column-end:::
 :::row-end:::
 

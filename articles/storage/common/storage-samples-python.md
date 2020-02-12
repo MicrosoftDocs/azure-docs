@@ -4,7 +4,7 @@ description: View, download, and run sample code and applications for Azure Stor
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 02/11/2020
+ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
