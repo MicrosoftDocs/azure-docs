@@ -21,11 +21,13 @@ ms.author: allensu
 
 NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses come from individual public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
+
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT">
+  <img src="./media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT flows">
 </p>
 
-*Figure: Virtual Network NAT*
+*Figure: Virtual Network NAT flows*
+
 
 >[!NOTE] 
 >Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
@@ -47,6 +49,14 @@ User-defined routes aren't necessary.
 ## Resource
 
 The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  This template-like format is shown here to illustrate the concepts and structure.  Modify the example for your needs.  This document isn't intended as a tutorial.
+
+The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it is writeable.
+
+<p align="center">
+  <img src="./media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT">
+</p>
+
+*Figure: Virtual Network NAT object model*
 
 NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md).
 
@@ -150,12 +160,6 @@ The zones property isn't mutable.  Redeploy NAT gateway resource with the intend
 ## Source Network Address Translation
 
 Source network address translation (SNAT) rewrites the source of a flow to originate from a different IP address.  NAT gateway resources use a variant of SNAT commonly referred to port address translation (PAT). PAT rewrites the source address and source port.  With the addition of source port translation, there's no fixed relationship between the number of private addresses and their translated public addresses.  
-
-<p align="center">
-  <img src="./media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT with availability zones">
-</p>
-
-*Figure: Virtual Network NAT flows*
 
 ### Fundamentals
 
