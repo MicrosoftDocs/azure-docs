@@ -111,7 +111,7 @@
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
     items:
-      name: NAT
+   - name: NAT
       items:
       - name: Create NAT gateway - Portal
         href: quickstart-create-nat-gateway-portal.md
