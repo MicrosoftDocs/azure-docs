@@ -314,7 +314,7 @@ Enable the following registry to block your users from adding additional work ac
 
 **Remarks:**
 
-- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
+- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/concept-conditional-access-conditions.md) to access resources. 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 
 ---
