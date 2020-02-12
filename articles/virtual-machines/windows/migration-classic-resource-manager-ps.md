@@ -127,9 +127,9 @@ Set your Azure subscription for the current session. This example sets the defau
 
 
 ## Step 5: Run commands to migrate your IaaS resources
-* [Migrate VMs in a cloud service (not in a virtual network)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migrate VMs in a virtual network](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Migrate a storage account](#step-62-migrate-a-storage-account)
+* [Migrate VMs in a cloud service (not in a virtual network)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migrate VMs in a virtual network](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migrate a storage account](#step-52-migrate-a-storage-account)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
