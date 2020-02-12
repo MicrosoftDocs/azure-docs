@@ -47,10 +47,11 @@ The `box_materials_override.json` file is placed in the input container, and a `
 
 When the model is converted, the new settings will apply.
 
-### Unlit materials
+### Color materials
 
-The Unlit material model describes a constantly shaded surface that is independent of lighting,
-useful for assets made by Photogrammetry algorithms, default is `false`:
+The [color material](../../overview/color-materials.md) model describes a constantly shaded surface that is independent of lighting.
+This is useful for assets made by Photogrammetry algorithms, for example.
+In material override files, a material can be declared to be a color material by setting `unlit` to `true`.
 
 ```json
 [
@@ -67,7 +68,7 @@ useful for assets made by Photogrammetry algorithms, default is `false`:
 
 ## JSON schema
 
-The full JSON schema for materials files is as follows:
+The full JSON schema for materials files is given here. With the exception of `unlit`, the properties available are a subset of the properties describe in the sections on the [color material](../../overview/color-materials.md) and [PBR material](../../overview/pbr-materials.md) models.
 
 ```json
 {
@@ -111,3 +112,8 @@ The full JSON schema for materials files is as follows:
     }
 }
 ```
+
+## Next steps
+
+* [Color materials](../../overview/color-materials.md)
+* [PBR materials](../../overview/pbr-materials.md)
