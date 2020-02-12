@@ -60,7 +60,7 @@ If you are writing an application that you want to make available to your custom
 
 Single-page applications (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back-end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back-end web API.
 
-After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, learn about the OAuth 2.0 implicit grant flow in Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) and [v2.0](v2-oauth2-implicit-grant-flow.md).
+After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, learn about the OAuth 2.0 implicit grant flow in Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) and [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 By default, OAuth 2.0 implicit grant is disabled for applications. You can enable OAuth 2.0 implicit grant for your application by following the steps outlined below.
 

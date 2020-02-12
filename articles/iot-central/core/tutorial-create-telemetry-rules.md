@@ -3,7 +3,7 @@ title: Tutorial - Create and manage rules in your Azure IoT Central application
 description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -14,13 +14,11 @@ manager: philmea
 
 *This article applies to operators, builders, and administrators.*
 
-
-
 You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email. In just a few clicks, you can define a condition to monitor telemetry from your devices and configure a corresponding action. This article explains how to create rules to monitor telemetry sent by the device.
 
 Devices use telemetry to send numerical data from the device. A  rule triggers when the selected device telemetry crosses a specified threshold.
 
-In this tutorial, you create a rule to send an email when the temperature in an environmental sensor device exceeds 70&deg; F.
+In this tutorial, you create a rule to send an email when the temperature in a simulated environmental sensor device exceeds 70&deg; F.
 
 In this tutorial, you learn how to:
 
@@ -31,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **Environment Sensor** device template to work with.
+Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create a rule
 
@@ -47,7 +45,7 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Environmental Sensor** device template. By default, the rule automatically applies to all the devices associated with the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button in the rule header:
+1. Select the **MXChip IoT DevKit** device template. By default, the rule automatically applies to all the devices associated with the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button in the rule header:
 
     ![Filters and enable](media/tutorial-create-telemetry-rules/device-filters.png)
 
@@ -72,7 +70,7 @@ You can add multiple conditions to a rule by selecting **+ Condition**. When mul
 
 ### Configure actions
 
-After you define the condition, you set up the actions to take when the rule fires. Actions are invoked when all the conditions specified in the rule evaluate to true. Currently, email is the only available action.
+After you define the condition, you set up the actions to take when the rule fires. Actions are invoked when all the conditions specified in the rule evaluate to true.
 
 1. Select **+ Email** in the **Actions** section.
 
