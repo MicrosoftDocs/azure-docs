@@ -84,9 +84,9 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 
    ![storageaccount](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-To configure a storage account under a virtual network or firewall you will need an [Active Directory admin](../sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
+To configure a storage account under a virtual network or firewall you will need an [Active Directory admin](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
 
-We recommend you to be [User Access Administrator](../role-based-access-control/built-in-roles#user-access-administrator) in order to grant to the managed identity the role 'storage blob data contributor'. To learn more about permissions and role-based access control, see [What is role-based access control (RBAC) for Azure resources?](../role-based-access-control/overview) and [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal)
+We recommend you to be [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) in order to grant to the managed identity the role 'storage blob data contributor'. To learn more about permissions and role-based access control, see [What is role-based access control (RBAC) for Azure resources?](../role-based-access-control/overview.md) and [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 ### <a id="audit-log-analytics-destination">Audit to Log Analytics destination</a>
   
@@ -231,7 +231,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 - Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
 
-- For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](../storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
+- For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
 
     > [!IMPORTANT]
     > The allow protected append blobs writes setting under time-based retention is currently available and visible only in the following regions:
@@ -271,7 +271,7 @@ Extended policy with WHERE clause support for additional filtering:
 
 ## <a id="subheading-9"></a>Manage Azure SQL Server and Database auditing using Azure Resource Manager templates
 
-You can manage Azure SQL database auditing using [Azure Resource Manager](../azure-resource-manager/resource-group-overview) templates, as shown in these examples:
+You can manage Azure SQL database auditing using [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates, as shown in these examples:
 
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure Blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
