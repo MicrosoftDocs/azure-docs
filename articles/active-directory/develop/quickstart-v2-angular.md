@@ -12,7 +12,7 @@ ms.custom: aaddev
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 02/05/2019
-ms.author: janutter
+ms.author: jasonnutter
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my Angular app can sign in users of personal accounts, work accounts, and school accounts.
