@@ -140,13 +140,13 @@ Note that Capture does not consume egress quota as it is billed separately.
 You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
 ## Next steps
-
 Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data Lake, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics using familiar tools and platforms of your choosing, at any scale you need.
 
-You can learn more about Event Hubs by visiting the following links:
+Learn how to enable this feature using the Azure portal and Azure Resource Manager template:
 
-* [Get started sending and receiving events](event-hubs-dotnet-framework-getstarted-send.md)
-* [Event Hubs overview][Event Hubs overview]
+- [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
+- [Use an Azure Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+
 
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
