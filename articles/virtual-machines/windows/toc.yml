@@ -599,8 +599,6 @@
           href: disks-benchmarks.md
     - name: Find unattached disks
       href: find-unattached-disks.md
-    - name: Use File storage
-      href: ../../storage/files/storage-files-quick-create-use-windows.md
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking
