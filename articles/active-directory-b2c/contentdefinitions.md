@@ -84,7 +84,7 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
 | `selfasserted` | Displays a form that enables users to create or update their profile. |
 
-## Select a page layout
+### Select a page layout
 
 You can enable [JavaScript client-side code](javascript-samples.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
@@ -122,6 +122,29 @@ The format of the value must contain the word `contract`: _urn:com:microsoft:aad
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+
+### Metadata
+
+A **Metadata** element contains the following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Item | 0:n | The metadata that relates to the content definition. |
+
+The **Item** element of the **Metadata** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Key | Yes | The metadata key.  |
+
+#### Metadata keys
+
+Content definition supports following metadata items: 
+
+| Key | Required | Description |
+| --------- | -------- | ----------- |
+| DisplayName | No | A string that contains the name of the content definition. |
+
 ### LocalizedResourcesReferences
 
 The **LocalizedResourcesReferences** element contains the following elements:
@@ -130,7 +153,7 @@ The **LocalizedResourcesReferences** element contains the following elements:
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | A list of localized resource references for the content definition. |
 
-The **LocalizedResourcesReferences** element contains the following attributes:
+The **LocalizedResourcesReference** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
