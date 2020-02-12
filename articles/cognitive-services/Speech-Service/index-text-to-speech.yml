@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Text-to-speech documentation
-summary: Explore the Text-to-speech documentation.
+summary: Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech.
 metadata:
   title: Text-to-speech documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -15,7 +15,7 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: Text-to-speech
+- title: Get started
   linkLists:
     - linkListType: overview
       links:
@@ -23,12 +23,14 @@ landingContent:
         url: text-to-speech.md
     - linkListType: quickstart
       links:
-        - text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
         - text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
+        - text: Synthesize speech into an audio file
+          url: quickstarts/text-to-speech-audio-file.md
         - text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+- title: Customization
+  linkLists:
     - linkListType: how-to-guide
       links:
         - text: Improve synthesis with SSML
@@ -37,6 +39,8 @@ landingContent:
           url: how-to-audio-content-creation.md
         - text: Improve synthesis with Custom Voice
           url: how-to-custom-voice.md
+- title: Reference
+  linkLists:
     - linkListType: reference
       links:
         - text: Language support

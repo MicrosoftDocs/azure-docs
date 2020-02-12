@@ -51,8 +51,6 @@
     items:
     - name: Custom Speech portal
       items:
-      - name: Get started with Custom Speech
-        href: how-to-custom-speech.md
       - name: Prepare data
         href: how-to-custom-speech-test-data.md
       - name: Inspect data

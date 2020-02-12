@@ -186,13 +186,13 @@ additionalContent:
     - items:
       - title: REST APIs
         links:
-        - text: Speech-to-text REST API
+        - text: Speech-to-text
           url: rest-speech-to-text.md
-        - text: Batch transcription REST API
+        - text: Batch transcription
           url: batch-transcription.md
-        - text: Text-to-speech REST API
+        - text: Text-to-speech
           url: rest-text-to-speech.md
-        - text: Conversation transcription REST APIs
+        - text: Conversation transcription
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - title: Resources
         links:
