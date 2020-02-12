@@ -244,7 +244,7 @@ phrase_list_grammar.clear()
 Phrase lists are only one option to improve recognition accuracy. You can also: 
 
 * [Improve accuracy with Custom Speech](how-to-custom-speech.md)
-* [Improve accuracy with tenant models](tutorial-tenant-model)
+* [Improve accuracy with tenant models](tutorial-tenant-model.md)
 
 ## Next steps
 
