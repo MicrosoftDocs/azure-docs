@@ -8,16 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/12/2020
 ---
 
 # Monitor query requests in Azure Cognitive Search
 
-This article describes metrics that reflect query performance and volumes. It also explains how to collect the input terms used in queries, which gives you a way to measure the utility and effectiveness of your search corpus.
+This article describes metrics that reflect query performance and volumes.
+<!-- It also explains how to collect the input terms used in queries, which gives you a way to measure the utility and effectiveness of your search corpus. -->
 
-Query execution data that feeds into metrics is preserved for 30 days. If you want longer history or more operational data, configure a diagnostic setting so that you can specify storage.
+Historical data that feeds into metrics is preserved for 30 days. For reporting over a longer period, or to report on operational data, be sure to enable a diagnostic setting that specifies a storage option.
 
-With additional code and Application Insights, you can also capture clickthrough data for deeper insight into what interests the users of your application. For more information, see [Search traffic analytics](search-traffic-analytics.md).
+With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what interests the users of your application. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
 
@@ -33,31 +34,45 @@ Volume is measured as **SearchQueriesPerSecond** (QPS), a built-in metric that c
 
 For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-## Query performance (latency, throttling)
+## Query performance
 
 Service-wide, query performance is measured as search latency (how long a query takes to complete) and throttled queries that were dropped as a result of resource contention.
 
-| Aggregation Type | Latency | Throttling |
-|------------------|---------|------------|
-| Average | Average query duration in milliseconds. | Not applicable (shows as 0%). |
-| Count | The number of raw samples used to generate the metric. | Same. |
-| Maximum | Longest running query in the sample. | Not applicable (shows as 0%). |
-| Minimum | Shortest running query in the sample.  | Not applicable (shows as 0%). |
-| Total | Total execution time of all queries in the sample, executing within the interval (one minute). | Total number of queries dropped within the interval. |
+### Search latency
+
+| Aggregation Type | Latency | 
+|------------------|---------|
+| Average | Average query duration in milliseconds. | 
+| Count | The number of raw samples used to generate the metric. |
+| Maximum | Longest running query in the sample. | 
+| Minimum | Shortest running query in the sample.  | 
+| Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
 
 Consider the following example of Latency metrics: 86 queries were sampled, with an average duration of 23.26 milliseconds. A minimum of 0 indicates some queries were dropped. The longest running query took 1000 milliseconds to complete. Total execution time was 2 seconds.
 
 ![Latency aggregations](./media/search-monitor-usage/metrics-latency.png "Latency aggregations")
 
+### Throttled queries
+
+For queries that were dropped within the sampling interval, use *Total* to get the number of queries that did not execute.
+
+| Aggregation Type | Throttling |
+|------------------|-----------|
+| Average |  Not applicable (shows as 0%). |
+| Count | The number of raw samples used to generate the metric. |
+| Maximum | Not applicable (shows as 0%). |
+| Minimum | Not applicable (shows as 0%). |
+| Total | Total number of queries dropped within the interval. |
+
 ## Track query metrics in the portal
 
 For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows **Search queries per second (per search unit)** over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation from the default to another type.
 
-For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to spot trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](learn/tutorial-metrics-explorer.md).
+For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](learn/tutorial-metrics-explorer.md).
 
-1. Under the Monitoring section, select **Metrics**. This opens metrics explorer with the scope set to your search service.
+1. Under the Monitoring section, select **Metrics** to open the metrics explorer with the scope set to your search service.
 
-1. Under Metric, choose **Search queries per second** from the dropdown list and review the list of available aggregations for a preferred type. The aggregation defines how the collected values will be sampled over each time interval.
+1. Under Metric, choose one from the dropdown list and review the list of available aggregations for a preferred type. The aggregation defines how the collected values will be sampled over each time interval.
 
    ![Metrics explorer for QPS metric](./media/search-monitor-usage/metrics-explorer-qps.png "Metrics explorer for QPS metric")
 
@@ -71,7 +86,11 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 ## Create a metric alert
 
-Create a metric alert to establish a threshold at which you will either receive a notification or execute a corrective action. Throttled queries are a condition for which metric alerts should be created.
+A  metric alert establishes a threshold at which you will either receive a notification or trigger a corrective action that you define in advance. 
+
+For a search service, it's common to create a metric alert for throttled queries. If you know when queries are dropped, you can look for remedies that reduce load or increase capacity. For example, if throttled queries increase during indexing, you could postpone it until query activity subsides.
+
+When pushing the limits of a particular replica-partition configuration, setting up alerts for query volume thresholds (QPS) is also helpful.
 
 1. Under the Monitoring section, select **Alerts** and then click **+ New alert rule**. Make sure your search service is selected as the resource.
 
