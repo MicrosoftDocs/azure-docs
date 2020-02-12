@@ -39,7 +39,7 @@ The default time window is 5 minutes. The minimum value is 1, the maximum 15. Th
 
 ## Capture data to Azure Data Lake Storage Gen 2 
 
-1. Follow [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) article to create an Azure Storage account. Set **Hierarchical namespace** to **Enabled** on the **Advanced** tab to make it an Azure Data Lake Storage Gen 2 account.
+1. Follow [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) article to create an Azure Storage account. Set **Hierarchical namespace** to **Enabled** on the **Advanced** tab to make it an Azure Data Lake Storage Gen 2 account.
 2. When creating an event hub, do the following steps: 
 
     1. Select **On** for **Capture**. 
