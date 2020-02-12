@@ -29,7 +29,7 @@ Before you get started:
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the "Speech SDK Parameter" from [region](https://aka.ms/speech/sdkregion) associated with your subscription (for example, `westus` for the free trial subscription).
 
 > [!NOTE]
 > The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
