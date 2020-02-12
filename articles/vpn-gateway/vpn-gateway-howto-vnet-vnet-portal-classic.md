@@ -29,7 +29,7 @@ This article helps you create a VPN gateway connection between virtual networks.
 
 ![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## About VNet-to-VNet connections
 
