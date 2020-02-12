@@ -1,12 +1,12 @@
 ---
-title: Create an Azure Functions project from the command line
-description: Create and deploy serverless code to the cloud using Azure Functions.
+title: Create a function in Azure that responds to HTTP requests
+description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 01/28/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Quickstart: Create an Azure Functions project from the command line
+# Quickstart: Create a function in Azure that responds to HTTP requests
 
 In this article, you use command-line tools to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -198,7 +198,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-### \_\_init\_\_.py
+#### \_\_init\_\_.py
 
 *\_\_init\_\_.py* contains a `main()` Python function that's triggered according to the configuration in *function.json*.
 
@@ -208,7 +208,7 @@ For an HTTP trigger, the function receives request data in the variable `req` as
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-### index.js
+#### index.js
 
 *index.js* exports a function that's triggered according to the configuration in *function.json*.
 
@@ -218,7 +218,7 @@ For an HTTP trigger, the function receives request data in the variable `req` as
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-### index.ts
+#### index.ts
 
 *index.ts* exports a function that's triggered according to the configuration in *function.json*.
 
@@ -228,7 +228,7 @@ For an HTTP trigger, the function receives request data in the variable `req` of
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-### run.ps1
+#### run.ps1
 
 *run.ps1* defines a function script that's triggered according to the configuration in *function.json*.
 
@@ -238,7 +238,7 @@ For an HTTP trigger, the function receives request data passed to the `$Request`
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
-### function.json
+#### function.json
 
 *function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. 
 ::: zone-end
@@ -267,10 +267,10 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 ## Create supporting Azure resources for your function
 
-To deploy your function code to Azure, you need to create three resources:
+Before you can deploy your function code to Azure, you need to create three resources:
 
 - A resource group, which is a logical container for related resources.
-- A  Storage account, which maintains state and other information about your projects.
+- A Storage account, which maintains state and other information about your projects.
 - A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
