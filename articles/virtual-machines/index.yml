@@ -34,7 +34,7 @@ highlightedContent:
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
     # Card
     - title: Spot VMs
-      itemType: Whats new
+      itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
     # Card
     - title: Dedicated hosts
@@ -42,7 +42,7 @@ highlightedContent:
       url: https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts
     # Card
     - title: Proximity placement groups
-      itemType: 
+      itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
 
 # tools section (optional)
