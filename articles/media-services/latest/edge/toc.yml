@@ -8,7 +8,7 @@
     href: overview.md  
 - name: Tutorials
   items:
-  - name: Media Graphs in the cloud for RTSP ingest
+  - name: Media Graphs on the edge for RTSP ingest
     href: media-graph-cloud-tutorial.md
   - name: Media Services on IoT Edge for ingestion
     href: media-graph-edge-ingestion-tutorial.md  
