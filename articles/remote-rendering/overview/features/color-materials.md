@@ -9,7 +9,7 @@ ms.topic: article
 
 # Color materials
 
-*Color materials* are one of the supported [material types](../../concepts/materials.md) in Azure Remote Rendering. They are used for [meshes](../../concepts/meshes.md) that should not receive any kind of lighting, but rather be full bright at all times. This might be the case for 'glowing' materials, such as car dashboards, light bulbs, or for data that already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
+*Color materials* are one of the supported [material types](../../concepts/materials.md) in Azure Remote Rendering. They are used for [meshes](../../concepts/meshes.md) that should not receive any kind of lighting, but rather be full brightness at all times. This might be the case for 'glowing' materials, such as car dashboards, light bulbs, or for data that already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 
 Color materials are more efficient to render than [PBR materials](pbr-materials.md) because of their simpler shading model. They also support different transparency modes.
 
