@@ -37,7 +37,7 @@ You can scale the resources in Azure Cosmos DB Cassandra API account by using Az
 
 The advantage of this method is that it is a straightforward turnkey way to manage throughput capacity on the database. However, the disadvantage is that in many cases, your approach to scaling may require certain levels of automation to be both cost-effective and high performing. The next sections explain the relevant scenarios and methods.
 
-## Using the Control Plane
+## <a id="use-control-plane"></a>Use the control plane
 
 The Azure Cosmos DB API for Cassandra provides the capability to adjust throughput programmatically using our various control plane features. Consult our articles [Azure Resource Manager](https://docs.microsoft.com/azure/cosmos-db/manage-cassandra-with-resource-manager), [Powershell](https://docs.microsoft.com/azure/cosmos-db/powershell-samples-cassandra), and [Azure CLI](https://docs.microsoft.com/azure/cosmos-db/cli-samples-cassandra) for guidance and samples.
 
