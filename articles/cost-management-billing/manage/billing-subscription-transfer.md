@@ -59,7 +59,7 @@ If you're an Enterprise Agreement(EA) customer, your enterprise administrators c
 
 1. Success! The subscription is now transferred.
 
-## Transferring subscription to an account in another Azure AD tenant
+## Transfer a subscription to another Azure AD tenant account
 
 An Azure Active Directory (AD) tenant is created for you when you sign up for Azure. The tenant represents your account. You use the tenant to manage access to your subscriptions and resources.
 
@@ -68,14 +68,14 @@ When you create a new subscription, it's hosted in your account's Azure AD tenan
 When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals who had [role based access (RBAC)](../../role-based-access-control/role-assignments-portal.md) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. The new owner must [manually add these users to the subscription](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to provide access to the use who lost it.
 
 
-## Transferring Visual Studio, MPN and Pay as you go Dev/Test subscriptions
+## Transfer Visual Studio and Partner Network subscriptions
 
 Visual Studio and Microsoft Partner Network subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit isn't available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on September 9 and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every ninth day of the month.
 
 
 <a id="EA"></a>
 
-## Transfer billing ownership of Enterprise Agreement (EA) subscriptions
+## Transfer EA subscription billing ownership
 
 The Enterprise Administrator can transfer ownership of subscriptions between accounts within an enrollment. For more information, see [Change account owner](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) in the EA portal.
 
