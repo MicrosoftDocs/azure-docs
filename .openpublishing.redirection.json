@@ -26531,6 +26531,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-redundancy-lrs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-grs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-zrs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-gzrs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/storage-disaster-recovery-guidance.md",
       "redirect_url": "/azure/storage/common/storage-disaster-recovery-guidance",
       "redirect_document_id": true
