@@ -33,17 +33,17 @@ highlightedContent:
       itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
     # Card
-    - title: Linux tutorials
-      itemType: tutorial
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
+    - title: Spot VMs
+      itemType: Whats new
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
     # Card
-    - title: Windows tutorials
-      itemType: tutorial
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm
+    - title: Dedicated hosts
+      itemType: whats-new
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts
     # Card
-    - title: Virtual machine scale sets tutorials
-      itemType: tutorial
-      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli
+    - title: Proximity placement groups
+      itemType: 
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
 
 # tools section (optional)
 tools:
