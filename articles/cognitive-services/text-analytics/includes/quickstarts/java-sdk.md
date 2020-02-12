@@ -96,9 +96,9 @@ Create a method to instantiate the `TextAnalyticsClient` object with your `KEY` 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-            .apiKey(new TextAnalyticsApiKeyCredential(key))
-            .endpoint(endpoint)
-            .buildClient();
+        .apiKey(new TextAnalyticsApiKeyCredential(key))
+        .endpoint(endpoint)
+        .buildClient();
 }
 ```
 
@@ -124,11 +124,11 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 
     for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
         System.out.printf(
-                "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %.2f.%n",
-                sentenceSentiment.getSentiment(),
-                sentenceSentiment.getSentimentScores().getPositive(),
-                sentenceSentiment.getSentimentScores().getNeutral(),
-                sentenceSentiment.getSentimentScores().getNegative());
+            "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %.2f.%n",
+            sentenceSentiment.getSentiment(),
+            sentenceSentiment.getSentimentScores().getPositive(),
+            sentenceSentiment.getSentimentScores().getNeutral(),
+            sentenceSentiment.getSentimentScores().getNegative());
     }
 }
 ```
@@ -155,9 +155,9 @@ static void detectLanguageExample(TextAnalyticsClient client)
 
     DetectedLanguage detectedLanguage = client.detectLanguage(text);
     System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %s.%n",
-            detectedLanguage.getName(),
-            detectedLanguage.getIso6391Name(),
-            detectedLanguage.getScore());
+        detectedLanguage.getName(),
+        detectedLanguage.getIso6391Name(),
+        detectedLanguage.getScore());
 }
 ```
 
@@ -183,13 +183,13 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 
     for (CategorizedEntity entity : client.recognizeEntities(text)) {
         System.out.printf(
-                "Recognized entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %s.%n",
-                entity.getText(),
-                entity.getCategory(),
-                entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
-                entity.getOffset(),
-                entity.getLength(),
-                entity.getScore());
+            "Recognized entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %s.%n",
+            entity.getText(),
+            entity.getCategory(),
+            entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
+            entity.getOffset(),
+            entity.getLength(),
+            entity.getScore());
     }
 }
 ```
@@ -213,13 +213,13 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 
     for (PiiEntity entity : client.recognizePiiEntities(text)) {
         System.out.printf(
-                "Recognized personal identifiable information entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %s.%n",
-                entity.getText(),
-                entity.getCategory(),
-                entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
-                entity.getOffset(),
-                entity.getLength(),
-                entity.getScore());
+            "Recognized personal identifiable information entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %s.%n",
+            entity.getText(),
+            entity.getCategory(),
+            entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
+            entity.getOffset(),
+            entity.getLength(),
+            entity.getScore());
     }
 }
 ```
