@@ -1,23 +1,21 @@
 ---
 title: Manage custom policies with PowerShell
 titleSuffix: Azure AD B2C
-description: "Use the Azure Active Directory (Azure AD) PowerShell cmdlet for programmatic management of your Azure AD B2C custom policies. Create, read, update, and delete custom policies with PowerShell."
+description: Use the Azure Active Directory (Azure AD) PowerShell cmdlet for programmatic management of your Azure AD B2C custom policies. Create, read, update, and delete custom policies with PowerShell.
 author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Manage Azure AD B2C custom policies with Azure PowerShell
 
-Whether you're doing one-off custom policy management in your Azure AD B2C tenant or adding it your continuous integration/continuous delivery (CI/CD) pipeline, PowerShell is a powerful tool you can use for performing and automating management tasks.
-
-In this article, you learn how to use the Azure AD PowerShell module to interactively:
+Azure PowerShell provides several cmdlets for command line- and script-based custom policy management in your Azure AD B2C tenant. Learn how to use the Azure AD PowerShell module to:
 
 * List the custom policies in an Azure AD B2C tenant
 * Download a policy from a tenant
@@ -27,14 +25,14 @@ In this article, you learn how to use the Azure AD PowerShell module to interact
 
 ## Prerequisites
 
-* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the *Global Admin* role
+* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
 * [Azure AD PowerShell for Graph **preview module**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 ## Connect PowerShell session to B2C tenant
 
 To work with custom policies in your Azure AD B2C tenant, you first need to connect your PowerShell session to the tenant by using the [Connect-AzureAD][Connect-AzureAD] command.
 
-Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant. Sign in with an account that's assigned the *Global Admin* role in the directory.
+Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant. Sign in with an account that's assigned the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role in the directory.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -192,7 +190,7 @@ For information about troubleshooting custom policies, see [Troubleshoot Azure A
 
 ## Next steps
 
-For information about using PowerShell to deploy custom policies as part of a CI/CD pipeline, see [Deploy custom policies from an Azure DevOps pipeline](deploy-custom-policies-with-devops.md).
+For information about using PowerShell to deploy custom policies as part of a continuous integration/continuous delivery (CI/CD) pipeline, see [Deploy custom policies from an Azure DevOps pipeline](deploy-custom-policies-with-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -29,7 +29,7 @@ There are three primary steps required for enabling Azure Pipelines to manage cu
 
 ## Prerequisites
 
-* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the *Global Admin* role
+* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
 
 ## Client credentials grant flow
@@ -182,7 +182,7 @@ Next, add a task to deploy a policy file.
     * **Script Path**: Select the ellipsis (***...***), navigate to the *Scripts* folder, and then select the *DeployToB2C.ps1* file.
     * **Arguments:**
 
-        Enter the following for **Arguments**. Replace `{alias-name}` with the alias you specified in the previous section.
+        Enter the following values for **Arguments**. Replace `{alias-name}` with the alias you specified in the previous section.
 
         ```PowerShell
         # Before
