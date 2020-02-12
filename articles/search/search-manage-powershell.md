@@ -22,7 +22,7 @@ ms.date: 02/11/2020
 
 You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure Azure Cognitive Search. 
 
-The **Az.Search** module extends [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/) with full parity to the [Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement) and the ability to perform the following tasks:
+The **Az.Search** module extends [Azure PowerShell](https://docs.microsoft.com/powershell/) with full parity to the [Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement) and the ability to perform the following tasks:
 
 > [!div class="checklist"]
 > * [List search services in a subscription](#list-search-services)
@@ -32,15 +32,9 @@ The **Az.Search** module extends [Azure PowerShell](https://docs.microsoft.com/e
 > * [Create or delete query api-keys](#create-or-delete-query-keys)
 > * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 
-PowerShell cannot be used to change the name, region, or tier of your service. Dedicated resources are allocated when a service is created. Changing the underlying hardware (location or node type) requires a new service. 
+Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
 
-There are no tools or APIs for transferring content from one service to another. All content management is through [REST](https://docs.microsoft.com/rest/api/searchservice/) or [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs, and if you want to move indexes, you will need to recreate and reload them on a new service. 
-
-While there are no dedicated PowerShell commands for content management, you can write PowerShell script that calls REST or .NET to create and load indexes. The **Az.Search** module by itself does not provide these operations.
-
-Other tasks not supported through PowerShell or any other API (portal-only) include:
-+ [Attach a cognitive services resource](cognitive-search-attach-cognitive-services.md) for [AI-enriched indexing](cognitive-search-concept-intro.md). A cognitive service is attached to a skillset, not a subscription or service.
-+ [Add-on monitoring solutions](search-monitor-usage.md#add-on-monitoring-solutions) for monitoring Azure Cognitive Search.
+Within a service, content creation and management is through [Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/) or [.NET SDK](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
 
 <a name="check-versions-and-load"></a>
 
