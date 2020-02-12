@@ -25,7 +25,7 @@ Make sure that you have installed Azure PowerShell version 2.8.0 or later, and y
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The following VM series are supported: DSv3, ESv3 and Fsv2. 
+- The following VM series are supported: DSv3, ESv3, and Fsv2. 
 
 ## Create a host group
 
