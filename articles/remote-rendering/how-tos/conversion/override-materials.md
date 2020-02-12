@@ -49,7 +49,7 @@ When the model is converted, the new settings will apply.
 
 ### Color materials
 
-The [color material](../../overview/color-materials.md) model describes a constantly shaded surface that is independent of lighting.
+The [color material](../../overview/features/color-materials.md) model describes a constantly shaded surface that is independent of lighting.
 This is useful for assets made by Photogrammetry algorithms, for example.
 In material override files, a material can be declared to be a color material by setting `unlit` to `true`.
 
