@@ -39,8 +39,6 @@ The script to automate the download and installation, and to establish the conne
     >- WestAsia
     >
     >Review additional considerations when selecting a region [here](overview.md#supported-regions) in the Overview article.
-    
-    
 
 1. On the **Generate script** page, in the **Operating system** drop-down list, select the operating system that the script will be running on.
 
