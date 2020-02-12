@@ -1,6 +1,6 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
-description: In this article, you will learn how to build an application with accessibility features using Microsoft Azure Maps.
+description: In this article, you'll learn how to build an application with accessibility features using Microsoft Azure Maps.
 services: azure-maps 
 author: rbrundritt
 ms.author: richbrun
@@ -57,7 +57,7 @@ There are several different ways in which the map can be zoomed, panned, rotated
 - Using the pitch control with a mouse, touch or keyboard tab/enter keys.
 
 **Change the map style**
-Not all developers will want all possible map styles to be available in their application. The developer can programmatically set and change the map style as desired. If the developer displays the map style picker control, the user will be able to change the map style using the mouse, touch, or the keyboard using the tab/enter keys. The developer can specify which map styles they want to make available in the map style picker control. 
+Not all developers want all possible map styles to be available in their application. The developer can programmatically set and change the map style. If the developer displays the style picker control of the map, then the user may change the map style using the mouse, a touch, or the keyboard with the tab or enter key. The developer can specify which map styles they want to make available in the map style picker control. 
 
 ## Keyboard shortcuts
 
@@ -90,7 +90,7 @@ Any additional information that is placed on the base map should have correspond
 
 ## Make popups keyboard accessible
 
-A marker or symbol is often used to represent a location on the map. Additional information about the location is typically displayed in a popup when the user interacts with the marker. In most applications popups appear when a user clicks or taps a marker, however this event requires the user to use a mouse or a touch screen. A good practice is to make popups accessible when using a keyboard. This functionality can be achieved by creating a popup for each data point and adding it to the map. 
+A marker or symbol is often used to represent a location on the map. Additional information about the location is typically displayed in a popup when the user interacts with the marker. In most applications, popups appear when a user clicks or taps a marker. However, clicking and tapping require the user to use a mouse and a touch screen, respectively. A good practice is to make popups accessible when using a keyboard. This functionality can be achieved by creating a popup for each data point and adding it to the map. 
 
 The following example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point. It can also be retrieved for a marker, such as when a marker is clicked. When focused on the map, pressing the tab key will allow the user to step through each popup on the map.
 
@@ -112,12 +112,12 @@ Here are some additional tips to make your web-mapping application more accessib
     - Throttle the updates to once every few seconds. 
     - Combine messages together in a logical way. 
 - Avoid using color as the only means of conveying information. Use text, icons, or patterns to supplement or replace the color. Some considerations:
-    - If using a bubble layer to show the relative value between data points, consider scaling the radius of each bubble in addition to or as an alternative to coloring them. 
+    - If using a bubble layer to show the relative value between data points, consider scaling the radius of each bubble, coloring the bubble, or both. 
     - Consider using a symbol layer with different icons for different metric categories, such as triangles, stars, and squares. The symbol layer also supports scaling the size of the icon. A text label can also be displayed.
     - If displaying line data, the width can be used to represent weight or size. A dash-array pattern can be used to represent different categories of lines. A symbol layer can be used in combination with a line to overlay icons along the line. Using an arrow icon is useful for showing the flow or direction of the line.
     - If displaying polygon data, a pattern, such as stripes, can be used as an alternative to color. 
 - Some visualizations such as heatmaps, tile layers, and image layers aren't accessible for users with vision impairments. Some considerations:
-    - Have the screen reader describe what the layer is displaying when added to the map. For example, if a weather radar tile layer is displayed, have the screen reader say something like "Weather radar data overlaid on map."
+    - Have the screen reader describe what the layer is displaying when added to the map. For example, if a weather radar tile layer is displayed, then have the screen reader say "Weather radar data is overlaid on the map."
 - Limit the amount of functionality that requires a mouse hover. These functionalities will be inaccessible to users who are using a keyboard or touch device to interact with your application. Note, it's still a good practice to have a hover style for interactive content such as clickable icons, links, and buttons.
 - Try navigating your application using the keyboard. Make sure tab ordering is logical.
 - If creating keyboard shortcuts, try to limit it to two keys or less. 
