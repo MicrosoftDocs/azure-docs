@@ -9481,6 +9481,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/directions-microsoft-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-clarizen-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/clarizen-tutorial",
       "redirect_document_id": true
