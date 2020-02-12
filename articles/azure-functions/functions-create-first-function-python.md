@@ -1,7 +1,7 @@
 ---
-title: Create an HTTP triggered Python function in Azure
+title: Create an Python function in Azure that responds to HTTP requests
 description: Create and deploy serverless Python code to the cloud using Azure Functions.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
 ---
