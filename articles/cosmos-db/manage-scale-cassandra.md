@@ -26,7 +26,7 @@ If you need to minimize latency, there is a spectrum of options for managing sca
 
 * [Manually by using the Azure portal](#use-azure-portal)
 * [Programmatically by using the control plane features](#use-control-plane)
-* Programmatically using CQL with your chosen SDK
+* [Programmatically by using CQL commands with a specific SDK](#use-cql-queries)
 * Dynamically using Autopilot
 
 We will discuss the advantages and disadvantages of each approach, so you can decide on the best strategy for balancing the scale needs of your system, and the overall cost and efficiency needs for your solution.
