@@ -1,12 +1,12 @@
 ---
 title: Azure Storage monitoring data reference | Microsoft Docs
-description: Put description here.
-author: bwren
+description: Log and metrics reference for monitoring data from Azure Storage.
+author: normesta
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 02/07/2020
-ms.author: bwren
+ms.author: normesta
 ms.subservice: logs
 ---
 
@@ -259,5 +259,5 @@ The following table lists the properties for Azure Storage resource logs when th
 
 ## See Also
 
-- See [Monitoring Azure Storage](monitor-storage.md) for a description of monitoring Azure Cosmos DB.
+- See [Monitoring Azure Storage](monitor-storage.md) for a description of monitoring Azure Storage.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
