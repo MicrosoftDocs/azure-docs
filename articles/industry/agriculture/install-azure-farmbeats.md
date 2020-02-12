@@ -80,7 +80,7 @@ You'll need the following permissions in the Azure tenant to install Azure FarmB
 
 The first two permissions are needed for [creating the AAD application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application.
 
-The person running the FarmBeats install from marketplace needs to be an owner of the Resource Group in which FarmBeats is being installed. For subscription owners, this happens automatically when Resource Group is created. For others, please pre-create the Resource Group and ask the Subscription owner to make you an owner of the Resource Group.
+The person running the FarmBeats install from marketplace needs to be an owner of the Resource Group in which FarmBeats is being installed. For subscription owners, this happens automatically when Resource Group is created. For others, pre-create the Resource Group and ask the Subscription owner to make you an owner of the Resource Group.
 
 You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
@@ -117,11 +117,11 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
         ./create_aad_script.ps1
     ```
 
-4. The script asks for the following 3 inputs:
+4. The script asks for the following three inputs:
 
-    - FarmBeats Website Name: This is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger API's will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
+    - FarmBeats Website Name: This is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger APIs will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
 
-    - Azure login ID: Please provide  Azure login ID for the user who you want to be added as admin of FarmBeats. This user can then grant access to access FarmBeats web application to other users. The login ID is generally of the form john.doe@domain.com. Azure UPN is also supported.
+    - Azure login ID: Provide Azure login ID for the user who you want to be added as admin of FarmBeats. This user can then grant access to access FarmBeats web application to other users. The login ID is generally of the form john.doe@domain.com. Azure UPN is also supported.
 
     - Subscription ID: This is the ID of the subscription in which you want to install Azure FarmBeats
 
