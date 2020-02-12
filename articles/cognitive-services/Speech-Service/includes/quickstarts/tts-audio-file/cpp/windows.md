@@ -30,7 +30,8 @@ Before you get started, make sure to:
    ```C++
 
     // Creates an instance of a speech config with specified subscription key and service region.
-    // Replace with your own subscription key and service region (e.g., "westus").
+    // Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+    // from here: https://aka.ms/speech/sdkregion).
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
     // Creates a speech synthesizer using file as audio output.

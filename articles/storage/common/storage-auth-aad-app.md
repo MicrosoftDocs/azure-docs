@@ -198,7 +198,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs at any given time by in the `scope` parameter. For more information about incremental consent, see the section titled **Incremental and dynamic consent** in [Why update to Microsoft identity platform (v2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs at any given time by in the `scope` parameter. For more information about incremental consent, see the section titled **Incremental and dynamic consent** in [Why update to Microsoft identity platform (v2.0)?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 The following method constructs the authentication properties for requesting incremental consent:
 
