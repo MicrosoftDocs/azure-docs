@@ -24,7 +24,7 @@ If your system is not sensitive to latency, it may be sufficient to handle the t
 
 If you need to minimize latency, there is a spectrum of options for managing scale and provisioning throughput (RUs) in the Cassandra API:
 
-* Manually using the Azure portal
+* [Manually by using the Azure portal](#use-azure-portal)
 * Programmatically using the Control Plane
 * Programmatically using CQL with your chosen SDK
 * Dynamically using Autopilot
