@@ -111,6 +111,20 @@
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
     items:
+      name: NAT
+      items:
+      - name: Create NAT gateway - Portal
+        href: quickstart-create-nat-gateway-portal.md
+      - name: Create NAT gateway - PowerShell
+        href: quickstart-create-nat-gateway-powershell.md
+      - name: Create NAT gateway - CLI
+        href: quickstart-create-nat-gateway-cli.md
+      - name: Create and validate NAT gateway - Portal
+        href: tutorial-create-validate-nat-gateway-portal.md
+      - name: Create and validate NAT gateway - PowerShell
+        href: tutorial-create-validate-nat-gateway-powershell.md
+      - name: Create and validate NAT gateway - CLI
+        href: tutorial-create-validate-nat-gateway-cli.md
     - name: Manage NICs
       href: virtual-network-network-interface.md
     - name: Manage virtual network
