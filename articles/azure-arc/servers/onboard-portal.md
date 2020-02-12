@@ -7,8 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/12/2020
-ms.custom: mvc
-ms.topic: quickstart
+ms.topic: conceptual
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
