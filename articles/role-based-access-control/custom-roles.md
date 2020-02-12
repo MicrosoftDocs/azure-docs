@@ -117,6 +117,7 @@ The following list describes the limits custom roles.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You can only define one management group in `AssignableScopes` of a custom role.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
+- Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
 For more information about custom role limits, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#limitations).
 
