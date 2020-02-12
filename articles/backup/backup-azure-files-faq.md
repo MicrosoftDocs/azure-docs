@@ -15,7 +15,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 
 ### Why can't I see some of my Storage Accounts I want to protect, that contain valid Azure file shares?
 
-During preview, Backup for Azure file Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) to see the list of supported Storage Accounts. It is also possible that the Storage Account you are looking for is already protected or registered with another Vault. [Unregister](troubleshoot-azure-files.md#configuring-backup) from the vault to discover the Storage Account in other Vaults for protection.
+Refer to the [Support Matrix for Azure file shares backup](afs-support-matrix.md) to ensure the storage account belongs to one of the supported storage account types. It is also possible that the Storage Account you are looking for is already protected or registered with another Vault. [Unregister the storage account](manage-afs-backup.md#unregister-a-storage-account) from the vault to discover the Storage Account in other vaults for protection.
 
 ### Why can't I see some of my Azure file shares in the Storage Account when I'm trying to configure backup?
 
@@ -27,11 +27,11 @@ Yes. Protection of Azure File Shares connected to Sync Groups is enabled and par
 
 ### When trying to back up file shares, I clicked on a Storage Account for discovering the file shares in it. However, I did not protect them. How do I protect these file shares with any other Vault?
 
-When trying to back up, selecting a Storage Account to discover file shares within it registers the Storage Account with the Vault from which this is done. If you choose to protect the file shares with a different Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) the chosen Storage Account from this Vault.
+When trying to back up, selecting a Storage Account to discover file shares within it registers the Storage Account with the vault from which this is done. If you choose to protect the file shares with a different vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the chosen Storage Account from this vault.
 
 ### Can I change the Vault to which I back up my file shares?
 
-Yes. However, you'll need to  [Stop protection on a file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
+Yes. However, you'll need to [stop protection on the file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) this Storage Account, and then protect it from a different vault.
 
 ### In which geos can I back up Azure File shares?
 
