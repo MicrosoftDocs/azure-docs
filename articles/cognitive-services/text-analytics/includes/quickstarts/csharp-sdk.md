@@ -52,7 +52,7 @@ In the application's `Program` class, create variables for your resource's key a
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
@@ -61,7 +61,7 @@ Replace the application's `Main` method. You will define the methods called here
 ```csharp
 static void Main(string[] args)
 {
-    var client = new TextAnalyticsClient(endpoint, key);
+    var client = new TextAnalyticsClient(endpoint, credentials);
     // You will implement these methods later in the quickstart.
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
@@ -88,8 +88,8 @@ In the application's `Program` class, create variables for your resource's key a
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
-private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
 ```
 
 Replace the application's `Main` method. You will define the methods called here later.
@@ -200,7 +200,7 @@ Sentiment Score: 0.87
 #### [Version 3.0-preview](#tab/version-3)
 
 
-Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectLanguageResult>` object will contain the detected language along with its name and ISO-6391 code. If there was an error, it will throw a `RequestFailedException`.
+Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectedLanguage>` object will contain the detected language along with its name and ISO-6391 code. If there was an error, it will throw a `RequestFailedException`.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -304,7 +304,7 @@ Personally Identifiable Information Entities:
 
 ## Entity linking
 
-Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<RecognizeLinkedEntitiesResult>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<IReadOnlyCollection<LinkedEntity>>` represents the list of detected entities. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```csharp
 static void EntityLinkingExample(TextAnalyticsClient client)
