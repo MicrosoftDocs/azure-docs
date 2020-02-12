@@ -3,8 +3,7 @@ title: 'Quickstart: Create an event hub with consumer group - Azure Event Hubs'
 description: 'Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates'
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
@@ -13,8 +12,8 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
-ms.author: shvija
+ms.date: 02/11/2020
+ms.author: spelluru
 
 ---
 
@@ -86,11 +85,10 @@ Write-Host "Press [ENTER] to continue ..."
 
 In this article, you created an Event Hubs namespace, and an event hub in the namespace. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials:
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)

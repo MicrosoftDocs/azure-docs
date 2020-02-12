@@ -139,7 +139,11 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 For more information about Event Hubs, visit the following links:
 
-* Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
+- Get started with Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
