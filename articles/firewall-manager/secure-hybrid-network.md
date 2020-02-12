@@ -11,6 +11,8 @@ ms.author: victorh
 
 # Tutorial: Secure your hybrid network with Azure Firewall Manager Preview using the Azure portal
 
+[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
 
 Using Azure Firewall Manager Preview, you can create a hub virtual network to secure your hybrid network traffic destined to private IP addresses, Azure PaaS, and the Internet. You can use Azure Firewall Manager to control network access in a hybrid network using policies that define allowed and denied network traffic.
@@ -28,9 +30,8 @@ For this tutorial, you create three virtual networks:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create the firewall hub virtual network
-> * Create the spoke virtual network
-> * Create the on-premises virtual network
+> * Create a firewall policy
+> * Create the virtual networks
 > * Configure and deploy the firewall
 > * Create and connect the VPN gateways
 > * Peer the hub and spoke virtual networks
@@ -433,3 +434,5 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md)

@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
 ---
 
@@ -13,24 +13,21 @@ ms.author: victorh
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Using Azure Firewall Manager Preview, you can create secured hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager Preview, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
-## Prerequisites
+Firewall Manager also supports a hub virtual network architecture. For a comparison of the secured virtual hub and hub virtual network architecture types, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
+In this tutorial, you learn how to:
 
-From a PowerShell command prompt, run the following commands:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Create the spoke virtual network
+> * Create a secured virtual hub
+> * Connect the hub and spoke VNets
+> * Create a firewall policy and secure your hub
+> * Route traffic to your hub
+> * Test the firewall
 
 ## Create a hub and spoke architecture
 
