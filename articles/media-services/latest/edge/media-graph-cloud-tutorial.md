@@ -132,7 +132,6 @@ This section imports and configures the Postman environment and collection files
     > [!NOTE] 
     > Make sure to update access variables with values you got from the **Access the Media Services API** section above.
 1. Double-click on the selected env file and enter values that you got by following the [accessing API](#create-a-service-principle-for-the-media-services-account) steps.
-
 <!-- replace with a better image    ![Configure env](./media/develop-with-postman/configure-env.png) -->
 1. Close the dialog.
 1. Select the **Azure Media Service v3 Environment** environment from the dropdown.
