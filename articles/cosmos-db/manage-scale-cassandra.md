@@ -18,7 +18,7 @@ There are a variety of options to explore the elastic nature of the Azure Cosmos
 
 Azure Cosmos DB will return rate-limited (429) errors if clients consume more resources (RU/s) than the amount that you have provisioned. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. 
 
-If your system is not sensitive to latency, it may be sufficient to handle higher than expected throughput using retries. See code sample [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) for how to handle rate limiting transparently using the [Cosmos DB Extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for [Cassandra Retry Policy](https://docs.datastax.com/en/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) in Java. We also have a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) extension.
+If your system is not sensitive to latency, it may be sufficient to handle the throughput rate-limiting by using retries. See the [Java code sample](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) for how to handle rate limiting transparently by using the [Azure Cosmos DB extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for [Cassandra retry policy](https://docs.datastax.com/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) in Java. You can also use the [Spark extension](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) to handle rate-limiting.
 
 ## Managing scale
 
