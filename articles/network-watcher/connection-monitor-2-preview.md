@@ -381,7 +381,7 @@ Each test group in a connection monitor includes sources and destinations that g
 
 #### Create a test group from the Azure portal
 
-In the Azure portal, to create a test group in a connection monitor, you specify values for the following fields:
+From the Azure portal, to create a test group in a connection monitor, you specify values for the following fields:
 
 * **Disable Test Group** – You can select this field to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name** – Name your test group.
@@ -400,13 +400,12 @@ In the Azure portal, to create a test group in a connection monitor, you specify
    
        If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
    
-        In the **Create Connection Monitor** view, on the **Basics** tab,
-        the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can also change the value of the **Group by** field to group by subnets.
+       In the **Create Connection Monitor** view, on the **Basics** tab, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can also change the value of the **Group by** field to group by subnets.
 
       ![Screenshot of Connection Monitor, showing the Add Sources panel and the Non-Azure Agents tab](./media/connection-monitor-2-preview/add-non-azure-sources.png)
 
 
-   * To review the Azure and Non-Azure agents that you selected, go to the **Review** tab.
+   * To review the Azure and non-Azure agents that you selected, go to the **Review** tab.
 
       ![Screenshot of Connection Monitor, showing the Add Sources panel and the Review tab](./media/connection-monitor-2-preview/review-sources.png)
 
@@ -422,7 +421,9 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
        ![Screenshot of the Add Destinations pane, showing the Subscription level](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-    * To choose endpoints as destinations, select the **Endpoints** tab. The list of endpoints includes Office 365 test URLs and Dynamics 365 test URLs, grouped by name. In addition to these endpoints, you can choose an endpoint that was created in other test groups in the same connection monitor. To add a new endpoint, on the right, select **+ Endpoints**. Then provide an endpoint name and a URL, IP, or FQDN.
+    * To choose endpoints as destinations, select the **Endpoints** tab. The list of endpoints includes Office 365 test URLs and Dynamics 365 test URLs, grouped by name. In addition to these endpoints, you can choose an endpoint that was created in other test groups in the same connection monitor. 
+    
+        To add a new endpoint, on the right, select **+ Endpoints**. Then provide an endpoint name and a URL, IP, or FQDN.
 
        ![Screenshot showing where to add endpoints as destinations in Connection Monitor](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -434,12 +435,12 @@ In the Azure portal, to create a test group in a connection monitor, you specify
     * **Name** – Name the test configuration.
     * **Protocol** – Choose TCP, ICMP, or HTTP. To change HTTP to HTTPS, select **HTTP** as the protocol, and select **443** as the port.
         * **Create network test configuration** – This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The newly created test configuration is named `<the name of your test configuration>_networkTestConfig`.
-        * **Disable traceroute** – This field applies to test groups whose protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop round-trip time.
+        * **Disable traceroute** – This field applies to test groups whose protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
     * **Destination port** – You can customize this field with a destination port of your choice.
     * **Test Frequency** – Use this field to choose how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Sources will test connectivity to destinations based on the value that you choose.  For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
     * **Success Threshold** – You can set thresholds on the following network parameters:
        * **Checks failed** – Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the number of HTTP requests that received no response.
-       * **Round-trip time** – Set the round-trip time in milliseconds for how long sources can take to connect to the destination over the test configuration.
+       * **Round-trip time** – Set the RTT in milliseconds for how long sources can take to connect to the destination over the test configuration.
     
        ![Screenshot showing where to set up a test configuration in Connection Monitor](./media/connection-monitor-2-preview/add-test-config.png)
 
