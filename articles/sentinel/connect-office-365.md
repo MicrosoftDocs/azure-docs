@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2020
+ms.date: 02/12/2020
 ms.author: rkarlin
 
 ---
@@ -37,7 +37,7 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/office365
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Office 365** tile.
 
-2. If you have not already enabled it, you can do so by going to **Data Connectors** blade and selecting **Office 365** connector. Here you can click the **Open Connector Page** and under configuration section labelled **Configuration** select all the Office 365 activity logs you want to connect to Azure Sentinel. 
+2. If you have not already enabled it, you can do so by going to **Data Connectors** blade and selecting **Office 365** connector. Here you can click the **Open Connector Page** and under configuration section labeled **Configuration** select all the Office 365 activity logs you want to connect to Azure Sentinel. 
    > [!NOTE]
    > If you already connected multiple tenants in a previously supported version of the Office 365 connector in Azure Sentinel, you will be able to view and modify which logs you collect from each tenant. You will not be able to add additional tenants, but you can remove previously added tenants.
 3. To use the relevant schema in Log Analytics for the Office 365 logs, search for **OfficeActivity**.
