@@ -63,15 +63,9 @@ NAT is compatible with the following standard SKU resources:
 - [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Public IP prefix](../virtual-network/public-ip-address-prefix.md)
 
-When used together on a subnet, NAT provides all outbound originated Internet connectivity.
+When used together with NAT, these resources provide inbound Internet connectivity to your subnet(s). NAT provides all outbound Internet connectivity from your subnet(s).
 
-Inbound traffic for Azure virtual machines and virtual machine scale sets is provided by:
-
-- [Load balancer](../load-balancer/load-balancer-overview.md)
-- [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Public IP prefix](../virtual-network/public-ip-address-prefix.md)
-
-NAT and compatible features are aware of the direction the flow was started. Inbound and outbound scenarios coexist and receive the correct network address translations.
+Inbound and outbound scenarios coexist because NAT and compatible Standard SKU features are aware of the direction the flow was started. These scenarios will receive the correct network address translations because these features are aware of the flow direction. 
 
 <!-- 
 <img src="./media/nat-overview/flow-direction4.svg" width="500" align="center">

@@ -13,16 +13,16 @@ ms.date: 07/17/2019
 
 Azure Data Lake Storage is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
  
-Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
+Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage (Gen1 and Gen2), providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
-> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried. [Optimize your query performance in the lake](#optimize-your-query-performance) for best results.
+> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query external data without prior ingestion should only be used for historical data or data that is rarely queried. [Optimize your query performance in the lake](#optimize-your-query-performance) for best results.
  
 
 ## Create an external table
 
  > [!NOTE]
- > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are json, csv, tsv and txt.
+ > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage (Gen1 and Gen2).
 
 1. Use the `.create external table` command to create an external table in Azure Data Explorer. Additional external table commands such as `.show`, `.drop`, and `.alter` are documented in [External table commands](/azure/kusto/management/externaltables).
 
@@ -41,6 +41,7 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
     > * When you define an external table with partitions, the storage structure is expected to be identical.
 For example, if the table is defined with a DateTime partition in yyyy/MM/dd format (default), the URI storage file path should be *container1/yyyy/MM/dd/all_exported_blobs*. 
     > * If the external table is partitioned by a datetime column, always include a time filter for a closed range in your query (for example, the query - `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` - should perform better than this (opened range) one - `ArchivedProducts | where Timestamp > ago(1h)` ). 
+    > * All [supported ingestion formats](ingest-data-overview.md#supported-data-formats) can be queried using external tables.
 
 1. The external table is visible in the left pane of the Web UI
 
