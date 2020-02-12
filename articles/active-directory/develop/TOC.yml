@@ -24,6 +24,8 @@
       href: quickstart-remove-app.md
   - name: Single-page apps
     items:
+    - name: Angular
+      href: quickstart-v2-angular.md
     - name: JavaScript
       href: quickstart-v2-javascript.md
   - name: Web apps
