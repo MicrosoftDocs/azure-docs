@@ -59,7 +59,7 @@ Containers in a shared throughput database share the throughput (RU/s) allocated
 
 * You can have up to four containers with a minimum of 400 RU/s on the database. Each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s.
 
-* You can have a maximum of 25 containers in the database. If you already have more than 25 containers in a shared throughput database, you will not be able to create additional containers until the container count is below 25. 
+* You can have a maximum of 25 containers in the database. If you already have more than 25 containers in a shared throughput database, you will not be able to create additional containers until the container count is less than 25.
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
