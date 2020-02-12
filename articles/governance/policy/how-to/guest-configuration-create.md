@@ -496,9 +496,9 @@ A good reference for creating GPG keys to use with Linux machines is provided by
 GitHub, [Generating a new GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
 After your content is published, append a tag with name `GuestConfigPolicyCertificateValidation` and
-value `enabled` to all virtual machines where code signing should be required. This tag can be
-delivered at scale using Azure Policy. See the [Apply tag and its default value](../samples/apply-tag-default-value.md)
-sample. Once this tag is in place, the policy definition generated using the
+value `enabled` to all virtual machines where code signing should be required. See the
+[Tag samples](../samples/built-in-policies.md#tags) for how tags can be delivered at scale using
+Azure Policy. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
 
