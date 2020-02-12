@@ -37,6 +37,8 @@
       href: service-tags.md
     - name: Compliance certifications
       href: compliance-certifications.md
+    - name: Central management
+      href: central-management.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell
