@@ -107,7 +107,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 
 ## Mount a file share from a domain-joined VM
 
-The following process verifies that your Azure AD credentials were set up correctly and that you can access an Azure File share from a domain-joined VM: 
+The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
 
 Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image.
 
