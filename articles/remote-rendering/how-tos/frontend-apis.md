@@ -1,36 +1,23 @@
 ---
-title: Authentication
-description: Explains how authentication works
+title: Azure Frontend APIs for authentication
+description: Explains how to use the C# frontend API for authentication
 author: FlorianBorn71
 manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Azure Frontend APIs
+# Azure Frontend APIs for authentication
 
-Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Clients need to set AccountKey, AuthenticationToken, or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS).
-
-> [!WARNING]
->
-> Use of account keys is recommended for quick on-boarding, but during development/prototyping only. It is strongly recommended not to ship your application to production using an embedded account key in it, and to instead use the user-based or service-based Azure AD authentication approaches.
-> This is described in the [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) service.
-
-## Role-based access control
-
-To help control the level of access granted to applications, services or Azure AD users of your service, the following roles have been created for you to assign as needed against your Azure Remote Rendering accounts:
-
-* **Remote Rendering Administrator**: Provides user with conversion, manage session, rendering, and diagnostics capabilities for Azure Remote Rendering.
-* **Remote Rendering Client**: Provides user with manage session, rendering, and diagnostics capabilities for Azure Remote Rendering.
-
+In this section, we will describe how to use the C# API for authentication.
 
 ## AzureFrontendAccountInfo
 
-AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend instance in the SDK.
+AzureFrontendAccountInfo is used to set up the authentication information for an ```AzureFrontend``` instance in the SDK.
 
 The important fields are:
 
@@ -52,6 +39,10 @@ The important fields are:
     }
 
 ```
+
+The account information can be obtained from the portal as described in the [retrieve account information](create-an-account.md#retrieve-the-account-information) paragraph.
+
+
 
 ## Azure Frontend
 
@@ -293,3 +284,8 @@ void ConnectToArrInspector(AzureSession session, string hostname)
         };
 }
 ```
+
+## Next steps
+
+* [Create an account](create-an-account.md)
+* [Example PowerShell scripts](../samples/powershell-example-scripts.md)

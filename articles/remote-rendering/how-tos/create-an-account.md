@@ -63,3 +63,9 @@ For the key, select **Access Keys** in the panel on the left. The next page show
 ![Azure access keys](./media/azure-account-primary-key.png)
 
 The value for **`arrAccountKey`** can either be primary or secondary key.
+
+## Next steps
+
+* [Authentication](authentication.md)
+* [Using the Azure Frontend APIs for authentication](frontend-apis.md)
+* [Example PowerShell scripts](../samples/powershell-example-scripts.md)

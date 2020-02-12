@@ -13,14 +13,16 @@ ms.date: 01/24/2020
 
 Azure Remote Rendering (ARR) enables you to render highly complex 3D models in real time on devices such as HoloLens 2.
 
+To work with the service, make sure you have an [Azure Remote Rendering account](how-tos/create-an-account.md).
+
 ## Concepts
 
 Learn key concepts to get started with Azure Remote Rendering:
 
+* [Authentication](how-tos/authentication.md)
 * [SDK concepts](concepts/sdk-concepts.md)
 * [Entities](concepts/entities.md)
 * [Components](concepts/components.md)
-* [Azure Frontend APIs](how-tos/frontend-apis.md)
 
 ## Quickstart Guides
 
