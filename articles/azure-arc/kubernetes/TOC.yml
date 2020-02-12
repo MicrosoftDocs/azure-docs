@@ -37,7 +37,7 @@
       href: create-onboarding-spn.md
   - name: Monitoring
     items:
-    - name: Azure mMnitor for containers
+    - name: Azure Monitor for containers
       href: deploy-azure-monitor-for-containers.md
 - name: Resources
   items:
