@@ -143,7 +143,7 @@ To test your firewall rules, you'll need to deploy a couple servers. You'll depl
    |Virtual machine name     |**Jump-Srv**|
    |Region     |**(US) East US)**|
    |Administrator user name     |**azureuser**|
-   |Password     |**Azure123456!**|
+   |Password     |type your password|
 
 4. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
 5. For **Select inbound ports**, select **RDP (3389)**.

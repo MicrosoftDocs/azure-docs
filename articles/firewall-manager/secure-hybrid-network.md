@@ -160,11 +160,11 @@ This is the public IP address used for the on-premises gateway.
 
 ## Configure and deploy the firewall
 
-When security policies are associated with a hub virtual network, it is referred to as a *hub virtual network*.
+When security policies are associated with a hub, it is referred to as a *hub virtual network*.
 
 Convert the **VNet-Hub** virtual network into a *hub virtual network* and secure it with Azure Firewall.
 
-1. In the Azure portl search bar, type **Firewall Manager** and press **Enter**.
+1. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, under **Add security to virtual networks**, select **View hub virtual networks**.
 4. Select **Convert virtual networks**.
 5. Select **VNet-hub** and then select **Next : Azure Firewall**.
