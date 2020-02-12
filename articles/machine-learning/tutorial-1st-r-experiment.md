@@ -15,7 +15,7 @@ ms.date: 02/07/2020
 # Tutorial: Create a logistic regression model in R with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial you'll use R and Azure Machine Learning to create a logistic regression model to predict the likelihood of a fatality in an automobile accident.. After completing this tutorial, you'll have the practical knowledge of the Azure Machine Learning R SDK to scale up to developing more-complex experiments and workflows.
+In this tutorial you'll use R and Azure Machine Learning to create a logistic regression model that predicts the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the Azure Machine Learning R SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you perform the following tasks:
 > [!div class="checklist"]
