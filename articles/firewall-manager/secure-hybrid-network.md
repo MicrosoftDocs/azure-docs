@@ -65,7 +65,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create a Firewall Policy
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. In the Azure portl search bar, type **Firewall Manager** and press **Enter**.
+2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, select **View Azure firewall policies**.
 4. Select **Create Azure Firewall Policy**.
 5. Select your subscription, and for Resource group, select **Create new** and create a resource group named **FW-Hybrid-Test**.
