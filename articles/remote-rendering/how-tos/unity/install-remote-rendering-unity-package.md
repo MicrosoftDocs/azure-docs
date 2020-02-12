@@ -23,14 +23,14 @@ Following Unity's naming scheme for packages, the package is called **com.micros
 
 The package is not part of the [arrClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository, and currently it is not available from Unity's internal package registry. For now, it has to be obtained and added to projects manually.
 
-Ensure you have the [NuGet command-line interface](https://docs.microsoft.com/nuget/tools/nuget-exe-cli-reference) and [authentication to access Azure DevOps feeds](https://docs.microsoft.com/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops). 
+Ensure you have the [NuGet command-line interface](https://docs.microsoft.com/nuget/tools/nuget-exe-cli-reference) and [authentication to access Azure DevOps feeds](https://docs.microsoft.com/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops).
 Then call the following command to pull the latest version of the package into the current directory:
 
 * `nuget install com.microsoft.azure.remote_rendering`
 
 Adding `-ExcludeVersion` creates a folder with no version extension, which is what is expected by the sample project.
 
-To add the package to a Unity project, using the 'Add package from disk...' option. For further instructions on its usage, follow the guide to [create a new Unity project](create-new-unity-project.md).
+To add the package to a Unity project, using the 'Add package from disk...' option. For further instructions on its usage, follow the [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md).
 
 <!---
 [flborn], Is the following chapter still valid?
@@ -51,4 +51,4 @@ As above, add the package to a Unity project using the 'Add package from disk...
 ## Next steps
 
 * [Unity SDK concepts](unity-concepts.md)
-* [Create a new Unity project](create-new-unity-project.md)
+* [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)

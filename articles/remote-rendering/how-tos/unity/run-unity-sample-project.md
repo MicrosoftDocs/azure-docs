@@ -120,4 +120,4 @@ In AzureRemoteRenderingSample\Assets\Scripts, replace *builtin://Engine* with th
 ## Next steps
 
 * [Unity SDK concepts](unity-concepts.md)
-* [Create a new Unity project](create-new-unity-project.md)
+* [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)
