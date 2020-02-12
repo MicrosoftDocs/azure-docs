@@ -197,7 +197,7 @@ while not done:
     time.sleep(.5)
 ```
 
-## Change source language for recognition
+## Change source language
 
 A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your SpeechConfig, then add this line directly below it.
 
@@ -207,7 +207,35 @@ speech_config.speech_recognition_language="de-DE"
 
 [`speech_recognition_language`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](language-support.md).
 
+## Improve recognition accuracy
+
+There are a few ways to improve recognition accuracy with the Speech SDK. Let's take a look at Phrase Lists. Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match for the entire phrase is included in the audio. If an exact match to the phrase is not found, recognition is not assisted.
+
+> [!IMPORTANT]
+> The Phrase List feature is only available in English.
+
+To use a phrase list, first create a [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) object, then add specific words and phrases with [`addPhrase`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-).
+
+Any changes to [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) take effect on the next recognition or after a reconnection to the Speech service.
+
+```Python
+phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
+phrase_list_grammar.addPhrase("Supercalifragilisticexpialidocious")
+```
+
+If you need to clear your phrase list: 
+
+```Python
+phrase_list_grammar.clear()
+```
+
+### Other options to improve recognition accuracy
+
+Phrase lists are only one option to improve recognition accuracy. You can also: 
+
+* [Improve accuracy with Custom Speech](how-to-custom-speech.md)
+* [Improve accuracy with tenant models](tutorial-tenant-model)
+
 ## Next steps
 
-* [Improve speech recognition accuracy with Phrase Lists](how-to-phrase-lists.md)
 * [Use codec compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md)
