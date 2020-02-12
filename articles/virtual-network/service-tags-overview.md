@@ -37,7 +37,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. | Both | No | Yes |
+| **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. .<br/><br/>*Note:* This tag represents the Azure API Management service endpoint for control plane per region. This enables customers to perform management operations on their APIs, Operations, Policies, NamedValues etc.  | Inbound | Yes | Yes |
 | **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web app front ends. | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
