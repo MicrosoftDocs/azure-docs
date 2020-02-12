@@ -63,7 +63,7 @@ NAT is compatible with the following standard SKU resources:
 - [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Public IP prefix](../virtual-network/public-ip-address-prefix.md)
 
-When used together with NAT, these can provide inbound originated from Internet connectivity to your subnet(s). NAT provides all outbound originated Internet connectivity from your subnet(s).
+When used together with NAT, these resources provide inbound Internet connectivity to your subnet(s). NAT provides all outbound Internet connectivity from your subnet(s).
 
 Inbound and outbound scenarios coexist because NAT and compatible Standard SKU features are aware of the direction the flow was started. These scenarios will receive the correct network address translations because these features are aware of the flow direction. 
 
