@@ -16,7 +16,7 @@ ms.reviewer: celested
 
 # Azure Active Directory developer platform videos
 
-Learn about the new Microsoft identity platform and how to migrate to it from the Azure Active Directory (Azure AD) developer platform. The vidoes are typically 1-2 minutes long.
+Learn about the new Microsoft identity platform and how to migrate to it from the Azure Active Directory (Azure AD) developer platform. The videos are typically 1-2 minutes long.
 
 ## Migrate from v1.0 to v2.0
 
