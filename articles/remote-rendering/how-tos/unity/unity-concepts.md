@@ -199,4 +199,4 @@ To either create a component or get an existing instance then ```EnsureArrCompon
 ## Next steps
 
 * [Remote Rendering Unity Package](install-remote-rendering-unity-package.md)
-* [Create a new Unity project](create-new-unity-project.md)
+* [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)
