@@ -16,7 +16,7 @@ Conventional cluster template files have a single cluster declaration.
 
 ``` ini
 [cluster my-cluster]
-    FormLayout = selectionpanel
+    FormLayout = SelectionPanel
     Category = My Templates
     CategoryOrder = 100
     MaxCount = 200
@@ -34,7 +34,7 @@ Abstract | boolean | Whether cluster definition is purely for child reference.
 Autoscale | boolean | Enable auto-start and stop on nodearrays
 Category | String | Which category to display the cluster icon
 CategoryOrder | Integer | Install to a directory other than /opt/cycle_server
-FormLayout    | String  | SectionPanel for multi-panel display of parameters
+FormLayout    | String  | "SelectionPanel" for a multi-panel display or "List" for a flat list of parameters. Defaults to "List" if not set.
 IconUrl  | URL | link to representative icon for cluster displayed in UI
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
