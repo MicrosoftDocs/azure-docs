@@ -54,17 +54,17 @@ Next, grant the registered application permissions to manipulate tenant resource
 
 You now have an application that has permission to *create*, *read*, *update*, and *delete* users in your Azure AD B2C tenant. Continue to the next section to add *password update* permissions.
 
-## Add password update permissions
+## Enable user delete and password update
 
-The *Read and write directory data* permission does **NOT** include the ability to update user account passwords.
+The *Read and write directory data* permission does **NOT** include the ability delete users or update user account passwords.
 
-If you want your application or script to update user's passwords, grant it the *User administrator* role:
+If your application or script needs to delete users or update their passwords, assign the *User administrator* role to your application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and use the **Directory + Subscription** filter to switch to your Azure AD B2C tenant.
 1. Search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
 1. Select the **User administrator** role.
-1. Select **Add assignment**.
+1. Select **Add assignments**.
 1. In the **Select** text box, enter the name of the application you registered earlier, for example, *managementapp1*. Select your application when it appears in the search results.
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
