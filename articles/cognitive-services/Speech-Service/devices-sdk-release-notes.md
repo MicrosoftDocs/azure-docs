@@ -9,13 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: wellsi
 ---
 
 # Release notes: Speech Devices SDK
 
 The following sections list changes in the most recent releases.
+
+## Speech Devices SDK 1.9.0:
+
+- Initial binaries for Urbetter DDK (Linux ARM64) and an ARM speaker (Linux ARM32) are provided.
+- Roobo v1 now uses Maven for the Speech SDK
+- Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.9.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 
 ## Speech Devices SDK 1.7.0:
 
