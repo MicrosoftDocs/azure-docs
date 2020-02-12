@@ -68,7 +68,7 @@ In material override files, a material can be declared to be a color material by
 
 ## JSON schema
 
-The full JSON schema for materials files is given here. With the exception of `unlit`, the properties available are a subset of the properties describe in the sections on the [color material](../../overview/color-materials.md) and [PBR material](../../overview/pbr-materials.md) models.
+The full JSON schema for materials files is given here. With the exception of `unlit`, the properties available are a subset of the properties described in the sections on the [color material](../../overview/features/color-materials.md) and [PBR material](../../overview/features/pbr-materials.md) models.
 
 ```json
 {
@@ -115,5 +115,5 @@ The full JSON schema for materials files is given here. With the exception of `u
 
 ## Next steps
 
-* [Color materials](../../overview/color-materials.md)
-* [PBR materials](../../overview/pbr-materials.md)
+* [Color materials](../../overview/features/color-materials.md)
+* [PBR materials](../../overview/features/pbr-materials.md)
