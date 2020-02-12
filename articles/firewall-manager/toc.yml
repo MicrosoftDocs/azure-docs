@@ -11,7 +11,7 @@
     href: secure-cloud-network.md
 - name: Concepts
   items:
-  - name: Central Management
+  - name: Central management
     href: central-management.md
   - name: Policy overview
     href: policy-overview.md
