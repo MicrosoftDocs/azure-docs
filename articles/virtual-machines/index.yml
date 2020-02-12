@@ -32,6 +32,18 @@ highlightedContent:
     - title: Virtual machine scale sets
       itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
+    # Card
+    - title: Linux tutorials
+      itemType: tutorial
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
+    # Card
+    - title: Windows tutorials
+      itemType: tutorial
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm
+    # Card
+    - title: Virtual machine scale sets tutorials
+      itemType: tutorial
+      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli
 
 # tools section (optional)
 tools:
