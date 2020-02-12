@@ -16,21 +16,21 @@ ms.workload:  infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-#Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why so that I can resolve the problem. 
+#Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
 # Unified connectivity monitoring in Connection Monitor (Preview)
 
-Connection Monitor (Preview) provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Azure Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
+Connection Monitor (Preview) provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
 Here are some use cases for Connection Monitor (Preview):
 
 - Your front-end web server VM communicates with a database server VM in a multiple-tier application. You want to check network connectivity between the two VMs.
 - You want VMs in the East US region to ping VMs in the Central US region, and you want to compare cross-region network latencies.
-- You have multiple on-premises office sites in Seattle and in Ashburn, Virginia. Your office sites connect to Office 365 URLs. For your users of Office 365 URLs, you want to compare the latencies in Seattle with those in Ashburn.
-- Your hybrid application needs connectivity to an Azure Storage endpoint. You want to compare the latencies of the on-premises site and the Azure application that connect to the same Azure Storage endpoint.
+- You have multiple on-premises office sites in Seattle and in Ashburn, Virginia. Your office sites connect to Office 365 URLs. For your users of Office 365 URLs, you want to compare the latencies in Seattle with the latencies in Ashburn.
+- Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature, and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) feature.
+In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) feature.
 
 Here are some benefits of Connection Monitor (Preview):
 
@@ -45,7 +45,7 @@ Here are some benefits of Connection Monitor (Preview):
 
 Follow the steps in the next sections to start using Connection Monitor (Preview) for monitoring.
 
-## Step 1: Install monitoring agents
+## Install monitoring agents
 
 Connection Monitor relies on lightweight executable files to run connectivity checks.  It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
@@ -59,19 +59,19 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 ### Agents for on-premises machines
 
-To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before they can start monitoring.
+To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
 To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
 
 If the path includes firewalls or network virtual appliances (NVAs), then make sure that the destination is reachable.
 
-## Step 2: Enable Network Watcher on your subscription
+## Enable Network Watcher on your subscription
 
 All subscriptions that have a virtual network use Network Watcher. When you create a virtual network in your subscription, Network Watcher is automatically enabled in the virtual network's region and subscription. This automatic enabling doesn't affect your resources or incur a charge. Ensure that Network Watcher isn't explicitly disabled on your subscription. 
 
 For more information, see [Enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
-## Step 3: Create a connection monitor 
+## Create a connection monitor 
 
 Connection Monitor monitors communication at regular intervals. It informs you of changes in reachability, latency, and network topology between source agents and destination endpoints. 
 
@@ -88,7 +88,7 @@ Sources can be Azure VMs or on-premises machines that have an installed monitori
 
 ### Create a connection monitor
 
-Connection monitors that are created in Connection Monitor (Preview) provide the ability to add both on-premises and Azure VMs as sources. They can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
+In connection monitors that you create in Connection Monitor (Preview), you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
 
 A connection monitor includes the following entities:
 
@@ -96,7 +96,7 @@ A connection monitor includes the following entities:
 * **Endpoint** – A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
 * **Test configuration** – A protocol-specific configuration for a test. Based on the protocol you chose, you can define the port, thresholds, test frequency, and other parameters.
 * **Test group** – The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
-* **Test** – The combination of a source endpoint, destination endpoint, and test configuration. A test is the lowest level at which monitoring data is available. The monitoring data includes the percentage of checks that failed and the round-trip time (RTT).
+* **Test** – The combination of a source endpoint, destination endpoint, and test configuration. A test is the most granular level at which monitoring data is available. The monitoring data includes the percentage of checks that failed and the round-trip time (RTT).
 
  ![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
@@ -104,19 +104,19 @@ A connection monitor includes the following entities:
 
 To create a connection monitor from the Azure portal, follow these steps:
 
-1. On the **Connection Monitor (Preview)** dashboard, in the upper-left, select **Create**.
-1. On the **Basic** tab, enter information for your connection monitor:
+1. On the **Connection Monitor (Preview)** dashboard, in the upper-left corner, select **Create**.
+1. On the **Basics** tab, enter information for your connection monitor:
    * **Connection Monitor Name** – Add the name of your connection monitor. Use the standard naming rules for Azure resources.
    * **Subscription** – Choose a subscription for your connection monitor.
-   * **Region** – Choose a region for your connection monitor resource. You can select only the source VMs that are created in this region.
+   * **Region** – Choose a region for your connection monitor. You can select only the source VMs that are created in this region.
    * **Workspace configuration** - Your workspace holds your monitoring data. You can use a custom workspace or the default workspace. 
-       * To use the default workspace that the connection monitor creates, select the check box. 
-       * To choose a custom workspace, clear this box. Then choose the subscription and region for your custom workspace. 
+       * To use the default workspace, select the check box. 
+       * To choose a custom workspace, clear the check box. Then choose the subscription and region for your custom workspace. 
 1. At the bottom of the tab, select **Next: Test groups**.
 
    ![Screenshot showing the Basics tab in Connection Monitor](./media/connection-monitor-2-preview/create-cm-basics.png)
 
-1. On the **Test groups** tab, select **+ Test group**. To set up your test groups, see [Create test groups in Connection Monitor](#Create-test-groups-in-connection-monitor). 
+1. On the **Test groups** tab, select **+ Test group**. To set up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-connection-monitor). 
 1. At the bottom of the tab, select **Next: Review + create** to review your connection monitor.
 
    ![Screenshot showing the Test groups tab and the pane where you add test group details](./media/connection-monitor-2-preview/create-tg.png)
@@ -385,7 +385,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
 * **Disable Test Group** – You can select this field to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name** – Name your test group.
-* **Sources** – You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. Refer to [Step 1](#step-1:-install-monitoring-agents) to install an agent for your source.
+* **Sources** – You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To install an agent for your source, see [Install monitoring agents](#install-monitoring-agents).
    * To choose Azure agents, select the **Azure Agents** tab. Here you see only VMs that are bound to the region that you specified when you created the connection monitor. By default, VMs are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down from the Subscription level to other levels in the hierarchy:
@@ -396,7 +396,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
       ![Screenshot of Connection Monitor, showing the Add Sources panel and the Azure Agents tab](./media/connection-monitor-2-preview/add-azure-sources.png)
 
-   * To choose on-premises agents, select the **Non–Azure Agents** tab. By default, agents are grouped into workspaces by region. These workspaces are only those that have the Network Performance Monitor solution configured. 
+   * To choose on-premises agents, select the **Non–Azure Agents** tab. By default, agents are grouped into workspaces by region. All of these workspaces have the Network Performance Monitor solution configured. 
    
        If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
    
@@ -433,13 +433,13 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
     * **Name** – Name the test configuration.
     * **Protocol** – Choose TCP, ICMP, or HTTP. To change HTTP to HTTPS, select **HTTP** as the protocol, and select **443** as the port.
-        * **Create network test configuration** – This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified in steps 3 and 4 over TCP or ICMP protocol. The newly created test configuration is named `<the name of your test configuration>_networkTestConfig`.
+        * **Create network test configuration** – This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The newly created test configuration is named `<the name of your test configuration>_networkTestConfig`.
         * **Disable traceroute** – This field applies to test groups whose protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop round-trip time.
     * **Destination port** – You can customize this field with a destination port of your choice.
     * **Test Frequency** – Use this field to choose how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Sources will test connectivity to destinations based on the value that you choose.  For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
     * **Success Threshold** – You can set thresholds on the following network parameters:
        * **Checks failed** – Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the number of HTTP requests that received no response.
-       * **Round trip time** – Set the round-trip time in milliseconds for how long sources can take to connect to the destination over the test configuration.
+       * **Round-trip time** – Set the round-trip time in milliseconds for how long sources can take to connect to the destination over the test configuration.
     
        ![Screenshot showing where to set up a test configuration in Connection Monitor](./media/connection-monitor-2-preview/add-test-config.png)
 
@@ -477,7 +477,7 @@ Connection monitors have the following scale limits:
     * 20 via ARMClient
     * 2 via the Azure portal
 
-## Step 4: Set up data analysis and alerts
+## Set up data analysis and alerts
 
 After you create a connection monitor, sources check connectivity to destinations based on your test configuration.
 
@@ -499,7 +499,7 @@ Based on the data that the checks return, each test can have the following state
 
 ### Data collection, analysis, and alerts
 
-The data that Connection Monitor (Preview) collects is stored in the Log Analytics workspace. This is the workspace that you set up when you created the connection monitor. 
+The data that Connection Monitor (Preview) collects is stored in the Log Analytics workspace. You set up this workspace when you created the connection monitor. 
 
 Monitoring data is also available in Azure Monitor Metrics. You can use Log Analytics to keep your monitoring data for as long as you want. Azure Monitor stores metrics for only 30 days by default. 
 
@@ -511,19 +511,19 @@ On the monitoring dashboards, you see a list of the connection monitors that you
 
 When you go to Connection Monitor (Preview) from Network Watcher, you can view data by:
 
-* **Connection Monitor** – List of all connection monitors created for your subscriptions, regions, time stamps, sources, and destination types. This is the default view.
+* **Connection Monitor** – List of all connection monitors created for your subscriptions, regions, time stamps, sources, and destination types. This view is the default.
 * **Test groups** – List of all test groups created for your subscriptions, regions, time stamps, sources, and destination types. These test groups aren't filtered by connection monitor.
 * **Test** – List of all tests that run for your subscriptions, regions, time stamps, sources, and destination types. These tests aren't filtered by connection monitors or test groups.
 
-In the following image, the three views are indicated by the [1] arrow in the following image.
+In the following image, the three views are indicated by arrow 1 in the following image.
 
 On the dashboard, you can expand each connection monitor to see its test groups. Then you can expand each test group to see the tests that run in it. 
 
 You can filter a list based on:
 
-* **Top-level filters** – Choose subscriptions, regions, time stamp sources, and destination types. See the [2] box in the following image.
-* **State-based filters** – Filter by the state of the connection monitor, test group, or test. See the [3] arrow in the following image.
-* **Custom filters** – Choose **Select all** to do a generic search. To search by a specific entity, select from the drop-down list. See the [4] arrow in the following image.
+* **Top-level filters** – Choose subscriptions, regions, time stamp sources, and destination types. See box 2 in the following image.
+* **State-based filters** – Filter by the state of the connection monitor, test group, or test. See arrow 3 in the following image.
+* **Custom filters** – Choose **Select all** to do a generic search. To search by a specific entity, select from the drop-down list. See arrow 4 in the following image.
 
 ![Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-view.png)
 
@@ -564,91 +564,115 @@ To view the trends in RTT and the percentage of failed checks for a connection m
 1. Change the view to see sources, destinations, or test configurations. 
 1. Choose a source based on failed tests, and investigate the top five failed tests. For example, choose **View by** > **Sources** and **View by** > **Destinations** to investigate the relevant tests in the connection monitor.
 
-   ![RTT2](./media/connection-monitor-2-preview/cm-drill-select-source.png)
+   ![Screenshot showing performance metrics for the top five failed tests](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
 To view the trends in RTT and the percentage of failed checks for a test group:
 
-1. Select the Test Group you want to investigate in detail
-1. By default, you'll view monitoring data by "Source + Destination + Test Configuration (Test) "
+1. Select the test group that you want to investigate. 
 
-   ![RTT3](./media/connection-monitor-2-preview/tg-drill.png)
+    By default, the monitoring data is arranged by sources, destinations, and test configurations (tests). Later, you can change the view from test groups to sources, destinations, or test configurations. Then choose an entity to investigate the top five failed tests. For example, change the view to sources and destinations to investigate the relevant tests in the selected connection monitor.
+1. Choose the test that you want to investigate.
 
-1. Choose the Test you want to investigate in detail
-1. For the time interval selected, for the percentage of failed checks, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
-1. Change the time interval to view more data
-1. You can change the view in Step b and choose to view by sources, destinations, or test configurations. Then choose an entity to investigate the top 5 failed tests.  For example: Choose View by: Sources and Destinations to investigate all the tests that run between that combination in the selected Connection Monitor.
+   ![Screenshot showing where to select a test](./media/connection-monitor-2-preview/tg-drill.png)
+
+    For your time interval and for your percentage of failed checks, you see threshold values and actual values. For RTT, you see values for threshold, average, minimum, and maximum. You also see fired alerts for the test that you selected.
+1. Change the time interval to view more data.
 
 To view the trends in RTT and the percentage of failed checks for a test:
-1. Select the Source + Destination + Test Configuration you want to investigate in detail
-1. For the time interval selected, for checks failed %, you'll see threshold and actual values. For RTT msec, you'll see threshold, avg, min, and max values. You'll also see fired alerts specific to the test you selected.
+1. Select the source, destination, and test configuration that you want to investigate.
 
-   ![Test1](./media/connection-monitor-2-preview/test-drill.png)
+    For your time interval and for the percentage of failed checks, you see threshold values and actual values. For RTT, you see values for threshold, average, minimum, and maximum. You also see fired alerts for the test that you selected.
 
-1. You can also select **Topology** to see the network topology at any point in time.
+   ![Screenshot showing metrics for a test](./media/connection-monitor-2-preview/test-drill.png)
 
-   ![Test2](./media/connection-monitor-2-preview/test-topo.png)
+1. To see the network topology, select **Topology**.
 
-1. You can select any hop of link for Azure network to see the issues identified by Connection Monitor. This capability isn't available for on-premises networks at the moment.
+   ![Screenshot showing the network Topology tab](./media/connection-monitor-2-preview/test-topo.png)
 
-   ![Test3](./media/connection-monitor-2-preview/test-topo-hop.png)
+1. To see the identified issues, in the topology, select any hop of link for the Azure network. This functionality isn't available for on-premises networks at the moment.
 
-#### Log queries in Azure Monitor Log Analytics
+   ![Screenshot showing a selected hop link on the Topology tab](./media/connection-monitor-2-preview/test-topo-hop.png)
 
-Use Log Analytics to create custom views of your monitoring data. All data displayed in the UI is populated from Log Analytics. You can perform interactive analysis of data in the repository and correlate data from different sources like agent health and other Log Analytics based applications. You can also export the data to Excel, Power BI, or a shareable link.
+#### Log queries in Log Analytics
+
+Use Log Analytics to create custom views of your monitoring data. All data that the UI displays is from Log Analytics. You can interactively analyze data in the repository. You can then correlate data from different sources like Agent Health and other solutions that are based in Log Analytics. You can also export the data to Excel or Power BI, or you can create a shareable link.
 
 #### Metrics in Azure Monitor
 
-For Connection Monitor that were created before the Connection Monitor (Preview) experience, all 4 metrics would be available. For Connection Monitors created through Connection Monitor (Preview) experience, data will be available only for the Metrics tagged with "(Preview)".
+In connection monitors that were created before the Connection Monitor (Preview) experience, all four metrics are available. In connection monitors that were created in the Connection Monitor (Preview) experience, data is available only for the metrics that are tagged with *(Preview)*.
 
 Resource Type - Microsoft.Network/networkWatchers/connectionMonitors
 
-| Metric | Metric Display Name | Unit | Aggregation Type | Description | Dimensions |
+| Metric | Display name | Unit | Aggregation type | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Probes Failed | Percent | Average | % of connectivity monitoring probes failed | No Dimensions |
-| AverageRoundtripMs | Avg. Round-trip Time (ms) | MilliSeconds | Average | Average network round-trip time (ms) for connectivity monitoring probes sent between source and destination |             No Dimensions |
-| ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percent | Average | % of checks failed for a test | * ConnectionMonitorResourceId <br> * SourceAddress <br> *  SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> *  TestGroupName <br> *  TestConfigurationName <br> * Region |
-| RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | Round-trip time (ms) for checks sent between source and destination. This value is not averaged | * ConnectionMonitorResourceId <br> * SourceAddress <br> *  SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> *  TestGroupName <br> *  TestConfigurationName <br> * Region |
+| ProbesFailedPercent | % Probes Failed | Percentage | Average | Percentage of connectivity monitoring probes failed. | No dimensions |
+| AverageRoundtripMs | Avg. Round-trip Time (ms) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination. |             No dimensions |
+| ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percentage | Average | Percentage of failed checks for a test. | <ul><li>ConnectionMonitorResourceId</li><li>SourceAddress</li><li>SourceName</li><li>SourceResourceId</li><li>SourceType </li><li>Protocol </li><li>DestinationAddress </li><li> DestinationName </li> <li>DestinationResourceId </li> <li>DestinationType </li><li> DestinationPort </li> <li>TestGroupName </li><li>  TestConfigurationName </li> <li>Region</li></ul> |
+| RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | <ul><li>ConnectionMonitorResourceId</li><li>SourceAddress</li><li>SourceName</li><li>SourceResourceId</li><li>SourceType </li><li>Protocol </li><li>DestinationAddress </li><li> DestinationName </li> <li>DestinationResourceId </li> <li>DestinationType </li><li> DestinationPort </li> <li>TestGroupName </li><li>  TestConfigurationName </li> <li>Region</li></ul> |
 
- ![Monitor Metrics](./media/connection-monitor-2-preview/monitor-metrics.png)
+![Screenshot showing preview functionality for Monitor Metrics in Azure Monitor](./media/connection-monitor-2-preview/monitor-metrics.png)
 
 #### Metric alerts in Azure Monitor
 
-To create an alert:
+To create an alert in Azure Monitor:
 
-1. Choose your Connection Monitor resource created using Connection Monitor (Preview)
-2. Ensure that **Metric** shows up as signal type for the resource selected in the previous step
-3. In Add Condition, choose Signal Name as ChecksFailedPercent(Preview) or RoundTripTimeMs(Preview) and Signal Type as Metrics. Eg: Choose ChecksFailedPercent(Preview)
-4. All the dimensions applicable as per metrics will be listed.  Choose the dimension name and dimension value. Eg: Choose Source Address and provide IP address of any source involved in Connection Monitor resource chosen in Step 1
-5. In Alert Logic, choose:
-   1. Condition Type – Static
-   2. Condition and Threshold
-   3. Aggregation Granularity and Frequency of Evaluation – Connection Monitor (Preview) updates data every 1 minute.
-6.  In actions, choose your action group
-7. Provide alert details
-8. Create alert rule
+1. Choose the connection monitor resource that you created in Connection Monitor (Preview).
+1. Ensure that **Metric** shows up as signal type for the connection monitor.
+1. In **Add Condition**, for the **Signal Name**, select **ChecksFailedPercent(Preview)** or **RoundTripTimeMs(Preview)**.
+1. For **Signal Type**, choose **Metrics**. For example, select **ChecksFailedPercent(Preview)**.
+1. All of the dimensions for the metric are listed. Choose the dimension name and dimension value. For example, select **Source Address** and then enter the IP address of any source in your connection monitor.
+1. In **Alert Logic**, fill in the following details:
+   * **Condition Type**: **Static**.
+   * **Condition** and **Threshold**.
+   * **Aggregation Granularity and Frequency of Evaluation**: Connection Monitor (Preview) updates data every minute.
+1. In **Actions**, choose your action group.
+1. Provide alert details.
+1. Create the alert rule.
 
-   ![Alerts](./media/connection-monitor-2-preview/mdm-alerts.jpg)
+   ![Screenshot showing the Create rule area in Azure Monitor; "Source address" and "Source endpoint name" are highlighted](./media/connection-monitor-2-preview/mdm-alerts.jpg)
 
-## Step 5: Diagnose issues in your network
+## Diagnose issues in your network
 
-Connection Monitor will help you diagnose issues corresponding to the Connection Monitor resource and in your network. Issues in your hybrid network will be detected by the Log Analytics agents  you installed in Step 1 and issues in Azure will be detected by the Network Watcher Extension.  Issues in hybrid network will be visible in the Diagnostics page and issues in Azure Network will be visible in the network topology.
+Connection Monitor (Preview) helps you diagnose issues in your connection monitor and your network. Issues in your hybrid network are detected by the Log Analytics agents that you installed earlier. Issues in Azure are detected by the Network Watcher extension. 
 
-For networks with on-premises VMs as sources, we detect:
+You can view issues in your hybrid network on the **Diagnostics** page. You can view issues in the Azure network in the network topology.
 
-* Request timed out
+For networks whose sources are on-premises VMs, the following issues can be detected:
+
+* Request timed out.
 * Endpoint not resolved by DNS – temporary or persistent. URL invalid.
 * No hosts found.
 * Source unable to connect to destination. Target not reachable through ICMP.
-* Certificate-related issue - Client certificate required to authenticate agent, Certificate Relocation List not accessible, host name of the endpoint doesn't match the certificate's subject or subject alternate name, root certificate missing in source's Local Computer Trusted Certification Authorities store, SSL certificate expired/invalid/revoked, incompatible
+* Certificate-related issues: 
+    * Client certificate required to authenticate agent. 
+    * Certificate relocation list isn't accessible. 
+    * Host name of the endpoint doesn't match the certificate's subject or subject alternate name. 
+    * Root certificate is missing in source's Local Computer Trusted Certification Authorities store. 
+    * SSL certificate is expired, invalid, revoked, or incompatible.
 
-For networks with Azure VMs are sources, we detect:
+For networks whose sources are Azure VMs, the following issues can be detected:
 
-* Agent Issues – Agent stopped, Failed DNS resolution, No application/listener listening on destination port, Socket could not be opened
-* VM state issues – starting, stopping, stopped, deallocating, deallocated, rebooting, not allocated
-* Missing ARP table entry
-* Traffic blocked because of local firewall issues, NSG rules
-* VNET Gateway – Missing routes, Tunnel between two gateways is disconnected or missing or second gateway not found by tunnel, No peering info found
-* Missing route in MS Edge.
-* Traffic stopped because of system routes or UDR
-* BGP not enabled on gateway connection
-* DIP Probe down at the Load Balancer
+* Agent issues:
+    * Agent stopped.
+    * Failed DNS resolution.
+    * No application or listener listening on the destination port.
+    * Socket could not be opened.
+* VM state issues: 
+    * Starting
+    * Stopping
+    * Stopped
+    * Deallocating
+    * Deallocated
+    * Rebooting
+    * Not allocated
+* ARP table entry is missing.
+* Traffic was blocked because of local firewall issues or NSG rules.
+* Virtual network gateway issues: 
+    * Missing routes
+    * The tunnel between two gateways is disconnected or missing.
+    * The second gateway wasn't found by the tunnel.
+    * No peering info was found.
+* Route was missing in Microsoft Edge.
+* Traffic stopped because of system routes or UDR.
+* BGP isn't enabled on the gateway connection.
+* The DIP probe is down at the load balancer.
