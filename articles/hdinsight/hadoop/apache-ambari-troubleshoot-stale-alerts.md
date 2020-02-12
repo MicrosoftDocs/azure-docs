@@ -21,15 +21,15 @@ In the Apache Ambari UI, you might see an alert like this:
 
 ## Cause
 
-Ambari agents continuously monitor the health of many resources. Each health check, or *alert*, is configured to run at predefined time intervals. After each alert runs, Ambari agents report back the status to the Ambari server. An alert that doesn't run on time is considered *stale*. If the Ambari server detects any stale alerts, it triggers an "Ambari Server Alerts" alert.
+Ambari agents continuously monitor the health of many resources. Each health check, or *alert*, is configured to run at predefined time intervals. After each alert runs, Ambari agents report the status back to the Ambari server. An alert that doesn't run on time generates a *stale alert*. If the Ambari server detects any stale alerts, it triggers an "Ambari Server Alerts" alert.
 
 There are various reasons why a health check might not run at its defined interval:
 
-* The hosts are under heavy use (high CPU), so that the Ambari agent can't get enough system resources to run the alerts on time.
+* The hosts are under heavy use (high CPU usage), so that the Ambari agent can't get enough system resources to run the alerts on time.
 
 * The cluster is busy executing many jobs or services during a period of heavy load.
 
-* A small number of hosts in the cluster host many components and are therefore required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
+* A small number of hosts in the cluster are hosting many components and so are required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
 
 ## Resolution
 
@@ -67,16 +67,18 @@ To discard a stale alert, disable and then reenable it:
 
 ### Increase the alert grace period
 
-Before an Ambari agent reports that a configured alert missed its schedule, there's a grace period. If the alert missed its scheduled time but was triggered within the alert grace period, the stale alert isn't fired.
+There's a grace period before an Ambari agent reports that a configured alert missed its schedule. If the alert missed its scheduled time but ran within the grace period, the stale alert isn't generated.
 
-The default `alert_grace_period` value is 5 seconds. This `alert_grace_period` setting is configurable in `/etc/ambari-agent/conf/ambari-agent.ini`. For those hosts from which stale alerts are fired at regular intervals, try increasing the value to 10. Then, restart the Ambari agent.
+The default `alert_grace_period` value is 5 seconds. You can configure this setting in /etc/ambari-agent/conf/ambari-agent.ini. For hosts on which stale alerts occur at regular intervals, try increasing the value to 10. Then, restart the Ambari agent.
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If your problem wasn't mentioned here or you're unable to solve it, visit one of the following channels for more support:
 
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
+* Get answers from Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) on Twitter. This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). To get there, select Help (**?**) from the portal menu or open the **Help + support** pane. For more information, see [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+
+  Support for subscription management and billing is included with your Microsoft Azure subscription. Technical support is available through the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
