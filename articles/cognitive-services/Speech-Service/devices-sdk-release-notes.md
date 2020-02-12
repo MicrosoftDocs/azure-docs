@@ -19,14 +19,14 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.9.0:
 
-- Initial binaries for Urbetter DDK (Linux ARM64) and an ARM speaker (Linux ARM32) are provided.
+- Initial binaries for [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) (Linux ARM64) are provided.
 - Roobo v1 now uses Maven for the Speech SDK
 - Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.9.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 
 ## Speech Devices SDK 1.7.0:
 
 - Linux ARM is now supported.
-- Initial binaries for Roobo v2 are provided (Linux ARM64).
+- Initial binaries for [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) are provided (Linux ARM64).
 - Windows users can use `AudioConfig.fromDefaultMicrophoneInput()` or `AudioConfig.fromMicrophoneInput(deviceName)` to specify the microphone to be used.
 - The library size has been optimized.
 - Support for multi-turn recognition using the same speech/intent recognizer object.
