@@ -57,11 +57,8 @@ The default time window is 5 minutes. The minimum value is 1, the maximum 15. Th
 
     ![Select Create button](./media/event-hubs-capture-enable-through-portal/create-event-hub-data-lake-storage.png)
 
-> [!NOTE]
-> The container you create in a Azure Data Lake Storage Gen 2 using this user interface (UI) is shown under **File systems** in **Storage Explorer**. Similarly, the file system you create in a Data Lake Storage Gen 2 account shows up as a container in this UI. 
-
-![File system as a container](./media/event-hubs-capture-enable-through-portal/file-system-container.png)
-
+    > [!NOTE]
+    > The container you create in a Azure Data Lake Storage Gen 2 using this user interface (UI) is shown under **File systems** in **Storage Explorer**. Similarly, the file system you create in a Data Lake Storage Gen 2 account shows up as a container in this UI. 
 
 
 ## Capture data to Azure Data Lake Storage Gen 1 
