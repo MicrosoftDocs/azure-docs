@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type the URL:
     `https://api.nsone.net/saml/metadata`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://my.nsone.net/#/login/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [NS1 SSO For Azure Client support team](mailto:techops@nsone.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Reply URL value is not real. Update Reply URL value with the actual Reply URL. Contact [NS1 SSO For Azure Client support team](mailto:techops@nsone.net) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. NS1 SSO For Azure application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -122,13 +122,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
-
-## Configure NS1 SSO For Azure SSO
-
-To configure single sign-on on **NS1 SSO For Azure** side, you need to send the **App Federation Metadata Url** to [NS1 SSO For Azure support team](mailto:techops@nsone.net). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create NS1 SSO For Azure test user
-In this section, you create a user called B.Simon in NS1 SSO For Azure. Work with NS1 SSO For Azure support team to add the users in the NS1 SSO For Azure platform. Users must be created and activated before you use single sign-on.
 
 ### Create an Azure AD test user
 
@@ -159,6 +152,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure NS1 SSO For Azure SSO
+
+To configure single sign-on on **NS1 SSO For Azure** side, you need to send the **App Federation Metadata Url** to [NS1 SSO For Azure support team](mailto:techops@nsone.net). They set this setting to have the SAML SSO connection set properly on both sides.
+
+### Create NS1 SSO For Azure test user
+In this section, you create a user called B.Simon in NS1 SSO For Azure. Work with NS1 SSO For Azure support team to add the users in the NS1 SSO For Azure platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
