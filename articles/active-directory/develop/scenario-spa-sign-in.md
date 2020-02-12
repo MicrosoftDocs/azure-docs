@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
@@ -44,7 +44,7 @@ You can't use both the pop-up and redirect methods in your application. The choi
 
 ## Sign-in with a pop-up window
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -60,7 +60,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 });
 ```
 
-### Angular
+# [Angular](#tab/angular)
 
 The MSAL Angular wrapper allows you to secure specific routes in your application by adding `MsalGuard` to the route definition. This guard will invoke the method to sign in when that route is accessed.
 
@@ -86,10 +86,11 @@ For a pop-up window experience, enable the `popUp` configuration option. You can
             })]
          })
 ```
+---
 
 ## Sign-in with redirect
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, you need to register success and error callbacks before you call the redirect methods.
 
@@ -107,12 +108,14 @@ const loginRequest = {
 userAgentApplication.loginRedirect(loginRequest);
 ```
 
-### Angular
+# [Angular](#tab/angular)
 
 The code here is the same as described earlier in the section about sign-in with a pop-up window. The default flow is redirect.
 
 > [!NOTE]
 > The ID token doesn't contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token, which you'll acquire in the next step.
+
+---
 
 ## Sign-out
 
@@ -120,7 +123,7 @@ The MSAL library provides a `logout` method that clears the cache in browser sto
 
 You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should also be registered as the logout URI in your application registration.
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
@@ -137,7 +140,7 @@ userAgentApplication.logout();
 
 ```
 
-### Angular
+# [Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -151,6 +154,8 @@ userAgentApplication.logout();
 // In app.component.ts
 this.authService.logout();
 ```
+
+---
 
 ## Next steps
 
