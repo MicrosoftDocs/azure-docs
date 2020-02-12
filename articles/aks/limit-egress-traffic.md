@@ -67,7 +67,6 @@ The following FQDN / application rules are required:
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
 | *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
@@ -96,7 +95,6 @@ The following FQDN / application rules are required:
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
 | *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | management.usgovcloudapi.net       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
