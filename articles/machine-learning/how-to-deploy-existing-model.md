@@ -95,6 +95,7 @@ conda_dep.add_conda_package("scikit-learn")
 # You must list azureml-defaults as a pip dependency
 conda_dep.add_pip_package("azureml-defaults")
 conda_dep.add_pip_package("keras")
+conda_dep.add_pip_package("gensim")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep
@@ -131,6 +132,7 @@ dependencies:
 - pip:
     - azureml-defaults
     - keras
+    - gensim
 ```
 
 For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).

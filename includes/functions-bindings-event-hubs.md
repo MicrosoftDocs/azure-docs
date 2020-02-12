@@ -284,17 +284,7 @@ def main(event: func.EventHubEvent):
 
 # [Java](#tab/java)
 
-The following example shows an Event Hub trigger binding in a *function.json* file and a [Java function](../articles/azure-functions/functions-reference-java.md) that uses the binding. The function logs the message body of the Event Hub trigger.
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "msg",
-  "direction": "in",
-  "eventHubName": "myeventhubname",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
+The following example shows an Event Hub trigger binding which logs the message body of the Event Hub trigger.
 
 ```java
 @FunctionName("ehprocessor")
@@ -696,6 +686,6 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|`maxBatchSize`|64|The maximum event count received per receive loop.|
-|`prefetchCount`|n/a|The default pre-fetch count used by the underlying `EventProcessorHost`.|
+|`maxBatchSize`|10|The maximum event count received per receive loop.|
+|`prefetchCount`|300|The default pre-fetch count used by the underlying `EventProcessorHost`.|
 |`batchCheckpointFrequency`|1|The number of event batches to process before creating an EventHub cursor checkpoint.|

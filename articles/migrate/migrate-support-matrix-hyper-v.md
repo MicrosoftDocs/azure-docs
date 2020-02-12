@@ -59,7 +59,7 @@ The following table summarizes port requirements for assessment.
 
 **Device** | **Connection**
 --- | ---
-**Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Outbound connections on ports 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
+**Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Outbound connections on ports 443 (HTTPS), 5671 and 5672 (AMQP) to send discovery and performance metadata to Azure Migrate.
 **Hyper-V host/cluster** | Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS) to pull configuration and performance metadata of the Hyper-V VMs using a Common Information Model (CIM) session.
 
 ## Agent-based dependency visualization

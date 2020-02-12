@@ -77,15 +77,6 @@ This article provides answers to some of the most common questions about running
 
    There are three ways to do this. If you're an enterprise agreement (EA) customer, you can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have [software assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), you can enable the [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) for features such as portal management, automated backup and automated patching. 
 
-1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
-
-   To have a free passive license for a standby secondary availability group or failover clustered instance, you must meet all of the following criteria as outlined by the [Product Licensing Terms](https://www.microsoft.com/licensing/product-licensing/products):
-
-   1. You have [license mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) through [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any work  other than what is specified in the product terms, it must be a paid licensed SQL Server instance. The following activity is permitted on the secondary instance: database consistency checks or CheckDB, full backups, transaction log backups, and monitoring resource usage data. You may also run the primary and corresponding disaster recovery instance simultaneously for brief periods of disaster recovery testing every 90 days. 
-   1. The active SQL Server license is covered by Software Assurance and allows for **one** passive secondary SQL Server instance, with up to the same amount of compute as the licensed active server, only. 
-   1. The secondary SQL Server VM utilizes the [Disaster Recovery](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) license in the Azure portal.
-
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
    Yes. You can easily switch a pay-as-you-go (PAYG) gallery image to bring-your-own-license (BYOL) by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md). Currently, this facility is available only for Public Cloud customers.
@@ -93,6 +84,10 @@ This article provides answers to some of the most common questions about running
 1. **Will switching licensing models require any downtime for SQL Server?**
 
    No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL Server VM resource provider, the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md) is a prerequisite and installing the SQL IaaS extension in _full_ mode restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, either install it in _lightweight_ mode for limited functionality, or install it in _full_ mode during a maintenance window. The SQL IaaS extension installed in _lightweight_ mode can be upgraded to _full_ mode at any time,  but requires a restart of the SQL Server service. 
+   
+1. **Is it possible to switch licensing model on a SQL Server VM deployed using classic model?**
+
+   No. Changing licensing model is not supported on a classic VM. You may migrate your VM to the Azure Resource Manager model and register with the SQL Server VM resource provider. Once the VM is registered with the SQL Server VM resource provider, licensing model changes will be available on the VM.
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**
 
@@ -101,6 +96,32 @@ This article provides answers to some of the most common questions about running
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
    Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.
+   
+ 
+1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
+
+   To have a free passive license for a standby secondary availability group or failover clustered instance, you must meet all of the following criteria as outlined by the [Product Licensing Terms](https://www.microsoft.com/licensing/product-licensing/products):
+
+   1. You have [license mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) through [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any work  other than what is specified in the product terms, it must be a paid licensed SQL Server instance. The following activity is permitted on the secondary instance: database consistency checks or CheckDB, full backups, transaction log backups, and monitoring resource usage data. You may also run the primary and corresponding disaster recovery instance simultaneously for brief periods of disaster recovery testing every 90 days. 
+   1. The active SQL Server license is covered by Software Assurance and allows for **one** passive secondary SQL Server instance, with up to the same amount of compute as the licensed active server, only. 
+   1. The secondary SQL Server VM utilizes the [Disaster Recovery](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) license in the Azure portal.
+   
+1. **What is considered a passive instance?**
+
+   The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any work other than what is specified in the product terms, it must be a paid licensed SQL Server instance. The following activity is permitted on the secondary instance: database consistency checks or CheckDB, full backups, transaction log backups, and monitoring resource usage data. You may also run the primary and corresponding disaster recovery instance simultaneously for brief periods of disaster recovery testing every 90 days.
+   
+
+1. **What scenarios can utilize the Distaster Recovery (DR) benefit?**
+
+   The [licensing guide](https://aka.ms/sql2019licenseguide) provides scenarios in which the Disaster Recovery Benefit can be utilized. Refer to your Product Terms and talk to your licensing contacts or account manager for more information.
+
+1. **Which subscriptions support the Disaster Recovery (DR) benefit?**
+
+   Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [product terms](https://www.microsoft.com/licensing/product-licensing/products) and talk to your licensing contacts or acocunt manager for more information. 
+
+   
+ ## Resource provider
 
 1. **Will registering my VM with the new SQL Server VM resource provider bring additional costs?**
 
@@ -122,9 +143,7 @@ This article provides answers to some of the most common questions about running
 
     Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL Server VM to pay-as-you-go.
 
-1. **Is it possible to switch licensing model on a SQL Server VM deployed using classic model?**
 
-   No. Changing licensing model is not supported on a classic VM. You may migrate your VM to the Azure Resource Manager model and register with the SQL Server VM resource provider. Once the VM is registered with the SQL Server VM resource provider, licensing model changes will be available on the VM. 
    
 
 
@@ -176,9 +195,9 @@ This article provides answers to some of the most common questions about running
 
 ## General
 
-1. **Are SQL Server Failover Cluster Instances (FCI) supported on Azure VMs?**
+1. **Are SQL Server failover cluster instances (FCI) supported on Azure VMs?**
 
-   Yes. You can [create a Windows Failover Cluster on Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) and use Storage Spaces Direct (S2D) for the cluster storage. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Yes. You can install a failover cluster instance using either [premium file shares (PFS)](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) or [storage spaces direct (S2D)](virtual-machines-windows-portal-sql-create-failover-cluster.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on manged premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > At this time, the _full_ [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the _full_ extension from VMs that participate in the FCI, and install the extension in _lightweight_ mode instead. This extension supports features, such as Automated Backup and Patching and some portal features for SQL Server. These features will not work for SQL Server VMs after the _full_ agent is uninstalled.

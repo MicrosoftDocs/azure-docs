@@ -252,28 +252,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 * [Read parameter from a route](#read-parameter-from-a-route)
 * [Read POJO body from a POST request](#read-pojo-body-from-a-post-request)
 
-The following examples show the HTTP trigger binding in a *function.json* file and the respective [Java functions](functions-reference-java.md) that use the binding. 
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "anonymous",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
+The following examples show the HTTP trigger binding.
 
 #### Read parameter from the query string
 
@@ -821,7 +800,7 @@ The key can be included in a query string variable named `code`, as above. It ca
 You can allow anonymous requests, which do not require keys. You can also require that the master key be used. You change the default authorization level by using the `authLevel` property in the binding JSON. For more information, see [Trigger - configuration](#trigger---configuration).
 
 > [!NOTE]
-> When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
 ### Secure an HTTP endpoint in production

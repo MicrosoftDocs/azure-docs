@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -36,7 +36,20 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-September 2019: Additional enforcement of POST semantics according to URL parsing rules - duplicate parameters will trigger an error and [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignored.
+None scheduled at this time.  Please see below for the changes that are in or are coming to production. 
+
+## February 2020: 
+
+### Empty fragments will be appended to every HTTP redirect from the login endpoint. 
+
+**Effective date**: February 8, 2020
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: OAuth and OIDC flows that use response_type=query - this covers the [authorization code flow](v2-oauth2-auth-code-flow.md) in some cases, and the [implicit flow](v2-oauth2-implicit-grant-flow.md). 
+
+When an authentication response is sent from login.microsoftonline.com to an application via HTTP redirect, the service will append an empty fragment to the reply URL.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the authentication request.  No apps should have a dependency on this behavior. 
+
 
 ## August 2019
 
@@ -141,7 +154,7 @@ Starting on November 15, 2018, Azure AD will stop accepting previously used auth
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
-For more information about refresh tokens, see [Refreshing the access tokens](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  If using ADAL or MSAL, this is handled for you by the library - replace the second instance of 'AcquireTokenByAuthorizationCodeAsync' with 'AcquireTokenSilentAsync'. 
+For more information about refresh tokens, see [Refreshing the access tokens](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  If using ADAL or MSAL, this is handled for you by the library - replace the second instance of 'AcquireTokenByAuthorizationCodeAsync' with 'AcquireTokenSilentAsync'. 
 
 ## May 2018
 
@@ -151,7 +164,7 @@ For more information about refresh tokens, see [Refreshing the access tokens](v1
 
 **Endpoints impacted**: Both v1.0 and v2.0
 
-**Protocols impacted**: Implicit flow and [OBO flow](v1-oauth2-on-behalf-of-flow.md)
+**Protocols impacted**: Implicit flow and [on-behalf-of flow](v2-oauth2-on-behalf-of-flow.md)
 
 After May 1, 2018, id_tokens cannot be used as the assertion in an OBO flow for new applications. Access tokens should be used instead to secure APIs, even between a client and middle tier of the same application. Apps registered before May 1, 2018 will continue to work and be able to exchange id_tokens for an access token; however, this pattern is not considered a best practice.
 

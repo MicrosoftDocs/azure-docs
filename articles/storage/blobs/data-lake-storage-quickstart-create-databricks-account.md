@@ -6,34 +6,24 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 01/28/2020
 ms.reviewer: jeking
 ---
 
-# Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks
+# Quickstart: Analyze data with Databricks
 
-This quickstart shows you how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account that has Azure Data Lake Storage Gen2 enabled.
-
-As part of the Spark job, you'll analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+In this quickstart, you run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account. As part of the Spark job, you'll analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
 ## Prerequisites
 
-* Create a Data Lake Gen2 storage account. See [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md)
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  Paste the name of the storage account into a text file. You'll need it soon.
+* The name of your Azure Data Lake Gen2 storage account. [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
 
-* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-  There's a couple of specific things that you'll have to do as you perform the steps in that article.
-
-  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+* The tenant ID, app ID, and password of an Azure service principal with an assigned role of **Storage Blob Data Contributor**. [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!IMPORTANT]
-  > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
-
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
+  > Assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
 ## Create an Azure Databricks workspace
 

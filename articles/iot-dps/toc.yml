@@ -21,6 +21,8 @@
       items:
         - name: C
           href: quick-create-simulated-device-symm-key.md
+        - name: Java
+          href: quick-create-simulated-device-symmetric-key-java.md
     - name: X.509 Certificate attestation
       items:
         - name: C
@@ -187,7 +189,7 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: Azure IoT Edge
       href: /azure/iot-edge
@@ -195,6 +197,8 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks   
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure IoT Samples for C# (.NET)
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
   - name: Azure IoT Samples for Node.js

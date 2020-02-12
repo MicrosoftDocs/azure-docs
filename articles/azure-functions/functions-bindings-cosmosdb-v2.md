@@ -169,22 +169,7 @@ Here's the Python code:
 
 # [Java](#tab/java)
 
-The following example shows a Cosmos DB trigger binding in *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function is invoked when there are inserts or updates in the specified database and collection.
-
-```json
-{
-    "type": "cosmosDBTrigger",
-    "name": "items",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "AzureCosmosDBConnection",
-    "databaseName": "ToDoList",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": false
-}
-```
-
-Here's the Java code:
+This function is invoked when there are inserts or updates in the specified database and collection.
 
 ```java
     @FunctionName("cosmosDBMonitor")

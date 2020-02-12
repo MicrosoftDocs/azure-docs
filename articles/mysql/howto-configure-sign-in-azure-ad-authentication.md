@@ -35,42 +35,7 @@ Only one Azure AD admin can be created per MySQL server and selection of another
 
 In a future release we will support specifying an Azure AD group instead of an individual user to have multiple administrators, however this is currently not supported yet.
 
-## Creating Azure AD users in Azure Database for MySQL
-
-To add an Azure AD user to your Azure Database for MySQL database, perform the following steps after connecting (see later section on how to connect):
-
-1. First ensure that the Azure AD user `<user>@yourtenant.onmicrosoft.com` is a valid user in Azure AD tenant.
-2. Sign in to your Azure Database for MySQL instance as the Azure AD Admin user.
-3. Create user `<user>@yourtenant.onmicrosoft.com` in Azure Database for MySQL.
-
-**Example:**
-
-```sql
-CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
-```
-
-For user names that exceed 32 characters, it is recommended you use an alias instead, to be used when connecting: 
-
-Example:
-
-```sql
-CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
-```
-
-> [!NOTE]
-> Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
-
-## Creating Azure AD groups in Azure Database for MySQL
-
-To enable an Azure AD group for access to your database, use the same mechanism as for users, but instead specify the group name:
-
-**Example:**
-
-```sql
-CREATE AADUSER 'Prod_DB_Readonly';
-```
-
-When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
+After configuring the administrator, you can now sign in:
 
 ## Connecting to Azure Database for MySQL using Azure AD
 
@@ -151,15 +116,53 @@ When connecting you need to use the access token as the MySQL user password. Whe
 When using the CLI, you can use this short-hand to connect: 
 
 **Example (Linux/macOS):**
-
+```
 mysql -h mydb.mysql.database.azure.com \ 
   --user user@tenant.onmicrosoft.com@mydb \ 
   --enable-cleartext-plugin \ 
-  --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`  
+  --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
+```
 
 Note the “enable-cleartext-plugin” setting – you need to use a similar configuration with other clients to make sure the token gets sent to the server without being hashed.
 
 You are now authenticated to your MySQL server using Azure AD authentication.
+
+## Creating Azure AD users in Azure Database for MySQL
+
+To add an Azure AD user to your Azure Database for MySQL database, perform the following steps after connecting (see later section on how to connect):
+
+1. First ensure that the Azure AD user `<user>@yourtenant.onmicrosoft.com` is a valid user in Azure AD tenant.
+2. Sign in to your Azure Database for MySQL instance as the Azure AD Admin user.
+3. Create user `<user>@yourtenant.onmicrosoft.com` in Azure Database for MySQL.
+
+**Example:**
+
+```sql
+CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
+```
+
+For user names that exceed 32 characters, it is recommended you use an alias instead, to be used when connecting: 
+
+Example:
+
+```sql
+CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
+```
+
+> [!NOTE]
+> Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
+
+## Creating Azure AD groups in Azure Database for MySQL
+
+To enable an Azure AD group for access to your database, use the same mechanism as for users, but instead specify the group name:
+
+**Example:**
+
+```sql
+CREATE AADUSER 'Prod_DB_Readonly';
+```
+
+When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
 
 ## Token Validation
 

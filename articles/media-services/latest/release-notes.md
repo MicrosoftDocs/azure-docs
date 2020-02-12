@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ---
 
@@ -32,6 +32,32 @@ To stay up-to-date with the most recent developments, this article provides you 
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+ 
+## January 2020
+
+### Improvements in media processors
+
+- Improved support for interlaced sources in Video Analysis – such content is now de-interlaced correctly before being sent to inference engines.
+- When generating thumbnails with the “Best” mode, the encoder now searches beyond 30 seconds to select a frame that is not monochromatic.
+
+### Azure Government cloud updates
+
+Media Services GA’ed in the following Azure Government regions: *USGov Arizona* and *USGov Texas*.
+
+## December 2019
+
+Added CDN support for *Origin-Assist Prefetch* headers for both live and video on-demand streaming; available for customers who have direct contract with Akamai CDN. Origin-Assist CDN-Prefetch feature involves the following HTTP header exchanges between Akamai CDN and Azure Media Services origin:
+
+|HTTP header|Values|Sender|Receiver|Purpose|
+| ---- | ---- | ---- | ---- | ----- |
+|CDN-Origin-Assist-Prefetch-Enabled | 1 (default) or 0 |CDN|Origin|To indicate CDN is prefetch enabled|
+|CDN-Origin-Assist-Prefetch-Path| Example: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|Origin|CDN|To provide prefetch path to CDN|
+|CDN-Origin-Assist-Prefetch-Request|1 (prefetch request) or 0 (regular request)|CDN|Origin|To indicate the request from CDN is a prefetch|
+
+To see part of the header exchange in action, you can try the following steps:
+
+1. Use Postman or curl to issue a request to Media Services origin for an audio or video segment or fragment. Make sure to add the header CDN-Origin-Assist-Prefetch-Enabled: 1 in the request.
+2. In the response, you should see the header CDN-Origin-Assist-Prefetch-Path with a relative path as its value.
 
 ## November 2019
 
@@ -80,7 +106,7 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 
 #### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see this [legacy components](../previous/legacy-components.md) topic. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) topic. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
 For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -127,7 +153,7 @@ See examples:
 
 ### Azure Monitor support for Media Services diagnostic logs and metrics
 
-You can now use Azure Monitor to view telemetry data emmited by Media Services.
+You can now use Azure Monitor to view telemetry data emitted by Media Services.
 
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
 * Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
