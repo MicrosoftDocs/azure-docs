@@ -98,7 +98,7 @@ The total number of IP addresses provided by all four IP address resources can't
 
 Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual network.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network unless you want all of them to use NAT for outbound to Internet connectivity.  Individual subnets can be configured with different NAT gateway resources.
 
-Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone force NAT to be isolated to a specific zone. Zone-redundancy is not supported. Review NAT [availability zones](#availability-zones).
+Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy is not supported. Review NAT [availability zones](#availability-zones).
 
 
 ```json
