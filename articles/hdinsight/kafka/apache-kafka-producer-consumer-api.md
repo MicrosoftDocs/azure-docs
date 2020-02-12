@@ -29,20 +29,20 @@ For more information on the APIs, see Apache documentation on the [Producer API]
 
 ## Prerequisites
 
-* Apache Kafka on HDInsight cluster. To learn how to create it see [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
+* Apache Kafka on HDInsight cluster. To learn how to create the cluster, see [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 * An SSH client like Putty. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Understand the code
 
-The example application is located at [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in the `Producer-Consumer` subdirectory. If you are using **Enterprise Security Package (ESP)** enabled Kafka cluster, you should use the application version located in `DomainJoined-Producer-Consumer`subdirectory.
+The example application is located at [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in the `Producer-Consumer` subdirectory. If you're using **Enterprise Security Package (ESP)** enabled Kafka cluster, you should use the application version located in the `DomainJoined-Producer-Consumer` subdirectory.
 
 The application consists primarily of four files:
 * `pom.xml`: This file defines the project dependencies, Java version, and packaging methods.
 * `Producer.java`: This file sends random sentences to Kafka using the producer API.
 * `Consumer.java`: This file uses the consumer API to read data from Kafka and emit it to STDOUT.
-* `AdminClientWrapper.java`: This file uses the admin API to create, describe and delete Kafka topics.
+* `AdminClientWrapper.java`: This file uses the admin API to create, describe, and delete Kafka topics.
 * `Run.java`: The command-line interface used to run the producer and consumer code.
 
 ### Pom.xml
@@ -111,7 +111,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
 ## Build and deploy the example
 
-If you would like to skip this step, prebuilt jars can be downloaded from `Prebuilt-Jars`subdirectory. Download the kafka-producer-consumer.jar. If your cluster is **Enterprise Security Package (ESP)** enabled use kafka-producer-consumer-esp.jar. Execute step 3 to copy the jar to your HDInsight cluster.
+If you would like to skip this step, prebuilt jars can be downloaded from the `Prebuilt-Jars` subdirectory. Download the kafka-producer-consumer.jar. If your cluster is **Enterprise Security Package (ESP)** enabled, use kafka-producer-consumer-esp.jar. Execute step 3 to copy the jar to your HDInsight cluster.
 
 1. Download and extract the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
@@ -137,7 +137,7 @@ If you would like to skip this step, prebuilt jars can be downloaded from `Prebu
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. To get the Kafka broker hosts, substitute the values for `<clustername>` and `<password>` in the following command and execute it. Please use the correct casing for `<clustername>` as you see in Azure portal. Replace `<password>` with the cluster login password, then execute:
+1. To get the Kafka broker hosts, substitute the values for `<clustername>` and `<password>` in the following command and execute it. Use the same casing for `<clustername>` as shown in the Azure portal. Replace `<password>` with the cluster login password, then execute:
 
     ```bash
     sudo apt -y install jq
