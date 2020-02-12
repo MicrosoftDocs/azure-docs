@@ -57,6 +57,9 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
+> [!NOTE]
+> IP Groups are not supported in Firewall Policy. It is currently only supported with traditional firewall rules.
+
 ![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
 
 ## Region availability
@@ -79,6 +82,18 @@ IP Groups are currently available in the following regions:
 - Australia East
 - Australia Central
 - Australia Southeast
+
+## Related Azure PowerShell cmdlets
+
+The following Azure PowerShell cmdlets can be used to create and manage IP Groups:
+
+- [New-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
+- [Remove-AzIPGroup](https://docs.microsoft.com/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
+- [Get-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
+- [Set-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
+- [New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
+- [New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
+- [New-AzFirewallNatRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
 
 ## Next steps
 
