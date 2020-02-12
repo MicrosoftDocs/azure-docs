@@ -21,6 +21,12 @@ ms.author: allensu
 
 NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines will use when creating outbound flows. Static IP addresses come from individual public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
+<p align="center">
+  <img src="./media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT">
+</p>
+
+*Figure: Virtual Network NAT*
+
 ## How to deploy NAT
 
 Configuring and using NAT gateway is intentionally made simple:  
@@ -117,9 +123,21 @@ Even without availability zones, NAT is resilient and can survive multiple infra
 
 When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
 
+<p align="center">
+  <img src="./media/nat-overview/az-directions2.svg" width="512" title="Virtual Network NAT with availability zones">
+</p>
+
+*Figure: Virtual Network NAT with availability zones*
+
 When you create a zone-isolated NAT gateway, you must also use zonal IP addresses that match the zone of the NAT gateway resource.  NAT gateway resources don't allow IP addresses from a different zone or without zone to be attached.
 
 Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource.  If you cross zones, a zonal promise can't exist.
+
+<p align="center">
+  <img src="./media/nat-overview/az-directions.svg" width="512" title="Virtual Network NAT with availability zones">
+</p>
+
+*Figure: Virtual Network NAT with availability zones*
 
 When you deploy virtual machine scale sets to use with NAT, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT won't provide a zonal promise.  NAT doesn't support zone-redundancy.
 
@@ -131,6 +149,12 @@ The zones property isn't mutable.  Redeploy NAT gateway resource with the intend
 ## Source Network Address Translation
 
 Source network address translation (SNAT) rewrites the source of a flow to originate from a different IP address.  NAT gateway resources use a variant of SNAT commonly referred to port address translation (PAT). PAT rewrites the source address and source port.  With the addition of source port translation, there's no fixed relationship between the number of private addresses and their translated public addresses.  
+
+<p align="center">
+  <img src="./media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT with availability zones">
+</p>
+
+*Figure: Virtual Network NAT flows*
 
 ### Fundamentals
 
@@ -164,6 +188,12 @@ NAT provides SNAT ports for new outbound to Internet flows on-demand at the time
 
 Once a SNAT port is released, it becomes available for use for any virtual machine on subnets configured with NAT as needed.  On-demand allocation allows dynamic and divergent workloads on subnet(s) to use SNAT ports as they need.  As long as there's SNAT port inventory available, SNAT flows will succeed. Any intermittent SNAT port hot spots in your deployment can benefit from the larger inventory instead of leaving SNAT ports unused for virtual machines not actively needing them.
 
+<p align="center">
+  <img src="./media/nat-overview/lb-vnnat-chart.svg" width="" title="Virtual Network NAT on demand outbound SNAT">
+</p>
+
+*Figure: Virtual Network NAT on demand outbound SNAT*
+
 ### Scaling
 
 NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory.  Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.
@@ -173,6 +203,12 @@ SNAT can map multiple private addresses map to one public IP address.  Additiona
 A NAT gateway resource will use 64,000 ports (SNAT ports) of a public IP address.  These SNAT ports become the available inventory for the private to public flow mapping. And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can be configured with up to 16 IP addresses for up to 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
 
 NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound to Internet flows.
+
+<p align="center">
+  <img src="./media/nat-overview/exhaustion-threshold.svg" width="" title="Virtual Network NAT on demand outbound SNAT">
+</p>
+
+*Figure: Virtual Network NAT on demand outbound SNAT*
 
 ### Protocols
 
