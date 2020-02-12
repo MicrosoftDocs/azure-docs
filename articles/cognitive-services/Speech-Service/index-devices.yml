@@ -15,12 +15,18 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: Devices
+- title: Overview
   linkLists:
     - linkListType: get-started
       links:
         - text: About the Speech Devices SDK
           url: speech-devices-sdk.md
+    - linkListType: whats-new
+      links:
+        - text: Release notes
+          url: devices-sdk-release-notes.md
+- title: Get started
+  linkLists:
     - linkListType: quickstart
       links:
         - text: Use Speech Device SDK (Windows)
@@ -31,10 +37,6 @@ landingContent:
           url: speech-devices-sdk-android-quickstart.md
 - title: Reference
   linkLists:
-    - linkListType: whats-new
-      links:
-        - text: Release notes
-          url: devices-sdk-release-notes.md
     - linkListType: how-to-guide
       links:
         - text: Troubleshoot
