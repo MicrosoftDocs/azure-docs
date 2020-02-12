@@ -1,7 +1,7 @@
 ---
 title: "Speech recognition basics - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to convert speech-to-text. In this article, you'll learn about object construction, supported audio input formats, and configuration options for speech recognition...
+description: Learn how to use the Speech SDK to convert speech-to-text. In this article, you'll learn about object construction, supported audio input formats, and configuration options for speech recognition.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -104,6 +104,9 @@ The [Recognizer class](https://docs.microsoft.com/python/api/azure-cognitiveserv
 * Continuous recognition (sync) - Synchronously initiates continuous recognition. The client must connect to `EventSignal` to receive recognition results. To stop recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--).
 * Continuous recognition (async) - Asynchronously initiates continuous recognition operation. User has to connect to EventSignal to receive recognition results. To stop asynchronous continuous recognition, call [stop_continuous_recognition_async()](To stop recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--).
 
+> [!NOTE]
+> Learn more about how to [choose a speech recognition mode](how-to-choose-recognition-mode.md).
+
 ### Single-shot recognition
 
 Here's an example of synchronous single-shot recognition using [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once):
@@ -194,6 +197,17 @@ while not done:
     time.sleep(.5)
 ```
 
-## Recognize intents with Language Understanding (LUIS)
+## Change source language for recognition
 
-...
+A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your SpeechConfig, then add this line directly below it.
+
+```Python
+speech_config.speech_recognition_language="de-DE"
+```
+
+[`speech_recognition_language`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](language-support.md).
+
+## Next steps
+
+* [Improve speech recognition accuracy with Phrase Lists](how-to-phrase-lists.md)
+* [Use codec compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md)
