@@ -1,14 +1,14 @@
 ### YamlMime:Hub
 
 title: Speech service documentation
-summary: Explore documentation for the Speech services.
+summary: Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
 brand: azure
 
 metadata:
   title: Speech service documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  description: Explore documentation for the Speech services.
+  description: Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
   author: IEvangelist
   manager: nitinme
   ms.service: speech-service
@@ -33,17 +33,15 @@ highlightedContent:
       url: get-started.md
 
 conceptualContent:
-  title: Get started
-  summary: Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
   items:
     - title: Speech-to-text
       links:
         - itemType: quickstart
-          text: Recognize speech from an audio file
-          url: quickstarts/speech-to-text-from-file.md
-        - itemType: quickstart
           text: Recognize speech with microphone input
           url: quickstarts/speech-to-text-from-microphone.md
+        - itemType: quickstart
+          text: Recognize speech from an audio file
+          url: quickstarts/speech-to-text-from-file.md
         - itemType: quickstart
           text: Recognize speech stored in blob storage
           url: quickstarts/from-blob.md
@@ -53,11 +51,11 @@ conceptualContent:
     - title: Text-to-speech
       links:
         - itemType: quickstart
-          text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
-        - itemType: quickstart
           text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
+        - itemType: quickstart
+          text: Synthesize speech into an audio file
+          url: quickstarts/text-to-speech-audio-file.md
         - itemType: quickstart
           text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
@@ -183,24 +181,32 @@ tools:
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
     url: https://aka.ms/csspeech/pythonref
 
-additionalContent:
-  sections:
-    - items:
-      - title: REST APIs
-        links:
-        - text: Speech-to-text REST API
-          url: rest-speech-to-text.md
-        - text: Batch transcription REST API
-          url: batch-transcription.md
-        - text: Text-to-speech REST API
-          url: rest-text-to-speech.md
-        - text: Conversation transcription REST APIs
-          url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-      - title: Support
-        links:
-        - text: Support and help
-          url: support.md
-        - text: GitHub issues
-          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-        - text: Stack Overflow
-          url: https://aka.ms/SOspeechquestions
+productDirectory:
+  items:
+    - title: REST APIs
+      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
+      links:
+      - text: Speech-to-text REST API
+        url: rest-speech-to-text.md
+      - text: Batch transcription REST API
+        url: batch-transcription.md
+      - text: Text-to-speech REST API
+        url: rest-text-to-speech.md
+      - text: Conversation transcription REST APIs
+        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+    - title: Resources
+      imageSrc: https://docs.microsoft.com/media/common/i_reference.svg
+      links:
+      - text: Pricing
+        url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+      - text: Regions
+        url: regions.md
+    - title: Support
+      imageSrc: https://docs.microsoft.com/media/common/i_support.svg
+      links:
+      - text: Support and help
+        url: support.md
+      - text: GitHub issues
+        url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+      - text: Stack Overflow
+        url: https://aka.ms/SOspeechquestions

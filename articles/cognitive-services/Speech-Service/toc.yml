@@ -19,10 +19,10 @@
       href: speech-to-text.md
   - name: Quickstart
     items:
-    - name: Recognize speech from an audio file
-      href: quickstarts/speech-to-text-from-file.md
     - name: Recognize speech with microphone input
       href: quickstarts/speech-to-text-from-microphone.md
+    - name: Recognize speech from an audio file
+      href: quickstarts/speech-to-text-from-file.md
     - name: Recognize speech stored in blob storage
       href: quickstarts/from-blob.md
   - name: How-to guides
@@ -114,10 +114,10 @@
       href: text-to-speech.md
   - name: Quickstart
     items:
-    - name: Synthesize speech into an audio file
-      href: quickstarts/text-to-speech-audio-file.md
     - name: Synthesize speech to a speaker
       href: quickstarts/text-to-speech.md
+    - name: Synthesize speech into an audio file
+      href: quickstarts/text-to-speech-audio-file.md
     - name: Synthesize speech with long-form audio
       href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
   - name: How-to guides
