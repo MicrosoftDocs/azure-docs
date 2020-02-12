@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a data warehouse that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL pool that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
@@ -116,7 +116,7 @@ $database | Select-Object DatabaseName,Status
 ```
 
 ## Next steps
-You have now learned how to scale compute for your data warehouse. To learn more about SQL pool, continue to the tutorial for loading data.
+You have now learned how to scale compute for SQL pool. To learn more about SQL pool, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
 >[Load data into a SQL pool](load-data-from-azure-blob-storage-using-polybase.md)

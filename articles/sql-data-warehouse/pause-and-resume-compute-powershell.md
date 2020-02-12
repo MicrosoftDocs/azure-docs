@@ -10,7 +10,7 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 # Quickstart: Pause and resume compute in Azure Synapse Analytics SQL pool with Azure PowerShell
 
@@ -111,17 +111,17 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
 
 - If you want to keep the data in storage, pause compute.
-- If you want to remove future charges, you can delete the data warehouse.
+- If you want to remove future charges, you can delete the SQL pool.
 
 Follow these steps to clean up resources as you desire.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and click on your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), and click on your SQL pool.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, click **Start**.
+2. To pause compute, click the **Pause** button. When the SQL pool is paused, you see a **Start** button.  To resume compute, click **Start**.
 
-3. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
+3. To remove the SQL pool so you are not charged for compute or storage, click **Delete**.
 
 4. To remove the SQL server you created, click **sqlpoolservername.database.windows.net**, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
@@ -130,7 +130,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-You have now paused and resumed compute for your data warehouse. To learn more about SQL pool, continue to the tutorial for loading data.
+You have now paused and resumed compute for your SQL pool. To learn more about SQL pool, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
 > [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md)
