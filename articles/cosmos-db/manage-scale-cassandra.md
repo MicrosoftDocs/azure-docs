@@ -1,5 +1,5 @@
 ---
-title: Elastic scale with Cassandra API
+title: Elastically scale with Cassandra API in Azure Cosmos DB
 description: The different options for scaling up/down in a Cassandra API account and their advantages/disadvantages
 author: TheovanKraay
 ms.service: cosmos-db
