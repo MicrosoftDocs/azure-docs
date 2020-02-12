@@ -126,10 +126,3 @@ The following passwords are not allowed:
         <td>Password22</td>
     </tr>
 </table>
-
-## Why is my VM size not enabled in the size selector when I try to create a Gen2 VM?
-
-This may be solved by doing the following:
-
-* Verify that the **VM generation** property is set to **Gen 2** in the **Advanced** tab.
-* Verify you are searching for a [VM size which supports Gen2 VMs](generation-2.md#generation-2-vm-sizes).

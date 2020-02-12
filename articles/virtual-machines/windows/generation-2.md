@@ -195,6 +195,13 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 * **Can I migrate a VM from generation 1 to generation 2?**  
     No, you can't change the generation of a VM after you create it. If you need to switch between VM generations, create a new VM of a different generation.
 
+* **Why is my VM size not enabled in the size selector when I try to create a Gen2 VM?**
+
+    This may be solved by doing the following:
+
+    1. Verify that the **VM generation** property is set to **Gen 2** in the **Advanced** tab.
+    1. Verify you are searching for a [VM size which supports Gen2 VMs](#generation-2-vm-sizes).
+
 ## Next steps
 
 * Learn about [generation 2 virtual machines in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
