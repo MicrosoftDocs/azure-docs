@@ -81,7 +81,7 @@ ms.custom: seodec18
 
 **Bug fixes**
 
-- Fix for crash if local `KeywordRecognizer` is used without a valid speech service subscription key
+- Fix for crash if local `KeywordRecognizer` is used without a valid Speech service subscription key
 
 **Samples**
 

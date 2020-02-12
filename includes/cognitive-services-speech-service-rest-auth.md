@@ -33,7 +33,7 @@ The `issueToken` endpoint has this format:
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
 Use these samples to create your access token request.
 
