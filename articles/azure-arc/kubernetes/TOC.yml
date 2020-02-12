@@ -7,12 +7,19 @@
 - name: Quickstarts
   expanded: true
   items:
+   - name: Connect cluster
+     href: connect-a-cluster.md
+  items:
+   - name: Create cluster with AKS-Engine
+     href: connect-a-cluster.md
 - name: Tutorials
   expanded: true
   items:
-  - name: Use GitOps
+  - name: Use GitOps for AKS clusters
     href: use-gitops.md
-  - name: IoT workloads
+  - name: Use GitOps for connected clusters
+    href: use-gitops.md
+  - name: Deploy IoT workloads
     href: deploy-azure-iot-edge-workloads.md
 - name: Concepts
   items:
@@ -28,6 +35,10 @@
       href: use-azure-policy.md
     - name: Custom service principal
       href: create-onboarding-spn.md
+  - name: Monitoring
+    items:
+    - name: Azure mMnitor for containers
+      href: deploy-azure-monitor-for-containers.md
 - name: Resources
   items:
   - name: Frequently asked questions
