@@ -131,10 +131,10 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 
 | Method | Description |
 |--------|-------------|
-| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](quickstart-onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
-| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
+| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
+| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](onboard-service-principal.md).<br> This method creates a service principal to connect machines non-interactively.|
 
 
 ## Next steps
 
-- To begin evaluating Azure Arc for servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md). 
+- To begin evaluating Azure Arc for servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md). 

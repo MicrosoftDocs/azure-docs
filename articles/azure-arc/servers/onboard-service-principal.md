@@ -11,7 +11,7 @@ ms.topic: conceptual
 ---
 # Connect hybrid machines to Azure at scale
 
-You can enable Azure Arc for servers (preview) for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure. To connect the machines to Azure Arc for servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](quickstart-onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
+You can enable Azure Arc for servers (preview) for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure. To connect the machines to Azure Arc for servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
 
 The installation methods to install and configure the Connected Machine agent requires that the automated method you use has  administrator permissions on the machines. On Linux, by using the root account and on Windows, as a member of the Local Administrators group.
 
@@ -70,7 +70,7 @@ The **Azure Connected Machine Onboarding** role contains only the permissions re
 
 ## Install the agent and connect to Azure
 
-The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md) article. The difference is in the final step where you establish the connection to Azure Arc using the `azcmagent` command using the service principal. 
+The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article. The difference is in the final step where you establish the connection to Azure Arc using the `azcmagent` command using the service principal. 
 
 The following are the settings that you configure the `azcmagent` command to use for the service principal.
 
@@ -88,7 +88,8 @@ The following is an example of the Connected Machine agent for Windows installat
 
 ```
  # Download the package
-Invoke-WebRequest -Uri https://aka.ms/AzureConnectedMachineAgent -OutFile AzureConnectedMachineAgent.msi
+function download() {$ProgressPreference="SilentlyContinue"; Invoke-WebRequest -Uri https://aka.ms/AzureConnectedMachineAgent -OutFile AzureConnectedMachineAgent.msi}
+download
 
 # Install the package
 msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-String
@@ -126,7 +127,7 @@ azcmagent connect \
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-![A successful server connection](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
+![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## Next steps
 
