@@ -27,7 +27,7 @@ A .NET Core console application is used to trigger and monitor the events. Notic
 
 The following image shows the flow described in this topic.
 
-![LVA on the Edge for ingestion](./media/lva-edge/lva-edge-diagram_ingestion.png)
+![LVA on the Edge for ingestion](./media/lva-edge/lva-edge-diagram-ingestion.png)
 
 ## Prerequisites
 

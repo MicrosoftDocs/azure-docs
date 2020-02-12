@@ -23,7 +23,7 @@ This tutorial shows how to set up a local linux IoT Edge device, or target machi
 
 The following diagram is an example setup of a motion detection system running on the Edge with Live Video Analytics. The portion in blue is what will be set up in this tutorial.
 
-![Diagram of Edge and Cloud elements in a Media Graph](./media/lva-edge/lva-edge-diagram_setup.png)
+![Diagram of Edge and Cloud elements in a Media Graph](./media/lva-edge/lva-edge-diagram-setup.png)
 
 In this tutorial, the target machine refers to the edge device itself (Ubuntu 16.04 or 18.04) and the host machine refers to the personal laptop or desktop machine (Windows, MacOS, or Linux) used to perform the setup.
 

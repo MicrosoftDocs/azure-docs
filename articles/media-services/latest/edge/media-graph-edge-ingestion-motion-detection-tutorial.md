@@ -25,7 +25,7 @@ Specifically, the objective is to ingest media from an RTSP stream (a simulator 
 
 The following image shows the flow described in this topic.
 
-![LVA on the Edge for ingestion and motion detect](./media/lva-edge/lva-edge-diagram_motion.png)
+![LVA on the Edge for ingestion and motion detect](./media/lva-edge/lva-edge-diagram-motion.png)
 
 ## Prerequisites
 
