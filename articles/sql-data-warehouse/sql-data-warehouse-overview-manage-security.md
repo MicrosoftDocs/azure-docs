@@ -1,6 +1,6 @@
 ---
 title: Secure a database
-description: Tips for securing a database in Azure SQL Data Warehouse for developing solutions.
+description: Tips for securing a database and developing solutions in the SQL pool resource of SQL Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -22,21 +22,21 @@ ms.custom: seo-lt-2019
 > 
 > 
 
-This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this article gets you started with resources for limiting access, protecting data, and monitoring activities on a database.
+This article will walk you through the basics of securing your SQL pool within SQL Analytics. In particular, this article gets you started with resources for limiting access, protecting data, and monitoring activities on a database provisioned using SQL pool.
 
 ## Connection security
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
 Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that haven't been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell. 
 
-As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
+As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access SQL pool from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
-Azure Synapse uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see [Azure SQL Database firewall rules](../sql-database/sql-database-firewall-configure.md)
+Azure Synapse Analytics uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](../sql-database/sql-database-firewall-configure.md)
 
-Connections to your SQL Data Warehouse are encrypted by default.  Modifying connection settings to disable encryption are ignored.
+Connections to your SQL pool are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 
 ## Authentication
-Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password, and with Azure Active Directory. 
+Authentication refers to how you prove your identity when connecting to the database. SQL pool currently supports SQL Server Authentication with a username and password, and with Azure Active Directory. 
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
@@ -50,7 +50,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Then, connect to your **SQL Data Warehouse database** with your server admin login and create a database user based on the server login you created.
+Then, connect to your **SQL pool database** with your server admin login and create a database user based on the server login you created.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -93,4 +93,4 @@ In SQL Database, the database encryption key is protected by a built-in server c
 You can encrypt your database using the [Azure portal](sql-data-warehouse-encryption-tde.md) or [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Next steps
-For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL Data Warehouse](../synapse-analytics/sql-analytics/connect-overview.md).
+For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
