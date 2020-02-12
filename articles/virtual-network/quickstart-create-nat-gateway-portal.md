@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a NAT gateway - Azure portal'
-titlesuffix: Azure NAT service
+titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using the Azure portal
 services: virtual-network
 documentationcenter: na
@@ -16,23 +16,17 @@ ms.date: 11/04/2019
 ms.author: allensu
 ---
 
-# Quickstart: Create a NAT gateway using Azure portal
+# Quickstart: Create a NAT gateway using the Azure portal
 
 This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 >[!NOTE] 
->Azure NAT service is available as Public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+>Azure NAT service is available as Public preview at this time and available in a limited set of [regions](./nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Prerequisites
-For this quickstart, you'll need the following prerequisites:
-  * **Virtual machine**
-  * **Virtual network**
-  * **Public IP address**
-  * **Public IP prefix**
 
 ### Create a virtual network
 
@@ -65,7 +59,7 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
    - **Instance Details** > **Virtual machine name**: Type **myVM**.
    - **Instance Details** > **Region** > select **East US 2**.
    - **Administrator account** > **Authentication type**: Select **Password**.
-   - **Administrator account** > Enter the **Username**, **Password, and **Confirm password** information.
+   - **Administrator account** > Enter the **Username**, **Password**, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)**
    - Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
@@ -178,5 +172,12 @@ In this tutorial, you created a NAT gateway and a VM to use the NAT service. To 
 
 You can also review metrics in Azure Monitor to see your NAT service operating. You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
+
+- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [NAT gateway resource](./nat-gateway-resource.md).
+- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
+- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 
