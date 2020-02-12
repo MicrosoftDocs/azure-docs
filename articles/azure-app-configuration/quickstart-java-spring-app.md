@@ -56,23 +56,25 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
 
-    #### [Spring Cloud 1.1.x](#tab/java)
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
-        <version>1.1.1</version>
-    </dependency>
-    ```
-    #### [Spring Cloud 1.2.x](#tab/other)
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
-        <version>1.2.1</version>
-    </dependency>
-    ```
-    ---
+### Spring Cloud 1.1.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+### Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management</artifactId>
+    <version>1.2.1</version>
+</dependency>
+```
 
 1. Create a new Java file named *MessageProperties.java* in the package directory of your app. Add the following lines:
 
@@ -94,7 +96,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
         }
     }
     ```
-    ---
 
 1. Create a new Java file named *HelloController.java* in the package directory of your app. Add the following lines:
 

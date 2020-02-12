@@ -49,7 +49,7 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
-#### [Spring Cloud 1.1.x](#tab/java)
+### Spring Cloud 1.1.x
 
 ```xml
 <dependency>
@@ -59,7 +59,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 </dependency>
 ```
 
-#### [Spring Cloud 1.2.x](#tab/other)
+### Spring Cloud 1.2.x
 
 ```xml
 <dependency>
@@ -68,7 +68,6 @@ The easiest way to connect your Spring Boot application to App Configuration is 
     <version>1.2.1</version>
 </dependency>
 ```
----
 
 ## Feature flag declaration
 
