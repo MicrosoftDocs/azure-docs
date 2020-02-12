@@ -213,7 +213,7 @@ Learn about [keeping IP addresses during failover](site-recovery-retain-ip-azure
 
 Site Recovery tries to provide the IP address at the time of failover. If another virtual machine is taking that address, Site Recovery sets the next available IP address as the target.
 
-Learn more about [setting up network mapping and IP addressing for VNets](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+Learn more about [setting up network mapping and IP addressing for virtual networks](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### What are **Latest (lowest RPO)** recovery points?
 
@@ -296,7 +296,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, and DPA certified. The service is
 
 ### Does Site Recovery encrypt replication?
 
-Yes, both encryption-in-transit and [encryption at-rest in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
+Yes, both encryption in transit and [encryption at rest in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
 
 ## Next steps
 
