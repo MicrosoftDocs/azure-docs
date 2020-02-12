@@ -14,9 +14,9 @@ ms.reviewer: artek
 
 # Tutorial: Simulate a failure in reading data from the primary region
 
-This tutorial is part two of a series. In it, you learn about the benefits of a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) by simulating a failure.
+This tutorial is part two of a series. In it, you learn about the benefits of [read-access geo-redundant storage](../common/storage-redundancy.md) (RA-GRS) by simulating a failure.
 
-In order to simulate a failure, you can use either [Static Routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
+In order to simulate a failure, you can use either [Static Routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -37,7 +37,7 @@ To simulate a failure using Fiddler, download and [install Fiddler](https://www.
 
 ## Simulate a failure with an invalid static route
 
-You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
+You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
 
 ### Start and pause the application
 

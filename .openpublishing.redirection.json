@@ -4602,7 +4602,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-policy-tags.md",
-      "redirect_url": "/azure/governance/policy/samples/billing-tags-policy-init",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -21031,6 +21031,186 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/active-directory-acs-migration.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-acs-migration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-authentication-libraries.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-devhowto-adal-error-handling.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/app-types.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/app-types",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/azure-ad-endpoint-comparison.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/azure-ad-federation-metadata.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/conditional-access-dev-guide.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/conditional-access-dev-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/howto-app-gallery-listing.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-app-gallery-listing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/howto-get-appsource-certified.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-get-appsource-certified",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/howto-reactivate-disabled-acs-namespaces.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/howto-v1-debug-saml-sso-issues.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/howto-v1-enable-sso-android.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-v1-enable-sso-android",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/howto-v1-enable-sso-ios.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-v1-enable-sso-ios",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/native-app.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/native-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-android.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-angularjs-spa.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-aspnet-webapp.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-aspnet-webapp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-dotnet.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-windows-desktop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-dotnet-webapi.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-dotnet-native-aspnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-ios.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-ios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-netcore-daemon.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-netcore-daemon",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-nodejs-webapi.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v1-xamarin.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/sample-v1-code.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/sample-v1-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/service-to-service.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/service-to-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/single-page-application.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/single-page-application",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-authentication-scenarios.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-authentication-scenarios",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-oauth2-client-creds-grant-flow.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-oauth2-implicit-grant-flow.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-implicit-grant-flow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-oauth2-on-behalf-of-flow.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-on-behalf-of-flow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-permissions-and-consent.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-and-consent",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-protocols-oauth-code.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-protocols-oauth-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v1-protocols-openid-connect-code.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-protocols-openid-connect-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/web-api.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/web-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/web-app.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/azuread-dev/web-app",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-app-gallery-listing.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-app-gallery-listing",
       "redirect_document_id": false
@@ -26529,6 +26709,26 @@
       "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
       "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-lrs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-grs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-zrs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-redundancy-gzrs.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-disaster-recovery-guidance.md",
@@ -38087,217 +38287,217 @@
     },
     {
       "source_path": "articles/azure-policy/scripts/allow-certain-vm-image.md",
-      "redirect_url": "/azure/governance/policy/samples/allow-certain-vm-image",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allow-custom-vm-image.md",
-      "redirect_url": "/azure/governance/policy/samples/allow-custom-vm-image",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allow-multiple-name-patterns.md",
-      "redirect_url": "/azure/governance/policy/samples/allow-multiple-name-patterns",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-app-gate-sku.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-app-gateway-sku",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-custom-images.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-custom-images",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-er-band.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-express-route-band",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-er-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-express-route-skus",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-lb-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-load-balancer-skus",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-locs.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-locations",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-peering-er.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-express-route-peering",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-res-types.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-resource-types",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-skus-storage.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-skus-storage",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-sql-db-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-sql-db-skus",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-stor-acct-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-storage-account-skus",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/allowed-vn-gate-sku.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-vnet-gateway-sku",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/apply-tag-def-val.md",
-      "redirect_url": "/azure/governance/policy/samples/apply-tag-default-value",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-db-threat-det-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-db-threat-detection-setting",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-diag-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-diagnostic-setting",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-ext-not-exist.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-extension-not-exist",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-no-aad-admin.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-no-aad-admin",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-sql-db-audit-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-sql-db-audit-setting",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-sql-ser-leve-audit-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-sql-server-audit-setting",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-sql-ser-threat-det-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-sql-server-threat-detection-setting",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/audit-trans-data-enc-status.md",
-      "redirect_url": "/azure/governance/policy/samples/sql-database-encryption-audit",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/billing-tags-policy-init.md",
-      "redirect_url": "/azure/governance/policy/samples/billing-tags-policy-init",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/create-vm-managed-disk.md",
-      "redirect_url": "/azure/governance/policy/samples/create-vm-managed-disk",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/deny-cool-access-tiering.md",
-      "redirect_url": "/azure/governance/policy/samples/deny-cool-access-tiering",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/deny-hybrid-use.md",
-      "redirect_url": "/azure/governance/policy/samples/deny-hybrid-use",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/enforce-datalakestore-encryption.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-data-lake-store-encryption",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/enforce-like-pattern.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-like-pattern",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/enforce-match-pattern.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-match-pattern",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/enforce-tag-match-pattern.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-tag-match-pattern",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/enforce-tag-rg.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-tag-on-resource-groups",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/enforce-tag-val.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-tag-value",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/ensure-https-stor-acct.md",
-      "redirect_url": "/azure/governance/policy/samples/ensure-https-storage-account",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/ensure-store-file-enc.md",
-      "redirect_url": "/azure/governance/policy/samples/ensure-storage-file-encryption",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/net-watch-not-enabled.md",
-      "redirect_url": "/azure/governance/policy/samples/network-watcher-not-enabled",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/no-peering-er-net.md",
-      "redirect_url": "/azure/governance/policy/samples/no-peering-express-route-network",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/no-user-def-route-table.md",
-      "redirect_url": "/azure/governance/policy/samples/no-user-defined-route-table",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/not-allowed-res-type.md",
-      "redirect_url": "/azure/governance/policy/samples/not-allowed-resource-types",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/not-allowed-vm-ext.md",
-      "redirect_url": "/azure/governance/policy/samples/not-allowed-vm-extension",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/nsg-on-nic.md",
-      "redirect_url": "/azure/governance/policy/samples/nsg-on-nic",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/nsg-on-subnet.md",
-      "redirect_url": "/azure/governance/policy/samples/nsg-on-subnet",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -38317,27 +38517,27 @@
     },
     {
       "source_path": "articles/azure-policy/scripts/sql-database-encryption-audit.md",
-      "redirect_url": "/azure/governance/policy/samples/sql-database-encryption-audit",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/sql-server-audit.md",
-      "redirect_url": "/azure/governance/policy/samples/sql-server-audit",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/use-approved-subnet-vm-nics.md",
-      "redirect_url": "/azure/governance/policy/samples/use-approved-subnet-vm-nics",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/use-approved-vnet-vm-nics.md",
-      "redirect_url": "/azure/governance/policy/samples/use-approved-vnet-vm-nics",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-policy/scripts/use-managed-disk-vm.md",
-      "redirect_url": "/azure/governance/policy/samples/use-managed-disk-vm",
+      "redirect_url": "/azure/governance/policy/samples/index",
       "redirect_document_id": false
     },
     {
@@ -41292,133 +41492,133 @@
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-app-gateway-sku",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-vn-gate-sku.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-vnet-gateway-sku",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-lb-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-load-balancer-skus",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-locs.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-locations",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-res-types.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-resource-types",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/not-allowed-res-type.md",
-      "redirect_url": "/azure/governance/policy/samples/not-allowed-resource-types",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-stor-acct-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-storage-account-skus",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-er-band.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-express-route-band",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-er-skus.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-express-route-skus",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/allowed-peering-er.md",
-      "redirect_url": "/azure/governance/policy/samples/allowed-express-route-peering",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/apply-tag-def-val.md",
-      "redirect_url": "/azure/governance/policy/samples/apply-tag-default-value",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/audit-db-threat-det-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-db-threat-detection-setting",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/audit-diag-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-diagnostic-setting",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/audit-ext-not-exist.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-extension-not-exist",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/audit-sql-ser-leve-audit-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-sql-server-audit-setting",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/audit-sql-ser-threat-det-setting.md",
-      "redirect_url": "/azure/governance/policy/samples/audit-sql-server-threat-detection-setting",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/resource-manager-policy-tags.md",
-      "redirect_url": "/azure/governance/policy/samples/billing-tags-policy-initiative",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/enforce-datalakestore-encryption.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-data-lake-store-encryption",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/enforce-tag-rg.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-tag-on-resource-groups",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/enforce-tag-val.md",
-      "redirect_url": "/azure/governance/policy/samples/enforce-tag-value",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/ensure-https-stor-acct.md",
-      "redirect_url": "/azure/governance/policy/samples/ensure-https-storage-account",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/ensure-store-file-enc.md",
-      "redirect_url": "/azure/governance/policy/samples/ensure-storage-file-encryption",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/net-watch-not-enabled.md",
-      "redirect_url": "/azure/governance/policy/samples/network-watcher-not-enabled",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/no-peering-er-net.md",
-      "redirect_url": "/azure/governance/policy/samples/no-peering-express-route-network",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/no-user-def-route-table.md",
-      "redirect_url": "/azure/governance/policy/samples/no-user-defined-route-table",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/not-allowed-vm-ext.md",
-      "redirect_url": "/azure/governance/policy/samples/not-allowed-vm-extension",
-      "redirect_document_id": true
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/samples/req-sql-12.md",
@@ -41433,7 +41633,252 @@
     {
       "source_path": "articles/governance/policy/samples/req-store-acct-enc.md",
       "redirect_url": "/azure/governance/policy/samples/index",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allow-certain-vm-image.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allow-custom-vm-image.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allow-multiple-name-patterns.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-app-gateway-sku.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-custom-images.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-express-route-bandwidth.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-express-route-peering.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-express-route-skus.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-load-balancer-skus.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-locations.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-resource-types.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-skus-storage.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-sql-db-skus.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-storage-account-skus.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/allowed-vnet-gateway-sku.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/apply-tag-default-value.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-db-threat-detection-setting.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-diagnostic-setting.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-extension-not-exist.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-no-aad-admin.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-sql-db-audit-setting.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-sql-server-audit-setting.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/audit-sql-server-threat-detection-setting.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/billing-tags-policy-initiative.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/create-vm-managed-disk.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/deny-cool-access-tiering.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/deny-hybrid-use.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/enforce-data-lake-store-encryption.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/enforce-like-pattern.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/enforce-match-pattern.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/enforce-tag-match-pattern.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/enforce-tag-on-resource-groups.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/enforce-tag-value.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/ensure-https-storage-account.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/ensure-storage-file-encryption.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/guest-configuration-applications-installed-linux.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/keyvault-no-vnet-rules.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/network-watcher-not-enabled.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/no-peering-express-route-network.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/no-user-defined-route-table.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/not-allowed-resource-types.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/not-allowed-vm-extension.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/nsg-on-nic.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/nsg-on-subnet.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/sql-database-encryption-audit.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/sql-server-audit.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/use-approved-subnet-vm-nics.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/use-approved-vnet-vm-nics.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/use-managed-disk-vm.md",
+      "redirect_url": "/azure/governance/policy/samples/index",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/policy/how-to/getting-compliance-data.md",
@@ -47905,6 +48350,11 @@
       "source_path": "articles/mysql/concepts-aad-authentication.md",
       "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/tutorial-mfa-applications.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/load-balancer/quickstart-create-basic-load-balancer-portal.md",

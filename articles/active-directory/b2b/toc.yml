@@ -15,7 +15,9 @@
       href: b2b-quickstart-invite-powershell.md
   - name: Tutorials
     items:
-    - name: Bulk invite B2B guest users
+    - name: Bulk invite via PowerShell
+      href: bulk-invite-powershell.md
+    - name: Bulk invite via the portal (preview)
       href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
