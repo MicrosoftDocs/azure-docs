@@ -55,24 +55,11 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Throughput provisioned on a database can be shared by the containers within that database. Each new container in database level shared throughput will require 100 RU/s. When you provision containers with shared database offering:
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. In a shared throughput database:
 
-* Every 25 containers are grouped into a partition set and the database throughput(D) is shared between the containers in the partition set. If there are up to 25 containers in the database and at any point in time, if you are using only one container, then that container can use a max of ‘D’ throughput.
+* You can have up to four containers with a minimum of 400 RU/s on the database. Each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s.
 
-* For every new container created after 25 containers, a new partition set is created and the database throughput is split between the new partition sets created (that is D/2 for 2 partition sets, D/3 for 3 partition sets…). At any point in time, if you are using only one container from the database, it can use a max of (D/2, D/3, D/4… throughput) respectively. Given the reduced throughput, its recommended that you create no more than 25 containers in one database.
-
-**Example**
-
-* If you create a database named “MyDB” with a provisioned throughput of 10K RU/s.
-
-* If you provision 25 containers under “MyDB”, then all the containers are grouped into a partition set. At any point in time, if you are using only one container from the database, then it can use a maximum of 10K RU/s (D).
-
-* When you provision 26th container, a new partition set is created and the throughput is split equally between both the partition sets. So at any point in time, if you are using only one container from the database it can use a maximum of 5K RU/s (D/2). Because there are two partition sets, the throughput shareability factor is split into D/2.
-
-   The following image demonstrates the previous example graphically:
-
-   ![Shareability factor in database level throughput](./media/set-throughput/database-level-throughput-shareability-factor.png)
-
+* You can have a maximum of 25 containers in the database. If you already have more than 25 containers in a shared throughput database, you will not be able to create additional containers until the container count is less than 25.
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
