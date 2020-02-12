@@ -396,6 +396,8 @@
         href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
       - name: Debug Apache Spark jobs
         href: ./spark/apache-spark-job-debugging.md
+      - name: Debug WASB file operations
+        href: ./spark/troubleshoot-debug-wasb.md
       - name: Use IntelliJ to debug Apache Spark job
         href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Apache Spark troubleshooting
