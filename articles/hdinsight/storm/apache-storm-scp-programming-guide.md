@@ -69,7 +69,7 @@ Your plug-in code implements one of the following interfaces. Which interface de
 
 **ISCPPlugin** is the common interface for many plug-ins. Currently, it's a dummy interface.
 
-```
+```csharp
 public interface ISCPPlugin
 {
 }
@@ -79,7 +79,7 @@ public interface ISCPPlugin
 
 **ISCPSpout** is the interface for a nontransactional spout.
 
-```
+```csharp
 public interface ISCPSpout : ISCPPlugin
 {
     void NextTuple(Dictionary<string, Object> parms);
@@ -94,7 +94,7 @@ The **NextTuple**, **Ack**, and **Fail** methods are all called in a tight loop 
 
 The **Ack** and **Fail** methods are called only when a specification file enables the acknowledgment mechanism. The *seqId* parameter identifies the tuple that is acknowledged or has failed. If acknowledgment is enabled in a nontransactional topology, the following **Emit** function should be used in a spout:
 
-```
+```charp
 public abstract void Emit(string streamId, List<object> values, long seqId);
 ```
 
@@ -106,7 +106,7 @@ The *parms* input parameter in these functions specifies an empty dictionary and
 
 **ISCPBolt** is the interface for a nontransactional bolt.
 
-```
+```csharp
 public interface ISCPBolt : ISCPPlugin
 {
 void Execute(SCPTuple tuple);
@@ -119,7 +119,7 @@ When a new tuple is available, the **Execute** function is called to process it.
 
 **ISCPTxSpout** is the interface for a transactional spout.
 
-```
+```csharp
 public interface ISCPTxSpout : ISCPPlugin
 {
     void NextTx(out long seqId, Dictionary<string, Object> parms);  
@@ -140,7 +140,7 @@ The *parms* input parameter in these functions specifies an empty dictionary and
 
 **ISCPBatchBolt** is the interface for a transactional bolt.
 
-```
+```csharp
 public interface ISCPBatchBolt : ISCPPlugin
 {
     void Execute(SCPTuple tuple);
@@ -167,7 +167,7 @@ The **Context** object provides a running environment to an application. Each **
 
 ### Static part
 
-```
+```csharp
 public static ILogger Logger = null;
 public static SCPPluginType pluginType;
 public static Config Config { get; set; }
@@ -178,7 +178,7 @@ The **Logger** object is provided for logging purposes.
 
 The **pluginType** object indicates the plug-in type of the C# process. If the process is run in local test mode without Java, the plug-in type is **SCP_NET_LOCAL**.
 
-```
+```csharp
 public enum SCPPluginType 
 {
     SCP_NET_LOCAL = 0,
@@ -191,14 +191,14 @@ public enum SCPPluginType
 
 The **Config** property gets configuration parameters from the Java side, which passes them when a C# plug-in is initialized. The **Config** parameters are divided into two parts: **stormConf** and **pluginConf**.
 
-```
+```csharp
 public Dictionary<string, Object> stormConf { get; set; }  
 public Dictionary<string, Object> pluginConf { get; set; }  
 ```
 
 The **stormConf** part is parameters defined by Storm, and the **pluginConf** part is parameters defined by SCP. Here's an example:
 
-```
+```csharp
 public class Constants
 {
     … …
@@ -214,7 +214,7 @@ public class Constants
 
 The **TopologyContext** type gets the topology context. It's most useful for multiple parallel components. Here's an example:
 
-```
+```csharp
 //demo how to get TopologyContext info
 if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
 {
@@ -234,7 +234,7 @@ if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
 
 The following interfaces are pertinent to a certain **Context** instance, which is created by the SCP.NET platform and passed to your code:
 
-```
+```csharp
 // Declare the Output and Input Stream Schemas
 
 public void DeclareComponentSchema(ComponentStreamSchema schema);
@@ -248,14 +248,14 @@ public abstract void Emit(string streamId, List<object> values);
 
 For a nontransactional spout that supports acknowledgment, the following method is provided:
 
-```
+```csharp
 // for nontransactional spout that supports ack
 public abstract void Emit(string streamId, List<object> values, long seqId);  
 ```
 
 A nontransactional bolt that supports acknowledgment should explicitly call **Ack** or **Fail** with the tuple it received. When emitting a new tuple, the bolt must also specify the tuple's anchors. The following methods are provided:
 
-```
+```csharp
 public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);
 public abstract void Ack(SCPTuple tuple);
 public abstract void Fail(SCPTuple tuple);
@@ -269,7 +269,7 @@ SCP applications can use the **State** object to serialize information in [Apach
 
 The **StateStore** object has these principal methods:
 
-```
+```csharp
 /// <summary>
 /// Static method to retrieve a state store of the given path and connStr 
 /// </summary>
@@ -326,7 +326,7 @@ public State GetState(long stateId)
 
 The **State** object has these principal methods:
 
-```
+```csharp
 /// <summary>
 /// Set the status of the state object to commit
 /// </summary>
@@ -358,7 +358,7 @@ When **simpleMode** is set to **true**, the **Commit** method deletes the corres
 
 The **SCPRuntime** class provides the following two methods:
 
-```
+```csharp
 public static void Initialize();
 
 public static void LaunchPlugin(newSCPPlugin createDelegate);  
@@ -370,7 +370,7 @@ The **LaunchPlugin** method starts the message-processing loop. In this loop, th
 
 The input parameter for **LaunchPlugin** is a delegate. The method can return an object that implements the **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**, or **ISCPBatchBolt** interface.
 
-```
+```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
 ```
 
@@ -382,7 +382,7 @@ SCP plug-ins can usually run in two modes: local test mode and regular mode.
 
 In this mode, the SCP plug-ins in your C# code run inside Visual Studio during the development phase. You can use the **ILocalContext** interface in this mode. The interface provides methods to serialize the emitted tuples to local files and read them back into RAM.
 
-```
+```csharp
 public interface ILocalContext
 {
     List<SCPTuple> RecvFromMsgQueue();
@@ -395,7 +395,7 @@ public interface ILocalContext
 
 In this mode, the Storm Java process runs the SCP plug-ins. Here's an example:
 
-```
+```csharp
 namespace Scp.App.HelloWorld
 {
 public class Generator : ISCPSpout
@@ -460,7 +460,7 @@ SCP.NET also defines these frequently used parameters:
 
 The **runSpec** command is deployed together with the bits. Here is the command usage:
 
-```
+```csharp
 .\bin\runSpec.cmd
 usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
 ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
@@ -480,7 +480,7 @@ In downstream components, C# processes receive tuples back from the Java side an
 
 To support serialization and deserialization, your code needs to declare the schema of the input and output. The schema is defined as a dictionary. The stream ID is the dictionary key. The key value is the types of the columns. A component can declare multiple streams.
 
-```
+```csharp
 public class ComponentStreamSchema
 {
     public Dictionary<string, List<Type>> InputStreamSchema { get; set; }
@@ -495,7 +495,7 @@ public class ComponentStreamSchema
 
 The following function is added to a **Context** object:
 
-```
+```csharp
 public void DeclareComponentSchema(ComponentStreamSchema schema)
 ```
 
@@ -507,7 +507,7 @@ SCP lets your code emit to or receive from multiple distinct streams at the same
 
 Two methods in the SCP.NET **Context** object have been added. They emit one or more tuples to specific streams. The *streamId* parameter is a string. Its value must be the same in both C# code and the topology-definition specification.
 
-```
+```csharp
 /* Emit tuple to the specific stream. */
 public abstract void Emit(string streamId, List<object> values);
 
@@ -523,7 +523,7 @@ The built-in fields grouping in Storm doesn't work properly in SCP.NET. On the J
 
 SCP.NET adds a customized grouping method, and it uses the content of the **byte[]** object to do the grouping. In a specification file, the syntax looks like this example:
 
-```
+```csharp
 (bolt-spec
     {
         "spout_test" (scp-field-group :non-tx [0,1])
@@ -546,7 +546,7 @@ Native Storm code is written in Java. SCP.NET has enhanced Storm to let you writ
 
 You can use **scp-spout** and **scp-bolt** in a specification file to specify Java spouts and bolts. Here's an example:
 
-```
+```csharp
 (spout-spec 
   (microsoft.scp.example.HybridTopology.Generator.)
   :p 1)
@@ -558,7 +558,7 @@ Here `microsoft.scp.example.HybridTopology.Generator` is the name of the Java sp
 
 If you want to submit topology that contains Java spouts or bolts, first compile them to produce JAR files. Then specify the java classpath that contains the JAR files when you submit topology. Here's an example:
 
-```
+```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 ```
 
@@ -576,7 +576,7 @@ First provide the default implementation for serialization in the Java side and 
 
 Specify the Java side's serialization method in a specification file.
 
-```
+```csharp
 (scp-bolt
     {
         "plugin.name" "HybridTopology.exe"
@@ -588,7 +588,7 @@ Specify the Java side's serialization method in a specification file.
 
 Specify the C# side's deserialization method in your C# code.
 
-```
+```csharp
 Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
 inputSchema.Add("default", new List<Type>() { typeof(Person) });
 this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
@@ -602,7 +602,7 @@ If the data type isn't too complex, this default implementation should handle mo
 
 The serialization interface in the Java side is defined as:
 
-```
+```csharp
 public interface ICustomizedInteropJavaSerializer {
     public void prepare(String[] args);
     public List<ByteBuffer> serialize(List<Object> objectList);
@@ -611,7 +611,7 @@ public interface ICustomizedInteropJavaSerializer {
 
 The deserialization interface in the C# side is defined as:
 
-```
+```csharp
 public interface ICustomizedInteropCSharpDeserializer
 {
     List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
@@ -622,13 +622,13 @@ public interface ICustomizedInteropCSharpDeserializer
 
 Specify the C# side's serialization method in your C# code.
 
-```
+```csharp
 this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
 ```
 
 Specify the Java side's deserialization method in a specification file.
 
-```
+```csharp
 (scp-spout
    {
      "plugin.name" "HybridTopology.exe"
@@ -645,7 +645,7 @@ You can also plug in your own implementation of a C# serializer and a Java deser
 
 This code is the interface for the C# serializer:
 
-```
+```csharp
 public interface ICustomizedInteropCSharpSerializer
 {
     List<byte[]> Serialize(List<object> dataList);
@@ -654,7 +654,7 @@ public interface ICustomizedInteropCSharpSerializer
 
 This code is the interface for the Java deserializer:
 
-```
+```csharp
 public interface ICustomizedInteropJavaDeserializer {
     public void prepare(String[] targetClassNames);
     public List<Object> Deserialize(List<ByteBuffer> dataList);
@@ -665,7 +665,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 In this mode, you can compile your code as a DLL and use SCPHost.exe as provided by SCP to submit a topology. A specification file looks like this code:
 
-```
+```csharp
 (scp-spout
   {
     "plugin.name" "SCPHost.exe"
@@ -690,7 +690,7 @@ The following simple HelloWorld example shows a taste of SCP.NET. It uses a nont
 
 This example has two specification files: HelloWorld.spec and HelloWorld\_EnableAck.spec. The C# code can find out whether acknowledgment is enabled by getting the `pluginConf` object from the Java side.
 
-```
+```csharp
 /* demo how to get pluginConf info */
 if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK))
 {
@@ -701,7 +701,7 @@ Context.Logger.Info("enableAck: {0}", enableAck);
 
 If acknowledgment is enabled in the spout, a dictionary caches the tuples that haven't been acknowledged. If `Fail` is called, the failed tuple is replayed.
 
-```
+```csharp
 public void Fail(long seqId, Dictionary<string, Object> parms)
 {
     Context.Logger.Info("Fail, seqId: {0}", seqId);
@@ -736,13 +736,13 @@ The **count-sum** bolt summarizes the total count.
 
 To achieve exactly once semantics, the **count-sum** commit bolt needs to judge whether it's a replayed transaction. In this example, it has the following static member variable:
 
-```
+```csharp
 public static long lastCommittedTxId = -1; 
 ```
 
 When an **ISCPBatchBolt** instance is created, it gets the value of the `txAttempt` object from input parameters.
 
-```
+```csharp
 public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
 {
     /* for transactional topology, we can get txAttempt from the input parms */
@@ -760,7 +760,7 @@ public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
 
 When `FinishBatch` is called, `lastCommittedTxId` is updated if it isn't a replayed transaction.
 
-```
+```csharp
 public void FinishBatch(Dictionary<string, Object> parms)
 {
     /* judge whether it is a replayed transaction */
