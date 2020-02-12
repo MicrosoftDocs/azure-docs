@@ -17,8 +17,6 @@ ms.subservice: common
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
 
-## Migration overview
-
 Azure Storage offers the following types of replication:
 
 - Locally redundant storage (LRS)
@@ -28,11 +26,13 @@ Azure Storage offers the following types of replication:
 
 For an overview of each of these options, see [Azure Storage redundancy](storage-redundancy.md).
 
-You can migrate a storage account from one type of replication to any other type, but some scenarios are more straightforward than others. If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting. However, if you want to change how data is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you must perform a manual migration.
+## Switch between types of replication
 
-The following table provides an overview of the migration path to or from each Azure Storage redundancy option:
+You can switch a storage account from one type of replication to any other type, but some scenarios are more straightforward than others. If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting. However, if you want to change how data is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you must perform a manual migration.
 
-| Migrating | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
+The following table provides an overview of how to switch from each type of replication to another:
+
+| Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting <br /><br />Incurs a one-time egress charge | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
 | <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
