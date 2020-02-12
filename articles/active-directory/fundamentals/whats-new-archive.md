@@ -2328,7 +2328,7 @@ On April 2, 2018, significant performance enhancements were deployed to the Azur
 
 As a result, many customers that had initial synchronizations to apps that took many days or never completed, are now completing within a matter of minutes or hours.
 
-For more information, see [What happens during provisioning?](../active-directory/app-provisioning/how-provisioning-works.md)
+For more information, see [What happens during provisioning?](/azure//active-directory/app-provisioning/how-provisioning-works)
 
 ---
 
