@@ -4,6 +4,12 @@
   items:
   - name: About Virtual WAN
     href: virtual-wan-about.md
+  - name: Architecture
+    items: 
+    - name: Migrate to Virtual WAN
+      href: migrate-from-hub-spoke-topology.md
+    - name: Global transit network architecture
+      href: virtual-wan-global-transit-network-architecture.md
 - name: Tutorials
   items:
   - name: Create a site-to-site connection
@@ -15,15 +21,13 @@
 - name: Concepts
   items:
   - name: Locations and partners
-    href: virtual-wan-locations-partners.md
+    items:
+    - name: Hub locations and partners
+      href: virtual-wan-locations-partners.md
+    - name: Automation guidelines for partners
+      href: virtual-wan-configure-automation-providers.md
   - name: IPsec policies
     href: virtual-wan-ipsec.md
-  - name: Architecture
-    items:
-    - name: Migrate to Virtual WAN
-      href: migrate-from-hub-spoke-topology.md
-    - name: Global transit network architecture
-      href: virtual-wan-global-transit-network-architecture.md
 - name: How-to guides
   items:
   - name: Connect virtual network gateway to Virtual WAN
@@ -42,12 +46,10 @@
     href: openvpn-azure-ad-tenant.md
   - name: Enable Multi-Factor Authentication(MFA) for User VPN
     href: openvpn-azure-ad-mfa.md   
-  - name: Configure Azure AD authentication for User VPN (Preview)
+  - name: Configure Azure AD authentication for User VPN
     href: virtual-wan-point-to-site-azure-ad.md
-  - name: Configure Multi-application Azure AD authentication for User VPN (Preview)
+  - name: Configure Multi-application Azure AD authentication for User VPN
     href: openvpn-azure-ad-tenant-multi-app.md  
-  - name: Configure automation (Virtual WAN partners)
-    href: virtual-wan-configure-automation-providers.md
   - name: Download global and hub-based VPN profiles
     href: global-hub-profile.md
   - name: Configure routing

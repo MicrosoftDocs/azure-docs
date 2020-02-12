@@ -60,6 +60,9 @@ namespace helloworld
 Before you can initialize a `SpeechSynthesizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `SynthesisToAudioFileAsync()` method.
 
 ````C#
+// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+// from here: https://aka.ms/speech/sdkregion).
+// The default language is "en-us".
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 

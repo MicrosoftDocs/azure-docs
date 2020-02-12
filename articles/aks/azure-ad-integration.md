@@ -299,7 +299,7 @@ To learn more about identity and resource control, see [Best practices for authe
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

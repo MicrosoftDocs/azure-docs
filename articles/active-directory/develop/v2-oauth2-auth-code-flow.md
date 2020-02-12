@@ -22,8 +22,6 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform and OAuth 2.0 authorization code flow
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
-
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the Microsoft identity platform implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps. This guide is language-independent, and describes how to send and receive HTTP messages without using any of the [Azure open-source authentication libraries](reference-v2-libraries.md).
 
 This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).

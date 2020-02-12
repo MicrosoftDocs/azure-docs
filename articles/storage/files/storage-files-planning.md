@@ -88,7 +88,7 @@ If you'd like to learn how to create a premium file share, see our article on th
 Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as Robocopy or AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Support coverage and regional availability](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+> Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure Storage redundancy](../common/storage-redundancy.md).
 >
 > To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
 
@@ -150,41 +150,14 @@ New file shares start with the full number of credits in its burst bucket. Burst
 
 ## File share redundancy
 
-Azure Files standard shares supports four data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Azure Files premium shares support both LRS and ZRS, ZRS is currently available in a smaller subset of regions.
-
-The following sections describe the differences between the different redundancy options:
-
-### Locally redundant storage
-
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### Zone redundant storage
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### Geo-redundant storage
+If you opt for read-access geo-redundant storage (RA-GRS), you should know that Azure File does not support read-access geo-redundant storage (RA-GRS) in any region at this time. File shares in the RA-GRS storage account work like they would in GRS accounts and are charged GRS prices.
 
 > [!Warning]  
 > If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
 
-Geo-redundant storage (GRS) is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year by replicating your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
-
-If you opt for read-access geo-redundant storage (RA-GRS), you should know that Azure File does not support read-access geo-redundant storage (RA-GRS) in any region at this time. File shares in the RA-GRS storage account work like they would in GRS accounts and are charged GRS prices.
-
-GRS replicates your data to another data center in a secondary region, but that data is available to be read only if Microsoft initiates a failover from the primary to secondary region.
-
-For a storage account with GRS enabled, all data is first replicated with locally redundant storage (LRS). An update is first committed to the primary location and replicated using LRS. The update is then replicated asynchronously to the secondary region using GRS. When data is written to the secondary location, it's also replicated within that location using LRS.
-
-Both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit. The storage scale unit is the basic replication unit within the datacenter. Replication at this level is provided by LRS; for more information, see [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../common/storage-redundancy-lrs.md).
-
-Keep these points in mind when deciding which replication option to use:
-
-* Geo-zone-redundant storage (GZRS) (preview) provides high availability together with maximum durability by replicating data synchronously across three Azure availability zones and then replicating data asynchronously to the secondary region. You can also enable read access to the secondary region. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. For more information on GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](../common/storage-redundancy-gzrs.md).
-* Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS. For more information on ZRS, see [ZRS](../common/storage-redundancy-zrs.md).
-* Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
-* With GRS, the replica isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).
+Azure Files premium shares support both LRS and ZRS, ZRS is currently available in a smaller subset of regions.
 
 ## Onboard to larger file shares (standard tier)
 
@@ -199,8 +172,7 @@ This section only applies to the standard file shares. All premium file shares a
 Standard file shares with 100 TiB capacity limit are available globally in all Azure regions -
 
 - LRS: All regions, except for South Africa North and South Africa West.
-   - National clouds (Government, Germany, China) are supported via PowerShell and Azure Command Line Interface (CLI). No portal support. 
-   - East US, East US2, West Europe: All new accounts are supported. A small number of existing accounts have not completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
+   - East US and West Europe: All new accounts are supported. A small number of existing accounts have not completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
 - ZRS: All regions, except for Japan East, North Europe, South Africa North.
 - GRS/GZRS: Not supported.

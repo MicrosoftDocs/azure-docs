@@ -22,7 +22,7 @@ landingContent:
           - text: Microsoft identity platform (v2.0)
             url: v2-overview.md
           - text: Azure Active Directory for developers (v1.0)
-            url: v1-overview.md
+            url: ../azuread-dev/v1-overview.md
       - linkListType: concept
         links:
           - text: Authentication basics
