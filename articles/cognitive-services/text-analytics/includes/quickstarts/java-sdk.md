@@ -116,11 +116,11 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 
     DocumentSentiment documentSentiment = client.analyzeSentiment(text);
     System.out.printf(
-            "Recognized document sentiment: %s, Positive Score: %.2f, Neutral Score: %.2f, Negative Score: %.2f.%n",
-            documentSentiment.getSentiment(),
-            documentSentiment.getSentimentScores().getPositive(),
-            documentSentiment.getSentimentScores().getNeutral(),
-            documentSentiment.getSentimentScores().getNegative());
+        "Recognized document sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
+        documentSentiment.getSentiment(),
+        documentSentiment.getSentimentScores().getPositive(),
+        documentSentiment.getSentimentScores().getNeutral(),
+        documentSentiment.getSentimentScores().getNegative());
 
     for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
         System.out.printf(
