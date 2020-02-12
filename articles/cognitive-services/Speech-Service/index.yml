@@ -162,12 +162,12 @@ tools:
   title: Software development kits (SDKs)
   summary: Get started with the Speech SDK in your favorite programming language.
   items:
-  - title: C++
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Cplusplus.svg
-    url: https://aka.ms/csspeech/cppref
   - title: C#
     imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
     url: https://aka.ms/csspeech/csharpref
+  - title: C++
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Cplusplus.svg
+    url: https://aka.ms/csspeech/cppref
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
     url: https://aka.ms/csspeech/javaref
