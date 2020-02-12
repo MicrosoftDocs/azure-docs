@@ -31,7 +31,7 @@ If you need to minimize latency, there is a spectrum of options for managing sca
 
 The following sections explain the advantages and disadvantages of each approach. You can then decide on the best strategy to balance the scaling needs of your system, the overall cost, and efficiency needs for your solution.
 
-## Using the Azure portal
+## <a id="use-azure-portal"></a>Use the Azure portal
 
 You can consult our article [Provision throughput on containers and databases](https://docs.microsoft.com/azure/cosmos-db/set-throughput), which discusses the relative benefits of setting throughput at either [database](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-database) or [container](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-container) level in the [Azure portal](https://docs.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-database-and-a-container). Note that the terms "database" and "container" mentioned in these articles map to "keyspace" and "table" respectively for the Cassandra API.
 
