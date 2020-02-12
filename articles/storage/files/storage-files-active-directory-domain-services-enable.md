@@ -96,9 +96,6 @@ You can use the following script to perform the registration and enable the feat
 - Make sure your storage account is LRS.
 
 ```PowerShell 
-#Import the latest Azure module
-Install-Module -Name Az -AllowClobber -Scope CurrentUser
-
 #Change the execution policy to unblock importing AzureFilesActiveDirectoryUtilities.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Currentuser
 

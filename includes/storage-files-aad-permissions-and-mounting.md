@@ -12,7 +12,7 @@
 
 ## Assign access permissions to an identity
 
-To access Azure Files resources with Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
+To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
 We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -24,6 +24,9 @@ We have introduced three Azure built-in roles for granting share-level permissio
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
 You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
+
+> [!NOTE]
+> Remember to sync your AD credentials to Azure AD if you plan to use your AD for authentication. Password hash sync from AD to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from AD.
 
 #### Azure portal
 To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
@@ -109,11 +112,11 @@ Use Windows File Explorer to grant full permission to all directories and files 
 
 The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
 
-Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image.
+Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. Make sure that if you have enabled AD authentication for Azure Files, use the AD credential. For Azure AD DS authentication, you should log in with Azure AD credential.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you have already been authenticated, you don't need to provide the storage account key or the Azure AD user name and password. Azure AD over SMB supports a single sign-on experience with Azure AD credentials.
+Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the AD credentials, or the Azure AD credentials. Single sign-on experience is supported for authentication with either AD or Azure AD DS.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
