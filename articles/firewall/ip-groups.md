@@ -50,7 +50,10 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 1. To view or edit the IP addresses, select **IP Addresses** under **Settings** on the left pane.
 2. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
 3.	Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
-4. Finally, can export the file in the CSV file format. 
+4. Finally, can export the file in the CSV file format.
+
+> [!NOTE]
+> If you delete all the IP addresses in an IP Group while it is still in use in a rule, that is skipped.
 
 
 ## Use an IP Group
