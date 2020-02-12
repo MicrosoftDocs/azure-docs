@@ -496,7 +496,7 @@ For information about monitoring and managing the Azure-SSIS IR, see:
 
 If you're using SSISDB, you can deploy your packages to it and run them on the Azure-SSIS IR by using SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) tools that connect to your database server via its server endpoint. For your Azure SQL Database server instance or a managed instance with a public endpoint, the server endpoint formats are *<server name>.database.windows.net* and *<server name>.public.<dns prefix>.database.windows.net,3342*, respectively. 
 
-If you're not using SSISDB, you can deploy your packages to file systems, file shares, or an Azure Files share and run them on the Azure-SSIS IR by using `dtinstall`/`dtutil`/`dtexec` command line utilities. For more information, see [Deploy SSIS packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
+If you're not using SSISDB, you can deploy your packages to file systems, file shares, or an Azure Files share and run them on the Azure-SSIS IR by using `dtinstall`/`dtutil`/`dtexec` command-line utilities. For more information, see [Deploy SSIS packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
 
 In both cases, you can also run your deployed packages on the Azure-SSIS IR by using Execute SSIS package activity in Azure Data Factory pipelines. For more information, see [Invoke SSIS package execution as a first-class Azure Data Factory activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
