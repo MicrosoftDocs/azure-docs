@@ -55,7 +55,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`.:
 
     #### [Spring Cloud 1.1.x](#tab/spring1.2.x)
-    
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -72,9 +71,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
-    
     #### [Spring Cloud 1.2.x](#tab/spring1.2.x)
-    
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -91,7 +88,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
-    
     ---
 
 > [!Note]
