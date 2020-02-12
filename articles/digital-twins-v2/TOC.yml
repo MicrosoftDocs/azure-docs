@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Azure Digital Twins
-    href: about-digital-twins.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
