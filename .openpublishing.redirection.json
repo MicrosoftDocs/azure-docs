@@ -48522,17 +48522,17 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/virtual-machines/linux/ansible-install-configure.md",
+      "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
       "redirect_url": "/azure/ansible/ansible-install-configure",
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/virtual-machines/linux/ansible-create-vm.md",
+      "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
       "redirect_url": "/azure/ansible/ansible-create-vm",
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/virtual-machines/linux/ansible-manage-linux-vm.md",
+      "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
       "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
       "redirect_document_id": false
     }
