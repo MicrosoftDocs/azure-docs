@@ -62,13 +62,11 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Open the folder with a version number on it.  This number represents the current release for the R SDK.
 
-1. Open the **vignettes** folder.
-
-1. Select the **"..."** at the right of the **train-and-deploy-to-aci** folder and then select **Clone**.
+1. Select the **"..."** at the right of the **vignettes** folder and then select **Clone**.
 
     ![Clone folder](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **train-and-deploy-to-aci**  folder there.
+1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **vigneettes**  folder there.
 
 ## <a name="open">Open RStudio
 
@@ -80,7 +78,7 @@ Use RStudio on a compute instance or Notebook VM to run this tutorial.
 
 1. Once the compute is running, use the **RStudio** link to open RStudio.
 
-1. In RStudio, your **train-and--deploy-to-aci** folder is a few levels down from **Users** in the **Files** section on the lower right.  Select the **train-and-deploy-to-aci** folder to find the files needed in this tutorial.
+1. In RStudio, your **vignettes** folder is a few levels down from **Users** in the **Files** section on the lower right.  Under **vignettes**, select the **train-and-deploy-to-aci** folder to find the files needed in this tutorial.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file. 
@@ -394,4 +392,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 * Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
-* Explore the rest of the vignettes in the **vignettes** folder in the cloned project.
+* Learn more from the examples in other folders in **vignettes**.
