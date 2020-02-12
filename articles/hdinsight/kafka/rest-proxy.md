@@ -28,7 +28,7 @@ Access to the Kafka REST proxy is managed with Azure Active Directory security g
 
 When creating the Kafka cluster with the REST proxy enabled, you will provide the AAD security group that should have access to the REST endpoint. The Kafka clients (applications) that need access to the REST proxy should be registered to this group by the group owner. The group owner can do this via the Portal or via Powershell.
 
-Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)
+Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)
 
 Once the client application has the OAuth token, they must pass that token in the HTTP request made to the REST proxy.
 

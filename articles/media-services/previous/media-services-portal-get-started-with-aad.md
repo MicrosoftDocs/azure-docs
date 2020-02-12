@@ -60,7 +60,7 @@ You can get the values for these parameters on the **Media Services API with use
 
 If you connect to the Media Services API by using the Media Services Microsoft .NET SDK, the required values are available to you as part of the SDK. For more information, see [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
 
-If you're not using the Media Services .NET client SDK, you must manually create an Azure AD token request by using the parameters discussed earlier. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../../active-directory/develop/active-directory-authentication-libraries.md).
+If you're not using the Media Services .NET client SDK, you must manually create an Azure AD token request by using the parameters discussed earlier. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## Service principal authentication
 
@@ -86,7 +86,7 @@ If you don't have permissions to create Azure AD apps in your domain, the Azure 
 
 If you connect to the Media Services API by using the Media Services .NET SDK, see [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
 
-If you are not using the Media Services .NET client SDK, you must manually create an Azure AD token request using the parameters discussed earlier. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../../active-directory/develop/active-directory-authentication-libraries.md).
+If you are not using the Media Services .NET client SDK, you must manually create an Azure AD token request using the parameters discussed earlier. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### Get the client ID and client secret
 
