@@ -60,7 +60,7 @@ CycleCloud `cluster` namespace contains configurations for distributed services 
 | autoscale.idle_time_after_jobs | Integer | Nodes are terminated if they are idle for specified time (in seconds) after they have run jobs. Default: `1800` |
 | autoscale.idle_time_before_jobs | Integer | Nodes are terminated if they are idle for specified time (in seconds) before they have run jobs. Default: `1800` |
 
-### `[[[configuration cyclecloud.standalone_dns]]]`
+### `[[[configuration cyclecloud.hosts.standalone_dns]]]`
 
 CycleCloud will configure the */etc/hosts* file to contain a large set of hosts so that forward and reverse name resolution is functional.
 
@@ -75,7 +75,7 @@ file to include hosts in the subnet mask. Additional ranges can be added using t
 attribute.
 
 ``` ini
-[[[configuration cyclecloud.standalone_dns]]]
+[[[configuration cyclecloud.hosts.standalone_dns]]]
 alt_suffix = my-domain.local
 subnets = 10.0.1.0/24, 10.0.5.0/24
 ```
@@ -84,7 +84,7 @@ To override and disable the standalone service:
 
 ``` ini
 [[[configuration ]]]
-cyclecloud.standalone_dns.enabled = false
+cyclecloud.hosts.standalone_dns.enabled = false
 ```
 
 ### `[[[configuration cyclecloud.mounts]]]`
