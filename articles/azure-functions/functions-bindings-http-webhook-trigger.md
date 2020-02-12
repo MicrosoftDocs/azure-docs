@@ -228,29 +228,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 * [Read parameter from a route](#read-parameter-from-a-route)
 * [Read POJO body from a POST request](#read-pojo-body-from-a-post-request)
 
-The following examples show the HTTP trigger binding in a *function.json* file and the respective [Java functions](functions-reference-java.md) that use the binding. 
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "anonymous",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
-
 ### Read parameter from the query string
 
 This example reads a parameter, named `id`, from the query string, and uses it to build a JSON document returned to the client, with content type `application/json`. 
