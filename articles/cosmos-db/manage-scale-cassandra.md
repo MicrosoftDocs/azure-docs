@@ -51,7 +51,7 @@ You can scale the system dynamically with code by executing the [CQL ALTER comma
 
 The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application, while still leveraging the standard RU charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using Autopilot. The disadvantage with this approach is that it can be quite complex to implement, and retries while rate limiting may increase latency.
 
-## Using Autopilot
+## <a id="use-autopilot"></a>Use Autopilot
 
 In addition to manual or programmatic provisioning of throughput, you can also configure Azure cosmos containers in Autopilot mode. Within specified RU ranges, Autopilot mode will automatically and instantly scale to your consumption needs without compromising SLAs. You can consult our article [Create Azure Cosmos containers and databases in autopilot mode](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) for details on how to configure Autopilot.
 
