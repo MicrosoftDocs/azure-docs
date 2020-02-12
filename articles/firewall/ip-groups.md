@@ -70,9 +70,9 @@ You can now select **IP Group** as a **Source type** or **Destination type** for
 IP Groups are currently available in the following regions:
 
 - West US
+- West US 2
 - East US
 - East US 2
-- West US 2
 - Central US
 - North Central US
 - West Central US
