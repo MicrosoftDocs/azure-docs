@@ -181,32 +181,30 @@ tools:
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
     url: https://aka.ms/csspeech/pythonref
 
-productDirectory:
-  items:
-    - title: REST APIs
-      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
-      links:
-      - text: Speech-to-text REST API
-        url: rest-speech-to-text.md
-      - text: Batch transcription REST API
-        url: batch-transcription.md
-      - text: Text-to-speech REST API
-        url: rest-text-to-speech.md
-      - text: Conversation transcription REST APIs
-        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-    - title: Resources
-      imageSrc: https://docs.microsoft.com/media/common/i_reference.svg
-      links:
-      - text: Pricing
-        url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-      - text: Regions
-        url: regions.md
-    - title: Support
-      imageSrc: https://docs.microsoft.com/media/common/i_support.svg
-      links:
-      - text: Support and help
-        url: support.md
-      - text: GitHub issues
-        url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-      - text: Stack Overflow
-        url: https://aka.ms/SOspeechquestions
+additionalContent:
+  sections:
+    - items:
+      - title: REST APIs
+        links:
+        - text: Speech-to-text REST API
+          url: rest-speech-to-text.md
+        - text: Batch transcription REST API
+          url: batch-transcription.md
+        - text: Text-to-speech REST API
+          url: rest-text-to-speech.md
+        - text: Conversation transcription REST APIs
+          url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+      - title: Resources
+        links:
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+        - text: Regions
+          url: regions.md
+      - title: Support
+        links:
+        - text: Support and help
+          url: support.md
+        - text: GitHub issues
+          url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+        - text: Stack Overflow
+          url: https://aka.ms/SOspeechquestions
