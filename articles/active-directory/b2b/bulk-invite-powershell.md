@@ -33,11 +33,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 ### Install the latest AzureADPreview module
+
 Make sure that you install the latest version of the Azure AD PowerShell for Graph module (AzureADPreview). 
 
 First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
- 
-```powershell  
+
+```powershell
 Get-Module -ListAvailable AzureAD*
 ```
 
@@ -45,21 +46,23 @@ Based on the output, do one of the following:
 
 - If no results are returned, run the following command to install the AzureADPreview module:
   
-   ```powershell  
+   ```powershell
    Install-Module AzureADPreview
    ```
+
 - If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
 
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
+   ```powershell
+   Uninstall-Module AzureAD
+   Install-Module AzureADPreview
    ```
-- If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
 
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
+- If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module:
+
+   ```powershell
+   Uninstall-Module AzureADPreview
+   Install-Module AzureADPreview
+   ```
 
 You may receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
 
@@ -69,10 +72,9 @@ You need two or more test email accounts that you can send the invitations to. T
 
 ## Prepare the CSV file
 
-In Microsoft Excel, create a CSV file with the list of invitee user names and email addresses. Make sure to include the **Name** and **InvitedUserEmailAddress** column headings. 
+In Microsoft Excel, create a CSV file with the list of invitee user names and email addresses. Make sure to include the **Name** and **InvitedUserEmailAddress** column headings.
 
 For example, create a worksheet in the following format:
-
 
 ![PowerShell output showing pending user acceptance](media/tutorial-bulk-invite/AddUsersExcel.png)
 
@@ -87,22 +89,23 @@ Run the following command to connect to the tenant domain:
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
+
 For example, `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
 
 When prompted, enter your credentials.
 
 ## Send bulk invitations
 
-To send the invitations, run the following PowerShell script (where **c:\bulkinvite\invitations.csv** is the path of the CSV file): 
+To send the invitations, run the following PowerShell script (where **c:\bulkinvite\invitations.csv** is the path of the CSV file):
 
 ```powershell
 $invitations = import-csv c:\bulkinvite\invitations.csv
-   
+
 $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-   
+
 $messageInfo.customizedMessageBody = "Hello. You are invited to the Contoso organization."
-   
-foreach ($email in $invitations) 
+
+foreach ($email in $invitations)
    {New-AzureADMSInvitation `
       -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
       -InvitedUserDisplayName $email.Name `
@@ -111,6 +114,7 @@ foreach ($email in $invitations)
       -SendInvitationMessage $true
    }
 ```
+
 The script sends an invitation to the email addresses in the Invitations.csv file. You should see output similar to the following for each user:
 
 ![PowerShell output showing pending user acceptance](media/tutorial-bulk-invite/B2BBulkImport.png)
@@ -118,9 +122,11 @@ The script sends an invitation to the email addresses in the Invitations.csv fil
 ## Verify users exist in the directory
 
 To verify that the invited users were added to Azure AD, run the following command:
+
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
+
 You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
@@ -130,12 +136,12 @@ When no longer needed, you can delete the test user accounts in the directory. R
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
+
 For example: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
-
 ## Next steps
+
 In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works.
 
 > [!div class="nextstepaction"]
 > [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
-
