@@ -6,7 +6,7 @@ ms.date: 02/12/2020
 ms.author: wolfma
 ---
 
-| Geography | Region | Region Identifier |
+| Geography | Region | Region identifier |
 | ----- | ----- | ----- |
 | Americas | Central US | `centralus` |
 | Americas | East US | `eastus` |
