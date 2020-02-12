@@ -50,10 +50,10 @@ Following is an example of how the donut & list tile might be reinterpreted in w
 
 ![Donut list workbooks](media/view-designer-conversion-tiles/donut-workbooks.png)
 
-## Linechart & list tile
-![Linechart List](media/view-designer-conversion-tiles/line-list.png) 
+## Line chart & list tile
+![Line chart List](media/view-designer-conversion-tiles/line-list.png) 
 
-To recreate the linechart portion update the query as follows:
+To recreate the line chart portion update the query as follows:
 
 Original query
 ```KQL
@@ -70,7 +70,7 @@ There are two options for visualizing the line chart
 
 **Option 1:** Select **Line chart** from the **Visualization** dropdown:
  
- ![Linechart Menu](media/view-designer-conversion-tiles/line-visualization.png)
+ ![Line chart Menu](media/view-designer-conversion-tiles/line-visualization.png)
 
 **Option 2:** Select **Set by query** from the **Visualization** dropdown and add `| render linechart` to the query:
 
@@ -86,9 +86,9 @@ search *
 
 For creating a list and enabling sparklines, see the article on [common tasks](view-designer-conversion-tasks.md).
 
-Following is an example of how the linechart & list tile might be reinterpreted in workbooks:
+Following is an example of how the line chart & list tile might be reinterpreted in workbooks:
 
-![Linechart List Workbooks](media/view-designer-conversion-tiles/line-workbooks.png)
+![Line chart list workbooks](media/view-designer-conversion-tiles/line-workbooks.png)
 
 ## Number & list tile
 
@@ -159,4 +159,4 @@ Following is an example of how the timeline & list tile might be reinterpreted i
 
 ## Next steps
 
-### [Overview of view designer to workbooks transition](view-designer-conversion-overview.md)
+- [Overview of view designer to workbooks transition](view-designer-conversion-overview.md)

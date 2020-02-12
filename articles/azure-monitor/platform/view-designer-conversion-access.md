@@ -14,7 +14,7 @@ ms.date: 02/07/2020
 [View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks, which provide additional functionality. This article details how you can create an overview summary and permissions required to access workbooks.
 
 ## Creating your Workspace Summary from Azure Dashboard
-View designer users may be familiar with having an overview tile to represent a set of views. To maintain a visual overview like the view designer workspace summary, workbooks offers pinned steps, which can be pinned to your [Azure portal pashboard](../../azure-portal/azure-portal-dashboards.md). Just like the overview tiles in Workspace summary, pinned workbook items will link directly to the workbook view.
+View designer users may be familiar with having an overview tile to represent a set of views. To maintain a visual overview like the view designer workspace summary, workbooks offers pinned steps, which can be pinned to your [Azure portal dashboard](../../azure-portal/azure-portal-dashboards.md). Just like the overview tiles in Workspace summary, pinned workbook items will link directly to the workbook view.
 
 You can take advantage of the high level of customization features provided with Azure dashboards, which allows auto refresh, moving, sizing, and additional filtering for your pinned items and visualizations. 
 

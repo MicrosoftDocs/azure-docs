@@ -14,7 +14,7 @@ ms.date: 02/07/2020
 [View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks which provide additional functionality. This article details tasks that are common in converting views to workbooks.
 
 
-## Quick start with preset view designer templates
+## Quickstart with preset view designer templates
 
 Workbooks in Log Analytics workspaces already have templates made to match some of the views in view designer. Under the **View Designer Guides** category, select **View Designer Transition Guide** to learn about your options or select one of the preset templates.
 
