@@ -115,21 +115,21 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
     String text = "I had the best day of my life. I wish you were there with me.";
 
     DocumentSentiment documentSentiment = client.analyzeSentiment(text);
-    System.out.printf(
-        "Recognized document sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
-        documentSentiment.getSentiment(),
-        documentSentiment.getSentimentScores().getPositive(),
-        documentSentiment.getSentimentScores().getNeutral(),
-        documentSentiment.getSentimentScores().getNegative());
-
-    for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
         System.out.printf(
-            "Recognized sentence sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
-            sentenceSentiment.getSentiment(),
-            sentenceSentiment.getSentimentScores().getPositive(),
-            sentenceSentiment.getSentimentScores().getNeutral(),
-            sentenceSentiment.getSentimentScores().getNegative());
-    }
+            "Recognized document sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
+            documentSentiment.getSentiment(),
+            documentSentiment.getSentimentScores().getPositive(),
+            documentSentiment.getSentimentScores().getNeutral(),
+            documentSentiment.getSentimentScores().getNegative());
+
+        for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
+            System.out.printf(
+                "Recognized sentence sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
+                sentenceSentiment.getSentiment(),
+                sentenceSentiment.getSentimentScores().getPositive(),
+                sentenceSentiment.getSentimentScores().getNeutral(),
+                sentenceSentiment.getSentimentScores().getNegative());
+        }
 }
 ```
 
@@ -154,7 +154,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
     String text = "Ce document est rédigé en Français.";
 
     DetectedLanguage detectedLanguage = client.detectLanguage(text);
-    System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %s.%n",
+    System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
         detectedLanguage.getName(),
         detectedLanguage.getIso6391Name(),
         detectedLanguage.getScore());
@@ -164,7 +164,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Detected primary language: French, ISO 6391 name: fr, score: 1.0.
+Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ```
 ## Named Entity recognition (NER)
 
@@ -183,7 +183,7 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 
     for (CategorizedEntity entity : client.recognizeEntities(text)) {
         System.out.printf(
-            "Recognized entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %s.%n",
+            "Recognized entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
             entity.getText(),
             entity.getCategory(),
             entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
@@ -198,7 +198,7 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 
 ```console
 Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, offset: 26, length: 7, score: 0.92.
-Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, offset: 34, length: 9, score: 0.8.
+Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, offset: 34, length: 9, score: 0.80.
 ```
 
 ## Using NER to detect personal information
@@ -213,7 +213,7 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 
     for (PiiEntity entity : client.recognizePiiEntities(text)) {
         System.out.printf(
-            "Recognized personal identifiable information entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %s.%n",
+            "Recognized personal identifiable information entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
             entity.getText(),
             entity.getCategory(),
             entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
