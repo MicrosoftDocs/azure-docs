@@ -1,0 +1,31 @@
+### YamlMime:Landing
+
+title: Speech devices documentation
+summary: Explore the Speech devices documentation.
+metadata:
+  title: Speech devices documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+
+landingContent:
+- title: Devices
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: About the Speech Devices SDK
+          url: speech-devices-sdk.md
+    - linkListType: quickstart
+      links:
+        - text: Use Speech Device SDK (Windows)
+          url: speech-devices-sdk-windows-quickstart.md
+        - text: Use Speech Device SDK (Linux)
+          url: speech-devices-sdk-linux-quickstart.md
+        - text: Use Speech Device SDK (Android)
+          url: speech-devices-sdk-android-quickstart.md

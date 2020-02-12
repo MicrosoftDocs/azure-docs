@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Hosting documentation
+summary: Explore the Hosting documentation.
+metadata:
+  title: Hosting documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+
+landingContent:
+- title: Hosting
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create an Azure Speech resource
+          url: get-started.md#create-a-speech-resource-in-azure
+        - text: Deploy Speech service containers
+          url: speech-container-howto.md
+        - text: Configure containers
+          url: speech-container-configuration.md
+        - text: Deploy Speech service containers with Kubernetes
+          url: speech-container-howto-on-premises.md
+        - text: Deploy Speech service containers on Azure Container Instances
+          url: deploy-speech-on-container-instances.md
+    - linkListType: reference
+      links:
+        - text: Supported regions
+          url: regions.md
+        - text: Sovereign clouds
+          url: sovereign-clouds.md

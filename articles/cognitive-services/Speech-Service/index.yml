@@ -75,6 +75,9 @@ conceptualContent:
         - itemType: reference
           text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
+      footerLink:
+        text: See more
+        url: index-intent-recognition.yml
     - title: Speech translation
       links:
       - itemType: quickstart
@@ -88,7 +91,7 @@ conceptualContent:
         url: quickstarts/translate-speech-to-speech.md
       footerLink:
         text: See more
-        url: speech-translation.md
+        url: index-speech-translation.yml
     - title: Conversation scenarios
       links:
         - itemType: overview
@@ -97,12 +100,12 @@ conceptualContent:
         - itemType: how-to-guide
           text: Real time conversation transcription
           url: how-to-use-conversation-transcription.md
-        - itemType: overview
-          text: Multi-device conversation
-          url: multi-device-conversation.md
         - itemType: quickstart
           text: Start and join a conversation
           url: quickstarts/multi-device-conversation.md
+      footerLink:
+        text: See more
+        url: index-conversation-scenarios.md
     - title: Voice assistants
       links:
         - itemType: overview
@@ -116,27 +119,21 @@ conceptualContent:
           url: tutorial-voice-enable-your-bot-speech-sdk.md
       footerLink:
         text: See more
-        url: voice-assistants.md
+        url: index-voice-assistants.md
     - title: Hosting
       links:
         - itemType: how-to-guide
-          text: Deploy Speech service containers
+          text: Speech service containers
           url: speech-container-howto.md
         - itemType: how-to-guide
-          text: Configure containers
-          url: speech-container-configuration.md
-        - itemType: how-to-guide
-          text: Deploy Speech service containers with Kubernetes
+          text: Speech service containers with Kubernetes
           url: speech-container-howto-on-premises.md
         - itemType: how-to-guide
-          text: Deploy Speech service containers on Azure Container Instances
+          text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
-        - itemType: reference
-          text: Supported regions
-          url: regions.md
-        - itemType: reference
-          text: Sovereign clouds
-          url: sovereign-clouds.md
+      footerLink:
+        text: See more
+        url: index-hosting.yml
     - title: Devices
       links:
       - itemType: quickstart
@@ -150,7 +147,7 @@ conceptualContent:
         url: speech-devices-sdk-android-quickstart.md
       footerLink:
         text: See more
-        url: speech-devices-sdk.md
+        url: index-devices.md
     - title: Migration
       links:
         - itemType: how-to-guide
@@ -162,24 +159,33 @@ conceptualContent:
         - itemType: how-to-guide
           text: Migrate from the Translator Speech API
           url: how-to-migrate-from-translator-speech-api.md
-    
+
+tools:
+  title: Software development kits (SDKs)
+  summary: Get started with the Speech SDK in your favorite programming language.
+  items:
+  - title: C++
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Cplusplus.svg
+    url: https://aka.ms/csspeech/cppref
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: https://aka.ms/csspeech/csharpref
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://aka.ms/csspeech/javaref
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: https://aka.ms/csspeech/javascriptref
+  - title: Objective-C and Swift
+    imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
+    url: https://aka.ms/csspeech/objectivecref
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://aka.ms/csspeech/pythonref
+
 additionalContent:
   sections:
     - items:
-      - title: Software development kits (SDKs)
-        links:
-        - text: C++
-          url: https://aka.ms/csspeech/cppref
-        - text: C#
-          url: https://aka.ms/csspeech/csharpref
-        - text: Java
-          url: https://aka.ms/csspeech/javaref
-        - text: JavaScript
-          url: https://aka.ms/csspeech/javascriptref
-        - text: Objective-C
-          url: https://aka.ms/csspeech/objectivecref
-        - text: Python
-          url: https://aka.ms/csspeech/pythonref
       - title: REST APIs
         links:
         - text: Speech-to-text REST API
@@ -198,5 +204,3 @@ additionalContent:
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
         - text: Stack Overflow
           url: https://aka.ms/SOspeechquestions
-        - text: UserVoice forum
-          url: https://cognitive.uservoice.com/forums/912208-speech-service

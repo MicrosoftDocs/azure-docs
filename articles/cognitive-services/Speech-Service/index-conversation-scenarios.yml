@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title: Conversation scenarios documentation
+summary: Explore the Conversation scenarios documentation.
+metadata:
+  title: Conversation scenarios documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+
+landingContent:
+- title: Conversation scenarios
+  linkLists:
+    - linkListType: overview
+      links:
+      - text: Conversation transcription
+        url: conversation-transcription.md
+      - text: Multi-device conversation
+        url: multi-device-conversation.md
+    - linkListType: quickstart
+      links:
+        - text: Start and join a conversation
+          url: quickstarts/multi-device-conversation.md
+    - linkListType: how-to-guide
+      links:
+        - text: Call center scenario
+          url: call-center-transcription.md
+        - text: Real time conversation transcription
+          url: how-to-use-conversation-transcription.md
+        - text: Asynchronous conversation transcription
+          url: how-to-async-conversation-transcription.md
+    - linkListType: reference
+      links:
+        - text: Language support
+          url: conversation-transcription.md#language-support
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
