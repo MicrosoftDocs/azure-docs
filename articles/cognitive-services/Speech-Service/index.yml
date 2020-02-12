@@ -200,6 +200,8 @@ additionalContent:
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Regions
           url: regions.md
+        - text: Learn
+          url: https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services&term=Speech
       - title: Support
         links:
         - text: Support and help
