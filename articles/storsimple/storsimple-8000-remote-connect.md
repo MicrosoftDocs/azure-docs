@@ -229,7 +229,7 @@ Perform the following procedure on the computer from which you want to make the 
      `Enter-PSSession $session`
 6. You will need to wait a few minutes, and then you will be connected to your device via HTTPS over SSL. You see a message that indicates you are connected to your device.
    
-    ![PowerShell remoting using HTTPS and TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![PowerShell remoting using HTTPS and SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## Next steps
 
