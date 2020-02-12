@@ -112,7 +112,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 
 The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
 
-Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. Make sure that if you have enabled AD authentication for Azure Files, use the AD credential. For Azure AD DS authentication, you should log in with Azure AD credential.
+Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled AD authentication for Azure Files, use the AD credential. For Azure AD DS authentication, log in with Azure AD credential.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
