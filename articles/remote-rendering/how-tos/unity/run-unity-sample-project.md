@@ -115,4 +115,9 @@ There are also models placed within the scene:
 
 ## Using your own model
 
-In AzureRemoteRenderingSample\Assets\Scripts, replace *builtin://UnitySampleModel* with the URL of your model. Retrieve a SAS URI for your converted model stored in Azure blob storage as described in [the model conversion REST API](../conversion/conversion-rest-api.md).
+In AzureRemoteRenderingSample\Assets\Scripts, replace *builtin://Engine* with the URL of your model. Retrieve a SAS URI for your converted model stored in Azure blob storage as described in [the model conversion REST API](../conversion/conversion-rest-api.md).
+
+## Next steps
+
+* [Unity SDK concepts](unity-concepts.md)
+* [Create a new Unity project](create-new-unity-project.md)

@@ -77,7 +77,7 @@ As an example for loading a model and, on the load completion, creating a unity 
     LoadModelAsync _pendingLoadTask = null;
     void LoadModel()
     {
-        _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync("builtin://UnitySampleModel");
+        _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync("builtin://Engine");
             
         _pendingLoadTask.Completed += (LoadModelAsync res) =>
         {
@@ -195,3 +195,8 @@ To either create a component or get an existing instance then ```EnsureArrCompon
 ```
 
 ```EnsureArrComponent``` will return the component if it already exists, otherwise create a new instance of the component locally and remotely.
+
+## Next steps
+
+* [Remote Rendering Unity Package](install-remote-rendering-unity-package.md)
+* [Create a new Unity project](create-new-unity-project.md)

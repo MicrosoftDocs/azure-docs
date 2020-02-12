@@ -46,3 +46,7 @@ You can calculate the focus point yourself, though it might make sense to base i
 Usually both the client and the host render content that the other side isn't aware of, such as UI elements on the client. Therefore, it might make sense to combine the remote focus point with a locally calculated one.
 
 The focus points calculated in two successive frames can be quite different. Simply using them as-is can lead to holograms appearing to be jumping around. To prevent this behavior, interpolating between the previous and current focus points is advisable.
+
+## Next steps
+
+* [Server-side performance queries](performance-queries.md)

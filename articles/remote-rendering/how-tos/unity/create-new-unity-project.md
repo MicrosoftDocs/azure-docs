@@ -81,3 +81,8 @@ The main camera of each scene needs to be changed:
 ## Add Tag
 
 Go to "Edit->Project Settings...->Tags and Layers" and add the Tag "ModelRoot".
+
+## Next steps
+
+* [Unity SDK concepts](unity-concepts.md)
+* [Convert a model for rendering](../../quickstarts/convert-model.md)
