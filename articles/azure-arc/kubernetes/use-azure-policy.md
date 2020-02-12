@@ -2,7 +2,7 @@
 
 ## Overview
 
-Azure Policy can be used to assure that each `connectedCluster` resource has specific `sourceControlConfiguration` applied.  To use Policy you select an existing policy definition and create a policy assignment.  When creating the policy assignment you set the scope for the assignment - this will be an Azure resource group, subscription, or management group.  You also set the parameters for the `sourceControlConfiguration` that will be created for each `connectedCluster` that falls within the scope.  Once the assignment is created the Policy engine will identify all `connectedCluster` resources that are located within the scope and will apply the `sourceControlConfiguration` to each one.
+Azure Policy can be used to assure that each `Microsoft.Kubernetes/connectedClusters` or `Microsoft.ContainerService/managedClusters` resource has specific `Microsoft.KubernetesConfiguration/sourceControlConfigurations` applied.  To use Policy you select an existing policy definition and create a policy assignment.  When creating the policy assignment you set the scope for the assignment - this will be an Azure resource group, subscription, or management group.  You also set the parameters for the `sourceControlConfiguration` that will be created for each `connectedCluster` or `managedCluster` that falls within the scope.  Once the assignment is created the Policy engine will identify all `connectedCluster` or `managedCluster` resources that are located within the scope and will apply the `sourceControlConfiguration` to each one.
 
 ## Create a policy definition
 
@@ -11,7 +11,7 @@ Azure Policy can be used to assure that each `connectedCluster` resource has spe
 3. Set the **Definition location** to your subscription or management group.  This will determine the broadest scope where the policy definition can be used.
 4. Give the policy a **Name** and **Description**.
 5. Category, **Use existing**, *Kubernetes Cluster - Azure Arc*
-6. In the **Policy rule** edit box, copy/paste the contents of [example policy definition](../examples/gitops-policy.json).
+6. In the **Policy rule** edit box, copy/paste the contents of [example policy definition](../examples/Assure-GitOps-endpoint-for-Kubernetes-cluster.json).
 7. **Save**.
 
 ## Create a policy assignment
@@ -30,12 +30,11 @@ Azure Policy can be used to assure that each `connectedCluster` resource has spe
 12. Assure that **Create a managed identity** is checked, and that the identity will have **Contributor** permissions.  See [this doc](https://docs.microsoft.com/en-us/azure/governance/policy/assign-policy-portal) and [the comment in this doc](https://docs.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources) for more information on the permissions you need.
 13. **Review + create**
 
-After the policy assignment is created, for any `connectedCluster` resource that is located within the scope of the assignment the `sourceControlConfiguration` will be applied.  It typically takes from 10-20 minutes for the policy assignment to take effect.
-
+After the policy assignment is created, for any `connectedCluster` or `managedCluster` resource that is located within the scope of the assignment the `sourceControlConfiguration` will be applied.  It typically takes from 10-20 minutes for the policy assignment to take effect.
 
 ## Verify a policy assignment
 
-1. In the Azure portal, navigate to one of your `connectedCluster` resources, and in the menu select **Settings > Policies**.
+1. In the Azure portal, navigate to one of your `connectedCluster` resources, and in the menu select **Settings > Policies**. (The UX for AKS managed cluster is not implemented yet, but is coming.)
 2. In the list, you should see the policy assignment that you created above, and the **Compliance state** should be *Compliant*.
 3. In the menu, select **Settings > Configurations**.
 4. In the list you should see the `sourceControlConfiguration` that the policy assignment created.

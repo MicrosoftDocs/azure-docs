@@ -26,7 +26,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Ar
 
 1. The Flux `helm-operator` [doesn't yet support Helm 3](https://github.com/fluxcd/helm-operator/issues/8), so we'll need to deploy a cluster-scoped `tiller` instance for now.
 
-## Connect a cluster 
+## Connect a cluster
 
 Use the `az` CLI `connectedk8s` extension to connect a Kubernetes cluster to Azure Arc:
 

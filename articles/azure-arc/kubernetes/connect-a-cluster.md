@@ -6,25 +6,26 @@ Before onboarding a cluster to Azure Arc for Kubernetes, make sure that your Kub
 
 ## Network requirements
 
-azure-arc needs the following protocols/ports/outbound Urls for communication.
+Azure Arc agents require the following protocols/ports/outbound URLs to function.
 
-protocol/port: https://:443, git://:9418
+* TCP on port 443 --> `https://:443`
+* TCP on port 9418 --> `git://:9418`
 
-| item#  | Endpoint (DNS) |
-| ------------- | ------------- |
-| 1.  | https://management.azure.com  |
-| 2.  | https://eastus.dp.kubernetesconfiguration.azure.com, https://westeurope.dp.kubernetesconfiguration.azure.com  |
-| 3.  | https://docker.io  |
-| 4.  | https://github.com, git://github.com  |
-| 5.  | https://login.microsoftonline.com  |
-| 6.  | https://azurearcfork8s.azurecr.io  |
+| | Endpoint (DNS) | Description |
+| ------------- | ------------- | ------------- |
+| 1.  | https://management.azure.com  | Required for the agent to connect to Azure and register the cluster. |
+| 2.  | https://eastus.dp.kubernetesconfiguration.azure.com, https://westeurope.dp.kubernetesconfiguration.azure.com  | Data plane endpoint for the agent to push status and fetch configuration information. |
+| 3.  | https://docker.io | Required to pull container images. |
+| 4.  | https://github.com, git://github.com  | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
+| 5.  | https://login.microsoftonline.com  | Required to fetch and update ARM tokens. |
+| 6.  | https://azurearcfork8s.azurecr.io  | Required to pull container images for Azure Arc agentry. |
 
 ## Create a Resource Group
 
 First, create a resource group to hold the connected cluster resource. The referenced region stores metadata for your cluster. Currently supported regions:
 
-- East US
-- West Europe
+* East US
+* West Europe
 
 ```console
 az group create --name AzureArcTest -l EastUS -o table
@@ -48,14 +49,13 @@ Next, we will connect our Kubernetes cluster to Azure. The workflow for `az conn
 
 Note that the user running the `az connectedk8s connect` command must have privilege to create a Service Principal in the destination tenant and subscription. The Service Principal that is created is granted only enough access to connect Kubernetes clusters and will not be given any additional permission.
 
-If the user running the Azure CLI commands does not have sufficient permissions to create an Service Principal you may provide the id and credentials with `--onboarding-spn-id`, `--onboarding-spn-secret`, and `--tenant-id` arguments. For more information read the documentation on [creating an onboarding service prinicpal](./05-create-onboarding-spn.md).
+If the user running the Azure CLI commands does not have sufficient permissions to create an Service Principal you may provide the id and credentials with `--onboarding-spn-id` and `--onboarding-spn-secret` arguments. For more information read the documentation on [creating an onboarding service principal](./create-onboarding-spn.md).
 
 ```console
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-__Note: If you receive errors regarding missing provider, or provider not found, double check that your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./00-enable-providers.md)__
-
+__Note: If you receive errors regarding missing provider, or provider not found, double check that your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./00-enable-providers.md).__
 
 **Output:**
 
@@ -128,11 +128,13 @@ pod/controller-manager-7cf48dc76b-m9g74   2/2     Running   0          5h43m
 
 Azure Arc for Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 
-- `deploy/connect-agent`: is responsible for onboarding your cluster to Azure Resource Manager (ARM), the agent also sends periodic heartbeats to ARM with basic cluster telemetry (versions and cluster size)
-- `deploy/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
-- `deploy/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
+* `deploy/connect-agent`: is responsible for onboarding your cluster to Azure Resource Manager (ARM), the agent also sends periodic heartbeats to ARM with basic cluster telemetry (versions and cluster size)
+* `deploy/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
+* `deploy/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
 
 ## Next
 
 * Return to the [README](../README.md)
-* [Create a GitOps sourceControlConfiguration](./03-use-gitops.md)
+* [Use GitOps in a connected cluster](./use-gitops-in-connected-cluster.md)
+* [Use GitOps in an AKS cluster](./use-gitops-in-aks-cluster.md)
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

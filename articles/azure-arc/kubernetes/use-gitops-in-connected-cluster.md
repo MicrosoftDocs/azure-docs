@@ -78,15 +78,15 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ### Using ARM template
 
-To automate the creation of `sourceControlConfiguration` in a connected cluster you can deploy the [example ARM template](../examples/gitops-ARM-template.json).  To test, follow these steps in the Azure portal:
+To automate the creation of `sourceControlConfiguration` in a connected cluster you can deploy the [example ARM template](../examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).  To test, follow these steps in the Azure portal:
 1. In the portal search box (top center), type "deployment".
 2. In the search results Services section, click on "Deploy a custom template".
 3. Click "Build your own template in the editor".
-4. In the edit box, delete the default content and copy/paste the contents of [example ARM template](../examples/gitops-ARM-template.json).
+4. In the edit box, delete the default content and copy/paste the contents of [example ARM template](../examples/Create-Src-Control-Configuration-on-Connected-Cluster-ARM-template.json).
 5. Click "Save".
 6. You'll be presented with a form for entering parameter values; first select the "Resource Group" where the connected cluster is located.
 7. Enter the Azure location and name of the `connectedCluster` where the `sourceControlConfiguration` will be created.
-8. Enter the name for the `sourceControlConfiguration` (this is the resource name in Azure).
+8. Enter the name for the `sourceControlConfiguration` (this will be the resource name in Azure).
 9. Enter the operator instance name (this is the operator name in the cluster).
 10. Enter the namespace where the operator will be deployed in the cluster.
 11. Enter the scope of influence for the operator: `cluster` gives the operator permission to make changes throughout the cluster; `namespace` gives the operator permission to make changes only in the namespace.
@@ -100,6 +100,8 @@ To automate the creation of `sourceControlConfiguration` in a connected cluster 
 19. The template deployment will be started; when it completes you can navigate to the connected cluster resource and validate the new configuration.
 
 After validating that the ARM templates works for you, you can start using it in your automated infrastructure deployments.
+
+Note that you can also install a `sourceControlConfiguration` in an AKS cluster; use the [example ARM template for deploying configuration to AKS cluster](../examples/Create-Src-Control-Configuration-on-AKS-Cluster-ARM-template.json) and follow the steps above.
 
 ## Validate the sourceControlConfiguration
 
@@ -207,4 +209,5 @@ kubectl -n itops get all
 ## Next
 
 * Return to the [README](../README.md)
-* [Use Azure Policy to govern cluster configuration](./04-use-azure-policy.md)
+* [Use GitOps in an AKS cluster](./use-gitops-in-aks-cluster.md)
+* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

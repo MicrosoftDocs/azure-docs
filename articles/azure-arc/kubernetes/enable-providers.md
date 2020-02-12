@@ -42,7 +42,7 @@ az provider show -n Microsoft.Kubernetes -o table
 
 **Output:**
 
-```
+```console
 Namespace             RegistrationPolicy    RegistrationState
 --------------------  --------------------  -------------------
 Microsoft.Kubernetes  RegistrationRequired  Registered
@@ -54,7 +54,7 @@ az provider show -n Microsoft.KubernetesConfiguration -o table
 
 **Output:**
 
-```
+```console
 Namespace                          RegistrationPolicy    RegistrationState
 ---------------------------------  --------------------  -------------------
 Microsoft.KubernetesConfiguration  RegistrationRequired  Registered

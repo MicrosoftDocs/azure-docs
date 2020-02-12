@@ -16,9 +16,9 @@
   expanded: true
   items:
   - name: Use GitOps for AKS clusters
-    href: use-gitops.md
+    href: use-gitops-in-aks-cluster.md
   - name: Use GitOps for connected clusters
-    href: use-gitops.md
+    href: use-gitops-in-connected-cluster.md
   - name: Deploy IoT workloads
     href: deploy-azure-iot-edge-workloads.md
 - name: Concepts
