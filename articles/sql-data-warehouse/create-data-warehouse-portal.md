@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create and query a data warehouse- Azure portal'
-description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
+title: Create and query a data warehouse (Azure portal)
+description: Create and query a data warehouse with Azure Synapse Analytics in the Azure portal.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,81 +10,70 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019,azure-synapse
 ---
-# Quickstart: Create and query an Azure SQL Data Warehouse in the Azure portal
 
-Quickly create and query an Azure SQL Data Warehouse by using the Azure portal.
+# Quickstart: Create and query a data warehouse in Azure Synapse Analytics using the Azure portal
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+Quickly create and query a data warehouse by provisioning SQL pool in Azure Synapse Analytics (formerly SQL DW) using the Azure portal.
 
-> [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service. For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+## Prerequisites
 
-## Before you begin
+1. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+   > [!NOTE]
+   > Creating a data warehouse in Azure Synapse may result in a new billable service. For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+
+1. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a data warehouse
+## Create a SQL pool
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
+Data warehouses are created using SQL pool in Azure Synapse analytics. A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-servers.md).
 
-Follow these steps to create a SQL Data Warehouse that contains the AdventureWorksDW sample data. 
+Follow these steps to create a data warehouse that contains the **AdventureWorksDW** sample data.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
+   ![create a resource in Azure portal](media/create-data-warehouse-portal/create-a-resource.png)
 
-    ![create empty data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+2. Select **Databases** on the **New** page, and select **Azure Synapse Analytics (formerly SQL DW)** in the **Featured** list.
 
-3. Fill out the SQL Data Warehouse form with the following information:
+   ![create empty data warehouse](media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-    | Setting | Suggested value | Description |
-    | :------ | :-------------- | :---------- |
-    | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-    | **Data warehouse name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is one type of database.|
-    ||||
+3. In **Basics**, provide your subscription, resource group, SQL pool name, and server name:
 
-    ![create data warehouse](media/create-data-warehouse-portal/select-sample.png)
+   | Setting | Suggested value | Description |
+   | :------ | :-------------- | :---------- |
+   | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+   | **Data warehouse name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is one type of database.|
+   | **Server** | Any globally unique name | Select existing server, or create a new server name, click **Create new**. For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
 
-4. Select an existing **Server** or click **Create new** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
+   ![create a data warehouse basic details](media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
-    | Setting | Suggested value | Description |
-    | :------ | :-------------- | :---------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-    | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
-    ||||
+4. Under **Performance level**, click **Select performance level** to optionally change your configuration with a slider.
 
-    ![create database server](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+   ![change data warehouse performance level](media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-5. Click **Select**.
+   For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-6. Click **Performance level** to specify the performance configuration for the data warehouse.
+5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, click **Review + Create** and then **Create** to create the data warehouse in the SQL pool. Provisioning takes a few minutes.
 
-7. For this tutorial, select **Gen2**. The slider, by default, is set to **DW1000c**. Try moving it up and down to see how it works. 
+    ![select Review + Create](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
-    ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
+    ![select create](media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-8. Click **Apply**.
-
-9. Now that you've completed the Basics tab of the SQL Data Warehouse form, click **Review + Create** to provision the database. Provisioning takes a few minutes.
-
-    ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
-
-10. On the toolbar, click **Notifications** to monitor the deployment process.
+6. On the toolbar, click **Notifications** to monitor the deployment process.
     
-     ![notification](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![notification](media/create-data-warehouse-portal/notification.png)
 
 ## Create a server-level firewall rule
 
-The SQL Data Warehouse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address.
+The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address.
 
 > [!NOTE]
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
