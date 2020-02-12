@@ -88,8 +88,8 @@ In the application's `Program` class, create variables for your resource's key a
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly string key = "<replace-with-your-text-analytics-key-here>";
-private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
+private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
 Replace the application's `Main` method. You will define the methods called here later.
@@ -117,10 +117,10 @@ If you're using version `3.0-preview`, you can use an optional `TextAnalyticsCli
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Make sure your main method from earlier creates a new client object with your endpoint and key. 
+Make sure your main method from earlier creates a new client object with your endpoint and credentials.
 
 ```csharp
-var client = new TextAnalyticsClient(endpoint, key);
+var client = new TextAnalyticsClient(endpoint, credentials);
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -139,17 +139,17 @@ Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<AnalyzeSentimentResult>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
+Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its `AnalyzeSentiment()` function. The returned `Response<DocumentSentiment>` object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful. If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
 static void SentimentAnalysisExample(TextAnalyticsClient client)
 {
-    string InputText = "I had the best day of my life. I wish you were there with me.";
-    var response = client.AnalyzeSentiment(InputText);
-    Console.WriteLine($"Document sentiment: {response.Value.Sentiment}\n");
+    string inputText = "I had the best day of my life. I wish you were there with me.";
+    DocumentSentiment documentSentiment = client.AnalyzeSentiment(inputText);
+    Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
 
-    var si = new StringInfo(InputText);
-    foreach (var sentence in response.Value.Sentences)
+    var si = new StringInfo(inputText);
+    foreach (var sentence in documentSentiment.Sentences)
     {
         Console.WriteLine($"\tSentence [offset {sentence.Offset}, length {sentence.Length}]");
         Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.Offset, sentence.Length)}\"");
@@ -200,7 +200,7 @@ Sentiment Score: 0.87
 #### [Version 3.0-preview](#tab/version-3)
 
 
-Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectLanguageResult>` object will contain the detected language in `Value.PrimaryLanguage` if successful, and a `Value.ErrorMessage` if not.
+Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  `DetectLanguage()` function. The returned `Response<DetectLanguageResult>` object will contain the detected language along with its name and ISO-6391 code. If there was an error, it will throw a `RequestFailedException`.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -208,8 +208,7 @@ Create a new function called `LanguageDetectionExample()` that takes the client 
 ```csharp
 static void LanguageDetectionExample(TextAnalyticsClient client)
 {
-    var response = client.DetectLanguage("Ce document est rédigé en Français.");
-    var detectedLanguage = response.Value;
+    DetectedLanguage detectedLanguage = client.DetectLanguage("Ce document est rédigé en Français.");
     Console.WriteLine("Language:");
     Console.WriteLine($"\t{detectedLanguage.Name},\tISO-6391: {detectedLanguage.Iso6391Name}\n");
 }
@@ -224,7 +223,7 @@ Language:
 
 #### [Version 2.1](#tab/version-2)
 
-Create a new function called `languageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The returned [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) object will contain the list of detected languages in `DetectedLanguages` if successful, and an `errorMessage` if not.  Print the first returned language.
+Create a new function called `languageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The returned [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) object will contain the list of detected languages in `DetectedLanguages` if successful, and an `errorMessage` if not. Print the first returned language.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""` .
@@ -245,14 +244,12 @@ Language: English
 
 
 > [!NOTE]
-> In version `3.0-preview`:
-> * NER includes separate methods for detecting personal information. 
-> * Entity linking is a separate request than NER.
-
-The below code is for detecting personal information using NER v3, which is in public preview.
+> New in version `3.0-preview`:
+> * Entity recognition now includes a separate capability for detecting personal identifiable information (PII).
+> * Entity linking is now a separated from entity recognition.
 
 
-Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
+Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its `RecognizeEntities()` function and iterate through the results. The returned `Response<IReadOnlyCollection<CategorizedEntity>>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
 static void EntityRecognitionExample(TextAnalyticsClient client)
@@ -280,13 +277,13 @@ Named Entities:
 
 ## Personal Identifiable Information (PII)
 
-Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<RecognizeEntitiesResult>` object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
+Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. Similar to the previous function the returned `Response<IReadOnlyCollection<CategorizedEntity>>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
 static void EntityPIIExample(TextAnalyticsClient client)
 {
-    string input = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-    var response = client.RecognizePiiEntities(input);
+    string inputText = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
+    var response = client.RecognizePiiEntities(inputText);
     Console.WriteLine("Personally Identifiable Information Entities:");
     foreach(var entity in response.Value)
     {
@@ -307,7 +304,7 @@ Personally Identifiable Information Entities:
 
 ## Entity linking
 
-Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<RecognizeLinkedEntitiesResult>` object will contain the list of detected entities in `Value.LinkedEntities` if successful, and a `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its `RecognizeLinkedEntities()` function and iterate through the results. The returned `Response<RecognizeLinkedEntitiesResult>` object will contain the list of detected entities. If there was an error, it will throw a `RequestFailedException`. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```csharp
 static void EntityLinkingExample(TextAnalyticsClient client)
@@ -389,7 +386,7 @@ Create a new function called `RecognizeEntitiesExample()` that takes the client 
 
 #### [Version 3.0-preview](#tab/version-3)
 
-Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier, and call its `ExtractKeyPhrases()` function. The result will contain the list of detected key phrases in `Value.KeyPhrases` if successful, and a `Value.ErrorMessage` if not. Print any detected key phrases.
+Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier, and call its `ExtractKeyPhrases()` function. The returned `<Response<IReadOnlyCollection<string>>` object will contain the list of detected key phrases. If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
 static void KeyPhraseExtractionExample(TextAnalyticsClient client)
