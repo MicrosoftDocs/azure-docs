@@ -29,8 +29,10 @@
 - name: Reference
   items:
   - name: REST API
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-09-01-preview
   - name: Reference
     href: reference.md
+    /!--
   - name: Release notes
     href:
+    -->
