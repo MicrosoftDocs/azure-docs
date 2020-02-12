@@ -98,20 +98,20 @@ _<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreem
 
 Azure Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
 
-1. Tags must be applied directly to resources and are not implicitly inherited from the parent resource group
-2. Resource tags are only supported for resources deployed to resource groups
-3. Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](../../azure-resource-manager/tag-support.md)
-4. Resource tags are only included in usage data while the tag is applied – tags are not applied to historical data
-5. Resource tags are only available in Cost Management after the data is refreshed – see [Usage data update frequency varies](#usage-data-update-frequency-varies)
-6. Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated)
-7. Managing tags requires contributor access to each resource
-8. Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group
+- Tags must be applied directly to resources and are not implicitly inherited from the parent resource group.
+- Resource tags are only supported for resources deployed to resource groups.
+- Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](../../azure-resource-manager/tag-support.md).
+- Resource tags are only included in usage data while the tag is applied – tags are not applied to historical data.
+- Resource tags are only available in Cost Management after the data is refreshed – see [Usage data update frequency varies](#usage-data-update-frequency-varies).
+- Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated).
+- Managing tags requires contributor access to each resource.
+- Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
 	
 If you do not see a specific tag in Cost Management, consider the following:
 
-1. Was the tag applied directly to the resource?
-2. Was the tag applied more than 24 hours ago? See [Usage data update frequency varies](#usage-data-update-frequency-varies)
-3. Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/tag-support.md) for the full list of what is supported.
+- Was the tag applied directly to the resource?
+- Was the tag applied more than 24 hours ago? See [Usage data update frequency varies](#usage-data-update-frequency-varies)
+- Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/tag-support.md) for the full list of what is supported.
     - Azure Active Directory B2C Directories
     - Azure Firewalls
     - Azure NetApp Files
@@ -126,9 +126,9 @@ If you do not see a specific tag in Cost Management, consider the following:
 	
 Here are a few tips for working with tags:
 
-* Plan ahead and define a tagging strategy that allows you to break costs down by organization, application, environment, etc.
-* Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy
-* Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags
+- Plan ahead and define a tagging strategy that allows you to break costs down by organization, application, environment, etc.
+- Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy.
+- Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags.
 
 
 **Free trial to pay-as-you-go upgrade**
