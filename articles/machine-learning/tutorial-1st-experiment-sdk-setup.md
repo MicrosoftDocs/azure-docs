@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
@@ -79,7 +79,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
+1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
 
 1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). You can select a VM created by any user of your workspace. 
 
