@@ -27,7 +27,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/managed-instance/create-and-configure-managed-instance.ps1 "Create managed instance")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/managed-instance/create-managed-instance.sh "Create managed instance")]
 
 ## Clean up deployment
 
