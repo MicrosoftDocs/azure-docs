@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -80,7 +80,7 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
 | `providerselection` |	Lists the identity providers that users can choose from during sign-in. |
 | `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
-| `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. |
+| `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a user name. |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
 | `selfasserted` | Displays a form that enables users to create or update their profile. |
 
