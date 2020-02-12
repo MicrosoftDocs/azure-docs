@@ -19,4 +19,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Digital Twins?
-            url: about-digital-twins.md
+            url: overview.md
