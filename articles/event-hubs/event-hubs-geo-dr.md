@@ -52,7 +52,7 @@ The following terms are used in this article:
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
 
-| Primary namespace | Secondary namespace | Suppported | 
+| Primary namespace | Secondary namespace | Supported | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Yes | 
 | Standard | Dedicated | Yes | 

@@ -80,7 +80,7 @@ In this article, you created a resource group, an Event Hubs namespace, and an e
 - [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli

@@ -91,7 +91,7 @@ In this article, you created an Event Hubs namespace, and an event hub in the na
 - [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
