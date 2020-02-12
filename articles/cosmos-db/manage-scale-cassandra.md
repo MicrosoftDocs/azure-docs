@@ -43,7 +43,7 @@ The Azure Cosmos DB's API for Cassandra provides the capability to adjust throug
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and Powershell.
 
-A disadvantage with this approach may be that you cannot respond to unpredictable changing scale needs in real time. Instead, you may need to leverage the application context in your system, at the client/SDK level, or using [Autopilot](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot).
+A disadvantage with this approach may be that you cannot respond to unpredictable changing scale needs in real-time. Instead, you may need to leverage the application context in your system, at the client/SDK level, or using [Autopilot](provision-throughput-autopilot.md).
 
 ## <a id="use-cql-queries"></a>Use CQL queries with a specific SDK
 
