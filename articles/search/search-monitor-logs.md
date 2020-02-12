@@ -13,97 +13,68 @@ ms.date: 02/11/2020
 
 # Collect and analyze log data for Azure Cognitive Search
 
-In the Overview page of your Azure Cognitive Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
+Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected. 
 
-Setting up logs is useful for self-diagnostics and preserving operational history. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. If you want control over and access to log information, you should set up one of the solutions described in this article.
+Setting up logs is useful for diagnostics and preserving operational history. After you enable logging, you can run queries or build reports for structured analysis.
 
-In this article, learn about your monitoring options, how to enable logging and log storage, and how to view log contents.
-
-<!-- ## Metrics at a glance
-
-**Usage** and **Monitoring** sections built into the Overview page report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
-
-The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md). The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
-
-![Usage status relative to effective limits](./media/search-monitor-usage/usage-tab.png
- "Usage status relative to effective limits")
-
-## Queries per second (QPS) and other metrics
-
-The **Monitoring** tab shows moving averages for metrics like search *Queries Per Second* (QPS), aggregated per minute. 
-*Search latency* is the amount of time the search service needed to process search queries, aggregated per minute. *Throttled search queries percentage* (not shown) is the percentage of search queries that were throttled, also aggregated per minute.
-
-These numbers are approximate and are intended to give you a general idea of how well your system is servicing requests. Actual QPS may be higher or lower than the number reported in the portal.
-
-![Queries per second activity](./media/search-monitor-usage/monitoring-tab.png "Queries per second activity")
-
-## Activity logs
-
-The **Activity log** collects information from Azure Resource Manager. Examples of information found in the Activity log include creating or deleting a service, updating a resource group, checking for name availability, or getting a service access key to handle a request. 
-
-You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
-
-For in-service tasks like creating an index or deleting a data source, you'll see generic notifications like "Get Admin Key" for each request, but not the specific action itself. For this level of information, you must enable an add-on monitoring solution. -->
-
-## Add-on monitoring solutions
-
-Azure Cognitive Search does not store any data beyond the objects it manages, which means log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
-
-The following table compares options for storing logs and adding in-depth monitoring of service operations and query workloads through Application Insights.
+The following table enumerates options for collecting and persisting data.
 
 | Resource | Used for |
 |----------|----------|
-| [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Log Analytics workspace. You can run queries against a workspace to return detailed information from the log. For more information, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view file contents.|
-| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
+| [Send to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Logged events and query metrics, based on the schemas below. Events are logged to a Log Analytics workspace. Using Log Analytics, you can run queries to return detailed information. For more information, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view the log.|
+| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
 
 Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
 
-The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Cognitive Search operations.
+## Prerequisites
 
-## Enable logging
+If you are using Log Analytics or Azure Storage, you can create resources in advance.
 
-Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Cognitive Search are the objects it creates and manages, so logs must be stored elsewhere.
++ [Create a log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-In this section, you'll learn how to use Blob storage to store logged events and metrics data.
++ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. If possible, choose the same region as Azure Cognitive Search.
 
-1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. You can place it in the same resource group as Azure Cognitive Search to simplify clean up later if you want to delete all resources used in this exercise.
+## Create a diagnostic setting
 
-   Your storage account must exist in the same region as Azure Cognitive Search.
+Each setting specifies how and what is collected. Besides storage, you can choose whether to collect operational logs, metrics, or both.
 
-2. Open your search service Overview page. In the left-navigation pane, scroll down to **Monitoring** and click **Diagnostic settings**.
+1. Under **Monitoring**, select **Diagnostic settings**.
 
    ![Diagnostic settings](./media/search-monitor-usage/diagnostic-settings.png "Diagnostic settings")
 
-3. Select **Add diagnostic setting**
+1. Select **+ Add diagnostic setting**
 
-4. Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Azure Monitor logs.
+1. Choose the data you want to export: Logs, Metrics or both. You can collect data in a storage account, a log analytics workspace, or stream it to Event Hub.
 
-   For archival to Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
+   Log analytics is recommended because you can query the workspace in the portal.
 
-   ![Configure blob storage archive](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
+   If you are also using Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
 
-5. Save the profile
+   ![Configure data collecction](./media/search-monitor-usage/configure-storage.png "Configure data collection")
 
-6. Test logging by creating or deleting objects (creates log events) and by submitting queries (generates metrics). 
+1. Save the setting.
 
-Logging is enabled once you save the profile. Containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
+1. Test by creating or deleting objects (creates log events) and by submitting queries (generates metrics). 
+
+In Blob storage, containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 
 * insights-logs-operationlogs: for search traffic logs
 * insights-metrics-pt1m: for metrics
 
 **It takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container.**
 
-You can use [Visual Studio Code](#download-and-open-in-visual-studio-code) or another JSON editor to view the files. 
+<!-- ### Example path
 
-### Example path
-
-```
+```http
 resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
-```
+``` -->
 
 ## Log schema
-Blobs containing your search service traffic logs are structured as described in this section. Each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
+
+Data structures that contain Azure Cognitive Search log data conform to the schema below. 
+
+For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
@@ -126,9 +97,9 @@ Blobs containing your search service traffic logs are structured as described in
 | Documents |int |42 |Number of documents processed |
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
-<!-- ## Metrics schema
+## Metrics schema
 
-Metrics are captured for query requests.
+Metrics are captured for query requests. For more information, see [Monitor query requests](search-monitor-queries.md).
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
@@ -144,33 +115,15 @@ Metrics are captured for query requests.
 
 All metrics are reported in one-minute intervals. Every metric exposes minimum, maximum and average values per minute.
 
-For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
-Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
+For the **Search Queries Per Second** metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute. -->
+For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-## Download and open in Visual Studio Code
-
-You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
-
-1. In Azure portal, open your Storage account. 
-
-2. In the left-navigation pane, click **Blobs**. You should see **insights-logs-operationlogs** and **insights-metrics-pt1m**. These containers are created by Azure Cognitive Search when the log data is exported to Blob storage.
-
-3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
-
-Once the file is downloaded, open it in a JSON editor to view the contents.
-
-<!-- ## Use system APIs
-Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
-
-* [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
-* [Get Index Statistics](/rest/api/searchservice/get-index-statistics)
-* [Count Documents](/rest/api/searchservice/count-documents)
-* [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
-
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview). -->
+For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
 ## Next steps
 
-[Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration and [Performance and optimization](search-performance-optimization.md) for tuning guidance.
+If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
+
+> [!div class="nextstepaction"]
+> [Monitor operations and activity in Azure Cognitive Search](search-monitor-usage.md)

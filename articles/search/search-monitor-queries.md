@@ -13,16 +13,16 @@ ms.date: 02/12/2020
 
 # Monitor query requests in Azure Cognitive Search
 
-This article describes metrics that reflect query performance and volume. It also explains how to collect the input terms used in queries, which gives you a way to assess the utility and effectiveness of your search corpus.
+This article explains how to measure query performance and volume using metrics. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
 
-Historical data that feeds into metrics is preserved for 30 days. To retain a longer history, or to report on operational data and query strings, be sure to enable a diagnostic setting that specifies a storage option.
+Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a diagnostic setting that specifies a storage option.
 
 > [!Tip]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
 
-Volume is measured as **SearchQueriesPerSecond** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one minute window.
+Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one minute window.
 
 | Aggregation Type | Description |
 |------------------|-------------|
@@ -66,15 +66,21 @@ Depending on your client, a throttled request can be indicated in these ways:
 + A service returns a 503 error code indicating the service is currently unavailable. 
 + If you are using the portal (for example, Search Explorer), the query is dropped silently and you will need to click Search again.
 
-To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the number of queries that did not execute.
+To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the percentage of queries that did not execute.
 
 | Aggregation Type | Throttling |
 |------------------|-----------|
-| Average |  Not applicable (shows as 0%). |
+| Average | Percentage of queries dropped within the interval. |
 | Count | The number of raw samples used to generate the metric. |
-| Maximum | Not applicable (shows as 0%). |
-| Minimum | Not applicable (shows as 0%). |
-| Total | Total number of queries dropped within the interval. |
+| Maximum | Percentage of queries dropped within the interval.|
+| Minimum | Percentage of queries dropped within the interval. |
+| Total | Percentage of queries dropped within the interval. |
+
+For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+
+In the following screenshot, the first number is the count (or number of requests in the sample). Additional aggregations, which appear at the top or when hovering over the metric, include average, maximum, and total. In this sample, no requests were dropped.
+
+![Throttled aggregations](./media/search-monitor-usage/metrics-throttle.png "Throttled aggregations")
 
 ## Explore metrics in the portal
 
