@@ -34,10 +34,12 @@ The following table provides an overview of how to switch from each type of repl
 
 | Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting <br /><br />Incurs a one-time egress charge | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
+| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
 | <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
-| <b>…from ZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting <br /><br />Incurs a one-time egress charge |
+| <b>…from ZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
+
+<sup>1</sup> Incurs a one-time egress charge.
 
 ## Change the replication setting
 
@@ -78,7 +80,7 @@ az storage account update \
 
 ---
 
-## Perform a manual migration
+## Perform a manual migration to ZRS
 
 If you want to change how data in your storage account is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you may opt to perform a manual migration. A manual migration provides more flexibility than a live migration. You control the timing of a manual migration, so use this option if you need the migration to complete by a certain date.
 
@@ -91,7 +93,7 @@ With a manual migration, you copy the data from your existing storage account to
 - Copy data by using an existing tool such as AzCopy, one of the Azure Storage client libraries, or a reliable third-party tool.
 - If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 
-## Request a live migration to ZRS in the primary region
+## Request a live migration to ZRS
 
 If you need to migrate your storage account from LRS or GRS to ZRS in the primary region with no application downtime, you can request a live migration from Microsoft. During a live migration, you can access data in your storage account, and with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process. There is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
@@ -132,17 +134,6 @@ A support person will contact you and provide any assistance you need.
 >
 > Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 
-## Costs associated with migration
-
-Costs associated with migration to a different redundancy option depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
-
-For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
-
-> [!IMPORTANT]
-> If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
-
 ## Switch from ZRS Classic
 
 > [!IMPORTANT]
@@ -181,6 +172,17 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 ```
 
 ---
+
+## Costs associated with changing how data is replicated
+
+The costs associated with changing how data is replicated depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
+
+For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
+
+> [!IMPORTANT]
+> If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
 
 ## See also
 
