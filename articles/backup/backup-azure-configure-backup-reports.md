@@ -97,7 +97,7 @@ The widgets in the Backup Report are powered by Kusto queries which run on the u
 | ~5K                       | 3 months          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
 | ~10K                       | 3 months          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 40-45 secs <br> Report-level filters: 25-30 secs|
 | ~15K                       | 1 month          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 30-40 secs <br> Report-level filters: 20-25 secs|
-| ~15K                       | 3 months          | Tiles: 20-30 secs <br> Grids: 20-30 secs <br> Charts: 60-70 secs <br> Report-level filters: 50-60 secs|
+| ~15K                       | 3 months          | Tiles: 20-30 secs <br> Grids: 20-30 secs <br> Charts: 2-3 mins <br> Report-level filters: 50-60 secs (in case the query throws an error, please refresh the workbook)|
 
 
 ## What happened to the Power BI Reports?
