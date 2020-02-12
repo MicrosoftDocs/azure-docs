@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Learn the basics of speech recognition
 
-One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech to text). In this article, you'll learn how to use the Speech SDK in your apps and products to perform high quality speech recognition.
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech to text). In this article, you'll learn how to use the Speech SDK in your apps and products to perform high-quality speech recognition.
 
 > [!TIP]
 > If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try speech recognition out for yourself.
@@ -56,8 +56,8 @@ To call the Speech service using the Speech SDK, you need to create a [`SpeechCo
 There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python):
 
 * With a subscription: pass in a key and the associated region.
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token are optional.
-* With a host: pass in a host address. A key or authorization token are optional.
+* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
+* With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
 Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) is created using a key and region.
@@ -124,8 +124,8 @@ result = speech_recognizer.recognize_once_async()
 Regardless of whether you've used the synchronous or asynchronous method, you'll need to write some code to iterate through the result. This sample does a few things with the [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python):
 
 * Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`
-* If there is no recognition match, informs the user: `speechsdk.ResultReason.NoMatch `
-* If an error is encountered, prints the error message: `speechsdk.ResultReason.Canceled`
+* If there is no recognition match, inform the user: `speechsdk.ResultReason.NoMatch `
+* If an error is encountered, print the error message: `speechsdk.ResultReason.Canceled`
 
 ```Python
 if result.reason == speechsdk.ResultReason.RecognizedSpeech:
