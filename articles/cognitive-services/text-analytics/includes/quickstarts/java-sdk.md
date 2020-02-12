@@ -201,7 +201,7 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, offset: 34, length: 9, score: 0.8.
 ```
 
-## Using NER to detect personal information
+## Using NER to recognize personal information
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
 
