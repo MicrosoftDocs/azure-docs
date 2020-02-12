@@ -315,8 +315,7 @@ When using the **match** and **notMatch** conditions, provide `#` to match a dig
 letter, `.` to match any character, and any other character to match that actual character. While,
 **match** and **notMatch** are case-sensitive, all other conditions that evaluate a _stringValue_
 are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
-**notMatchInsensitively**. For examples, see
-[Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+**notMatchInsensitively**.
 
 In an **\[\*\] alias** array field value, each element in the array is evaluated individually with
 logical **and** between elements. For more information, see [Evaluating the \[\*\]
@@ -336,7 +335,7 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
-  - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
+  - Use **global** for resources that are location agnostic.
 - `identity.type`
   - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
     enabled on the resource.
