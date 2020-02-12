@@ -27,7 +27,7 @@
   items:
   - name: Deploy trusted security partners
     href: deploy-trusted-security-partner.md
-  - name: Migrate to Firewall policy
+  - name: Migrate to Firewall policy - PowerShell
     href: migrate-to-policy.md
 - name: Reference
   items:
