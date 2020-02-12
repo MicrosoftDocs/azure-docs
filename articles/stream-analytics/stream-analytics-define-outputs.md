@@ -264,6 +264,8 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Func
 | Max batch size |A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB). |
 | Max batch count  |A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100. |
 
+Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully.
+
 When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
 > [!NOTE]

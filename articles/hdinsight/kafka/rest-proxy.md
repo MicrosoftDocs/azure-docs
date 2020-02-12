@@ -22,11 +22,15 @@ For the full specification of operations supported by the Kafka REST API, please
 
 Creating an HDInsight Kafka cluster with REST proxy creates a new public endpoint for your cluster, which you can find in your HDInsight cluster “Properties” on the Azure portal.
 
+![Kafka REST proxy architecture](./media/rest-proxy/rest-proxy-architecture.png)
+
+For the full specification of operations supported by the API, please see [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
+
 ### Security
 
 Access to the Kafka REST proxy is managed with Azure Active Directory security groups. When creating the Kafka cluster with the REST proxy enabled, you will provide the AAD security group that should have access to the REST endpoint. The Kafka clients (applications) that need access to the REST proxy should be registered to this group by the group owner. The group owner can do this via the Portal or via Powershell.
 
-Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. Please find a [sample code](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/rest-proxy#client-application-sample) below that shows how to get an OAuth token. Once the client application has the OAuth token, they must pass that token in the HTTP request made to the REST proxy.
+Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)
 
 > [!Learn More]  
     See [Manage app and resource access using Azure Active Directory groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups), to learn more about AAD security groups. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)

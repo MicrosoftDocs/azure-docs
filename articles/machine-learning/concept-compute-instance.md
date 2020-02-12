@@ -120,7 +120,7 @@ You can perform the following actions:
 
 For each compute instance in your workspace you can:
 
-* Access Jupyter, JupyterLab, RStudio, VS Code URIs on the compute instance
+* Access Jupyter, JupyterLab, RStudio on the compute instance
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
 * Get details about a specific compute instance such as IP address, and region.
 
