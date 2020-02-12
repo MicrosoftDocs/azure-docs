@@ -291,7 +291,7 @@ Many triggers and actions have settings to hide inputs, outputs, or both from a 
 
 <a name="secure-data-code-view"></a>
 
-#### Secure inputs and outputs in code view
+#### Hide inputs and outputs in code view
 
 In the underlying trigger or action definition, add or update the `runtimeConfiguration.secureData.properties` array with either or both of these values:
 
