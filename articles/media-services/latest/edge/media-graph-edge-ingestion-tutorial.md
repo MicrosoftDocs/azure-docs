@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
+title: Manage Azure Media Services on IoT Edge for ingestion - Azure
 titleSuffix: Azure Media Services
 description:  
 services: media-services
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Tutorial: Manage Azure Media Services on IoT Edge for ingestion
+# Tutorial: manage Azure Media Services on IoT Edge for ingestion
 
 This tutorial shows how to use a local linux IoT Edge device to manage media graphs within an Azure IoT Edge runtime and monitor events, start and stop recording of video, using a console application from any other connected device capable of running .NET Core.
 
@@ -27,7 +27,7 @@ A .NET Core console application is used to trigger and monitor the events. Notic
 
 The following image shows the flow described in this topic.
 
-![LVA on the Edge for ingestion](./media/lva-edge/LVAEdgeDiagram_ingestion.png)
+![LVA on the Edge for ingestion](./media/lva-edge/lva-edge-diagram_ingestion.png)
 
 ## Prerequisites
 
@@ -43,9 +43,9 @@ If you have not already copied the src files to your target device, in the LVA P
 
 Update the `src\edge\module-deployment-files\deployment.archive.json` file to specify your camera connection information.
 
-- Replace the `<RTSP_URL>` with the correct URL for your camera. Note, some cameras require a specific url string for RTSP access (e.g. `rtsp://<IP ADDRESS>:<PORT>/axis-media/media.amp`). Please consult your camera documentation.
-- Replace the `<CAMERA_USERNAME>` with the correct username
-- Replace the `<CAMERA_PASSWORD>` with the correct password.
+1. Replace the `<RTSP_URL>` with the correct URL for your camera. Note, some cameras require a specific url string for RTSP access (e.g. `rtsp://<IP ADDRESS>:<PORT>/axis-media/media.amp`). Please consult your camera documentation.
+2. Replace the `<CAMERA_USERNAME>` with the correct username
+3. Replace the `<CAMERA_PASSWORD>` with the correct password.
 
 Deploy module with a module manifest file.
 
@@ -72,9 +72,9 @@ After you are done using the product, generally you should clean up everything e
 - To delete a single resource, follow the instructions for [az resource delete](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)
 - If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. Execute the following CLI command:
 
-```azurecli
-az group delete --name amsResourceGroup
-```
+    ```azurecli
+    az group delete --name amsResourceGroup
+    ```
 
 ## Troubleshooting
 

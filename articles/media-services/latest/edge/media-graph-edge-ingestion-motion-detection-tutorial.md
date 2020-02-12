@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
+title: Manage Azure Media Services on IoT Edge for ingestion and motion detection
 titleSuffix: Azure Media Services
 description:  
 services: media-services
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Tutorial: Manage Azure Media Services on IoT Edge for ingestion and motion detection
+# Tutorial: manage Azure Media Services on IoT Edge for ingestion and motion detection
 
 This tutorial shows how to use a local linux IoT Edge device to manage media graphs within an Azure IoT Edge runtime and monitor events using a console application from any other connected device capable of running .NET Core.
 
@@ -25,7 +25,7 @@ Specifically, the objective is to ingest media from an RTSP stream (a simulator 
 
 The following image shows the flow described in this topic.
 
-![LVA on the Edge for ingestion and motion detect](./media/lva-edge/LVAEdgeDiagram_motion.png)
+![LVA on the Edge for ingestion and motion detect](./media/lva-edge/lva-edge-diagram_motion.png)
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ For preview, we have created a sample Motion Controller app in C# that will allo
 
 ### Configuration
 
-#### 1. .NET
+#### .NET
 
 For the machine that will be deploying and executing the app, you will need to install .NET Core for Runtime (for apps): <https://dotnet.microsoft.com/download>
 
@@ -92,69 +92,66 @@ For the machine that will be deploying and executing the app, you will need to i
 
 1. Goto the local folder `src/motion-and-archive-controller-dotnet-app`.
 1. Edit the `App.config` to update the `xxx` values from the previous configuration steps. Below is a sample of the file.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <appSettings>
-    <!-- Info of Service Principle that need to access AMS -->
-    <add key="AadTenantId" value="xxxx"/>
-    <add key="AadClientId" value="xxxx"/>
-    <add key="AadSecret" value="xxxx"/>
-
-    <!-- AMS Account info -->
-    <add key="SubscriptionId" value="xxxx" />
-    <add key="ResourceGroup" value="xxxx"/>
-    <add key="AccountId" value="xxxx"/>
-
-    <!-- IoT hub and its endpoint connection info -->
-    <add key="IoTHubConnectionString" value="xxxx"/>
-    <add key="EventHubName" value="xxxx"/>
-    <add key="EventHubConnectionString" value="xxxx"/>
-
-    <!-- Storage account infor for Controller App's EventHubProcessorHost's checkpoint -->
-    <add key="StorageConnectionString" value="xxxx"/>
-    <add key="StorageContainerName" value="xxxx"/>
-
-    <!-- Controller App configuration -->
-    <add key="DynamicArchiverModuleName" value="xxxx"/>
-    <add key="DirectMethodTimeoutInSeconds" value="60"/>
-
-    <add key="MaxRecordingDurationInSeconds" value="300"/>
-    <add key="MotionRecordingInSeconds" value="30"/>
-    <add key="DeviceFilter" value="*"/>
-    <add key="ModulesFilter" value="*"/>
-
-  </appSettings>
-
-</configuration>
-```
+    
+    ```xml
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+      <appSettings>
+        <!-- Info of Service Principle that need to access AMS -->
+        <add key="AadTenantId" value="xxxx"/>
+        <add key="AadClientId" value="xxxx"/>
+        <add key="AadSecret" value="xxxx"/>
+    
+        <!-- AMS Account info -->
+        <add key="SubscriptionId" value="xxxx" />
+        <add key="ResourceGroup" value="xxxx"/>
+        <add key="AccountId" value="xxxx"/>
+    
+        <!-- IoT hub and its endpoint connection info -->
+        <add key="IoTHubConnectionString" value="xxxx"/>
+        <add key="EventHubName" value="xxxx"/>
+        <add key="EventHubConnectionString" value="xxxx"/>
+    
+        <!-- Storage account infor for Controller App's EventHubProcessorHost's checkpoint -->
+        <add key="StorageConnectionString" value="xxxx"/>
+        <add key="StorageContainerName" value="xxxx"/>
+    
+        <!-- Controller App configuration -->
+        <add key="DynamicArchiverModuleName" value="xxxx"/>
+        <add key="DirectMethodTimeoutInSeconds" value="60"/>
+    
+        <add key="MaxRecordingDurationInSeconds" value="300"/>
+        <add key="MotionRecordingInSeconds" value="30"/>
+        <add key="DeviceFilter" value="*"/>
+        <add key="ModulesFilter" value="*"/>
+    
+      </appSettings>
+    
+    </configuration>
+    ```
 
 ### Run the App
 
 1. In a terminal session, goto the `src/motion-and-archive-controller-dotnet-app` folder.
 
-> [!NOTE]
-> For MacOS: the `NuGet.Config`, if present, in the base of the folder may need to be modified for the following to work properly (see Troubleshooting for more help).
-
+    > [!NOTE]
+    > For MacOS: the `NuGet.Config`, if present, in the base of the folder may need to be modified for the following to work properly (see Troubleshooting for more help).
 1. Execute the following command to begin the .NET app process.
-
-``` bash
-dotnet restore
-```
-
+    
+    ``` bash
+    dotnet restore
+    ```
 1. Build the application, following the command below.
-
-``` bash
-dotnet build
-```
-
+    
+    ``` bash
+    dotnet build
+    ```
 1. Run the application, following the command below.
 
-``` bash
-dotnet run
-```
-
+    ``` bash
+    dotnet run
+    ```
+    
 ### Motion Event in app
 
 Once a motion detection event is detected, it will be shown in the terminal window running the console app, as, for example:
@@ -206,9 +203,9 @@ After you are done using the product, generally you should clean up everything e
 - To delete a single resource, follow the instructions for [az resource delete](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)
 - If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. Execute the following CLI command:
 
-```azurecli
-az group delete --name amsResourceGroup
-```
+    ```azurecli
+    az group delete --name amsResourceGroup
+    ```
 
 ## Troubleshooting
 

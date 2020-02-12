@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
+title: Frequently asked questions about Live Video Analytics - Azure
 titleSuffix: Azure Media Services
 description:  
 services: media-services
@@ -17,59 +17,9 @@ ms.author: juliako
 
 ---
 
-# Frequently asked questions (FAQs): Live Video Analytics
+# Frequently asked questions about Live Video Analytics
 
 This page answers frequently asked questions about Azure Media Services Live Video Analytics, Media Graphs, and Media Services IoT Edge module.
-
-- [Media Graphs](#media-graphs)
-  - [General](#general)
-    - [What is Media Services media graph?](#what-is-media-services-media-graph)
-    - [What is the difference between Media Services media graph and live events in the API?](#what-is-the-difference-between-media-services-media-graph-and-live-events-in-the-api)
-    - [What is the similarity between Media Services media graph and live events in the API?](#what-is-the-similarity-between-media-services-media-graph-and-live-events-in-the-api)
-  - [Configuration and Deployment](#configuration-and-deployment)
-    - [Can I deploy the media edge module to a Windows IOT device or VM?](#can-i-deploy-the-media-edge-module-to-a-windows-iot-device-or-vm)
-  - [IoT Edge configuration](#iot-edge-configuration)
-    - [Are there any tools to make it easier to monitor the Media Services IoT Edge module](#are-there-any-tools-to-make-it-easier-to-monitor-the-media-services-iot-edge-module)
-    - [Can I easily change the media graph settings on the Media Services IoT Edge module?](#can-i-easily-change-the-media-graph-settings-on-the-media-services-iot-edge-module)
-  - [Analytics processors](#analytics-processors)
-    - [Can I use any analytics processors in the cloud with my media graph?](#can-i-use-any-analytics-processors-in-the-cloud-with-my-media-graph)
-    - [Can I use the motion detection module in the cloud media graph?](#can-i-use-the-motion-detection-module-in-the-cloud-media-graph)
-    - [Can I use the custom AI model in either the media edge or the cloud media graph?](#can-i-use-the-custom-ai-model-in-either-the-media-edge-or-the-cloud-media-graph)
-    - [Can I adjust the sensitivity of the motion detection module on the edge?](#can-i-adjust-the-sensitivity-of-the-motion-detection-module-on-the-edge)
-  - [IP Camera ingest and RTSP settings](#ip-camera-ingest-and-rtsp-settings)
-    - [What protocols are supported on ingest to media graph?](#what-protocols-are-supported-on-ingest-to-media-graph)
-    - [Do I need to use a special SDK on my device to send in a video stream?](#do-i-need-to-use-a-special-sdk-on-my-device-to-send-in-a-video-stream)
-    - [Can I also use RTMP or Smooth ingest like a Media Services Live Event?](#can-i-also-use-rtmp-or-smooth-streaming-ingest-like-a-media-services-live-event)
-    - [What camera models are supported?](#what-camera-models-are-supported)
-    - [Can I connect to a secure RTSP camera source in private preview?](#can-i-connect-to-a-secure-rtsp-camera-source-in-private-preview)
-    - [Can I connect to a camera using RTSPS?](#can-i-connect-to-a-camera-using-rtsps)
-    - [Can I reset or update the RTSP source URL on the media edge module after deployment?](#can-i-reset-or-update-the-rtsp-source-url-on-the-media-edge-module-after-deployment)
-    - [Is there a simulated RTSP camera signal available to use during testing and development?](#is-there-a-simulated-rtsp-camera-signal-available-to-use-during-testing-and-development)
-    - [Do you support ONVIF discovery of IP cameras at the edge?](#do-you-support-onvif-discovery-of-ip-cameras-at-the-edge)
-  - [Streaming and Playback](#streaming-and-playback)
-    - [Can archived assets from the edge be played back using Media Services streaming technologies like HLS or DASH?](#can-archived-assets-from-the-edge-be-played-back-using-media-services-streaming-technologies-like-hls-or-dash)
-    - [Can I use the standard content protection and DRM features of Media Services on an archived asset?](#can-i-use-the-standard-content-protection-and-drm-features-of-media-services-on-an-archived-asset)
-    - [What players can I use to view content from the archive media graph?](#what-players-can-i-use-to-view-content-from-the-archive-media-graph)
-    - [What are the limits on streaming a media graph asset?](#what-are-the-limits-on-streaming-a-media-graph-asset)
-  - [Media formats and archive container formats](#media-formats-and-archive-container-formats)
-    - [What are the basic requirements to ingest and play back video from a media graph?](#what-are-the-basic-requirements-to-ingest-and-play-back-video-from-a-media-graph)
-    - [What format is the archive written into the asset container?](#what-format-is-the-archive-written-into-the-asset-container)
-  - [Content Protection and encryption](#content-protection-and-encryption)
-    - [Can I encrypt the content during delivery?](#can-i-encrypt-the-content-during-delivery)
-  - [Monitoring and Metrics](#monitoring-and-metrics)
-    - [Can I monitor the media graph in the cloud and on the edge using Event Grid?](#can-i-monitor-the-media-graph-in-the-cloud-and-on-the-edge-using-event-grid)
-    - [Can I use Azure Monitor to view the health, metrics, and performance of my media graphs in the cloud or on the edge?](#can-i-use-azure-monitor-to-view-the-health-metrics-and-performance-of-my-media-graphs-in-the-cloud-or-on-the-edge)
-  - [Billing and availability](#billing-and-availability)
-    - [Is the media graph metered when in a running state?](#is-the-media-graph-metered-when-in-a-running-state)
-    - [Will I be billed for any other resource utilization when testing media graph in the cloud or edge?](#will-i-be-billed-for-any-other-resource-utilization-when-testing-media-graph-in-the-cloud-or-edge)
-  - [Quota and Limitations](#quota-and-limitations)
-    - [How many media graphs per Media Services account can I deploy?](#how-many-media-graphs-per-media-services-account-can-i-deploy)
-    - [How many IoT Edge modules can be run on the Edge device?](#how-many-iot-edge-modules-can-be-run-on-the-edge-device)
-    - [How many media graphs are supported on the edge?](#how-many-media-graphs-are-supported-on-the-edge)
-    - [How long will a media graph stay running on the cloud?](#how-long-will-a-media-graph-stay-running-on-the-cloud)
-    - [How long can a media graph stay running on the edge?](#how-long-can-a-media-graph-stay-running-on-the-edge)
-    - [Are there any archive duration limitations when writing from the edge to a cloud asset?](#are-there-any-archive-duration-limitations-when-writing-from-the-edge-to-a-cloud-asset)
-  - [Next steps](#see-also)
 
 ## General
 
@@ -139,7 +89,7 @@ sudo iotedge restart mediaEdge
 
 ### Can I use any analytics processors in the cloud with my media graph?
 
-No. In the private preview release, there is no support for using an analytics processor in the cloud. Only the media edge module supports a single analytics processor for motion detection. This is to provide early input into the future capabilities and requirements for the service and to demonstrate how the service will eventually support more custom models in the graph.
+No. In the preview release, there is no support for using an analytics processor in the cloud. Only the media edge module supports a single analytics processor for motion detection. This is to provide early input into the future capabilities and requirements for the service and to demonstrate how the service will eventually support more custom models in the graph.
 
 ### Can I use the motion detection module in the cloud media graph?
 
@@ -147,7 +97,7 @@ No. Currently the motion detection module is only available in the media edge mo
 
 ### Can I use the custom AI model in either the media edge or the cloud media graph?
 
-No. The private preview release does not support custom AI models at the edge or in the cloud. This is a feature we are considering for the future.
+No. The preview release does not support custom AI models at the edge or in the cloud. This is a feature we are considering for the future.
 
 ### Can I adjust the sensitivity of the motion detection module on the edge?
 
@@ -171,7 +121,7 @@ No. Media graph will only support RTSP for ingestion from IP cameras on initial 
 
 Any camera that supports RTSP streaming should work with the cloud and edge media graph. Please report any issues with RTSP compatibility as bugs on the preview service.
 
-### Can I connect to a secure RTSP camera source in private preview?
+### Can I connect to a secure RTSP camera source in preview?
 
 No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source in the preview release.
 
@@ -246,7 +196,7 @@ Content can be delivered using both Apple HTTP Live Streaming (HLS) or MPEG-DASH
 
 ### What should I do if the Azure Media Player shows a network error on playback after a long period of archiving?
 
-If you see the error message "A network error caused the video download to fail part-way. Please check your network connection or try again later", you should reset the Azure Media Edge module to restart the archiving.
+If you see the error message "A network error caused the video download to fail part-way. Check your network connection or try again later", you should reset the Azure Media Edge module to restart the archiving.
 
 In preview, the archiver can sometimes stall out after 24 hours of operation and requires a reset.
 
@@ -289,11 +239,11 @@ No. In the preview release, Azure Monitor support is not integrated.
 
 ### Is the media graph metered when in a running state?
 
-During the private preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
+During the preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
 
 ### Will I be billed for any other resource utilization when testing media graph in the cloud or edge?
 
-Yes. While the running media graph is not billed during private preview, there are additional resources required to be associated with the Azure Media Services account that can incur billable activity. This includes the attached Storage Account and all transactions required for archiving the RTSP video streams, the running Streaming Endpoint, as well as standard data egressed from the Streaming Endpoint for delivery of content to a player. If additional Media Services features are used on the assets that are archived (for example, encoding, audio or video analytics) then standard [Azure Media Services pricing](https://azure.microsoft.com//pricing/details/media-services/) applies.
+Yes. While the running media graph is not billed during preview, there are additional resources required to be associated with the Azure Media Services account that can incur billable activity. This includes the attached Storage Account and all transactions required for archiving the RTSP video streams, the running Streaming Endpoint, as well as standard data egressed from the Streaming Endpoint for delivery of content to a player. If additional Media Services features are used on the assets that are archived (for example, encoding, audio or video analytics) then standard [Azure Media Services pricing](https://azure.microsoft.com//pricing/details/media-services/) applies.
 
 ## Quota and Limitations
 
@@ -321,7 +271,9 @@ In the preview release, the edge media graph is capable of running as long as th
 
 Content is written from the edge to the cloud using CMAF format fragments. The limitation is currently on the size of the manifest that is generated, and then number of fragments in the container. At preview, we are limiting support to 24-hours. In a future release, we will enable support for more advanced edge-to-cloud archiving.
 
-## See also
+## Next steps
+
+Review:
 
 - [Overview: Getting Started](overview.md)
 - [Concept: Media Graph](media-graph-concept.md)

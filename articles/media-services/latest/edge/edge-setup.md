@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
+title: Initial setup for Media Graph on IoT Edge - Azure
 titleSuffix: Azure Media Services
 description:  
 services: media-services
@@ -17,24 +17,24 @@ ms.author: juliako
 
 ---
 
-# How-to: Initial setup for Media Graph on IoT Edge
+# Initial setup for Media Graph on IoT Edge
 
 This tutorial shows how to set up a local linux IoT Edge device, or target machine, to manage media graphs within an Azure IoT Edge runtime.
 
 The following diagram is an example setup of a motion detection system running on the Edge with Live Video Analytics. The portion in blue is what will be set up in this tutorial.
 
-![Diagram of Edge and Cloud elements in a Media Graph](./media/lva-edge/LVAEdgeDiagram_setup.png)
+![Diagram of Edge and Cloud elements in a Media Graph](./media/lva-edge/lva-edge-diagram_setup.png)
 
 In this tutorial, the target machine refers to the edge device itself (Ubuntu 16.04 or 18.04) and the host machine refers to the personal laptop or desktop machine (Windows, MacOS, or Linux) used to perform the setup.
 
-There are 4 main steps to this initial setup:
+There are 4 main steps to this initial setup that are described in this topic:
 
-1. [Review prerequisites](#step-1---prerequisites)
-1. [Azure IoT Edge runtime setup (CLI)](#step-2---azure-iot-edge-runtime-setup-cli)
-1. [Create an Azure Storage account](#step-3---create-an-azure-storage-account)
-1. [Create an Azure Media Services account](#step-4---create-an-azure-media-services-account)
+1. [Review prerequisites](#prerequisites)
+1. [Azure IoT Edge runtime setup (CLI)](#azure-iot-edge-runtime-setup-cli)
+1. [Create an Azure Storage account](#create-an-azure-storage-account)
+1. [Create an Azure Media Services account](#create-an-azure-media-services-account)
 
-## Step 1 - Prerequisites
+## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - To be able to complete this tutorial and stream messages to an IoT Hub, you should have knowledge of Linux and Linux command line.
@@ -67,7 +67,7 @@ In this setup, the following Azure information will be used. Be sure to replace 
 > [!TIP] 
 > To keep your resources organized, you might consider creating accounts and groups in `eastus` as our cloud ingest is currently only supported in that region.
 
-## Step 2 - Azure IoT Edge runtime setup (CLI)
+## Azure IoT Edge runtime setup (CLI)
 
 To setup the IoT Edge for LVA, you can either utilize the [Scripted setup](#scripted-setup-of-iot-edge-runtime) below for easier configuration **or** follow the [Manual setup](#manual-setup-of-azure-iot-edge-runtime) later in this document.
 
@@ -230,7 +230,7 @@ This will configure the IoT Edge runtime to link your physical device with a dev
 
 For more information and troubleshooting, see [Install the Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 
-## Step 3 - Create an Azure Storage account
+## Create an Azure Storage account
 
 You will need to have an Azure Storage account created to attach to your Media Services account. You can either use an existing account, or we recommend creating a new storage account using the command below:
 
@@ -240,7 +240,7 @@ az storage account create --name <storage_account_name> --kind StorageV2 --sku S
 
 For more information on using Storage Accounts with Media Services, see [Create a storage account](https://docs.microsoft.com/azure/media-services/latest/create-account-cli-how-to#create-a-storage-account)
 
-## Step 4 - Create an Azure Media Services account
+## Create an Azure Media Services account
 
 ### 1. Create a Media Services Account
 
