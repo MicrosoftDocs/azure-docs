@@ -37,7 +37,7 @@ Before using cloud storage, you need to register a datastore in your Azure Machi
 
 After you define the data you want and connect to the source, **[Import Data](./import-data.md)** infers the data type of each column based on the values it contains, and loads the data into your designer pipeline. The output of **Import Data** is a dataset that can be used with any designer pipeline.
 
-If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md). However, if you don't want to re-read from the source each time you run the pipeline, set the **Use cached results** option to TRUE. When this option is selected, the module checks whether the pipeline has run previously using the same source and same input options. If a previous run is found, the data in the cache is used, instead of reloading the data from the source.
+If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md).
 
 ## How to configure Import Data
 
@@ -56,11 +56,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
     ![import-data-preview](media/module/import-data.png)
 
-1. Select the **Use cached results** option if you want to cache the dataset for reuse on successive runs.
 
-    Assuming there have been no other changes to module parameters, the pipeline loads the data only the first time the module is run, and thereafter uses a cached version of the dataset.
-
-    Deselect this option if you need to reload the data each time you run the pipeline.
 
 1. Run the pipeline.
 
