@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Logistic regression model in R"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you create a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
+description: In this tutorial, you create a logistic regression model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
