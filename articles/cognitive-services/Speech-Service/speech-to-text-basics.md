@@ -193,3 +193,7 @@ speech_recognizer.start_continuous_recognition()
 while not done:
     time.sleep(.5)
 ```
+
+## Recognize intents with Language Understanding (LUIS)
+
+...
