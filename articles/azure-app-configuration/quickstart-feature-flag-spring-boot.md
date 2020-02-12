@@ -26,7 +26,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)

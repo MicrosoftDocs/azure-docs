@@ -161,7 +161,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     }
     ```
 
-1. Create a new file called *AzureCredentials.java*. And add the code below.
+1. Create a new file called *AzureCredentials.java* and add the code below.
 
     ```java
     package com.example;
