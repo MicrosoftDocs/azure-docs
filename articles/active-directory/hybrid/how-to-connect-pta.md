@@ -65,7 +65,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 
 ## Next steps
 
-- [Quick Start](how-to-connect-pta-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [Quickstart](how-to-connect-pta-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md) - Learn which scenarios are supported and which ones are not.

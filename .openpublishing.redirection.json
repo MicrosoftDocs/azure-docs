@@ -35211,13 +35211,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/active-directory/conditional-access/technical-reference.md",
-      "redirect_url": "/azure/active-directory/active-directory/conditional-access/concept-conditional-access-conditions",
+      "source_path": "articles/active-directory/conditional-access/technical-reference.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/active-directory/conditional-access/conditions.md",
-      "redirect_url": "/azure/active-directory/active-directory/conditional-access/concept-conditional-access-conditions",
+      "source_path": "articles/active-directory/conditional-access/conditions.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
       "redirect_document_id": true
     },
     {
