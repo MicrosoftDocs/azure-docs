@@ -55,7 +55,7 @@ Log entries are created only if there are requests made against the service endp
 - Requests using a Shared Access Signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container, and class metric data in the **$metric** tables)
 
-  Requests made by the storage service itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
+Requests made by the storage service itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
 
 #### Logging anonymous requests
 
