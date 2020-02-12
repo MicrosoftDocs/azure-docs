@@ -112,4 +112,4 @@ The following passwords are not allowed:
 This may be solved by doing the following:
 
 * Verify that the **VM generation** property is set to **Gen 2** in the **Advanced** tab.
-* Verify you are searching for a [VM size which supports Gen2 VMs](#generation-2-vm-sizes).
+* Verify you are searching for a [VM size which supports Gen2 VMs](generation-2.md#generation-2-vm-sizes).
