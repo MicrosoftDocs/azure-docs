@@ -45,7 +45,7 @@ When the drawing manager is in `draw-point` drawing mode, the following actions 
 
 ### How to draw a line
 
-When the drawing manager is in `draw-line` mode, the following actions can be done to draw points on the map, depending on the settings of the interaction mode.
+When the drawing manager is in `draw-line` mode, the following actions can be done to draw points on the map, depending on the interaction mode.
 
 **Start drawing**
  - Click mode
@@ -71,7 +71,7 @@ When the drawing manager is in `draw-line` mode, the following actions can be do
 
 ### How to draw a polygon
 
-When the drawing manager is in `draw-polygon` mode, the following actions can be done to draw points on the map, depending on the settings of the interaction mode.
+When the drawing manager is in `draw-polygon` mode, the following actions can be done to draw points on the map, depending on the interaction mode.
 
 **Start drawing**
  - Click mode
@@ -98,7 +98,7 @@ When the drawing manager is in `draw-polygon` mode, the following actions can be
 
 ### How to draw a rectangle
 
-When the drawing manager is in `draw-rectangle` mode, the following actions can be done to draw points on the map, depending on the settings of the interaction mode. The generated shape will follow the [extended GeoJSON specification for rectangles](extend-geojson.md#rectangle).
+When the drawing manager is in `draw-rectangle` mode, the following actions can be done to draw points on the map, depending on the interaction mode. The generated shape will follow the [extended GeoJSON specification for rectangles](extend-geojson.md#rectangle).
 
 **Start drawing**
  - Press down the left mouse button, or touch-down on the map to add the first corner of the rectangle and drag to create the rectangle. 
@@ -113,7 +113,7 @@ When the drawing manager is in `draw-rectangle` mode, the following actions can 
 
 ### How to draw a circle
 
-When the drawing manager is in `draw-circle` mode, the following actions can be done to draw points on the map, depending on the settings of the interaction mode. The generated shape will follow the [extended GeoJSON specification for circles](extend-geojson.md#circle).
+When the drawing manager is in `draw-circle` mode, the following actions can be done to draw points on the map, depending on the interaction mode. The generated shape will follow the [extended GeoJSON specification for circles](extend-geojson.md#circle).
 
 **Start drawing**
  - Press down the left mouse button, or touch-down on the map to add the center of the circle and drag give the circles a radius. 
