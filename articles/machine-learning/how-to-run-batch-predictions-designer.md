@@ -36,7 +36,7 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. Go to the **Designer** tab in your workspace.
 
-1. Select the training pipeline that trains the model want to use to make prediction.
+1. Select the training pipeline that trains the model you want to use to make prediction.
 
 1. **Run** the pipeline.
 
