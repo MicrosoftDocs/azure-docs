@@ -53,7 +53,7 @@ The advantage of this approach is that it allows you to respond to scale needs d
 
 ## <a id="use-autopilot"></a>Use Autopilot
 
-In addition to manual or programmatic provisioning of throughput, you can also configure Azure cosmos containers in Autopilot mode. Within specified RU ranges, Autopilot mode will automatically and instantly scale to your consumption needs without compromising SLAs. You can consult our article [Create Azure Cosmos containers and databases in autopilot mode](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) for details on how to configure Autopilot.
+In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in Autopilot mode. Autopilot mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autopilot mode](provision-throughput-autopilot.md) article.
 
 The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, Autopilot may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 
