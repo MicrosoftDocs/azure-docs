@@ -98,7 +98,7 @@ The `response-variable-name` attribute is used to give access the returned respo
 
 From the response object, you can retrieve the body and RFC 7622 tells API Management that the response must be a JSON object and must contain at least a property called `active` that is a boolean value. When `active` is true then the token is considered valid.
 
-Alternatively, if the authorization server does not include the "active" field to indicate that the token is valid or not, determine what properties are set in a valid token using a tool like Postman. For example, if a valid token response contains a property called "expires_in", check if this property name exists or not in the authorization server response in this way:
+Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use a tool like Postman to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
 
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
 
