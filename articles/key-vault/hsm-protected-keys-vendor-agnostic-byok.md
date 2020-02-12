@@ -81,7 +81,7 @@ KEK must be:
 2. generated in the same key vault where you intend to import the target key
 3. created with allowed key operations set to **import**
 
-Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to create KEK with key operations set to import. Note down the key identifier 'kid' returned from the above command. You'll need it in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).
+Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to create KEK with key operations set to import. Note down the key identifier 'kid' returned from the below command. You'll need it in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).
 
 
 ```azurecli
@@ -107,6 +107,7 @@ Transfer the BYOK file to your connected workstation.
 
 > [!NOTE] 
 > Target key must be an RSA key of size 2048-bit or 3072-bit or 4096-bit. Importing Elliptic Curve keys is not supported at this time.
+> <br/><strong>Known issue:</strong> Importing RSA 4K target key fails. When the issue is resolved this document will be updated.
 
 ## Step 4: Transfer your key to Azure Key Vault
 
