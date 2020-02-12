@@ -122,10 +122,6 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 ## <a name="compute-instance"></a>Use a Machine Learning Compute
 
-> [!NOTE]
-> Compute instances (preview) are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
-> Use one of these regions to create a compute instance that can be added to virtual network.
-
 To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
@@ -133,7 +129,7 @@ To use an Azure Machine Learning compute instance or compute cluster in a virtua
 > * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. If you are creating a compute instance in the same virtual network, you would need to detach the storage account(s) from the virtual network, create the compute instance in the virtual network, and then attach the storage account(s) back to the virtual network.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
 
 The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
 
@@ -177,8 +173,8 @@ If you don't want to use the default outbound rules and you do want to limit the
 - Deny outbound internet connection by using the NSG rules.
 
 - For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
-   - Azure Storage, by using __Service Tag__ of __Storage__
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__
+   - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
    
 - For a __compute instance__, also add the follow items:

@@ -1,9 +1,9 @@
 ---
 title: Use GitHub Actions with Azure App Configuration Sync
 description: Use GitHub Actions to trigger an update to your App Configuration instance when defined actions are performed on a GitHub repository
-author: jpconnock
+author: lisaguthrie
 
-ms.author: jeconnoc
+ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -21,8 +21,7 @@ GitHub events, such as a push to a repository, can trigger a GitHub Action workf
 The GitHub [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) provides in-depth view of GitHub workflows and actions. 
 
 ## Enable GitHub Actions in your repository
-To start using this GitHub action, go to your repository and select the **Actions** tab. Find and select the GitHub action in the marketplace by searching for "Azure App Configuration Sync". 
-
+To start using this GitHub action, go to your repository and select the **Actions** tab. Click on “New workflow” and then “Set up a workflow yourself”. From there, search the marketplace for “Azure App Configuration Sync.”
 > [!div class="mx-imgBorder"]
 > ![Select the Action tab](media/find-github-action.png)
 

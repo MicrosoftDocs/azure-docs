@@ -1,18 +1,13 @@
 ---
-title: Maintenance and updates for VMs in Azure | Microsoft Docs
+title: Maintenance and updates 
 description: Overview of maintenance and updates for virtual machines running in Azure.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-
+#pmcontact:shants
 ---
 # Maintenance for virtual machines in Azure
 

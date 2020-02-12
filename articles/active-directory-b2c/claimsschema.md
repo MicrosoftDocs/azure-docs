@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -46,8 +46,8 @@ The **ClaimType** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | The title that's displayed to users on various screens. The value can be [localized](localization.md). |
-| DataType | 0:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection can be used. |
+| DisplayName | 1:1 | The title that's displayed to users on various screens. The value can be [localized](localization.md). |
+| DataType | 1:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection and phoneNumber can be used. Primitive data type represents the equivalent of C# variable data type. stringCollection represents a collection of strings. For more information see [C# Types and variables](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Date follows ISO 8601 convention. |
 | DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the **PartnerClaimType** specified in the **InputClaim** or **OutputClaim** elements. Use this element to specify the default name for a protocol.  |
 | Mask | 0:1 | An optional string of masking characters that can be applied when displaying the claim. For example, the phone number 324-232-4343 can be masked as XXX-XXX-4343. |
 | UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be [localized](localization.md). |
@@ -61,7 +61,7 @@ The **DefaultPartnerClaimTypes** may contain the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | List of protocols with their default partner claim type name. |
+| Protocol | 1:n | List of protocols with their default partner claim type name. |
 
 The **Protocol** element contains the following attributes:
 

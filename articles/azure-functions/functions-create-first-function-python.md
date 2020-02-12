@@ -1,16 +1,16 @@
 ---
-title: Create an HTTP triggered Python function in Azure
+title: Create a serverless Python function for HTTP requests in Azure Functions
 description: Create and deploy serverless Python code to the cloud using Azure Functions.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
 ---
 
-# Quickstart: Create an HTTP triggered Python function in Azure
+# Quickstart: Create a Python function in Azure that responds to HTTP requests
 
 In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-code-serverless-python-01) of this article.
+There is also a [Visual Studio Code-based version](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) of this article.
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-### \_\_init\_\_.py
+#### \_\_init\_\_.py
 
 *\_\_init\_\_.py* contains a `main()` Python function that's triggered according to the configuration in *function.json*.
 
@@ -135,7 +135,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). The return object, defined as `$return` in *function.json*, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
 
-### function.json
+#### function.json
 
 *function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. You can change `scriptFile` to invoke a different Python file if desired.
 
@@ -194,7 +194,7 @@ When you're ready, **Ctrl**+**C** to stop the functions host.
 
 ## Create supporting Azure resources for your function
 
-To deploy your function code to Azure, you need to create three resources:
+Before you can deploy your function code to Azure, you need to create three resources:
 
 - A resource group, which is a logical container for related resources.
 - An Azure Storage account, which maintains state and other information about your projects.
@@ -202,7 +202,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 
-1. If you haven't done so already, sign in to Azure with the [az login](/cli/azure/group#az-login) command:
+1. If you haven't done so already, sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
 
     ```azurecli
     az login

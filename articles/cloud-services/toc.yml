@@ -139,6 +139,8 @@
       href: cloud-services-allocation-failures.md
     - name: Common causes of Cloud Service roles recycling
       href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+    - name: Application does not support TLS 1.2
+      href: applications-dont-support-tls-1-2.md
     - name: Default TEMP folder size too small for role
       href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
     - name: Common deployment problems

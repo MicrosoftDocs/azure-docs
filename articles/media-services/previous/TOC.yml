@@ -255,8 +255,6 @@
     - name: Configure on-premises encoders for use with cloud encoder
       href: media-services-live-encoders-overview.md
       items:
-      - name: FMLE encoder
-        href: media-services-configure-fmle-live-encoder.md
       - name: Haivision KB encoder
         href: media-services-configure-kb-live-encoder.md
       - name: NewTek TriCaster encoder

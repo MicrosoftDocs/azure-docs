@@ -63,7 +63,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
  3. On the **Description** page, enter the following and click **Next**:
 
     **Name:** Give the rule a meaningful name<br>
-    **Description:** Add a meaningful description<br> 
+    **Description:** Add a meaningful description<br>
     **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>

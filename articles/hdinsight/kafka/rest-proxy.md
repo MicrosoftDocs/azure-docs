@@ -18,6 +18,8 @@ The Kafka REST Proxy enables you to interact with your Kafka cluster via a REST 
 
 Without a REST proxy, Kafka clients need to be in the same VNet as the Kafka cluster or a peered VNet. The REST proxy enables you to connect data producers or consumers located anywhere. Deploying the REST proxy creates a new public endpoint for your cluster, which you can find in your portal settings.
 
+![Kafka REST proxy architecture](./media/rest-proxy/rest-proxy-architecture.png)
+
 For the full specification of operations supported by the API, please see [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ### Security
@@ -26,7 +28,7 @@ Access to the Kafka REST proxy is managed with Azure Active Directory security g
 
 When creating the Kafka cluster with the REST proxy enabled, you will provide the AAD security group that should have access to the REST endpoint. The Kafka clients (applications) that need access to the REST proxy should be registered to this group by the group owner. The group owner can do this via the Portal or via Powershell.
 
-Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)
+Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)
 
 Once the client application has the OAuth token, they must pass that token in the HTTP request made to the REST proxy.
 
@@ -39,17 +41,17 @@ Once the client application has the OAuth token, they must pass that token in th
 
 1. During the Kafka cluster creation workflow, in the “Security + networking” tab, check the “Enable Kafka REST proxy” option.
 
-     ![Enable Kafka REST proxy and select security group](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-enable.png)
+     ![Enable Kafka REST proxy and select security group](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Click **Select Security Group**. From the list of security groups, select the security group that you want to have access to the REST proxy. You can use the search box to find the appropriate security group. Click the **Select** button at the bottom.
 
-     ![Enable Kafka REST proxy and select security group](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-select-security-group.png)
+     ![Enable Kafka REST proxy and select security group](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Complete the remaining steps to create your cluster as described in [Create Apache Kafka cluster in Azure HDInsight using Azure portal](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 
 1. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
 
-     ![view REST proxy URL](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     ![view REST proxy URL](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
 ## Client application sample
 

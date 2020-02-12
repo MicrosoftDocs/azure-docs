@@ -19,9 +19,6 @@ ms.author: rkarlin
 ---
 # Set up Azure Sentinel customer-managed key
 
-> [!NOTE]
-> CMK is currently a preview feature and is provided without a service level agreement. It is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 This article provides background information and steps to configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to
 Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you.
