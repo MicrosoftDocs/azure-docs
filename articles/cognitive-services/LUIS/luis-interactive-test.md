@@ -1,21 +1,13 @@
 ---
 title: Test app in LUIS portal
-titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: diberry
 ---
 
 # Test your LUIS app in the LUIS portal
 
-[Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
+[Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -27,13 +19,13 @@ ms.author: diberry
 
 ## Train before testing
 
-In order to test against the most recent version of the active app, select **Train** from the top menu, before testing. 
+In order to test against the most recent version of the active app, select **Train** from the top menu, before testing.
 
 ## Test an utterance
 
-The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user. 
+The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user.
 
-1. Access your app by selecting its name on the **My Apps** page. 
+1. Access your app by selecting its name on the **My Apps** page.
 
 1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
@@ -48,9 +40,9 @@ The test utterance should not be exactly the same as any example utterances in t
 
 ## Inspect score
 
-You inspect details of the test result in the **Inspect** panel. 
- 
-1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
+You inspect details of the test result in the **Inspect** panel.
+
+1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare.
 
     ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
@@ -68,7 +60,7 @@ You inspect details of the test result in the **Inspect** panel.
 
 ## View sentiment results
 
-If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
+If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance.
 
 ![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -78,7 +70,7 @@ If you are using [Patterns](luis-concept-patterns.md) and the utterance matched 
 
 ## Compare with published version
 
-You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
+You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance.
 
 ![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
@@ -87,55 +79,22 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 ![Published JSON response](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
-<!--Service name is 'Bing Spell Check v7 API' in the portal-->
 ## Additional settings in test panel
 
 ### LUIS endpoint
 
-If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
+If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**.
 
 > [!div class="mx-imgBorder"]
 > ![Test panel with Additional Settings link highlighted](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
-<!--
-###  View Bing Spell Check corrections in test panel
-
-Requirements to view the spelling corrections: 
-
-* Published app
-* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
-
-Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
-
-1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
-
-1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
-
-1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
-
-1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
-    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
-
-1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
-
-<a name="json-file-with-no-duplicates"></a>
-<a name="import-a-dataset-file-for-batch-testing"></a>
-<a name="export-rename-delete-or-download-dataset"></a>
-<a name="run-a-batch-test-on-your-trained-app"></a>
-<a name="access-batch-test-result-details-in-a-visualized-view"></a>
-<a name="filter-chart-results-by-intent-or-entity"></a>
-<a name="investigate-false-sections"></a>
-<a name="view single-point utterance data"></a>
-<a name="relabel-utterances-and-retrain"></a>
-<a name="false-test-results"></a>
--->
 
 ## Batch testing
 See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## Next steps
 
-If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
+If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features.
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md)
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md)
