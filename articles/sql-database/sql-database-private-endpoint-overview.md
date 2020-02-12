@@ -141,7 +141,7 @@ The result shows that one IP address is up; which corresponds to the IP address 
 
 ### Check Connectivity using SQL Server Management Studio (SSMS)
 > [!NOTE]
->Use the **Fully Qualified Domain Name(FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail by design.
+>Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail by design. The private endpoint routes traffic to a regional SQL Gateway. To do this routing FQDN is needed.
 
 Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
