@@ -28,13 +28,13 @@ In the [Speech SDK](speech-sdk.md), regions are specified as a string
 
 ### Speech-to-text, text-to-speech, and translation
 
-The speech customization portal is available here:  https://speech.microsoft.com
+The speech customization portal is available here: https://speech.microsoft.com
 
 The Speech service is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-If you use the [Speech SDK](speech-sdk.md), regions are specified by the `Region Identification` (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
+If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region Identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
 
 ### Intent recognition
 
@@ -81,11 +81,16 @@ For speech-to-text reference documentation, see [Speech-to-text REST API](rest-s
 
 The endpoint for the REST API has this format:
 
-```https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1```
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### Text-to-speech
 

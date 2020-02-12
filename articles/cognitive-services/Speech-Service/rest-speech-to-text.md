@@ -29,7 +29,9 @@ If sending longer audio is a requirement for your application, consider using th
 
 The endpoint for the REST API has this format:
 
-```https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1```
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 

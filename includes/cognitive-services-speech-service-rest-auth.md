@@ -29,7 +29,9 @@ To get an access token, you'll need to make a request to the `issueToken` endpoi
 
 The `issueToken` endpoint has this format:
 
-```https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken```
+```
+https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
+```
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
