@@ -17,7 +17,7 @@ You might want to transfer billing ownership of your Azure subscription if you'r
 
 If you want to keep the billing ownership but change the type of your subscription, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can manage resources in the subscription, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-If you're an Enterprise Agreement(EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts. For more information, see [Transfer billing ownership of Enterprise Agreement (EA) subscriptions](#transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions).
+If you're an Enterprise Agreement(EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts. For more information, see [Transfer billing ownership of Enterprise Agreement (EA) subscriptions](#EA).
 
 ## Transfer billing ownership of an Azure subscription
 
@@ -35,7 +35,7 @@ If you're an Enterprise Agreement(EA) customer, your enterprise administrators c
 
 1. Enter the email address of a user who's a billing administrator of the account that will be the new owner for the subscription.
 
-1. If you're transferring your subscription to an account in another Azure AD tenant, select if you want to move the subscription to the new account's tenant. For more information, see [Transferring subscription to an account in another Azure AD tenant](#transferring-subscription-to-an-account-in-another-azure-ad-tenant)
+1. If you're transferring your subscription to an account in another Azure AD tenant, select if you want to move the subscription to the new account's tenant. For more information, see [Transferring subscription to an account in another Azure AD tenant](#transfer-a-subscription-to-another-azure-ad-tenant-account)
 
     > [!IMPORTANT]
     >
@@ -136,7 +136,7 @@ If you're not sure who the account administrator is for a subscription, use the 
 
 ### Does everything transfer? Including resource groups, VMs, disks, and other running services?
 
-All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer a subscription to an account in another Azure AD tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments on the subscription [don't transfer](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). Also, [app registrations](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
+All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer a subscription to an account in another Azure AD tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments on the subscription [don't transfer](#transfer-a-subscription-to-another-azure-ad-tenant-account). Also, [app registrations](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
 
 ### Can I transfer ownership to an account in another country?
 Unfortunately, cross country transfers can't be done in the Azure portal. To transfer your subscription across countries, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -158,7 +158,7 @@ If you can't transfer subscription ownership, you can manually migrate your reso
 
 ### If I transfer a Visual Studio or Microsoft Partner Network subscription, does my credit carry forward with the subscription in the new account?
 
-No, your credit is not available in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The subscription uses the Visual Studio credit that is available in the user's account. For more information, see [Transferring Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscriptions](#transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions).
+No, your credit is not available in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The subscription uses the Visual Studio credit that is available in the user's account. For more information, see [Transferring Visual Studio and Partner Network subscriptions](#transfer-visual-studio-and-partner-network-subscriptions).
 
 
 ## Frequently asked questions (FAQ) for recipients
