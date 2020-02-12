@@ -17,7 +17,7 @@ ms.author: spelluru
 This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhubs** Java package.
 
 > [!WARNING]
-> This quickstart uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages. For a quickstart that uses the latest  **azure-messaging-eventhubs** package, see [Send and receive events using azure-messaging-eventhubs Java package](get-started-java-send-v2.md). To move your application from the using the old package to new one, see the [Guide to migrate from azure-eventhubs to azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
+> This quickstart uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages. For a quickstart that uses the latest  **azure-messaging-eventhubs** package, see [Send and receive events using azure-messaging-eventhubs](get-started-java-send-v2.md). To move your application from using the old package to new one, see the [Guide to migrate from azure-eventhubs to azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
 
 
 ## Prerequisites

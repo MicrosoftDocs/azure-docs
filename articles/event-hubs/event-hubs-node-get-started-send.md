@@ -17,7 +17,7 @@ ms.author: spelluru
 This quickstart shows how to create JavaScript applications to send events to and receive events from an event hub using the azure/event-hubs version 2 JavaScript package. 
 
 > [!WARNING]
-> This quickstart is for version 2 of @azure/event-hubs package. For a quickstart that uses the latest **version 5** of the package, see [Send and receive events using azure/eventhubs version 5](get-started-node-send-v2.md). To move your application from the using the old package to new one, see the [Guide to migrate from azure/eventhubs version 1 to version 5](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md). 
+> This quickstart uses the old azure/event-hubs version 2 package. For a quickstart that uses the latest **version 5** of the package, see [Send and receive events using azure/eventhubs version 5](get-started-node-send-v2.md). To move your application from the using the old package to new one, see the [Guide to migrate from azure/eventhubs version 1 to version 5](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md). 
 
 
 ## Prerequisites
