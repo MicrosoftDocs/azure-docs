@@ -1,5 +1,6 @@
 ---
-title: Five steps to secure your identity infrastructure in Azure Active Directory
+title: Secure your Azure AD identity infrastructure
+titleSuffix: Azure Active Directory
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Azure AD capabilities
 author: martincoetzer
 manager: manmeetb
@@ -101,7 +102,7 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 1. Block [legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online and Exchange Online to use modern authentication](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. If you have Azure AD Premium, use [Conditional Access policies](../../active-directory/conditional-access/conditions.md) to block legacy authentication, otherwise use [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. If you have Azure AD Premium, use [Conditional Access policies](../../active-directory/conditional-access/overview.md) to block legacy authentication, otherwise use [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### Block invalid authentication entry points
 

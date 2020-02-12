@@ -8,12 +8,14 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Create a new knowledge base
-    href: quickstarts/create-publish-knowledge-base.md
-  - name: Add questions with metadata
-    href: quickstarts/add-question-metadata-portal.md
-  - name: Get answer with Postman or cURL
-    href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+  - name: With QnA Maker portal
+    items:
+    - name: 1. Create knowledge base
+      href: quickstarts/create-publish-knowledge-base.md
+    - name: 2. Add questions with metadata
+      href: quickstarts/add-question-metadata-portal.md
+    - name: 3. Get answer with Postman or cURL
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
   - name: Using REST APIs
@@ -62,8 +64,6 @@
   - name: Create and answer from KB
     displayName: curl, publish, chit-chat, chit chat
     href: Tutorials/create-publish-query-in-portal.md
-  - name: Create and answer from KB using C#
-    href: Tutorials/create-publish-answer.md
   - name: Create a QnA Maker bot
     href: Tutorials/create-qna-bot.md
 - name: Concepts

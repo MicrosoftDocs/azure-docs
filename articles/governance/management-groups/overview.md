@@ -125,7 +125,7 @@ The following chart shows the list of roles and the supported actions on managem
 
 ## Custom RBAC role definition and assignment
 
-Custom RBAC role support for management groups is currently supported with some [limitations](#limitations).  You can define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
+Custom RBAC role support for management groups is currently in preview with some [limitations](#limitations).  You can define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
 
 ### Example definition
 [Defining and creating a custom role](../../role-based-access-control/custom-roles.md) does not change with the inclusion of management groups. Use the full path to define the management group **/providers/Microsoft.Management/managementgroups/{groupId}**. 

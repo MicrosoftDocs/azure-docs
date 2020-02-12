@@ -30,6 +30,6 @@ The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
-## Next steps
+s## Next steps
 
 [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

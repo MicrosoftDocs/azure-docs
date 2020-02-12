@@ -1,5 +1,5 @@
 ---
-title: Activate an Azure AD custom role in Privileged Identity Management (PIM)| Microsoft Docs
+title: Activate Azure AD custom role - Privileged Identity Management (PIM)
 description: How to activate an Azure AD custom role for assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
