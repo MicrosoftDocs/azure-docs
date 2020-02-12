@@ -92,7 +92,7 @@ This page allows you to review the UPN domains present in on-premises AD DS and 
 ![Unverified domains](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with password hash sync, pass-through authentication, and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value. For more information on the Alternate ID, [please click here.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with password hash sync, pass-through authentication, and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value. For more information on the Alternate ID, see the [Frequently asked questions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) topic.
 
 >[!NOTE]
 > When you enable Pass-through Authentication you must have at least one verified domain in order to continue through the wizard.
@@ -160,7 +160,7 @@ This screen allows you to select the optional features for your specific scenari
 >
 >For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../azuread-dev/active-directory-acs-migration.md)
 >
->To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+>To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ![Optional features](./media/how-to-connect-install-custom/optional2.png)
 
