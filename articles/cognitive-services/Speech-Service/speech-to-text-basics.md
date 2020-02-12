@@ -24,7 +24,7 @@ One of the core features of the Speech service is the ability to recognize and t
 
 This article assumes:
 
-* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](get-started).
+* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](get-started.md).
 
 ## Install and import the Speech SDK
 
@@ -97,7 +97,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audi
 
 ## Speech recognition
 
-The [Recognizer class](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python) for the Speech SDK for Python exposes a few methods that you can use for speech recognition.
+The [Recognizer class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python) for the Speech SDK for Python exposes a few methods that you can use for speech recognition.
 
 * Single-shot recognition (sync) - Performs recognition in a blocking (synchronous) mode. Returns after a single utterance is recognized. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. The task returns the recognition text as result.
 * Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
