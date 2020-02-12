@@ -1,6 +1,6 @@
 ---
-title: Stale Apache Ambari alerts in Azure HDInsight
-description: Discussion and analysis of possible reasons and solutions for stale Apache Ambari alerts in HDInsight.
+title: Apache Ambari stale alerts in Azure HDInsight
+description: Discussion and analysis of possible reasons and solutions for Apache Ambari stale alerts in HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 01/22/2020
 ---
 
-# Scenario: Stale Apache Ambari alerts in Azure HDInsight
+# Scenario: Apache Ambari stale alerts in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
@@ -33,7 +33,7 @@ There are various reasons why a health check might not run at its defined interv
 
 ## Resolution
 
-Try the following methods to resolve problems with stale Ambari alerts.
+Try the following methods to resolve problems with Ambari stale alerts.
 
 ### Increase the alert interval time
 
