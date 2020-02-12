@@ -222,23 +222,23 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Authenticate via Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:167)
+      [Authenticate via Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
    :::column-end:::
    :::column span="":::
-      [Use a connection string to connect to a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:24)
+      [Use a connection string to connect to a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:52)
+      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L52)
    :::column-end:::
    :::column span="":::
-      [Use a shared access signature to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:86)
+      [Use a shared access signature to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L86)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Use an Active Directory token to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:140)
+      [Use an Active Directory token to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L140)
    :::column-end:::
 :::row-end:::
 
@@ -246,7 +246,7 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="2":::
-      [Create a queue and add a message](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:24)
+      [Create a queue and add a message](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L24)
    :::column-end:::
 :::row-end:::
 
@@ -254,22 +254,22 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Receive and process messages from a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:61)
+      [Receive and process messages from a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L61)
    :::column-end:::
    :::column span="":::
-      [Peek at the messages in a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:90)
+      [Peek at the messages in a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L90)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Receive messages and update their visibility timeout for extended processing](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:115)
+      [Receive messages and update their visibility timeout for extended processing](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L115)
    :::column-end:::
 :::row-end:::
 
 ### Troubleshooting 
 :::row:::
    :::column span="2":::
-      [Trigger a recoverable error](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:188)
+      [Trigger a recoverable error](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188)
    :::column-end:::
 :::row-end:::
 
