@@ -64,6 +64,23 @@ Security Center provides real-time threat detection for your containerized envir
 We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
+## Container security FAQ
+
+### What types of images can Azure Security Center scan?
+Security Center scans Linux OS based images. 
+
+The Qualys scanner doesn't support "distroless" images which only contain your application and its runtime dependencies.
+
+### How does we scan Azure Security Center scan an image?
+The image is extracted from the registry. It's then run in an isolated sandbox with the Qualys scanner which extracts a list of known vulnerabilities.
+
+### How often does Azure Security Center scan my images?
+Image scans are triggered on every push.
+
+### Can I get the scan results via REST API?
+Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). In addition, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
+ 
+
 ## Next steps
 
 To learn more about container security in Azure Security Center, see these related articles:

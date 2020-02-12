@@ -15,7 +15,7 @@ ms.author: memildin
 
 ---
 
-# Azure Kubernetes Services integration with Security Center (Preview)
+# Azure Kubernetes Services integration with Security Center
 Azure Kubernetes Service (AKS) is Microsoft’s managed service for developing, deploying, and managing containerized applications. 
 
 Use AKS together with Azure Security Center's standard tier (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
