@@ -64,11 +64,11 @@ For queries that were dropped within the sampling interval, use *Total* to get t
 | Minimum | Not applicable (shows as 0%). |
 | Total | Total number of queries dropped within the interval. |
 
-## Track query metrics in the portal
+## Explore metrics in the portal
 
 For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows **Search queries per second (per search unit)** over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation from the default to another type.
 
-For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](learn/tutorial-metrics-explorer.md).
+For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
 
 1. Under the Monitoring section, select **Metrics** to open the metrics explorer with the scope set to your search service.
 
