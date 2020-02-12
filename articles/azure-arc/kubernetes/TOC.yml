@@ -20,9 +20,7 @@
   - name: Use GitOps for connected clusters
     href: use-gitops-in-connected-cluster.md
   - name: Deploy IoT workloads
-    href: deploy-azure-iot-edge-workloads.md
-- name: Concepts
-  items:
+    href: deploy-azure-iot-edge-workloads.md  deploy-azure-iot-edge-workloads
 - name: How-to 
   items:
   - name: Enable resource providers
