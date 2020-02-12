@@ -452,12 +452,12 @@
     },
     {
       "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
-      "redirect_url": "/azure/arc-servers/onboard-portal",
+      "redirect_url": "../azure/arc-servers/onboard-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
-      "redirect_url": "/azure/arc-servers/onboard-service-principal",
+      "redirect_url": "../azure/arc-servers/onboard-service-principal",
       "redirect_document_id": false
     },
     {
