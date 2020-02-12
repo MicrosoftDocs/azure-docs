@@ -76,21 +76,21 @@ To configure and test Azure AD SSO with Coda, complete the following building bl
 
 Follow these steps in Coda to begin.
 
-1. Open your Organization Settings panel in Coda.
+1. In Coda, open your **Organization settings** panel.
 
    ![Open Organization Settings](media/coda-tutorial/org-settings.png)
 
-1. Ensure your Organization has GDrive Integration turned off. If it is currently enabled, contact [Coda support team](mailto:support@coda.io) to help you migrate off of GDrive.
+1. Ensure that your Organization has GDrive Integration turned off. If it is currently enabled, contact the [Coda support team](mailto:support@coda.io) to help you migrate off GDrive.
 
    ![GDrive Disabled](media/coda-tutorial/gdrive-off.png)
 
-1. Select the "Configure SAML" option under "Authenticate with SSO (SAML)".
+1. Under **Authenticate with SSO (SAML)**, select the **Configure SAML** option.
 
    ![Saml Settings](media/coda-tutorial/saml-settings-link.png)
 
-1. Note the "Entity ID" and "SAML Response URL" fields which you'll need in subsequent steps.
+1. Note the values for **Entity ID** and **SAML Response URL**, which you'll need in subsequent steps.
 
-   ![Fields for Azure](media/coda-tutorial/azure-settings.png)
+   ![Entity ID and SAML Response URL to use in Azure](media/coda-tutorial/azure-settings.png)
 
 ## Configure Azure AD SSO
 
@@ -155,13 +155,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To complete the setup, you'll enter values from Azure Active Directory into Coda's "Configure Saml" panel.
 
-1. Open your Organization Settings panel in Coda.
-1. Select the "Configure SAML" option under "Authenticate with SSO (SAML)".
-1. Set the "SAML Provider" field to "Azure Active Directory".
-1. In the "Identity Provider Login URL" field, paste in the "Login URL" from the Azure console.
-1. In the "Identity Provider Issuer" field, paste in the "Azure AD Identifier" from the Azure console.
-1. In the "Identity Provider Public Certificate" field, click the "Upload Certificate" option and select the certificate file you downloaded above.
-1. Click "Save"
+1. In Coda, open your **Organization settings** panel.
+1. Under **Authenticate with SSO (SAML)**, select the **Configure SAML** option.
+1. Set **SAML Provider** to **Azure Active Directory**.
+1. In **Identity Provider Login URL**, paste the **Login URL** from the Azure console.
+1. In **Identity Provider Issuer**, paste the **Azure AD Identifier** from the Azure console.
+1. In **Identity Provider Public Certificate**, select the **Upload Certificate** option and select the certificate file you downloaded earlier.
+1. Select **Save**.
 
 This completes the work necessary for the SAML SSO connection setup.
 
