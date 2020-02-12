@@ -101,7 +101,7 @@ landingContent:
             url: event-hubs-java-get-started-send.md
           - text: Python
             url: get-started-python-send-v2.md
-          - text: Node.js
+          - text: JavaScript
             url: get-started-node-send-v2.md
           - text: Apache Kafka
             url: event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs

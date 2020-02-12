@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: erhopf
 ---
 
@@ -29,7 +29,7 @@ Before you start using the Speech Devices SDK, you'll need to:
 - Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download), and extract the .zip to your working directory.
 
   > [!NOTE]
-  > The Android-Sample-Release.zip file includes the Android sample app and this quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
+  > This quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
 
 - To get an [Azure subscription key for Speech service](get-started.md)
 
@@ -78,6 +78,29 @@ To validate your development kit setup, build and install the sample application
 
 1. Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
 
+1. Configure gradle to reference the Speech SDK. The following files can be found under **Gradle Scripts** in Android Studio.
+
+    Update the **build.gradle(Project:example)**, the allprojects block should match below, by adding the maven lines.
+
+    ```xml
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenCentral()
+            maven {
+                url 'https://csspeechstorage.blob.core.windows.net/maven/'
+            }
+        }
+    }
+    ```
+
+    Update the **build.gradle(Module:app)** by adding this line to the dependencies section. 
+    
+    ```xml
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    ```
+    
 1. Add your speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
    For speech and LUIS, your information goes into MainActivity.java:
