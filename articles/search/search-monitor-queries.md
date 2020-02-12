@@ -13,12 +13,12 @@ ms.date: 02/12/2020
 
 # Monitor query requests in Azure Cognitive Search
 
-This article describes metrics that reflect query performance and volumes. It also explains how to collect the input terms used in queries, which gives you a way to measure the utility and effectiveness of your search corpus.
+This article describes metrics that reflect query performance and volume. It also explains how to collect the input terms used in queries, which gives you a way to assess the utility and effectiveness of your search corpus.
 
-Historical data that feeds into metrics is preserved for 30 days. To retain a longer history, or to report on operational data, be sure to enable a diagnostic setting that specifies a storage option.
+Historical data that feeds into metrics is preserved for 30 days. To retain a longer history, or to report on operational data and query strings, be sure to enable a diagnostic setting that specifies a storage option.
 
 > [!Tip]
-> With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what interests the users of your application. For more information, see [Search traffic analytics](search-traffic-analytics.md).
+> With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
 
@@ -54,7 +54,19 @@ Consider the following example of Latency metrics: 86 queries were sampled, with
 
 ### Throttled queries
 
-For queries that were dropped within the sampling interval, use *Total* to get the number of queries that did not execute.
+Throttled queries refers to queries that are dropped instead of process. In most cases, throttling is a normal part of running the service.  It is not necessarily an indication that there is something wrong.
+
+Throttling occurs when the number of requests currently processed exceed the available resources. You might see an increase in throttled requests when a replica is taken out of rotation or during indexing. Both query and indexing requests are handled by the same set of resources.
+
+The service determines whether to drop requests based on resource consumption. The percentage of resources consumed across memory, CPU, and disk IO are averaged over a period of time. If this percentage exceeds a threshold, all requests to the index are throttled until the volume of requests is reduced. 
+
+Depending on your client, a throttled request can be indicated in these ways:
+
++ A service returns an error "You are sending too many requests. Please try again later." 
++ A service returns a 503 error code indicating the service is currently unavailable. 
++ If you are using the portal (for example, Search Explorer), the query is dropped silently and you will need to click Search again.
+
+To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the number of queries that did not execute.
 
 | Aggregation Type | Throttling |
 |------------------|-----------|

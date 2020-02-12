@@ -1,25 +1,51 @@
 ---
-title: Create and manage alerts
+title: Monitor indexing operations
 titleSuffix: Azure Cognitive Search
-description: Create and manage alerts for conditions on an Azure Cognitive Search service.
+description: Monitor the duration and status of indexing and indexers, and set up alerts for notification or corrective action should problems arise.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/12/2020
 ---
 
-# Create and manage alerts in Azure Cognitive Search
+# Monitor indexing operations in Azure Cognitive Search
 
-This article shows you how to set up alerts so that you can respond to problems as they emerge. Alerts are part of the Azure Monitor infrastructure. In Azure Cognitive Search, you can set up alerts for these conditions:
+Whether you are pushing data to an index from client code, or using an indexer that pulls data into an index, you can use search service APIs and operational logs for oversight into internal processes.
 
-+ Metrics (queries per second, search latency, throttled requests)
+The indexing engine is also where AI enrichment occurs. Document cracking, skillset execution, and subsequent data ingestion into an index or knowledge store are classified as indexing operations.
 
-+ Administrative service operations (provision or deprovision services, manage keys)
+## Use system APIs
 
+Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
+
++ [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
++ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
++ [GET Document Counts](/rest/api/searchservice/count-documents)
++ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
+
+## Index status
+
+Create
+Delete
+Update definitions
+Refresh content
+
+## Indexing status
+
+TBD
+
+## Alerts
+
+events on index
+indexing failures
+Storage alerts
 
 ## Next steps
 
-[Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration and [Performance and optimization](search-performance-optimization.md) for tuning guidance.
+If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
+
+> [!div class="nextstepaction"]
+> [Monitor operations and activity in Azure Cognitive Search](search-monitor-usage.md)

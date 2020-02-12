@@ -13,13 +13,13 @@ ms.date: 02/11/2020
 
 # Monitor operations and activity of Azure Cognitive Search
 
+This article introduces monitoring at the service (resource) level, for query and indexing workloads, and for user access. Across the spectrum, you'll use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as service APIs that return statistics, counts, and status. Understanding the range of capabilities will help you configure or create an effective communication system for proactive responses to problems as they emerge.
+
+## Using Azure Monitor
+
 Many services, including Azure Cognitive Search, leverage [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for alerts, metrics, and logging diagnostic data. For Azure Cognitive Search, the built-in monitoring infrastructure is used primarily for resource-level monitoring (service health) and query monitoring.
 
-In this article, learn about built-in monitoring and what you can configure or extend to create an efficient communication system for proactive responses to problems as they emerge.
-
-## Locate relevant pages and links
-
-The following example helps you locate Azure Monitor features in the portal.
+The following screenshot helps you locate Azure Monitor features in the portal.
 
 + **Monitoring** tab, located in the main overview page, shows key metrics at a glance.
 + **Activity log**, just below Overview, shows resource-level actions, such as service provisioning and notifications of authorized access.
@@ -40,25 +40,18 @@ For in-service tasks - such as queries, indexing, or creating objects - you'll s
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
-## Usage and Monitoring tabs
+## Usage tab
 
-Tabbed pages built into the Overview page report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
+Tabbed pages built into the Overview page report out on resource consumption. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
 The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md). The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
 
 ![Usage status relative to effective limits](./media/search-monitor-usage/usage-tab.png
  "Usage status relative to effective limits")
 
-The **Monitoring** tab shows moving averages for metrics like search *Queries Per Second* (QPS), aggregated per minute. 
-*Search latency* is the amount of time the search service needed to process search queries, aggregated per minute. *Throttled search queries percentage* (not shown) is the percentage of search queries that were throttled, also aggregated per minute.
+## Configure logging
 
-These numbers are approximate and are intended to give you a general idea of how well your system is servicing requests. Actual QPS may be higher or lower than the number reported in the portal.
-
-![Queries per second activity](./media/search-monitor-usage/monitoring-tab.png "Queries per second activity")
-
-## Configurable features
-
-Azure Cognitive Search does not store any data beyond the objects it manages, which means log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
+Azure Cognitive Search does not provide long term storage of metrics data, nor does it store operational logs. This means that log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
 
 The following table compares options for storing logs and adding in-depth monitoring of service operations and query workloads through Application Insights.
 
@@ -72,18 +65,7 @@ Both Azure Monitor logs and Blob storage are available as a free service so that
 
 The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Cognitive Search operations.
 
-## Use system APIs
-
-Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
-
-+ [GET Services Statistics](/rest/api/searchservice/get-service-statistics)
-+ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
-+ [GET Document Counts](/rest/api/searchservice/count-documents)
-+ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
-
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
-
-<!-- ## Enable operational logging
+## Enable operational logging
 
 Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Cognitive Search are the objects it creates and manages, so logs must be stored elsewhere.
 
@@ -146,9 +128,9 @@ Blobs containing your search service traffic logs are structured as described in
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
 | Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
 | Documents |int |42 |Number of documents processed |
-| IndexName |string |"testindex" |Name of the index associated with the operation | -->
+| IndexName |string |"testindex" |Name of the index associated with the operation |
 
-<!-- ## Metrics schema
+## Metrics schema
 
 Metrics are captured for query requests.
 
@@ -169,9 +151,9 @@ All metrics are reported in one-minute intervals. Every metric exposes minimum, 
 For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute.
 Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute. -->
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
-<!-- ## Download and open in Visual Studio Code
+## View log files
 
 You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
 
@@ -181,7 +163,7 @@ You can use any JSON editor to view the log file. If you don't have one, we reco
 
 3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
 
-Once the file is downloaded, open it in a JSON editor to view the contents. -->
+Once the file is downloaded, open it in a JSON editor to view the contents.
 
 ## Next steps
 
