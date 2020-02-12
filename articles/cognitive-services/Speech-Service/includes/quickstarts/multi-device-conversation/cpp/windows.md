@@ -50,7 +50,11 @@ Before you get started, make sure to:
     {
         // Set these
         std::string subscriptionKey("YourSubscriptionKey");
+
+        // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
+        // from here: https://aka.ms/speech/sdkregion).   
         std::string region("YourServiceRegion");
+        
         std::string speechLanguage("en-US");
     
         // Create the conversation object you'll need to manage the conversation
