@@ -13,17 +13,17 @@ ms.custom: codepen
 
 # Data-driven Style Expressions (Web SDK)
 
-Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can also be used to filter data in a data source or layer. Expressions can consist of conditional logic, like if-statements, and can also be used to manipulate data with; string, logical and mathematical operators. 
+Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can filter data in a data source or a layer. Expressions may consist of conditional logic, like if-statements. And, they can be used to manipulate data using: string operators, logical operators, and mathematical operators.
 
-Data-driven styles can reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread that provides increased performance when compared to evaluating business logic on the UI thread.
+Data-driven styles reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread. This functionality provides increased performance compared to evaluating business logic on the UI thread.
 
-The following video provides an overview of data-driven styling in the Azure Maps Web SDK.
+This video provides an overview of data-driven styling in the Azure Maps Web SDK.
 
 <br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure an expression. 
+Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure of an expression. 
 
 ```javascript
 [ 
@@ -34,11 +34,11 @@ Expressions are represented as JSON arrays. The first element of an expression i
 ] 
 ```
 
-The Azure Maps Web SDK supports many types of that can be used on their own or in combination with other expressions.
+The Azure Maps Web SDK supports many types of expressions that can be used on their own or in combination with other expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
-| [Aggregate expression](#aggregate-expression) | An expression that defines a calculate that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
+| [Aggregate expression](#aggregate-expression) | An expression that defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
 | [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
 | [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
 | [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
@@ -51,7 +51,7 @@ The Azure Maps Web SDK supports many types of that can be used on their own or i
 | [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions let the results of a calculation be stored in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
 | [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
 
-All examples in this document will use the following feature to demonstrate different ways in that the different types of expressions can be used. 
+All examples in this document will use the following feature to demonstrate different ways in which the different types of expressions can be used. 
 
 ```javascript
 {
