@@ -51,7 +51,7 @@ e. **Recurrence interval**: You can specify the amount of time between jobs. You
 
 f. **Start window**: Here you specify the time interval, starting from the time the schedule indicates a job should be created, until it should be completed. If the current job doesn't complete during its window, the next job won't start.
 
-At the bottom of the basic form, you will specify the pool on which you want the job to run. To find your pool ID information, select **Update**.
+At the bottom of the basic form, you will specify the pool on which you want the job to run. To find your pool ID information, select **Update**. 
 
 ![Specify pool][2]
 
@@ -65,6 +65,7 @@ i. **Priority**: Give the job a priority.
 j. **Max wall clock time**: Set the maximum amount of time the job can run for. If it doesn't complete within the time frame, Batch terminates the job. If you don't set this, then there is no time limit for the job.
 
 k. **Max task retry count**: Specify the number of times a task can be retried up to a maximum of 4 times. This is not the same as the number of retries an API call might have.
+
 l. **When all tasks complete**: The default is no action.
 
 m. **When a task fails**: The default is no action. A task fails if the retry count is exhausted or there was an error when starting the task. 
