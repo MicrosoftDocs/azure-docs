@@ -94,7 +94,7 @@ The **NextTuple**, **Ack**, and **Fail** methods are all called in a tight loop 
 
 The **Ack** and **Fail** methods are called only when a specification file enables the acknowledgment mechanism. The *seqId* parameter identifies the tuple that is acknowledged or has failed. If acknowledgment is enabled in a nontransactional topology, the following **Emit** function should be used in a spout:
 
-```charp
+```csharp
 public abstract void Emit(string streamId, List<object> values, long seqId);
 ```
 
