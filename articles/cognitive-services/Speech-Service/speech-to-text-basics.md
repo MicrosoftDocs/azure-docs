@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Learn the basics of speech recognition
@@ -19,6 +20,8 @@ One of the core features of the Speech service is the ability to recognize and t
 > [!TIP]
 > If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try speech recognition out for yourself.
 > * [Recognize speech from a microphone](quickstarts/speech-to-text-from-microphone.md)
+
+::: zone pivot="programming-language-python"
 
 ## Prerequisites
 
@@ -245,6 +248,8 @@ Phrase lists are only one option to improve recognition accuracy. You can also:
 
 * [Improve accuracy with Custom Speech](how-to-custom-speech.md)
 * [Improve accuracy with tenant models](tutorial-tenant-model.md)
+
+::: zone-end
 
 ## Next steps
 
