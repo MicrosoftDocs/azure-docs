@@ -20,9 +20,7 @@ ms.date: 02/11/2020
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure Azure Cognitive Search. 
-
-The **Az.Search** module extends [Azure PowerShell](https://docs.microsoft.com/powershell/) with full parity to the [Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement) and the ability to perform the following tasks:
+You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure Azure Cognitive Search. The **Az.Search** module extends [Azure PowerShell](https://docs.microsoft.com/powershell/) with full parity to the [Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement) and the ability to perform the following tasks:
 
 > [!div class="checklist"]
 > * [List search services in a subscription](#list-search-services)
@@ -86,7 +84,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## List all Azure Cognitive Search services in your subscription
+## List services in a subscription
 
 The following commands are from [**Az.Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), returning information about existing resources and services already provisioned in your subscription. If you don't know how many search services are already created, these commands return that information, saving you a trip to the portal.
 
