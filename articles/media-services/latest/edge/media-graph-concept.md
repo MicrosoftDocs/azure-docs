@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
+title: Media Graph concept - Azure
 titleSuffix: Azure Media Services
 description:  
 services: media-services
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Concept: Media Graph
+# Media Graph concept
 
 Azure Media Services v3 is introducing a new entity called **Media Graph** (*MediaGraph* in API). This Media Graph entity represents a logical graph defining media sources, processors, and sinks, along with data interconnections between them for high-scale IP video ingest on the edge or in the cloud.
 
@@ -51,10 +51,9 @@ For more information, see the [How-to: Initial setup for Media Graph on IoT Edge
 
 - **Source** - Your _Real Time Streaming Protocol_ (RTSP) source.
 - **Processor** - Media Services motion detection processor.
-
-> [!NOTE] 
-> Right now, the motion detection processor is only available on the edge module.
-
+    
+    > [!NOTE] 
+    > Right now, the motion detection processor is only available on the edge module.
 - **Sink nodes** - A `MediaGraphAssetSink` entity that is mapped to an asset into which the stream is being archived.
 
 ## Supported computer architectures

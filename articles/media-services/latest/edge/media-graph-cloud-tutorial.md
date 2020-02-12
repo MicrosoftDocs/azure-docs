@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
+title: Manage Media Graphs in the cloud for RTSP ingest - Azure
 titleSuffix: Azure Media Services
 description:  
 services: media-services
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Tutorial: Manage Media Graphs in the Cloud for RTSP ingest
+# Tutorial: manage Media Graphs in the cloud for RTSP ingest
 
 A **Media Graph** is a new Azure Media Services entity that enables you to receive and archive a stream from an RTSP source.
 
@@ -129,13 +129,9 @@ This section imports and configures the Postman environment and collection files
 1. Browse to the `Azure Media Service v3 Environment.postman_environment.json` file that was downloaded when you cloned `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`.
 1. The **Azure Media Service v3 Environment** environment is added.
 
-> [!NOTE] 
-> Make sure to update access variables with values you got from the **Access the Media Services API** section above.
-
-1. Double-click on the selected env file and enter values that you got by following the [accessing API](#create-a-service-principle-for-the-media-services-account) steps.
-
-    ![Configure env](./media/develop-with-postman/configure-env.png)
-
+    > [!NOTE] 
+    > Make sure to update access variables with values you got from the **Access the Media Services API** section above.
+1. Double-click on the selected env file and enter values that you got by following the [accessing API](#create-a-service-principle-for-the-media-services-account) steps. <!-- replace and add with a better image ./media/develop-with-postman/configure-env.png -->
 1. Close the dialog.
 1. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -494,7 +490,7 @@ az group delete --name amsResourceGroup
 
 ## Billing implications
 
-During the private preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
+During the preview, the media graph is not emitting any billing meters. As we reach public preview, we will be announcing the pricing model for both the cloud media graph and the edge.
 
 For Playback, you will start getting billed for playback as soon as you start the Streaming Endpoint. You are also billed for egress bandwidth and storage space.
 
