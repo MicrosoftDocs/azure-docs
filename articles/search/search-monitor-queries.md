@@ -13,12 +13,12 @@ ms.date: 02/12/2020
 
 # Monitor query requests in Azure Cognitive Search
 
-This article describes metrics that reflect query performance and volumes.
-<!-- It also explains how to collect the input terms used in queries, which gives you a way to measure the utility and effectiveness of your search corpus. -->
+This article describes metrics that reflect query performance and volumes. It also explains how to collect the input terms used in queries, which gives you a way to measure the utility and effectiveness of your search corpus.
 
-Historical data that feeds into metrics is preserved for 30 days. For reporting over a longer period, or to report on operational data, be sure to enable a diagnostic setting that specifies a storage option.
+Historical data that feeds into metrics is preserved for 30 days. To retain a longer history, or to report on operational data, be sure to enable a diagnostic setting that specifies a storage option.
 
-With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what interests the users of your application. For more information, see [Search traffic analytics](search-traffic-analytics.md).
+> [!Tip]
+> With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what interests the users of your application. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
 
@@ -112,17 +112,29 @@ When pushing the limits of a particular replica-partition configuration, setting
 
 If you specified an email notification, you will receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
 
-<!-- ## Capture query term inputs
+## Collect search term inputs
 
-TBD -->
+When you enable diagnostic logging, the system captures query requests in the **AzureDiagnostic** log. As a prerequisite, you must have already enabled diagnostic logging, specifying a log analytics workspace or another storage option.
+
+1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
+
+1. Run the following query to return query operations. The last statement excludes query strings consisting of an empty or unspecified search, which cuts down the noise in your results.
+
+   ```
+   AzureDiagnostics
+    | where OperationName == "Query.Search" 
+    | where Query_s != "?api-version=2019-05-06&search=*" 
+   ```
+
+1. Initially, the results consist of the full operation, with the query string collapsed inside the structure. Set the Column filter to *Query_s* to show just that column. You can now scroll through a list of query strings submitted to the service.
+
+   ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
+
+While this technique works for ad hoc exploration, building a report lets you consolidate and present the query strings in a layout more conducive to analysis.
 
 ## Report query data
 
-When establishing a baseline of activity on your service, capture the data in a report so that you can compare patterns over time.
-
-Reporting requires that you configure a diagnostic setting that specifies where data is collected and stored. Query metrics are collected and stored in any or all of these platforms: blob storage, log analytics workspace, or EventHub.
-
-You can use the metrics schema to create reports in Power BI or any data visualization tool with the ability to connect to your data source.
+Power BI is an analytical reporting tool that you can use against log data stored in Blob storage or a Log Analytics workspace.
 
 ## Next steps
 
