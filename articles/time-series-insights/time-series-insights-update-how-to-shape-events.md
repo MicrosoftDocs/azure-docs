@@ -90,7 +90,7 @@ There's a single Azure IoT Hub message sent where the outer array contains a sha
 
 **Takeaways:**
 
-* The example JSON has an outer array that uses [Time Series Instance](./time-series-insights-update-tsm#time-series-model-instances) data to increase the efficiency of the message. Even though Time Series Instances device metadata's not likely to change, it often provides useful properties for data analysis.
+* The example JSON has an outer array that uses [Time Series Instance](./time-series-insights-update-tsm.md#time-series-model-instances) data to increase the efficiency of the message. Even though Time Series Instances device metadata's not likely to change, it often provides useful properties for data analysis.
 
 * The JSON combines two or more messages (one from each device) into a single payload saving on bandwidth over time.
 
@@ -101,10 +101,10 @@ There's a single Azure IoT Hub message sent where the outer array contains a sha
 
 #### Time Series Instance 
 
-Let's take a closer look at how to use [Time Series Instance](./time-series-insights-update-tsm#time-series-model-instances) to shape your JSON more optimally. 
+Let's take a closer look at how to use [Time Series Instance](./time-series-insights-update-tsm.md#time-series-model-instances) to shape your JSON more optimally. 
 
 > [!NOTE]
-> The [Time Series IDs](../time-series-insights-update-how-to-id) below  *deviceIds*.
+> The [Time Series IDs](./time-series-insights-update-how-to-id.md) below  *deviceIds*.
 
 ```JSON
 [
@@ -148,7 +148,7 @@ Time Series Insights Preview joins a table (after flattening) during query time.
 | `FYYY` | LINE_DATA	COMMON | SIMULATOR |	Battery System |	2018-01-17T01:18:00Z | 0.58015072345733643 |	22.2 |
 
 > [!NOTE]
->  The preceding table represents the query view in the [Time Series Preview Explorer](../time-series-insights-update-explorer).
+>  The preceding table represents the query view in the [Time Series Preview Explorer](./time-series-insights-update-explorer.md).
 
 **Takeaways:**
 
@@ -190,4 +190,4 @@ In this case, the *latest* property value would overwrite the earlier one.
 
 * Read [Azure Time Series Insights Preview query syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) to send well-shaped JSON to the [Preview APIs](https://docs.microsoft.com/rest/api/time-series-insights/preview).
 
-* Combine JSON best practices with [How to Time Series Model](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-tsm).
+* Combine JSON best practices with [How to Time Series Model](./time-series-insights-update-how-to-tsm.md).
