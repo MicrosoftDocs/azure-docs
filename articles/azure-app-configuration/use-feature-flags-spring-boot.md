@@ -57,7 +57,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
         <version>1.1.1</version>
     </dependency>
     ```
-    ### [Spring Cloud 1.2.x](#tab/spring1.2.x)
+    #### [Spring Cloud 1.2.x](#tab/spring1.2.x)
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
