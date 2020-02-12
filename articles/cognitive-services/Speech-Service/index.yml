@@ -103,7 +103,7 @@ conceptualContent:
           url: quickstarts/multi-device-conversation.md
       footerLink:
         text: See more
-        url: index-conversation-scenarios.md
+        url: index-conversation-scenarios.yml
     - title: Voice assistants
       links:
         - itemType: overview
@@ -117,7 +117,7 @@ conceptualContent:
           url: tutorial-voice-enable-your-bot-speech-sdk.md
       footerLink:
         text: See more
-        url: index-voice-assistants.md
+        url: index-voice-assistants.yml
     - title: Hosting
       links:
         - itemType: how-to-guide
@@ -145,7 +145,7 @@ conceptualContent:
         url: speech-devices-sdk-android-quickstart.md
       footerLink:
         text: See more
-        url: index-devices.md
+        url: index-devices.yml
     - title: Migration
       links:
         - itemType: how-to-guide
