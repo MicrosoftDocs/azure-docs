@@ -228,7 +228,7 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 The API application needs to request permission from the user to access the directory. Set the following required permission for the API application:
 
 1. In the *Blockchain API* app registration, select **API permissions**. By default, the Graph API **User.Read** permission is added.
-1. The Workbench application requires read access to users' basic profile information. In *Configured permissions*, select **Add a permission**. In *Microsoft APIs**, select **Microsoft Graph**.
+1. The Workbench application requires read access to users' basic profile information. In *Configured permissions*, select **Add a permission**. In **Microsoft APIs**, select **Microsoft Graph**.
 1. Since the Workbench application uses the authenticated user credentials, select **Delegated permissions**.
 1. In the *User* category, choose **User.ReadBasic.All** permission.
 
