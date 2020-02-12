@@ -55,20 +55,20 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 1. After you extract the files on your local system, your simple Spring Boot application is ready for editing. Locate the *pom.xml* file in the root directory of your app.
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
-    
-    #### [Spring Cloud 1.1.x](#tab/spring1.2.x)
+
+    #### [Spring Cloud 1.1.x](#tab/java)
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
         <version>1.1.1</version>
     </dependency>
     ```
-    #### [Spring Cloud 1.2.x](#tab/spring1.2.x)
+    #### [Spring Cloud 1.2.x](#tab/java)
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-feature-management</artifactId>
         <version>1.2.1</version>
     </dependency>
     ```
