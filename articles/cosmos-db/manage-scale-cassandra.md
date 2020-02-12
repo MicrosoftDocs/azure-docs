@@ -45,7 +45,7 @@ The advantage of this method is that you can automate the scaling up or down of 
 
 A disadvantage with this approach may be that you cannot respond to unpredictable changing scale needs in real time. Instead, you may need to leverage the application context in your system, at the client/SDK level, or using [Autopilot](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot).
 
-## Using CQL with your chosen SDK
+## <a id="use-cql-queries"></a>Use CQL queries with a specific SDK
 
 You can scale the system dynamically with code by executing the [CQL ALTER commands](cassandra-support.md#keyspace-and-table-options) for the given database or container.
 
