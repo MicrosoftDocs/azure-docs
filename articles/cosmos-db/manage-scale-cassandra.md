@@ -47,7 +47,7 @@ A disadvantage with this approach may be that you cannot respond to unpredictabl
 
 ## Using CQL with your chosen SDK
 
-You can scale the system dynamically in code by executing [ALTER commands in CQL](https://docs.microsoft.com/azure/cosmos-db/cassandra-support#keyspace-and-table-options) for the given database or container.
+You can scale the system dynamically with code by executing the [CQL ALTER commands](cassandra-support.md#keyspace-and-table-options) for the given database or container.
 
 The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application, while still leveraging the standard RU charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using Autopilot. The disadvantage with this approach is that it can be quite complex to implement, and retries while rate limiting may increase latency.
 
