@@ -167,7 +167,7 @@ Here is a sample indexing policy which allows you to have documents with an unde
 }
 ```
 
-If you run the same query again, documents that are missing `lastName` appear in the query results:
+If you run the same query again, documents that are missing `lastName` appear first in the query results:
 
 ```sql
     SELECT f.id, f.lastName
@@ -185,6 +185,28 @@ The results are:
     {
         "id": "AndersenFamily",
         "lastName": "Andersen"
+    }
+]
+```
+
+If you modify the sort order to `DESC`, documents that are missing `lastName` appear last in the query results:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName DESC
+```
+
+The results are:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    },
+    {
+        "id": "WakefieldFamily"
     }
 ]
 ```
