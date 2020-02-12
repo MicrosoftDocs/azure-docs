@@ -265,33 +265,17 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
 
-The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
+Twin size is computed as follows:
 
-For example, consider the following JSON fragment for reported properties. Read-only elements like `$version` and `$metadata/$lastUpdated` are not shown as they are excluded from computation of the property size limit.
+* For each property in the JSON document, IoT Hub cumulatively computes and adds the length of the property's key and value.
 
-```json
-"properties" : {
-    ...
-    "reported" : {
-        "intProperty" : 14000,
-        "boolProperty" : true,
-        "floatProperty" : 1.463E+200,
-        "stringProperty" : "This is a string value",
-        "objectProperty" : {
-               "property1" : 1,
-               "property2" : 2
-        }
-    }
-}
-```
+* Property keys are considered as UTF8-encoded strings.
 
-The size of the reported properties for this fragment would be computed based on the UTF-8 encoded value of the following JSON, which represents the value of `properties/reported` with the white-space removed:
+* Simple property values are considered as UTF8-encoded strings, numeric values (8 Bytes), or Boolean values (4 Bytes).
 
-```json
-{"intProperty":14000,"boolProperty":true,"floatProperty":1.463E+200,"stringProperty":"This is a string value","objectProperty":{"property1":1,"property2":2}}
-```
+* The size of UTF8-encoded strings is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1).
 
-This yields a length of 157 bytes.
+* Complex property values (nested objects) are computed based on the aggregate size of the property keys and property values that they contain.
 
 IoT Hub rejects with an error all operations that would increase the size of those documents above the limit.
 
