@@ -80,7 +80,7 @@ Follow these steps in Coda to begin.
 
    ![Open Organization Settings](media/coda-tutorial/org-settings.png)
 
-1. Ensure that your Organization has GDrive Integration turned off. If it is currently enabled, contact the [Coda support team](mailto:support@coda.io) to help you migrate off GDrive.
+1. Ensure that your organization has GDrive Integration turned off. If it is currently enabled, contact the [Coda support team](mailto:support@coda.io) to help you migrate off GDrive.
 
    ![GDrive Disabled](media/coda-tutorial/gdrive-off.png)
 
@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Coda SSO
 
-To complete the setup, you'll enter values from Azure Active Directory into Coda's "Configure Saml" panel.
+To complete the setup, you'll enter values from Azure Active Directory in the Coda **Configure Saml** panel.
 
 1. In Coda, open your **Organization settings** panel.
 1. Under **Authenticate with SSO (SAML)**, select the **Configure SAML** option.
