@@ -210,9 +210,7 @@ This command returns information about a session, such as its VM hostname.
 
 | Status code | JSON payload | Comments |
 |-----------|:-----------|:-----------|
-| 200 |- message: string<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: string<br/>- sessionMaxLeaseTime: timespan<br/>- sessionSize: enum<br/>- sessionStatus: enum |
-enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>
-If the status is 'error' or 'expired', the message will contain more information |
+| 200 | - message: string<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: string<br/>- sessionMaxLeaseTime: timespan<br/>- sessionSize: enum<br/>- sessionStatus: enum | enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>If the status is 'error' or 'expired', the message will contain more information |
 
 ### Example script: Get session properties
 
