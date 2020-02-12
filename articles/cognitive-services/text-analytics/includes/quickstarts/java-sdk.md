@@ -116,7 +116,7 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 
     DocumentSentiment documentSentiment = client.analyzeSentiment(text);
     System.out.printf(
-            "Recognized TextSentiment: %s, Positive Score: %.2f, Neutral Score: %.2f, Negative Score: %.2f.%n",
+            "Recognized document sentiment: %s, Positive Score: %.2f, Neutral Score: %.2f, Negative Score: %.2f.%n",
             documentSentiment.getSentiment(),
             documentSentiment.getSentimentScores().getPositive(),
             documentSentiment.getSentimentScores().getNeutral(),
@@ -124,7 +124,7 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 
     for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
         System.out.printf(
-            "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %.2f.%n",
+            "Recognized sentence sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
             sentenceSentiment.getSentiment(),
             sentenceSentiment.getSentimentScores().getPositive(),
             sentenceSentiment.getSentimentScores().getNeutral(),
@@ -136,8 +136,8 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized TextSentiment: positive, Positive Score: 1.00, Neutral Score: 0.00, Negative Score: 0.00.
-Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
+Recognized document sentiment: positive, Positive Score: 1.00, Neutral Score: 0.00, Negative Score: 0.00.
+Recognized sentence sentiment: positive, positive score: 1.00, neutral score: 0.00, negative score: 0.00.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
 ## Language detection
