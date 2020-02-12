@@ -63,3 +63,9 @@ Write-Output "Token: $($response.AccessToken)"
 ```
 
 The script just prints the token to the output, from where you can copy & paste it. For a real project, you should automate this process.
+
+## Next steps
+
+* [Example PowerShell scripts](../samples/powershell-example-scripts.md)
+* [Azure Frontend APIs](../how-tos/frontend-apis.md)
+* [Session management REST API](../how-tos/session-rest-api.md)

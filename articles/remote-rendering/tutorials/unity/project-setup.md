@@ -552,7 +552,7 @@ Insert the following code into the *RemoteRendering* script and remove the old v
 
 ```csharp
 
-    public string ModelName = "builtin://UnitySampleModel";
+    public string ModelName = "builtin://Engine";
 
     private Entity modelEntity = null;
     private GameObject modelEntityGO = null;

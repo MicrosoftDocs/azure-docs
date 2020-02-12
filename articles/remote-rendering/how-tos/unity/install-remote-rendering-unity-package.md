@@ -47,3 +47,8 @@ Call the following command to pull the latest version of the package into the cu
 * `nuget install ScriptableRenderPipeline -ExcludeVersion`
 
 As above, add the package to a Unity project using the 'Add package from disk...' option.
+
+## Next steps
+
+* [Unity SDK concepts](unity-concepts.md)
+* [Create a new Unity project](create-new-unity-project.md)
