@@ -1,5 +1,5 @@
 ---
-title: Change the replication setting for a storage account 
+title: Change how a storage account is replicated
 titleSuffix: Azure Storage
 description: Learn how to change how data in an existing storage account is replicated.
 services: storage
@@ -13,7 +13,7 @@ ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Change the replication setting for a storage account
+# Change how a storage account is replicated
 
 Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
 
@@ -39,14 +39,11 @@ The following table provides an overview of how to switch from each type of repl
 | <b>…from ZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting <br /><br />Incurs a one-time egress charge |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
-> [!NOTE]
-> Currently, you cannot use the Azure portal or the Azure Storage client libraries to convert your account to ZRS, GZRS, or RA-GZRS. To migrate your account to ZRS, see [Zone-redundant storage (ZRS) for building highly available Azure Storage applications](storage-redundancy-zrs.md) for details. To migrate GZRS or RA-GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](storage-redundancy-zrs.md) for details.
-
 ## Change the Replication setting
 
-You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a manual or live migration.
+You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting for a storage account, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a [manual migration](#perform-a-manual-migration) or a [live migration](#request-a-live-migration-to-zrs-in-the-primary-region).
 
-Changing how your storage account is replicated does not result in down time.
+Changing how your storage account is replicated does not result in down time for your applications.
 
 # [Portal](#tab/portal)
 
@@ -146,7 +143,7 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 > [!IMPORTANT]
 > If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
 
-## Migrate from ZRS Classic
+## Switch from ZRS Classic
 
 > [!IMPORTANT]
 > Microsoft will deprecate and migrate ZRS Classic accounts on March 31, 2021. More details will be provided to ZRS Classic customers before deprecation.
