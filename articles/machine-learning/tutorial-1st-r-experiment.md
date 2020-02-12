@@ -78,10 +78,10 @@ Use RStudio on a compute instance or Notebook VM to run this tutorial.
 
 1. Once the compute is running, use the **RStudio** link to open RStudio.
 
-1. In RStudio, your **vignettes** folder is a few levels down from **Users** in the **Files** section on the lower right.  Under **vignettes**, select the **train-and-deploy-to-aci** folder to find the files needed in this tutorial.
+1. In RStudio, your *vignettes* folder is a few levels down from *Users* in the **Files** section on the lower right.  Under *vignettes*, select the *train-and-deploy-to-aci* folder to find the files needed in this tutorial.
 
 > [!Important]
-> The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file. 
+> The rest of this article contains the same content as you see in the  *train-and-deploy-to-aci.Rmd* file. 
 > If you are experienced with RMarkdown, feel free to use the code from that file.  Or you can copy/paste the code snippets from there, or from this article into an R script or the command line.  
 
 
@@ -392,4 +392,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 * Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
-* Learn more from the examples in other folders in **vignettes**.
+* Learn more from the examples in the other *vignettes* folders.
