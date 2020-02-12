@@ -74,7 +74,7 @@ Enter the description of the consulting service offer in the **Offer description
 
 Don't include your email address or phone number in your offer description. A **Contact Me** button is included with your offer to upload leads to the lead management target that you identify for your offer.
 
-Enter the offer description in Markdown format. If you're not familiar with Markdown or formatting for HTML, see [Use Markdown for writing docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Enter the offer description in Markdown format. If you're not familiar with Markdown or formatting for HTML, see [Use Markdown for writing docs](/contribute/markdown-reference).
 
 Use these formats to make sure that your offer is easy for your customers to read.
 
