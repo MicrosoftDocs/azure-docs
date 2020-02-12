@@ -11,8 +11,6 @@
     href: secure-cloud-network.md
 - name: Concepts
   items:
-  - name: Central management
-    href: central-management.md
   - name: Policy overview
     href: policy-overview.md
   - name: What is a secured virtual hub?
