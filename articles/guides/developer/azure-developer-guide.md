@@ -168,7 +168,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
   > **When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
   >
-  > **Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
+  > **Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/v2-overview.md).
 
 - **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
