@@ -49,7 +49,7 @@ A disadvantage with this approach may be that you cannot respond to unpredictabl
 
 You can scale the system dynamically with code by executing the [CQL ALTER commands](cassandra-support.md#keyspace-and-table-options) for the given database or container.
 
-The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application, while still leveraging the standard RU charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using Autopilot. The disadvantage with this approach is that it can be quite complex to implement, and retries while rate limiting may increase latency.
+The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application. With this approach, you can still leverage the standard RU/s charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using Autopilot. The disadvantage of this approach is that it can be quite complex to implement retries while rate limiting may increase latency.
 
 ## <a id="use-autopilot"></a>Use Autopilot
 
