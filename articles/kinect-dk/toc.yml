@@ -83,6 +83,8 @@
      href: multi-camera-sync.md   
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
+   - name: Reset Azure Kinect DK
+     href: reset-azure-kinect-dk.md
    - name: Azure Kinect support
      href: support.md
    - name: Azure Kinect troubleshooting
