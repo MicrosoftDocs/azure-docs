@@ -1,6 +1,6 @@
 ---
 
-title: Designing virtual networks with NAT gateway resources
+title: Virtual networks with NAT gateway resources
 titleSuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks with NAT gateway resources.
 services: virtual-network
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 02/12/2020
 ms.author: allensu
 ---
 
@@ -77,7 +77,7 @@ The total number of IP addresses provided by all four IP address resources can't
 }
 ```
 
-Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual networks.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
+Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual network.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
 
 Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone force NAT to be isolated to a specific zone. Review NAT [availability zones](#availability-zones).
 
@@ -109,7 +109,7 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 }
 ```
 
-All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now begin using the IP addresses associated with _myNatGateway_ as the source.
+A subnet is configured to use a NAT gateway with a property on the subnet within the virtual network.  All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now begin using the IP addresses associated with _myNatGateway_ as the source.
 
 ## Availability Zones
 
@@ -137,7 +137,7 @@ Source network address translation (SNAT) rewrites the source of a flow to origi
 Let's look at an example of four flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.0.2.
 
 | Flow | Source tuple | Destination tuple |
-|---|---|---|
+|:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
@@ -145,8 +145,8 @@ Let's look at an example of four flows to explain the basic concept.  The NAT ga
 
 These flows might look like this after PAT has taken place:
 
-| Flow | Source tuple | SNAT source tuple | Destination tuple | 
-|---|---|---|
+| Flow | Source tuple | SNAT'ed source tuple | Destination tuple | 
+|:---:|:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
