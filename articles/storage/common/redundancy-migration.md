@@ -39,7 +39,7 @@ The following table provides an overview of how to switch from each type of repl
 | <b>…from ZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting <br /><br />Incurs a one-time egress charge |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
-## Change the Replication setting
+## Change the replication setting
 
 You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting for a storage account, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a [manual migration](#perform-a-manual-migration) or a [live migration](#request-a-live-migration-to-zrs-in-the-primary-region).
 
