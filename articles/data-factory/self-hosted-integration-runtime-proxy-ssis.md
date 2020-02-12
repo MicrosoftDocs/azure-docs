@@ -160,7 +160,7 @@ The second staging tasks that run on your Azure-SSIS IR are not be billed separa
 
 ## Current limitations
 
-- Only data flow tasks with Open Database Connectivity (ODBC), OLEDB, or Flat File connection managers and ODBC, OLEDB, and Flat File Sources or OLEDB Destination are currently supported. 
+- Only data flow tasks with Open Database Connectivity (ODBC), OLEDB, or Flat File connection managers and ODBC, OLEDB, and Flat File sources or OLEDB destination are currently supported. 
 - Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
 
 ## Next steps
