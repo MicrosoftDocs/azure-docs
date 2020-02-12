@@ -32,13 +32,14 @@ This import method is only available for [supported HSMs](#supported-hsms).
 
 ## Overview
 
-* Generate a key (referred to as Key Exchange Key or KEK) in Key Vault. This must be an RSA-HSM key with 'import' as the only key operation.
+* Generate a key (referred to as Key Exchange Key or KEK) in key vault. This must be an RSA-HSM key with 'import' as the only key operation. Only key vault with with premium SKU support RSA-HSM keys.
 * Download the public key of KEK as a .pem file
-* Transfer KEK public key to your offline workstation connected to your on-premise HSM.
+* Transfer KEK public key to your offline workstation connected to  on-premise HSM.
 * From your offline workstation, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
 * The target key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it is transferred to the Azure Key Vault HSMs. Only the encrypted version of your key leaves the on-premise HSM.
-* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the Key Vault HSMs. 
+* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the Key Vault HSMs.
 * The KEK must be in the same key vault where the target key is to be imported.
+* When the BYOK file is uploaded to Key Vault, Key Vault HSMs use the KEK private key to decrypt the target key material and import it as an HSM key. This operation happens entirely inside Key Vault HSMs and the target key always remains in the HSM protection boundary.
 
 ## Prerequisites
 
@@ -47,8 +48,8 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | Requirement | More information |
 | --- | --- |
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
-| The Azure Key Vault Premium SKU to import HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
-| An HSM from supported HSMs list and BYOK tool and instructions provided by your HSM vendor | You must have access to a Hardware Security Module and basic operational knowledge of your HSMs. See [Supported HSMs](#supported-hsms). |
+| A key vault (Premium SKU) to import HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
+| An HSM from supported HSMs list along with BYOK tool and instructions provided by your HSM vendor | You must have access to a Hardware Security Module and basic operational knowledge of your HSMs. See [Supported HSMs](#supported-hsms). |
 | Azure CLI version 2.0.82 or newer | Please see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) for more information.|
 
 ## Supported HSMs
