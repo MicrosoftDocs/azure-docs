@@ -150,19 +150,19 @@ Next, we add the Router module to our solution. The Router module handles severa
 
 1. Right click on the modules folder in Visual Studio Code and choose **Add IoT Edge Module**.
 
-2. Choose **C# module**.
+2. Choose **C# module** for the module template.
 
 3. Name the module **turbofanRouter**.
 
 4. When prompted for your Docker Image Repository, use the registry from the machine learning workspace (you can find the registry in the registryCredentials node of your *deployment.template.json* file). This value is the fully qualified address to the registry, like **\<your registry\>.azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > In this article, we use the Azure Container Registry created by the Azure Machine Learning  workspace, which we used to train and deploy our classifier. This is purely for convenience. We could have created a new container registry and published our modules there.
+    > In this article, we use the Azure Container Registry that was created by the Azure Machine Learning workspace. This is purely for convenience. We could have created a new container registry and published our modules there.
 
 5. Open a new terminal window in Visual Studio Code (**View** > **Terminal**) and copy files from the modules directory.
 
     ```cmd
-    copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
+    copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\turbofanRouter\
     ```
 
 6. When prompted to overwrite program.cs, press `y` and then hit `Enter`.
@@ -171,11 +171,11 @@ Next, we add the Router module to our solution. The Router module handles severa
 
 1. In Visual Studio Code, select **Terminal** > **Configure Default Build Task**.
 
-2. Click on **Create tasks.json file from template**.
+2. Select **Create tasks.json file from template**.
 
-3. Click on **.NET Core**.
+3. Select **.NET Core**.
 
-4. When tasks.json opens replace the contents with:
+4. Replace the content of tasks.json with the following code:
 
     ```json
     {
@@ -212,83 +212,55 @@ Next, we add the Router module to our solution. The Router module handles severa
 
 As mentioned above, the IoT Edge runtime uses routes configured in the *deployment.template.json* file to manage communication between loosely coupled modules. In this section, we drill into how to set up the routes for the turbofanRouter module. We will cover the input routes first and then move on the outputs.
 
-#### Inputs
+1. In the Visual Studio Code explorer, expand the **modules\turbofanRouter** router.
 
 1. In the Init() method of Program.cs we register two callbacks for the module:
 
    ```csharp
+   // Register callbacks for messages to the module
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromLeafDevice, LeafDeviceInputMessageHandler, ioTHubModuleClient);
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromClassifier, ClassifierCallbackMessageHandler, ioTHubModuleClient);
    ```
 
-2. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. In the *deployment.template.json* file, add a route that tells the edge hub to route any message received by the IoT Edge device that was not sent by an IoT Edge module into the input called "deviceInput" on the turbofanRouter module:
+1. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. We need to add the following input and output routes:
 
-   ```json
-   "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")"
-   ```
+    | Route to add | Type | Description |
+    | --- | --- |
+    | leafMessagesToRouter | Input | Tells the edge hub to route any message received by the IoT Edge device, that was not sent by an IoT Edge module, into the input called "deviceInput" on the turbofanRouter module. |
+    | classiferToRouter | Input | Routes messages from the rulClassifier module into the turbofanRouter module. |
+    | SendMessageToClassifier | Output | As defined by the SendMessgeToClassifer() method in Program.cs, this route uses the module client to send a message to the RUL classifier. |
+    | SendMessageToIotHub | Output | Uses the module client to send just the RUL data for the device to the IoT Hub.|
+    | SendMessageToAvroWriter | Output | Uses the module client to send the message with the RUL data added to the avroFileWriter module. |
+    | HandleBadMessage | Output | sends failed messages upstream the IoT Hub where they can be routed for later. |
 
-3. Next add a route for messages from the rulClassifier module into the turbofanRouter module:
+    With all the routes taken together your “$edgeHub” node should look like the following JSON:
 
-   ```json
-   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
-   ```
-
-#### Outputs
-
-Add four additional routes to the $edgeHub route parameter, to handle outputs from the Router module.
-
-1. Program.cs defines the method SendMessageToClassifier(), which uses the module client to send a message to the RUL classifier using the route:
-
-   ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
-   ```
-
-2. SendRulMessageToIotHub() uses the module client to send just the RUL data for the device to the IoT Hub via the route:
-
-   ```json
-   "routerToIoTHub": "FROM /messages/modules/turboFanRouter/outputs/hubOutput INTO $upstream"
-   ```
-
-3. SendMessageToAvroWriter() uses the module client to send the message with the RUL data added to the avroFileWriter module.
-
-   ```json
-   "routerToAvro": "FROM /messages/modules/turbofanRouter/outputs/avroOutput INTO BrokeredEndpoint(\"/modules/avroFileWriter/inputs/avroModuleInput\")"
-   ```
-
-4. HandleBadMessage() sends failed messages upstream the IoT Hub where they can be routed for later.
-
-   ```json
-   "deadLetter": "FROM /messages/modules/turboFanRouter/outputs/deadMessages INTO $upstream"
-   ```
-
-With all the routes taken together your “$edgeHub” node should look like
-the following JSON:
-
-```json
-"$edgeHub": {
-  "properties.desired": {
-    "schemaVersion": "1.0",
-    "routes": {
-      "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")",
-      "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amlOutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")",
-      "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")",
-      "routerToIoTHub": "FROM /messages/modules/turboFanRouter/outputs/hubOutput INTO $upstream",
-      "routerToAvro": "FROM /messages/modules/turbofanRouter/outputs/avroOutput INTO BrokeredEndpoint(\"/modules/avroFileWriter/inputs/avroModuleInput\")",
-      "deadLetter": "FROM /messages/modules/turboFanRouter/outputs/deadMessages INTO $upstream"
-    },
-    "storeAndForwardConfiguration": {
-      "timeToLiveSecs": 7200
+    ```json
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/* INTO $upstream",
+          "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")",
+          "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amlOutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")",
+          "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")",
+          "routerToIoTHub": "FROM /messages/modules/turboFanRouter/outputs/hubOutput INTO $upstream",
+          "routerToAvro": "FROM /messages/modules/turbofanRouter/outputs/avroOutput INTO BrokeredEndpoint(\"/modules/avroFileWriter/inputs/avroModuleInput\")",
+          "deadLetter": "FROM /messages/modules/turboFanRouter/outputs/deadMessages INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-> [!NOTE]
-> Adding the turbofanRouter module created the following additional route: `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`. Remove this route, leaving only the routes listed above in your deployment.template.json file.
+  > [!NOTE]
+  > Adding the turbofanRouter module created the following additional route: `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`. Remove this route, leaving only the routes listed above in your deployment.template.json file.
 
-#### Copy routes to deployment.debug.template.json
+### Copy routes to deployment.debug.template.json
 
-As a final step, to keep our files in sync, mirror the changes you made to deployment.template.json in deployment.debug.template.json.
+As a final step, to keep our files in sync, copy the changes you made to deployment.template.json to deployment.debug.template.json.
 
 ## Add Avro Writer module
 
