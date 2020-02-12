@@ -216,49 +216,62 @@ The following table provides an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-<!-- ## Queue samples (v11)
-
-| **Scenario** | **Sample Code** |
-|--------------|-----------------|
-| Add Message | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
-| Client-Side Encryption | [Azure Storage .NET Queue Client-Side Encryption](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs) |
-| Create Queues | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
-| Delete Message/Queue | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
-| Peek Message | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
-| Queue ACL/Metadata/Stats | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
-| Queue Service Properties | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
-| Update Message | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) | -->
-
 ## Queue samples
 
+### Authorization
+
 :::row:::
    :::column span="":::
-      []()
+      [Authenticate via Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:167)
    :::column-end:::
    :::column span="":::
-      []()
+      [Use a connection string to connect to a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:24)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      []()
+      [Use a shared key to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:52)
    :::column-end:::
    :::column span="":::
-      []()
+      [Use a shared access signature to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:86)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Use an Active Directory token to access a storage account](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs:140)
    :::column-end:::
 :::row-end:::
 
-<!-- ## Table samples (v11)
+### Queue
 
-| **Scenario** | **Sample Code** |
-|--------------|-----------------|
-| Create Table | [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
-| Delete Entity/Table | [Getting Started with Azure Table Storage in .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
-| Insert/Merge/Replace Entity | [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
-| Query Entities | [Getting Started with Azure Table Storage in .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
-| Query Tables | [Getting Started with Azure Table Storage in .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
-| Table ACL/Properties | [Getting Started with Azure Table Storage in .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs) |
-| Update Entity | [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) | -->
+:::row:::
+   :::column span="2":::
+      [Create a queue and add a message](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:24)
+   :::column-end:::
+:::row-end:::
+
+### Message
+
+:::row:::
+   :::column span="":::
+      [Receive and process messages from a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:61)
+   :::column-end:::
+   :::column span="":::
+      [Peek at the messages in a queue](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:90)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Receive messages and update their visibility timeout for extended processing](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:115)
+   :::column-end:::
+:::row-end:::
+
+### Troubleshooting 
+:::row:::
+   :::column span="2":::
+      [Trigger a recoverable error](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs:188)
+   :::column-end:::
+:::row-end:::
 
 ## Table samples (v11)
 
@@ -292,20 +305,25 @@ The following table provides an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-## Azure Code Samples library
+## Azure code sample libraries
 
-To view the complete sample library, go to the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=storage) library, which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+To view the complete .NET sample libraries, go to:
 
-[!INCLUDE [storage-dotnet-samples-include](../../../includes/storage-dotnet-samples-include.md)]
+* [Azure blob code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+* [Azure file DataLake code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+* [Azure file share code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
+* [Azure queue code samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+
+You can browse and clone the GitHub repository for each library.
 
 ## Getting started guides
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [Getting Started with Azure Queue Service in .NET](../storage-dotnet-how-to-use-queues.md)
-* [Getting Started with Azure Table Service in .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Getting Started with Azure File Service in .NET](../storage-dotnet-how-to-use-files.md)
+* [Getting Started with Azure Blob Service in .NET](../blobs/storage-quickstart-blobs-dotnet.md)
+* [Getting Started with Azure Queue Service in .NET](../queues/storage-quickstart-queues-dotnet.md)
+* [Getting Started with Azure Table Service in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+* [Getting Started with Azure File Service in .NET](../files/storage-dotnet-how-to-use-files.md)
 
 ## Next steps
 
@@ -314,4 +332,4 @@ For information on samples for other languages:
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
 * JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
-* All other languages: [Azure Storage samples](../storage-samples.md)
+* All other languages: [Azure Storage samples](storage-samples.md)

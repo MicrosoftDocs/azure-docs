@@ -498,7 +498,6 @@ The following tables provide an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-
 ### Message
 
 :::row:::
@@ -566,7 +565,7 @@ The following tables provide an overview of our samples repository and the scena
 
 ## Azure code sample libraries
 
-To view the complete sample libraries, go to:
+To view the complete Python sample libraries, go to:
 
 * [Azure blob code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 * [Azure file DataLake code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
