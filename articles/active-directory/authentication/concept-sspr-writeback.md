@@ -25,7 +25,7 @@ Password writeback is supported in environments that use:
 * [Pass-through authentication](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
-> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../azuread-dev/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
+> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
 >
 > To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
 >
@@ -154,13 +154,13 @@ Passwords are written back in all the following situations:
 Passwords are *not* written back in any of the following situations:
 
 * **Unsupported end-user operations**
-   * Any end user resetting their own password by using PowerShell version 1, version 2, or the Azure AD Graph API
+   * Any end user resetting their own password by using PowerShell version 1, version 2, or the Microsoft Graph API
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Azure AD Graph API
+   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
 
 ## Next steps
 
