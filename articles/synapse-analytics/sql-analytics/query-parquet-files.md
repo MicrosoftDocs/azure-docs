@@ -22,7 +22,7 @@ Before reading rest of this article, review the following articles:
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
-## Read Parquet files
+## Dataset
 
 You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this article show the specifics of reading Parquet files.
 
@@ -48,7 +48,7 @@ Data is partitioned by year and month and the folder structure is as follows:
 
 
 
-### Read particular columns in Parquet files
+## Query set of parquet files
 
 You can specify only the columns of interest when you query Parquet files.
 
@@ -73,7 +73,7 @@ ORDER BY
 	passenger_count
 ```
 
-### Read Parquet files without specifying schema
+## Automatic schema inference
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files. 
 
@@ -94,9 +94,9 @@ FROM
 
 
 
-### Target specific partitions using filepath function
+### Query partitioned data
 
-You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
+The data set provided in this sample is divided (paritioned) into separate subfolders. You can target specific partitions using the filepath function. This example shows fare amounts by year, month, and payment_type for the first three months of 2017.
 
 > [!NOTE]
 > The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
