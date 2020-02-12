@@ -28,7 +28,7 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 *Figure: Virtual Network NAT*
 
 >[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+>Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
 
 ## How to deploy NAT
 
@@ -86,9 +86,9 @@ The total number of IP addresses provided by all four IP address resources can't
 }
 ```
 
-Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual network.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network.
+Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual network.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network unless you want all of them to use NAT for outbound to Internet connectivity.  Individual subnets can be configured with different NAT gateway resources.
 
-Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone force NAT to be isolated to a specific zone. Review NAT [availability zones](#availability-zones).
+Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone force NAT to be isolated to a specific zone. Zone-redundancy is not supported. Review NAT [availability zones](#availability-zones).
 
 
 ```json
@@ -122,22 +122,20 @@ A subnet is configured to use a NAT gateway with a property on the subnet within
 
 ## Availability Zones
 
-Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures.
-
-When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
+Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures. When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
 
 <p align="center">
-  <img src="./media/nat-overview/az-directions2.svg" width="512" title="Virtual Network NAT with availability zones">
+  <img src="./media/nat-overview/az-directions1.svg" width="512" title="Virtual Network NAT with availability zones">
 </p>
 
 *Figure: Virtual Network NAT with availability zones*
 
 When you create a zone-isolated NAT gateway, you must also use zonal IP addresses that match the zone of the NAT gateway resource.  NAT gateway resources don't allow IP addresses from a different zone or without zone to be attached.
 
-Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource.  If you cross zones, a zonal promise can't exist.
+Virtual networks and subnets are regional and have no zonal alignment.  For a zonal promise to exist for the outbound connections of a virtual machine, the virtual machine must be in the same zone as the NAT gateway resource. Zone isolation is creating by creating a zonal "stack" per availability zone. If you cross zones with a zonal NAT gateway or use a regional NAT gateway with zonal VMs, a zonal promise can't exist.
 
 <p align="center">
-  <img src="./media/nat-overview/az-directions.svg" width="512" title="Virtual Network NAT with availability zones">
+  <img src="./media/nat-overview/az-directions2.svg" width="512" title="Virtual Network NAT with availability zones">
 </p>
 
 *Figure: Virtual Network NAT with availability zones*
