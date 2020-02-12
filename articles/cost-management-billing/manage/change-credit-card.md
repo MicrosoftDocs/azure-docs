@@ -110,7 +110,7 @@ If your credit card is the active payment method for any of your Microsoft subsc
 
 ## Manage credit cards for a Microsoft Customer Agreement
 
-The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. [Learn how to check if you have a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement)
+The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
 ### Change default credit card 
 If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account.
