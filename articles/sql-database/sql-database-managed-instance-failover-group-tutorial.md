@@ -1008,7 +1008,7 @@ In this step, you will fail your failover group over to the secondary server, an
 Test failover using the Azure portal. 
 
 
-1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
+1. Navigate to your _secondary_ managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
 1. Select **Failover** and then select **Yes** on the warning about TDS sessions being disconnected. 
 
