@@ -2,99 +2,100 @@
 title: Example PowerShell scripts
 description: Examples that show how to use the front end via PowerShell scripts
 author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: tutorial
-ms.service: azure-remote-rendering
+ms.date: 02/12/2020
+ms.topic: article
 ---
 
 # Example PowerShell scripts
 
-This guide provides detailed steps on how to use the Remote Rendering Front End via the PowerShell scripts provided in the Scripts folder of this arrclient repository.
-
-We provide two scripts in the Scripts folder of the repository: Conversion.ps1 and RenderingSession.ps1. They use common utilities from ARRUtils.ps1
+The [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering) contains sample scripts for interacting with the service. This article describes their usage.
 
 ## Prerequisites
 
-Prior to invoking the script you need to install the Azure PowerShell module and log into your subscription.
+To execute the sample scripts, you need a functional setup of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
-## Install Azure PowerShell
+1. Install Azure PowerShell:
+    1. Open a PowerShell with admin rights
+    1. Run: `Install-Module -Name Az -AllowClobber`
 
-More information about Azure PowerShell can be found at: [https://docs.microsoft.com/powershell/azure](https://docs.microsoft.com/powershell/azure)
+1. If you get errors about running scripts, ensure your [execution policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) is set appropriately:
+    1. Open a PowerShell with admin rights
+    1. Run: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
-In PowerShell with admin rights:
+1. [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-```ps
-Install-Module -Name Az -AllowClobber
+1. Log into your subscription:
+    1. Open a PowerShell
+    1. Run: `Connect-AzAccount -Subscription "<your azure subscription id>"`
+
+1. Download the *Scripts* folder from the [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering).
+
+## Configuration file
+
+Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
+
+```json
+{
+    "accountSettings": {
+        "arrAccountId": "<fill in the account ID from the Azure Portal>",
+        "arrAccountKey": "<fill in the account key from the Azure Portal>",
+        "region": "<select from available regions>"
+    },
+    "renderingSessionSettings": {
+        "vmSize": "<select standard or premium>",
+        "maxLeaseTime": "<hh:mm:ss>"
+    },
+    "azureStorageSettings": {
+        "azureSubscriptionId": "<fill in your subscription id which contains the storage account you created>",
+        "resourceGroup": "<resource group which contains the storage account you created>",
+        "storageAccountName": "<name of the storage account you created>",
+        "blobInputContainerName": "<input container inside the storage container>",
+        "blobOutputContainerName": "<output container inside the storage container>"
+    },
+    "modelSettings": {
+        "modelLocation": "<fill in a path to a model file if you want to upload a file from a local path>"
+    }
+}
 ```
 
-## Allow PowerShell scripts to be executed
+### accountSettings
 
-If you get an error about running scripts, ensure your execution policy is set appropriately
-Open PowerShell as an admin and run  the command below to allow unrestricted execution. For more details, read [Set-Execution Policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+For `arrAccountId` and `arrAccountKey`, see [Create an Azure Remote Rendering account](../how-tos/create-an-account.md).
+For `region` see the [list of available regions](../reference/regions.md).
 
-In a PowerShell window:
+### renderingSessionSettings
+
+This structure must be filled out if you want to run **RenderingSession.ps1**.
+
+* **vmSize:** Selects the size of the virtual machine. Select *standard* or *premium*. Shut down rendering sessions when you don't need them anymore.
+* **maxLeaseTime:** The duration for which you want to lease the VM. It will be shut down when the lease expires. The lease time can be extended later (see below).
+
+### azureStorageSettings
+
+This structure must be filled out if you want to run **Conversion.ps1**.
+
+For details, see [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
+
+### modelSettings
+
+If you want to run **Conversion.ps1**, you can optionally fill out this structure, or pass the path to the source file as a command-line argument:
 
 ```ps
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+./Conversion.ps1 -ModelLocation "C:\\models\\box.fbx"
 ```
 
-## Prepare an Azure Storage account
+> [!CAUTION]
+> Make sure to properly escape backslashes in the path by using double backslashes: "\\\\".
 
-In order to use the asset conversion service you need to have an Azure subscription and an Azure Storage V2 account.
-In the Azure Storage account, you need to create at least one input blob container and output blob container.
-You can create a storage account and the containers in the Azure portal at: [https://portal.azure.com](https://portal.azure.com)
+## Script: RenderingSession.ps1
 
-## Make sure to be logged into your subscription
+This script is used to create, query, and stop rendering sessions.
 
-If you want to use the asset conversion service and upload files to azure blob storage, you will need to log into your subscription.
-In a PowerShell window (does not need admin rights):
+> [!IMPORTANT]
+> Make sure you have filled out the *accountSettings* and *renderingSessionSettings* sections in arrconfig.json.
 
-```ps
-Connect-AzAccount -Subscription "<your azure subscription id>"
-```
-
-This will open a browser window for you to log in to your subscription.
-
-## Fill out the configuration file
-
-Next to the `.ps1` files in the Scripts directory there is a arrconfig.json that needs to be filled out.
-
-All of the values are strings, so use the "key":"value" notation.
-
-accountSettings contains values needed for Conversion.ps1 and RenderingSession.ps1
-
-- accountSettings.arrAccountId: fill in the ID for the account you will use. If you don't have an account, [create one](../how-tos/create-an-account.md).
-- accountSettings.arrAccountKey: fill in the key for the account you will use.
-- accountSettings.region:  The region of ARR service you will use. See the [list of available regions](../reference/regions.md).
-
-renderingSessionSettings will be used by the RenderingSession.ps1 script
-
-- renderingSessionSettings.vmSize: Selects the size of the VM. Select "standard" or "premium". Be mindful of our resources and shut down rendering sessions when you do not need them anymore
-- renderingSessionSettings.maxLeaseTime: the time for which you lease the rendering VM. The VM will be shut down after this time runs out. See the Description of RenderingSession.ps1 how to extend an already running session.
-
-azureStorageSettings contain values used by the Conversion.ps1 script. Fill it out if you want to upload a model to azure blob storage and convert it by using our model conversion service.
-
-- azureStorageSettings.azureSubscriptionId: Fill in your subscription ID, which contains the storage account you are using
-- azureStorageSettings.resourceGroup: Resource group, which contains the storage account you are using
-- azureStorageSettings.storageAccountName: Name of the storage account you are using
-- azureStorageSettings.blobInputContainerName: Input container inside the storage container - we will copy all files to the model conversion service, and run our model conversion tool
-- azureStorageSettings.blobOutputContainerName: output container inside the storage container - after the model conversion finished we will write the model back to the provided output container
-
-modelSettings is used to select which model you want to convert - it does not need to be filled out if you provide command-line parameters to the Conversion.ps1 script:
-
-- modelSettings.modelLocation: can be also provided to the Conversion.ps1 via the -ModelLocation parameter. Path to the local file on disc. for example: "C:\\\\models\\\\box.fbx". Make sure to properly escape the backslash in the path and use "\\\\"
-
-## Script RenderingSession.ps1
-
-Make sure you have filled out the accountSettings and renderingSessionSettings sections in arrconfig.json next to the RenderingSession.ps1 script.
-
-All commands can be executed in a PowerShell window:
-
-## Starting a Rendering Session
+### Create a rendering session
 
 Normal usage with a fully filled out arrconfig.json:
 
@@ -102,84 +103,69 @@ Normal usage with a fully filled out arrconfig.json:
 .\RenderingSession.ps1
 ```
 
-Will call the REST API to spin up a rendering VM with azure region, size, and lease time specified in arrconfig.json.
-On success, this will retrieve the sessionId.
-Then the script will poll the session properties using the sessionId REST API until the session is ready or an error occurred.
+The script will call the [session management REST API](../how-tos/session-rest-api.md) to spin up a rendering VM with the specified settings. On success, it will retrieve the *sessionId*. Then it will poll the session properties until the session is ready or an error occurred.
 
-Using an alternative config file:
+To use an **alternative config** file:
 
 ```ps
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-You can override individual settings from the config file like:
+You can **override individual settings** from the config file:
 
 ```ps
-.\RenderingSession.ps1 -Region <like westeurope or westus2> -VmSize <standard or premium> -MaxLeaseTime <hh:mm:ss>
+.\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-For example: this will override the renderingSessionSettings.vmSize setting in arrconfig.json
-
-```ps
-.\RenderingSession.ps1 -VmSize standard
-```
-
-or any combinations of these parameters.
-
-In order to only start a session without polling, you can use:
+To only **start a session without polling**, you can use:
 
 ```ps
 .\RenderingSession.ps1 -CreateSession
 ```
 
-This will retrieve a sessionID.
+The *sessionId* that the script retrieves must be passed to most other session commands.
 
-## Get session properties/status
+### Retrieve session properties
 
-Once you have a sessionId (from requesting a VM as described above) use:
-
-```ps
-.\RenderingSession.ps1 -GetSessionProperties -Id <sessionID>
-```
-
-You can enable polling by using:
+To get a session's properties, run:
 
 ```ps
-.\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> -Poll
+.\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-## Get current sessions
+Use `-Poll` to wait until the session is *ready* or an error occurred.
 
-To list the current sessions, use:
+### List active sessions
 
 ```ps
 .\RenderingSession.ps1 -GetSessions
 ```
 
-## Stop a session
+### Stop a session
 
 ```ps
 .\RenderingSession.ps1 -StopSession -Id <sessionID>
 ```
 
-## Change session properties
+### Change session properties
 
-At the moment, we only support changing the maxLeaseTime of a VM. The lease time will still be counted from the time when the VM was spun up initially.
+At the moment, we only support changing the maxLeaseTime of a session.
+
+> [!NOTE]
+> The lease time is always counted from the time when the session VM was initially created. So to extend the session lease by another hour, increase *maxLeaseTime* by one hour.
 
 ```ps
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## Converting an asset using Conversion.ps1
+## Script: Conversion.ps1
 
-Make sure you have filled out the accountSettings and azureStorageSettings sections in arrconfig.json next to the Conversion.ps1 script.
-Open a PowerShell in the Scripts folder and make sure you are logged into the Azure subscription under which your storage account exists
+This script is used to convert input models into the Azure Remote Rendering specific runtime format.
 
-```ps
-Connect-AzAccount -Subscription "<your azure subscription id>"
-```
+> [!IMPORTANT]
+> Make sure you have filled out the *accountSettings* and *azureStorageSettings* sections in arrconfig.json.
 
-Then you can use the script as follows using the values given in arrconfig.json
+Normal usage with a fully filled out arrconfig.json:
 
 ```ps
 .\Conversion.ps1
@@ -187,43 +173,49 @@ Then you can use the script as follows using the values given in arrconfig.json
 
 This will:
 
-- Take the local file from the modelSettings.modelLocation and upload it to the input blob container configured under azureStorageSettings of the config file.
-- Then it will generate a SAS URIs for the input container (so the service can retrieve your files)
-- And it will generate a SAS URIs for the output container (so the service can upload the finished model)
-- Call the model conversion REST API to kick off the model conversion. This will retrieve a model conversion ID.
-- Poll the Conversion Status REST API using the conversion ID from above until it succeeds or an error occurs
-- at the end it will output a SAS URI to the model in the output blob container, which can be used in a rendering session via the provided ARR API.
+1. Upload the local file from the `modelSettings.modelLocation` to the input blob container
+1. Generate a SAS URI for the input container
+1. Generate a SAS URI for the output container
+1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md)
+1. Poll the conversion status until the conversion succeeded or failed
+1. Output a SAS URI to the converted model in the output blob container
 
-You can point model conversion to an alternate config file by using:
+To use an **alternative config** file:
 
 ```ps
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-If you only want to start conversion a model without polling:
+To only **start model conversion without polling**, you can use:
 
 ```ps
-.\Conversion.ps1 -IngestAsset
+.\Conversion.ps1 -ConvertAsset
 ```
 
-This will return an ingestion ID.
-
-You can use this ID to get the conversion status with:
-
-```ps
-.\Conversion.ps1 -GetAssetStatus -Id <id> [-Poll]
-```
-
-Use -Poll to wait until conversion is done or an error occurred
-
-You can override individual parameters of the script:
+You can **override individual settings** from the config file:
 
 ```ps
 .\Conversion.ps1 -ModelLocation D:\tmp\arr\pyramid.fbx
 ```
 
-If you want to convert a model, which is already present in your input container:
+If you want to convert a model that is already uploaded to your input container, use the `**-ModelName**` option, instead of `-ModelLocation`. Pass the filename inside the input container as the argument:
 
 ```ps
-.\Conversion.ps1 -IngestAsset -ModelName <filename in input container, for example: box.fbx>
+.\Conversion.ps1 -ConvertAsset -ModelName "mymodel.fbx"
 ```
+
+The script will return a *conversionId*.
+
+### Retrieve conversion status
+
+```ps
+.\Conversion.ps1 -GetAssetStatus -Id <conversionId> [-Poll]
+```
+
+Use `-Poll` to wait until conversion is done or an error occurred.
+
+## Next steps
+
+* [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
+* [Quickstart: Convert a model for rendering](../quickstarts/convert-model.md)
+* [Model conversion](../how-tos/conversion/model-conversion.md)
