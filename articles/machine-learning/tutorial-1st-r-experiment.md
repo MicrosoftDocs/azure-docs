@@ -392,4 +392,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 * Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
-* Learn more from the examples in the other *vignettes* folders.
+* Learn more about Azure Machine Learning with R from the examples in the other *vignettes* folders.
