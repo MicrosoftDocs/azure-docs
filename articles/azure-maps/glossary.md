@@ -12,7 +12,7 @@ manager: cpendle
 
 # Glossary
 
-The following list is for common words used with the Azure Maps services.
+The following list describes common words used with the Azure Maps services.
 
 ## A
 
