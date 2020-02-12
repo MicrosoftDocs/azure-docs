@@ -120,7 +120,7 @@ The response object is a list containing the analysis information for each docum
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
 ```javascript
-const client = new TextAnalyticsClient(endpoint,  new TextAnalyticsApiKeyCredential(key));
+const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new TextAnalyticsApiKeyCredential(key));
 ```
 
 #### [Version 2.1](#tab/version-2)
