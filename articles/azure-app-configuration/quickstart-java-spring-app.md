@@ -60,11 +60,11 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <artifactId>spring-cloud-azure-feature-management</artifactId>
         <version>1.1.1</version>
     </dependency>
     ```
-    #### [Spring Cloud 1.2.x](#tab/javascript)
+    #### [Spring Cloud 1.2.x](#tab/other)
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>

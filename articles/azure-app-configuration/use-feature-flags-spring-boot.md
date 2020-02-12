@@ -59,7 +59,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 </dependency>
 ```
 
-#### [Spring Cloud 1.2.x](#tab/javascript)
+#### [Spring Cloud 1.2.x](#tab/other)
 
 ```xml
 <dependency>
