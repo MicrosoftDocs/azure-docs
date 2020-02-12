@@ -94,10 +94,6 @@
     items:
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
-- name: Reference
-  items:
-  - name: Technical reference
-    href: technical-reference.md
 - name: Resources
   items:
   - name: Azure feedback forum

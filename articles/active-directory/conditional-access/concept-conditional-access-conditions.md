@@ -33,6 +33,16 @@ For customers with access to [Identity Protection](../identity-protection/overvi
 
 The device platform is characterized by the operating system that runs on a device. Azure AD identifies the platform by using information provided by the device, such as user agent strings. Since user agent strings can be modified, this information is unverified. Device platform should be used in concert with Microsoft Intune device compliance policies or as part of a block statement. The default is to apply to all device platforms.
 
+Azure AD Conditional Access supports the following device platforms:
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS
+
+If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
+
 ## Locations
 
 When configuring location as a condition, organizations can choose to include or exclude locations. These named locations may include the public IPv4 network information, country or region, or even unknown areas that don't map to specific countries or regions. Only IP ranges can be marked as a trusted location.
@@ -57,6 +67,78 @@ Conditional Access policies by default apply to browser-based applications and a
 
 These conditions are commonly used when requiring a managed device, blocking legacy authentication, and blocking web applications but allowing mobile or desktop apps.
 
+### Supported browsers
+
+This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
+
+| OS | Browsers |
+| :-- | :-- |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 8 / 8.1 | Internet Explorer, Chrome |
+| Windows 7 | Internet Explorer, Chrome |
+| iOS | Microsoft Edge, Intune Managed Browser, Safari |
+| Android | Microsoft Edge, Intune Managed Browser, Chrome |
+| Windows Phone | Microsoft Edge, Internet Explorer |
+| Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows Server 2016 | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer |
+| Windows Server 2008 R2 | Internet Explorer |
+| macOS | Chrome, Safari |
+
+#### Why do I see a certificate prompt in the browser
+
+On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD.  When a user first signs in through the browser the user is prompted to select the certificate. The user must select this certificate before using the browser.
+
+#### Chrome support
+
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). This extension is required when a Conditional Access policy requires device specific details.
+
+To automatically deploy this extension to Chrome browsers, create the following registry key:
+
+|    |    |
+| --- | --- |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Name | 1 |
+| Type | REG_SZ (String) |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
+
+For Chrome support in **Windows 8.1 and 7**, create the following registry key:
+
+|    |    |
+| --- | --- |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Name | 1 |
+| Type | REG_SZ (String) |
+| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode.
+
+### Supported mobile applications and desktop clients
+
+Organizations can select **Mobile apps and desktop clients** as client app.
+
+This setting has an impact on access attempts made from the following mobile apps and desktop clients:
+
+| Client apps | Target Service | Platform |
+| --- | --- | --- |
+| Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
+| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online | Windows 10 |
+| MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service | Android and iOS |
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
+| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Office 2016 (Word, Excel, PowerPoint, OneNote only). | Office 365 SharePoint Online | macOS |
+| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
+| Office mobile apps | Office 365 SharePoint Online | Android, iOS |
+| Office Yammer app | Office 365 Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
+| Outlook 2016 (Office for macOS) | Office 365 Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
+| Outlook mobile app | Office 365 Exchange Online | Android, iOS |
+| Power BI app | Power BI service | Windows 10, Windows 8.1, Windows 7, Android, and iOS |
+| Skype for Business | Office 365 Exchange Online| Android, IOS |
+| Visual Studio Team Services app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
+
 ### Exchange ActiveSync clients
 
 - Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to become blocked.
@@ -69,6 +151,10 @@ For more information, see the following articles:
 
 - [Block legacy authentication with Conditional Access](block-legacy-authentication.md)
 - [Requiring approved client apps with Conditional Access](app-based-conditional-access.md)
+
+### Other clients
+
+By selecting **Other clients**, you can specify a condition that affects apps that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication.
 
 ## Device state (preview)
 
