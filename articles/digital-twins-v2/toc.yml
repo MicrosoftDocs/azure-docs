@@ -1,0 +1,62 @@
+- name: Azure Digital Twins
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Digital Twins
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Find available rooms
+    href: quickstart.md
+- name: Tutorials
+  items:
+  - name: Build an ADT Solution
+    items:
+      - name: Tutorial 1 
+        href: tutorial.md
+
+- name: Concepts
+  items:
+  - name: Conceptual 1
+    href: conceptual.md
+
+- name: How-to guides
+  items:
+  - name: How-to 1
+    href: how-to.md
+
+- name: Reference
+  items:
+
+- name: Resources
+  items:
+
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT solution accelerators
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: /azure/iot-central/iot-support-help
+  - name: Platform services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Maps
+      href: /azure/azure-maps
+    - name: Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge solutions
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 

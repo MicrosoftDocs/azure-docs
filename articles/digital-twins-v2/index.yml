@@ -1,0 +1,22 @@
+### YamlMime:Landing
+
+title: Azure Digital Twins Preview Documentation
+summary: Learn how to use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create a next generation IoT solution that models your physical environment.
+
+metadata:
+  title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
+  ms.service: digital-twins
+  ms.topic: landing-page
+  ms.collection: collection
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+
+landingContent:
+  - title: About Azure Digital Twins
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Digital Twins?
+            url: overview.md
