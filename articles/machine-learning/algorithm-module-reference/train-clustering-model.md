@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
 ---
 # Train Clustering Model

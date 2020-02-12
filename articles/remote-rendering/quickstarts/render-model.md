@@ -105,7 +105,7 @@ You only need to set the **AccountDomain**, **AccountId**, and **AccountKey**. L
 
 > [!IMPORTANT]
 > Azure Portal displays your account's domain only as *mixedreality.azure.com*. This is not sufficient for successfully connecting to ARR
-> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is **westus2** or **westeurope**.
+> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions](../reference/regions.md) that you already chose during account creation.
 
 These credentials will be saved to Unity's editor preferences.
 

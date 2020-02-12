@@ -103,7 +103,7 @@ The lifetime of a message from the host engine to the remote engine can be visua
 
 ## Notes on Unity
 
-Unity uses a special initialization function to bind to Unity's coordinate system which can be found in [Unity SDK concepts](../how-tos/unity/unity-concepts.md).
+Unity uses a special initialization function to bind to Unity's coordinate system which can be found in [SDK overview for Unity](../how-tos/unity/unity-concepts.md).
 
 ## Asynchronous operations and loading data
 

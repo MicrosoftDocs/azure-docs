@@ -1,5 +1,5 @@
 ---
-title: Overriding materials during model conversion
+title: Override materials during model conversion
 description: Explains the material overriding workflow at conversion time
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Overriding materials during model conversion
+# Override materials during model conversion
 
 When a model is converted for use in Azure Remote Rendering, in addition to the converted asset, a *materials file* is also produced.
 This file describes how the settings in the source model are used to define the **physically-based rendering** (**PBR**) materials used by the renderer.

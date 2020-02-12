@@ -19,7 +19,6 @@ You'll learn how to:
 > * Upload and convert a 3D model for use with Azure Remote Rendering
 > * Include the converted 3D model in an application for rendering
 
-
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
@@ -105,9 +104,10 @@ You should now have two blob storage containers:
 
 ## Run the conversion
 
-To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**. 
+To make it easier to run the model conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**.
 
 In particular, this script
+
 1. uploads a source model from local disk to input storage
 1. calls the conversion API
 1. retrieves a link to the converted model in the output storage
@@ -119,7 +119,7 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
     "accountSettings": {
         "arrAccountId": "8*******-****-****-****-*********d7e",
         "arrAccountKey": "R***************************************l04=",
-        "region": "westus2"
+        "region": "<your-region>"
     },
     "renderingSessionSettings": {
         "vmSize": "standard",
@@ -137,7 +137,7 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
     }
 }
 ```
-The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [previous quickstart](render-model.md).
+The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
 Inside the **azureStorageSettings** group, make sure to change **resourceGroup**, **storageAccountName**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
 Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
@@ -150,30 +150,29 @@ The next screen shows your subscription ID:
 
 ![Subscription ID](./media/azure-subscription-id.png)
 
-You can click on the row to get to a screen where the subscription ID can be easily copied to clipboard. 
+You can click on the row to get to a screen where the subscription ID can be easily copied to clipboard.
 
 Change **modelLocation** to point to the file on your disk that you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 > [!NOTE]
-> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md) supports handling external files as well. To upload files manually, refer to options in chapter [blob storage](../how-tos/conversion/blob-storage.md#uploading-an-input-model).
-
+> The example PowerShell script only allows handling one self contained file with the `modelLocation` property. However, if files are uploaded for example through Storage Explorer, [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md) supports handling external files as well. To upload files manually, refer to options in chapter [blob storage - upload an input model](../how-tos/conversion/blob-storage.md#upload-an-input-model).
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription:
 
-```powershell
-PS> Connect-AzAccount -Subscription "<your Azure subscription id>"
+```ps
+Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
 Change to the `arrClient\Scripts` directory and run the conversion script:
 
-```powershell
-PS> .\Conversion.ps1
+```ps
+.\Conversion.ps1
 ```
 
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
 
-The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [previous quickstart](render-model.md)).
+The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the Unity sample app (see the [Render a model with Unity quickstart](render-model.md)).
 
 ![Replace model in Unity](./media/replace-model-in-unity.png)
 

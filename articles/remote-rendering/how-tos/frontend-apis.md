@@ -13,7 +13,20 @@ ms.service: azure-remote-rendering
 
 # Azure Frontend APIs
 
-Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
+Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Clients need to set AccountKey, AuthenticationToken, or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS).
+
+> [!WARNING]
+>
+> Use of account keys is recommended for quick on-boarding, but during development/prototyping only. It is strongly recommended not to ship your application to production using an embedded account key in it, and to instead use the user-based or service-based Azure AD authentication approaches.
+> This is described in the [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) service.
+
+## Role-based access control
+
+To help control the level of access granted to applications, services or Azure AD users of your service, the following roles have been created for you to assign as needed against your Azure Remote Rendering accounts:
+
+* **Remote Rendering Administrator**: Provides user with conversion, manage session, rendering, and diagnostics capabilities for Azure Remote Rendering.
+* **Remote Rendering Client**: Provides user with manage session, rendering, and diagnostics capabilities for Azure Remote Rendering.
+
 
 ## AzureFrontendAccountInfo
 
@@ -42,13 +55,13 @@ The important fields are:
 
 ## Azure Frontend
 
-The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset conversion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
+The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality, which includes: asset conversion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, renewing, and decommissioning.
 
 Each opened/created ```AzureSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
 
 Deallocating a session will not stop the VM on Azure, `AzureSession.StopAsync` must be explicitly called.
 
-Once a session has been created and its state has been marked as ready, it can be connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
+Once a session has been created and its state has been marked as ready, it can connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
 
 ### Threading
 
@@ -56,7 +69,7 @@ All AzureSession and AzureFrontend async calls are completed in a background thr
 
 ### Conversion APIs
 
-See [the model conversion REST API](conversion/conversion-rest-api.md) for more details about the conversion service.
+For more information about the conversion service, see [the model conversion REST API](conversion/conversion-rest-api.md).
 
 #### Start asset conversion
 

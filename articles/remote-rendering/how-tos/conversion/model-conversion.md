@@ -40,6 +40,6 @@ For the various conversion options, see [this chapter](configure-model-conversio
 
 ## Next steps
 
-- [Using Azure Blob Storage for model conversion](blob-storage.md)
+- [Use Azure Blob Storage for model conversion](blob-storage.md)
 - [The model conversion REST API](conversion-rest-api.md)
 - [Configuring the model conversion](configure-model-conversion.md)

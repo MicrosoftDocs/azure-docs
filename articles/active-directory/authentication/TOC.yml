@@ -9,8 +9,8 @@
   items:
   - name: Enable self-service password reset
     href: tutorial-enable-sspr.md
-  - name: Enable MFA for Applications
-    href: tutorial-mfa-applications.md
+  - name: Enable Azure Multi-Factor Authentication
+    href: tutorial-enable-azure-mfa.md
   - name: Enable SSPR on-premises integration
     href: tutorial-enable-writeback.md
   - name: Integrate Azure Identity Protection

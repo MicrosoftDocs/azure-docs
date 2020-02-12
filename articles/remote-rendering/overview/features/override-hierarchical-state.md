@@ -1,13 +1,13 @@
 ---
-title: Overriding hierarchical states
-description: Explains the concept of hierarchical state overrides.
+title: Hierarchical state override
+description: Explains the concept of hierarchical state override components.
 author: FlorianBorn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ---
 
-# Overriding hierarchical states
+# Hierarchical state override
 
 In many cases, it is necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding subgraphs or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
 

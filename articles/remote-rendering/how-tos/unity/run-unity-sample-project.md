@@ -1,5 +1,5 @@
 ---
-title: How to set up and run the Unity sample project
+title: Set up and run the Unity sample project
 description: Describes the steps needed to configure the Unity sample project
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# How to set up and run the Unity sample project
+# Set up and run the Unity sample project
 
 In the Unity folder of the [AzureRemoteRenderingClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository is a sample project called *AzureRemoteRenderingSample*.
 

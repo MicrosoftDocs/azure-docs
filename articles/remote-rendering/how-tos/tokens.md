@@ -1,5 +1,5 @@
 ---
-title: Service access tokens
+title: Get service access tokens
 description: Describes how to create tokens for accessing the ARR REST APIs
 author: FlorianBorn71
 manager: jlyons
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Service access tokens
+# Get service access tokens
 
 Access to the ARR REST APIs is only granted for authorized users. To prove your authorization, you must send an *access token* along with REST requests. These tokens are issued by the *Secure Token Service* (STS) in exchange for an account key. Tokens have limited lifetime and can be issued to users without giving them full access to the service.
 
@@ -51,7 +51,7 @@ Replace *accountId* and *accountKey* with your respective data.
 
 The PowerShell code below demonstrates how to send the necessary REST request to the STS. It then prints the token to the PowerShell prompt.
 
-```powershell
+```ps
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
 
