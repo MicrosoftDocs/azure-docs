@@ -35,7 +35,7 @@ This quickstart requires:
 * An Azure subscription key for the Speech service. [Get one for free](get-started.md).
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
    > [!NOTE]
-   > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
+   > This quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
 
 Conversation Transcription is currently only available for "en-US" and "zh-CN", in the “centralus” and “eastasia” regions. You must have a speech key in one of those regions to use Conversation Transcription.
 
