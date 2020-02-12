@@ -1,33 +1,33 @@
 ---
-title: Analyze Azure costs with the Power BI template app
-description: This article explains how to install and use the Azure Cost Management Power BI Template app.
+title: Analyze Azure costs with the Power BI App
+description: This article explains how to install and use the Azure Cost Management Power BI App.
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ---
 
-# Analyze cost with the Azure Cost Management Power BI template app for Enterprise Agreements (EA)
+# Analyze cost with the Azure Cost Management Power BI App for Enterprise Agreements (EA)
 
-This article explains how to install and use the Azure Cost Management Power BI Template app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
+This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You download the template app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+You download the app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
 
-The Azure Cost Management template app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 ## Prerequisites
 
-- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the Power BI template app
+- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the app
 - To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account
 
 ## Installation steps
 
 To install the app:
 
-1. Open [Azure Cost Management Power BI Template app](https://aka.ms/costmgmt/ACMApp).
+1. Open [Azure Cost Management Power BI App](https://aka.ms/costmgmt/ACMApp).
 2. On the Power BI AppSource page, select **Get it now**.
 3. Select **Continue** to agree to the terms of use and privacy policy.
 4. In the **Install this Power BI app** box, select **Install**.
@@ -49,9 +49,9 @@ To install the app:
 
 After the data refresh is complete, select the Azure Cost Management App to view the pre-created reports.
 
-## Reports available with the template app
+## Reports available with the app
 
-The following reports are available in the Azure Cost Management Power BI template app.
+The following reports are available in the app.
 
 **Getting Started** - Provides useful links to documentation and links to provide feedback.
 
@@ -122,11 +122,11 @@ For details about how to use the report, see the [VM RI Coverage (shared recomme
 
 ## Data reference
 
-The following information summarizes the data available through the Power BI template app. There's also links to APIs that give in-depth details for data fields and values.
+The following information summarizes the data available through the app. There's also links to APIs that give in-depth details for data fields and values.
 
 | **Table reference** | **Description** |
 | --- | --- |
-| **AutoFitComboMeter** | Data included in the template app to normalize the RI recommendation and usage to the smallest size in the instance family group. |
+| **AutoFitComboMeter** | Data included in the app to normalize the RI recommendation and usage to the smallest size in the instance family group. |
 | [**Balance summary**](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary#response) | Summary of the balance for Enterprise Agreements. |
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budget details to view actual costs or usage against existing budget targets. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Applicable meter rates for the provided billing profile or EA enrollment. |
