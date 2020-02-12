@@ -137,7 +137,6 @@
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
     items:
-<<<<<<< HEAD
     - name: NAT
       items:
       - name: Create NAT gateway - Portal
@@ -153,7 +152,6 @@
       - name: Create and validate NAT gateway - CLI
         href: tutorial-create-validate-nat-gateway-cli.md
     - name: IPv6 for VNet
-=======
     - name: Manage NICs
       href: virtual-network-network-interface.md
     - name: Manage virtual network
@@ -163,7 +161,6 @@
     - name: Manage subnet delegation
       href: manage-subnet-delegation.md
     - name: Create VNet peering
->>>>>>> f4a43bbdf59f39031554181b7002b99c1199fea4
       items:
       - name: Same deployment model - same subscription
         items:
