@@ -4,7 +4,7 @@ description: Learn how to return HTTP responses in Azure Functions.
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 01/30/2020
+ms.date: 02/21/2020
 ms.author: cshoe
 ---
 
@@ -26,7 +26,7 @@ The following table explains the binding configuration properties that you set i
 
 To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `IActionResult` or `Task<IActionResult>`. In C#, a return value attribute isn't required.
 
-For example responses, see the [trigger example](#trigger---example).
+For example responses, see the [trigger example](./functions-bindings-http-webhook-trigger.md#example).
 
 ## host.json settings
 
