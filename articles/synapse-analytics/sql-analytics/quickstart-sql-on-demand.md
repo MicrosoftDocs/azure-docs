@@ -13,21 +13,16 @@ ms.reviewer: jrasnick
 
 # Quickstart: Using SQL on-demand
 
-In this Quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
-
-The following file types are supported:
-
-- JSON
-- CSV
-- Apache Parquet
+Synapse SQL Analytics On-demand is a serverless query service that eanbles you to run the SQL queries on your files placed in azure Storage. In this Quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
+The following file types are supported: JSON, CSV, Apache Parquet
 
 ## Prerequisites
 
 Choose a SQL client of your choice to issue queries:
 
-- Azure Synapse Studio
-- Azure Data Studio
-- SQL Server Management Studio
+- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you cna use to browse files in storage and create SQL query.
+- [Azure Data Studio](get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
+- [SQL Server Management Studio](get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 
 Parameters for this Quickstart:
 
@@ -160,6 +155,9 @@ WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```
 
+You can specify schema at query compilation time.
+For more examples, see how to [query CSV file](query-single-csv-file.md).
+
 ## Querying parquet files without specifying schema
 
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
@@ -175,6 +173,8 @@ FROM OPENROWSET
     , FORMAT='PARQUET'
   ) AS nyc
 ```
+
+Find more information about [querying parquet files](query-parquet-files.md)].
 
 ## Querying JSON files
 
