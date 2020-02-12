@@ -12,7 +12,7 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Designing tables using SQL Analytics
+# Design tables using SQL Analytics
 
 This document includes key concepts for designing tables with SQL pool and SQL on-demand.  
 
@@ -56,7 +56,7 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 
 ## Schema names
 
-Schemas are a good way to group together objects that are used in a similar fashion. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
+Schemas are a good way to group together objects that are used in a similar fashion. The following code creates a [user-defined schema](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15) called wwi.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -64,7 +64,7 @@ CREATE SCHEMA wwi;
 
 ## Table names
 
-If you're migrating multiple databases from an on-prem solution to SQL pool, the best practice is to migrate all of the fact, dimension, and integration tables to one SQL pool schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. 
+If you're migrating multiple databases from an on-prem solution to SQL pool, the best practice is to migrate all of the fact, dimension, and integration tables to one SQL pool schema. For example, you could store all the tables in the [WideWorldImportersDW](https://docs.microsoft.com/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15) sample data warehouse within one schema called wwi. 
 
 To show the organization of the tables in SQL pool, you could use fact, dim, and int as prefixes to the table names. The table below shows some of the schema and table names for WideWorldImportersDW.  
 
@@ -104,7 +104,7 @@ For SQL on-demand, you can use [CETAS](development-tables-cetas.md) to save the 
 
 ## Data types
 
-SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](development-tables-data-types.md).
+SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7#DataTypes) in the CREATE TABLE statement. For more information on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
 
@@ -185,7 +185,7 @@ By default, SQL pool stores a table as a clustered columnstore index. This form 
 > [!TIP]
 > A heap table can be especially useful for loading transient data, such as a staging table, which is transformed into a final table.
 
-For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-load-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-what-s-new?view=sql-server-ver15). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-load-columnstore-compression.md).
 
 ## Statistics
 
@@ -203,10 +203,10 @@ You can create a table as a new empty table. You can also create and populate a 
 
 | T-SQL Statement | Description |
 |:----------------|:------------|
-| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Creates an empty table by defining all the table columns and options. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Creates an external table. The definition of the table is stored in SQL Data Warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
-| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
-| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
+| [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7) | Creates an empty table by defining all the table columns and options. |
+| [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15) | Creates an external table. The definition of the table is stored in SQL Data Warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
+| [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
+| [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
 
 ## Aligning source data with the data warehouse
 
@@ -220,19 +220,19 @@ If data is coming from multiple data stores, you can port the data into the data
 ## Unsupported table features
 SQL pool supports many, but not all, of the table features offered by other databases.  The following list shows some of the table features that aren't supported in SQL pool.
 
-- Foreign key, check [Table Constraints](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
-- [Computed Columns](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
-- [Indexed Views](/sql/relational-databases/views/create-indexed-views)
-- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql)
-- [Sparse Columns](/sql/relational-databases/tables/use-sparse-columns)
+- Foreign key, check [Table Constraints](https://docs.microsoft.com/sql/t-sql/statements/alter-table-table-constraint-transact-sql?view=sql-server-ver15)
+- [Computed Columns](https://docs.microsoft.com/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?view=sql-server-ver15)
+- [Indexed Views](https://docs.microsoft.com/sql/relational-databases/views/create-indexed-views?view=sql-server-ver15)
+- [Sequence](https://docs.microsoft.com/sql/t-sql/statements/create-sequence-transact-sql?view=sql-server-ver15)
+- [Sparse Columns](https://docs.microsoft.com/sql/relational-databases/tables/use-sparse-columns?view=sql-server-ver15)
 - Surrogate Keys, implement with [Identity](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md)
-- [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql)
-- [Triggers](/sql/t-sql/statements/create-trigger-transact-sql)
-- [Unique Indexes](/sql/t-sql/statements/create-index-transact-sql)
-- [User-Defined Types](/sql/relational-databases/native-client/features/using-user-defined-types)
+- [Synonyms](https://docs.microsoft.com/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver15)
+- [Triggers](https://docs.microsoft.com/sql/t-sql/statements/create-trigger-transact-sql?view=sql-server-ver15)
+- [Unique Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql?view=sql-server-ver15)
+- [User-Defined Types](https://docs.microsoft.com/sql/relational-databases/native-client/features/using-user-defined-types?view=sql-server-ver15)
 
 ## Table size queries
-One simple way to identify space and rows consumed by a table in each of the 60 distributions is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
+One simple way to identify space and rows consumed by a table in each of the 60 distributions is to use [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?view=aps-pdw-2016-au7).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');

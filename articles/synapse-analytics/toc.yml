@@ -106,8 +106,8 @@
         items:
         - name: Apache Spark Notebooks
           href: ./spark/apache-spark-development-using-notebooks.md
-        # - name: SQL script
-        #   href: article-template.md
+        - name: SQL script
+          href: ./sql-analytics/author-sql-script.md
         - name: Mapping Data Flow
           href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule

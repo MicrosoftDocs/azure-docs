@@ -25,7 +25,7 @@ Currently supported files are:
 The tools you need to issue queries:
 
 - SQL client of your choice:
-    - Synapse Studio
+    - Azure Synapse Studio
     - Azure Data Studio
     - SQL Server Management Studio
 

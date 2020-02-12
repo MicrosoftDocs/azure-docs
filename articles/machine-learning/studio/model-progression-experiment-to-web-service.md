@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ---
