@@ -17,7 +17,9 @@ ms.custom: seodec18
 
 The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-Make sure that you use the endpoint that matches the region for your subscription.
+The Speech portal to perform custom configurations to your speech experience for all the regions is available here: https://speech.microsoft.com
+
+For invocations of your speech service, make sure the call matches the region for your subscription.
 
 ## Speech SDK
 
@@ -26,28 +28,33 @@ In the [Speech SDK](speech-sdk.md), regions are specified as a string
 
 ### Speech-to-text, text-to-speech, and translation
 
-The Speech SDK is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
+The speech customization portal is availabe here:  https://speech.microsoft.com
 
-| Region           | Speech SDK Parameter | Speech Customization Portal    |
-| ---------------- | -------------------- | ------------------------------ |
-| West US          | `westus`             | https://westus.cris.ai         |
-| West US 2        | `westus2`            | https://westus2.cris.ai        |
-| East US          | `eastus`             | https://eastus.cris.ai         |
-| East US 2        | `eastus2`            | https://eastus2.cris.ai        |
-| Central US       | `centralus`          | https://centralus.cris.ai      |
-| North Central US | `northcentralus`     | https://northcentralus.cris.ai |
-| South Central US | `southcentralus`     | https://southcentralus.cris.ai |
-| Central India    | `centralindia`       | https://centralindia.cris.ai   |
-| East Asia        | `eastasia`           | https://eastasia.cris.ai       |
-| Southeast Asia   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Japan East       | `japaneast`          | https://japaneast.cris.ai      |
-| Korea Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Australia East   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Canada Central   | `canadacentral`      | https://canadacentral.cris.ai  |
-| North Europe     | `northeurope`        | https://northeurope.cris.ai    |
-| West Europe      | `westeurope`         | https://westeurope.cris.ai     |
-| UK South         | `uksouth`            | https://uksouth.cris.ai        |
-| France Central   | `francecentral`      | https://francecentral.cris.ai  |
+The Speech The Speech SDK is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
+
+| Geography | Region | Speech SDK Parameter |
+| ----- | ----- | ----- |
+| Americas | Central US | `centralus` |
+| Americas | East US | `eastus` |
+| Americas | East US 2 | `eastus2` |
+| Americas | North Central US | `northcentralus` |
+| Americas | South Central US | `southcentralus` |
+| Americas | West Central US | `westcentralus` |
+| Americas | West US | `westus` |
+| Americas | West US 2 | `westus2` |
+| Americas | Canada Central | `canadacentral` |
+| Americas | Brazil South | 'brazilsouth' |
+| Asia Pacific | East Asia | `eastasia` |
+| Asia Pacific | Southeast Asia | `southeastasia` |
+| Asia Pacific | Australia East | `australiaeast` |
+| Asia Pacific | Central India | `centralindia` |
+| Asia Pacific | Japan East | `japaneast` |
+| Asia Pacific | Japan West | `japanwest` |
+| Asia Pacific | Korea Central | `koreacentral` |
+| Europe | North Europe | `northeurope` |
+| Europe | West Europe | `westeurope` |
+| Europe | France Central | `francecentral` |
+| Europe | UK South | `uksouth` |
 
 ### Intent recognition
 

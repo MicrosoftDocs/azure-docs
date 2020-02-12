@@ -27,9 +27,13 @@ When using the `Authorization: Bearer` header, you're required to make a request
 
 To get an access token, you'll need to make a request to the `issueToken` endpoint using the `Ocp-Apim-Subscription-Key` and your subscription key.
 
-These regions and endpoints are supported:
+The `issueToken` endpoint has this format:
 
-[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
+```https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken```
+
+Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 Use these samples to create your access token request.
 
