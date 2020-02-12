@@ -17,7 +17,7 @@ ms.author: wolfma
 | Americas | West US | `westus` |
 | Americas | West US 2 | `westus2` |
 | Americas | Canada Central | `canadacentral` |
-| Americas | Brazil South | 'brazilsouth' |
+| Americas | Brazil South | `brazilsouth` |
 | Asia Pacific | East Asia | `eastasia` |
 | Asia Pacific | Southeast Asia | `southeastasia` |
 | Asia Pacific | Australia East | `australiaeast` |

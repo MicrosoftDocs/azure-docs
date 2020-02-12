@@ -35,6 +35,9 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
+[!NOTE]
+> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+
 ## Query parameters
 
 These parameters may be included in the query string of the REST request.
