@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring
@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 ## Prerequisites
 
 * If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [Part 1 of the setup tutorial](tutorial-1st-experiment-sdk-setup.md).
-* When you finish the setup tutorial, use the same notebook server to open the *tutorials/tutorial-pipeline-batch-scoring-classification.ipynb* notebook.
+* When you finish the setup tutorial, use the same notebook server to open the *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb* notebook.
 
 If you want to run the setup tutorial in your own [local environment](how-to-configure-environment.md#local), you can access the tutorial on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` to get the required packages.
 
@@ -134,7 +134,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Machine learning pipelines can't be run locally, so you run them on cloud resources or *remote compute targets*. A remote compute target is a reusable virtual compute environment where you run experiments and machine learning workflows. 
 
-Run the following code to create a GPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target, and then attach it to your workspace. For more information about compute targets, see the [conceptual article](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
+Run the following code to create a GPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target, and then attach it to your workspace. For more information about compute targets, see the [conceptual article](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
 
 
 ```python

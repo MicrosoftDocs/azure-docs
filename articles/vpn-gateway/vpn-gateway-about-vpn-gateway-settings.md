@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---
@@ -24,7 +24,7 @@ The values in this article apply VPN gateways (virtual network gateways that use
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="gwtype"></a>Gateway types
 

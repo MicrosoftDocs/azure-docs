@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Import Data module
@@ -22,7 +22,7 @@ Use this module to load data into a machine learning pipeline from existing clou
 >  After you register a dataset, you can find it in the **Datasets** -> **My Datasets** category in designer interface. This module is reserved for Studio(classic) users to for a familiar experience. 
 >
 
-First, choose the source you are reading from, and finish the additional settings. The **Import Data** module support read data from following sources:
+The **Import Data** module support read data from following sources:
 
 - URL via HTTP
 - Azure cloud storages through [**Datastores**](../how-to-access-data.md))
@@ -74,7 +74,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
 When import completes, click the output dataset and select **Visualize** to see if the data was imported successfully.
 
-If you want to save the data for reuse, rather than importing a new set of data each time the pipeline is run, right-click the output and select **Save as Dataset**. Choose a name for the dataset. The saved dataset preserves the data at the time of saving, and data is not updated when the pipeline is rerun, even if the dataset in the pipeline changes. This can be handy for taking snapshots of data.
+If you want to save the data for reuse, rather than importing a new set of data each time the pipeline is run, select the **Register dataset** icon under the **Outputs** tab in the right panel of the module. Choose a name for the dataset. The saved dataset preserves the data at the time of saving, the dataset is not updated when the pipeline is rerun, even if the dataset in the pipeline changes. This can be useful for taking snapshots of data.
 
 After importing the data, it might need some additional preparations for modeling and analysis:
 

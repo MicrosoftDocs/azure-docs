@@ -1,18 +1,9 @@
 ---
-title: Microsoft Azure StorSimple Data Manager UI | Microsoft Docs
+title: Microsoft Azure StorSimple Data Manager UI
 description: Describes how to use StorSimple Data Manager service UI
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ---

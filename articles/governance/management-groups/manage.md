@@ -319,7 +319,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## Audit management groups using activity logs
 
-Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
+Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
 ![Activity Logs with management groups](media/al-mg.png)
 

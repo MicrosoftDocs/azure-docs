@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -117,6 +117,17 @@ The following table shows examples of constants for each of the data types suppo
 | `Edm.Int32` | `123`, `-456` |
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
+
+### Escaping special characters in string constants
+
+String constants in OData are delimited by single quotes. If you need to construct a query with a string constant that might itself contain single quotes, you can escape the embedded quotes by doubling them.
+
+For example, a phrase with an unformatted apostrophe like "Alice's car" would be represented in OData as the string constant `'Alice''s car'`.
+
+> [!IMPORTANT]
+> When constructing filters programmatically, it's important to remember to escape string constants that come from user input. This is to mitigate the possibility of [injection attacks](https://wikipedia.org/wiki/SQL_injection), especially when using filters to implement [security trimming](search-security-trimming-for-azure-search.md).
+
+### Constants syntax
 
 The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for most of the constants shown in the above table. The grammar for geo-spatial types can be found in [OData geo-spatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 

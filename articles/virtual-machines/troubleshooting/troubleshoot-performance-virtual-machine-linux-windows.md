@@ -209,11 +209,11 @@ With new disk offerings under Standard storage, the IOPS and Throughput limits c
 
 #### References
 
-* [Scalability targets for virtual machine disks](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Scalability and performance targets for premium page blob storage accounts](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 The bandwidth of the storage account is measured by the Storage Account Metrics: TotalIngress and TotalEgress. You have different thresholds for bandwidth depending on type of redundancy and regions.
 
-* [Scalability targets for blobs, queues, tables, and files](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Scalability and performance targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
 
 Check the TotalIngress and TotalEgress against the Ingress and Egress limits for the storage account redundancy type and region.
 

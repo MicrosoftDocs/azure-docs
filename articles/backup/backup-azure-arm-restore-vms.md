@@ -132,7 +132,9 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
 As one of the [restore options](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region.
 
-To see if it's enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+To onboard to the feature during the preview, please read the [Before You Begin section](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
 
 ### View backup items in secondary region
 
@@ -160,6 +162,9 @@ The secondary region restore user experience will be similar to the primary regi
 - To restore and create a VM, refer to [Create a VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
 - To restore as a disk, refer to [Restore disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
 
+>[!NOTE]
+>After the restore is triggered and in the data transfer phase, the restore job cannot be cancelled.
+
 ### Monitoring secondary region restore jobs
 
 1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
@@ -179,7 +184,7 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Restore multiple domain controller VMs in single domain** | If other domain controllers in the same domain can be reached over the network, the domain controller can be restored like any VM. If it's the last remaining domain controller in the domain, or a recovery in an isolated network is performed, use a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restore multiple domains in one forest** | We recommend a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Bare-metal restore** | The major difference between Azure VMs and on-premises hypervisors is that there's no VM console available in Azure. A console is required for certain scenarios, such as recovering by using a bare-metal recovery (BMR)-type backup. However, VM restore from the vault is a full replacement for BMR.
-**Restore VMs with special network configurations** | Special network configurations include VMs using internal or external load balancing, using multiple NICS, or multiple reserved IP addresses. You restore these VMs by using the [restore disk option](#restore-disks). This option makes a copy of the VHDs into the specified storage account, and you can then create a VM with an [internal](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) or [external](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) load balancer, [multiple NICS](../virtual-machines/windows/multiple-nics.md), or [multiple reserved IP addresses](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in accordance with your configuration.
+**Restore VMs with special network configurations** | Special network configurations include VMs using internal or external load balancing, using multiple NICS, or multiple reserved IP addresses. You restore these VMs by using the [restore disk option](#restore-disks). This option makes a copy of the VHDs into the specified storage account, and you can then create a VM with an [internal](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) or [external](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) load balancer, [multiple NICS](../virtual-machines/windows/multiple-nics.md), or [multiple reserved IP addresses](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in accordance with your configuration.
 **Network Security Group (NSG) on NIC/Subnet** | Azure VM backup supports Backup and Restore of NSG information at vnet, subnet, and NIC level.
 **Zone Pinned VMs** | Azure Backup supports backup and restore of zoned pinned VMs. [Learn more](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
@@ -206,7 +211,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 There are a number of things to note after restoring a VM:
 
 - Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions.
-- If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
+- If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from the disk using the provided template or PowerShell.
 - If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons the password is blocked after the restore. Use the VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/reset-password.md). We recommend using SSH keys on these distributions, so you don't need to reset the password after the restore.
 - If you are unable to access VM once restored due to VM having broken relationship with domain controller, then follow the steps below to bring up the VM:

@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 01/08/2020
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance offline using DMS
@@ -68,7 +68,7 @@ To complete this tutorial, you need to:
 
 - Create a network share that Azure Database Migration Service can use to back up the source database.
 - Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
-- Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure storage container for restore operation.
+- Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
 - Create a blob container and retrieve its SAS URI by using the steps in the article [Manage Azure Blob Storage resources with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), be sure to select all permissions (Read, Write, Delete, List) on the policy window while creating the SAS URI. This detail provides Azure Database Migration Service with access to your storage account container for uploading the backup files used for migrating databases to Azure SQL Database managed instance.
 
 ## Register the Microsoft.DataMigration resource provider

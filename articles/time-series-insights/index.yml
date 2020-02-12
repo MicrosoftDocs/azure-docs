@@ -64,7 +64,7 @@ landingContent:
             url: time-series-insights-update-how-to-manage.md
           - text: Grant data access
             url: time-series-insights-data-access.md
-          - text: Shape JSON for queries
+          - text: Shape JSON for ingress and queries
             url: time-series-insights-update-how-to-shape-events.md
 
   - title: API Reference

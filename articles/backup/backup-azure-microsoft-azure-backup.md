@@ -26,7 +26,7 @@ This article explains how to prepare your environment to back up workloads using
 MABS deployed in an Azure VM can back up VMs in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation, see [DPM as an Azure virtual machine](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/management/deployment-models.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 >
 >
 
@@ -61,6 +61,8 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 > * A computer that is a System Center Operations Manager management server
 > * A computer on which Exchange Server is running
 > * A computer that is a node of a cluster
+>
+> Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
 
 Always join Azure Backup Server to a domain. If you plan to move the server to a different domain, install Azure Backup Server first, then join the server to the new domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 

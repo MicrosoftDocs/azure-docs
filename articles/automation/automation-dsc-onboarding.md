@@ -32,8 +32,7 @@ Azure Automation State Configuration can be used to manage a variety of machines
 
 - Azure virtual machines
 - Azure virtual machines (classic)
-- Amazon Web Services (AWS) EC2 instances
-- Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
+- Physical/virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
 - Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
 In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation
@@ -99,13 +98,7 @@ Examples are provided in
 To find the registration key and registration URL to use as parameters in the template,
 see the following [**Secure registration**](#secure-registration) section.
 
-## Amazon Web Services (AWS) virtual machines
-
-You can easily onboard Amazon Web Services virtual machines for configuration management by Azure
-Automation State Configuration using the AWS DSC Toolkit. You can learn more about the toolkit
-[here](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
-
-## Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
+## Physical/virtual Windows machines on-premises, or in a cloud other than Azure (including AWS EC2 instances)
 
 Windows servers running on-premises or in other cloud environments
 can also be onboarded to Azure Automation State Configuration, as long as they have
@@ -358,10 +351,10 @@ previous keys.
 After registering a machine as a DSC node in Azure Automation State Configuration, there are a
 number of reasons why you may need to re-register that node in the future:
 
-- For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to re-register the nodes after a year's time. Before re-registering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not re-registered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' re-registration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
+- For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to re-register the nodes after a year's time. Before re-registering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not re-registered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Re-registration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
 - To change any [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through re-registration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
 
-re-registration can be performed in the same way you registered the node initially, using any of the
+Re-registration can be performed in the same way you registered the node initially, using any of the
 onboarding methods described in this document. You do not need to unregister a node from Azure
 Automation State Configuration before re-registering it.
 

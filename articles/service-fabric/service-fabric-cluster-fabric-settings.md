@@ -84,6 +84,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |TargetReplicaSetSize |Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ClusterManager. |
 |UpgradeHealthCheckInterval |Time in seconds, default is 60 |Dynamic|The frequency of health status checks during a monitored application upgrades |
 |UpgradeStatusPollInterval |Time in seconds, default is 60 |Dynamic|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
+|CompleteClientRequest | Bool, default is false |Dynamic| Complete client request when accepted by CM. |
 
 ## Common
 
@@ -550,7 +551,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PlacementSearchTimeout | Time in seconds, default is 0.5 |Dynamic| Specify timespan in seconds. When placing services; search for at most this long before returning a result. |
 |PLBRefreshGap | Time in seconds, default is 1 |Dynamic| Specify timespan in seconds. Defines the minimum amount of time that must pass before PLB refreshes state again. |
 |PreferredLocationConstraintPriority | Int, default is 2| Dynamic|Determines the priority of preferred location constraint: 0: Hard; 1: Soft; 2: Optimization; negative: Ignore |
-|PreferUpgradedUDs|bool,default is TRUE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs.|
+|PreferUpgradedUDs|bool,default is FALSE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs. Starting with SF 7.0, the default value for this parameter is changed from TRUE to FALSE.|
 |PreventTransientOvercommit | Bool, default is false | Dynamic|Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kinds of overcommits and on-demand defrag (aka placementWithMove) will be disabled. |
 |ScaleoutCountConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of scaleout count constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |SwapPrimaryThrottlingAssociatedMetric | string, default is ""|Static| The associated metric name for this throttling. |
@@ -563,6 +564,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
+|NodeLoadsOperationalTracingEnabled | Bool, default is true |Dynamic|Config that enables Node Load operational structural trace in the event store. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, default is Common::TimeSpan::FromSeconds(20) | Dynamic|Specify timespan in seconds. The interval with which to trace node loads to event store for each service domain. |
 
 ## ReconfigurationAgent
 
@@ -823,7 +826,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
-|ContainerNetworkSetup|bool, default is FALSE| Static |Whether to set up a container network.|
+|ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
 |FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
 |FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|

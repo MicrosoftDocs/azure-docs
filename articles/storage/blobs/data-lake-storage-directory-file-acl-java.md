@@ -17,7 +17,7 @@ This article shows you how to use Java to create and manage directories, files, 
 > [!IMPORTANT]
 > The Java library that is featured in this article is currently in public preview.
 
-[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## Prerequisites
 
@@ -153,6 +153,9 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 
 This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
 
+> [!NOTE]
+> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
 
@@ -213,6 +216,9 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 
 This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
 
+> [!NOTE]
+> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
@@ -248,8 +254,6 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
 First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file. 
 
-Make sure to complete the download by calling the **DataLakeFileClient.flush** method.
-
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     throws FileNotFoundException, java.io.IOException{
@@ -267,9 +271,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     fileClient.read(targetStream);
 
     targetStream.close();
-
-    fileClient.flush(file.length());
-        
+      
 }
 
 ```

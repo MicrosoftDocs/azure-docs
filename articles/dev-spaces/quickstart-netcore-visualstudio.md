@@ -128,4 +128,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
+  - name: 10 - Manage VMs
     href: tutorial-govern-resources.md
     displayName: scope policy RBAC lock tag
   - name: 11 - Track and update VMs
@@ -184,7 +184,7 @@
       items:
       - name: GPU optimized
         href: sizes-gpu.md
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: n-series-amd-driver-setup.md      
@@ -232,6 +232,8 @@
       href: disks-types.md
     - name: Encryption
       href: disk-encryption.md
+    - name: Disk Storage reservations
+      href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Designing for high performance
       href: premium-storage-performance.md
     - name: Disk bursting
@@ -351,6 +353,8 @@
       href: key-vault-setup.md
   - name: Protect VMs
     items:
+    - name: Disaster recovery
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Back up VMs
       href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
@@ -551,6 +555,8 @@
       href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
     - name: Create an incremental snapshot
       href: disks-incremental-snapshots.md
     - name: Back up unmanaged disks
@@ -575,8 +581,6 @@
           href: disks-benchmarks.md
     - name: Find unattached disks
       href: find-unattached-disks.md
-    - name: Use File storage
-      href: ../../storage/files/storage-files-quick-create-use-windows.md
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking

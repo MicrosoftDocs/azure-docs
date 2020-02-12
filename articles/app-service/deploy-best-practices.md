@@ -62,3 +62,12 @@ Always use local cache in conjunction with [deployment slots](deploy-staging-slo
 ### High CPU or Memory
 
 If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine may have trouble processing your deployment. When this happens, temporarily scale up your instance count to perform the deployment. Once the deployment has finished, you can return the instance count to its previous value.
+
+For more information on best practices, visit [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to find out actionable best practices specific to your resource.
+
+- Navigate to your Web App in the [Azure portal](https://portal.azure.com).
+- Click on **Diagnose and solve problems** in the left navigation, which opens App Service Diagnostics.
+- Choose **Best Practices** homepage tile.
+- Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
+
+You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

@@ -10,13 +10,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
 
 ---
 # Enable security audits for Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource. You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
+Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource.
+
+You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
 > [!IMPORTANT]
 > Azure AD DS security audits are only available for Azure Resource Manager-based instances. For information on how to migrate, see [Migrate Azure AD DS from the Classic virtual network model to Resource Manager][migrate-azure-adds].
@@ -57,25 +59,25 @@ The following audit event categories are available:
 
 ## Security audit destinations
 
-You can use any combination of Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. You may use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short-term.
+You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. These destinations can be combined. For example, you could use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short-term.
 
 The following table outlines scenarios for each destination resource type.
 
 > [!IMPORTANT]
-> You need to create the target resource before you enable Azure AD Domain Services security audits. You can create these resources using the Azure portal, Azure PowerShell, or the Azure CLI.
+> You need to create the target resource before you enable Azure AD DS security audits. You can create these resources using the Azure portal, Azure PowerShell, or the Azure CLI.
 
 | Target Resource | Scenario |
 |:---|:---|
-|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software. Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly. Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
+|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
+|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
 ## Enable security audit events using the Azure portal
 
 To enable Azure AD DS security audit events using the Azure portal, complete the following steps.
 
 > [!IMPORTANT]
-> Azure AD DS security audits aren't retroactive. It's not possible to retrieve events from the past, or to replay events from the past. Azure AD DS can only send events that occur after it's enabled.
+> Azure AD DS security audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after security audits are enabled.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aadds.contoso.com*.
@@ -112,7 +114,7 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 To enable Azure AD DS security audit events using Azure PowerShell, complete the following steps. If needed, first [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Azure AD DS security audits aren't retroactive. It's not possible to retrieve events from the past, or to replay events from the past. Azure AD DS can only send events that occur after it's enabled.
+> Azure AD DS security audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after security audits are enabled.
 
 1. Authenticate to your Azure subscription using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet. When prompted, enter your account credentials.
 
@@ -122,7 +124,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
 
 1. Create the target resource for the security audit events.
 
-    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
     * **Azure event hubs** - [Create an event hub using Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Azure AD DS permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
 
         > [!IMPORTANT]
@@ -187,11 +189,11 @@ AADDomainServicesAccountManagement
 
 ### Sample query 2
 
-View all the account lockout events (*4740*) between June 26, 2019 at 9 a.m. and July 1, 2019 midnight, sorted ascending by the date and time:
+View all the account lockout events (*4740*) between February 3, 2020 at 9 a.m. and February 10, 2019 midnight, sorted ascending by the date and time:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

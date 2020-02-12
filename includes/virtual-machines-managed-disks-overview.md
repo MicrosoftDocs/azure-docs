@@ -50,7 +50,7 @@ Managed disks offer two different kinds of encryption. The first is Server Side 
 
 ### Server-side encryption
 
-[Azure Server-side Encryption](../articles/virtual-machines/windows/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images in all the regions where managed disks are available. You can either allow Azure to manage your keys for you, these are platform-managed keys, or you can manage the keys yourself, these are customer-managed keys (preview). Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+[Azure Server-side Encryption](../articles/virtual-machines/windows/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images in all the regions where managed disks are available. You can either allow Azure to manage your keys for you, these are platform-managed keys, or you can manage the keys yourself, these are customer-managed keys. Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
 
 ### Azure Disk Encryption
 

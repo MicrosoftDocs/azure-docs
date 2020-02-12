@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 01/03/2020
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -25,12 +25,12 @@ This article tells you how to manage the lifecycle of Office 365 groups by setti
 
 Once you set a group to expire:
 
-- Groups with user activities are automatically renewed as the expiration nears
-- Owners of the group are notified to renew the group, if the group is not auto-renewed
-- Any group that is not renewed is deleted
-- Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
+- Groups with user activities are automatically renewed as the expiration nears.
+- Owners of the group are notified to renew the group, if the group is not auto-renewed.
+- Any group that is not renewed is deleted.
+- Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator.
 
-Currently only one expiration policy can be configured for all Office 365 groups in an Azure AD organization.
+Currently, only one expiration policy can be configured for all Office 365 groups in an Azure AD organization.
 
 > [!NOTE]
 > Configuring and using the expiration policy for Office 365 groups requires you to possess but not necessarily assign Azure AD Premium licenses for the members of all groups to which the expiration policy is applied.
@@ -39,7 +39,7 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been in recent used. This feature eliminates the need for manual action by group owners, because it based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
+With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
 
 ### Activities that automatically renew group expiration
 
@@ -52,6 +52,8 @@ The following user actions cause automatic group renewal:
 ### Auditing and reporting
 
 Administrators can get a list of automatically renewed groups from the activity audit logs in Azure AD.
+
+![Automatic renewal of groups based on activity](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## Roles and permissions
 
@@ -83,11 +85,9 @@ For more information on permissions to restore a deleted group, see [Restore a d
     - Save your settings when you're done by selecting **Save**.
 
 > [!NOTE]
-> When you first set up expiration, any groups that are older than the expiration interval are set to 35 days until expiration unless the group is automatically renewed or the owner renews it.
->
-> When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
->
-> Expiration notices for groups used in Teams appear in the Teams Owners feed.
+> - When you first set up expiration, any groups that are older than the expiration interval are set to 35 days until expiration unless the group is automatically renewed or the owner renews it.
+> - When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
+> - Expiration notices for groups used in Teams appear in the Teams Owners feed.
 
 ## Email notifications
 

@@ -31,7 +31,7 @@ This script uses the following commands: Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Create a resource group with location |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Create a storage account |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [Consumption plan](../functions-scale.md#consumption-plan). |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Create an Azure Cosmos DB database. |
 | [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Gets the database account connection. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Gets the keys for the database. |

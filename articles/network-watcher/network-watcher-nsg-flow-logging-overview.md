@@ -4,18 +4,15 @@ titleSuffix: Azure Network Watcher
 description: This article explains how to use the NSG flow logs feature of Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
-ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 
 ---
 
@@ -85,14 +82,12 @@ For continuation *C* and end *E* flow states, byte and packet counts are aggrega
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
 
-## NSG Flow Logging Considerations
+## NSG flow logging considerations
 
 **Storage account considerations**: 
 
-1. Location: The storage account used must be in the same region as the NSG.
-2. No Firewall: NSG Flow logs is not onboarded as a [trusted Microsoft Service for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). See [How do I disable the firewall on my storage account?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) to disable the firewall. 
-3. No Service Endpoints: Due to a current limitation, logs can only be directly emitted to storage accounts and not via service endpoints. See [How do I use NSG Flow Logs with Service Endpoints?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) for help with removing existing Service Endpoints.
-4. Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
+- Location: The storage account used must be in the same region as the NSG.
+- Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
 
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information see [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) in Network Security Groups.
 

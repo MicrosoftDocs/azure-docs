@@ -1,18 +1,18 @@
 ---
-title: "Quickstart - Launch an Azure Spring Cloud application using the Azure portal"
-description: In this quickstart, deploy a sample application to the Azure Spring Cloud using the Azure portal.
-author: jpconnock
+title: "Quickstart - Launch an existing Azure Spring Cloud application using the Azure portal"
+description: In this quickstart, deploy a Spring Cloud application to the Azure Spring Cloud using the Azure portal.
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
-ms.author: jeconnoc
+ms.date: 02/03/2020
+ms.author: brendm
 
 ---
-# Quickstart: Launch an Azure Spring Cloud application using the Azure portal
+# Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal
 
-Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
+This quickstart shows you how to deploy an existing Spring Cloud application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
 
-This quickstart shows you how to deploy an existing Spring Cloud application to Azure.  You can find the sample application code used in this tutorial in our [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
+You can find the sample application code used in this tutorial in our [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
 
 Following this quickstart, you will learn how to:
 
@@ -26,7 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)

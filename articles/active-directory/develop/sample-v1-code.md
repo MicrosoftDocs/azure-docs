@@ -18,7 +18,6 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory code samples (v1.0 endpoint)

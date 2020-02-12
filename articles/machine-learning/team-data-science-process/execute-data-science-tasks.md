@@ -2,12 +2,12 @@
 title: Execute data science tasks - Team Data Science Process
 description: How a data scientist can execute a data science project in a trackable, version controlled, and collaborative way.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Execute data science tasks: exploration, modeling, and deployment
 
-Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as the following:
+Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. Options for deploying a model into a production environment may include:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
@@ -26,7 +26,7 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 
 A data scientist can perform exploration and reporting in a variety of ways: by using libraries and packages available for Python (matplotlib for example) or with R (ggplot or lattice for example). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. The needs for dealing with structured data are different that for unstructured data such as text or images. 
 
-Products such as Azure Machine Learning also provide [advanced data preparation](../service/how-to-transform-data.md) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
+Products such as Azure Machine Learning also provide [advanced data preparation](../how-to-create-register-datasets.md) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
 
 The deliverable at the end of this phase is a data exploration report. The report should provide a fairly comprehensive view of the data to be used for modeling and an assessment of whether the data is suitable to proceed to the modeling step. The Team Data Science Process (TDSP) utilities discussed in the following sections for semi-automated exploration, modeling, and reporting also provide standardized data exploration and modeling reports. 
 
