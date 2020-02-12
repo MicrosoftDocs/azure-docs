@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 02/12/2020
 ms.author: shvija
 
 ---
@@ -40,7 +40,9 @@ Scale in Event Hubs is controlled by how many throughput units you purchase, wit
 
 ### Security and authentication
 
-Azure Event Hubs requires SSL or TLS for all communication and uses Shared Access Signatures (SAS) for authentication. This requirement is also true for a Kafka endpoint within Event Hubs. For compatibility with Kafka, Event Hubs uses SASL PLAIN for authentication and SASL SSL for transport security. For more information about security in Event Hubs, see [Event Hubs authentication and security](event-hubs-authentication-and-security-model-overview.md).
+Azure Event Hubs requires SSL or TLS for all communication and uses Open Authentication (OAuth) or Shared Access Signatures (SAS) for authentication. This requirement is also true for a Kafka endpoint within Event Hubs. For compatibility with Kafka, Event Hubs uses SASL PLAIN or OAUTHBEARER for authentication and SASL SSL for transport security. For more information about security in Event Hubs, see [Event Hubs authentication and security](event-hubs-authentication-and-security-model-overview.md).
+
+For samples that show how to use OAuth with Event Hubs for Kafka, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
 ## Other Event Hubs features available for Kafka
 
