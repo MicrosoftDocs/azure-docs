@@ -24,8 +24,6 @@ Creating an HDInsight Kafka cluster with REST proxy creates a new public endpoin
 
 ![Kafka REST proxy architecture](./media/rest-proxy/rest-proxy-architecture.png)
 
-For the full specification of operations supported by the API, please see [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
-
 ### Security
 
 Access to the Kafka REST proxy is managed with Azure Active Directory security groups. When creating the Kafka cluster with the REST proxy enabled, you will provide the AAD security group that should have access to the REST endpoint. The Kafka clients (applications) that need access to the REST proxy should be registered to this group by the group owner. The group owner can do this via the Portal or via Powershell.
