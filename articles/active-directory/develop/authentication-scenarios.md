@@ -21,7 +21,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 ## What is authentication
 
-This article covers many of the authentication concepts you'll need to understand to create protected web apps, web APIs, or apps calling protected Web APIs. If you see a term you aren't familiar with, try our [glossary](developer-glossary.md) or our [Microsoft identity platform videos](identity-videos) which cover basic concepts.
+This article covers many of the authentication concepts you'll need to understand to create protected web apps, web APIs, or apps calling protected Web APIs. If you see a term you aren't familiar with, try our [glossary](developer-glossary.md) or our [Microsoft identity platform videos](identity-videos.md) which cover basic concepts.
 
 **Authentication** is the process of proving you are who you say you are. Authentication is sometimes shortened to AuthN.
 
