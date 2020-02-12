@@ -106,9 +106,9 @@ ngOnDestroy() {
  }
 ```
 
----
-
 Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
+
+---
 
 ## Acquire a token with a redirect
 
