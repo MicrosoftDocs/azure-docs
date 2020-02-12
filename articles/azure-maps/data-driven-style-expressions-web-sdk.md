@@ -51,7 +51,7 @@ The Azure Maps Web SDK supports many types of expressions that can be used on th
 | [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions let the results of a calculation be stored in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
 | [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
 
-All examples in this document will use the following feature to demonstrate different ways in which the different types of expressions can be used. 
+All examples in this document use the following feature to demonstrate different ways in which the different types of expressions can be used. 
 
 ```javascript
 {
@@ -85,7 +85,7 @@ Data expressions provide access to the property data in a feature.
 | `['has', string]` | boolean | Determines if the properties of a feature have the specified property. |
 | `['has', string, object]` | boolean | Determines if the properties of the object have the specified property. |
 | `['id']` | value | Gets the feature's ID if it has one. |
-| `['length', string | array]` | number | Gets the length of a string or array. |
+| `['length', string | array]` | number | Gets the length of a string or an array. |
 
 **Examples**
 
