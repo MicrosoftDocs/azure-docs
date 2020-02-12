@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 # Common questions: Azure-to-Azure disaster recovery
 
-This article answers common questions about disaster recovery for when you use [Azure Site Recovery](site-recovery-overview.md).
+This article answers common questions about disaster recovery of Azure VMs to another Azure region for when you use [Azure Site Recovery](site-recovery-overview.md).
 
 ## General
 
@@ -23,7 +23,7 @@ Every instance that is protected with Azure Site Recovery is free for the first 
 
 ### During the first 31 days, will I incur any other Azure charges?
 
-Yes. Even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfers. A recovered Virtual Machine might also incur Azure compute charges. Get complete details on pricing at [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery)
+Yes. Even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfers. A recovered Virtual Machine might also incur Azure compute charges. Get complete details on pricing at [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery).
 
 ### What are the best practices for Azure Virtual Machines disaster recovery?
 
@@ -41,11 +41,11 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 
 ### Can I replicate VMs enabled through Azure disk encryption?
 
-Yes. Site Recovery supports disaster recovery of VMs that have Azure disk encryption (ADE) enabled. When you enable replication, Azure copies all the required disk encryption keys and secrets from the source region to the target region in the user context. If you don't have the appropriate permissions, your security administrator can use a script to copy the keys and secrets.
+Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryption enabled. When you enable replication, Azure copies all the required disk encryption keys and secrets from the source region to the target region in the user context. If you don't have the appropriate permissions, your security administrator can use a script to copy the keys and secrets.
 
-- Site Recovery supports ADE for Azure VMs that are running Windows.
-- Site Recovery supports ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schemata for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
-  - For ADE version 1.1, you have to use the Windows VMs with managed disks.
+- Site Recovery supports Azure Disk Encryption for Azure VMs that are running Windows.
+- Site Recovery supports Azure Disk Encryption version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schemata for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+  - For Azure Disk Encryption version 1.1, you have to use the Windows VMs with managed disks.
   - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
 ### Can I replicate VMs to another subscription?
@@ -72,8 +72,7 @@ Yes, adding new disks to replicated VMs and enabling replication for them is sup
 
 For example, let's say a VM has a single disk and you add a new one. There might be a replication point that was created before you added the disk. This replication point will show that it consists of "1 of 2 disks."
 
-Site Recovery doesn’t support “hot remove” of a disk from a replicated VM. If you remove a VM disk, you need to disable and then re-enable replication for the VM.
-
+Site Recovery doesn’t support "hot remove" of a disk from a replicated VM. If you remove a VM disk, you need to disable and then re-enable replication for the VM.
 
 ### How often can I replicate to Azure?
 
@@ -167,7 +166,7 @@ Yes, if you increase the retention period from 24 hours to 72 hours, Site Recove
 
 ## Multi-VM consistency
 
-### What is Multi-VM consistency?
+### What is multi-VM consistency?
 
 Multi-VM consistency ensures that the recovery point is consistent across all the replicated virtual machines.
 
@@ -175,19 +174,19 @@ Site Recovery provides a **Multi-VM consistency** option, which creates a replic
 
 When you fail over the virtual machines, they'll have shared crash-consistent and app-consistent recovery points.
 
-Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
+Go through the tutorial to [enable multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
-### Can I fail over a single virtual machine within a Multi-VM consistency replication group?
+### Can I fail over a single virtual machine within a multi-VM consistency replication group?
 
 When you select the **Multi-VM consistency** option, you're stating that the application has a dependency on all the virtual machines within a group. Single virtual machine failover isn't allowed.
 
-### How many virtual machines can I replicate as a part of a Multi-VM consistency replication group?
+### How many virtual machines can I replicate as a part of a multi-VM consistency replication group?
 
 You can replicate 16 virtual machines together in a replication group.
 
-### When should I enable Multi-VM consistency?
+### When should I enable multi-VM consistency?
 
-Because Multi-VM consistency is CPU intensive, enabling it can affect workload performance. Use Multi-VM consistency only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have Multi-VM consistency for the SQL Server instances only.
+Because multi-VM consistency is CPU intensive, enabling it can affect workload performance. Use multi-VM consistency only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have multi-VM consistency for the SQL Server instances only.
 
 ## Failover
 
@@ -292,6 +291,7 @@ Yes, you can purchase [reserved Azure VMs](https://azure.microsoft.com/pricing/r
 ### Is replication data sent to the Site Recovery service?
 
 No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your VMs. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+
 Site Recovery is ISO 27001:2013, 27018, HIPAA, and DPA certified. The service is undergoing SOC2 and FedRAMP JAB assessments.
 
 ### Does Site Recovery encrypt replication?

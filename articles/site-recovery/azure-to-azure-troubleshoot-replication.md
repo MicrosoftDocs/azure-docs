@@ -21,7 +21,7 @@ The following sections describe causes and solutions.
 ## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>High data change rate on the source virtual machine
 
 Azure Site Recovery creates an event if the data change rate on the source virtual machine is higher than the supported limits. To see whether the problem is because of high churn, go to **Replicated items** > **VM** > **Events - last 72 hours**.
-You should see the event “Data change rate beyond supported limits”:
+You should see the event "Data change rate beyond supported limits":
 
 ![Azure Site Recovery page that shows a high data change rate that is too high](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
 
@@ -33,7 +33,7 @@ If you select the event, you should see the exact disk information:
 
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application input-output (I/O) combinations. Actual results can vary based on your application I/O mix.
 
-There are two limits to consider: data churn per disk and data churn per virtual machine. Let's look at the Premium P20 disk in the following table for an example. For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery's limit is 25 MB/s of total churn per VM.
+There are two limits to consider: data churn per disk and data churn per virtual machine. Let's look at the Premium P20 disk in the following table for an example. For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 25 MB/s of total churn per VM.
 
 **Replication storage target** | **Average I/O size for source disk** |**Average data churn for source disk** | **Total data churn per day for source data disk**
 ---|---|---|---
@@ -80,7 +80,7 @@ For Site Recovery replication to work, it needs the VM to provide outbound conne
 
 ## Error ID 153006 - No app-consistent recovery point available for the VM in the past "X" minutes
 
-Some of the most common issues are listed below:
+Following are some of the most common issues.
 
 #### Known issue in SQL server 2008/2008 R2
 
@@ -109,7 +109,7 @@ To locate the errors in the file, search for the string "vacpError" by opening t
 
 	Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
-In the above example **2147754994** is the error code that tells you about the failure as shown below.
+In the preceding example, **2147754994** is the error code that tells you about the failure following this sentence.
 
 #### VSS writer is not installed - Error 2147221164
 
@@ -131,12 +131,13 @@ If VSS is disabled:
 
 **How to fix**: To generate the application consistency tag, Azure Site Recovery uses VSS. Check whether the Azure Site Recovery VSS Provider service is installed.
 
-Use the following commands to reinstall the VSS Provider:
-1. Uninstall existing provider: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd`
-1. Reinstall: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd`
+Use the following commands to reinstall VSS Provider:
+1. Uninstall existing provider: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+1. Reinstall VSS Provider: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
 
 Verify that the startup type of the VSS Provider service is set to **Automatic**.
-    - Restart the following services:
-        - VSS service
-        - Azure Site Recovery VSS Provider
-        - VDS service
+
+Restart the following services:
+- VSS service
+- Azure Site Recovery VSS Provider
+- VDS service

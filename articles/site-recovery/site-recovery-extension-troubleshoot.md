@@ -88,7 +88,7 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 ### The Site Recovery extension fails to update or load
 
-The extension status shows as "Empty," "NotReady," or Transitioning.
+The extension status shows as "Empty," "NotReady," or "Transitioning."
 
 #### Solution
 

@@ -34,11 +34,11 @@ Before you begin, ensure that you know how to do the following tasks:
 
 You can use Site Recovery to implement a disaster recovery solution in the following scenarios:
 * You have SAP systems running in one Azure datacenter, and you're replicating them to another Azure datacenter (Azure-to-Azure disaster recovery). 
-   * For more information, see [Azure-to-Azure replication architecture](https://aka.ms/asr-a2a-architecture).
+   For more information, see [Azure-to-Azure replication architecture](https://aka.ms/asr-a2a-architecture).
 * You have SAP systems running on VMware (or physical) servers on-premises. You're also replicating the SAP systems to a disaster recovery site in an Azure datacenter (VMware-to-Azure disaster recovery). 
-   * This scenario requires some additional components. For more information, see [VMware-to-Azure replication architecture](https://aka.ms/asr-v2a-architecture).
+   This scenario requires some additional components. For more information, see [VMware-to-Azure replication architecture](https://aka.ms/asr-v2a-architecture).
 * You have SAP systems running on Hyper-V on-premises. You're also replicating the SAP systems to a disaster recovery site in an Azure datacenter (Hyper-V-to-Azure disaster recovery).
-   * This scenario requires some additional components. For more information, see [Hyper-V-to-Azure replication architecture](https://aka.ms/asr-h2a-architecture).
+   This scenario requires some additional components. For more information, see [Hyper-V-to-Azure replication architecture](https://aka.ms/asr-h2a-architecture).
 
 In this article, we use an **Azure-to-Azure** disaster recovery scenario. The scenario shows you the SAP disaster recovery capabilities of Site Recovery. Because Site Recovery replication isn't application-specific, the process that's described is expected to also apply to other scenarios.
 
@@ -67,12 +67,12 @@ The Web Dispatcher component works as a load balancer for SAP traffic among the 
 The SMLG transaction manages login groups for ABAP application servers. It uses the load-balancing function within the message server of the Central Services to distribute workload among SAP application server pools for SAPGUIs and RFC traffic. You can replicate this management by using Site Recovery.
 
 #### VMs running SAP Central Services clusters
-This reference architecture runs Central Services on VMs in the application tier. The Central Services is a potential single point of failure when in a single VM—typical deployment and high availability isn't a requirement.
+This reference architecture runs Central Services on VMs in the application tier. Central Services is a potential single point of failure when in a single VM. Typical deployment and high availability aren't requirements.
 
-To implement a high availability solution, you can use either a shared disk cluster or a file share cluster. To configure VMs for a shared disk cluster, use Windows Server Failover Cluster. We recommend that you use Cloud Witness as a quorum witness.
+To implement a high availability solution, you can use either a shared disk cluster or a file share cluster. To configure VMs for a shared disk cluster, use Windows Server Failover Cluster. We recommend that you use the cloud witness as a quorum witness.
 
  > [!NOTE]
- > Because Site Recovery does not replicate the cloud witness, we recommend that you deploy cloud witness in the disaster recovery region.
+ > Because Site Recovery does not replicate the cloud witness, we recommend that you deploy the cloud witness in the disaster recovery region.
 
 To support the failover cluster environment, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) does the cluster shared volume function. In the function, SIOS DataKeeper Cluster replicates independent disks owned by the cluster nodes. Because Azure does not natively support shared disks, it requires solutions provided by SIOS.
 
@@ -94,7 +94,7 @@ Following are the steps for setting up the disaster recovery:
 1. Do a test failover
 1. Do a failover
 
-Below is the recommendation for disaster recovery of each tier used in this example.
+Following is the recommendation for disaster recovery of each tier used in this example.
 
  **SAP tiers** | **Recommendation**
  --- | ---
@@ -102,15 +102,15 @@ Below is the recommendation for disaster recovery of each tier used in this exam
 **SAP Application server pool** |  Replicate by using Site Recovery 
 **SAP Central Services cluster** |  Replicate by using Site Recovery 
 **Active directory virtual machines** |  Use Active directory replication 
-**SQL Database servers** |  Use SQL always on replication
+**SQL Database servers** |  Use SQL Server Always On replication
 
 ## Replicate virtual machines
 
 To start replicating all the SAP application virtual machines to the Azure disaster recovery datacenter, follow the guidance in [Replicate a virtual machine to Azure](azure-to-azure-walkthrough-enable-replication.md).
 
-* For guidance on protecting Active Directory and DNS, see [how to protect Active Directory and DNS](site-recovery-active-directory.md).
+* For guidance on protecting Active Directory and DNS, learn [how to protect Active Directory and DNS](site-recovery-active-directory.md).
 
-* For guidance on protecting database tier running on SQL server, see [how to protect SQL Server](site-recovery-sql.md).
+* For guidance on protecting database tier running on SQL server, learn [how to protect SQL Server](site-recovery-sql.md).
 
 ## Networking configuration
 
@@ -131,11 +131,11 @@ A recovery plan supports the sequencing of various tiers in a multi-tier applica
 ### Add scripts to the recovery plan
 For your applications to function correctly, you might need to do some operations on the Azure virtual machines. Do these operations after the failover or during a test failover. You can also automate some post-failover operations. For example, update the DNS entry, and change bindings and connections by adding corresponding scripts to the recovery plan.
 
-You can deploy the most used Site Recovery scripts into your Automation account by selecting **Deploy to Azure**. When you use any published script, follow the guidance in the script.
+You can deploy the most used Site Recovery scripts into your Azure Automation account by selecting **Deploy to Azure**. When you use any published script, follow the guidance in the script.
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Add a pre-action script to Group 1 to fail over the SQL Availability group. Use the ASR-SQL-FailoverAG script published in the sample scripts. Follow the guidance in the script and make the required changes in the script appropriately.
+1. Add a pre-action script to Group 1 to fail over the SQL Server availability group. Use the ASR-SQL-FailoverAG script published in the sample scripts. Follow the guidance in the script and make the required changes in the script appropriately.
 1. Add a post-action script to attach a load balancer onto the failed-over virtual machines of the Web tier (Group 1). Use the ASR-AddSingleLoadBalancer script published in the sample scripts. Follow the guidance in the script and make the required changes in the script as needed.
 
 ![SAP Recovery Plan](./media/site-recovery-sap/sap_recovery_plan.png)
