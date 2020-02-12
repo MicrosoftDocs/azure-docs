@@ -10,7 +10,7 @@
     - name: Deploy Ansible solution template to CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Install Ansible on Linux virtual machines
-      href: ./ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Run playbooks in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
       - name: Configure Linux virtual machines
-        href: ./ansible-create-vm
+        href: ./ansible-create-vm.md
         maintainContext: true
       - name: Manage Linux virtual machines
-        href: ./ansible-manage-linux-vm
+        href: ./ansible-manage-linux-vm.md
         maintainContext: true
 - name: Tutorials 
   items:
