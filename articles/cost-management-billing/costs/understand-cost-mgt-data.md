@@ -100,7 +100,7 @@ Azure Cost Management receives tags as part of each usage record submitted by th
 
 1. Tags must be applied directly to resources and are not implicitly inherited from the parent resource group
 2. Resource tags are only supported for resources deployed to resource groups
-3. Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](../../azure-resource-manager/tag-support)
+3. Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](../../azure-resource-manager/tag-support/)
 4. Resource tags are only included in usage data while the tag is applied – tags are not applied to historical data
 5. Resource tags are only available in Cost Management after the data is refreshed – see [Usage data update frequency varies](#usage-data-update-frequency-varies)
 6. Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated)
@@ -111,7 +111,7 @@ If you do not see a specific tag in Cost Management, consider the following:
 
 1. Was the tag applied directly to the resource?
 2. Was the tag applied more than 24 hours ago? See [Usage data update frequency varies](#usage-data-update-frequency-varies)
-3. Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/tag-support) for the full list of what is supported.
+3. Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/tag-support/) for the full list of what is supported.
     - Azure Active Directory B2C Directories
     - Azure Firewalls
     - Azure NetApp Files
