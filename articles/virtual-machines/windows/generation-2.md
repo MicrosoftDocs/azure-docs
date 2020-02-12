@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 02/11S/2020
+ms.date: 02/11/2020
 ms.author: jushiman
 ---
 
