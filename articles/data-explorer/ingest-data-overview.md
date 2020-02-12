@@ -113,7 +113,7 @@ For organizations with an existing infrastructure that are based on a messaging 
 ## Supported data formats
 
 For all ingestion methods other than ingest from query, format the data so that Azure Data Explorer can parse it. 
-* The supported data formats are: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH​, JSON (line-separated, multi-line), Avro, and Parquet​. 
+* The supported data formats are: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH​, JSON (line-separated, multi-line), Avro, Orc and Parquet​. 
 * Supports ZIP and GZIP compression.
 
 > [!NOTE]
