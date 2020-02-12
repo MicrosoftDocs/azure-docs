@@ -1067,6 +1067,8 @@
         href: migrate-cosmosdb-data.md
       - name: Migrate one-to-few relational data
         href: migrate-relational-to-cosmos-db-sql-api.md 
+      - name: Migrate - Couchbase to SQL API
+        href: couchbase-cosmos-migration.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
