@@ -60,6 +60,7 @@ Limitations:
 
 - With a managed instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for databases up to 4 TB if backup compression is used.
 - You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup. Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
+- Manual backups to Azure Blob storage are only supported to [BlockBlobStorage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - The maximum backup stripe size by using the `BACKUP` command in a managed instance is 195 GB, which is the maximum blob size. Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
     > [!TIP]
