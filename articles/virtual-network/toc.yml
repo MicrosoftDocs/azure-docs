@@ -35,32 +35,6 @@
     href: policy-samples.md
 - name: Concepts
   items:
-  - name: NAT
-    items:
-    - name: Overview
-      href: nat-overview.md
-    - name: NAT gateway resource
-      href: nat-gateway-resource.md
-  - name: Security groups
-    href: security-overview.md
-  - name: Routing
-    href: virtual-networks-udr-overview.md
-  - name: Service tags
-    href: service-tags-overview.md
-  - name: Service endpoints
-    href: virtual-network-service-endpoints-overview.md
-  - name: Service endpoint policies
-    href: virtual-network-service-endpoint-policies-overview.md
-  - name: Peering
-    href: virtual-network-peering-overview.md
-  - name: Virtual network TAP
-    href: virtual-network-tap-overview.md
-  - name: Virtual network for Azure services
-    href: virtual-network-for-azure-services.md
-  - name: Container networking
-    href: container-networking-overview.md
-  - name: Kubernetes network policies
-    href: kubernetes-network-policies.md
   - name: Business continuity
     href: virtual-network-disaster-recovery-guidance.md
   - name: Connectivity
@@ -137,21 +111,6 @@
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
     items:
-    - name: NAT
-      items:
-      - name: Create NAT gateway - Portal
-        href: quickstart-create-nat-gateway-portal.md
-      - name: Create NAT gateway - PowerShell
-        href: quickstart-create-nat-gateway-powershell.md
-      - name: Create NAT gateway - CLI
-        href: quickstart-create-nat-gateway-cli.md
-      - name: Create and validate NAT gateway - Portal
-        href: tutorial-create-validate-nat-gateway-portal.md
-      - name: Create and validate NAT gateway - PowerShell
-        href: tutorial-create-validate-nat-gateway-powershell.md
-      - name: Create and validate NAT gateway - CLI
-        href: tutorial-create-validate-nat-gateway-cli.md
-    - name: IPv6 for VNet
     - name: Manage NICs
       href: virtual-network-network-interface.md
     - name: Manage virtual network
