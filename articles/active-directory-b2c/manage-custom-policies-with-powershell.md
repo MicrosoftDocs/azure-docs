@@ -26,6 +26,7 @@ Azure PowerShell provides several cmdlets for command line- and script-based cus
 ## Prerequisites
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
+* [Custom policies](custom-policy-get-started.md) uploaded to your tenant
 * [Azure AD PowerShell for Graph **preview module**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 ## Connect PowerShell session to B2C tenant

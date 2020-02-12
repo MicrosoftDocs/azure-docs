@@ -30,6 +30,7 @@ There are three primary steps required for enabling Azure Pipelines to manage cu
 ## Prerequisites
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
+* [Custom policies](custom-policy-get-started.md) uploaded to your tenant
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
 
 ## Client credentials grant flow
@@ -202,7 +203,7 @@ The task you just added uploads *one* policy file to Azure AD B2C. Before procee
 
 If the task completes successfully, add deployment tasks by performing the preceding steps for each of the custom policy files. Modify the `-PolicyId` and `-PathToFile` argument values for each policy.
 
-The `PolicyId` is not the filename, and is instead a value found within the start of an XML policy file. For example, the `PolicyId` in the following policy XML is *B2C_1A_TrustFrameworkBase*:
+The `PolicyId` is a value found at the start of an XML policy file within the TrustFrameworkPolicy node. For example, the `PolicyId` in the following policy XML is *B2C_1A_TrustFrameworkBase*:
 
 ```XML
 <TrustFrameworkPolicy
