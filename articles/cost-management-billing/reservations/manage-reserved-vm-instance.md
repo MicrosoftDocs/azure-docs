@@ -3,12 +3,10 @@ title: Manage Azure Reservations
 description: Learn how you can manage Azure Reservations.
 ms.service: cost-management-billing
 author: bandersmsft
-manager: yashesvi
+ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.date: 02/12/2020
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -122,7 +120,7 @@ To update the optimize setting for the reservation:
 
 ## Optimize reservation use
 
-Azure reservation savings only result from sustained resource use. When you make a reservation purchase, you pay an up-front cost for what is essentially 100% possible resource use over a one- or three-year term. Try to maximize your reservation to get as much use and savings possible. The following sections explain how to monitor a reservation and optimize its use.
+Azure reservation savings only result from sustained resource use. When you make a reservation purchase, you pay for what is essentially 100% possible resource use over a one- or three-year term. Try to maximize your reservation to get as much use and savings possible. The following sections explain how to monitor a reservation and optimize its use.
 
 ### View reservation use in the Azure portal
 
