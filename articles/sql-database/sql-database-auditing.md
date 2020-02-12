@@ -82,7 +82,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
    > - The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
    > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled)
 
-   ![storageaccount](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 To configure a storage account under a virtual network or firewall you will need an [Active Directory admin](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
 
