@@ -10,6 +10,8 @@ This article shows you how to create more than one instance of a resource in you
 
 You can also use copy with [properties](copy-properties.md) and [variables](copy-variables.md).
 
+If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
+
 ## Resource iteration
 
 The copy element has the following general format:
@@ -23,7 +25,9 @@ The copy element has the following general format:
 }
 ```
 
-If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
+The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the resource type.
+
+Use the **mode** and **batchSize** properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
 
 The following example creates the number of storage accounts specified in the **storageCount** parameter.
 
@@ -39,8 +43,8 @@ The following example creates the number of storage accounts specified in the **
     },
     "resources": [
         {
-            "apiVersion": "2019-04-01",
             "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
             "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
             "location": "[resourceGroup().location]",
             "sku": {
@@ -102,8 +106,8 @@ The following example creates one storage account for each name provided in the 
   },
   "resources": [
     {
-      "apiVersion": "2019-04-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
       "name": "[concat(parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
@@ -121,6 +125,8 @@ The following example creates one storage account for each name provided in the 
 }
 ```
 
+## Serial or Parallel
+
 By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
 
 However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
@@ -129,12 +135,12 @@ For example, to serially deploy storage accounts two at a time, use:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
+      "apiVersion": "2019-04-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
@@ -156,21 +162,19 @@ For example, to serially deploy storage accounts two at a time, use:
 
 The mode property also accepts **parallel**, which is the default value.
 
-For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
-
 ## Depend on resources in a loop
 
-You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition isn't shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
+You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the virtual machine. The full virtual machine definition isn't shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the virtual machine is also set to `storagecopy`.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
+      "apiVersion": "2019-04-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
@@ -270,6 +274,7 @@ The following examples show common scenarios for creating more than one instance
 
 * To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
 * For other uses of the copy element, see [Property iteration in Azure Resource Manager templates](copy-properties.md) and [Variable iteration in Azure Resource Manager templates](copy-variables.md).
+* For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
 

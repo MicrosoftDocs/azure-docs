@@ -48,8 +48,8 @@ The following example shows how to apply `copy` to the dataDisks property on a v
   },
   "resources": [
     {
-      "apiVersion": "2017-03-30",
       "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2017-03-30",
       ...
       "properties": {
         "storageProfile": {
@@ -111,9 +111,9 @@ The copy element is an array so you can specify more than one property for the r
 
 ```json
 {
-  "name": "string",
   "type": "Microsoft.Network/loadBalancers",
   "apiVersion": "2017-10-01",
+  "name": "examleLB",
   "properties": {
     "copy": [
       {
