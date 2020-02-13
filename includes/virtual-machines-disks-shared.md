@@ -22,11 +22,11 @@ Managed disks with shared disks enabled do not natively offer a fully-managed fi
 
 ## Limitations
 
-[!INCLUDE [virtual-machines-disks-shared-disk-limitations](virtual-machines-disks-shared-disk-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
 ## Disk sizes
 
-[!INCLUDE [virtual-machines-disks-shared-disk-sizes](virtual-machines-disks-shared-disk-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
 ## Sample workloads
 
