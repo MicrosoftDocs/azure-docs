@@ -2,14 +2,11 @@
 title:  Change your credit card for Azure
 description: Describes how to change the credit card used to pay for an Azure subscription.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
 ---
 # Add, update, or remove a credit card for Azure
@@ -112,7 +109,7 @@ If your credit card is the active payment method for any of your Microsoft subsc
 
 The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
-### Change default credit card 
+### Change default credit card
 If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account.
 
 If you'd like to change your billing profile's default payment method to check/wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
