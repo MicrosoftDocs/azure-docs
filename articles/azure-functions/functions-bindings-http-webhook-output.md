@@ -27,7 +27,7 @@ The following table explains the binding configuration properties that you set i
 | **direction** | Must be set to `out`. |
 | **name** | The variable name used in function code for the response, or `$return` to use the return value. |
 
-## Output - usage
+## Usage
 
 To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `IActionResult` or `Task<IActionResult>`. In C#, a return value attribute isn't required.
 
