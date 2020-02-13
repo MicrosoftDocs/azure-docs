@@ -148,7 +148,7 @@ You also need to consider how adaptive streaming works. Each individual video fr
 > [!IMPORTANT]
 > You cannot enable CDN for trial or student Azure accounts.
 >
-> CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
+> CDN integration is enabled in all the Azure data centers except Federal Government and China regions.
 
 After a Streaming Endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
 
