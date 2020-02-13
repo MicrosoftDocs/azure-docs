@@ -102,9 +102,9 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 
 ## Using claim resolvers 
 
-You can use claims resolvers with follwoing components: 
+You can use claims resolvers with following elements: 
 
-| Component | Element | Settings |
+| Item | Element | Settings |
 | ----- | ----------------------- | --------|
 |Application Insights technical profile |`InputClaim` | |
 |[Azure Active Directory](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
@@ -112,10 +112,10 @@ You can use claims resolvers with follwoing components:
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[RESTful provider](restful-technical-profile.md) technical profile| `InputClaim`| 1, 2|
-|[SAML2](saml-technical-profile.md)  technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[SAML2](saml-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
 |[Self-Asserted](self-asserted-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
-| [ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |[RelyingParty](relyingparty.md#technicalprofile) technical profile| `OutputClaim`| 2 |
 
 Settings: 
