@@ -158,7 +158,7 @@ When reviewing Offer Descriptions and Offer Summaries, the team will apply the f
 |**Proof of Concept**    |    Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement     | Optimize your offer summary with your top Search Engine Optimization keywords        |
 |**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the chosen duration of your offering. Articulate what the learning goals or other deliverables are of your workshop     |   Optimize your offer summary with your top Search Engine optimization keywords      |
 
-Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). This is a lightweight design language that will help add polish to your listing. 
+Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](/contribute/markdown-reference). This is a lightweight design language that will help add polish to your listing. 
 
 **Sample Markdown Notes**
 * Add * at beginning and end of copy block - with no space to create italics (Ex: *content*)

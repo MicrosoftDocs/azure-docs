@@ -398,7 +398,7 @@ To create a Test Group in a Connection Monitor, you specify the value for the be
 
       ![Add Destinations 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Click on "Endpoints" tab to select Azure VMs as destinations. Endpoint list will be populated with O365 and D365 test URLs, grouped by name.  You can also choose an endpoint created in other test groups in the same Connection Monitor. To add a new endpoint, click "+ Endpoint" from top-right corner of the screen and provide endpoint URL/IP/FQDN and name
+   2. Click on "Endpoints" tab to select Endpoints as destinations. Endpoint list will be populated with O365 and D365 test URLs, grouped by name.  You can also choose an endpoint created in other test groups in the same Connection Monitor. To add a new endpoint, click "+ Endpoint" from top-right corner of the screen and provide endpoint URL/IP/FQDN and name
 
       ![Add Endpoints](./media/connection-monitor-2-preview/add-endpoints.png)
 
