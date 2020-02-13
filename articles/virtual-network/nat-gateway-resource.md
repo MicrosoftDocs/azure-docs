@@ -249,7 +249,7 @@ SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-bal
 NAT provides SNAT ports for new outbound to Internet flows on-demand at the time the flow is created.  All available SNAT ports in inventory can be used by any virtual machine on subnets configured with NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="512" title="Virtual Network NAT on-demand outbound SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network NAT on-demand outbound SNAT">
 </p>
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
@@ -257,7 +257,7 @@ NAT provides SNAT ports for new outbound to Internet flows on-demand at the time
 Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="512" title="Differences in exhaustion scenarios">
+  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Differences in exhaustion scenarios">
 </p>
 
 *Figure: Differences in exhaustion scenarios*
