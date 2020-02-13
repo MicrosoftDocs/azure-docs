@@ -1468,22 +1468,22 @@ tools:
     - title: Azure PowerShell
       imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
       url: https://docs.microsoft.com/powershell/azure/
-    # Card	
-    - title: Ansible on Azure	
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
-      url: ansible/index.yml	
-    # Card	
-    - title: Chef Software on Azure	
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
-      url: chef/index.yml	
-    # Card	
-    - title: Jenkins on Azure	
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
-      url: jenkins/index.yml	
-    # Card	
-    - title: Terraform on Azure	
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg	
-      url: terraform/index.yml	
+    # Card
+    - title: Ansible on Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      url: ansible/index.yml
+    # Card
+    - title: Chef Software on Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      url: chef/index.yml
+    # Card
+    - title: Jenkins on Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      url: jenkins/index.yml
+    # Card
+    - title: Terraform on Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      url: terraform/index.yml
 
 additionalContent:
   sections:
