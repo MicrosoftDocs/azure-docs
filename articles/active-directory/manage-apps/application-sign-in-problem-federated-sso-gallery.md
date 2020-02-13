@@ -268,4 +268,4 @@ To learn how to customize the SAML attribute claims sent to your application, se
 
 ## Next steps
 
-[How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)
+[How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
