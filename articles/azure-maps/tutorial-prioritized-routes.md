@@ -153,7 +153,7 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
     });
     ```
     
-    In the maps `ready` event handler, a data source is created to store the route lines and the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered. In this case, expressions have been added to retrieve the icon image and text label information from properties on each point object. 
+    In the maps `ready` event handler, a data source is created to store the route lines and the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This ensures that the route line doesn't cover the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered. In this case, expressions have been added to retrieve the icon image and text label information from properties on each point object. 
     
 2. For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the destination point as a Microsoft office. In the maps `ready` event handler, add the following code.
 
@@ -195,9 +195,9 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
 
 ## Render routes prioritized by mode of travel
 
-This section shows you how to use the Maps route service API. The route API is used to find multiple routes from a given start point to the end point based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes. Not only do the APIs plan routes between two locations, but they also consider the current traffic conditions. 
+This section shows you how to use the Maps route service API. The route API is used to find multiple routes from a given start point to the end point, based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes. Not only do the APIs plan routes between two locations, but they also consider the current traffic conditions. 
 
-Also, the route API allows users to plan routes in the future using Azure's extensive historic traffic database. The API can predict route durations for a given day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). 
+The route API allows users to plan routes in the future using Azure's extensive historic traffic database. The API can predict route durations for a given day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). 
 
 All of the following code blocks should be added **within the map load eventListener** to ensure they load after the map completely loads.
 
@@ -269,7 +269,7 @@ All of the following code blocks should be added **within the map load eventList
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    The truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway.
+    The truck route is thick blue, and the car route is thin purple. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a USHazmatClass2 cargo type, is directed to use a different highway.
 
 ## Next steps
 
