@@ -41,7 +41,7 @@ Instead of creating your custom page content from scratch, you can customize Azu
 The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
 
 | Default page | Description | Content definition ID<br/>(custom policy only) |
-|-----------------------|--------|-------------|
+|:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page**. This page is displayed when an exception or an error is encountered. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Self-Asserted page**. Use this file as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, and more. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | *api.localaccountsignin*, *api.localaccountsignup* , *api.localaccountpasswordreset*, *api.selfasserted* |
 | [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page**. On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | *api.phonefactor* |
