@@ -78,20 +78,11 @@ Customer operating system configuration can drift from the recommended settings 
 SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state when updated. The below procedure fixes this issue.
 ##### Steps for Execution
 ```
-* Take backup of file /etc/default/grub_installdevice
-* Run below entire script
-#!/bin/sh
-file="/etc/multipath/wwids"
-if [ ! -f "$file" ]
-  then
-  echo "$0: File '${file}' Multipath Not Configured. Configure Multipath and Rerun the Script"
-  exit 0
-fi
-device_mapper="/dev/mapper/"
-device_id=`ls -l /dev/disk/by-id/ | grep -i dm-0 | grep -i mpath | awk '{print $9}' | cut -d "-" -f 4`
-device_mapper+=$device_id
-sed -i '/\/disk\/by-uuid/c '"$device_mapper"'' /etc/default/grub_installdevice
-```
+*	Execute multipath -ll command.
+*	Get the LUN ID whose size is Approx 50G.
+*	Update /etc/default/grub_installdevice file with line /dev/mapper/<LUN ID>. Example: /dev/mapper/3600a09803830372f483f495242534a56
+*	Please note that LUN ID varies from server to server.
+
 
 #### Disable EDAC (The Error Detection And Correction):
    The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HNA on Azure Large Instances (Type I) is already performing the same function. Having the same feature enabled at the hardware and Operating system (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
