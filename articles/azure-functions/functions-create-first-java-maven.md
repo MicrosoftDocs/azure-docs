@@ -1,6 +1,6 @@
 ---
-title: Use Java and Maven to publish a function to Azure
-description: Create and publish an HTTP-triggered function to Azure with Java and Maven.
+title: Use Java and Maven/Gradle to publish a function to Azure
+description: Create and publish an HTTP-triggered function to Azure with Java and Maven or Gradle.
 author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
