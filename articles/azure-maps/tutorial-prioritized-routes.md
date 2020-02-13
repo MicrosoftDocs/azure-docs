@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
-description: In this tutorial, you will learn how to find routes for different modes of travel using Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: In this tutorial, you'll learn how to find routes for different modes of travel using Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -195,7 +195,11 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to the end point based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following code blocks should be added **within the map load eventListener** to ensure that they load after the map loads fully.
+This section shows you how to use the Maps route service API. The route API is used to find multiple routes from a given start point to the end point based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes. Not only do the APIs plan routes between two locations, but they also consider the current traffic conditions. 
+
+Also, the route API allows users to plan routes in the future using Azure's extensive historic traffic database. The API can predict route durations for a given day and time. For more information, see [GetRoute Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). 
+
+All of the following code blocks should be added **within the map load eventListener** to ensure they load after the map completely loads.
 
 1. In the GetMap function, add the following to Javascript code.
 
@@ -239,7 +243,7 @@ This section shows how to use the Maps route service API to find multiple routes
     });
     ```
 
-    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. The route line is then added to the data source. An index of 0 ensures that it's rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation and if the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of nine pixels.
+    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. The route line is then added to the data source. An index of 0 ensures that it's rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of nine pixels.
 
 3. Add the following JavaScript code to construct a route for a car and display the results.
 
