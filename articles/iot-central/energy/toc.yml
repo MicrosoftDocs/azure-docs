@@ -113,4 +113,5 @@
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Supported browsers
       href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-
+    - name: Azure IoT Central (legacy templates)
+      href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central
