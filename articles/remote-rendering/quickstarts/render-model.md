@@ -20,9 +20,9 @@ We won't go into detail about the ARR API itself or how to set up a Unity projec
 In this quickstart you will learn how to:
 > [!div class="checklist"]
 >
->- Set up your local development environment
->- Get and build the Unity sample app
->- Render a model in the Unity sample app
+>* Set up your local development environment
+>* Get and build the Unity sample app
+>* Render a model in the Unity sample app
 
 ## Prerequisites
 
@@ -30,19 +30,19 @@ To get access to the Azure Remote Rendering service, you first need to [create a
 
 The following software must be installed:
 
-- Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk "Windows SDK")
-- The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/ "Visual Studio 2019")
-- GIT [(download)](https://git-scm.com/downloads "GIT")
-- Unity 2019.3 [(download)](https://unity3d.com/get-unity/download "Unity")
-- The NuGet command line tool and Credential Provider (see below)
+* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* GIT [(download)](https://git-scm.com/downloads)
+* Unity 2019.3 [(download)](https://unity3d.com/get-unity/download)
+* The NuGet command line tool and Credential Provider (see below)
 
 ### Installing NuGet
 
 1. Go to [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient).
 1. Click on **Artifacts**, change the dropdown to **ArrPackages**, and click on **Connect to feed**.
-  ![Connect to Feed 1](./media/connect-to-feed.png)
+  ![Connect to Feed 1](../overview/media/connect-to-feed.png)
 1. Click on **Nuget.exe**, then **Get the tools**
-  ![Connect to Feed 2](./media/connect-to-feed-2.png)
+  ![Connect to Feed 2](../overview/media/connect-to-feed-2.png)
 1. From the link under *Step 1* download the latest NuGet.exe (under *Windows x86 Commandline*)
 1. Copy NuGet.exe to some folder and add the location to your `PATH` environment variable.
 1. The page linked under *Step 2* describes how to install the NuGet Credential Provider. The [manual installation](https://github.com/microsoft/artifacts-credprovider#manual-installation-on-windows) is straight forward.
@@ -84,9 +84,9 @@ If the NuGet command results in authentication prompts, make sure you have NuGet
 
 The two commands above will download NuGet packages, carrying Unity packages. This adds three directories to your ‘ARR/ArrClient/Unity’ folder:
 
-- *AzureRemoteRenderingSample* - The sample project
-- *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
-- *ScriptableRenderPipeline* - A customized version of the Unity's ScriptableRenderPipeline.
+* *AzureRemoteRenderingSample* - The sample project
+* *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
+* *ScriptableRenderPipeline* - A customized version of the Unity's ScriptableRenderPipeline.
 
 ## Rendering a model with the Unity sample project
 
