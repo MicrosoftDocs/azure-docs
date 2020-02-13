@@ -53,8 +53,10 @@ When you create a standard tier Event Hubs namespace, the Kafka endpoint for the
     security.protocol=SASL_SSL
     sasl.mechanism=OAUTHBEARER
     sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-    sasl.login.callback.handler.class=class CustomAuthenticateCallbackHandler;
-    ```     
+    sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+    ```    
+
+    You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on [GitHub location](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
 4. Run the producer code and stream into Kafka-enabled Event Hubs:
    
     ```shell
@@ -82,8 +84,10 @@ When you create a standard tier Event Hubs namespace, the Kafka endpoint for the
     security.protocol=SASL_SSL
     sasl.mechanism=OAUTHBEARER
     sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-    sasl.login.callback.handler.class=class CustomAuthenticateCallbackHandler;
+    sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ``` 
+
+    You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on [GitHub location](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
 7. Run the consumer code and process from Kafka enabled Event Hubs using your Kafka clients:
 
     ```java
