@@ -134,7 +134,13 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | feedback.ttlAsIso8601     | Retention for service-bound feedback messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
 | feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 100 |
 
-For more information about how to set these configuration options, see [Create IoT hubs](iot-hub-create-through-portal.md).
+You can set the configuration options in one of the following ways:
+
+* **Azure portal**: Under **Settings** on your IoT hub, select **Built-in endpoints** and expand **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** property is not currently supported in Azure portal.)
+
+* **Azure CLI**: Use the [az iot hub update](https://docs.microsoft.com/en-us/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command.
+
+* **PowerShell**: Use the `-CloudToDevice` parameter in the [Set-AzIoTHub](https://docs.microsoft.com/en-us/powershell/module/az.iothub/set-aziothub?view=azps-3.4.0) command.
 
 ## Next steps
 
