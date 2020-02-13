@@ -147,7 +147,21 @@ groups:
   - id: text-analytics-language-detection
     title: Language Detection
   - id: text-analytics-sentiment-analysis
-    title: Sentiment Analysis    
+    title: Sentiment Analysis
+- id: programming-languages-set-functions
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell 
+  - id: programming-language-python
+    title: Python 
+  - id: programming-language-typescript
+    title: TypeScript      
 - id: programming-languages-set-functions01
   title: Programming languages
   prompt: Choose a programming language
@@ -162,6 +176,20 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-text-analytics
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: javascript
+  - id: programming-language-java
+    title: Java 
+  - id: programming-language-other
+    title: Other languages...    
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language

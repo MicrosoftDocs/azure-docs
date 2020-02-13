@@ -40,6 +40,62 @@ Use the Text Analytics client library version `3.0-preview` to perform:
 [!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
+> [!IMPORTANT]
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+> [!IMPORTANT]
+> * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+
+[!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+> [!IMPORTANT]
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+> [!IMPORTANT]
+> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-other"
+
+## Additional language support
+
+If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstarts available. Use the table to find the right sample for your programming language.
+
+| Language | Available version | 
+|----------|------------------------|
+| Ruby     | [Version 2.1](ruby-sdk.md)          | 
+| Go       | [Version 2.1](go-sdk.md)          | 
+
+::: zone-end
 
 ## Clean up resources
 
