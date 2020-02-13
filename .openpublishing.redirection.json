@@ -451,6 +451,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
+      "redirect_url": "/azure/azure-arc/servers/onboard-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
+      "redirect_url": "/azure/azure-arc/servers/onboard-service-principal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/quickstart-create-cluster-cli.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-cli",
       "redirect_document_id": true
@@ -35409,6 +35419,16 @@
       "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/technical-reference.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditions.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",

@@ -6,9 +6,8 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/09/2020
-ms.custom: mvc
-ms.topic: quickstart
+ms.date: 02/12/2020
+ms.topic: conceptual
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
@@ -39,6 +38,7 @@ The script to automate the download and installation, and to establish the conne
     >- WestEurope
     >- WestAsia
     >
+    >Review additional considerations when selecting a region [here](overview.md#supported-regions) in the Overview article.
 
 1. On the **Generate script** page, in the **Operating system** drop-down list, select the operating system that the script will be running on.
 
@@ -141,7 +141,7 @@ After you install the agent, configure it to communicate with the Azure Arc serv
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-![A successful server connection](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
+![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## Clean up
 
@@ -160,7 +160,7 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
     >[!NOTE]
     > You can also run the agent setup wizard by double-clicking the **AzureConnectedMachineAgent.msi** installer package.
 
-    If you want to script the uninstallation, you can use the following example, which retrieves the product code and uninstalls the agent by using the Msiexec.exe command line - `msiexec /x {Product Code}`. To do so:  
+    If you want to script removal of the agent, you can use the following example, which retrieves the product code and uninstalls the agent by using the Msiexec.exe command line - `msiexec /x {Product Code}`. To do so:  
     
     a. Open the Registry Editor.  
     b. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.  
