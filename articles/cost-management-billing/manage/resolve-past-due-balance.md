@@ -29,10 +29,12 @@ If your payment isn't received or if we can't process your payment, you will get
 1. Search for **Cost Management + Billing**.
 1. In the **Overview** page, there's list of subscriptions you have billing access to. Select the past due subscription.
 1. In the **Subscription overview** page, click the red past due banner to settle the balance. 
-    > [!NOTE] If you are not the Account Administrator, you will not be able to settle the balance.
+    > [!NOTE]
+    > If you are not the Account Administrator, you will not be able to settle the balance.
 1. In the new **Settle balance** page, click **Select payment method** to pay the outstanding balance. This payment method will become the active payment method for all subscriptions currently using the failed payment method.
     ![Screenshot that shows select payment method link](./media/resolve-past-due-balance/settle-balance-screen.png)
-     > [!NOTE] The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.
+     > [!NOTE]
+     > The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.
 1. If the selected payment method also has outstanding charges for Microsoft services, this will be reflected in the total outstanding balance. You must pay those outstanding charges, too.
 1. Click **Pay**.
 
