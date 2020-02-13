@@ -63,7 +63,7 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
   - Mozilla Firefox 38.0 and above
 - Due to security restrictions, Azure AD B2C doesn't support `frame`, `iframe` and `form` HTML elements.
 
-## custom page content walkthrough
+## Custom page content walkthrough
 
 1. Prepare a place where you can hosts your custom page content.
 1. Download and customize a custom page content, such as `unified.html`.
