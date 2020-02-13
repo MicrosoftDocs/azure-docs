@@ -197,3 +197,11 @@ groups:
     title: Python
   - id: programming-language-nodejs
     title: Node.js
+- id: java-build-tools-set
+  title: Build tools
+  prompt: Choose a build tool
+  pivots:
+  - id: java-build-tools-maven
+    title: Maven
+  - id: java-build-tools-gradle
+    title: Gradle
