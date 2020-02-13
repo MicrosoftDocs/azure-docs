@@ -1,6 +1,6 @@
 ---
 title: Getting started with Android map control | Microsoft Azure Maps
-description: In this article you will learn, how to get started with the Android map control using the Microsoft Azure Maps Android SDK.
+description: In this article you'll learn, how to get started with the Android map control using the Microsoft Azure Maps Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -21,7 +21,7 @@ The Azure Maps Android SDK is a vector map library for Android. This article gui
 
 To complete the procedures in this article, you first need to [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) in the S1 pricing tier and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) for your account.
 
-For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ### Download Android Studio
 
@@ -98,7 +98,7 @@ The next step in building your application is to install the Azure Maps Android 
     </FrameLayout>
     ```
 
-4. In the **MainActivity.java** file you will need to:
+4. In the **MainActivity.java** file you'll need to:
     
     * add imports for the Azure Maps SDK
     * set your Azure Maps authentication information
@@ -106,7 +106,7 @@ The next step in building your application is to install the Azure Maps Android 
 
     Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won’t have to add your authentication information on every view. 
 
-    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly, call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
+    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method. 
 
     * onCreate(Bundle) 
     * onStart() 

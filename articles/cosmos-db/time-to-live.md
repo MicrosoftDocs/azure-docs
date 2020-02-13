@@ -39,9 +39,7 @@ The time to live value is set in seconds, and it is interpreted as a delta from 
 
 * If TTL is not set on a container, then the time to live on an item in this container has no effect. 
 
-* If TTL on a container is set to -1, an item in this container that has the time to live set to n, will expire after n seconds, and remaining items will not expire. 
-
-Deleting items based on TTL is free. There is no additional cost (that is, no additional RUs are consumed) when item is deleted as a result of TTL expiration.
+* If TTL on a container is set to -1, an item in this container that has the time to live set to n, will expire after n seconds, and remaining items will not expire.
 
 ## Examples
 

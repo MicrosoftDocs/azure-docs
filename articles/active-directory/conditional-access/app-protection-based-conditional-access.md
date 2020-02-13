@@ -35,7 +35,7 @@ In the Conditional Access terminology, these client apps are known to be policy 
 
 ![Conditional Access](./media/app-protection-based-conditional-access/05.png)
 
-For a list of policy-protected client apps, see [App protection policy requirement](technical-reference.md#approved-client-app-requirement).
+For a list of policy-protected client apps, see [App protection policy requirement](concept-conditional-access-grant.md).
 
 You can combine app-protection-based Conditional Access policies with other policies, such as [device-based Conditional Access policies](require-managed-devices.md). This way, you can provide flexibility in how to protect data for both personal and corporate devices.
 
@@ -54,8 +54,8 @@ Similar to compliance that's reported by Intune for iOS and Android for a manage
 
 This article assumes that you're familiar with:
 
-- The [app protection policy requirement](technical-reference.md#app-protection-policy-requirement) technical reference.
-- The [approved client app requirement](technical-reference.md#approved-client-app-requirement) technical reference.
+- The [app protection policy requirement](concept-conditional-access-grant.md).
+- The [approved client app requirement](concept-conditional-access-grant.md).
 - The basic concepts of [Conditional Access in Azure Active Directory](overview.md).
 - How to [configure a Conditional Access policy](app-based-mfa.md).
 
