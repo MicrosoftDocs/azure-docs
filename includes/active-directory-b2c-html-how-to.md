@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: marsma
 ---
-## Page UI customization
+## Use custom page content
 
 By using the page UI customization feature, you can customize the look and feel of any custom policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
 
@@ -15,7 +15,7 @@ Here's how it works: Azure AD B2C runs code in your customer's browser and uses 
 ![HTML template margin](https://raw.githubusercontent.com/wiki/azure-ad-b2c/ief-wiki/media/ui-customization.png)
 
 
-##  HTML template
+##  Custom HTML page content
 
 Create an HTML page with your own branding. This page can be a static one `*.html`, or a dynamic HTML page (e.g .NET, Node.js, PHP) which will serve the content. The HTML template can contain any HTML elements (except insecure elements, such as iframes) CSS styling, and JavaScript. The only required element is a div element with id set to 'api', such as this one <div id="api"></div> within your HTML page.
 
@@ -31,23 +31,23 @@ Create an HTML page with your own branding. This page can be a static one `*.htm
 </html>
 ```
 
-### Azure AD B2C HTML templates
+### Azure AD B2C custom page contents
 
 You can use Azure AD B2C out of the box HTM files. The following table lists the default content that Azure AD B2C provides. You can download those files and use them as a starting point to create your own HTML template.
 
-| Content definition ID | Default HTML5 template| Description |
+| Default HTML content | Content definition ID (custom policy)| Description |
 |-----------------------|--------|-------------|
-| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page**. This page is displayed when an exception or an error is encountered. |
-| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Self-Asserted page**. Use this file as a template for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, and more. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes.|
-| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page**. On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. |
-| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page**. This page contains a form that users can access to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. |
-| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page**. This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
+| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | *api.error* |  **Error page**. This page is displayed when an exception or an error is encountered. |
+| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | *api.localaccountsignin*, *api.localaccountsignup* , *api.localaccountpasswordreset*, *api.selfasserted*, |  **Self-Asserted page**. Use this file as a template for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, and more. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes.|
+| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. |
+| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that users can access to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. |
+| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | *api.signuporsignin* | **Unified sign-up or sign-in page**. This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
 
-## Storing the UI content
+## Hosting the page content
 
 When using your own HTML and CSS files to customize the UI, you can host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), [Azure App Services](azure/app-service/), web servers, CDNs, AWS S3, or file sharing systems. The important point is that you host the content on a publicly available HTTPS endpoint with CORS enabled. 
 
-## Guidelines for using HTML templates
+## Guidelines for using custom page content
 
 - You must use an absolute URL when you include external resources, such as media, CSS and JavaScript files.
 - Add `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, a page is constructed before being shown to the user. This means that first the broser downloas the HTML file, then all of its references before constructing the page and displaying it. This helps getting rid of the ‘flicker’ that may occur on a page by ‘preloading’ the CSS file, without the unstyled HTML being shown to the user. Following HTML code snippent ilustate the user of preload
@@ -63,17 +63,17 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
   - Mozilla Firefox 38.0 and above
 - Due to security restrictions, Azure AD B2C doesn't support `frame`, `iframe` and `form` HTML elements.
 
-## Custom HTML templates walkthrough
+## custom page content walkthrough
 
-1. Prepare a place where you can hosts your HTML5 templates.
-1. Download and customize an HTML5 template, such as `unified.html`.
-1. Publish your HTML templates to a publicly available HTTPS endpoint.
+1. Prepare a place where you can hosts your custom page content.
+1. Download and customize an HTML template, such as `unified.html`.
+1. Publish your custom page content to a publicly available HTTPS endpoint.
 1. Set cross-origin resource sharing (CORS) for your web app.
-1. Point your policy to your HTML5 template.
+1. Point your policy to your custom page content.
 
-## 1. Create your HTML5 content
+## 1. Create your HTML content
 
-Create HTML content with your product's brand name in the title.
+Create a custom page content with your product's brand name in the title.
 
 1. Copy the following HTML snippet. It is well-formed HTML5 with an empty element called *\<div id="api"\>\</div\>* located within the *\<body\>* tags. This element indicates where Azure AD B2C content is to be inserted.
 
@@ -125,7 +125,7 @@ To create a public container in Blob storage, perform the following steps:
 1. For **Public access level**, select **Blob**, then **OK**.
 1. Click **root** to open the new container.
 
-### 2.2 Upload your HTML files
+### 2.2 Upload your custom page content files
 
 1. Click **Upload**.
 1. Click the folder icon next to **Select a file**.
