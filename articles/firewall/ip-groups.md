@@ -53,7 +53,7 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 4. Finally, can export the file in the CSV file format.
 
 > [!NOTE]
-> If you delete all the IP addresses in an IP Group while it is still in use in a rule, that is skipped.
+> If you delete all the IP addresses in an IP Group while it is still in use in a rule, that rule is skipped.
 
 
 ## Use an IP Group
