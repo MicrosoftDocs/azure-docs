@@ -51,7 +51,7 @@ Another reason for unstable holograms (wobbling, warping, jittering, or jumping 
 Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. This value should consistently be below 100 ms. If you see significantly higher values, this indicates that you are connected to a data center that is too far away.
 
 Possible mitigations are:
-* Make sure your network connectivity matches the criteria outlined in [Guidelines for network connectivity](../reference/network-requirements#guidelines-for-network-connectivity)
+* Make sure your network connectivity matches the criteria outlined in [Guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity)
 * Make sure that you are connected to the closest Azure data center offered by Azure Remote Rendering. 
 * Make sure your Wi-Fi network has good signal strength at the place where you are using your client device. If you have a large distance or obstacles such as walls between your client device and the Wi-Fi access point, move the device closer to the Wi-Fi access point.
 * Verify that your Wi-Fi network is not using channels that overlap with other Wi-Fi networks. You can use a tool like [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) to validate this.
