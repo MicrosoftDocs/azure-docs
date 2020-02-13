@@ -104,7 +104,7 @@ If using an NFS storage system (for example, an on-premises hardware NAS system)
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
-  * In addition to the ports retunred by the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
+  * In addition to the ports returned by the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
