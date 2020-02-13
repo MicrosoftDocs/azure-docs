@@ -114,12 +114,12 @@ In this section, you'll create and validate a pipeline using your Python script.
 1. In the **Factory Resources** box, select the + (plus) button and then select **Pipeline**
 1. In the **General** tab, set the name of the pipeline as "Run Python"
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-pipeline.png?token=ABTT2GMIRJJPYBVS7ADEC2S5ZLZL6)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-pipeline.png?token=ABTT2GKQ52HEIQFFZERQUF26JZWFQ)
 
 1. In the **Activities** box, expand **Batch Service**. Drag the custom activity from the **Activities** toolbox to the pipeline designer surface.
 1. In the **General** tab, specify **testPipeline** for Name
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task.png?token=ABTT2GPZKBE6AN74MJ3QBG25ZLZQW)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task.png?token=ABTT2GIS7FGLADMF2GPPDLC6JZWIA)
 1. In the **Azure Batch** tab, add the **Batch Account** that was created in the previous steps and **Test connection** to ensure that it is successful
 
     ![](https://github.com/mammask/tutorial-run-r-batch-azure-data-factory/blob/master/samples/integrate-pipeline-with-azure-batch.png?raw=true)
