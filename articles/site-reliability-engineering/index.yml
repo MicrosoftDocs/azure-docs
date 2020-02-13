@@ -15,35 +15,56 @@ metadata:
   ms.author: dnb #Required; microsoft alias of author; optional team alias.
   ms.date: 12/23/2019 #Required; mm/dd/yyyy format.
 
-# productDirectory section (optional)
-productDirectory:
-  title: Learn about SRE # < 60 chars (optional)
-  #summary: sectionsummary # < 160 chars (optional)
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Introduction to SRE video series
-      # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/index/video.svg
-      links: 
-        - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
-          text: What is SRE?
-        - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player  
-          text: SRE Principles and Practices
-        - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/playeraåå
-          text: Getting Started
+    - title: "Introduction to Site Reliability Engineering"
+      itemType: "video"
+      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
     # Card
-    - title: Intro to SRE online course
-      imageSrc: ./media/index/learn.svg
-      links:
-        - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-          text: Learn the basics of SRE in a free online course
+    - title: "Intro to SRE: Core Principles and Practices"
+      itemType: "video"
+      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
     # Card
-    - title: SRE Resources
-      imageSrc: ./media/index/reference.svg
-      links:
-        - url: resources/books.md
-          text: books
-        - url: resources/events.md
-          text: events
-        - url: resources/links.md
-          text: links
+    - title: "Intro to SRE: How to Get Started"
+      itemType: "video"
+      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
+
+productDirectory:
+   # title: Learn about SRE # < 60 chars (optional)
+   # summary: sectionsummary # < 160 chars (optional)
+   items:
+     # Card
+     - title: Improving Reliability through Modern Operations Practices
+       # imageSrc should be square in ratio with no whitespace
+       imageSrc: ./media/index/video.svg
+       links: 
+         - url: https://myignite.techcommunity.microsoft.com/sessions/82996
+           text: "Building the foundation for modern ops: Monitoring"
+         - url: https://myignite.techcommunity.microsoft.com/sessions/82997  
+           text: Responding to incidents
+         - url: https://myignite.techcommunity.microsoft.com/sessions/82998  
+           text: Learning from failure
+         - url: https://myignite.techcommunity.microsoft.com/sessions/82999  
+           text: Deployment practices for greater reliability
+         - url: https://myignite.techcommunity.microsoft.com/sessions/83001  
+           text: "Preparing for growth: Capacity planning and scaling"
+     # Card
+     - title: Intro to SRE online course
+       imageSrc: ./media/index/learn.svg
+       links:
+         - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
+           text: Learn the basics of SRE in a free online course
+     # Card
+     - title: SRE Resources
+       imageSrc: ./media/index/reference.svg
+       links:
+         - url: resources/books.md
+           text: books
+         - url: resources/events.md
+           text: events
+         - url: resources/links.md
+           text: links
