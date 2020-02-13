@@ -892,6 +892,8 @@
           href: log-query/smart-analytics.md
         - name: Write efficient queries
           href: log-query/log-query-performance.md
+        - name: Optimize queries
+          href: log-query/query-optimization.md
         - name: Parse text data
           href: log-query/parse-text.md
     - name: Flow / Logic Apps

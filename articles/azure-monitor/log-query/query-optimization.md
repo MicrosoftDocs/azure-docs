@@ -26,19 +26,19 @@ You should give particular attention to queries that are used for recurrent and 
 
 The following query performance indicators are available for every query that is executed:
 
-- **Total CPU:** Overall compute used to process the query across all compute nodes. It represents time used for computing, parsing and data fetching. 
+- [Total CPU](#total-cpu): Overall compute used to process the query across all compute nodes. It represents time used for computing, parsing and data fetching. 
 
-- **Data used for processed query:** Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
+- [Data used for processed query](#data-used-for-query-processing): Overall data that was accessed to process the query. Influenced by the size of the target table, time span used, filters applied, and the number of columns referenced.
 
-- **Time span of the processed query:** The gap between the newest and the oldest data that was accessed to process the query. Influenced by the query explicit time span and filters applied. It might be larger than the explicit time span due to data partitioning.
+- [Time span of the processed query](#time-range-of-the-data-processed): The gap between the newest and the oldest data that was accessed to process the query. Influenced by the query explicit time span and filters applied. It might be larger than the explicit time span due to data partitioning.
 
-- **Age of processed data:** The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
+- [Age of processed data](#age-of-the-oldest-data-used): The gap between now and the oldest data that was accessed to process the query. It highly influences the efficiency of data fetching.
 
-- **Number of workspaces:** How many workspaces were accessed during the query processing due to implicit or explicit selection.
+- [Number of workspaces](#number-of-workspaces): How many workspaces were accessed during the query processing due to implicit or explicit selection.
 
-- **Number of regions:** How many regions were accessed during the query processing based due to implicit or explicit selection of workspaces. Multi-region queries are much less efficient and performance indicators present partial coverage.
+- [Number of regions](#number-of-regions): How many regions were accessed during the query processing based due to implicit or explicit selection of workspaces. Multi-region queries are much less efficient and performance indicators present partial coverage.
 
-- **Parallelism:** Indicates how much the system was able to execute this query on multiple nodes. Relevant only to queries that has high CPU consumption. Influenced by usage of specific functions and operators.
+- [Parallelism](#parallelism): Indicates how much the system was able to execute this query on multiple nodes. Relevant only to queries that has high CPU consumption. Influenced by usage of specific functions and operators.
 
 
 ## Total CPU
@@ -56,6 +56,7 @@ These functions consume CPU in proportion to the number of rows they are process
 For example, the following queries produce exactly the same result but the second one is by far the most efficient as the where condition before parsing excludes many records:
 
 ```Kusto
+//less efficient
 SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
@@ -64,6 +65,7 @@ SecurityEvent
 | where FileHash != "" and FilePath !startswith "%SYSTEM32"  // Problem: irrelevant results are filtered after all processing and parsing is done
 ```
 ```Kusto
+//more efficient
 SecurityEvent
 | where EventID == 8002 //Only this event have FileHash
 | where EventData !has "%SYSTEM32" //Early removal of unwanted records
@@ -84,7 +86,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 ```Kusto
-//More efficient
+//more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
@@ -104,7 +106,7 @@ Perf
 by CounterName, CounterPath, ObjectName
 ```
 ```Kusto
-//making the group expression more compact improve the performance
+//make the group expression more compact improve the performance
 Perf
 | summarize avg(CounterValue), any(CounterName), any(ObjectName) 
 by CounterPath
@@ -169,12 +171,12 @@ Another method to reduce the data volume is to have where conditions early in th
 For example, the following queries produce exactly the same result but the second one is more efficient:
 
 ```Kusto
-//Less efficient
+//less efficient
 SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 ```Kusto
-//More efficient
+//more efficient
 SecurityEvent
 | where EventID == 4624 //Logon GUID is relevant only for logon event
 | summarize LoginSessions = dcount(LogonGuid) by Account
@@ -307,4 +309,5 @@ Query behaviors that can reduce parallelism include:
 
 ## Next steps
 
-- Access the complete [reference documentation for the Kusto query language](/azure/kusto/query/).
+- [Writing efficient log queries in Azure Monitor](log-query-performance.md)
+- [Reference documentation for the Kusto query language](/azure/kusto/query/).
