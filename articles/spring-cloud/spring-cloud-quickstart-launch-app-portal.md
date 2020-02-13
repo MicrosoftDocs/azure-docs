@@ -51,7 +51,9 @@ az extension add --name spring-cloud
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
 
-1. From the top menu items, select Azure Spring Cloud  ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-icon.png)
+1. From the top menu items, click the icon **Azure Spring Cloud**:  
+
+  ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-icon.png)
 
 1. On the Azure Spring Cloud page, click **+ Add**.
 
