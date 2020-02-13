@@ -13,7 +13,7 @@ ms.reviewer: euang
 
 # Apache Spark in Azure Synapse Analytics Core Concepts
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse Analytics makes it easy to create and configure Spark capabilities in Azure. Azure Synapse provides a slightly different implementation of these Spark capabilities that are documented here.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse  makes it easy to create and configure Spark capabilities in Azure. Azure Synapse provides a slightly different implementation of these Spark capabilities that are documented here.
 
 ## Spark pools
 
