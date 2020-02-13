@@ -35,9 +35,9 @@ When you create the appliance VM using the downloaded template, you can add comp
 ## What network connectivity is needed?
 
 Review the following:
-- Appliance VMware assessment: [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) and [port](migrate-support-matrix-vmware.md#assessment-port-requirements) access requirements.
-- Appliance agentless VMware migration: [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) and [port](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) access requirements.
-- Appliance Hyper-V assessment: [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) and [port](migrate-support-matrix-hyper-v.md#assessment-port-requirements) access requirements.
+- VMware assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware.md#port-access) access requirements.
+- VMware agentless migration using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-vmware-migration.md#agentless-ports) access requirements.
+- Hyper-V assessment using the Azure Migrate appliance: [URL](migrate-appliance.md#url-access) and [port](migrate-support-matrix-hyper-v.md#port-access) access requirements.
 
 
 ## What data does the appliance collect?
@@ -78,9 +78,9 @@ Yes, for both.
 
 No. There's a one-to-one mapping between an appliance and vCenter Server. To discover VMs on multiple vCenter Server instances, you need to deploy multiple appliances.
 
-### How many VMs can I discover with an appliance?
+### How many VMs or servers can I discover with an appliance?
 
-You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
+You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs and up to 250 servers with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) and [physical](scale-physical-assessment.md) assessment.
 
 ## Can I delete an appliance?
 

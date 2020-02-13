@@ -94,7 +94,7 @@ Connecting the two services in the same or peered virtual networks is necessary.
 
 Once they are in the same virtual network (or peered), you need to provision a persistent volume and a persistent volume claim in your AKS Cluster. The containers can then mount the NFS drive to their local directory.
 
-Here is an example kubernetes definition for the persistent volume (This definition assumes your cluster and VM are in the same VNET):
+Here is an example Kubernetes definition for the persistent volume (This definition assumes your cluster and VM are in the same VNET):
 
 ```yaml
 apiVersion: v1

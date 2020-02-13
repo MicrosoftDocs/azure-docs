@@ -27,8 +27,6 @@ This article provides you with support information for the following configurati
 - Client applications condition
 - Approved client application requirement
 
-If this is not the information you are looking for, please leave a comment at the end of this article.
-
 ## Cloud apps assignments
 
 With Conditional Access policies, you control how your users access your [cloud apps](conditions.md#cloud-apps-and-actions). When you configure a Conditional Access policy, you need to select at least one cloud app. 
@@ -39,6 +37,7 @@ With Conditional Access policies, you control how your users access your [cloud 
 
 You can assign a Conditional Access policy to the following cloud apps from Microsoft:
 
+- Office 365 (preview)
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database and Data Warehouse - [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -71,6 +70,22 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Skype for Business Online
 - Virtual Private Network (VPN)
 - Windows Defender ATP
+
+### Office 365 (preview)
+
+Office 365 provides cloud-based productivity and collaboration services like Exchange, SharePoint, and Microsoft Teams. Office 365 cloud services are deeply integrated to ensure smooth and collaborative experiences. The Office 365 (preview) app makes it possible to target these services all at once. We recommend using the new Office 365 (preview) app, instead of targeting individual cloud apps like Office 365 Exchange Online and Office 365 SharePoint Online to avoid issues that may arise due to inconsistent policies and service dependencies.
+
+Key applications that are included in the Office 365 (preview) client app:
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Office.com
+- Microsoft Forms
+- Microsoft Power Automate
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### Other applications
 
@@ -169,7 +184,7 @@ This setting has an impact on access attempts made from the following mobile app
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS |
-| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS |
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support is planned for the future, SharePoint app support is planned for the future | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). OneDrive for Business support planned for the future| Office 365 SharePoint Online| macOS|

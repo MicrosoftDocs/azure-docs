@@ -200,7 +200,7 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 
 **Here is what a complete request will look like.**
 ```python
-import urllib2 # urllib.request for Python 3.X
+import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
 
 data = {
@@ -224,7 +224,7 @@ url = '<your-api-uri>'
 api_key = '<your-api-key>'
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-# "urllib.request.Request(uri, body, headers)" for Python 3.X
+# "urllib.request.Request(url, body, headers)" for Python 3.X
 req = urllib2.Request(url, body, headers)
 
 try:

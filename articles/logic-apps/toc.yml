@@ -111,6 +111,8 @@
         href: connect-virtual-network-vnet-set-up-single-ip-address.md
       - name: Add artifacts to integration service environments
         href: add-artifacts-integration-service-environment-ise.md
+      - name: Set up customer-managed encryption keys for integration service environments
+        href: customer-managed-keys-integration-service-environment.md
   - name: Access on-premises data
     items: 
       - name: Install data gateway
@@ -179,6 +181,8 @@
         href: logic-apps-enterprise-integration-as2.md
       - name: Azure Blob Storage
         href: ../connectors/connectors-create-api-azureblobstorage.md
+      - name: Azure Container Instances
+        href: ../connectors/connectors-create-api-container-instances.md
       - name: Azure Event Hubs
         href: ../connectors/connectors-create-api-azure-event-hubs.md      
       - name: Azure Functions
@@ -326,16 +330,13 @@
   - name: Monitor
     items: 
       - name: Monitor logic apps
-        href: logic-apps-monitor-your-logic-apps.md
+        href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
-        href: logic-apps-monitor-your-logic-apps-oms.md
+        href: monitor-logic-apps-log-analytics.md
       - name: Monitor B2B messages with Azure Monitor logs
-        href: logic-apps-monitor-b2b-message.md
-        items:
-        - name: Track B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Create queries for B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+        href: monitor-b2b-messages-log-analytics.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 

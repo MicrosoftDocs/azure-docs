@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to specify additional scopes so I can get pre-consent for several resources.
-ms.collection: M365-identity-device-management
 ---
 
 # User gets consent for several resources using MSAL.NET

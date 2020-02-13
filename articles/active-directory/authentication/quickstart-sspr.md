@@ -69,7 +69,7 @@ Now lets test your SSPR configuration with a test user that's part of the group 
 
 ## Clean up resources
 
-To disable self-service password reset, search for and select **Azure Active Directory** in the Azure portal. Select **Properties** > **Password Reset**, and then choose **None** under **Self Service Password Reset Enabled**. When ready, select **Save**.
+To disable self-service password reset, search for and select **Azure Active Directory** in the Azure portal. Select **Password Reset**, and then choose **None** under **Self Service Password Reset Enabled**. When ready, select **Save**.
 
 ## Next steps
 

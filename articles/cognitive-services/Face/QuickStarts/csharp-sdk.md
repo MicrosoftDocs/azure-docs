@@ -12,7 +12,7 @@ ms.author: pafarley
 ---
 # Quickstart: Face client library for .NET
 
-Get started with the Face client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Face API service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
+Get started with the Face client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for .NET to:
 
@@ -311,5 +311,5 @@ In this quickstart, you learned how to use the Face library for .NET to do basis
 > [!div class="nextstepaction"]
 > [Face API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
 
-* [What is the Face API?](../overview.md)
+* [What is the Face service?](../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs).

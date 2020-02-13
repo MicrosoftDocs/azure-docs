@@ -10,8 +10,8 @@ metadata:
   ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: jpconnock #Required; your GitHub user alias, with correct capitalization.
-  ms.author: jpconnock  #Required; microsoft alias of author; optional team alias.
+  author: bmitchell287 #Required; your GitHub user alias, with correct capitalization.
+  ms.author: brendm  #Required; microsoft alias of author; optional team alias.
   ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

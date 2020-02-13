@@ -25,13 +25,13 @@ Automatic provisioning refers to creating user identities and roles in the cloud
 The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS SSL encryption.
 
 
-![Azure AD Provisioning Service](./media/user-provisioning/provisioning0.PNG)
+![Azure AD Provisioning Service](media/how-provisioning-works/provisioning0.PNG)
 *Figure 1: The Azure AD Provisioning Service*
 
-![Outbound user provisioning workflow](./media/user-provisioning/provisioning1.PNG)
+![Outbound user provisioning workflow](media/how-provisioning-works/provisioning1.PNG)
 *Figure 2: "Outbound" user provisioning workflow from Azure AD to popular SaaS applications*
 
-![Inbound user provisioning workflow](./media/user-provisioning/provisioning2.PNG)
+![Inbound user provisioning workflow](media/how-provisioning-works/provisioning2.PNG)
 *Figure 3: "Inbound" user provisioning workflow from popular Human Capital Management (HCM) applications to Azure Active Directory and Windows Server Active Directory*
 
 ## Provisioning using SCIM 2.0
@@ -69,11 +69,11 @@ For outbound provisioning from Azure AD to a SaaS application, relying on [user 
 
   * Dynamic groups can impact the performance of end-to-end provisioning from Azure AD to SaaS applications.
 
-  * How fast a user in a dynamic group is provisioned or de-provisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+  * How fast a user in a dynamic group is provisioned or de-provisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../users-groups-roles/groups-create-rule.md).
 
   * When a user loses membership in the dynamic group, it's considered a de-provisioning event. Consider this scenario when creating rules for dynamic groups.
 
-* **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). Instead, directly assign or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) the groups that contain the users who need to be provisioned.
+* **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](../users-groups-roles/groups-saasapps.md)). Instead, directly assign or otherwise [scope in](define-conditional-rules-for-provisioning-user-accounts.md) the groups that contain the users who need to be provisioned.
 
 ### Attribute-based scoping 
 
@@ -82,7 +82,7 @@ You can use scoping filters to define attribute-based rules that determine which
 ### B2B (guest) users
 
 It's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications. 
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../b2b/configure-saas-apps.md).
 
 ## Provisioning cycles: Initial and incremental
 
@@ -157,7 +157,7 @@ If most or all of the calls that are made against the target system consistently
 
 When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
-The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](application-provisioning-quarantine-status.md).
 
 ### How long provisioning takes
 
@@ -181,7 +181,7 @@ The Azure AD provisioning service will soft delete a user in an application when
 
 If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app. 
 
-30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), which sends a delete request to the application.
+30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 
 If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user. 
 

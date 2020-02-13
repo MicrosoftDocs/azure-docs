@@ -28,6 +28,7 @@ ms.collection: M365-identity-device-management
 
 > [!NOTE]
 > As of 12/22/2019, the Bulk invite users (Preview) feature has been temporarily disabled.
+> There is currently no known date for when this feature will be re-enabled. 
 
 If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 

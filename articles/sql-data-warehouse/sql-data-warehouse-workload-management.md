@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -49,3 +49,4 @@ Workload isolation reserves resources for a workload group.  Resources reserved 
 - For more information about workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).  
 - For more information about workload isolation, see [Workload Isolation](sql-data-warehouse-workload-isolation.md).  
 - For more information about workload importance, see [Workload Importance](sql-data-warehouse-workload-importance.md).  
+- For more information about workload management monitoring, see [Workload Management Portal Monitoring](sql-data-warehouse-workload-management-portal-monitor.md).  

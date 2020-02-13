@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
@@ -142,7 +142,7 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
     ![Launch AAD script](media/deploy/launch-aad-script.png)
 
 1. Choose the Azure AD tenant where you deployed Blockchain Workbench.
-1. In Cloud Shell, paste and run the command.
+1. In Cloud Shell PowerShell environment, paste and run the command.
 1. When prompted, enter the Azure AD tenant you want to use for Blockchain Workbench. This will be the tenant containing the users for Blockchain Workbench.
 
     > [!IMPORTANT]
@@ -161,6 +161,8 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
      ![Consent to read users profiles](media/deploy/graph-permission-consent.png)
 
 1. After consent, the Blockchain Workbench web app can be used.
+
+You have completed your Azure Blockchain Workbench deployment. See [Next steps](#next-steps) for suggestions to get started using your deployment.
 
 ## Azure AD configuration
 

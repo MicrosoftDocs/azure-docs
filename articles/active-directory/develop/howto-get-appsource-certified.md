@@ -14,7 +14,6 @@ ms.date: 08/21/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to get AppSource Certified for Azure Active Directory

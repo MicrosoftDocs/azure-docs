@@ -14,7 +14,6 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform so I can decide which endpoint and platform best meets my needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Evolution of Microsoft identity platform

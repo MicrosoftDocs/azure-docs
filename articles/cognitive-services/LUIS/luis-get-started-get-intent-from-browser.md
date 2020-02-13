@@ -22,13 +22,13 @@ To understand what a LUIS prediction endpoint returns, view a prediction result 
 
 In order to query a public app, you need:
 
-* Your own Language Understanding (LUIS) key. If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/). The LUIS authoring key will not work. 
+* Your own Language Understanding (LUIS) Authoring or Prediction key which can be obtained from [LUIS Portal (Preview)](https://preview.luis.ai/). If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/). 
 * The public app's ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## Use the browser to see predictions
 
 1. Open a web browser. 
-1. Use the complete URLs below, replacing `YOUR-KEY` with your own LUIS key. The requests are GET requests and include the authorization, with your LUIS key, as a query string parameter.
+1. Use the complete URLs below, replacing `YOUR-KEY` with your own LUIS Authoring or Prediction key. The requests are GET requests and include the authorization, with your LUIS Authoring or Prediction key, as a query string parameter.
 
     #### [V3 prediction request](#tab/V3-1-1)
     

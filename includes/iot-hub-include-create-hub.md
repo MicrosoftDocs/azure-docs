@@ -22,7 +22,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
    - **Subscription**: Select the subscription to use for your hub.
 
-   - **Resource Group**: Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use. To use an existing resource group, select that resource group. For more information, see [Manage Azure Resource Manager resource groups](../articles/azure-resource-manager/manage-resource-groups-portal.md).
+   - **Resource Group**: Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use. To use an existing resource group, select that resource group. For more information, see [Manage Azure Resource Manager resource groups](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    - **Region**: Select the region in which you want your hub to be located. Select the location closest to you.
 

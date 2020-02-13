@@ -1,5 +1,5 @@
 ---
-title: Design of a multi-DRM content protection system with access control - Azure Media Services | Microsoft Docs
+title: A multi-DRM content protection system - Azure Media Services v3
 description: This articles gives detailed description of how to design a multi-DRM content protection system with Azure Media Services.
 services: media-services
 documentationcenter: ''

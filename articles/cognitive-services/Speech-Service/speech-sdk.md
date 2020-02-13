@@ -28,6 +28,9 @@ A general overview about the capabilities and supported platforms can be found o
 
 ### Windows
 
+> [!WARNING]
+> The Speech SDK supports Windows 10 or later versions. Earlier Windows versions are **not supported**.
+
 For Windows, we support the following languages:
 
 * C# (UWP and .NET), C++:

@@ -11,15 +11,8 @@
     displayName: release notes, service updates, videos
 - name: Quickstarts
   items:
-  - name: Using C#
-    href: csharp-quickstart-commandline-feedback-loop.md
-    displayName: code, sample, quickstart, c#
-  - name: Using Node.js
-    href: quickstart-command-line-feedback-loop-nodejs-sdk.md
-    displayName: code, sample, quickstart, node, npm, sdk
-  - name: Using Python
-    href: python-quickstart-commandline-feedback-loop.md
-    displayName: code, sample, quickstart, python
+  - name: Using SDK
+    href: sdk-learning-loop.md
 - name: Tutorials
   items:
   - name: Use Azure Notebook
@@ -66,6 +59,8 @@
   - name: Create and configure Personalizer
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
+  - name: Manage your learning policy
+    href: how-to-learning-policy.md
   - name: Analyze
     items:
     - name: Offline evaluation
@@ -90,6 +85,8 @@
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
     - name: Node.js
       items:
+      - name: Reference
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
       - name: NPM
         href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python

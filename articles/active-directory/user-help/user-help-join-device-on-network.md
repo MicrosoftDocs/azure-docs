@@ -14,7 +14,6 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 
-ms.collection: M365-identity-device-management
 ---
 # Join your work device to your organization's network
 Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources.

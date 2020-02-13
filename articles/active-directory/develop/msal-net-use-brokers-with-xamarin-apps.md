@@ -15,7 +15,6 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to use brokers with my Xamarin iOS or Android application.
-ms.collection: M365-identity-device-management
 ---
 
 # Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin applications

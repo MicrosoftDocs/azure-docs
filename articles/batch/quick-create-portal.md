@@ -2,13 +2,13 @@
 title: Azure Quickstart - Run Batch job - Portal 
 description:  Quickly learn to run a Batch job with the Azure portal.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
 ---
 

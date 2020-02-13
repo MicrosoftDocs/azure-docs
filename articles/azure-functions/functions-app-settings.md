@@ -136,7 +136,7 @@ The language worker runtime to load in the function app.  This will correspond t
 
 ## WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-For consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
+For Consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -144,7 +144,7 @@ For consumption & Premium plans only. Connection string for storage account wher
 
 ## WEBSITE\_CONTENTSHARE
 
-For consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
+For Consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -186,8 +186,8 @@ By default Functions proxies will utilize a shortcut to send API calls from prox
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend url pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend url pointing to a function in the local Function App will be forwarded directly to that Function|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend URL pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend URL pointing to a function in the local Function App will be forwarded directly to that Function|
 
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES

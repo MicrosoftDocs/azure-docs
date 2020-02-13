@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ## What is a management solution?
 
-Management solutions contain Azure resources that work together to achieve a particular management scenario.  They are implemented as [Resource Management templates](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) that contain details of how to install and configure their contained resources when the solution is installed.
+Management solutions contain Azure resources that work together to achieve a particular management scenario.  They are implemented as [Resource Management templates](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) that contain details of how to install and configure their contained resources when the solution is installed.
 
 The basic strategy is to start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file]( solutions-solution-file.md). 
 
@@ -60,7 +60,7 @@ Once you've configured and tested the components that will be part of your solut
 
 
 ## Test your solution
-While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../../azure-resource-manager/resource-group-template-deploy.md).
+While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Publish your solution
 Once you have completed and tested your solution, you can make it available to customers through either the following sources.

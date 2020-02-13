@@ -57,7 +57,7 @@
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
-    href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+    href: ../azure-resource-manager/templates/key-vault-parameter.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
 - name: Samples
@@ -118,6 +118,8 @@
     href: event-grid-logicapps.md    
   - name: Integrate with Azure Policy
     href: azure-policy.md
+  - name: Integrate with Azure Private Link Service (Preview)
+    href: private-link-service.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls

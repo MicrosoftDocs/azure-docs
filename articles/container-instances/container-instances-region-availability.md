@@ -40,9 +40,9 @@ The following regions and resources are available to container groups with Windo
 | East US 2, West US 2 | Windows | 2 | 3.5 |
 
 
-## Availability - Virtual network deployment (preview)
+## Availability - Virtual network deployment
 
-The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md) (preview).
+The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 

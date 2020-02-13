@@ -47,11 +47,7 @@ The simpler perceptron models are suited to learning linearly separable patterns
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
 
-## Results
 
-After training is complete:
-
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md).
 
 
 ## Next steps

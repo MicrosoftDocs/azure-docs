@@ -38,11 +38,7 @@ After you have the Device Provisioning Service running, copy the value of **ID S
 
 A unique registration ID must be defined to identify each device. You can use the MAC address, serial number, or any unique information from the device.
 
-In this example, we use a combination of a MAC address and serial number forming the following string for a registration ID.
-
-```
-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-```
+In this example, we use a combination of a MAC address and serial number forming the following string for a registration ID: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
 
 Create a unique registration ID for your device. Valid characters are lowercase alphanumeric and dash ('-').
 
@@ -181,7 +177,7 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-Replace the placeholder values for `{scope_id}`, `{registration_id}`, and `{symmetric_key}` with the data you collected earlier.
+Replace the placeholder values for `{scope_id}`, `{registration_id}`, and `{symmetric_key}` with the data you collected earlier. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
 ### Windows device
 

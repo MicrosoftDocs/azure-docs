@@ -88,6 +88,6 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 
 ## Next steps
 - [Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
-- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](common-questions-discovery-assessment.md#what-is-dependency-visualization) about the FAQs on dependency visualization.
 
 

@@ -17,7 +17,6 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory for developers (v1.0) overview

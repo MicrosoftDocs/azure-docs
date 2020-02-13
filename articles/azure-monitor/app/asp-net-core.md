@@ -412,7 +412,7 @@ The `Microsoft.AspNetCore.All` 2.0 metapackage included the Application Insights
 
 Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
 
-* Performance counters are supported only in Windows.
+* The SDK collects [Event Counters](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters) on Linux because [Performance Counters](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters) are only supported in Windows. Most metrics are the same.
 * Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or MacOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
 ```csharp

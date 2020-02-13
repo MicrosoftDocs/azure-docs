@@ -195,7 +195,7 @@ Load Balancer is a pass through service (does not terminate TCP connections) and
 
 UDP datagrams will be delivered to healthy backend endpoints.
 
-UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows may move to another healthy instance in the backend pool.
+UDP is connectionless and there is no flow state tracked for UDP. If any backend endpoint's health probe fails, existing UDP flows will move to another healthy instance in the backend pool.
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 

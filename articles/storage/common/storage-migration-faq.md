@@ -12,7 +12,7 @@ ms.subservice: common
 ---
 # Frequently asked questions about Azure Storage migration
 
-This article answers common questions about Azure Storage migration. 
+This article answers common questions about Azure Storage migration.
 
 ## FAQ
 
@@ -28,11 +28,11 @@ example:
 
 AzCopy uses the [Copy Blob API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) to
 copy each file in the container.  
-  
+
 You can use any virtual machine or local machine that has internet access to run AzCopy. You can also use an Azure Batch schedule to do this automatically, but it's more complicated.  
-  
+
 The automation script is designed for Azure Resource Manager deployment instead of storage content manipulation. For more information, see [Deploy
-resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 **Is there any charge for copying data between two file shares on the same storage account within the same region?**
 
@@ -44,7 +44,7 @@ There is no option to back up an entire storage account directly. But
 you can manually move the container in that storage account to another
 account by using AzCopy or Storage Explorer. The following steps show
 how to use AzCopy to move the container:  
- 
+
 
 1.  Install the [AzCopy](storage-use-azcopy.md) command-line tool. This tool helps you move the VHD file between storage accounts.
 
@@ -56,7 +56,7 @@ how to use AzCopy to move the container:
 
 3.  Run the following command to move the container. You must replace
     the text with the actual values.   
-     
+
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
@@ -169,7 +169,7 @@ Follow these steps:
     $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
-    ``` 
+    ```
 
 For more information about how to deploy a virtual machine from a managed disk, see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
@@ -184,10 +184,10 @@ When you create a storage account, you select the primary region for the
 account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service Encryption (SSE)?**  
-  
+
 See the following articles:
 
--  [Azure Storage security guide](storage-security-guide.md)
+-  [Azure Storage security guide](../blobs/security-recommendations.md)
 
 -  [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md)
 
@@ -210,11 +210,11 @@ You can use [Storage Explorer](https://azure.microsoft.com/features/storage-expl
 
 **Are there any prerequisites for changing the replication of a storage account from geo-redundant storage to locally redundant storage?**
 
-No. 
+No.
 
 **How do I access Azure Files redundant storage?**
 
-Read-access geo-redundant storage is required to access redundant storage. However, Azure Files supports only locally redundant storage and standard geo-redundant storage that does not allow read-only access. 
+Read-access geo-redundant storage is required to access redundant storage. However, Azure Files supports only locally redundant storage and standard geo-redundant storage that does not allow read-only access.
 
 **How do I move from a premium storage account to a standard storage account?**
 
@@ -224,12 +224,12 @@ Follow these steps:
     standard storage account in your subscription.)
 
 2.  Download AzCopy. Run one of the following AzCopy commands.
-      
+
     To copy whole disks in the storage account:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S 
+        /SourceKey:key1 /DestKey:key2 /S
 
     To copy only one disk, provide the name of the disk in **Pattern**:
 
@@ -237,7 +237,7 @@ Follow these steps:
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
-   
+
 The operation might take several hours to finish.
 
 To make sure that the transfer finished successfully, examine the
@@ -245,7 +245,7 @@ destination storage account container in the Azure portal. After the
 disks are copied to the standard storage account, you can attach them to
 the virtual machine as an existing disk. For more information, see [How to attach a managed data disk to a Windows virtual machine in the Azure
 portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
-  
+
 **How do I convert to Azure Premium Storage for a file share?**
 
 Premium Storage is not allowed on an Azure file share.
@@ -270,7 +270,7 @@ You can use the Azure CLI.
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Upload a single blob: 
+- Upload a single blob:
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
@@ -279,7 +279,7 @@ You can use the Azure CLI.
 To give other people access to the storage resources:
 
 -   Use a shared access signature (SAS) token to provide access to a
-    resource. 
+    resource.
 
 -   Provide a user with the primary or secondary key for the
     storage account. For more information, see [Manage storage account access keys](storage-account-keys-manage.md).
@@ -304,9 +304,9 @@ To give other people access to the storage resources:
 -   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 -   If you're using read-access geo-redundant storage, you can access data from the secondary region at any time. Use one of the following methods:  
-      
+
     - **AzCopy**: Append **-secondary** to the storage account name in the URL to access the secondary endpoint. For example:  
-     
+
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-sas-overview.md).

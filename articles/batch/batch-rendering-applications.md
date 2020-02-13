@@ -3,8 +3,8 @@ title: Rendering applications - Azure Batch
 description: Pre-installed Batch rendering applications
 services: batch
 ms.service: batch
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 09/19/2019
 ms.topic: conceptual
 ---

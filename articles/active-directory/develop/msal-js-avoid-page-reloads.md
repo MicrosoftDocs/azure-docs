@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about avoiding page reloads so I can create more robust applications.
-ms.collection: M365-identity-device-management
 ---
 
 # Avoid page reloads when acquiring and renewing tokens silently using MSAL.js

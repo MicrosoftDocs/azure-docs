@@ -13,8 +13,7 @@ ms.workload: identity
 ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
+ms.custom: aaddev
 ---
 
 # Azure Active Directory Authentication Libraries

@@ -15,9 +15,9 @@ Azure Cosmos DB reserved capacity helps you save money by committing to a reserv
 
 Azure Cosmos DB reserved capacity can significantly reduce your Cosmos DB costs&mdash;up to 65 percent on regular prices with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources.
 
-Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../billing/billing-save-compute-costs-reservations.md) article.
+Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
-You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [up front or with monthly payments](../billing/billing-monthly-payments-reservations.md). To buy reserved capacity:
+You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/monthly-payments-reservations.md). To buy reserved capacity:
 
 * You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
@@ -69,22 +69,22 @@ When your reservation expires, your Azure Cosmos DB instances continue to run an
 
 ## Cancel, exchange, or refund reservations
 
-For help with identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+For help with identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Next steps
 
 The reservation discount is applied automatically to the Azure Cosmos DB resources that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
 
-*  To learn how reserved capacity discounts are applied to Azure Cosmos DB, see [Understand the Azure reservation discount](../billing/billing-understand-cosmosdb-reservation-charges.md).
+*  To learn how reserved capacity discounts are applied to Azure Cosmos DB, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
 * To learn more about Azure reservations, see the following articles:
 
-   * [What are Azure reservations?](../billing/billing-save-compute-costs-reservations.md)  
-   * [Manage Azure reservations](../billing/billing-manage-reserved-vm-instance.md)  
-   * [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)
+   * [What are Azure reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [Manage Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
+   * [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
+   * [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Azure reservations in the Partner Center CSP program](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## Need help? Contact us.

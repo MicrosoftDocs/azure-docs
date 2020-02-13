@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,7 +25,10 @@ Microsoft is making security defaults available to everyone. The goal is to ensu
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-The following security configurations will be turned on in your tenant. 
+> [!TIP]
+> If your tenant was created on or after October 22nd, 2019, it’s possible you are experiencing the new secure-by-default behavior and already have security defaults enabled in your tenant. In an effort to protect all of our users, security defaults is being rolled out to all new tenants created.
+
+More details on why security defaults are being made available can be found in Alex Weinert's blog post, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 ## Unified Multi-Factor Authentication registration
 

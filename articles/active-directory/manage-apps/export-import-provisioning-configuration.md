@@ -27,14 +27,14 @@ You can use Microsoft Graph API and Graph Explorer to export your User Provision
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
 
-   ![Workday App Service Principal ID](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![Workday App Service Principal ID](media/export-import-provisioning-mappings/wd_export_01.png)
 
 ## Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
 
-    ![Graph Sign-in](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Graph Sign-in](media/export-import-provisioning-mappings/wd_export_02.png)
 
 1. Upon successful sign-in, you will see the user account details in the left-hand pane.
 
@@ -48,7 +48,7 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
 
 You will get a response as shown below. Copy the "id attribute" present in the response. This value is the **ProvisioningJobId** and will be used to retrieve the underlying schema metadata.
 
-   [![Provisioning Job ID](./media/export-import-provisioning-mappings/wd_export_03.png)](./media/export-import-provisioning-mappings/wd_export_03.png#lightbox)
+   [![Provisioning Job ID](media/export-import-provisioning-mappings/wd_export_03.png)](media/export-import-provisioning-mappings/wd_export_03.png#lightbox)
 
 ## Step 4: Download the Provisioning Schema
 
@@ -73,10 +73,10 @@ In the Microsoft Graph Explorer, configure the following PUT query, replacing [s
 
 In the "Request Body" tab, copy the contents of the JSON schema file.
 
-   [![Request Body](./media/export-import-provisioning-mappings/wd_export_04.png)](./media/export-import-provisioning-mappings/wd_export_04.png#lightbox)
+   [![Request Body](media/export-import-provisioning-mappings/wd_export_04.png)](media/export-import-provisioning-mappings/wd_export_04.png#lightbox)
 
 In the "Request Headers" tab, add the Content-Type header attribute with value “application/json”
 
-   [![Request Headers](./media/export-import-provisioning-mappings/wd_export_05.png)](./media/export-import-provisioning-mappings/wd_export_05.png#lightbox)
+   [![Request Headers](media/export-import-provisioning-mappings/wd_export_05.png)](media/export-import-provisioning-mappings/wd_export_05.png#lightbox)
 
 Click on the "Run Query" button to import the new schema.

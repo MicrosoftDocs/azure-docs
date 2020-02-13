@@ -19,7 +19,6 @@ ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about how to use redirect URIs.
-ms.collection: M365-identity-device-management
 ---
 
 # Using redirect URIs with the Microsoft authentication library for iOS and macOS

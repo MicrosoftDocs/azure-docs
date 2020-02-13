@@ -39,7 +39,7 @@ Customize the image to your needs by installing LOB applications and sysprep the
  
 ## How do I manage Windows 10 Enterprise multi-session after deployment?
 
-You can use any supported configuration tool, but we recommend System Center Configuration Manager 1906 because it supports Windows 10 Enterprise multi-session. We're currently working on Microsoft Intune support.
+You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows 10 Enterprise multi-session. We're currently working on Microsoft Intune support.
  
 ## Can Windows 10 Enterprise multi-session be Azure Active Directory (AD)-joined?
 

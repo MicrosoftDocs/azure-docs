@@ -1,5 +1,5 @@
 ---
-title: 'How to configure OpenVPN on Azure VPN Gateway: PowerShell| Microsoft Docs'
+title: 'How to configure OpenVPN on Azure VPN Gateway: PowerShell'
 description: Steps to configure OpenVPN for Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc

@@ -24,7 +24,7 @@ This module supports exporting your data to the following cloud data services:
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Before exporting your data, you need to first register a datastore in your Azure Machine Learning workspace first. For more information, see [How to Access Data](../how-to-access-data.md).
+Before exporting your data, you need to first register a datastore in your Azure Machine Learning workspace first. For more information, see [Access data in Azure storage services](../how-to-access-data.md).
 
 ## How to configure Export Data
 
@@ -34,7 +34,7 @@ Before exporting your data, you need to first register a datastore in your Azure
 
 1. Select **Export Data** to open the **Properties** pane.
 
-1. For **Datastore**, select an existing datastore from the dropdown list. You can also create a new datastore. Check how by visiting [how-to-access-data](../how-to-access-data.md)
+1. For **Datastore**, select an existing datastore from the dropdown list. You can also create a new datastore. Check how by visiting [Access data in Azure storage services](../how-to-access-data.md).
 
 1. Define the path in the datastore to write the data to. 
 

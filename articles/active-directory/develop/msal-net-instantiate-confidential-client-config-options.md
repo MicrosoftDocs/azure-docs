@@ -15,7 +15,6 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to use application config options so I can instantiate a confidential client app.
-ms.collection: M365-identity-device-management
 ---
 
 # Instantiate a confidential client application with configuration options using MSAL.NET

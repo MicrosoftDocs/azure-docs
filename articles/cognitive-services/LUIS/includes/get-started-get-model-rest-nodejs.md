@@ -83,8 +83,8 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             body: utterances
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     const train = async (verb) => {
     
@@ -98,8 +98,8 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             body: null // The body can be empty for a training request
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     
     // MAIN

@@ -12,10 +12,10 @@ When used with a resource, the copy object has the following format:
 
 ```json
 "copy": {
-    "name": "<name-of-loop>",
-    "count": <number-of-iterations>,
-    "mode": "serial" <or> "parallel",
-    "batchSize": <number-to-deploy-serially>
+  "name": "<name-of-loop>",
+  "count": <number-of-iterations>,
+  "mode": "serial" <or> "parallel",
+  "batchSize": <number-to-deploy-serially>
 }
 ```
 
@@ -24,9 +24,9 @@ When used with a variable or property, the copy object has the following format:
 ```json
 "copy": [
   {
-      "name": "<name-of-loop>",
-      "count": <number-of-iterations>,
-      "input": <values-for-the-property-or-variable>
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "input": <values-for-the-property-or-variable>
   }
 ]
 ```
@@ -57,19 +57,19 @@ The resource to create several times takes the following format:
   "contentVersion": "1.0.0.0",
   "resources": [
     {
-      "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     }
   ],
   "outputs": {}
@@ -143,21 +143,21 @@ For example, to serially deploy storage accounts two at a time, use:
   "contentVersion": "1.0.0.0",
   "resources": [
     {
-      "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 4,
         "mode": "serial",
         "batchSize": 2
-      }
+      },
+      "properties": {}
     }
   ],
   "outputs": {}
@@ -180,9 +180,9 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 
 ```json
 {
-  "name": "examplevm",
   "type": "Microsoft.Compute/virtualMachines",
   "apiVersion": "2017-03-30",
+  "name": "examplevm",
   "properties": {
     "storageProfile": {
       "copy": [{
@@ -198,6 +198,10 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 ```
 
 Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You don't have to provide the name when used with resource iteration.
+
+> [!NOTE]
+> Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
+>
 
 Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
 
@@ -261,8 +265,8 @@ You can use resource and property iteration together. Reference the property ite
 ```json
 {
   "type": "Microsoft.Network/virtualNetworks",
-  "name": "[concat(parameters('vnetname'), copyIndex())]",
   "apiVersion": "2018-04-01",
+  "name": "[concat(parameters('vnetname'), copyIndex())]",
   "copy":{
     "count": 2,
     "name": "vnetloop"
@@ -293,6 +297,10 @@ You can use resource and property iteration together. Reference the property ite
 ## Variable iteration
 
 To create multiple instances of a variable, use the `copy` property in the variables section. You create an array of elements constructed from the value in the `input` property. You can use the `copy` property within a variable, or at the top level of the variables section. When using `copyIndex` inside a variable iteration, you must provide the name of the iteration.
+
+> [!NOTE]
+> Variable iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('diskNames', 1).
+>
 
 For a simple example of creating an array of string values, see [copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
@@ -425,23 +433,23 @@ You specify that a resource is deployed after another resource by using the `dep
   "parameters": {},
   "resources": [
     {
-      "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     },
     {
-      "apiVersion": "2015-06-15",
       "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
       "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...

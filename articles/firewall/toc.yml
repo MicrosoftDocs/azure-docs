@@ -37,6 +37,8 @@
       href: service-tags.md
     - name: Forced tunneling
       href: forced-tunneling.md
+    - name: Compliance certifications
+      href: compliance-certifications.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell

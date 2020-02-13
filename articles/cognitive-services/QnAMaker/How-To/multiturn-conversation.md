@@ -60,7 +60,7 @@ If you are creating a multi-turn document, please keep in mind the following gui
 
 * Use headings and sub-headings to denote hierarchy. For example You can h1 to denote the parent QnA and h2 to denote the QnA that should be taken as prompt. Use small heading size to denote subsequent hierarchy. Don't use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts.
 
-* First character of heading must be capitalized. 
+* First character of heading must be capitalized.
 
 * Do not end a heading with a question mark, `?`.
 
@@ -363,7 +363,7 @@ You can add or delete multi-turn prompts using the [QnA Maker Update API](https:
 
 ## Export knowledge base for version control
 
-QnA Maker [supports version control](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) in the QnA Maker portal by including multi-turn conversation steps in the exported file.
+QnA Maker supports version control by including multi-turn conversation steps in the exported file.
 
 ## Next steps
 

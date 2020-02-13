@@ -1,16 +1,8 @@
 ---
 title: Limits and boundaries - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/10/2019
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 01/23/2020
 ---
 
 # QnA Maker knowledge base limits and boundaries
@@ -28,6 +20,15 @@ The maximum number of knowledge bases is based on [Azure Cognitive Search tier l
  For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index, `testkb`, is used for all the knowledge bases for authoring and testing.
 
 ## Extraction Limits
+
+### File naming constraints
+
+File names may not include the following characters:
+
+|Do not use character|
+|--|
+|Single quote `'`|
+|Double quote `"`|
 
 ### Maximum file size
 

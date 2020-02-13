@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 06/24/2019
-author: roaror
-ms.author: roaror
+author: LuisBosquez
+ms.author: lbosq
 ---
 
 # Use MongoDB Compass to connect to Azure Cosmos DB's API for MongoDB 

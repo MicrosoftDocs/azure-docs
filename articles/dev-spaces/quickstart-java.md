@@ -15,7 +15,7 @@ In this guide, you will learn how to:
 - Iteratively develop code in containers using Visual Studio Code.
 - Debug the code in your dev space from Visual Studio Code.
 
-Azure Dev Spaces also allows you debug and iterate using:
+Azure Dev Spaces also allows you to debug and iterate using:
 - [Node.js and Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core and Visual Studio Code](quickstart-netcore.md)
 - [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
@@ -92,6 +92,9 @@ When Visual Studio Code also prompts you to configure your base images, exposed 
 
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+
 ## Build and run code in Kubernetes from Visual Studio
 
 Click on the *Debug* icon on the left and click *Launch Java Program (AZDS)* at the top.
@@ -164,4 +167,4 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 > [Working with multiple containers and team development](multi-service-java.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

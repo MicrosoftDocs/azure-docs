@@ -157,7 +157,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     The response from this command is similar to the following text, and is the ID for your key vault:
 
@@ -336,6 +336,12 @@ az group delete -g <resource-group-name>
 ```
 
 For more information, see the [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
+
+## Troubleshooting
+
+### Resource provider errors
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
 ## Next steps
 

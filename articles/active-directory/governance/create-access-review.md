@@ -28,7 +28,7 @@ This article describes how to create one or more access reviews for group member
 - Azure AD Premium P2
 - Global administrator or User administrator
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create one or more access reviews
 

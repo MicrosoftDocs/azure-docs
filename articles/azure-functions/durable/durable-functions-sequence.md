@@ -50,7 +50,7 @@ All C# orchestration functions must have a parameter of type `DurableOrchestrati
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
 
-### Javascript
+### JavaScript
 
 Here is the source code:
 

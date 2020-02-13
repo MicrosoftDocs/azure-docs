@@ -12,7 +12,6 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Access and use workspaces on the My Apps (preview) portal

@@ -13,7 +13,6 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
-ms.collection: M365-identity-device-management
 ---
 
 # Common problems and solutions with two-factor verification and your work or school account

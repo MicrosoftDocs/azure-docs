@@ -16,7 +16,6 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to build an AngularJS single-page app for sign-in and sign out with Azure Active Directory.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build an AngularJS single-page app for sign-in and sign out with Azure Active Directory

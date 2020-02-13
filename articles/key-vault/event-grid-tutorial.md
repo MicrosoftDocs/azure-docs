@@ -181,7 +181,7 @@ Verify that your Event Grid subscription is properly configured. This test assum
 
 ### You can't create an event subscription
 
-Reregister Event Grid and the key vault provider in your Azure subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
+Reregister Event Grid and the key vault provider in your Azure subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Next steps
 

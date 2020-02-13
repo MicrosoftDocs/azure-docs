@@ -2,7 +2,7 @@
 title: Monitor Azure Batch | Microsoft Docs
 description: Learn about Azure monitoring services, metrics, diagnostic logs, and other monitoring features for Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 
 ms.assetid: 
@@ -10,7 +10,7 @@ ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
+ms.author: jushiman
 ---
 
 # Monitor Batch solutions

@@ -14,7 +14,6 @@ ms.author: twhitney
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about which options I can use to sign-in users and how to enable them.
-ms.collection: M365-identity-device-management
 ---
 
 # Authorization agents (Android)

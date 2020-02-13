@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 5/31/2019
+ms.date: 01/21/2020
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
 
@@ -93,7 +93,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 > [!TIP]
 > In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
 
-In the cloud shell, use `nano` or `vi` to create a file named `azure-vote.yaml` and copy in the following YAML definition:
+In the cloud shell, use either the `nano azure-vote.yaml` or `vi azure-vote.yaml` command to create a file named `azure-vote.yaml`. Then copy in the following YAML definition:
 
 ```yaml
 apiVersion: apps/v1

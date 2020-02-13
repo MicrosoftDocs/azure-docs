@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -43,6 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cornerstone OnDemand supports **SP** initiated SSO
 * Cornerstone OnDemand supports [Automated user provisioning](cornerstone-ondemand-provisioning-tutorial.md)
+* Once you configure the Cornerstone OnDemand you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Cornerstone OnDemand from the gallery
 
@@ -157,3 +157,7 @@ When you click the Cornerstone OnDemand tile in the Access Panel, you should be 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Cornerstone OnDemand with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Cornerstone OnDemand with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

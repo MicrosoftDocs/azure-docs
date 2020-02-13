@@ -19,9 +19,9 @@ The following example shows a virtual machine scale set that depends on a load b
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "apiVersion": "2016-03-30",
   "name": "[variables('namingInfix')]",
   "location": "[variables('location')]",
-  "apiVersion": "2016-03-30",
   "tags": {
     "displayName": "VMScaleSet"
   },
@@ -59,12 +59,12 @@ The following example shows a SQL server and SQL database. Notice that an explic
 "resources": [
   {
     "name": "[variables('sqlserverName')]",
+    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
     "location": "[resourceGroup().location]",
     "tags": {
       "displayName": "SqlServer"
     },
-    "apiVersion": "2014-04-01-preview",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
@@ -72,15 +72,15 @@ The following example shows a SQL server and SQL database. Notice that an explic
     "resources": [
       {
         "name": "[parameters('databaseName')]",
+        "apiVersion": "2014-04-01-preview",
         "type": "databases",
         "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "Database"
-        },
-        "apiVersion": "2014-04-01-preview",
         "dependsOn": [
           "[variables('sqlserverName')]"
         ],
+        "tags": {
+          "displayName": "Database"
+        },
         "properties": {
           "edition": "[parameters('edition')]",
           "collation": "[parameters('collation')]",
@@ -114,15 +114,15 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 ```json
 {
     "name": "[variables('endpointName')]",
+    "apiVersion": "2016-04-02",
     "type": "endpoints",
     "location": "[resourceGroup().location]",
-    "apiVersion": "2016-04-02",
     "dependsOn": [
-            "[variables('profileName')]"
+      "[variables('profileName')]"
     ],
     "properties": {
-        "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
-        ...
+      "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
+      ...
     }
 ```
 
@@ -146,6 +146,6 @@ For information about assessing the deployment order and resolving dependency er
 * To go through a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](template-tutorial-create-templates-with-dependent-resources.md).
 * For recommendations when setting dependencies, see [Azure Resource Manager template best practices](template-best-practices.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
 * For a list of the available functions in a template, see [Template functions](template-functions.md).
 

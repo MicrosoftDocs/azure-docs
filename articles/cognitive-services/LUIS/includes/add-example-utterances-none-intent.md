@@ -25,7 +25,6 @@ If you leave the **None** intent empty, an utterance that should be predicted ou
     |`None` example utterances|
     |--|
     |`Barking dogs are annoying`|
-    |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
     These examples shouldn't use words you expect in your subject domain such as `pizza`, `cheese`, `crust`, `pickup` `deliver`.

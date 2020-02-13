@@ -79,7 +79,7 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
 **Q:** What channels support Spot VMs?

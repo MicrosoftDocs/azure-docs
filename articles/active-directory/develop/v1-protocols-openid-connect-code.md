@@ -18,7 +18,6 @@ ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Authorize access to web applications using OpenID Connect and Azure Active Directory

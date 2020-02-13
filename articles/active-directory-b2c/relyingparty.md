@@ -121,7 +121,7 @@ The **SingleSignOn** element contains in the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Scope | Yes | The scope of the single sign-on behavior. Possible values: `Suppressed`, `Tenant`, `Application`, or `Policy`. The `Suppressed` value indicates that the behavior is suppressed. For example, in the case of a single sign-on session, no session is maintained for the user and the user is always prompted for an identity provider selection. The `TrustFramework` value indicates that the behavior is applied for all policies in the trust framework. For example, a user navigating through two policy journeys for a trust framework is not prompted for an identity provider selection. The `Tenant` value indicates that the behavior is applied to all policies in the tenant. For example, a user navigating through two policy journeys for a tenant is not prompted for an identity provider selection. The `Application` value indicates that the behavior is applied to all policies for the application making the request. For example, a user navigating through two policy journeys for an application is not prompted for an identity provider selection. The `Policy` value indicates that the behavior only applies to a policy. For example, a user navigating through two policy journeys for a trust framework is prompted for an identity provider selection when switching between policies. |
-| KeepAliveInDays | Yes | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](active-directory-b2c-reference-kmsi-custom.md). |
+| KeepAliveInDays | Yes | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](custom-policy-keep-me-signed-in.md). |
 
 ## JourneyInsights
 
@@ -136,7 +136,7 @@ The **JourneyInsights** element contains the following attributes:
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
 | TelemetryVersion | Yes | The value must be `1.0.0`. |
 
-For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md)
+For more information, see [Collecting Logs](troubleshoot-with-application-insights.md)
 
 ## ContentDefinitionParameters
 
@@ -158,7 +158,7 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of the key value pair. |
 
-For more information, see [Configure the UI with dynamic content by using custom policies](active-directory-b2c-ui-customization-custom-dynamic.md)
+For more information, see [Configure the UI with dynamic content by using custom policies](custom-policy-ui-customization-dynamic.md)
 
 ## TechnicalProfile
 
@@ -204,7 +204,7 @@ The **OutputClaim** element contains the following attributes:
 ### SubjectNamingInfo
 
 With the **SubjectNameingInfo** element, you control the value of the token subject:
-- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
 - **SAML token** - the `<Subject><NameID>` element which identifies the subject element.
 
 The **SubjectNamingInfo** element contains the following attribute:
@@ -242,5 +242,3 @@ The JWT token includes the `sub` claim with the user objectId:
   ...
 }
 ```
-
-

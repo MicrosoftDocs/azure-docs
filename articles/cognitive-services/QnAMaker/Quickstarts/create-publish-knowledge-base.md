@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/29/2020
 ms.author: diberry
 ---
 
@@ -34,7 +34,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 1. On the **Create** page, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription.
 
 1. In the Azure portal, create the resource. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when creating the resource.
-1. Return to the QnA Maker portal, refresh the web page in the portal, to continue creating your knowledge base.
+1. Return to the QnA Maker portal, refresh the web page in the portal, to continue creating your knowledge base. Select an existing tenant, subscription, and the new resource. Select the language. This will be the language used for all knowledge bases in this QnA Maker service.
 
    ![Screenshot of selecting a QnA Maker service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
@@ -150,9 +150,8 @@ Clean up the QnA Maker and Bot framework resources in the Azure portal.
 
 For more information:
 
-* [Markdown format in answers](../concepts/data-sources-supported.md)
-* [Testing your markdown](../concepts/data-sources-supported.md#testing-your-markdown)
-* QnA Maker [data sources](../Concepts/data-sources-supported.md).
+* [Markdown format in answers](../reference-markdown-format.md)
+* QnA Maker [data sources](../concepts/knowledge-base.md).
 * [Bot resource configuration settings](../tutorials/create-qna-bot.md).
 
 > [!div class="nextstepaction"]

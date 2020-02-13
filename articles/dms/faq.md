@@ -91,7 +91,7 @@ During a typical, simple database migration, you:
 1. Create a target database(s).
 2. Assess your source database(s).
     * For homogenous migrations, assess your existing database(s) by using [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * For heterogenous migrations (from compete sources), assess your existing database(s) with [SSMA](https://aka.ms/get-ssma). You also use SSMA to convert database objects and migrate the schema to your target platform.
+    * For heterogeneous migrations (from compete sources), assess your existing database(s) with [SSMA](https://aka.ms/get-ssma). You also use SSMA to convert database objects and migrate the schema to your target platform.
 3. Create an instance of Azure Database Migration Service.
 4. Create a migration project specifying the source database(s), target database(s), and the tables to migrate.
 5. Start the full load.

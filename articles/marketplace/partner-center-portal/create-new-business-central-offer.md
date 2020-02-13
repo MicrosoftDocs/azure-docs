@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/13/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -146,8 +146,26 @@ Some tips for writing your description:
   - Customer needs or pain that the product addresses
 - Keep in mind that the first few sentences might be displayed in search engine results.  
 - Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible. 
+- Use industry-specific vocabulary or benefit-based wording as much as possible.
 - Consider using HTML tags to format your description and make it more engaging.
+
+To make your offer description more engaging, use the rich text editor to format your description.
+
+![Using the rich text editor](./media/text-editor2.png)
+
+Use the following instructions to use the rich text editor:
+
+- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
+
+     ![Using the rich text editor to change text format](./media/text-editor3.png)
+
+- To add a bulleted or numbered list to the text, use the options below:
+
+     ![Using the rich text editor to add lists](./media/text-editor4.png)
+
+- To add or remove indentation to the text, use the options below:
+
+     ![Using the rich text editor to indent](./media/text-editor5.png)
 
 ### Search keywords
 
@@ -365,7 +383,7 @@ If your offer requires the Premium edition of Microsoft Dynamics 365 Business Ce
 
 ### Key usage scenario
 
-You must pload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+You must upload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ### App tests automation
 

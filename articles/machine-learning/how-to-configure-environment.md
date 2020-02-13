@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/27/2019
 ms.custom: seodec18
 ---
 
@@ -54,7 +54,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 The Azure Machine Learning [compute instance (preview)](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances are available only for workspaces with a **North Central US**, ** East US 2**, **North Europe** or **UK South**.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
@@ -254,7 +254,7 @@ To use Visual Studio Code for development:
 
 1. Install the Azure Machine Learning extension for Visual Studio Code, see [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
-    For more information, see [Use Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
+    For more information, see [Use Azure Machine Learning for Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 1. Learn how to use Visual Studio Code for any type of Python development, see [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
 

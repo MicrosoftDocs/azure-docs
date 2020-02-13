@@ -6,7 +6,7 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 
-ms.assetid: 
+ms.assetid:
 ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: 
+ms.custom:
 ---
 # Understand role definitions for Azure resources
 
@@ -147,7 +147,7 @@ Since Alice has a wildcard (`*`) action at a subscription scope, their permissio
 
 Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and can also read, write, and delete the blobs.
 
-For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md).
+For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/blobs/security-recommendations.md).
 
 ### What tools support using RBAC for data operations?
 

@@ -14,7 +14,6 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40 
-ms.collection: M365-identity-device-management
 ---
 
 # Sign in users and call the Microsoft Graph from an iOS or macOS app

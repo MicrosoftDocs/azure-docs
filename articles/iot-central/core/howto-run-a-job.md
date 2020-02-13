@@ -12,10 +12,8 @@ manager: peterpr
 
 # Create and run a job in your Azure IoT Central application
 
-You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. Jobs let you do bulk updates to device properties, settings, and commands. This article walks you through how to get started using jobs in your own application.
+You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. Jobs let you do bulk updates to device properties and commands. This article walks you through how to get started using jobs in your own application.
 
-> [!NOTE] 
-> Jobs for Azure IoT Edge devices is currently not supported. 
 
 ## Create and run a job
 
@@ -29,28 +27,26 @@ This section shows you how to create and run a job. It shows you how to increase
 
 3. Enter a name and description to identify the job you're creating.
 
-4. Select the device set you want your job to apply to. After selecting the device set, you see the right-hand side populate with the devices in the device set. If you select a broken device set, no devices display and you see a message that your device set is broken.
+4. Select the device group you want your job to apply to. You can see how many devices your job configuration will be applied to in the Summary section. 
 
-5. Next, choose the type of job to define (a setting, property, or command). Select **+** next to the type of job selected and add your operations.
+5. Next, choose the type of job to define (property or command). Set up the job configuration by selection the property and setting new values or choose a command. It is possible to add multiple properties at a time.
 
     ![Configure job](./media/howto-run-a-job/configurejob.png)
 
-6. On the right-hand side, choose the devices you’d like to run the job on. By selecting the top check box, all devices are selected in the entire device set. By selecting the check box near **Name**, all devices on the current page are selected.
-
-7. After selecting your devices, choose **Run** or **Save**. The job now appears on your main **Jobs** page. On this view, you can see your currently running job and the history of any previously run jobs. Your running job always shows up at the top of the list. Your saved job can be opened again at any time to continue editing or to run.
+6. After selecting your devices, choose **Run** or **Save**. The job now appears on your main **Jobs** page. On this view, you can see your currently running job and the history of any previously run jobs. Your running job always shows up at the top of the list. Your saved job can be opened again at any time to continue editing or to run.
 
     ![View job](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > You can view the history of your previously run jobs for up to 30 days.
 
-8. To get an overview of your job, select the job to view from the list. This overview contains the job details, devices, and device status values. From this overview, you can also select **Download Job Details** to download a .csv file of your job details, including the devices and their status values. This information can be useful for troubleshooting.
+7. To get an overview of your job, select the job to view from the list. This overview contains the job details, devices, and device status values. From this overview, you can also select **Download Job Details** to download a .csv file of your job details, including the devices and their status values. This information can be useful for troubleshooting.
 
     ![View device status](./media/howto-run-a-job/downloaddetails.png)
 
 ### Stop a running job
 
-To stop a running job, select it and choose **Stop** on the panel. The job status changes to reflect the job is stopped.
+To stop a running job, select it and choose **Stop**. The job status changes to reflect the job is stopped.
 
    ![Stop job](./media/howto-run-a-job/stopjob.png)
 
@@ -62,7 +58,7 @@ To run a job that's currently stopped, select the stopped job. Choose **Run** on
 
 ## Copy a job
 
-To copy an existing job you've created, select it from the main jobs page and select **Copy**. A new copy of the job configuration opens for you to edit. You can save or run the new job. If any changes have been made to your selected device set, they're reflected in this copied job for you to edit.
+To copy an existing job you've created, open a job that has been created and select **Copy**. A new copy of the job configuration opens for you to edit. You can save or run the new job. 
 
    ![Copy job](./media/howto-run-a-job/copyjob.png)
 

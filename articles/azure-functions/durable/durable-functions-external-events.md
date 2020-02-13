@@ -17,7 +17,7 @@ Orchestrator functions have the ability to wait and listen for external events. 
 
 The `WaitForExternalEvent` (.NET) and `waitForExternalEvent` (JavaScript) methods of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -39,7 +39,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -54,11 +54,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 The preceding example listens for a specific single event and takes action when it's received.
 
 You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Select")]
@@ -88,7 +90,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-#### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -109,9 +111,11 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -134,7 +138,9 @@ public static async Task Run(
 > [!NOTE]
 > The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-#### JavaScript (Functions 2.0 only)
+In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
+
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -153,12 +159,12 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 `WaitForExternalEvent` waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
 
 > [!NOTE]
 > If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript), no matter how long it waits.
-
-In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
 ## Send events
 
@@ -166,7 +172,7 @@ The `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) method of the [orchest
 
 Below is an example queue-triggered function that sends an "Approval" event to an orchestrator function instance. The orchestration instance ID comes from the body of the queue message.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -181,7 +187,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -191,6 +197,8 @@ module.exports = async function(context, instanceId) {
     await client.raiseEvent(instanceId, "Approval", true);
 };
 ```
+
+---
 
 Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
 

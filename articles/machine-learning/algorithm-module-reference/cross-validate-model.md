@@ -71,7 +71,7 @@ In this scenario, you both train and test the model by using Cross Validate Mode
 
 7. See the [Results](#results) section for a description of the reports.
 
-    To get a copy of the model for reuse later, right-click the output of the module that contains the algorithm (for example, the **Two Class Bayes Point Machine**). Then select **Save as Trained Model**.
+    To get a copy of the model for reuse later, switch to the **Outputs** tab in the right panel of the module that contains the algorithm (for example, the **Two Class Bayes Point Machine**). Then select the **Register dataset** icon to save a copy of the trained model in the module tree.
 
 ## Results
 
@@ -81,7 +81,7 @@ After all iterations are complete, Cross Validate Model creates scores for the e
 
 The first output of the module provides the source data for each row, together with some predicted values and related probabilities. 
 
-To view these results, in the pipeline, right-click the Cross Validate Model module. Select **Scored results**, and then select **Visualize**.
+To view the results, in the pipeline, right-click the Cross Validate Model module. Select **Visualize Scored results**.
 
 | New column name      | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -95,7 +95,7 @@ The second report is grouped by folds. Remember that during execution, Cross Val
 
 In this report, the folds are listed by index value, in ascending order.  To order on any other column, you can save the results as a dataset.
 
-To view these results, in the pipeline, right-click the Cross Validate Model module. Select **Evaluation results by fold**, and then select **Visualize**.
+To view the results, in the pipeline, right-click the Cross Validate Model module. Select **Visualize Evaluation results by fold**.
 
 
 |Column name| Description|

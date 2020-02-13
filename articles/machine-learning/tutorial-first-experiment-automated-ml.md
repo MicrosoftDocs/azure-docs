@@ -135,9 +135,9 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
         Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 2
         Concurrency| The maximum number of parallel iterations executed and cores used per iteration| Max&nbsp;concurrent&nbsp;iterations: 5<br> Max&nbsp;cores&nbsp;per&nbsp;iteration: None
         
-        Select **OK**.
+        Select **Save**.
 
-1. Select **Create** to run the experiment. The **Run Detail**  screen opens with the **Run status** as the experiment preparation begins.
+1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** as the experiment preparation begins.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
@@ -152,7 +152,7 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
+The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics, and performance charts. 
 
 ![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 

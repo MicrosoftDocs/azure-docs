@@ -1,6 +1,6 @@
 ---
-title: React to Azure Maps events by using Event Grid | Microsoft Docs
-description: Learn how to react to Azure Maps events by using Event Grid.
+title: React to map events by using Event Grid | Microsoft Azure Maps
+description: In this article, you will learn how to react to Microsoft Azure Maps events by using Event Grid.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019

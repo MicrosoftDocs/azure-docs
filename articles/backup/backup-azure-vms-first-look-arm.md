@@ -72,6 +72,13 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
 
 Follow the instructions in this article to enable backup for Azure VMs by setting up an Azure Backup Recovery Services vault, and enabling backup in the vault.
 
+>[!NOTE]
+> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
+>
+>Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+>
+>**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**
+
 ## Next steps
 
 - If you have difficulties with any of the procedures in this article, consult the [troubleshooting guide](backup-azure-vms-troubleshoot.md).

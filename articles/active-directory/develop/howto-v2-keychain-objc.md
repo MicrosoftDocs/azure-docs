@@ -14,7 +14,6 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Configure keychain

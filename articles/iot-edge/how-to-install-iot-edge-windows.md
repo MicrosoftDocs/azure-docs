@@ -13,7 +13,7 @@ ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Windows
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud.
 
 To learn more about the IoT Edge runtime, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -22,7 +22,7 @@ This article lists the steps to install the Azure IoT Edge runtime on your Windo
 > [!NOTE]
 > A known Windows operating system issue prevents transition to sleep and hibernate power states when IoT Edge modules (process-isolated Windows Nano Server containers) are running. This issue impacts battery life on the device.
 >
-> As a workaround, use the command `Stop-Service iotedge` to stop any running IoT Edge modules before using these power states. 
+> As a workaround, use the command `Stop-Service iotedge` to stop any running IoT Edge modules before using these power states.
 
 Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes. To learn more, see [Use IoT Edge on Windows to run Linux containers](how-to-install-iot-edge-windows-with-linux.md).
 
@@ -30,41 +30,41 @@ For information about what's included in the latest version of IoT Edge, see [Az
 
 ## Prerequisites
 
-Use this section to review whether your Windows device can support IoT Edge, and to prepare it for a container engine before installation. 
+Use this section to review whether your Windows device can support IoT Edge, and to prepare it for a container engine before installation.
 
 ### Supported Windows versions
 
-For development and test scenarios, Azure IoT Edge with Windows containers can be installed on any version of Windows 10 or Windows Server 2019 (build 17763) that supports the containers feature. For information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems). 
+For development and test scenarios, Azure IoT Edge with Windows containers can be installed on any version of Windows 10 or Windows Server 2019 (build 17763) that supports the containers feature. For information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
 
-IoT Core devices must include the IoT Core- Windows Containers optional feature to support the IoT Edge runtime. Use the following command in a [remote PowerShell session](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) to check that Windows containers are supported on your device: 
+IoT Core devices must include the IoT Core- Windows Containers optional feature to support the IoT Edge runtime. Use the following command in a [remote PowerShell session](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) to check that Windows containers are supported on your device:
 
 ```powershell
 Get-Service vmcompute
 ```
 
-If the service is present, you should get a successful response with the service status listed as **running**. If the vmcompute service is not found, then your device does not meet the requirements for IoT Edge. Contact your hardware provider to ask about support for this feature. 
+If the service is present, you should get a successful response with the service status listed as **running**. If the vmcompute service is not found, then your device does not meet the requirements for IoT Edge. Contact your hardware provider to ask about support for this feature.
 
-### Prepare for a container engine 
+### Prepare for a container engine
 
-Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container engine. For production scenarios, use the Moby engine included in the installation script to run Windows containers on your Windows device. 
+Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container engine. For production scenarios, use the Moby engine included in the installation script to run Windows containers on your Windows device.
 
 ## Install IoT Edge on a new device
 
 >[!NOTE]
 >Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSE directory). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
-A PowerShell script downloads and installs the Azure IoT Edge security daemon. The security daemon then starts the first of two runtime modules, the IoT Edge agent, which enables remote deployments of other modules. 
+A PowerShell script downloads and installs the Azure IoT Edge security daemon. The security daemon then starts the first of two runtime modules, the IoT Edge agent, which enables remote deployments of other modules.
 
 >[!TIP]
 >For IoT Core devices, we recommend running the installation commands using a RemotePowerShell session. For more information, see [Using PowerShell for Windows IoT](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell).
 
-When you install the IoT Edge runtime for the first time on a device, you need to provision the device with an identity from an IoT hub. A single IoT Edge device can be provisioned manually using a device connection string provided by IoT Hub. Or, you can use the Device Provisioning Service (DPS) to automatically provision devices, which is helpful when you have many devices to set up. Depending on your provisioning choice, choose the appropriate installation script. 
+When you install the IoT Edge runtime for the first time on a device, you need to provision the device with an identity from an IoT hub. A single IoT Edge device can be provisioned manually using a device connection string provided by IoT Hub. Or, you can use the Device Provisioning Service (DPS) to automatically provision devices, which is helpful when you have many devices to set up. Depending on your provisioning choice, choose the appropriate installation script.
 
-The following sections describe the common use cases and parameters for the IoT Edge installation script on a new device. 
+The following sections describe the common use cases and parameters for the IoT Edge installation script on a new device.
 
 ### Option 1: Install and manually provision
 
-In this first option, you provide a **device connection string** generated by IoT Hub to provision the device. 
+In this first option, you provide a **device connection string** generated by IoT Hub to provision the device.
 
 This example demonstrates a manual installation with Windows containers:
 
@@ -83,7 +83,7 @@ This example demonstrates a manual installation with Windows containers:
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers. 
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -92,18 +92,18 @@ This example demonstrates a manual installation with Windows containers:
 
 4. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
 
-5. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
+5. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
-6. When prompted, provide the device connection string that you retrieved in step 1. The device connection string associates the physical device with a device ID in IoT Hub. 
+6. When prompted, provide the device connection string that you retrieved in step 1. The device connection string associates the physical device with a device ID in IoT Hub.
 
    The device connection string takes the following format, and should not include quotation marks: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
-7. Use the steps in [Verify successful installation](#verify-successful-installation) to check the status of IoT Edge on your device. 
+7. Use the steps in [Verify successful installation](#verify-successful-installation) to check the status of IoT Edge on your device.
 
 When you install and provision a device manually, you can use additional parameters to modify the installation including:
 
@@ -146,7 +146,7 @@ To install with offline components, use the `-OfflineInstallationPath` parameter
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
-You can also use the offline installation path parameter with the Update-IoTEdge command, introduced later in this article. 
+You can also use the offline installation path parameter with the Update-IoTEdge command, introduced later in this article.
 
 ## Verify successful installation
 
@@ -156,7 +156,7 @@ Check the status of the IoT Edge service. It should be listed as running.
 Get-Service iotedge
 ```
 
-Examine service logs from the last 5 minutes. If you just finished installing the IoT Edge runtime, you may see a list of errors from the time between running **Deploy-IoTEdge** and **Initialize-IoTEdge**. These errors are expected, as the service is trying to start before being configured. 
+Examine service logs from the last 5 minutes. If you just finished installing the IoT Edge runtime, you may see a list of errors from the time between running **Deploy-IoTEdge** and **Initialize-IoTEdge**. These errors are expected, as the service is trying to start before being configured.
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -168,7 +168,7 @@ Run an automated check for the most common configuration and networking errors.
 iotedge check
 ```
 
-List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 
+List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too.
 
 ```powershell
 iotedge list
@@ -176,11 +176,11 @@ iotedge list
 
 ## Manage module containers
 
-The IoT Edge service requires a container engine running on your device. When you deploy a module to a device, the IoT Edge runtime uses the container engine to pull the container image from a registry in the cloud. The IoT Edge service enables you to interact with your modules and retrieve logs, but sometimes you may want to use the container engine to interact with the container itself. 
+The IoT Edge service requires a container engine running on your device. When you deploy a module to a device, the IoT Edge runtime uses the container engine to pull the container image from a registry in the cloud. The IoT Edge service enables you to interact with your modules and retrieve logs, but sometimes you may want to use the container engine to interact with the container itself.
 
-For more information about module concepts, see [Understand Azure IoT Edge modules](iot-edge-modules.md). 
+For more information about module concepts, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
-If you're running Windows containers on your Windows IoT Edge device, then the IoT Edge installation included the Moby container engine. The Moby engine was based on the same standards as Docker, and was designed to run in parallel on the same machine as Docker Desktop. For that reason, if you want to target containers managed by the Moby engine, you have to specifically target that engine instead of Docker. 
+If you're running Windows containers on your Windows IoT Edge device, then the IoT Edge installation included the Moby container engine. The Moby engine was based on the same standards as Docker, and was designed to run in parallel on the same machine as Docker Desktop. For that reason, if you want to target containers managed by the Moby engine, you have to specifically target that engine instead of Docker.
 
 For example, to list all Docker images, use the following command:
 
@@ -188,13 +188,13 @@ For example, to list all Docker images, use the following command:
 docker images
 ```
 
-To list all Moby images, modify the same command with a pointer to the Moby engine: 
+To list all Moby images, modify the same command with a pointer to the Moby engine:
 
 ```powershell
 docker -H npipe:////./pipe/iotedge_moby_engine images
 ```
 
-The engine URI is listed in the output of the installation script, or you can find it in the container runtime settings section for the config.yaml file. 
+The engine URI is listed in the output of the installation script, or you can find it in the container runtime settings section for the config.yaml file.
 
 ![moby_runtime uri in config.yaml](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
 
@@ -202,11 +202,11 @@ For more information about commands you can use to interact with containers and 
 
 ## Update an existing installation
 
-If you've already installed the IoT Edge runtime on a device before and provisioned it with an identity from IoT Hub, then you can update the runtime without having to reenter your device information. 
+If you've already installed the IoT Edge runtime on a device before and provisioned it with an identity from IoT Hub, then you can update the runtime without having to reenter your device information.
 
 For more information, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
-This example shows an installation that points to an existing configuration file, and uses Windows containers: 
+This example shows an installation that points to an existing configuration file, and uses Windows containers:
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -216,29 +216,29 @@ Update-IoTEdge
 When you update IoT Edge, you can use additional parameters to modify the update, including:
 
 * Direct traffic to go through a proxy server, or
-* Point the installer to an offline directory 
+* Point the installer to an offline directory
 * Restarting without a prompt if necessary
 
-You can't declare an IoT Edge agent container image with script parameters because that information is already set in the configuration file from the previous installation. If you want to modify the agent container image, do so in the config.yaml file. 
+You can't declare an IoT Edge agent container image with script parameters because that information is already set in the configuration file from the previous installation. If you want to modify the agent container image, do so in the config.yaml file.
 
 For more information about these update options, use the command `Get-Help Update-IoTEdge -full` or refer to [all installation parameters](#all-installation-parameters).
 
 ## Uninstall IoT Edge
 
-If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data. 
+If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
 
-The Uninstall-IoTEdge command does not work on Windows IoT Core. To remove IoT Edge from Windows IoT Core devices, you need to redeploy your Windows IoT Core image. 
+The Uninstall-IoTEdge command does not work on Windows IoT Core. To remove IoT Edge from Windows IoT Core devices, you need to redeploy your Windows IoT Core image.
 
-For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`. 
+For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`.
 
 ## All installation parameters
 
-The previous sections introduced common installation scenarios with examples of how to use parameters to modify the installation script. This section provides reference tables of the common parameters used to install, update, or uninstall IoT Edge. 
+The previous sections introduced common installation scenarios with examples of how to use parameters to modify the installation script. This section provides reference tables of the common parameters used to install, update, or uninstall IoT Edge.
 
 ### Deploy-IoTEdge
 
@@ -254,7 +254,7 @@ The Deploy-IoTEdge command downloads and deploys the IoT Edge Security Daemon an
 
 ### Initialize-IoTEdge
 
-The Initialize-IoTEdge command configures IoT Edge with your device connection string and operational details. Much of the information generated by this command is then stored in the iotedge\config.yaml file. The initialization command accepts these common parameters, among others. For the full list, use the command `Get-Help Initialize-IoTEdge -full`. 
+The Initialize-IoTEdge command configures IoT Edge with your device connection string and operational details. Much of the information generated by this command is then stored in the iotedge\config.yaml file. The initialization command accepts these common parameters, among others. For the full list, use the command `Get-Help Initialize-IoTEdge -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -284,7 +284,7 @@ The Initialize-IoTEdge command configures IoT Edge with your device connection s
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| **Force** | none | This flag forces the uninstallation in case the previous attempt to uninstall was unsuccessful. 
+| **Force** | none | This flag forces the uninstallation in case the previous attempt to uninstall was unsuccessful.
 | **RestartIfNeeded** | none | This flag allows the uninstall script to restart the machine without prompting, if necessary. |
 
 ## Next steps

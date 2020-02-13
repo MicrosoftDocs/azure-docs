@@ -1,26 +1,14 @@
 ---
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/28/2020
 ms.author: raynew
 ---
 
 # Azure Migrate support matrix
 
 You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
-
-
-## Azure Migrate versions
-
-There are two versions of the Azure Migrate service:
-
-- **Current version**: Using this version you can create new Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md#release-version-july-2019).
-- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new Azure Migrate projects or perform new discoveries.
 
 ## Supported assessment/migration scenarios
 
@@ -66,6 +54,16 @@ Hyper-V VMs	| Assess up to 35,000 Hyper-V VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 
+## Azure permissions
+
+For Azure Migrate to work with Azure you need these permissions before you start assessing and migrating machines.
+
+**Task** | **Permissions** | **Details**
+--- | --- | ---
+Create an Azure Migrate project | Your Azure account needs permissions to create a project. | Set up for [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project), or [physical servers](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Register the Azure Migrate appliance | Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to assess VMware VMs with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/> During registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance, and needs permissions to create these apps.<br/><br/> - The first app communicates with Azure Migrate service endpoints.<br/><br/> - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings. | Set up for [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance), or [physical servers](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Azure Migrate Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you to set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides. | [Set up](tutorial-prepare-vmware.md#assign-role-assignment-permissions) permissions.
+
 ## Supported geographies
 
 You can create an Azure Migrate project in a number of geographies. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
@@ -99,6 +97,14 @@ United States | Central US or West US 2
 
 [Review](migrate-support-matrix-hyper-v.md) the Azure Migrate Server Assessment and Server Migration support matrix for Hyper-V VMs.
 
+
+
+## Azure Migrate versions
+
+There are two versions of the Azure Migrate service:
+
+- **Current version**: Using this version you can create new Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md#release-version-july-2019).
+- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new Azure Migrate projects or perform new discoveries.
 
 ## Next steps
 
