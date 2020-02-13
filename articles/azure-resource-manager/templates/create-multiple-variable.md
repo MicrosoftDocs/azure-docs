@@ -1,0 +1,298 @@
+---
+title: Define multiple instances of a variable
+description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a variable.
+ms.topic: conceptual
+ms.date: 02/12/2020
+---
+# Variable iteration in Azure Resource Manager templates
+
+This article shows you how to create more than one value for a variable in your Azure Resource Manager template. You add the **copy** element to the variables section of your template.
+
+You can also use copy with [resources](create-multiple-resource.md) and [properties in a resource](create-multiple-property.md).
+
+## Variable iteration
+
+The copy element has the following general format:
+
+```json
+"copy": [
+  {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "input": <values-for-the-variable>
+  }
+]
+```
+
+The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the variable.
+
+The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property. It can be a single property (like a string), or an object with several properties.
+
+The following example shows how to create an array of string values:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { },
+    "variables": {
+        "copy": [
+            {
+                "name": "stringArray",
+                "count": 5,
+                "input": "[concat('item', copyIndex('stringArray', 1))]"
+            }
+        ]
+    },
+    "resources": [],
+    "outputs": {
+        "arrayResult": {
+            "type": "array",
+            "value": "[variables('stringArray')]"
+        }
+    }
+}
+```
+
+The preceding template returns an array with the following values:
+
+```json
+[
+    "item1",
+    "item2",
+    "item3",
+    "item4",
+    "item5"
+]
+```
+
+The next example shows how to create an array of objects with three properties - name, diskSizeGB, and diskIndex.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "copy": [
+            {
+                "name": "objectArray",
+                "count": 5,
+                "input": {
+                    "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
+                    "diskSizeGB": "1",
+                    "diskIndex": "[copyIndex('objectArray')]"
+                }
+            }
+        ]
+    },
+    "resources": [],
+    "outputs": {
+        "arrayResult": {
+            "type": "array",
+            "value": "[variables('objectArray')]"
+        }
+    }
+}
+```
+
+The preceding example returns an array with the following values:
+
+```json
+[
+    {
+        "name": "myDataDisk1",
+        "diskSizeGB": "1",
+        "diskIndex": 0
+    },
+    {
+        "name": "myDataDisk2",
+        "diskSizeGB": "1",
+        "diskIndex": 1
+    },
+    {
+        "name": "myDataDisk3",
+        "diskSizeGB": "1",
+        "diskIndex": 2
+    },
+    {
+        "name": "myDataDisk4",
+        "diskSizeGB": "1",
+        "diskIndex": 3
+    },
+    {
+        "name": "myDataDisk5",
+        "diskSizeGB": "1",
+        "diskIndex": 4
+    }
+]
+```
+
+> [!NOTE]
+> Variable iteration supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('diskNames', 1). If you don't provide an offset value, it defaults to 0 for the first instance.
+>
+
+You can also use the copy element within a variable. The following example creates an object that has an array as one of its values.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "topLevelObject": {
+            "sampleProperty": "sampleValue",
+            "copy": [
+                {
+                    "name": "disks",
+                    "count": 5,
+                    "input": {
+                        "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+                        "diskSizeGB": "1",
+                        "diskIndex": "[copyIndex('disks')]"
+                    }
+                }
+            ]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "objectResult": {
+            "type": "object",
+            "value": "[variables('topLevelObject')]"
+        }
+    }
+}
+```
+
+The preceding example returns an object with the following values:
+
+```json
+{
+    "sampleProperty": "sampleValue",
+    "disks": [
+        {
+            "name": "myDataDisk1",
+            "diskSizeGB": "1",
+            "diskIndex": 0
+        },
+        {
+            "name": "myDataDisk2",
+            "diskSizeGB": "1",
+            "diskIndex": 1
+        },
+        {
+            "name": "myDataDisk3",
+            "diskSizeGB": "1",
+            "diskIndex": 2
+        },
+        {
+            "name": "myDataDisk4",
+            "diskSizeGB": "1",
+            "diskIndex": 3
+        },
+        {
+            "name": "myDataDisk5",
+            "diskSizeGB": "1",
+            "diskIndex": 4
+        }
+    ]
+}
+```
+
+The next example shows the different ways you can use copy with variables.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        },
+        {
+          "name": "diskNames",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "top-level-object-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('top-level-object-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('top-level-object-array')]"
+        }
+      },
+      {
+        "name": "top-level-string-array",
+        "count": 5,
+        "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+      },
+      {
+        "name": "top-level-integer-array",
+        "count": 5,
+        "input": "[copyIndex('top-level-integer-array')]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleObjectArray": {
+      "value": "[variables('top-level-object-array')]",
+      "type" : "array"
+    },
+    "exampleStringArray": {
+      "value": "[variables('top-level-string-array')]",
+      "type" : "array"
+    },
+    "exampleIntegerArray": {
+      "value": "[variables('top-level-integer-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
+
+## Copy limits
+
+The count can't exceed 800.
+
+The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, Azure CLI 2.0.74 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+
+## Example templates
+
+The following examples show common scenarios for creating more than one instance of a resource or property.
+
+|Template  |Description  |
+|---------|---------|
+|[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstrates the different ways of iterating on variables. |
+|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+
+## Next steps
+
+* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
+* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](create-multiple-resource.md) and [Property iteration in Azure Resource Manager templates](create-multiple-property.md).
+* If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
+
