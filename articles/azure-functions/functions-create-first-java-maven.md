@@ -8,9 +8,9 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-sept
 zone_pivot_groups: java-build-tools-set
 ---
 
-# Quickstart: Use Java and Maven to create and publish a function to Azure
+# Quickstart: Use Java and Maven/Gradle to create and publish a function to Azure
 
-This article shows you how to build and publish a Java function to Azure Functions with the Maven command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](functions-scale.md#consumption-plan) and is triggered by an HTTP request.
+This article shows you how to build and publish a Java function to Azure Functions with the Maven/Gradle command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](functions-scale.md#consumption-plan) and is triggered by an HTTP request.
 
 <!--
 > [!NOTE] 
