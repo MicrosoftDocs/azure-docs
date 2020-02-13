@@ -59,17 +59,17 @@ By default the following occurs:
 
 When you trigger a reprotect job, and the target VM exists, the following occurs:
 
-1. The target side VM is turned off if it is running.
+1. The target side VM is turned off if it's running.
 2. If the VM is using managed disks, a copy of original disks are created with '-ASRReplica' suffix. The original disks are deleted. The '-ASRReplica' copies are used for replication.
 3. If the VM is using unmanaged disks, the target VM's data disks are detached and used for replication. A copy of the OS disk is created and attached on the VM. The original OS disk is detached and used for replication.
 4. Only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. Check below to find the estimated time to complete the reprotection.
-5. After the synchronization completes, the delta replication begins and a recovery point is created in line with the replication policy.
+5. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
 When you trigger a reprotect job, and the target VM and disks do not exist, the following occurs:
 1. If the VM is using managed disks, replica disks are created with '-ASRReplica' suffix. The '-ASRReplica' copies are used for replication.
 2. If the VM is using unmanaged disks, replica disks are created in the target storage account.
 3. The entire disks are copied from the failed over region to the new target region.
-4. After the synchronization completes, the delta replication begins and a recovery point is created in line with the replication policy.
+4. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
 #### Estimated time to do the reprotection 
 
@@ -86,4 +86,4 @@ Below are the conditions that determines how much data would be replicated:
  
 ## Next steps
 
-After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region and creates and boots the VM in the primary region, with some small downtime during this process. We recommend you choose an appropriate time for this process, and that you run a test failover before initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about Azure Site Recovery failover.
+After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region and creates and boots the VM in the primary region, with some small downtime during this process. We recommend you choose an appropriate time for this process and that you run a test failover before initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about Azure Site Recovery failover.
