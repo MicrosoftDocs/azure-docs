@@ -67,23 +67,26 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, select **View Azure firewall policies**.
-4. Select **Create Azure Firewall Policy**.
-5. Select your subscription, and for Resource group, select **Create new** and create a resource group named **FW-Hybrid-Test**.
-6. For the policy name, type **Pol-Net01**.
-7. For Region, select **East US**.
-8. Select **Next:Rules**.
-9. Select **Add a rule collection**.
-4. For **Name**, type **RCNet01**.
-5. For **Rule collection type**, select **Network**.
-6. For **Priority**, type **100**.
-7. For **Action**, select **Allow**.
-8. Under **Rules**, for **Name**, type **AllowWeb**.
-10. For **Source Addresses**, type **192.168.1.0/24**.
-1. For **Protocol**, select **TCP**.
-12. For **Destination Ports**, type **80**.
-13. For **Destination Type**, select **IP Address**.
-14. For **Destination**, type **10.6.0.0/16**.
-15. On the next rule row, enter the following information:
+
+   ![Firewall policy](media/tutorial-hybrid-portal/firewall-manager-policy.png)
+
+1. Select **Create Azure Firewall Policy**.
+1. Select your subscription, and for Resource group, select **Create new** and create a resource group named **FW-Hybrid-Test**.
+2. For the policy name, type **Pol-Net01**.
+3. For Region, select **East US**.
+4. Select **Next:Rules**.
+5. Select **Add a rule collection**.
+6. For **Name**, type **RCNet01**.
+7. For **Rule collection type**, select **Network**.
+8. For **Priority**, type **100**.
+9. For **Action**, select **Allow**.
+10. Under **Rules**, for **Name**, type **AllowWeb**.
+11. For **Source Addresses**, type **192.168.1.0/24**.
+12. For **Protocol**, select **TCP**.
+13. For **Destination Ports**, type **80**.
+14. For **Destination Type**, select **IP Address**.
+15. For **Destination**, type **10.6.0.0/16**.
+16. On the next rule row, enter the following information:
  
     Name: type **AllowRDP**<br>
     Source IP address: type **192.168.1.0/24**.<br>
@@ -435,4 +438,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md)
+> [Tutorial: Secure your virtual WAN using Azure Firewall Manager preview](secure-cloud-network.md)
