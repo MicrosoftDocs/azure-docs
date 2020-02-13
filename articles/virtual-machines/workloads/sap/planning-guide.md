@@ -389,7 +389,7 @@ SAP is often seen as one of the most mission-critical applications within enterp
 
 Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out HANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
 
-For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](.\sap-planning-supported-configurations.md).
+For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md).
 
 Check these scenarios and some of the conditions that were named as not supported in the referenced documentation throughout the planning and the development of your architecture that you want to deploy into Azure.
 
@@ -409,7 +409,7 @@ In order to gather data for the planning of your deployment into Azure, it is im
 - Evaluate whether some of the required OS/DBMS releases require you to perform SAP release, Support Package upgrade, and kernel upgrades to get to a supported configuration
 - Evaluate whether you need to move to different operating systems in order to deploy on Azure.
 
-Details on supported SAP components on Azure, supported Azure infrastructure units and related operating system releases and DBMS releases are explained in the article [What SAP software is supported for Azure deployments]((.\sap-supported-product-on-azure.md). Results gained out of the evaluation of valid SAP releases, operating system, and DBMS releases have a large impact on the efforts moving SAP systems to Azure. Results out of this evaluation are going to define whether there could be significant preparation efforts in cases where SAP release upgrades or changes of operating systems are needed.
+Details on supported SAP components on Azure, supported Azure infrastructure units and related operating system releases and DBMS releases are explained in the article [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md). Results gained out of the evaluation of valid SAP releases, operating system, and DBMS releases have a large impact on the efforts moving SAP systems to Azure. Results out of this evaluation are going to define whether there could be significant preparation efforts in cases where SAP release upgrades or changes of operating systems are needed.
 
 
 
@@ -845,7 +845,7 @@ Before uploading VMs into Azure, you need to make sure the VMs and VHDs fulfill 
 
 #### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>Preparation for moving a VM from on-premises to Azure with a non-generalized disk
 
-A common deployment method is to move an existing VM, which runs an SAP system from on-premises to Azure. That VM and the SAP system in the VM just should run in Azure using the same hostname and likely the same SAP SID. In this case, the guest OS of VM should not be generalized for multiple deployments. If the on-premises network got extended into Azure (see chapter [cross-premises - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network][planning-guide-2.2] in this document), then even the same domain accounts can be used within the VM as those were used before on-premises.
+A common deployment method is to move an existing VM, which runs an SAP system from on-premises to Azure. That VM and the SAP system in the VM just should run in Azure using the same hostname and likely the same SAP SID. In this case, the guest OS of VM should not be generalized for multiple deployments. If the on-premises network got extended into Azure, then even the same domain accounts can be used within the VM as those were used before on-premises.
 
 Requirements when preparing your own Azure VM Disk are:
 

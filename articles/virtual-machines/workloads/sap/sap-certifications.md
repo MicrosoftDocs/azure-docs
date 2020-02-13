@@ -3,8 +3,8 @@ title: Microsoft Azure certifications for SAP | Microsoft Docs
 description: Updated list of current configurations and certifications of SAP on the Azure platform.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,8 +15,8 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/07/2020
-ms.author: msjuergent
+ms.date: 02/13/2020
+ms.author: juergent
 ms.custom: 
 
 ---
