@@ -85,24 +85,26 @@ You also must give the cache application access to your Azure storage account as
 
 ### NFS storage requirements
 
-If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators for your storage system or data center to verify these settings.
+If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators or firewall managers for your storage system (or data center) to verify these settings.
 
 > [!NOTE]
 > Storage target creation will fail if the cache has insufficient access to the NFS storage system.
 
-* Network connectivity: The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or similar access is recommended.
+* **Network connectivity:** The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked.
 
-* Port access: The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
+* **Port access:** The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
 
   To check your storage system's settings, follow this procedure.
 
   * Issue an `rpcinfo` command to your storage system to check the needed ports. The command below lists the ports and formats the relevant results in a table. (Use your system's IP address in place of the *<storage_IP>* term.)
 
+    You can issue this command from any Linux client that has NFS infrastructure installed. If you use a client inside the cluster subnet, it also can help verify connectivity between the subnet and the storage system.
+
     ```bash
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
-  * Ensure that these ports on your storage system allow inbound and outbound traffic:
+  * In addition to the ports retunred by the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
@@ -114,16 +116,16 @@ If using an NFS storage system (for example, an on-premises hardware NAS system)
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* Directory access: Enable the `showmount` command on the storage system. Azure HPC Cache uses this command to check that your storage target configuration points to a valid export, and also to make sure that multiple mounts don't access the same subdirectories (which risks file collisions).
+* **Directory access:** Enable the `showmount` command on the storage system. Azure HPC Cache uses this command to check that your storage target configuration points to a valid export, and also to make sure that multiple mounts don't access the same subdirectories (which risks file collisions).
 
   > [!NOTE]
   > If your NFS storage system uses NetApp's ONTAP 9.2 operating system, **do not enable `showmount`**. [Contact Microsoft Service and Support](hpc-cache-support-ticket.md) for help.
 
-* Root access: The cache connects to the back-end system as root (with the user ID 0). Check these settings on your storage system:
+* **Root access:** The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
   
   * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
 
-  * Check export policies. For example, make sure that root access is not restricted to internal IP addresses.
+  * Check export policies to make sure they do not include restrictions on root access from the cache's subnet.
 
 * NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
 
