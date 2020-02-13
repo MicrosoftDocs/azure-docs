@@ -311,4 +311,4 @@ This section illustrates one technique to test that Nginx is installed on your v
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Configure Linux virtual machines in Azure using Ansible](./ansible/ansible-create-vm.md)
+> [Quickstart: Configure Linux virtual machines in Azure using Ansible](./ansible-create-vm.md)
