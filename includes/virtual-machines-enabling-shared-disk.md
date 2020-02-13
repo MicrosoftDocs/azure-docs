@@ -78,7 +78,6 @@ Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to
 $resourceGroup = "myResourceGroup"
 $location = "WestCentralUS"
 $ppgName = "myPPG"
-New-AzResourceGroup -Name $resourceGroup -Location $location
 $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `
