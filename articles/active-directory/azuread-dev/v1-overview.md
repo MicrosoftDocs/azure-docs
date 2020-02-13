@@ -53,5 +53,8 @@ The following articles provide detailed information about APIs, protocol message
 | [Glossary](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | Terminology and definitions of words that are used throughout this documentation. |
 |  |  |
 
+## Videos
+
+See [Azure Active Directory developer platform videos](videos.md) for help migrating to the new Microsoft identity platform.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
