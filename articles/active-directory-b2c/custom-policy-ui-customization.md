@@ -29,14 +29,14 @@ Complete the steps in [Get started with custom policies](custom-policy-get-start
 
 To configure UI customization, copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Search for and copy the entire contents of the **ContentDefinitions** element.
 1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
 1. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
 1. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
-    Your custom policy should look like the following:
+    Your custom policy should look like the following code snippet:
 
     ```xml
     <BuildingBlocks>
@@ -74,7 +74,7 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 ## Configure dynamic custom page content URI
 
-By using Azure AD B2C custom policies, you can send a parameter in the URL path, or a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. The parameter can be any [claim resolver](claim-resolver-overview.md), such as the application ID, language Id, or custom query string parameter, such as `campaignId`.
+By using Azure AD B2C custom policies, you can send a parameter in the URL path, or a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. The parameter can be any [claim resolver](claim-resolver-overview.md), such as the application ID, language ID, or custom query string parameter, such as `campaignId`.
 
 
 
@@ -96,7 +96,7 @@ To send query string parameters, in the [relying party policy](relyingparty.md),
 </RelyingParty>
 ```
 
-In your content definition, change the value of `LoadUri` to `https://<app_name>.azurewebsites.net/home/unified`. Your custom policy `ContentDefinition` should look like the following:
+In your content definition, change the value of `LoadUri` to `https://<app_name>.azurewebsites.net/home/unified`. Your custom policy `ContentDefinition` should look like the following code snippet:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -105,7 +105,7 @@ In your content definition, change the value of `LoadUri` to `https://<app_name>
 </ContentDefinition>
 ```
 
-When Azure AD B2C loads the page, it makes a call to your web server endpoint :
+When Azure AD B2C loads the page, it makes a call to your web server endpoint:
 
 ```http
 https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
@@ -113,7 +113,7 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 ### Dynamic page content URI 
 
-Content can be pulled from different places based on the parameters used. In your CORS-enabled endpoint, setup a folder structure to host content. For example, you can organize the content in following structure. Root *folder/folder per language/your html files*. For example, your custom page URI might look like:
+Content can be pulled from different places based on the parameters used. In your CORS-enabled endpoint, set up a folder structure to host content. For example, you can organize the content in following structure. Root *folder/folder per language/your html files*. For example, your custom page URI might look like:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
