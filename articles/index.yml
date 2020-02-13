@@ -407,7 +407,7 @@ productDirectory:
     # Card
     - title: R Server for HDInsight
       summary: Predictive analytics, machine learning, and statistical modeling for big data
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
       azureCategories:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
@@ -1337,7 +1337,7 @@ productDirectory:
     # Card
     - title: Archive Storage
       summary: Industry leading price point for storing rarely accessed data
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-explorer.svg
       azureCategories:
         - storage
       url: storage/blobs/storage-blob-storage-tiers.md
