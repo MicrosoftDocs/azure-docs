@@ -49,7 +49,7 @@ In this scenario, you haven't enabled the **Allow lab creator to pick lab locati
 
 Then, lab creators (educators) don't see an option to pick a location for the lab. They will see the price per hour for every size option available to them. When they create a lab, it will be created in an Azure region that's in the same location as the Azure region that their lab account is in. For example, if the lab account is in **West US**, then the lab might be created in **South Central US** but would not be created in **Canada East**. We don't guarantee anything about the region we choose aside from that it's in the location. If a size is currently constrained, then the lab creator will see a checkbox where they can see the sizes that we normally support but are currently unavailable. 
 
-## Virtual network is enabled and location selection isn't allowed
+## In virtual network and location selection isn't allowed
 In this scenario, the **Allow lab creator to pick lab location** option is disabled because you have selected a peer virtual network for the lab account. Then, lab creators will see the same screen as with the previous option. Because all VMs have to be in the same Azure region as the virtual network, the lab will be created in the same Azure region that the virtual network is in. If that particular region is constrained for a size, the size will appear as unavailable. 
 
 ## Location selection is enabled
