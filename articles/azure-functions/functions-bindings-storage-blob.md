@@ -30,10 +30,10 @@ Working with the trigger and bindings requires that you reference the appropriat
 | C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) is recommended to use with Visual Studio Code. |
 | C# Script (online-only in Azure portal)         | Adding a binding                            | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
 
-[core tools]: ../articles/azure-functions/functions-run-local.md
-[extension bundle]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
+[core tools]: ./functions-run-local.md
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Update your extensions]: ../articles/azure-functions/install-update-binding-extensions-manual.md
+[Update your extensions]: ./install-update-binding-extensions-manual.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### Functions 1.x
