@@ -17,7 +17,7 @@ metadata:
 landingContent:
 - title:  Conversation transcription
   linkLists:
-    - linkListType: get-started
+    - linkListType: overview
       links:
       - text: About Conversation Transcription
         url: conversation-transcription.md
@@ -31,7 +31,7 @@ landingContent:
           url: call-center-transcription.md
 - title: Multi-device conversation
   linkLists:
-    - linkListType: get-started
+    - linkListType: overview
       links:
       - text: About Multi-device conversation
         url: multi-device-conversation.md

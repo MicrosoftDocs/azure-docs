@@ -17,7 +17,7 @@ metadata:
 landingContent:
 - title: Get started
   linkLists:
-    - linkListType: get-started
+    - linkListType: overview
       links:
       - text: What is speech translation?
         url: speech-translation.md

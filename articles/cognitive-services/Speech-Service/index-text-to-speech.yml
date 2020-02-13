@@ -29,7 +29,7 @@ landingContent:
           url: quickstarts/text-to-speech-audio-file.md
         - text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Customization
+- title: Step-by-step guides
   linkLists:
     - linkListType: how-to-guide
       links:
@@ -39,6 +39,36 @@ landingContent:
           url: how-to-audio-content-creation.md
         - text: Improve synthesis with Custom Voice
           url: how-to-custom-voice.md
+        - text: Synthesize speech with Long Audio API
+          url: long-audio-api.md
+        - text: Get a list of voices with REST (Python)
+          url: quickstart-python-get-text-to-speech-voices.md
+        - text: Convert text-to-speech with REST (Python)
+          url: quickstart-python-text-to-speech.md
+        - text: Gating of Custom Voice
+          url: concepts-gating-overview.md
+        - text: Deployment of synthetic technology
+          url: concepts-guidelines-responsible-deployment-synthetic.md
+        - text: Disclosure for voice talent
+          url: https://aka.ms/disclosure-voice-talent
+        - text: Disclosure design guidelines
+          url: concepts-disclosure-guidelines.md
+        - text: Disclosure design patterns
+          url: concepts-disclosure-patterns.md
+        - text: Code of conduct
+          url: https://aka.ms/custom-neural-code-of-conduct
+        - text: Get started with Custom Voice
+          url: how-to-custom-voice.md
+        - text: Prepare data
+          url: how-to-custom-voice-prepare-data.md
+        - text: Create and use Custom Voice models
+          url: how-to-custom-voice-create-voice.md
+        - text: Record voice samples
+          url: record-custom-voice-samples.md
+        - text: Custom keyword naming guidelines
+          url: speech-devices-sdk-kws-guidelines.md
+        - text: Custom keyword spotting
+          url: speech-devices-sdk-create-kws.md
 - title: Reference
   linkLists:
     - linkListType: reference

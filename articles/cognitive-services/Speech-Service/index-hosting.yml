@@ -17,15 +17,7 @@ metadata:
 landingContent:
 - title: Get started
   linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Create an Azure Speech resource
-          url: get-started.md#create-a-speech-resource-in-azure
-        - text: Configure containers
-          url: speech-container-configuration.md
-- title: Step-by-step guides
-  linkLists:
-    - linkListType: deploy
+    - linkListType: conceptual
       links:
         - text: Speech service containers
           url: speech-container-howto.md
@@ -33,6 +25,14 @@ landingContent:
           url: speech-container-howto-on-premises.md
         - text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
+- title: Step-by-step guides
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create an Azure Speech resource
+          url: get-started.md#create-a-speech-resource-in-azure
+        - text: Configure containers
+          url: speech-container-configuration.md
 - title: Reference
   linkLists:
     - linkListType: reference

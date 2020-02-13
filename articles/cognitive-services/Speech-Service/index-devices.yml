@@ -15,18 +15,12 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: Overview
+- title: Get started
   linkLists:
-    - linkListType: get-started
+    - linkListType: overview
       links:
         - text: About the Speech Devices SDK
           url: speech-devices-sdk.md
-    - linkListType: whats-new
-      links:
-        - text: Release notes
-          url: devices-sdk-release-notes.md
-- title: Get started
-  linkLists:
     - linkListType: quickstart
       links:
         - text: Use Speech Device SDK (Windows)
@@ -35,9 +29,19 @@ landingContent:
           url: speech-devices-sdk-linux-quickstart.md
         - text: Use Speech Device SDK (Android)
           url: speech-devices-sdk-android-quickstart.md
+- title: Step-by-step guides
+  linkLists:
+        - text: Microphone array recommendations
+          url: speech-devices-sdk-microphone.md
+        - text: Roobo v1 kit
+          url: speech-devices-sdk-roobo-v1.md
 - title: Reference
   linkLists:
-    - linkListType: how-to-guide
+    - linkListType: whats-new
+      links:
+        - text: Release notes
+          url: devices-sdk-release-notes.md
+    - linkListType: reference
       links:
         - text: Troubleshoot
           url: speech-devices-sdk-troubleshooting.md

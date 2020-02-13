@@ -17,14 +17,18 @@ metadata:
 landingContent:
 - title: Get started
   linkLists:
-    - linkListType: get-started
+    - linkListType: quickstart
       links:
         - text: Recognize speech, intents, and entities
           url: quickstarts/intent-recognition.md
+- title: Step-by-step guides
+  linkLists:
     - linkListType: how-to-guide
       links:
         - text: Recognize speech intents with LUIS and C#
           url: how-to-recognize-intents-from-speech-csharp.md
+- title: Reference
+  linkLists:
     - linkListType: reference
       links:
         - text: Language Understanding (LUIS) portal
