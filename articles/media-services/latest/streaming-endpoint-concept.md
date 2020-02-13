@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 02/11/2020
 ms.author: juliako
 ---
 
@@ -153,8 +153,10 @@ When the Standard streaming endpoint is created, it's configured by default with
 
 CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
 
+Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. 
+
 > [!IMPORTANT]
-> Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. For more information about Azure CDN features, see the [CDN overview](../../cdn/cdn-overview.md).
+> For details about Azure CDN, see the [CDN overview](../../cdn/cdn-overview.md).
 
 ### Determine if DNS change was made
 
@@ -163,6 +165,10 @@ You can determine if DNS change was made on a Streaming Endpoint (the traffic is
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
+## See also
+
+[CDN overview](../../cdn/cdn-overview.md)
 
 ## Next steps
 

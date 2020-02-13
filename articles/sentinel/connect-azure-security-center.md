@@ -20,11 +20,10 @@ Azure Sentinel enables you to connect alerts from [Azure Security Center](../sec
 
 ## Prerequisites
 
-- If you want to export alerts from Azure Security Center, you must be a contributor on the subscription whose logs you stream.
+- To export alerts from Azure Security Center, you must have the Security Reader role in the subscription of the logs you stream.
 
 - You must have the [Azure Security Center Standard tier](../security-center/security-center-pricing.md) running on the subscription. If not, [upgrade your subscription to standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- You must log in with a user that has global administrator or security administrator permissions on each subscription you want to connect.
 
 
 ## Connect to Azure Security Center
