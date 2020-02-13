@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -196,6 +196,8 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
 | setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
 | setting.forgotPasswordLinkLocation| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.| 
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+
 ## Cryptographic keys
 
 The **CryptographicKeys** element is not used.
