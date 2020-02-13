@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Use Azure Functions to manage compute resources in SQL pool
+# Use Azure Functions to manage compute resources in Azure Synapse Analytics SQL pool
 
 This tutorial uses Azure Functions to manage compute resources for a SQL pool in Azure Synapse Analytics.
 
@@ -114,17 +114,17 @@ Currently, there are only two scaling functions included within the template. Wi
 5. Set your operation variable to the desired behavior as follows:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -172,7 +172,7 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 Learn more about [timer trigger](../azure-functions/functions-create-scheduled-function.md) Azure functions.
 
-Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
+Checkout the SQL pool [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
 
 
 
