@@ -96,7 +96,7 @@ The total number of IP addresses provided by all four IP address resources can't
 }
 ```
 
-Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual network.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network unless you want all of them to use NAT for outbound to Internet connectivity.  Individual subnets can be configured with different NAT gateway resources.
+Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway can't span more than one virtual network.  It isn't required to assign the same NAT gateway to all subnets of a virtual network.   Individual subnets can be configured with different NAT gateway resources.
 
 Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy is not supported. Review NAT [availability zones](#availability-zones).
 
@@ -128,7 +128,7 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 }
 ```
 
-A subnet is configured to use a NAT gateway with a property on the subnet within the virtual network.  All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now begin using the IP addresses associated with _myNatGateway_ as the source.
+A subnet is configured to use a NAT gateway with a property on the subnet within the virtual network.  All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now use the NAT gateway.  All outbound to Internet connectivity will use the IP addresses associated with _myNatGateway_ as the source IP address.
 
 ## Coexistence of inbound and outbound
 
@@ -180,6 +180,12 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 |:---:|:---:|
 | Inbound | VM with instance-level public IP and public Load Balancer |
 | Outbound | NAT gateway |
+
+## Managing Basic resources
+
+Standard load balancer, public IP, public IP prefix are compatible with NAT gateway.  And NAT gateways operate in the scope of a subnet. The basic variants of these services must be deployed on a subnet without a NAT gateway.  This allows both SKU variants to coexist in the same virtual network.
+
+The reason for this constraint comes from the fact that NAT gateways take precedence over all other outbound scenarios of the subnet. Basic load balancer or public IP and any managed service built with them are unable to apply the correct translations.  When NAT gateway takes control over outbound to Internet connectivity, inbound to basic load balancer and basic public ip used as instance-level IP on a VM is not provided; the return path would be forced through the NAT gateway and receive its translation rather than where it arrived and make successful communication impossible.
 
 ## Availability Zones
 
