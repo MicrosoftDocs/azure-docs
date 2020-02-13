@@ -57,7 +57,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Hungarian             |     `hu`      |           |             |           ✔ \*           |                |                    |
 | Italian               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japanese              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Korean                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Korean                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
 | Norwegian  (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Polish                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portuguese (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` also accepted |

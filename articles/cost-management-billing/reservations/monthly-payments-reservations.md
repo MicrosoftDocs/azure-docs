@@ -20,10 +20,15 @@ Monthly payments are available for:
 
 - Virtual machines
 - Azure Storage
-- SQL Database
+- SQL Databases
 - SQL Data Warehouse
 - Cosmos DB
 - App Service stamp fee
+- Managed Disk
+- Azure Data Explorer
+- Azure Database for MariaDB, MySQL and PostgreSQL
+- Azure VMware Solution by CloudSimple
+
 
 Purchase reservations in the [Azure portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
 

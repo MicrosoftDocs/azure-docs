@@ -4,10 +4,10 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
-  - name: Terminology changes
-    href: terminology.md
   - name: FAQ
     href: faq.md
+  - name: What's new?
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
@@ -1139,6 +1139,8 @@
     items:
     - name: Schema
       href: platform/diagnostics-extension-schema-1dot3.md
+  - name: Terminology changes
+    href: terminology.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection

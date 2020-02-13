@@ -1,15 +1,13 @@
 ---
 title: Maintenance control for Azure virtual machines using PowerShell
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control and PowerShell.
-services: virtual-machines-linux
 author: cynthn
-
 ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
+#pmcontact: shants
 ---
 
 # Preview: Control updates with Maintenance Control and Azure PowerShell

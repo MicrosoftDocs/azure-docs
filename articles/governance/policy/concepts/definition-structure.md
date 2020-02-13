@@ -6,8 +6,13 @@ ms.topic: conceptual
 ---
 # Azure Policy definition structure
 
-Resource policy definitions are used by Azure Policy to establish conventions for resources. Each
-definition describes resource compliance and what effect to take when a resource is non-compliant.
+Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
+[conditions](#conditions) and the effect to take if a condition is met. A condition compares a
+resource property [field](#fields) to a required value. Resource property fields are accessed by
+using [aliases](#aliases). A resource property field is either a single-valued field or an
+[array](#understanding-the--alias) of multiple values. Condition evaluation is different on arrays.
+Learn more about [conditions](#conditions).
+
 By defining conventions, you can control costs and more easily manage your resources. For example,
 you can specify that only certain types of virtual machines are allowed. Or, you can require that
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
@@ -73,6 +78,10 @@ are:
 
 - `all`: evaluate resource groups and all resource types
 - `indexed`: only evaluate resource types that support tags and location
+
+For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged isn't evaluated
+in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
@@ -308,6 +317,10 @@ letter, `.` to match any character, and any other character to match that actual
 are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
 **notMatchInsensitively**. For examples, see
 [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+
+In an **\[\*\] alias** array field value, each element in the array is evaluated individually with
+logical **and** between elements. For more information, see [Evaluating the \[\*\]
+alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### Fields
 

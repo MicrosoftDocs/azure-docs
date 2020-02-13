@@ -305,3 +305,10 @@ To load all labeled images, choose the **First** button. The **First** button wi
 ### Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.
 
 Delete the label by clicking on the cross mark next to it.
+
+## Run or experiment deletion
+
+Experiments can be archived by using [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) 
+method, or from Experiment tab view in Azure Machine Learning studio client. This action hides the experiment from list queries and views, but does not delete it.
+
+Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).

@@ -43,30 +43,24 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-These commands first create a resource group in the east US location for the application. The following table describes the parameters used with the **az iotcentral app create** command:
+These commands first create a resource group in the east US region for the application. The following table describes the parameters used with the **az iotcentral app create** command:
 
 | Parameter         | Description |
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **East US**, **West US**, **North Europe**, or **West Europe** regions, or in the **Australia** or **Asia Pacific** geographies. |
 | name              | The name of the application in the Azure portal. |
 | subdomain         | The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
 | sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | The application template to use. For more information, see the following table: |
 | display-name      | The name of the application as displayed in the UI. |
 
-**Application template with generally available features**
+**Application templates**
 
 | Template name            | Description |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Creates an empty application for you to populate with your own device templates and devices.
-
-
-**Application templates with public preview features**
-
-| Template name            | Description |
-| ------------------------ | ----------- |
-| iotc-pnp-preview@1.0.0   | Creates an empty plug and play preview application for you to populate with your own device templates and devices. |
+| iotc-pnp-preview@1.0.0   | Creates an empty Plug and Play (preview) application for you to populate with your own device templates and devices. |
 | iotc-condition@1.0.0     | Creates an application with a in-store analytics – condition monitoring template. Use this template to connect and monitor store environment. |
 | iotc-consumption@1.0.0   | Creates an application with water consumption monitoring template. Use this template to monitor and control water flow. |
 | iotc-distribution@1.0.0  | Creates an application with a Digital distribution template. Use this template to improve warehouse output efficiency by digitalizing key assets and actions. |
@@ -78,9 +72,6 @@ These commands first create a resource group in the east US location for the app
 | iotc-quality@1.0.0       | Creates an application with water quality monitoring template. Use this template to digitally monitor water quality.|
 | iotc-store@1.0.0         | Creates an application with a in-store analytics – checkout template. Use this template to monitor and manage the checkout flow inside your store. |
 | iotc-waste@1.0.0         | Creates an application with a Connected waste management template. Use this template to monitor waste bins and dispatch field operators. |
-
-> [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **United States** locations.
 
 ## View your applications
 

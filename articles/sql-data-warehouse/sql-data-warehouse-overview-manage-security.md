@@ -31,7 +31,7 @@ Firewall rules are used by both the server and the database to reject connection
 
 As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
-Azure Synapse uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](../sql-database/sql-database-firewall-configure.md)
+Azure Synapse uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see [Azure SQL Database firewall rules](../sql-database/sql-database-firewall-configure.md)
 
 Connections to your SQL Data Warehouse are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 

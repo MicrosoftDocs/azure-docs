@@ -54,7 +54,7 @@ To remove your spending limit, follow these steps:
 
 The spending limit could prevent you from deploying or using certain third-party and Microsoft services. Here are the situations where you should remove the spending limit on your subscription.
 
--  You plan to deploy first party images like Oracle or services such as Azure DevOps Services. This situation causes you to reach your spending limit almost immediately and causes your subscription to be disabled.
+-  You plan to deploy third-party images like Oracle or services such as Azure DevOps Services. This situation causes you to reach your spending limit almost immediately and causes your subscription to be disabled.
 - You have services that you don't want disrupted. When you reach your spending limit, Azure resources that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. If you have services that you don't want disrupted, you must remove your spending limit.
 - You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when your reach your spending limit and the services and resources are de-allocated.
 

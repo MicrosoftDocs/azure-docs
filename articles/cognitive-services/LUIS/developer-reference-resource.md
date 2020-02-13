@@ -1,20 +1,13 @@
 ---
 title: Developer resources - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: Developers have both REST APIs and SDKs for Language Understanding.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: diberry
+description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
+ms.topic: reference
+ms.date: 02/09/2020
 ---
 
-# Developer resources for Language Understanding
+# SDK, REST, and CLI developer resources for Language Understanding (LUIS)
 
-Developers can use both REST APIs and SDKs for Language Understanding.
+SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions. 
 
 ## Azure resource management
 
@@ -26,11 +19,17 @@ Find reference documentation based on the tool:
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
+
 ## Language Understanding authoring and prediction requests
 
-The Language Understanding service is accessed from an Azure resource you need to create. There are two resources: authoring and prediction endpoint resources. Both of these resources allow you to control your LUIS resources.
+The Language Understanding service is accessed from an Azure resource you need to create. There are two resources:
+
+* Use the **authoring** resource for training to create, edit, train, and publish.
+* Use the **prediction** for runtime to send user's text and receive a prediction.
 
 Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
+Use [Cognitive Services sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code) to learn and use the most common tasks.
 
 ### REST APIs
 
@@ -72,7 +71,7 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Create and manage your LUIS.ai applications
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- manage parent and child apps
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
-* [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
+* [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 
 
 ## Next steps

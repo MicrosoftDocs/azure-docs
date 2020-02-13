@@ -2,7 +2,7 @@
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 02/10/2020
 ---
 
 # Syntax and expressions in Azure Resource Manager templates
@@ -10,6 +10,8 @@ ms.date: 09/03/2019
 The basic syntax of the template is JSON. However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object.
 
 A template expression can't exceed 24,576 characters.
+
+Expressions support json('null') and properties support a literal value of null. In both cases, Resource Manager templates treat it as if the property is not present.
 
 ## Use functions
 

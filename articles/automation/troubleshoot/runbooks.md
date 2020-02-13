@@ -358,7 +358,7 @@ Object reference not set to an instance of an object
 
 ### Cause
 
-There is a known issue where the Start-AzureRmAutomationRunbook does not handle the output stream correctly if it contains objects.
+There is a known issue where Start-AzureRmAutomationRunbook does not handle the output stream correctly if it contains objects.
 
 ### Resolution
 
@@ -547,6 +547,22 @@ There are two ways to resolve this error:
 * If your runbook has this error message, run it on a Hybrid Runbook Worker
 
 To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
+
+## Scenario: Linux Hybrid Runbook Worker receives a prompt for a password when signing a runbook
+
+### Issue
+
+Running the **sudo** command for a Linux Hybrid Runbook Worker retrieves an unexpected prompt for a password.
+
+### Cause
+
+The nxautomationuser account for the Log Analytics agent for Linux is not correctly configured in the sudoers file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
+
+### Resolution
+
+* Ensure that the Hybrid Runbook Worker has the GnuPG (GPG) executable on the machine.
+
+* Verify the configuration of the nxautomationuser account in the sudoers file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
 
 ## <a name="other"></a>My problem isn't listed above
 

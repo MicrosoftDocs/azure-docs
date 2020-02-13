@@ -28,8 +28,8 @@
     items:
     - name: .NET Core (Azure.Messaging.EventHubs)
       href: get-started-dotnet-standard-send-v2.md
-    - name: Java (azure-eventhubs)
-      href: event-hubs-java-get-started-send.md
+    - name: Java (azure-messaging-eventhubs)
+      href: get-started-java-send-v2.md
     - name: Python (azure-eventhub version 5)
       href: get-started-python-send-v2.md
     - name: Node.js (azure/event-hubs version 5)
@@ -118,6 +118,8 @@
       items:
       - name: .NET (Azure.Messaging.EventHubs)
         href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md      
+      - name: Java (azure-messaging-eventhubs)
+        href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md        
       - name: Python (azure-eventhub version 5)
         href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
       - name: JavaScript (azure/event-hubs version 5)
@@ -130,6 +132,8 @@
       items:
       - name: .NET Core (Microsoft.Azure.EventHubs)
         href: event-hubs-dotnet-standard-getstarted-send.md
+      - name: Java (azure-eventhubs)
+        href: event-hubs-java-get-started-send.md        
       - name: Python (azure-eventhub version 1)
         href: event-hubs-python-get-started-send.md
       - name: Node.js (azure/event-hubs version 2)    
@@ -210,7 +214,11 @@
     items:
     - name: Client library
       items:
-      - name: azure-eventhubs
+      - name: Migrate from azure-eventhubs to azure-messaging-eventhubs
+        href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md
+      - name: azure-messaging-eventhubs (latest)
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html
+      - name: azure-eventhubs (legacy)
         href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
     - name: Management library
       href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable

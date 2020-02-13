@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 02/10/2020
 ---
 
 # Create resources at the management group level
@@ -131,9 +131,13 @@ The following example assigns an existing policy definition to the management gr
 }
 ```
 
+## Template sample
+
+* Create a resource group, a policy and a policy assignment.  See [here](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
 ## Next steps
 
 * To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
 * For a list of the available functions in a template, see [Template functions](template-functions.md).

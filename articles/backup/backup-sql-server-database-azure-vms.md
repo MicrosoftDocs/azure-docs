@@ -104,6 +104,9 @@ Avoid using the following elements in database names:
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
+>[!NOTE]
+>The **Configure Protection** operation for databases with special characters like "+” or “&" in their name is not supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Discover SQL Server databases

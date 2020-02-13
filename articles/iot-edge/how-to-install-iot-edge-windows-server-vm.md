@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: gregman
+ms.author: philmea
 ---
 # Run Azure IoT Edge on Windows Server Virtual Machines
 

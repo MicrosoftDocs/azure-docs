@@ -1,7 +1,7 @@
 ---
 title: "GitHub Actions & Azure Kubernetes Service"
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, GitHub Actions, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -52,14 +52,13 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Save the JSON output because it is used in a later step.
 
-
-Use [az aks show][az-aks-show] to display the *id* of your AKS cluster:
+Use [az aks show][az-aks-show] to display the *ID* of your AKS cluster:
 
 ```cmd
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-Use [az acr show][az-acr-show] to display the *id* of the ACR:
+Use [az acr show][az-acr-show] to display the *ID* of the ACR:
 
 ```cmd
 az acr show --name <acrName> --query id
@@ -87,7 +86,6 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 1. *CLUSTER_NAME*: the name of your AKS cluster, which in this example is *MyAKS*.
 1. *CONTAINER_REGISTRY*: the *loginServer* for the ACR.
 1. *HOST*: the host for your Dev Space, which takes the form *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, which in this example is *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *HOST_SUFFIX*: the host suffix for your Dev Space, which in this example is *fedcab0987.eus.azds.io*.
 1. *IMAGE_PULL_SECRET*: the name of the secret you wish to use, for example *demo-secret*.
 1. *MASTER_SPACE*: the name of your parent Dev Space, which in this example is *dev*.
 1. *REGISTRY_USERNAME*: the *clientId* from the JSON output from the service principal creation.
@@ -95,6 +93,8 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 
 > [!NOTE]
 > All of these secrets are used by the GitHub action and are configured in [.github/workflows/bikes.yml][github-action-yaml].
+
+Optionally, if you want to update the master space after your PR is merged, add the *GATEWAY_HOST* secret, which takes the form *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, which in this example is *dev.gateway.fedcab0987.eus.azds.io*. Once you merge your changes into the master branch in your fork, another action will run to rebuild and run your entire application in the master dev space. In this example, the master space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## Create a new branch for code changes
 

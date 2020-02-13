@@ -72,19 +72,21 @@ In this section, you'll learn how to use Blob storage to store logged events and
 
    Your storage account must exist in the same region as Azure Cognitive Search.
 
-2. Open your search service Overview page. In the left-navigation pane, scroll down to **Monitoring** and click **Enable Monitoring**.
+2. Open your search service Overview page. In the left-navigation pane, scroll down to **Monitoring** and click **Diagnostic settings**.
 
-   ![Enable monitoring](./media/search-monitor-usage/enable-monitoring.png "Enable monitoring")
+   ![Diagnostic settings](./media/search-monitor-usage/diagnostic-settings.png "Diagnostic settings")
 
-3. Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Azure Monitor logs.
+3. Select **Add diagnostic setting**
+
+4. Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Azure Monitor logs.
 
    For archival to Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
 
    ![Configure blob storage archive](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
 
-4. Save the profile.
+5. Save the profile
 
-5. Test logging by creating or deleting objects (creates log events) and by submitting queries (generates metrics). 
+6. Test logging by creating or deleting objects (creates log events) and by submitting queries (generates metrics). 
 
 Logging is enabled once you save the profile. Containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 

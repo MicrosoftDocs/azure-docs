@@ -2,7 +2,7 @@
 title: Fixes for the "You can't get there from here" error - Azure AD
 description: Find potential fixes for why you're getting the "You can't get there from here" error message.
 services: active-directory
-author: eross-msft 
+author: curtand
 manager: daveba
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
@@ -11,7 +11,7 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
 ---

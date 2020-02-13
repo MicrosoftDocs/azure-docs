@@ -11,7 +11,7 @@ ms.date: 01/08/2020
 # Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an IoT Hub, so I can analyze streaming data.
 ---
 
-# Ingest data from IoT Hub into Azure Data Explorer (Preview)
+# Ingest data from IoT Hub into Azure Data Explorer 
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-iot-hub.md)

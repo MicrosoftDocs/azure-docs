@@ -53,7 +53,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../azure-functions/functions-host-json.md) and [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. 
 
-A new HTTP triggered function is also created in the **Concatenator** folder of the function app project. Inside it there will be a file called "\__init__.py", with this content:
+A new HTTP triggered function is also created in the **Concatenator** folder of the function app project. Inside it there will be a file called "\_\_init__.py", with this content:
 
 ```py
 import logging

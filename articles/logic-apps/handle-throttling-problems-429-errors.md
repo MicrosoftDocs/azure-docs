@@ -3,7 +3,7 @@ title: Handle throttling problems, or '429 - Too many requests' errors
 description: How to work around throttling problems, or 'HTTP 429 Too many requests' errors, in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: klam, deli, logicappspm
 ms.topic: conceptual
 ms.date: 02/14/2020
 ---
@@ -101,6 +101,18 @@ To handle throttling at this level, you have these options:
   For example, suppose your logic app gets the tables from a SQL Server database and gets each row in each table. You can use separate connections so that the getting the tables use one connection, while the getting each row uses another connection.
 
   ![Create and use a different connections for each action](./media/handle-throttling-problems-429-errors/create-connection-per-action.png)
+
+* Change the concurrency or parallelism on a ["For each" loop](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+
+  By default, "For each" loop iterations all run at the same time. If you have a connector that's getting throttled inside a "For each" loop, you can reduce the number of loop iterations that run in parallel. For more information, see these topics:
+  
+  * ["For each" loops - change concurrency or run sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop)
+
+  * [Workflow Definition Language schema - For each loops](../logic-apps/logic-apps-workflow-actions-triggers.md#foreach-action)
+
+  * [Workflow Definition Language schema - Change "For each" loop concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)
+
+  * [Workflow Definition Language schema - Run "For each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)
 
 <a name="destination-throttling"></a>
 

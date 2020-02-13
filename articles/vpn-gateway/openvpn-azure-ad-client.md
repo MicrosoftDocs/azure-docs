@@ -6,11 +6,11 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 02/07/2020
 ms.author: alzam
 
 ---
-# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Preview)
+# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication
 
 This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
 
@@ -20,11 +20,11 @@ This article helps you configure a VPN client to connect to a virtual network us
 
 ## <a name="profile"></a>Working with client profiles
 
-To connect, you need to download the Azure VPN Client (Preview) and configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
+To connect, you need to download the Azure VPN Client and configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
 
 ### To download the Azure VPN client
 
-Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
+Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the Azure VPN Client.
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
@@ -159,6 +159,24 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
           <dnssuffix>.xyz.com</dnssuffix>
           <dnssuffix>.etc.net</dnssuffix>
     </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### How do I add custom routes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destionation>\</mask>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<includeroutes>
+		<route>
+			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</includeroutes>
     
 </clientconfig>
 </azvpnprofile>

@@ -205,7 +205,7 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## Identify storage path from Abmari
+## Identify storage path from Ambari
 
 To identify the complete path to the configured default store, navigate to **HDFS** > **Configs** and enter `fs.defaultFS` in the filter input box.
 
