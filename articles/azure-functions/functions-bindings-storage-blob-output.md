@@ -11,6 +11,8 @@ ms.author: cshoe
 
 The output binding allows you to modify and delete blob storage data in an Azure Function.
 
+For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
+
 ## Example
 
 # [C#](#tab/csharp)

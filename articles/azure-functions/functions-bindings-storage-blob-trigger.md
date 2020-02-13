@@ -13,6 +13,8 @@ The Blob storage trigger starts a function when a new or updated blob is detecte
 
 The Azure Blob storage trigger require a general-purpose storage account. To use a blob-only account, or if your application has specialized needs, review the alternatives to using this trigger.
 
+For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
+
 ## Alternatives
 
 ### Event Grid trigger
