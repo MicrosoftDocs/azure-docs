@@ -135,13 +135,13 @@
       items:
       - name: Resources
         displayName: iteration,copy
-        href: create-multiple-resource.md
+        href: copy-resources.md
       - name: Properties
         displayName: iteration,copy
-        href: create-multiple-property.md
+        href: copy-properties.md
       - name: Variables
         displayName: iteration,copy
-        href: create-multiple-variable.md
+        href: copy-variables.md
     - name: Subscription level resources
       href: deploy-to-subscription.md
     - name: Management group level resources
