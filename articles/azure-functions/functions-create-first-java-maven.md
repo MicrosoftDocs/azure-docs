@@ -122,7 +122,7 @@ Http Functions:
 
 Trigger the function from the command line using cURL in a new terminal window:
 
-```CMD
+```bash
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
