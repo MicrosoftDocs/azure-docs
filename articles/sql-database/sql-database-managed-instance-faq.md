@@ -76,21 +76,11 @@ One option is to [export the database to a BACPAC](sql-database-export.md) and t
 
 This is the recommended approach if your database is smaller than 100 GB. Transactional replication can be used if all tables in the database have primary keys.
 
-## Gen 4 vs Gen 5 
-
-**How do I choose between Gen 4 and Gen 5 hardware generation for managed instance?**
-
-It depends on your workload as some hardware generation is better for certain types of workloads than the other. While the subject of performance is rather a complex one to simplify, the following differences between the hardware generations affecting the workload performance:
-- Gen 4 provides a better compute support as it is based on physical processors, versus Gen 5 that is based on vCore processors. It might be more advantageous for compute intensive workloads.
-- Gen 5 supports accelerated networking resulting in a better IO bandwidth to remote storage. It might be advantageous for IO intensive workloads on General Purpose service tiers. Gen 5 uses faster SSD local disks compared to Gen 4. It might be advantageous for IO intensive workloads on business critical service tiers.
-
-It is strongly advised to test the performance of actual workloads intended for production before going live to determine which hardware generation will work better in a specific case.
-
 ## Switch hardware generation 
 
 **Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online?**
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you can use [script from blog post](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) explaining how to switch between hardware generations.
+Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](sql-database-service-tiers-vcore.md) explaining how to switch between hardware generations.
 
 This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 
