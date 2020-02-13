@@ -5,6 +5,7 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
+zone_pivot_groups: java-build-tools-set
 ---
 
 # Quickstart: Use Java and Maven to create and publish a function to Azure
@@ -21,9 +22,14 @@ This article shows you how to build and publish a Java function to Azure Functio
 To develop functions using Java, you must have the following installed:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
-- [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
+::: zone pivot="java-build-tools-maven" 
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"  
+- [Gradle](https://gradle.org/), version 4.10 and above
+::: zone-end 
 
 You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
