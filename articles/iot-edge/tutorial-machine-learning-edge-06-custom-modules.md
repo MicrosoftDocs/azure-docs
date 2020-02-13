@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/12/2020
+ms.date: 2/14/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -307,7 +307,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
 
 1. In Visual Studio Code, create a new terminal using the bash shell.
 
-1. In the Azure Portal, start your IoT Edge device virtual machine if it is not running. Connect to it using SSH. Use the SSH connection string as obtained from [Create virtual machine](tutorial-machine-learning-edge-05-configure-edge-device.md#create-virtual-machine) in the previous tutorial.
+1. In the Azure Portal, start your IoT Edge device VM if it is not running. Connect to it using SSH.
 
    ```bash
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
@@ -668,7 +668,11 @@ Now that we have made the configuration changes, we are ready to build the image
 
 ### Build and publish
 
-1. In Visual Studio Code on your development VM, open a Visual Studio Code terminal window and login to your container registry.
+1. On your development VM, start Docker if it is not running.
+
+1. In Visual Studio Code, start a new terminal with a command prompt and login to your Azure container registry (ACR).
+
+You can find the required username, password, and login server values in the Azure portal. The container registry name has the format "turbofandemo\<unique id\>". From the left pane menu, under **Settings**, select **Access keys** to view them.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -680,11 +684,9 @@ Now that we have made the configuration changes, we are ready to build the image
 
 Once the build successfully completes, we will be able to use the Azure portal to review our published modules.
 
-1. In the Azure portal, navigate to your Azure Machine Learning workspace and click the hyperlink for **Registry**.
+1. Open the Azure Container Registry for this tutorial. The container registry name has the format "turbofandemo\<unique id\>". 
 
-    ![Navigate to registry from machine learning service workspace](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
-
-1. From the registry side navigator, select **Repositories**.
+1. From the left pane menu, under **Services**, select **Repositories**.
 
 1. Note that both modules you created, **avrofilewriter** and **turbofanrouter**, appear as repositories.
 
@@ -723,8 +725,14 @@ In this section, we share a few techniques for understanding what has gone wrong
 
 ### Diagnosing from the device
 
-By logging into the IoT Edge device, you can gain access to a good deal of information about the status of your modules. The main mechanism we use are the Docker commands that let us examine the containers and images on
+By logging into the IoT Edge device (the Linux VM in our case), you can gain access to a good deal of information about the status of your modules. The main mechanism we use are the Docker commands that let us examine the containers and images on
 the device.
+
+1. Log in to your IoT Edge device:
+
+   ```bash
+   ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
+   ```
 
 1. List all running containers. We expect to see a container for each module with a name that corresponds to the module. Also, this command lists the exact image for the container including version so you can match with your expectation. You can also list images by substituting “image” for “container” in the command.
 
@@ -735,7 +743,7 @@ the device.
 1. Get the logs for a container. This command outputs whatever has been written to StdErr and StdOut in the container. This command works for containers that have started and then died for some reason. It is also useful for understanding what has been happening with the edgeAgent or edgeHub containers.
 
    ```bash
-   sudo docker container logs <container name>
+   sudo docker container logs <container id>
    ```
 
 1. Inspect a container. This command gives a ton of information about the image. The data can be filtered depending on what you are looking for. As an example, if you want to see if the binds on the avroFileWriter are correct you can use the command:
@@ -752,7 +760,9 @@ the device.
 
 ## Next steps
 
-In this article, we created an IoT Edge Solution in Visual Studio Code with three modules, a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device, modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules’ containers. Next, we updated the configuration of the IoT Hub to route our messages based on type and to handle file uploads. With everything in place, we deployed the modules to the IoT Edge device and ensured the modules were running correctly.
+In this article, we created an IoT Edge Solution in Visual Studio Code with three modules: a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device. We modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules’ containers. 
+
+Next, we updated the configuration of the IoT Hub to route our messages based on type and to handle file uploads. With everything in place, we deployed the modules to the IoT Edge device and ensured the modules were running correctly.
 
 See the following articles for more guidance:
 
