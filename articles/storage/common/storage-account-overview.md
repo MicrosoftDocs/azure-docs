@@ -111,11 +111,9 @@ If there's a change in the usage pattern of your data, you can switch between th
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
 
-## Replication
+## Redundancy
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-For more information about storage replication, see [Azure Storage replication](storage-redundancy.md).
 
 ## Encryption
 

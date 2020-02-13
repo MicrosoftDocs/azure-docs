@@ -27,13 +27,12 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `az
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
+* See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * You can't delete the default (first) node pool.
 * The HTTP application routing add-on can't be used.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-* The AKS cluster can have a maximum of 10 node pools.
-* The AKS cluster can have a maximum of 1000 nodes across those 10 node pools.
 * All node pools must reside in the same vnet and subnet.
 * When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
 
@@ -600,6 +599,7 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
+[quotas-skus-regions]: quotas-skus-regions.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
