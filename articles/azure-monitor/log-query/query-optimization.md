@@ -18,7 +18,7 @@ Most of the techniques are common to queries that are run directly on Azure Data
 Optimized queries will:
 
 - Run faster, reduce overall duration of the query execution.
--Have smaller chance of being throttled or rejected.
+- Have smaller chance of being throttled or rejected.
 
 You should give particular attention to queries that are used for recurrent and bursty usage such as dashboards and PowerBI. The impact of an ineffective query in these cases is substantial.
 
