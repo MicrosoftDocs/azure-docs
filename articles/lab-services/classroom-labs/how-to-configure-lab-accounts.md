@@ -34,18 +34,6 @@ Labs created in this account are connected to the selected virtual network. They
 
 When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to connect with resources in the peer virtual network. 
 
-## Allow lab creator to pick location for the lab
-You can allow lab creator to create labs in a different location than the location of the lab account by following these steps: 
-
-1. On the **Lab Account** page, select **Labs configuration** on the left menu.
-2. For the **Allow lab creator to pick lab location**, select **Enabled** if you want the lab creator to be able to select a location for the lab. If it's disabled, the labs are automatically created in the same location in which the lab account exists. 
-    
-    This field is disabled when you select a virtual network for the **Peer virtual network** field. It's because labs in the lab account must be in the same region as the lab account for them to access resources in the peer virtual network. 
-1. Select **Save** on the toolbar. 
-
-    ![Configure lab location setting](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
-
-
 ## Specify an address range for VMs in the lab
 The following procedure has steps to specify an address range for VMs in the lab. If you update the range that you previously specified, the modified address range applies only to VMs that are created after the change was made. 
 
