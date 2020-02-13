@@ -207,7 +207,7 @@ With Azure Application Insights and claim resolvers you can gain insights on use
 
 ### Relying party policy
 
-In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, and correlation ID to the relying party application. 
+In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, or correlation ID to the relying party application. 
 
 ```XML
 <RelyingParty>
