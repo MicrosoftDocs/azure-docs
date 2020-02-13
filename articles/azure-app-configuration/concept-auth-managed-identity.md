@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-app-configuration
 
 ---
-## Authenticate a managed identity with Azure Active Directory to access Azure App Configuration
+# Authenticate a managed identity with Azure Active Directory to access Azure App Configuration
 Azure App Configuration supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to App Configuration instances using Azure AD credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
 
 This article shows how to authorize access to an App Configuration instance by using a managed identity from an Azure VM.
