@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Single Sign-on for Skytap SSO
 
-To configure single sign-on on **Single Sign-on for Skytap** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Single Sign-on for Skytap Client support team](mailto:support@skytap.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Single Sign-on for Skytap** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Single Sign-on for Skytap Client support team](mailto:support@skytap.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 
 ### Create Single Sign-on for Skytap test user
