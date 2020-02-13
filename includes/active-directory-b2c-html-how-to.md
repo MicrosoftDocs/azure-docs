@@ -17,7 +17,7 @@ Here's how it works: Azure AD B2C runs code in your customer's browser and uses 
 
 ##  Custom HTML page content
 
-Create an HTML page with your own branding. This page can be a static page `*.html`, or a dynamic HTML page (e.g .NET, Node.js, PHP) which will serve the content. The custom page content can contain any HTML elements (except insecure elements, such as iframes) CSS styling, and JavaScript. The only required element is a div element with id set to 'api', such as this one <div id="api"></div> within your HTML page.
+Create an HTML page with your own branding. This page can be a static page `*.html`, or a dynamic HTML page (e.g .NET, Node.js, PHP) which will serve the content. The custom page content can contain any HTML elements (except insecure elements, such as iframes) CSS styling, and JavaScript. The only required element is a div element with `id` set to `api`, such as this one `<div id="api"></div>` within your HTML page.
 
 ```html
 <!DOCTYPE html>
@@ -49,8 +49,8 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
 
 ## Guidelines for using custom page content
 
-- You must use an absolute URL when you include external resources, such as media, CSS and JavaScript files in your html file.
-- Add `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This helps prevent the page ‘flicker’ by ‘preloading’ the CSS file, without the unstyled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
+- Use an absolute URL when you include external resources, such as media, CSS, and JavaScript files in your html file.
+- Add `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This attribute helps prevent the page ‘flicker’ by ‘preloading’ the CSS file, without the unstyled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -61,7 +61,7 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
   - Limited support for Internet Explorer 9 and 8
   - Google Chrome 42.0 and above
   - Mozilla Firefox 38.0 and above
-- Due to security restrictions, Azure AD B2C doesn't support `frame`, `iframe` and `form` HTML elements.
+- Due to security restrictions, Azure AD B2C doesn't support `frame`, `iframe`, and `form` HTML elements.
 
 ## Custom page content walkthrough
 
@@ -129,7 +129,7 @@ To create a public container in Blob storage, perform the following steps:
 
 1. Click **Upload**.
 1. Click the folder icon next to **Select a file**.
-1. Navigate to and select **customize-ui.html** which you created earlier in the Page UI customization section.
+1. Navigate to and select **customize-ui.html**, which you created earlier in the Page UI customization section.
 1. If you want to upload to a subfolder, expand **Advanced** and enter a folder name in **Upload to folder**.
 1. Select **Upload**.
 1. Select the **customize-ui.html** blob that you uploaded.
@@ -141,7 +141,7 @@ To create a public container in Blob storage, perform the following steps:
 Configure Blob storage for Cross-Origin Resource Sharing by performing the following steps:
 
 1. In the menu, select **CORS**.
-1. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+1. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. Use all lowercase letters when entering your tenant name.
 1. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 1. For **Allowed Headers**, enter an asterisk (*).
 1. For **Exposed Headers**, enter an asterisk (*).
