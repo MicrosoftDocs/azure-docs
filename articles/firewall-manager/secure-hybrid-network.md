@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use Azure Firewall Manager Preview to secure your hybrid network using the Azure portal'
-description: In this tutorial, you learn how to secure your hybrid network with Azure Firewall Manager using the Azure portal. 
+title: 'Tutorial: Secure your hub virtual network using Azure Firewall Manager preview'
+description: In this tutorial, you learn how to secure your virtual network with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
@@ -9,7 +9,9 @@ ms.date: 02/18/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your hybrid network with Azure Firewall Manager Preview using the Azure portal
+# Tutorial: Secure your hub virtual network using Azure Firewall Manager preview 
+
+Secure your hybrid network with Azure Firewall Manager Preview using the Azure portal
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
@@ -42,13 +44,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-There are three key requirements for this scenario to work correctly:
+A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premise networks. The hub-and-spoke architecture has the following requirements:
 
-- A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
-- A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
+- Set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. 
 
-   No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
-- Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
+   Additionally, routes to the gateway-connected virtual networks or on-premises networks will automatically propagate to the routing tables for the peered virtual networks using the gateway transit. For more information, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+
+- Set **UseRemoteGateways** when you peer VNet-Spoke to VNet-Hub. If **UseRemoteGateways** is set and **AllowGatewayTransit** on remote peering is also set, the spoke virtual network uses gateways of the remote virtual network for transit.
+- To route the spoke subnet traffic through the hub firewall, you need a User Defined route (UDR) that points to the firewall with the **Disable BGP route propagation** option set. The **Disable BGP route propagation** option prevents route distribution to the spoke subnets. This prevents learned routes from conflicting with your UDR.
+- Configure a UDR on the hub gateway subnet that points to the firewall IP address as the next hop to the spoke networks. No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 
 See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
 

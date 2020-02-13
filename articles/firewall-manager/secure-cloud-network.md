@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use Azure Firewall Manager Preview to secure your cloud network using the Azure portal'
-description: In this tutorial, you learn how to secure your cloud network with Azure Firewall Manager using the Azure portal. 
+title: 'Tutorial: Secure your virtual WAN using Azure Firewall Manager preview'
+description: In this tutorial, you learn how to secure your virtual WAN with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
@@ -9,7 +9,7 @@ ms.date: 02/18/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal
+# Tutorial: Secure your virtual WAN using Azure Firewall Manager preview 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
