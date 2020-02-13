@@ -581,7 +581,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
-#### Understanding service state
+### Understanding service state
 
 During model deployment, you may see the service state change while it fully deploys. Certain states are considered non-terminal and may change as the deployment continues to process.
 
