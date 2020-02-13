@@ -753,7 +753,7 @@ Returns the unique identifier of a resource. You use this function when the reso
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |string (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
+| subscriptionId |No |string (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. Only provide this value when deploying at the scope of a resource group or subscription. |
 | resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. Only provide this value when deploying at the scope of a resource group. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
