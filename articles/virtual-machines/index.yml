@@ -2,87 +2,68 @@
 
 title: Virtual Machines Documentation
 summary: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. 
-# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
-  title: Azure Virtual Machines # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. < 160 chars.
+  title: Azure Virtual Machines 
+  description: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. 
   services: virtual-machines
-  ms.service: virtual-machines #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: hub-page # Required
-  author: cynthn #Required; your GitHub user alias, with correct capitalization.
-  ms.author: cynthn #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/07/2020 #Required; mm/dd/yyyy format.
+  ms.service: virtual-machines 
+  ms.topic: hub-page
+  author: cynthn 
+  ms.author: cynthn 
+  ms.date: 02/12/2020 
 
-# highlightedContent section (optional)
-# Maximum of 8 items
+
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-    # Card
     - title: Linux virtual machines
       itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machines/linux/
-    # Card
     - title: Windows virtual machines
       itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machines/windows/
-    # Card
     - title: Virtual machine scale sets
       itemType: get-started
       url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
-    # Card
     - title: Spot VMs
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
-    # Card
     - title: Dedicated hosts
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts
-    # Card
     - title: Proximity placement groups
       itemType: whats-new
       url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
 
-# tools section (optional)
 tools:
   title: Tools
   summary: Tools for working with Azure virtual machines.
   items:
     # Card
     - title: Azure CLI
-      # imageSrc should be square in ratio with no whitespace
       imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       url: https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest
-    # Card
     - title: Azure PowerShell
       imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
       url: https://docs.microsoft.com/powershell/module/az.compute#virtual_machines
-    # Card
     - title: REST API
       imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
       url: https://docs.microsoft.com/rest/api/compute/virtualmachines
 
-# additionalContent section (optional)
-# Card with links style
 additionalContent:
-  # Supports up to 3 sections
   sections:
     - title: Other resources # < 60 chars (optional)
       summary: Additional resources for working with Azure virtual machines # < 160 chars (optional)
       items:
-        # Card
         - title: Learn
           links:
             - text: Browse learning modules
               url: https://docs.microsoft.com/learn/browse/?products=azure-virtual-machines
-        # Card
         - title: Template gallery
           links:
             - text: Browse the quickstart template gallery
               url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
-        # Card
         - title: Troubleshoot
           links:
             - text: Information for troubleshooting errors
