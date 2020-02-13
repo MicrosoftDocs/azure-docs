@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -126,6 +126,7 @@ The technical profile also returns claims, that aren't returned by the identity 
 | ClaimsFormat | No | Specifies the format for the output claims. Possible values: `Body` (default), `Form`, `Header`, or `QueryString`. The `Body` value is the output claim that is sent in the request body in JSON format. The `Form` value is the output claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the output claim that is sent in the request header. The `QueryString` value is the output claim that is sent in the request query string. |
 | ClaimUsedForRequestPayload| No | Name of a string claim that contains the payload to be sent to the REST API. |
 | DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-error-message) section. |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 ## Cryptographic keys
 
