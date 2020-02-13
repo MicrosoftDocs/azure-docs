@@ -30,7 +30,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Create a hub in the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics-vs2019.png)
+   ![Create a hub in the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
 1. Select **Next: Size and scale** to continue creating your hub.
 
@@ -47,6 +47,6 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 1. For this article, accept the default choices, and then select **Review + create** to review your choices. You see something similar to this screen.
 
-   ![Review information for creating the new hub](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
+   ![Review information for creating the new hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 1. Select **Create** to create your new hub. Creating the hub takes a few minutes.
