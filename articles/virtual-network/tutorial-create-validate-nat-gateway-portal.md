@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create and test a NAT Gateway - Azure portal'
-titlesuffix: Azure NAT service
+titlesuffix: Azure Virtual Network NAT
 description: This tutorial shows how to create a NAT Gateway using the Azure portal and test the NAT service
 services: virtual-network
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 02/18/2020
 ms.author: allensu
 
 ---
@@ -26,13 +26,6 @@ This tutorial shows you how to use Azure NAT service and create a NAT gateway to
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
-
-## Prerequisites
-For this quickstart, you'll need the following prerequisites:
-  * **Virtual machines**
-  * **Virtual networks**
-  * **Public IP address**
-  * **Public IP prefix**
 
 ## Prepare the source for outbound traffic
 
