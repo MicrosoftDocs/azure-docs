@@ -96,7 +96,7 @@ The total number of IP addresses provided by all four IP address resources can't
 }
 ```
 
-Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. You specify which subnets to use this resource on by configuring the subnet of a virtual network with a reference to the respective NAT gateway.  A NAT gateway can't span more than one virtual network.  It isn't necessary to assign the same NAT gateway to all subnets of a virtual network unless you want all of them to use NAT for outbound to Internet connectivity.  Individual subnets can be configured with different NAT gateway resources.
+Once this NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway can't span more than one virtual network.  It isn't required to assign the same NAT gateway to all subnets of a virtual network.   Individual subnets can be configured with different NAT gateway resources.
 
 Scenarios that don't use availability zones will be regional (no zone specified).  If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy is not supported. Review NAT [availability zones](#availability-zones).
 
@@ -128,7 +128,7 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 }
 ```
 
-A subnet is configured to use a NAT gateway with a property on the subnet within the virtual network.  All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now begin using the IP addresses associated with _myNatGateway_ as the source.
+A subnet is configured to use a NAT gateway with a property on the subnet within the virtual network.  All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now use the NAT gateway.  All outbound to Internet connectivity will use the IP addresses associated with _myNatGateway_ as the source IP address.
 
 ## Coexistence of inbound and outbound
 
