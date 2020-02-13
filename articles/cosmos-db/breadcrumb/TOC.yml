@@ -61,3 +61,15 @@
   - name: Azure Cosmos DB
     tocHref: /azure/stream-analytics/
     topicHref: /azure/cosmos-db/index
+
+- name: Azure
+  tocHref: /java/
+  topicHref: /azure/index
+  items:
+  - name: Azure Cosmos DB
+    tocHref: /java/azure/
+    topicHref: /azure/cosmos-db/index
+    items:
+    - name: Spring
+      tocHref: /java/azure/spring-framework/
+      topicHref: /azure/cosmos-db/index
