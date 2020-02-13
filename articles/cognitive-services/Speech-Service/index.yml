@@ -95,26 +95,26 @@ conceptualContent:
         - itemType: overview
           text: Conversation transcription
           url: conversation-transcription.md
+        - itemType: overview
+          text: Multi-device conversations
+          url: multi-device-conversation.md
         - itemType: how-to-guide
-          text: Real time conversation transcription
-          url: how-to-use-conversation-transcription.md
-        - itemType: quickstart
-          text: Start and join a conversation
-          url: quickstarts/multi-device-conversation.md
+          text: Call center transcription
+          url: call-center-transcription.md
       footerLink:
         text: See more
         url: index-conversation-scenarios.yml
     - title: Voice assistants
       links:
         - itemType: overview
-          text: About direct line speech
-          url: direct-line-speech.md
+          text: About Voice Assistants
+          url: voice-assistants.md
         - itemType: quickstart
-          text: Custom commands (Preview)
+          text: Create Custom commands for your Assistant
           url: custom-commands.md
-        - itemType: tutorial
-          text: Voice enable your bot with Speech SDK
-          url: tutorial-voice-enable-your-bot-speech-sdk.md
+        - itemType: get-started
+          text: Power your Voice Assistant with Direct Line Speech
+          url: direct-line-speech.md
       footerLink:
         text: See more
         url: index-voice-assistants.yml

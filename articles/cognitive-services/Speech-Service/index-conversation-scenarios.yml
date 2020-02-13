@@ -23,12 +23,12 @@ landingContent:
         url: conversation-transcription.md
     - linkListType: how-to-guide
       links:
+        - text: Transcribe a real-time conversation
+          url: how-to-use-conversation-transcription.md
+        - text: Asynchronously transcribe conversations
+          url: how-to-async-conversation-transcription.md
         - text: Handle call center scenarios
           url: call-center-transcription.md
-        - text: Real time conversation transcription
-          url: how-to-use-conversation-transcription.md
-        - text: Asynchronous conversation transcription
-          url: how-to-async-conversation-transcription.md
 - title: Multi-device conversation
   linkLists:
     - linkListType: get-started

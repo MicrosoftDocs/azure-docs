@@ -27,7 +27,7 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Custom commands (Preview)
+        - text: Custom Commands (Preview)
           url: custom-commands.md
         - text: Custom Commands with the Speech SDK
           url: how-to-custom-speech-commands-fulfill-sdk.md
