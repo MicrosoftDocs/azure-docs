@@ -29,7 +29,7 @@ Azure Synapse has four components:
 
 ## SQL Analytics and SQL pool in Azure Synapse
 
-SQL Analytics refers to the enterprise data warehousing features that are generally available with Azure Synapse. 
+SQL Analytics refers to the enterprise data warehousing features that are generally available in Azure Synapse. 
 
 SQL pool represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
 

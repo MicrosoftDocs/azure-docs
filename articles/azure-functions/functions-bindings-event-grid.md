@@ -220,19 +220,7 @@ This section contains the following examples:
 * [Event Grid trigger, String parameter](#event-grid-trigger-string-parameter)
 * [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter)
 
-The following examples show trigger binding in a *function.json* file and [Java functions](functions-reference-java.md) that use the binding and print out an event, first receiving the event as ```String``` and second as a POJO.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+The following examples show trigger binding in [Java](functions-reference-java.md) that use the binding and print out an event, first receiving the event as `String` and second as a POJO.
 
 ### Event Grid trigger, String parameter
 

@@ -1,12 +1,12 @@
 ---
-title: Create an HTTP triggered Python function in Azure
+title: Create a serverless Python function for HTTP requests in Azure Functions
 description: Create and deploy serverless Python code to the cloud using Azure Functions.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
 ---
 
-# Quickstart: Create an HTTP triggered Python function in Azure
+# Quickstart: Create a Python function in Azure that responds to HTTP requests
 
 In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

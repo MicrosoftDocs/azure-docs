@@ -250,10 +250,11 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## Guest Configuration samples
 
-Samples for Policy Guest Configuration are available in the following locations:
+Source for the Policy Guest Configuration built-in initiatives are available in the following
+locations:
 
-- [Samples index - Guest Configuration](../samples/index.md#guest-configuration)
-- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
+- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
 
 ## Next steps
 
