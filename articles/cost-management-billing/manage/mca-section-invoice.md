@@ -2,19 +2,16 @@
 title: Organize your invoice based on your needs - Azure
 description: Learn how to organize cost on your invoice.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 ---
 
 # Organize costs by customizing your billing account
 
-Your billing account for Microsoft Customer Agreement provides you flexibility to organize your costs based on your needs whether it's by department, project, or development environment. 
+Your billing account for Microsoft Customer Agreement provides you flexibility to organize your costs based on your needs whether it's by department, project, or development environment.
 
 This article describes how you can use the Azure portal to organize your costs. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -28,7 +25,7 @@ In the billing account for a Microsoft Customer Agreement, you use billing profi
 
 A billing profile represents an invoice and the related billing information such as payment methods and billing address. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges for Azure usage and other purchases from the previous month.
 
-A billing profile is automatically created along with your billing account when you sign up for Azure. You may create additional billing profiles to organize your costs in multiple monthly invoices. 
+A billing profile is automatically created along with your billing account when you sign up for Azure. You may create additional billing profiles to organize your costs in multiple monthly invoices.
 
 > [!IMPORTANT]
 >
@@ -36,9 +33,9 @@ A billing profile is automatically created along with your billing account when 
 
 ### Invoice section
 
-An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize your costs based on your needs. Each invoice section is displayed on the invoice with the charges incurred that month. 
+An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize your costs based on your needs. Each invoice section is displayed on the invoice with the charges incurred that month.
 
-The image below shows an invoice with two invoice sections - Engineering and Marketing. The summary and detail charges for each section is displayed in the invoice. The prices shown in the image are for example purposes only and don't represent the actual prices of Azure services. 
+The image below shows an invoice with two invoice sections - Engineering and Marketing. The summary and detail charges for each section is displayed in the invoice. The prices shown in the image are for example purposes only and don't represent the actual prices of Azure services.
 
 ![Image showing an invoice with sections](./media/mca-section-invoice/mca-invoice-with-sections.png)
 
@@ -74,7 +71,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
    ![Screenshot that shows search in portal for cost management + billing](./media/mca-section-invoice/search-cmb.png)
 
-3. Select **Billing profiles** from the left-hand pane. From the list, select a billing profile. The new section will be displayed on the selected billing profile's invoice. 
+3. Select **Billing profiles** from the left-hand pane. From the list, select a billing profile. The new section will be displayed on the selected billing profile's invoice.
 
    [![Screenshot that shows billing profile list](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
@@ -82,7 +79,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
    [![Screenshot that shows adding invoice sections](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
-5. Enter a name for the invoice section. 
+5. Enter a name for the invoice section.
 
    [![Screenshot that shows invoice section creation page](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
@@ -147,13 +144,13 @@ Once you have customized your billing account based on your needs, you can link 
 
 6. Select the invoice section to link the subscription's charges. The charges will be displayed under this section on the billing profile's invoice.
 
-7. Select an Azure plan and enter a friendly name for your subscription. 
+7. Select an Azure plan and enter a friendly name for your subscription.
 
 9. Click **Create**.  
 
 ### Link existing subscriptions and products
 
-If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs. 
+If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs.
 
 > [!IMPORTANT]
 >
@@ -207,7 +204,7 @@ Now, let's assume you created another billing profile and used 50 GB through sub
 |---------|---------|---------|
 |1.84 per TB for the first 50 TB/month    | 50 TB        | 92.0  |
 |1.77 per TB for the next 450 TB/month    |  0 TB         | 0.0  |
-|Total     |     50 TB  | 92.0 
+|Total     |     50 TB  | 92.0
 
 `Charges for the second billing profile`
 
@@ -215,17 +212,17 @@ Now, let's assume you created another billing profile and used 50 GB through sub
 |---------|---------|---------|
 |1.84 per TB for the first 50 TB/month    | 50 TB        | 92.0  |
 |1.77 per TB for the next 450 TB/month    |  0 TB         | 0.0  |
-|Total     |     50 TB  | 92.0 
+|Total     |     50 TB  | 92.0
 
 The total charges for using 100 TB of data in this scenario is **184.0** (92.0 * 2).
 
 ### Azure reservation benefits might not apply to all subscriptions
 
-Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles. 
+Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles.
 
 ![Info graphic for reservation application for different billing account structure](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-In the above image, Contoso has two subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile. 
+In the above image, Contoso has two subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
