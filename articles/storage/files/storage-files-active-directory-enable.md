@@ -10,11 +10,11 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Enable Azure Active Directory Domain Services authentication over SMB for Azure Files
+# Enable Azure Active Directory Domain Services authentication on Azure Files
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-For an overview of Azure AD authentication over SMB for Azure file shares, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md).
+For an overview of Azure AD authentication over SMB for Azure file shares, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md). This article is focused on how to enable authentication with Azure Active Directory Domain Services (Azure AD DS) on Azure Files.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -67,7 +67,7 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 ## Enable Azure AD DS authentication for your account
 
-To enable Azure AD DS authentication over SMB for Azure file shares, you can set a property on storage accounts created after September 24, 2018, by using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property registers the storage account with the associated Azure AD DS deployment. Azure AD DS authentication over SMB is then enabled for all new and existing file shares in the storage account.
+To enable Azure AD DS authentication over SMB for Azure Files, you can set a property on storage accounts by using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property implicitly "domain joins" the storage account with the associated Azure AD DS deployment. Azure AD DS authentication over SMB is then enabled for all new and existing file shares in the storage account.
 
 Keep in mind that you can enable Azure AD DS authentication over SMB only after you have successfully deployed Azure AD DS to your Azure AD tenant. For more information, see the [prerequisites](#prerequisites).
 
