@@ -2,7 +2,7 @@
 title: Set up Azure Monitor for containers Live Data (preview) | Microsoft Docs
 description: This article describes how to set up the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 
 ---
 
@@ -42,11 +42,13 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 >[!IMPORTANT]
 >Users of this features requires [Azure Kubernetes Cluster User Role](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) to the cluster in order to download the `kubeconfig` and use this feature. Users do **not** require contributor access to the cluster to utilize this feature. 
 
-## Kubernetes cluster using clusterMonitoringUser role
+## Using clusterMonitoringUser with RBAC-enabled clusters
 
-To eliminate having to configure authentication to control access to the Live Data (preview) feature, Azure Kubernetes Service now includes a new cluster role called **clusterMonitoringUser** that has all the permissions necessary to access the Kubernetes API. In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource to utilize this feature with that cluster role binding. 
+To eliminate the need to apply additional configuration changes to allow the Kubernetes user rule binding **clusterUser** access to the Live Data (preview) feature after enabling RBAC, AKS has added a new Kubernetes cluster role binding called **clusterMonitoringUser**. This cluster role binding has all the necessary permissions out-of-the-box to access the Kubernetes API and the endpoints for utilizing the Live Data (preview) feature. 
 
-AKS released this binding in January 2020, so new clusters that are created starting in January will include it. Azure Monitor for containers when enabled, is configured to authenticate using this user by default. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster that performs a PUT operation on the cluster, such as updating the cluster’s version.
+In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource. Azure Monitor for containers, when enabled, is configured to authenticate using this user by default. If the clusterMonitoringUser role binding does not exist on a cluster, **clusterUser** is used for authentication instead.
+
+AKS released this new role binding in January 2020, so clusters created before January 2020 do not have it. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster tha performs a PUT operation on the cluster, such as updating the cluster version. 
 
 ## Kubernetes cluster without RBAC enabled
 
