@@ -100,9 +100,9 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | The access token. | N/A |
 
-## Using claim resolver 
+## Using claim resolvers 
 
-You can use claims resolvers with follwoing componentes: 
+You can use claims resolvers with follwoing components: 
 
 | Component | Element | Settings |
 | ----- | ----------------------- | --------|
@@ -120,7 +120,7 @@ You can use claims resolvers with follwoing componentes:
 
 Settings: 
 1. The `IncludeClaimResolvingInClaimsHandling` metadata must set to `true`
-1. The input or output cliams `AlwaysUseDefaultValue` must set to `true`
+1. The input or output claims attribute `AlwaysUseDefaultValue` must set to `true`
 
 ## How to use claim resolvers
 
