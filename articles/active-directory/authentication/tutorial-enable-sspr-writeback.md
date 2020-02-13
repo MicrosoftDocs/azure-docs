@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Active Directory self-service password reset writeback 
+title: Enable Azure Active Directory password writeback
 description: In this tutorial, you learn how to enable Azure AD self-service password reset writeback using Azure AD Connect to synchronize changes back to an on-premises Active Directory Domain Services environment.
 
 services: active-directory
@@ -10,44 +10,35 @@ ms.date: 02/12/2020
 
 ms.author: iainfou
 author: iainfoulds
-manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
-# Customer intent: As an Azure AD Administrator, I want to learn how to enable and use self-service password reset writeback so that when end-users reset their password through a web browser their updated password is synchronized back to my on-premises AD environment.
 ms.collection: M365-identity-device-management
----
-# Tutorial: Enabling password writeback
 
-In this tutorial, you will enable password writeback for your hybrid environment. Password writeback is used to synchronize password changes in Azure Active Directory (Azure AD) back to your on-premises Active Directory Domain Services (AD DS) environment. Password writeback is enabled as part of Azure AD Connect to provide a secure mechanism to send password changes back to an existing on-premises directory from Azure AD. You can find more detail about the inner workings of password writeback in the article, [What is password writeback](concept-sspr-writeback.md).
+# Customer intent: As an Azure AD Administrator, I want to learn how to enable and use password writeback so that when end-users reset their password through a web browser their updated password is synchronized back to my on-premises AD environment.
+---
+# Tutorial: Enable Azure Active Directory self-service password reset writeback to an on-premises environment
+
+With Azure Active Directory (Azure AD) self-service password reset (SSPR), users can update their password or unlock their account using a web browser. In a hybrid environment where Azure AD is connected to an on-premises Active Directory Domain Services (AD DS) environment, this scenario can cause passwords to be be different between the two directories. Password writeback can be used to synchronize password changes in Azure AD back to your on-premises AD DS environment. Azure AD Connect provides a secure mechanism to send password changes back to an existing on-premises directory from Azure AD.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Enable password writeback option in Azure AD Connect
-> * Enable password writeback option in self-service password reset (SSPR)
+> * Configure the required permissions for password writeback
+> * Enable the password writeback option in Azure AD Connect
+> * Enable password writeback in Azure AD SSPR
 
 ## Prerequisites
 
-* Access to a working Azure AD tenant with at least a trial license assigned.
-* An account with Global Administrator privileges in your Azure AD tenant.
-* An existing server configured running a current version of [Azure AD Connect](../hybrid/how-to-connect-install-express.md).
-* Previous self-service password reset (SSPR) tutorials have been completed.
+To complete this tutorial, you need the following resources and privileges:
 
-## Licensing requirements for password writeback
-
-**Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD**. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
-
-To use password writeback, you must have one of the following licenses assigned on your tenant:
-
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 or A3
-* Enterprise Mobility + Security E5 or A5
-* Microsoft 365 E3 or A3
-* Microsoft 365 E5 or A5
-* Microsoft 365 F1
-* Microsoft 365 Business
-
-> [!WARNING]
-> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
+* A working Azure AD tenant with at least a trial license enabled.
+    * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
+* An account with *global administrator* privileges.
+* Azure AD configured for self-service password reset.
+    * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
+* An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
+    * If needed, configure Azure AD Connect using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
 
 ## Active Directory permissions and on-premises password complexity policies 
 
@@ -89,39 +80,40 @@ To set up the appropriate permissions for password writeback to occur, complete 
     * **Write pwdLastSet**
 9. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
 
-Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
+Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect.
 
-## Enable password writeback option in Azure AD Connect
+## Enable password writeback in Azure AD Connect
 
-To enable password writeback we will first need to enable the feature from the server that you have installed Azure AD Connect on.
+Azure AD Connect lets you synchronize users, groups, and credential between an on-premises AD DS environment and Azure AD. You typically install Azure AD Connect on a Windows Server 2012 or later computer that's joined to the on-premises AD DS domain. One of the configuration options in Azure AD Connect is for password writeback. When this option is enabled, self-service password reset events cause Azure AD Connect to synchronize the updated credentials back to the on-premises AD DS environment.
 
-The following steps assume you have already configured Azure AD Connect in your environment by using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
+To enable self-service password reset writeback, enable the writeback in Azure AD Connect. From your Azure AD Connect server, complete the following steps:
 
-1. To configure and enable password writeback, sign in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
+1. Sign in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
 2. On the **Welcome** page, select **Configure**.
 3. On the **Additional tasks** page, select **Customize synchronization options**, and then select **Next**.
-4. On the **Connect to Azure AD** page, enter a global administrator credential, and then select **Next**.
+4. On the **Connect to Azure AD** page, enter a global administrator credential for your Azure tenant, and then select **Next**.
 5. On the **Connect directories** and **Domain/OU** filtering pages, select **Next**.
 6. On the **Optional features** page, select the box next to **Password writeback** and select **Next**.
+
+    ![Configure Azure AD Connect for password writeback](media/tutorial-enable-sspr-writeback/enable-password-writeback.png)
+
 7. On the **Ready to configure** page, select **Configure** and wait for the process to finish.
 8. When you see the configuration finish, select **Exit**.
 
-For common troubleshooting tasks related to password writeback, see the section [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
-
-> [!WARNING]
-> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../azuread-dev/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
->
-> To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
-
 ## Enable password writeback option in SSPR
 
-Enabling the password writeback feature in Azure AD Connect is only half of the story. Allowing SSPR to use password writeback completes the loop thereby allowing users who change or reset their password to have that password set on-premises as well.
+With password writeback enabled in Azure AD Connect, now configure Azure AD SSPR for writeback. When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
-2. Browse to **Azure Active Directory**, click on **Password Reset**, then choose **On-premises integration**.
-3. Set the option for **Write back passwords to your on-premises directory**, to **Yes**.
-4. Set the option for **Allow users to unlock accounts without resetting their password**, to **Yes**.
-5. Click **Save**
+To enable password writeback in SSPR, complete the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
+2. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
+3. Set the option for **Write back passwords to your on-premises directory?**, to **Yes**.
+4. Set the option for **Allow users to unlock accounts without resetting their password?**, to **Yes**.
+
+    ![Enable Azure AD self-service password reset for password writeback](media/tutorial-enable-sspr-writeback/enable-sspr-writeback.png)
+
+5. When ready, select **Save**.
 
 ## Next steps
 
