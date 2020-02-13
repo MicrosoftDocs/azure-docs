@@ -50,7 +50,11 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
 ## Guidelines for using HTML templates
 
 - You must use an absolute URL when you include external resources, such as media, CSS and JavaScript files.
-- Azure AD B2C merges HTML content into your pages. You can copy and try to change the default content that Azure AD B2C provides.
+- Add `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, a page is constructed before being shown to the user. This means that first the broser downloas the HTML file, then all of its references before constructing the page and displaying it. This helps getting rid of the ‘flicker’ that may occur on a page by ‘preloading’ the CSS file, without the unstyled HTML being shown to the user. Following HTML code snippent ilustate the user of preload
+  ```HTML
+  <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
+  ```
+- Azure AD B2C merges HTML content into your pages. You can copy and try to change the default content that Azure AD B2C provides. 
 - JavaScript can be included in your custom content for both [user flows](user-flow-javascript-overview.md) and [custom policies](javascript-samples.md).
 - Supported browser versions are:
   - Internet Explorer 11, 10, and Microsoft Edge
