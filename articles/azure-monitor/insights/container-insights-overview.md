@@ -11,7 +11,7 @@ ms.date: 01/07/2020
 Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to:
 
 - Managed Kubernetes clusters hosted on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
-- Self-managed [AKS Engine](https://github.com/Azure/aks-engine) Kubernetes clusters hosted on Azure 
+- Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
