@@ -18,7 +18,7 @@ Use the classic (bulk) ingestion instead of streaming ingestion when the amount 
 > [!NOTE]
 > Streaming ingestion doesn't support the following features:
 > * [Database cursors](/azure/kusto/management/databasecursor).
-> * [Data mapping](/azure/kusto/management/mappings). Only [pre-created](/azure/kusto/management/tables#create-ingestion-mapping) data mapping is supported. 
+> * [Data mapping](/azure/kusto/management/mappings). Only [pre-created](/azure/kusto/management/create-ingestion-mapping-command) data mapping is supported. 
 
 ## Prerequisites
 

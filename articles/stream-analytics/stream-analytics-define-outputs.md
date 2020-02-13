@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2010
+ms.date: 02/14/2020
 ---
 
 # Understand outputs from Azure Stream Analytics
@@ -189,6 +189,8 @@ The following table lists the property names and their descriptions for creating
 
 [Service Bus queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) offer a FIFO message delivery to one or more competing consumers. Typically, messages are received and processed by the receivers in the temporal order in which they were added to the queue. Each message is received and processed by only one message consumer.
 
+In [compatibility level 1.2](stream-analytics-compatibility-level.md), Azure Stream Analytics uses [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) messaging protocol to write to Service Bus Queues and Topics. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol.
+
 The following table lists the property names and their descriptions for creating a queue output.
 
 | Property name | Description |
@@ -263,6 +265,8 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Func
 | Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function. |
 | Max batch size |A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB). |
 | Max batch count  |A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100. |
+
+Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully.
 
 When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
