@@ -1,6 +1,6 @@
 ---
 title: How to create a support ticket 
-description: How to create a support ticket in Azure SQL Data Warehouse.
+description: How to create a support ticket in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,11 +10,11 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# How to create a support ticket for SQL Data Warehouse
-If you're having any issues with your SQL Data Warehouse, create a support ticket so the engineering support team can assist you.
+# How to create a support ticket for Azure Synapse Analytics
+If you're having any issues with Azure Synapse Analytics, create a support ticket so the engineering support team can assist you.
 
 ## Create a support ticket
 1. Open the [Azure portal](https://portal.azure.com/).
