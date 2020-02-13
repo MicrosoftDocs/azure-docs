@@ -67,6 +67,12 @@
       href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
+    - name: Authentication
+      items:
+        - name: Enable access using Azure Active Directory
+          href: concept-enable-rbac.md
+        - name: Enable managed identities using Azure Active Directory
+          href: concept-auth-managed-identity.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
