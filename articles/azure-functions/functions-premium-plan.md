@@ -90,6 +90,11 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
+### Taking advantage of memory
+Runnng on a machine with more memory does not always mean that your function app will use all available memory.
+
+For example, a JavaScript function app is constrained by the default memory limit of 512 MB in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
+
 ## Regions
 
 Below are the currently supported regions for each OS.
