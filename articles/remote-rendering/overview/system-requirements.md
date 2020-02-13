@@ -58,6 +58,43 @@ A stable, low-latency network connection is critical for a good user experience.
 
 For troubleshooting network issues, check the performance statistics provided by the ARR API. In particular, *reused frames* indicate that a frame's data arrived too late to be picked up.
 
+## Software
+
+The following software must be installed:
+
+* The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* **GIT** [(download)](https://git-scm.com/downloads)
+* The **NuGet** command line tool and Credential Provider (see details below)
+* Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+
+### How to install NuGet
+
+1. Go to [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient).
+1. Click on **Artifacts**, change the dropdown to **ArrPackages**, and click on **Connect to feed**.
+  ![Connect to Feed 1](./media/connect-to-feed.png)
+1. Click on **Nuget.exe**, then **Get the tools**
+  ![Connect to Feed 2](./media/connect-to-feed-2.png)
+1. From the link under *Step 1* download the latest NuGet.exe (under *Windows x86 Commandline*)
+1. Copy NuGet.exe to some folder and add the location to your `PATH` environment variable.
+1. The page linked under *Step 2* describes how to install the NuGet Credential Provider. The [manual installation](https://github.com/microsoft/artifacts-credprovider#manual-installation-on-windows) is straight forward.
+1. Open a **new** command prompt (if you had to change your `PATH` environment variable you cannot reuse an existing one).
+1. Add the "arrPackages" feed with the following NuGet command:
+  
+    ```plaintext
+    NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"
+    ```
+
+## Unity
+
+For development with Unity, install
+
+* Unity 2019.3 [(download)](https://unity3d.com/get-unity/download)
+* Install these components in Unity:
+  * **UWP** - Universal Windows Platform Build Support
+  * **IL2CPP** - Windows Build Support (IL2CPP)
+
+
 ## Next steps
 
 * [Quickstart: Render a model with Unity](../quickstarts/render-model.md)
