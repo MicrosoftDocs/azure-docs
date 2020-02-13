@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 02/13/2020
 ms.author: juliako
 ---
 
@@ -145,13 +145,16 @@ You also need to consider how adaptive streaming works. Each individual video fr
 
 ### Enable Azure CDN integration
 
+> [!NOTE]
+> You cannot enable CDN for trial or student Azure accounts.
+>
+> CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
+
 After a Streaming Endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
 
 If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
 When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs.
-
-CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
 
 Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. 
 
