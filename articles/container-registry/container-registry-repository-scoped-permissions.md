@@ -2,7 +2,7 @@
 title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 02/13/2020
 ---
 
 # Create a token with repository-scoped permissions
@@ -36,12 +36,17 @@ To configure repository-scoped permissions, you create a *token* with an associa
   |`content/delete`    | Remove data from the repository  | Delete a repository or a manifest |
   |`content/read`     |  Read data from the repository |  Pull an artifact |
   |`content/write`     |  Write data to the repository     | Use with `content/read` to push an artifact |
-  |`metadata/read`    | Read metadata from the repository   | List tags or show manifest metadata |
-  |`metadata/write`     |  Write metadata to the repository  | Update manifest attributes |
+  |`metadata/read`    | Read metadata from the repository   | List tags or manifests |
+  |`metadata/write`     |  Write metadata to the repository  | Enable or disable read, write, or delete operations |
 
-* A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. A scope map helps you configure multiple tokens with identical permissions to a set of repositories. 
+* A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. Every token is associated with a single scope map. 
 
-  If you update a scope map you created, the permissions of the associated tokens are updated. Azure Container Registry also provides several system-defined scope maps, with fixed permissions across all repositories.
+   With a scope map:
+
+    * Configure multiple tokens with identical permissions to a set of repositories
+    * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map 
+
+  Azure Container Registry also provides several system-defined scope maps you can apply, with fixed permissions across all repositories.
 
 The following image shows the relationship between tokens and scope maps. 
 
@@ -184,7 +189,7 @@ For the following examples, pull the `hello-world` and `alpine` images from Dock
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag hello-world myregistry.azurecr.io/samples/"alpine:v1
 ```
 
 ### Authenticate using token
@@ -381,7 +386,7 @@ In the portal, on the **Tokens (preview)** screen, select the token, and under *
 > [!TIP]
 > After updating a token with a new scope map, you might want to generate new token passwords. Use the [az acr token credential generate][az-acr-token-credential-generate] command or regenerate a token password in the Azure portal.
 
-### Disable or delete token
+## Disable or delete token
 
 You might need to temporarily disable use of the token credentials for a user or service. 
 
@@ -394,7 +399,13 @@ az acr token update --name MyToken --registry myregistry \
 
 In the portal, select the token in the **Tokens (Preview)** screen, and select **Disabled** under **Status**.
 
-To delete a token to permanently invalidate,  access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command. In the portal, select the token in the **Tokens (Preview)** screen, and select **Discard**.
+To delete a token to permanently invalidate access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command. 
+
+```azurecli
+az acr token delete --name MyToken --registry myregistry
+```
+
+In the portal, select the token in the **Tokens (Preview)** screen, and select **Discard**.
 
 ## Next steps
 
