@@ -25,7 +25,7 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 ## Determine the required throughput before purchase
 
-The size of the reservation should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use. You can view Recommended reservations sizes in the Azure Portal using the following steps:
+The size of the reservation should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use. You can view recommended reservation sizes in the Azure Portal using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 
@@ -37,11 +37,11 @@ The size of the reservation should be based on the total amount of throughput th
 
 You can filter recommendations by the following attributes:
 
-- Term (1 year or 3 years) 
-- Billing frequency (Monthly or Upfront)
-- Throughput Type (RU's vs Multi-master RU's)
+- **Term** (1 year or 3 years)
+- **Billing frequency** (Monthly or Upfront)
+- **Throughput Type** (RU's vs Multi-master RU's)
 
-Additionally, you can scope recommendations to be within a single resource group, single subscription, or your entire Azure enrollment. You can also show recommendations based on usage over the last 7 days, 30 days, or 60 days.
+Additionally, you can scope recommendations to be within a single resource group, single subscription, or your entire Azure enrollment. You can show recommendations based on usage over the last 7 days, 30 days, or 60 days.
 
 Here's an example recommendation:
 
