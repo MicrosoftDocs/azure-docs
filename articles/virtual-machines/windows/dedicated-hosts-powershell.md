@@ -25,7 +25,7 @@ Make sure that you have installed Azure PowerShell version 2.8.0 or later, and y
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The following VM series are supported: DSv3 and ESv3. 
+- The following VM series are supported: DSv3, ESv3, and Fsv2. 
 
 ## Create a host group
 
@@ -53,7 +53,7 @@ $hostGroup = New-AzHostGroup `
 
 ## Create a host
 
-Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.  During the preview, we will support the following host SKU values: DSv3_Type1 and ESv3_Type1.
+Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
 
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).

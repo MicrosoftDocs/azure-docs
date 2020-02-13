@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/12/2019
+ms.date: 02/12/2020
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
@@ -174,6 +174,8 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
 2. Back up the key material of the TDE protector in Key Vault.
 3. Remove the potentially compromised key from Key Vault
+
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## Next steps
 
