@@ -7,7 +7,7 @@ ms.author: banders
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-ms.reviewer: vitavor
+ms.reviewer: adwise
 ms.custom: secdec18
 ---
 
