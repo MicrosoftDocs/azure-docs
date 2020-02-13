@@ -14,6 +14,22 @@ Learn how to deploy a linked template. It takes about **12 minutes** to complete
 
 We recommend that you complete the [first deployment tutorial](deployment-tutorial-options.md), but it's not required.
 
+## Review template
+
+In the previous tutorial, you deploy a template that creates a storage account, App Service plan, and web app:
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
+
+## Create a linked template
+
+You can separate the storage account resource into a linked template:
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/tutorial-deployment/linkedStorageAccount.json":::
+
+The following template is the main template.  The highlighted part shows how to call a linked template. The linked template can not be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either http or https. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/tutorial-deployment/azuredeploy.json":::
+
 ## Store the linked template
 
 The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container.
