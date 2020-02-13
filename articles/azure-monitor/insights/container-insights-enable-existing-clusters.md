@@ -31,7 +31,7 @@ az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMana
 
 The output will resemble the following:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 
@@ -47,7 +47,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
     The output will resemble the following:
 
-    ```azurecli
+    ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
@@ -63,7 +63,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -282,7 +282,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```azurecli
+       ```output
        provisioningState       : Succeeded
        ```
 
