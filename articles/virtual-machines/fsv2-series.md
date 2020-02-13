@@ -11,9 +11,9 @@
 
 # Fsv2-series
 
-Fsv2-series is based on the Intel® Xeon® Platinum 8168 processor, featuring a sustained all core Turbo clock speed of 3.4GHz and a maximum single-core turbo frequency of 3.7 GHz. Intel® AVX-512 instructions, which are new on Intel Scalable Processors, will provide up to a 2X performance boost to vector processing workloads on both single and double precision floating point operations. Fsv2-series VMs also feature Intel® Hyper-Threading Technology. In other words, they are fast for any computational workload.
+The Fsv2-series is based on the Intel® Xeon® Platinum 8168 processor. It features a sustained all core Turbo clock speed of 3.4 GHz and a maximum single-core turbo frequency of 3.7 GHz. Intel® AVX-512 instructions are new on Intel Scalable Processors. These instructions provide up to a 2X performance boost to vector processing workloads on both single and double precision floating point operations. In other words, they're really fast for any computational workload.
 
-At a lower per-hour list price, the Fsv2-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU.
+Fsv2-series VMs feature Intel® Hyper-Threading Technology.
 
 ACU: 195 - 210
 
@@ -32,7 +32,17 @@ Premium Storage caching:  Supported
 | Standard_F64s_v2 | 64 | 128 | 512 | 32 | 128000/1024 (1024) | 80000/1100 | 8/28000 |
 | Standard_F72s_v2<sup>1, 2</sup> | 72 | 144 | 576 | 32 | 144000/1152 (1520) | 80000/1100 | 8/30000 |
 
-<sup>1</sup> More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3, or Oracle Linux 7.3 with LIS 4.2.1
+<sup>1</sup> The use of more than 64 vCPU require one of these supported guest operating systems:
+
+- Windows Server 2016 or later
+- Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
+- SLES 12 SP2 or later
+- RHEL or CentOS version 6.7 through 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
+- RHEL or CentOS version 7.6 or later
+- Oracle Linux with UEK4 or later
+- Debian 9 with the backports kernel, Debian 10 or later
+- CoreOS with a 4.14 kernel or later
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 

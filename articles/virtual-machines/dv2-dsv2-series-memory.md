@@ -31,7 +31,7 @@ Premium Storage caching: Not Supported
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8/12000 |
 | Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8/25000 <sup>2</sup> |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.  
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 <sup>2</sup> 25000 Mbps with Accelerated Networking.
 
 ## DSv2-series 11-15
@@ -53,7 +53,7 @@ Premium Storage caching:  Supported
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8/25000 <sup>4</sup> |
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](./windows/premium-storage-performance.md).
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.  
+<sup>2</sup>  Instance is isolated to the Intel Haswell based hardware and dedicated to a single customer.  
 <sup>3</sup> Constrained core sizes available.  
 <sup>4</sup> 25000 Mbps with Accelerated Networking.
 
