@@ -25,7 +25,6 @@ You'll learn how to:
 * Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
-* Optional: Azure Storage Explorer ([download](https://azure.microsoft.com/features/storage-explorer/ "Storage Explorer"))
 
 ## Overview
 
@@ -181,16 +180,14 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 
 ## Optional: Re-creating a SAS URI
 
-For the following optional step, it is required to have the *Azure Storage Explorer* installed (see [prerequisites](#prerequisites)), because relevant operations are only available with *Storage Explorer*, not through the portal.
+The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
 
-The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, open Azure Storage Explorer and navigate to the *arroutput* blob storage container.
-You will find the converted model file in there as an *arrAsset* file.
-
-Right-click on the entry and select **Get Shared Access Signature**:
-
-![Signature Access](./media/model-share.png)
-
-Set the expiry date to a date you would like and press **Create**. Copy the URI that is shown in the next dialog, it replaces the temporary URI that the script created.
+1. Go to the [Azure portal](https://www.portal.azure.com)
+1. Click on your **Storage account** resource:
+![Signature Access](./media/portal-storage-accounts.png)
+1. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
+![Signature Access](./media/portal-storage-explorer.png)
+1. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.
 
 ## Next steps
 
