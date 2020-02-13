@@ -25,7 +25,7 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 ## Determine the required throughput before purchase
 
-The size of the reservation should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use. You can view recommended reservation sizes in the Azure Portal using the following steps:
+The size of the reservation should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use. You can view recommended reservation sizes in the Azure portal using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 
