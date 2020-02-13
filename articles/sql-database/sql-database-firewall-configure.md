@@ -143,7 +143,7 @@ The overview page for your server opens. It shows the fully qualified server nam
 
 | Catalog view or stored procedure | Level | Description |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Displays the current server-level IP firewall rules |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Displays the current server-level IP firewall rules |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Creates or updates server-level IP firewall rules |
 | [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Removes server-level IP firewall rules |
 | [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database |Displays the current database-level IP firewall rules |
@@ -153,7 +153,7 @@ The overview page for your server opens. It shows the fully qualified server nam
 The following example reviews the existing rules, enables a range of IP addresses on the server *Contoso*, and deletes an IP firewall rule:
 
 ```sql
-SELECT * FROM sys.firewall_rules ORDER BY name;
+SELECT * FROM sys.database_firewall_rules ORDER BY name;
 ```
 
 Next, add a server-level IP firewall rule.
