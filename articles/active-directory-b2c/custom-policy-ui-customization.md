@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -72,13 +72,13 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 
 [!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
 
-## Configure the UI with dynamic content
+## Configure dynamic custom page content URI
 
 By using Azure AD B2C custom policies, you can send a parameter in a URL path, or a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. The parameter can be any [claim resolver](claim-resolver-overview.md), such as the application ID, language Id, or custom query string parameter, such as campaign Id.
 
 
 
-### Sending custom query string parameters
+### Sending query string parameters
 
 To send query string parameters, in the [relaying party policy](relyingparty.md) use `ContentDefinitionParameters` element.
 
@@ -111,7 +111,7 @@ When Azure AD B2C loads the page, it makes a call to your web server endpoint :
 https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
 ```
 
-### Dynamic URI path
+### Dynamic page content URI 
 
 Content can be pulled from different places based on the parameters used. In your CORS-enabled endpoint, you set up a folder structure to host content. For example, you can organize the content in following structure. Root *folder/folder per language/your html files*. For example, your custom page URI might look like:
 
