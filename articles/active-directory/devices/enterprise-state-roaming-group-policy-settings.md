@@ -1,12 +1,12 @@
 ---
-title: Group Policy and MDM settings | Microsoft Docs
-description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices.
+title: Group Policy and MDM settings for ESR - Azure Active Directory
+description: Management settings for Enterprise State Roaming
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,7 +27,7 @@ The following tables describe the policy settings available.
 
 ## MDM settings
 
-The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD based syncing.
+The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
 
 | Name | Description |
 | --- | --- |

@@ -1,12 +1,12 @@
 ---
-title: Settings and data roaming FAQ | Microsoft Docs
-description: Provides answers to some questions IT administrators might have about settings and app data sync.
+title: Enterprise State Roaming FAQ - Azure Active Directory
+description: Frequently asked questions about ESR
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

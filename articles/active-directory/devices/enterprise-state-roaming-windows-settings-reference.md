@@ -1,12 +1,12 @@
 ---
-title: Windows 10 roaming settings reference | Microsoft Docs
-description: A complete list of all the settings that will be roamed or backed up in Windows 10.
+title: Windows 10 roaming settings reference - Azure Active Directory
+description: Settings that will be roamed or backed up in Windows 10 with ESR
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Windows 10 roaming settings reference
 
-The following is a complete list of all the settings that will be roamed or backed up in Windows 10. 
+The following is a list of the settings that will be roamed or backed up in Windows 10. 
 
 ## Devices and endpoints
 
@@ -36,7 +36,7 @@ Windows settings generally sync by default, but some settings are only backed up
 
 ## Windows Settings overview
 
-The following settings groups are available for end-users to enable/disable settings sync on Windows 10 devices.
+The following settings groups are available for end users to enable/disable settings sync on Windows 10 devices.
 
 * Theme: desktop background, user tile, taskbar position, etc. 
 * Internet Explorer Settings: browsing history, typed URLs, favorites, etc. 
@@ -61,7 +61,7 @@ For Windows 10 version 1803 or later, Internet Explorer setting group (favorites
 
 ## Windows Settings details
 
-In the following table, Other entries in the Settings Group column refers to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
+In the following table, Other entries in the Settings Group column refer to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
 
 Internal entries in the Settings Group column refer to settings and apps that can only be disabled from syncing within the app itself or by disabling sync for the entire device using mobile device management (MDM) or Group Policy settings.
 Settings that don't roam or sync will not belong to a group.
@@ -70,7 +70,7 @@ Settings that don't roam or sync will not belong to a group.
 | --- | --- | --- | --- |
 | **Accounts**: account picture |sync |X |Theme |
 | **Accounts**: other account settings |X |X | |
-| **Advanced mobile broadband**: Internet connection sharing network name (enables auto-discovery of mobile Wi-Fi hotspots via Bluetooth) |X |X |Passwords |
+| **Advanced mobile broadband**: Internet connection sharing network name (enables autodiscovery of mobile Wi-Fi hotspots via Bluetooth) |X |X |Passwords |
 | **App data**: individual apps can sync data |sync backup |sync backup |internal |
 | **App list**: list of installed apps |X |backup |Other |
 | **Bluetooth**: all Bluetooth settings |X |X | |
