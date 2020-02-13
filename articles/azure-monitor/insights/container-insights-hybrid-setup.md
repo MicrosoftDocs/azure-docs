@@ -280,10 +280,10 @@ If you encounter an error while attempting to enable monitoring for your hybrid 
 
 * The specified Log Analytics workspace is valid
 * The Log Analytics workspace is configured with the Azure Monitor for Containers solution. If not, configure the workspace.
-* OmsAgent replicaset pod are running
-* OmsAgent daemonset pod are running
+* OmsAgent replicaset pods are running
+* OmsAgent daemonset pods are running
 * OmsAgent Health service is running
-* The Log Analytics workspace Id and key configured on the containerized agent match with the workspace the Insight is configured with.
+* The Log Analytics workspace ID and key configured on the containerized agent match with the workspace the Insight is configured with.
 * Validate all the Linux worker nodes have `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
 * Validate `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
 
