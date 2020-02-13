@@ -169,7 +169,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     using Azure.Identity;
     ```
 
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `UseAzureKeyVault` option to pass in a new `KeyVaultClient` reference to your Key Vault.
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `ConfigureKeyVault` option, and pass the correct credentials to your Key Vault.
 
     #### [.NET Core 2.x](#tab/core2x)
 
@@ -214,7 +214,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
             .UseStartup<Startup>());
     ```
 
-1. When you initialized the connection to App Configuration, you passed the `KeyVaultClient` reference to the `UseAzureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
+1. When you initialized the connection to App Configuration, you set up the connection to Key Vault by calling the `ConfigureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
 
     To see this process in action, open *Index.cshtml* in the **Views** > **Home** folder. Replace its contents with the following code:
 

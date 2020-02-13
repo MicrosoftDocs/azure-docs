@@ -4,7 +4,7 @@ description: Learn how to manage database roles and users on an Analysis Service
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -39,10 +39,10 @@ When creating a tabular model project, you create roles and add users or groups 
   
     |Permission|Description|  
     |----------------|-----------------|  
-    |**None**|Members cannot modify the model schema and cannot query data.|  
+    |**None**|Members cannot read or modify the model schema and cannot query data.|  
     |**Read**|Members can query data (based on row filters) but cannot modify the model schema.|  
     |**Read and Process**|Members can query data (based on row-level filters) and run Process and Process All operations, but cannot modify the model schema.|  
-    |**Process**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
+    |**Process**|Members can run Process and Process All operations. Cannot read or modify the model schema and cannot query data.|  
     |**Administrator**|Members can modify the model schema and query all data.|   
   
 5.  If the role you are creating has Read or Read and Process permission, you can add row filters by using a DAX formula. Click the **Row Filters** tab, then select a table, then click the **DAX Filter** field, and then type a DAX formula.

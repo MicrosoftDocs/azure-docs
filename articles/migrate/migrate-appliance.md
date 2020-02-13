@@ -28,14 +28,14 @@ Physical machine |  Azure Migrate: Server Assessment |  Discover physical server
 **Download link** | https://aka.ms/migrate/appliance/vmware 
 **Download size** | 11.2 GB
 **License** | The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
-**Deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later.<br/><br/> The appliance can connect to a single vCenter Server.
+**Deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance can connect to a single vCenter Server.
 **Hardware** | Resources on vCenter to allocate a VM with 32-GB RAM 8 vCPUs, around 80 GB of disk storage, and an external virtual switch. 
 **Hash value** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256: 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter server/host** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.<br/><br/> vCenter Server running 5.5, 6.0, 6.5, or 6.7.
 **Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
 **Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/> DRA: Orchestrates VM replication, and coordinates communication between machines/Azure.<br/> Gateway: Sends replicated data to Azure.<br/> Auto update service: Update components (runs every 24 hours).
-**VDDK (agentless migration)** | If you're running an agentless migration with Azure Migrate Server Migration, the VMware vSphere VDDK must be installed on the appliance VM).
+**VDDK (agentless migration)** | If you're running an agentless migration with Azure Migrate Server Migration, the VMware vSphere VDDK must be installed on the appliance VM.
 
 
 ## Appliance - Hyper-V
@@ -59,17 +59,15 @@ Physical machine |  Azure Migrate: Server Assessment |  Discover physical server
 
 **Requirement** | **Physical** 
 --- | ---
-**Download format** | Zipped folder (with PowerShell installer script)
+**Download format** | Zipped folder (with PowerShell based installer script)
 **Download link** | [Download link](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Download size** | 59.7 MB
-**Hardware** | Dedicated physical machine, or VM. The machine running appliance needs 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch.<br/><br/> The appliance needs a static or dynamic IP address, and internet access.
-**Hash value** | MD5: 96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
-**Software** | Appliance machine should run Windows Server 2016. 
+**Hardware** | Dedicated physical machine, or use a Virtual Machine. The machine running appliance needs 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch.<br/> The appliance needs a static or dynamic IP address, and internet access.
+**Hash value** | MD5: 1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Operating System** | Appliance machine should be running Windows Server 2016. 
 **Appliance deployment**   |  The appliance installer script is downloaded from the portal (in a zipped folder). <br/> You unzip the folder, and run the PowerShell script (AzureMigrateInstaller.ps1).
 **Discovery** | An appliance can discover up to 250 physical servers.
 **Appliance components** | Management app: Web app in appliance for user input during deployment.<br/> Discovery agent: Gathers machine configuration data.<br/> Assessment agent: Collect performance data.<br/>  Auto update service: Update components (runs every 24 hours).
-**Port access** | After you have configured the appliance, inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: `https://<appliance-ip-or-name>:44368.<br/><br/> Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
-
 
 
 ## URL access
@@ -89,9 +87,10 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.
-*.servicebus.windows.net | Used for VMware agentless migration.<br/><br/> Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Used for VMware agentless migration.<br/><br/> Connect to Azure Migrate service URLs.
-*.blob.core.windows.net |  Used for VMware agentless migration.<br/><br/>Upload data to storage.
+*.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connect to Azure Migrate service URLs.
+*.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
 
 
 

@@ -1,8 +1,8 @@
 ---
 title: Azure CLI samples - Azure App Configuration | Microsoft Docs
 description: Provides information about available sample scripts for Azure App Configuration
-author: yegu-ms
-ms.author: yegu
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/24/2019

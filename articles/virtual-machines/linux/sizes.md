@@ -64,7 +64,7 @@ Learn more about the different VM sizes that are available:
 - [Storage optimized](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
-- Check the [Previous generation](sizes-previous-gen.md) page for A Standard, Dv1 (D1-4 and D11-14 v1), and A8-A11 series
+- Check the [Previous generation](sizes-previous-gen.md) page for A Basic and Standard, High Performance A8-A11, D/DSv1 (D1-4 and D11-14 v1), F/Fsv1, G/GS, Lsv1, and NVv2 series.
 
 
 

@@ -13,11 +13,11 @@ ms.author: iainfou
 
 ---
 
-# Preview - Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager
+# Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager
 
 Azure Active Directory Domain Services (AD DS) supports a one-time move for customers currently using the Classic virtual network model to the Resource Manager virtual network model. Azure AD DS managed domains that use the Resource Manager deployment model provide additional features such as fine-grained password policy, audit logs, and account lockout protection.
 
-This article outlines the benefits and considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance. This migration feature is currently in preview.
+This article outlines the benefits and considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance.
 
 ## Overview of the migration process
 

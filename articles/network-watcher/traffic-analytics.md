@@ -3,9 +3,7 @@ title: Azure traffic analytics | Microsoft Docs
 description: Learn how to analyze Azure network security group flow logs with traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
 ---
 
@@ -149,7 +147,7 @@ To analyze traffic, you need to have an existing network watcher, or [enable a n
 
 Before enabling NSG flow logging, you must have a network security group to log flows for. If you don't have a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md#create-a-network-security-group) to create one.
 
-On the left side of the Azure portal, select **Monitor**, then **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
+In Azure portal, go to **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
 
 ![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 

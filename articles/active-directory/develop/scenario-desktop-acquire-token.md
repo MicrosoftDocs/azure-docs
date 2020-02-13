@@ -410,7 +410,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 
 - The authority passed in `PublicClientApplicationBuilder` needs to be:
   - Tenanted of the form `https://login.microsoftonline.com/{tenant}/`, where `tenant` is either the GUID that represents the tenant ID or a domain associated with the tenant.
-  - For any [work and school accounts](`https://login.microsoftonline.com/organizations/`).
+  - For any work and school accounts: `https://login.microsoftonline.com/organizations/`.
   - Microsoft personal accounts aren't supported. You can't use /common or /consumers tenants.
 
 - Because Integrated Windows Authentication is a silent flow:

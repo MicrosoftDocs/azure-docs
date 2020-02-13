@@ -4,33 +4,21 @@ description: Create a storage account and a container in object (Blob) storage. 
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ---
 
-# Quickstart: Azure Blob storage client library v8 for Java
+# Quickstart: Manage blobs with Java v8 SDK
 
-Get started with the Azure Blob Storage client library v8 for Java. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
-
-Use the Azure Blob Storage client library for Java to:
-
-* Create a container
-* Set permissions on a container
-* Create a blob in Azure Storage
-* Download the blob to your local computer
-* List all of the blobs in a container
-* Delete a container
+In this quickstart, you learn to manage blobs by using Java. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs. You'll also create, set permissions on, and delete containers.
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* An IDE that has Maven integration.
-* Alternatively, install and configure Maven to work from the command line.
-
-This guide uses [Eclipse](https://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
+- An IDE that has Maven integration. This guide uses [Eclipse](https://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
 
 ## Download the sample application
 
@@ -44,7 +32,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 This command clones the repository to your local git folder. To open the project, launch Eclipse and close the Welcome screen. Select **File** then **Open Projects from File System**. Make sure **Detect and configure project natures** is checked. Select **Directory** then navigate to where you stored the cloned repository. Inside the cloned repository, select the **blobAzureApp** folder. Make sure the **blobAzureApp** project appears as an Eclipse project, then select **Finish**.
 
-Once the project finishes importing, open **AzureApp.java** (located in **blobQuickstart.blobAzureApp** inside of **src/main/java**), and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application. Specific instructions for completing these tasks are described in the following sections.
+Once the project completes importing, open **AzureApp.java** (located in **blobQuickstart.blobAzureApp** inside of **src/main/java**), and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application. Specific instructions for completing these tasks are described in the following sections.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -85,7 +73,7 @@ Before you continue, check your default directory (*C:\Users\<user>\AppData\Loca
   >[!NOTE]
   >You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
 
-After you've verified the files, press the **Enter** key to finish the demo and delete the test files. Now that you know what the sample does, open the **AzureApp.java** file to look at the code.
+After you've verified the files, press the **Enter** key to complete the demo and delete the test files. Now that you know what the sample does, open the **AzureApp.java** file to look at the code.
 
 ## Understand the sample code
 

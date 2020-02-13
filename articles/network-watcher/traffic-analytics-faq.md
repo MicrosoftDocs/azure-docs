@@ -3,17 +3,14 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/08/2018
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Traffic Analytics frequently asked questions

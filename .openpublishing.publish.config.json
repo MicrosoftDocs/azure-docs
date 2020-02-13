@@ -433,14 +433,6 @@
     "master": [
       "Publish",
       "PDF"
-    ],
-    "release-event-grid": [
-      "Publish",
-      "PDF"
-    ],
-    "hd-insight-pdf": [
-      "Publish",
-      "PDF"
     ]
   },
   "need_generate_pdf_url_template": true,

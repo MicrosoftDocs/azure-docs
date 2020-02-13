@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Text Analytics client library v3 | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
+description: Use this quickstart to connect your applications to the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,35 +10,19 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Use the Text Analytics client library v3
+# Quickstart: Use the Text Analytics client library
 
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-Use the Text Analytics client library version `3.0-preview` to perform:
+Use the Text Analytics client library to perform:
 
-* Sentiment analysis (public preview)
+* Sentiment analysis
 * Language detection
-* Named Entity recognition (public preview)
+* Entity recognition
 * Key phrase extraction
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
-::: zone-end
-
-::: zone pivot="programming-language-java"
-[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -92,8 +76,8 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 
 | Language | Available version | 
 |----------|------------------------|
-| Ruby     | [Version 2.1](ruby-sdk.md)          | 
-| Go       | [Version 2.1](go-sdk.md)          | 
+| Ruby     | [Version 2.1](ruby-sdk.md) | 
+| Go       | [Version 2.1](go-sdk.md) | 
 
 ::: zone-end
 
