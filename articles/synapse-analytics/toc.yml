@@ -386,6 +386,8 @@
     items:
     # - name: Working with Synapse Analytics Studio
     #   href: article-template.md
+    - name: Troubleshooting Synapse Analytics Studio
+      href: troubleshooting/troubleshooting-synapse-studio.md
     # - name: Integrate with AML
     #   href: article-template.md
     - name: Integrate with Power BI
