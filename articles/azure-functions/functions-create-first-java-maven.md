@@ -91,13 +91,22 @@ Open the new Function.java file from the *src/main/java* path in a text editor a
 
 Run the following command, which changes the directory to the newly created project folder, then builds and runs the function project:
 
-```console
+::: zone pivot="java-build-tools-maven" 
+```bash
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"  
+```bash
+cd fabrikam-function
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end 
 
-You see output like the following from Azure Functions Core Tools when you run the project locally:
+You will see output like the following from Azure Functions Core Tools when you run the project locally:
 
 ```Output
 ...
@@ -138,11 +147,18 @@ az login
 
 Use the following Maven command to deploy your project to a new function app. 
 
-```azurecli
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
-This `azure-functions:deploy` Maven target creates the following resources in Azure:
+This will creates the following resources in Azure:
 
 + Resource group. Named with the _resourceGroup_ you supplied.
 + Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
