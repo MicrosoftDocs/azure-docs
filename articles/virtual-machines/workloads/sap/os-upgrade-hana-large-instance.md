@@ -47,12 +47,12 @@ The following are the few common known issues during the upgrade:
 - On SKU Type II class SKU, the software foundation software (SFS) is removed after the OS upgrade. You need to reinstall the compatible SFS after the OS upgrade.
 - Ethernet card drivers (ENIC and FNIC) rolled back to older version. You need to reinstall the compatible version of the drivers after the upgrade.
 
-## SAP HANA on Azure Large Instance (Type I) Recommended SLES Configuration
+# SAP HANA on Azure Large Instance (Type I) Recommended SLES Configuration
 
 Customer operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers.  Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Below given instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
-### Compatible enic/fnic driver versions
-  In order to have proper network performance and system stability, it is advised that customers maintain versions of the eNIC and        fNIC drivers below. Servers are delivered to customers with these versions.However, in some cases versions can get rolled back to the default eNIC and fNIC driver versions when OS/Kernel patching is performed.
+## Compatible enic/fnic driver versions
+  In order to have proper network performance and system stability, it is advised that customers maintain versions of the eNIC and        fNIC drivers below. Servers are delivered to customers with compatible versions. However, in some cases versions can get rolled back to the default eNIC and fNIC driver versions when OS/Kernel patching is performed.
        
       
   |  OS Vendor    |  OS Package Version     |  eNIC Driver	|  fNIC Driver |
@@ -62,7 +62,7 @@ Customer operating system configuration can drift from the recommended settings 
   |   RHEL        |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
  
 
-### Commands for driver upgrade and to clean old rpm packages
+## Commands for driver upgrade and to clean old rpm packages
 ```
 * rpm -U driverpackage.rpm
 * rpm -e olddriverpackage.rpm
@@ -74,33 +74,37 @@ Customer operating system configuration can drift from the recommended settings 
 * modinfo fnic
 ```
 
-#### SUSE HLIs GRUB UPDATE FAILURE
+## SUSE HLIs GRUB UPDATE FAILURE
 SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state when updated. The below procedure fixes this issue.
-##### Steps for Execution
+### Steps for Execution
 ```
+
 *	Execute multipath -ll command.
 *	Get the LUN ID whose size is Approx 50G.
 *	Update /etc/default/grub_installdevice file with line /dev/mapper/<LUN ID>. Example: /dev/mapper/3600a09803830372f483f495242534a56
 *	Please note that LUN ID varies from server to server.
 
+```
 
-#### Disable EDAC (The Error Detection And Correction):
+## Disable EDAC (The Error Detection And Correction):
    The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HNA on Azure Large Instances (Type I) is already performing the same function. Having the same feature enabled at the hardware and Operating system (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
 
-##### Steps for Execution
+### Steps for Execution
+
 ```
 * Check if EDAC module is enabled. If an output is returned in below command, that means the module is enabled. 
     lsmod | grep -i edac 
 * Add the modules in /etc/modprobe.d/blacklist.conf file using vi editor.
     #vim /etc/modprobe.d/blacklist.conf
-* blacklist sb_edac
-* blacklist edac_core
+    blacklist sb_edac
+    blacklist edac_core
 
-A reboot is required to have this reflected. Module should not be listed in ‘lsmod’ command output after blacklisting.
+A reboot is required to take changes in place. Execute "lsmod" command and verify the module is not present there in output.
 ```
 
-#### Kernel parameters
+## Kernel parameters
    Make sure the correct setting for transparent_hugepage, numa_balancing, processor.max_cstate, and intel_idle.max_cstate are applied.
+
 ```         
 * intel_idle.max_cstate =1
 * processor.max_cstate=1
@@ -109,7 +113,8 @@ A reboot is required to have this reflected. Module should not be listed in ‘l
 ```
 Incorrect settings have created both performance and instability issues in the past. Follow SAP’s recommendation in your next maintenance window at the latest. Check all your SAP HANA instances on SLES and ensure the correct setting is applied.
 
-##### Steps for Execution
+### Steps for Execution
+
 ```
 * Add these parameters to the GRB_CMDLINE_LINUX line in the file /etc/default/grub 
       intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable
