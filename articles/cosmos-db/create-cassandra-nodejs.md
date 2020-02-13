@@ -121,7 +121,7 @@ This step is optional. If you're interested to learn how the code creates the da
             client.execute(element);
             });
             next();
-  },
+        },
     ```
 
 * Query to get all key values.
