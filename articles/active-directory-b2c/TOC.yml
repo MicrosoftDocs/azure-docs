@@ -177,8 +177,6 @@
       - name: Customize the UI
         href: custom-policy-ui-customization.md
         displayName: ux, input, cors, html, css
-      - name: Customize the UI dynamically
-        href: custom-policy-ui-customization-dynamic.md
       - name: Custom email
         href: custom-email.md
         displayName: verification
