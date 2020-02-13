@@ -186,7 +186,7 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures. When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="512" title="Virtual Network NAT with availability zones">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with availability zones">
 </p>
 
 *Figure: Virtual Network NAT with availability zones*
@@ -198,7 +198,7 @@ Virtual networks and subnets are regional and have no zonal alignment.  For a zo
 When you deploy virtual machine scale sets to use with NAT, you must deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet for a zonal promise.  If you use zone-spanning scale sets (a scale set in two or more zones), NAT won't provide a zonal promise.  NAT doesn't support zone-redundancy.  Only regional or zone-isolation is supported.
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="512" title="zone-spanning Virtual Network NAT">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="zone-spanning Virtual Network NAT">
 </p>
 
 *Figure: zone-spanning Virtual Network NAT*
