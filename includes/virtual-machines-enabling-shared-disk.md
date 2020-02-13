@@ -71,7 +71,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!IMPORTANT]
-> Your VMs and their disks must be using the same [proximity placement group](../articles/virtual-machines/windows/proximity-placement-groups.md).
+> VMs using shared disk enabled managed disks must be using the same [proximity placement group](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
 ```azurepowershell-interactive
 
