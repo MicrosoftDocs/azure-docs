@@ -6,6 +6,7 @@ author: msaburnley
 manager: daveba
 
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 07/31/2019
 ms.author: ajburnle
