@@ -2,7 +2,7 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/13/2020
 ---
 # Property iteration in Azure Resource Manager templates
 
@@ -24,7 +24,7 @@ The copy element has the following general format:
 ]
 ```
 
-The **name** property is the name of the property. The **count** property specifies the number of iterations you want for the property.
+For **name**, provide the name of the resource property that you want to create. The **count** property specifies the number of iterations you want for the property.
 
 The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property.
 
@@ -32,21 +32,44 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 
 ```json
 {
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2017-03-30",
-  "name": "examplevm",
-  "properties": {
-    "storageProfile": {
-      "copy": [{
-        "name": "dataDisks",
-        "count": 3,
-        "input": {
-          "lun": "[copyIndex('dataDisks')]",
-          "createOption": "Empty",
-          "diskSizeGB": "1023"
-        }
-      }],
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "numberOfDataDisks": {
+      "type": "int",
+      "minValue": 0,
+      "maxValue": 16,
+      "defaultValue": 16,
+      "metadata": {
+        "description": "The number of dataDisks to create."
+      }
+    },
+    ...
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-03-30",
+      "type": "Microsoft.Compute/virtualMachines",
       ...
+      "properties": {
+        "storageProfile": {
+          ...
+          "copy": [
+            {
+              "name": "dataDisks",
+              "count": "[parameters('numberOfDataDisks')]",
+              "input": {
+                "diskSizeGB": 1023,
+                "lun": "[copyIndex('dataDisks')]",
+                "createOption": "Empty"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
 ```
 
 Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration.
@@ -68,17 +91,17 @@ Resource Manager expands the `copy` array during deployment. The name of the arr
         {
           "lun": 0,
           "createOption": "Empty",
-          "diskSizeGB": "1023"
+          "diskSizeGB": 1023
         },
         {
           "lun": 1,
           "createOption": "Empty",
-          "diskSizeGB": "1023"
+          "diskSizeGB": 1023
         },
         {
           "lun": 2,
           "createOption": "Empty",
-          "diskSizeGB": "1023"
+          "diskSizeGB": 1023
         }
       ],
       ...

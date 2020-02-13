@@ -2,7 +2,7 @@
 title: Define multiple instances of a variable
 description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a variable.
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/13/2020
 ---
 # Variable iteration in Azure Resource Manager templates
 
