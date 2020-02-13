@@ -127,7 +127,7 @@ HDInsight can't depend on on-premise domain controllers or custom domain control
 
 Azure AD DS syncs objects from Azure AD periodically. The Azure AD DS blade on the Azure portal displays the sync status. During each stage of sync, unique properties may get into conflict and renamed. Pay attention to the property mapping from Azure AD to Azure AD DS.
 
-For more information, see [Azure AD UserPrincipalName population](../../active-directory/hybrid/plan-connect-userprincipalname.md), and [How Azure AD DS synchronization works](../../active-directory-domain-services/synchronization/md).
+For more information, see [Azure AD UserPrincipalName population](../../active-directory/hybrid/plan-connect-userprincipalname.md), and [How Azure AD DS synchronization works](../../active-directory-domain-services/synchronization.md).
 
 ### Password hash sync
 
