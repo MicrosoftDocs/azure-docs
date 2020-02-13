@@ -135,7 +135,7 @@ In this section, you'll create and validate a pipeline using your Python script.
 1. Click **Publish** to publish the pipeline.
 1. Click **Trigger** to run the Python script as part of a batch process.
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-success-run.png?token=ABTT2GLPPIWFIYFPK44FMN26JZXAA)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-py-success-run.png?token=ABTT2GLEVKE5POMNCKZR6EK6JZZN4)
 
 ### Monitor the log files
 
