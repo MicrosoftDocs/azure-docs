@@ -42,7 +42,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Create two Linux virtual machines on Azure using one of the following techniques:
 
-    - **Ansible playbook** - The article, [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm) illustrates how to create a virtual machine from an Ansible playbook. If you use a playbook to define one or both of the virtual machines, ensure that the SSH connection is used instead of a password.
+    - **Ansible playbook** - The article, [Create a basic virtual machine in Azure with Ansible](./ansible-create-vm.md) illustrates how to create a virtual machine from an Ansible playbook. If you use a playbook to define one or both of the virtual machines, ensure that the SSH connection is used instead of a password.
 
     - **Azure CLI** - Issue each of the following commands in the Cloud Shell to create the two virtual machines:
 
@@ -311,4 +311,4 @@ This section illustrates one technique to test that Nginx is installed on your v
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Configure Linux virtual machines in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Quickstart: Configure Linux virtual machines in Azure using Ansible](./ansible/ansible-create-vm.md)
