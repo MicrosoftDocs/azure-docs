@@ -26,7 +26,7 @@ When you create a lab account, you see this option on the first screen (**Basics
 
 ![Enable the option at the time of lab creation](../media/allow-lab-creator-pick-lab-location/create-lab-account.png)
 
-This option is disabled if you select peer virtual network for your lab account in the **Advanced** tab.  
+This option is disabled if you select a peer virtual network for your lab account in the **Advanced** tab.  
 
 ![When peer virtual network is enabled](../media/allow-lab-creator-pick-lab-location/peer-virtual-network.png)
 
@@ -42,14 +42,14 @@ After you create the lab account, you can enable or disable this option by follo
 
     ![Lab settings](../media/allow-lab-creator-pick-lab-location/lab-settings.png)
 
-## Location selection is not allowed
+## No virtual network and location selection isn't allowed
 In this scenario, you haven't enabled the **Allow lab creator to pick lab location** option. 
 
 ![No lab location](../media/allow-lab-creator-pick-lab-location/lab-no-location.png)
 
 Then, lab creators (educators) don't see an option to pick a location for the lab. They will see the price per hour for every size option available to them. When they create a lab, it will be created in an Azure region that's in the same location as the Azure region that their lab account is in. For example, if the lab account is in **West US**, then the lab might be created in **South Central US** but would not be created in **Canada East**. We don't guarantee anything about the region we choose aside from that it's in the location. If a size is currently constrained, then the lab creator will see a checkbox where they can see the sizes that we normally support but are currently unavailable. 
 
-## Virtual network is enabled and location selection is allowed
+## Virtual network is enabled and location selection isn't allowed
 In this scenario, the **Allow lab creator to pick lab location** option is disabled because you have selected a peer virtual network for the lab account. Then, lab creators will see the same screen as with the previous option. Because all VMs have to be in the same Azure region as the virtual network, the lab will be created in the same Azure region that the virtual network is in. If that particular region is constrained for a size, the size will appear as unavailable. 
 
 ## Location selection is enabled
@@ -62,6 +62,9 @@ Lab creators see the range of prices for all locations that size is in, and can 
 If a location is constrained, it's not shown in the list by default. Expand the drop-down list, and select **Show unavailable locations for this size**. 
 
 ![Show unavailable locations](../media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
+
+## Cost
+Earlier, the pricing was based on the VM size that you choose for the lab. Now, the price is based on the combination of Operating System (OS), Size, and location. 
 
 ## Next steps
 See the following articles:
