@@ -4,7 +4,7 @@ description: Learn how to use Azure REST APIs to review enterprise enrollment bi
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
