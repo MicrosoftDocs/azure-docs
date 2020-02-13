@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory (preview)
 
-This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both web-based applications and your Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
+This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both your Azure AD and hybrid Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
 
 |     |
 | --- |
@@ -35,7 +35,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
-| Upgrade to the latest version of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) |   | X |
+| [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
@@ -136,7 +136,7 @@ This Group Policy setting requires an updated version of the `credentialprovider
 
 ## Sign in with FIDO2 security key
 
-In the example below, a user named Bala Sandhu has already provisioned their FIDO2 security key using the steps in the previous article, [Enable passwordless security key sign in](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
+In the example below, a user named Bala Sandhu has already provisioned their FIDO2 security key using the steps in the previous article, [Enable passwordless security key sign in](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). For hybrid Azure AD joined devices, make sure you have also [enabled passwordless security key sign-in to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md). Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
 
 ![Security key sign-in at the Windows 10 lock screen](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
 
