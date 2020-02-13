@@ -325,6 +325,6 @@ Follow [instructions to enable your subscription](nat-overview.md#public-preview
 - Learn more about [availability zones](../availability-zones/az-overview.md).
 - Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 - Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Learn more about [NAT gateway resource REST API](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/natgateways).
-- Learn more about [NAT gateway resource Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network/nat/gateway?view=azure-cli-latest).
-- Learn more about [NAT gateway resource PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.network/new-aznatgateway).
+- Learn more about [NAT gateway resource REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways).
+- Learn more about [NAT gateway resource Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest).
+- Learn more about [NAT gateway resource PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
