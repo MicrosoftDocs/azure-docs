@@ -7,8 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/03/2020
-ms.custom: mvc
+ms.date: 02/12/2020
 ms.topic: overview
 ---
 
@@ -36,6 +35,8 @@ With Azure Arc for servers (preview), only certain regions are supported:
 - WestUS2
 - WestEurope
 - WestAsia
+
+In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. Data at rest will be stored within the Azure geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your machine is connected to is affected by an outage, the connected machine is not affected, but management operations using Azure may be unable to complete. For resilience in the event of a regional outage, if you have multiple locations which provide a geographically-redundant service, it is best to connect the machines in each location to a different Azure region.
 
 ## Prerequisites
 
@@ -130,10 +131,10 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 
 | Method | Description |
 |--------|-------------|
-| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](quickstart-onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
-| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](quickstart-onboard-powershell.md).<br> This method creates a service principal to connect machines non-interactively.|
+| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
+| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](onboard-service-principal.md).<br> This method creates a service principal to connect machines non-interactively.|
 
 
 ## Next steps
 
-- To begin evaluating Azure Arc for servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](quickstart-onboard-portal.md). 
+- To begin evaluating Azure Arc for servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md). 
