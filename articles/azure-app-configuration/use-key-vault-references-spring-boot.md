@@ -134,7 +134,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     * **AZURE_TENANT_ID**: *tenantId*
 
 > [!NOTE]
-> These Key Vault credentials are used only within your application. Your application authenticates directly to Key Vault with these credentials. They are never passed to the App Configuration service when also authentication with App Configuration.
+> These Key Vault credentials are only used within your application.  Your application authenticates directly with Key Vault using these credentials without involving the App Configuration service.  The Key Vault provides authentication for both your application and your App Configuration service without sharing or exposing keys.
 
 ## Update your code to use a Key Vault reference
 
