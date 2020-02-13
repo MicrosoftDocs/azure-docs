@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 ## Which applications work with Conditional Access policies?
 
-For information about applications that work with Conditional Access policies, see [Applications and browsers that use Conditional Access rules in Azure Active Directory](technical-reference.md).
+For information about applications that work with Conditional Access policies, see [Applications and browsers that use Conditional Access rules in Azure Active Directory](concept-conditional-access-cloud-apps.md).
 
 ## Are Conditional Access policies enforced for B2B collaboration and guest users?
 
