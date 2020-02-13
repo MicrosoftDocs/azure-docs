@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: allensu
 ---
 
@@ -65,7 +65,7 @@ NAT is compatible with the following standard SKU resources:
 
 When used together with NAT, these resources provide inbound Internet connectivity to your subnet(s). NAT provides all outbound Internet connectivity from your subnet(s).
 
-Inbound and outbound scenarios coexist because NAT and compatible Standard SKU features are aware of the direction the flow was started. These scenarios will receive the correct network address translations because these features are aware of the flow direction. 
+NAT and compatible Standard SKU features are aware of the direction the flow was started. Inbound and outbound scenarios can coexist. These scenarios will receive the correct network address translations because these features are aware of the flow direction. 
 
 <!-- 
 <img src="./media/nat-overview/flow-direction4.svg" width="500" align="center">
