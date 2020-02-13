@@ -25,6 +25,8 @@ For this tutorial, you create three virtual networks:
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
+![Hybrid network](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
