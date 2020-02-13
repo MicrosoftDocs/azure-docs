@@ -32,7 +32,7 @@ This import method is only available for [supported HSMs](#supported-hsms).
 
 ## Overview
 
-* Generate a key (referred to as Key Exchange Key or KEK) in key vault. This must be an RSA-HSM key with 'import' as the only key operation. Only key vault with with premium SKU support RSA-HSM keys.
+* Generate a key (referred to as Key Exchange Key or KEK) in key vault. This must be an RSA-HSM key with 'import' as the only key operation. Only key vault premium SKU supports RSA-HSM keys.
 * Download the public key of KEK as a .pem file
 * Transfer KEK public key to your offline workstation connected to  on-premise HSM.
 * From your offline workstation, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
