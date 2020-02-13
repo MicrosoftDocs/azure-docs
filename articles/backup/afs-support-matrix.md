@@ -15,8 +15,8 @@ Backup for Azure file shares is available in the following GEOS:
 
 | [Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud) (Protection against accidental delete of backed up file share) | Regions                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Enabled                                                      | Australia  East (AE), Canada Central (CNC)                   |
-| Disabled                                                     | Australia South East (ASE),Brazil  South (BRS), Canada East (CE),Central US (CUS),East Asia (EA),East US  (EUS),East US 2 (EUS2),Japan East (JPE),Japan West (JPW),India Central  (INC),India South (INS),Korea Central (KRC),Korea South (KRS),North Central  US (NCUS),North Europe (NE),South Central US (SCUS),South East Asia (SEA),UK  South (UKS),UK West (UKW),West Europe (WE),West US (WUS),West Central US  (WCUS),West US 2 (WUS 2),US Gov Arizona (UGA),US Gov Texas (UGT),US Gov  Virginia (UGV),Australia Central (ACL),India West(INW),South Africa  North(SAN),UAE North(UAN),France Central (FRC),Germany North (GN),Germany  West Central (GWC),South Africa West (SAW),UAE Central (UAC),Norway East  (NWE),Norway West (NWW),Switzerland North (SZN) |
+| Enabled                                                      | Australia South East (ASE), Canada Central (CNC)                   |
+| Disabled                                                     | Australia  East (AE), Brazil  South (BRS), Canada East (CE),Central US (CUS),East Asia (EA),East US  (EUS),East US 2 (EUS2),Japan East (JPE),Japan West (JPW),India Central  (INC),India South (INS),Korea Central (KRC),Korea South (KRS),North Central  US (NCUS),North Europe (NE),South Central US (SCUS),South East Asia (SEA),UK  South (UKS),UK West (UKW),West Europe (WE),West US (WUS),West Central US  (WCUS),West US 2 (WUS 2),US Gov Arizona (UGA),US Gov Texas (UGT),US Gov  Virginia (UGV),Australia Central (ACL),India West(INW),South Africa  North(SAN),UAE North(UAN),France Central (FRC),Germany North (GN),Germany  West Central (GWC),South Africa West (SAW),UAE Central (UAC),Norway East  (NWE),Norway West (NWW),Switzerland North (SZN) |
 
 ## Supported storage accounts
 
@@ -40,7 +40,7 @@ Backup for Azure file shares is available in the following GEOS:
 | Setting                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
 | Maximum  number of file shares that can be protected per day per vault | 200   |
-| Maximum  number of storage accounts that can be registered per vault | 50    |
+| Maximum  number of storage accounts that can be registered per vault per day | 50    |
 
 ## Backup limits
 
