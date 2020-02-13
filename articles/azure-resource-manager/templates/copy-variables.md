@@ -6,9 +6,9 @@ ms.date: 02/12/2020
 ---
 # Variable iteration in Azure Resource Manager templates
 
-This article shows you how to create more than one value for a variable in your Azure Resource Manager template. You add the **copy** element to the variables section of your template.
+This article shows you how to create more than one value for a variable in your Azure Resource Manager template. By adding the **copy** element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
 
-You can also use copy with [resources](create-multiple-resource.md) and [properties in a resource](create-multiple-property.md).
+You can also use copy with [resources](copy-resources.md) and [properties in a resource](copy-properties.md).
 
 ## Variable iteration
 
@@ -34,12 +34,17 @@ The following example shows how to create an array of string values:
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { },
+    "parameters": {
+        "itemCount": {
+            "type": "int",
+            "defaultValue": 5
+        }
+     },
     "variables": {
         "copy": [
             {
                 "name": "stringArray",
-                "count": 5,
+                "count": "[parameters('itemCount')]",
                 "input": "[concat('item', copyIndex('stringArray', 1))]"
             }
         ]
@@ -72,12 +77,17 @@ The next example shows how to create an array of objects with three properties -
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "itemCount": {
+            "type": "int",
+            "defaultValue": 5
+        }
+    },
     "variables": {
         "copy": [
             {
                 "name": "objectArray",
-                "count": 5,
+                "count": "[parameters('itemCount')]",
                 "input": {
                     "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
                     "diskSizeGB": "1",
@@ -138,14 +148,19 @@ You can also use the copy element within a variable. The following example creat
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "itemCount": {
+            "type": "int",
+            "defaultValue": 5
+        }
+    },
     "variables": {
         "topLevelObject": {
             "sampleProperty": "sampleValue",
             "copy": [
                 {
                     "name": "disks",
-                    "count": 5,
+                    "count": "[parameters('itemCount')]",
                     "input": {
                         "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
                         "diskSizeGB": "1",
@@ -282,7 +297,7 @@ The count can't be a negative number. If you deploy a template with Azure PowerS
 
 ## Example templates
 
-The following examples show common scenarios for creating more than one instance of a resource or property.
+The following examples show common scenarios for creating more than one value for a variable.
 
 |Template  |Description  |
 |---------|---------|
@@ -292,7 +307,7 @@ The following examples show common scenarios for creating more than one instance
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](create-multiple-resource.md) and [Property iteration in Azure Resource Manager templates](create-multiple-property.md).
+* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](copy-resources.md) and [Property iteration in Azure Resource Manager templates](copy-properties.md).
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
 

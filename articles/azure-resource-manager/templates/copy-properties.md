@@ -6,9 +6,9 @@ ms.date: 02/12/2020
 ---
 # Property iteration in Azure Resource Manager templates
 
-This article shows you how to create more than one instance of a property in your Azure Resource Manager template. You add the **copy** element to the properties section of a resource in your template.
+This article shows you how to create more than one instance of a property in your Azure Resource Manager template. By adding the **copy** element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
 
-You can also use copy with [resources](create-multiple-resource.md) and [variables](create-multiple-variable.md).
+You can also use copy with [resources](copy-resources.md) and [variables](copy-variables.md).
 
 ## Property iteration
 
@@ -26,9 +26,7 @@ The copy element has the following general format:
 
 The **name** property is the name of the property. The **count** property specifies the number of iterations you want for the property.
 
-The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property. It can be a single property (like a string), or an object with several properties.
-
-* input - an object that contains the values to assign to the property
+The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property.
 
 The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
 
@@ -51,7 +49,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
       ...
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You don't have to provide the name when used with resource iteration.
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration.
 
 > [!NOTE]
 > Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
@@ -86,7 +84,7 @@ Resource Manager expands the `copy` array during deployment. The name of the arr
       ...
 ```
 
-The copy element is an array so you can specify more than one property for the resource. Add an object for each property to create.
+The copy element is an array so you can specify more than one property for the resource.
 
 ```json
 {
@@ -156,7 +154,7 @@ The count can't be a negative number. If you deploy a template with Azure PowerS
 
 ## Example templates
 
-The following examples show common scenarios for creating more than one instance of a resource or property.
+The following example shows a common scenario for creating more than one value for a property.
 
 |Template  |Description  |
 |---------|---------|
@@ -165,7 +163,7 @@ The following examples show common scenarios for creating more than one instance
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](create-multiple-resource.md) and [Variable iteration in Azure Resource Manager templates](create-multiple-variable.md).
+* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](copy-resources.md) and [Variable iteration in Azure Resource Manager templates](copy-variables.md).
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
 
