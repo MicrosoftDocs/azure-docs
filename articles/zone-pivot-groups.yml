@@ -133,7 +133,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: javascript
+    title: JavaScript
   - id: programming-language-java
     title: Java 
   - id: programming-language-other
@@ -175,20 +175,6 @@ groups:
   - id: programming-language-python
     title: Python 
   - id: programming-language-typescript
-    title: TypeScript      
-- id: programming-languages-set-functions01
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-powershell
-    title: PowerShell
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-typescript
     title: TypeScript
 - id: programming-languages-text-analytics
   title: Programming languages
@@ -199,7 +185,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: javascript
+    title: JavaScript
   - id: programming-language-java
     title: Java 
   - id: programming-language-other
