@@ -800,13 +800,13 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "eventGrid". |
 |**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | n/a | The variable name used in function code that represents the event. |
-|**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `https://mycustomtopic.australiaeast-1.eventgrid.azure.net/api/events`. |
-|**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic.|
+|**topicEndpointUri** |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**topicKeySetting** |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Ensure that you set the value of the `TopicEndpointUri` configuration property to the name of an app setting that contains the URI of the custom topic. Do not specify the name of the custom topic directly in this property.
+> Ensure that you set the value of the `TopicEndpointUri` configuration property to the name of an app setting that contains the URI of the custom topic. Do not specify the URI of the custom topic directly in this property.
 
 ## Output - usage
 
