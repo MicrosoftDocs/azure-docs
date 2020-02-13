@@ -49,16 +49,16 @@ az extension update --name aks-preview
 
 ## Overview of outbound types in AKS
 
-An AKS cluster can be customized with a unique `outboundType`. There are two options.
-1. `loadBalancer`
-1. `userDefinedRoute`
+An AKS cluster can be customized with a unique `outboundType` of type load balancer or user-defined routing.
 
 > [!IMPORTANT]
 > This impacts only the egress traffic of your cluster. See [setting up ingress controllers](ingress-basic.md) for more information.
 
 ### Outbound type of loadBalancer
 
-* If `loadBalancer` is set, AKS completes the following setup automatically. The load balancer is used for egress through an AKS assigned public IP. This supports Kubernetes services of type loadBalancer which expect egress out of the load balancer created by the AKS resource provider. The following setup is done by AKS.
+If `loadBalancer` is set, AKS completes the following setup automatically. The load balancer is used for egress through an AKS assigned public IP. This supports Kubernetes services of type `loadBalancer`, which expect egress out of the load balancer created by the AKS resource provider.
+
+The following setup is done by AKS.
    * A public IP address is provisioned for cluster egress.
    * The public IP address is assigned to the load balancer resource.
    * Backend pools for the load balancer are setup for agent nodes in the cluster.
@@ -67,17 +67,16 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 ![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
 
-### Outbound type of userDefinedRoute
+### Outbound type of userDefinedRouting
 
 > [!NOTE]
 > This is an advanced networking scenario and requires proper network configuration.
 
-* If `userDefinedRoute` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
-   * Cluster must be deployed into an existing virtual network with a subnet that has been configured.
-      * A valid user-defined route (UDR) must exist on the subnet with outbound connectivity.
-   * AKS resource provider will deploy a standard load balancer (SLB). This is not configured with any rules and [does not incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/).
-     * AKS will **not** automatically provision a public IP address for the SLB frontend.
-     * AKS will **not** automatically configure the load balancer backend pool.
+If `userDefinedRouting` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
+
+Cluster must be deployed into an existing virtual network with a subnet that has been configured. A valid user-defined route (UDR) must exist on the subnet with outbound connectivity.
+
+AKS resource provider will deploy a standard load balancer (SLB). This is not configured with any rules and [does not incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/). AKS will **not** automatically provision a public IP address for the SLB frontend. AKS will **not** automatically configure the load balancer backend pool.
 
 ## Deploy a cluster with outbound type of UDR and Azure Firewall
 
@@ -96,7 +95,7 @@ To illustrate the application of a cluster with outbound type using a user-defin
 
 ### Set configuration via environment variables
 
-To begin, define a set of environment variables to be used in resource creations.
+Define a set of environment variables to be used in resource creations.
 
 ```bash
 PREFIX="contosofin"
@@ -137,7 +136,7 @@ SUBID=$(az account show -s '<SUBSCRIPTION_NAME_GOES_HERE>' -o tsv --query 'id')
 
 ## Create a virtual network with multiple subnets
 
-To begin we will provision a virtual network with three separate subnets, one for the cluster, one for the firewall, and one for service ingress.
+Provision a virtual network with three separate subnets, one for the cluster, one for the firewall, and one for service ingress. This provides the initial subnet organization required by the scenario.
 
 ![Empty network topology](media/egress-outboundtype/empty-network.png)
 
@@ -236,7 +235,7 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
-See [virtual network and route table documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
+See [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
 
 ## Adding network firewall rules
 
