@@ -44,7 +44,7 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 ### Logs in Azure Monitor
 
-Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs pertaining to the blob service will be created.
+Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs pertaining to the blob service will be created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
 #### Logging authenticated requests
 
@@ -398,7 +398,7 @@ No, Azure Compute supports the metrics on disks. See [article](https://azure.mic
 
 ## Next steps
 
-- [Azure Storage monitoring data reference](monitor-storage-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
+- [Azure Storage monitoring data reference](monitor-storage-reference.md) for a reference of the logs and metrics created by Azure Storage.
 - [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
 - [Azure Storage metrics migration](./storage-metrics-migration.md)
 
