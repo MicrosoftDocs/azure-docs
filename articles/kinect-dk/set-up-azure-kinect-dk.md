@@ -97,7 +97,7 @@ Make sure that the cables are connected as shown. Then check the following table
 |Not lit |The device is not connected to the PC. |Make sure that the round power connector cable is connected to the device and to the USB power adapter.<br /><br />Make sure that the USB-C cable is connected to the device and to your PC. |
 |Flashing white |The device is powered on but doesn't have a USB 3.0 data connection. |Make sure that the round power connector cable is connected to the device and to the USB power adapter.<br /><br />Make sure that the USB-C cable is connected to the device and to a USB 3.0 port on your PC.<br /><br />Connect the device to a different USB 3.0 port on the PC.<br /><br />On your PC, open Device Manager (**Start** > **Control Panel** > **Device Manager**), and verify that your PC has a supported USB 3.0 host controller. |
 |Flashing amber |The device doesn't have enough power to operate. |Make sure that the round power connector cable is connected to the device and to the USB power adapter.<br /><br />Make sure that the USB-C cable is connected to the device and to your PC. |
-|Amber, then flashing white |The device is powered on and is receiving a firmware update, or the device is restoring the factory settings. |Wait for the power indicator light to become solid white. For more information, see [Reset Azure Kinect DK](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk). |
+|Amber, then flashing white |The device is powered on and is receiving a firmware update, or the device is restoring the factory settings. |Wait for the power indicator light to become solid white. For more information, see [Reset Azure Kinect DK](reset-azure-kinect-dk.md). |
 
 ## See also
 
