@@ -17,9 +17,9 @@ ms.author: spelluru
 
 ---
 # Allow lab creator to pick location for the lab in Azure Lab Services
-In Azure Lab Services, a lab account owner can allow lab creators (educators) to pick a location for the lab they create. This location can be different from the location of the lab account. A location is a group of Azure regions. For example, United States location is a group of regions such as East US, West US, etc. 
+In Azure Lab Services, a lab account owner can allow lab creators (educators) to pick a location for the lab they create. This location can be different from the location of the lab account. A location is a group of Azure regions. For example, United States location is a group of regions such as East US, West US, and so on. 
 
-You, as a lab account owner, can select the **Allow lab creator to pick lab location** option when you create a lab account or after you create the lab account (or an existing lab account). 
+You, as a lab account owner, can select the **Allow lab creator to pick lab location** option when you create a lab account and after you create the lab account (or an existing lab account). 
 
 ## At the time of lab account creation
 When you create a lab account, you see this option on the first screen (**Basics** tab). 
@@ -35,7 +35,7 @@ This option is disabled if you select peer virtual network for your lab account 
 After you create the lab account, you can enable or disable this option by following these steps: 
 
 1. On the **Lab Account** page, select **Lab settings** on the left menu.
-2. Select the **Allow lab creator to pick lab location** option if you want the lab creator to be able to select a location for the lab. If it's disabled, the labs are automatically created in the same location in which the lab account exists. 
+2. Select the **Allow lab creator to pick lab location** option if you want to allow the lab creator to select a location for the lab. If it's disabled, the labs are automatically created in the same location in which the lab account exists. 
     
     This field is disabled when you select a virtual network for the **Peer virtual network** field. It's because labs in the lab account must be in the same region as the lab account for them to access resources in the peer virtual network. 
 1. Select **Save** on the toolbar. 
@@ -53,9 +53,9 @@ Then, lab creators (educators) don't see an option to pick a location for the la
 In this scenario, the **Allow lab creator to pick lab location** option is disabled because you have selected a peer virtual network for the lab account. Then, lab creators will see the same screen as with the previous option. Because all VMs have to be in the same Azure region as the virtual network, the lab will be created in the same Azure region that the virtual network is in. If that particular region is constrained for a size, the size will appear as unavailable. 
 
 ## Location selection is enabled
-When you select **Allow lab creator to pick lab location**, lab creators (educators) sees an option to select a location when creating a lab. 
+When you select **Allow lab creator to pick lab location**, lab creators (educators) see an option to select a location when creating a lab. 
 
-![Location selection enabled](../media/allow-lab-creator-pick-lab-location/location-selection.png)
+![Pick a lab location](../media/allow-lab-creator-pick-lab-location/location-selection.png)
 
 Lab creators see the range of prices for all locations that size is in, and can choose a Location. The lab will be created in any Azure region that maps to that location.
 
