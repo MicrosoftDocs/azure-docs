@@ -451,6 +451,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
+      "redirect_url": "/azure/azure-arc/servers/onboard-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
+      "redirect_url": "/azure/azure-arc/servers/onboard-service-principal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/quickstart-create-cluster-cli.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-cli",
       "redirect_document_id": true
@@ -35411,6 +35421,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/technical-reference.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditions.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-conditions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
       "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
       "redirect_document_id": false
@@ -48499,6 +48519,21 @@
     {
       "source_path": "articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
       "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
+      "redirect_url": "/azure/ansible/ansible-install-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
+      "redirect_url": "/azure/ansible/ansible-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
+      "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
       "redirect_document_id": false
     }
   ]
