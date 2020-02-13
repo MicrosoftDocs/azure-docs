@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2020
 ms.author: aahi
 ---
 
@@ -42,7 +42,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 1. Create a new Python file in your favorite IDE or editor, and add the following import statements. 
 
     ```python
-    from azure.cognitiveservices.search.videosearch import VideoSearchAPI
+    from azure.cognitiveservices.search.videosearch import VideoSearchClient
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
@@ -51,6 +51,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     ```
 
 ## Create the search client
@@ -58,7 +59,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 Create an instance of the `CognitiveServicesCredentials`, and instantiate the client:
 
 ```python
-client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+client = VideoSearchAPI(endpoint, CognitiveServicesCredentials(subscription_key))
 ```
 
 ## Send a search request and get a response
