@@ -1,6 +1,6 @@
 ---
 title: Map style functionalities | Microsoft Azure Maps
-description: In this article, you will learn about style related functionalities available in Microsoft Azure Maps web SDK.
+description: In this article, you'll learn about style related functionalities available in Microsoft Azure Maps web SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -12,7 +12,7 @@ manager: timlt
 
 # Choose a map style in Azure Maps
 
-Many of the [supported map styles in Azure Maps](./supported-map-styles.md) are available in the Web SDK. This article shows how to use the style-related functionalities to set a style on map load, set a new style and use the style picker control.
+Many of the [supported map styles in Azure Maps](./supported-map-styles.md) are available in the Web SDK. This article shows how to use the style-related functionalities. Learn to set a style upon loading a map, and learn to set a new map style using the style picker control.
 
 ## Set style on map load
 
@@ -25,7 +25,7 @@ In the following code, the `style` option of the map is set to `grayscale_dark` 
 
 ## Update the style
 
-In the following code, after a map instance is loaded, the map style is updated from `road` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) function of the map.
+In the following code, after a map instance is loaded, the map style is updated from `road` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) function.
 
 <br/>
 
@@ -34,7 +34,7 @@ In the following code, after a map instance is loaded, the map style is updated 
 
 ## Add the style picker
 
-The following code adds a [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) to the map so that the user can easily switch between the different map styles. 
+The following code adds a [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) to the map, so the user can easily switch between the different map styles. Toggle the map style using the map style control near the top right corner.
 
 <br/>
 
@@ -42,7 +42,7 @@ The following code adds a [StyleControl](/javascript/api/azure-maps-control/atla
 </iframe>
 
 > [!TIP]
-> By default the style picker control lists all the styles available when using the S0 pricing tier of Azure Maps by default. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
+> By default, when using the S0 pricing tier of Azure Maps, the style picker control lists all the available styles. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
 
 ## Next steps
 

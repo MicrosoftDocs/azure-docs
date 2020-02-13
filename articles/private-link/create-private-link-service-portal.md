@@ -15,7 +15,7 @@ ms.author: allensu
 
 # Quickstart: Create a Private Link service by using the Azure portal
 
-An Azure Private Link service refers to your own service that is managed by Private Link. You can give Private Link access to the service or resource that operates behind Azure Load Balancer. Consumers of your service can access it privately from their own virtual networks. In this quickstart, you learn how to create a Private Link service by using the Azure portal.
+An Azure Private Link service refers to your own service that is managed by Private Link. You can give Private Link access to the service or resource that operates behind Azure Standard Load Balancer. Consumers of your service can access it privately from their own virtual networks. In this quickstart, you learn how to create a Private Link service by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,9 +35,9 @@ In this section, you create a virtual network. You also create the subnet to hos
 
 1. On the **Create virtual network** pane, enter or select these values:
 
-   - **Name**: Enter **MyVNet**.
-   - **ResourceGroup**: Select **Create new**, enter **MyResourceGroupLB**, and select **OK**.
-   - **Subnet** > **Name**: Enter **MyBackendSubnet**.
+   - **Name**: Enter **myVNet**.
+   - **ResourceGroup**: Select **Create new**, enter **myResourceGroupLB**, and select **OK**.
+   - **Subnet** > **Name**: Enter **myBackendSubnet**.
 
 1. Select **Create**.
 
@@ -54,12 +54,12 @@ Use the portal to create a standard internal load balancer. The name and IP addr
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | **Subscription**               | Select your subscription.    |
-    | **Resource group**         | Select **MyResourceGroupLB** from the box.|
+    | **Resource group**         | Select **myResourceGroupLB** from the box.|
     | **Name**                   | Enter **myLoadBalancer**.                                   |
     | **Region**         | Select **East US 2**.                                        |
     | **Type**          | Select **Internal**.                                        |
     | **SKU**           | Select **Standard**.                          |
-    | **Virtual network**           | Select **MyVNet**.                          |
+    | **Virtual network**           | Select **myVNet**.                          |
     | **IP address assignment**              | Select **Static**.   |
     | **Private IP address**|Enter an address that's in the address space of your virtual network and subnet. An example is 10.3.0.7.  |
 
@@ -86,13 +86,13 @@ Use a health probe to let the load balancer monitor resource status. Based on re
 
 To create a health probe to monitor the health of the resources:
 
-1. Select **All resources** on the leftmost menu, and then select **MyLoadBalancer** from the resource list.
+1. Select **All resources** on the leftmost menu, and then select **myLoadBalancer** from the resource list.
 
 1. Under **Settings**, select **Health probes**, and then select **Add**.
 
 1. On the **Add a health probe** page, enter or select the following values:
 
-   - **Name**: Enter **MyHealthProbe**.
+   - **Name**: Enter **myHealthProbe**.
    - **Protocol**: Select **TCP**.
    - **Port**: Enter **80**.
    - **Interval**: Enter **15**. This value is the number of seconds between probe attempts.
@@ -108,23 +108,23 @@ A load balancer rule defines how traffic is distributed to resources. The rule d
 - The back-end IP pool to receive the traffic.
 - The required source and destination ports.
 
-The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the **LoadBalancerFrontEnd** front end. The rule sends network traffic to the **MyBackendPool** back-end address pool on the same port 80.
+The load balancer rule named **myLoadBalancerRule** listens to port 80 in the **LoadBalancerFrontEnd** front end. The rule sends network traffic to the **myBackendPool** back-end address pool on the same port 80.
 
 To create a load balancer rule:
 
-1. Select **All resources** on the leftmost menu, and then select **MyLoadBalancer** from the resource list.
+1. Select **All resources** on the leftmost menu, and then select **myLoadBalancer** from the resource list.
 
 1. Under **Settings**, select **Load-balancing rules**, and then select **Add**.
 
 1. On the **Add load-balancing rule** page, enter or select the following values if they aren't already present:
 
-   - **Name**: Enter **MyLoadBalancerRule**.
+   - **Name**: Enter **myLoadBalancerRule**.
    - **Frontend IP address:** Enter **LoadBalancerFrontEnd**.
    - **Protocol**: Select **TCP**.
    - **Port**: Enter **80**.
    - **Backend port**: Enter **80**.
-   - **Backend pool**: Select **MyBackendPool**.
-   - **Health probe**: Select **MyHealthProbe**. 
+   - **Backend pool**: Select **myBackendPool**.
+   - **Health probe**: Select **myHealthProbe**. 
 
 1. Select **OK**.
 
@@ -142,7 +142,7 @@ In this section, you create a Private Link service behind a standard load balanc
     |-------------------|------------------------------------------------------------------------------|
     | Project details:  |                                                                              |
     | **Subscription**      | Select your subscription.                                                     |
-    | **Resource Group**    | Select **MyResourceGroupLB**.                                                    |
+    | **Resource Group**    | Select **myResourceGroupLB**.                                                    |
     | Instance details: |                                                                              |
     | **Name**              | Enter **myPrivateLinkService**. |
     | **Region**            | Select **East US 2**.                                                        |
@@ -153,9 +153,9 @@ In this section, you create a Private Link service behind a standard load balanc
 
     | Setting                           | Value                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Load Balancer**                     | Select **MyLoadBalancer**.                                                           |
-    | **Load Balancer frontend IP address** | Select the front-end IP address of **MyLoadBalancer**.                                |
-    | **Source NAT Virtual network**        | Select **myVNET**.                                                                   |
+    | **Load Balancer**                     | Select **myLoadBalancer**.                                                           |
+    | **Load Balancer frontend IP address** | Select the front-end IP address of **myLoadBalancer**.                                |
+    | **Source NAT Virtual network**        | Select **myVNet**.                                                                   |
     | **Source NAT subnet**                 | Select **myBackendSubnet**.                                                          |
     | **Enable TCP proxy v2**               | Select **YES** or **NO** depending on whether your application expects a TCP proxy v2 header. |
     | **Private IP address settings**       | Configure the allocation method and IP address for each NAT IP.                  |

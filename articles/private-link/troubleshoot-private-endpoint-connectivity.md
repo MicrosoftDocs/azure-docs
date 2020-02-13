@@ -97,7 +97,7 @@ Go over the steps listed below to make sure all the usual configurations are as 
        ![NSG outbound rules](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
 5. If the connection has validated results, the connectivity issue might be related to other aspects like secrets, tokens, passwords at the application layer.
-   - In this case, review configuration of the Private Link resource associated with the private endpoint. Refer to [Private Link troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting). 
+   - In this case, review configuration of the Private Link resource associated with the private endpoint. Refer to [Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md). 
 
 6. Contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and connectivity problem still exists. 
 
@@ -105,4 +105,4 @@ Go over the steps listed below to make sure all the usual configurations are as 
 
  * [Create a Private Endpoint on the updated subnet (Azure portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
 
- * [Private Link troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting)
+ * [Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)
