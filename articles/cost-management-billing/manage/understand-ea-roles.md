@@ -1,18 +1,11 @@
 ---
 title: Understand admin roles for Enterprise in Azure | Microsoft Docs
 description: Learn about Enterprise administrator roles in Azure.
-services: 'billing'
-documentationcenter: ''
-author: adpick
-manager: adpick
-editor: ''
-
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.author: banders
 ---
 # Understand Azure Enterprise Agreement administrative roles in Azure
@@ -24,7 +17,7 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 - Department Administrator
 - Department Administrator (read only)
 - Account Owner
- 
+
 These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 The following sections describe the limitations and capabilities of each role.
