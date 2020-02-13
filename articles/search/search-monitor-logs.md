@@ -22,7 +22,7 @@ The following table enumerates options for collecting and persisting data.
 | Resource | Used for |
 |----------|----------|
 | [Send to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Logged events and query metrics, based on the schemas below. Events are logged to a Log Analytics workspace. Using Log Analytics, you can run queries to return detailed information. For more information, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view the log.|
+| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a log file.|
 | [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
 
 Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
@@ -33,7 +33,7 @@ If you are using Log Analytics or Azure Storage, you can create resources in adv
 
 + [Create a log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-+ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. If possible, choose the same region as Azure Cognitive Search.
++ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you require a log archive.
 
 ## Create a diagnostic setting
 
@@ -49,7 +49,7 @@ Each setting specifies how and what is collected. Besides storage, you can choos
 
    Log analytics is recommended because you can query the workspace in the portal.
 
-   If you are also using Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
+   If you are also using Blob storage, containers and blobs will be created as-needed when log data is exported.
 
    ![Configure data collection](./media/search-monitor-usage/configure-storage.png "Configure data collection")
 
@@ -64,11 +64,11 @@ In Blob storage, containers are only created when there is an activity to log or
 
 **It takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container.**
 
-<!-- ### Example path
+Logs are archived for every hour in which activity occurs. The following path is an example of one log file created on January 12 2020 at 9:00 a.m.
 
-```http
-resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
-``` -->
+```
+resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=12/name=PT1H.json
+```
 
 ## Log schema
 
@@ -99,21 +99,21 @@ For Blob storage, each blob has one root object called **records** containing an
 
 ## Metrics schema
 
-Metrics are captured for query requests. For more information, see [Monitor query requests](search-monitor-queries.md).
+Metrics are captured for query requests and measured in one minute intervals. Every metric exposes minimum, maximum and average values per minute. For more information, see [Monitor query requests](search-monitor-queries.md).
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource ID |
 | metricName |string |"Latency" |the name of the metric |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |the operation's timestamp |
-| average |int |64 |The average value of the raw samples in the metric time interval |
-| minimum |int |37 |The minimum value of the raw samples in the metric time interval |
-| maximum |int |78 |The maximum value of the raw samples in the metric time interval |
-| total |int |258 |The total value of the raw samples in the metric time interval |
-| count |int |4 |The number of raw samples used to generate the metric |
-| timegrain |string |"PT1M" |The time grain of the metric in ISO 8601 |
+| average |int |64 |The average value of the raw samples in the metric time interval, units in seconds or percentage, depending on the metric. |
+| minimum |int |37 |The minimum value of the raw samples in the metric time interval, units in seconds. |
+| maximum |int |78 |The maximum value of the raw samples in the metric time interval, units in seconds.  |
+| total |int |258 |The total value of the raw samples in the metric time interval, units in seconds.  |
+| count |int |4 |The number of metrics emitted from a node to the log within the one minute interval.  |
+| timegrain |string |"PT1M" |The time grain of the metric in ISO 8601. |
 
-All metrics are reported in one-minute intervals. Every metric exposes minimum, maximum and average values per minute.
+It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metrics.
 
 For the **Search Queries Per Second** metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
@@ -121,7 +121,7 @@ For **Throttled Search Queries Percentage**, minimum, maximum, average and total
 
 ## View log files
 
-You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
+Blob storage is used for archiving log files. You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
 
 1. In Azure portal, open your Storage account. 
 

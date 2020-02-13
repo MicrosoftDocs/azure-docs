@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/15/2020
 ---
 
 # Monitor operations and activity of Azure Cognitive Search
@@ -42,11 +42,15 @@ For in-service tasks - such as queries, indexing, or creating objects - you'll s
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
-## Monitor resource consumption
+## Monitor storage
 
-Tabbed pages built into the Overview page report out on resource consumption. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
+Tabbed pages built into the Overview page report out on resource usage. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes. 
 
-The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. 
+If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
+
+Alerts related to storage are not currently available; storage consumption is not aggregated or logged into **AzureMetrics**. You would need to build a custom solution to get resource-related notifications.
+
+In the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. 
 
 The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
 
@@ -55,17 +59,46 @@ The following illustration is for the free service, which is capped at 3 objects
 
 ## Monitor workloads
 
-Logged events includes those related to indexing and queries. The **Azure Diagnostics** table in Log Analytics collects operational data related to queries and indexing. Both [Monitor queries](search-monitor-queries.md) and [Monitor indexing](search-monitor-indexing.md) have example queries that return information from this table.
+Logged events includes those related to indexing and queries. The **Azure Diagnostics** table in Log Analytics collects operational data related to queries and indexing.
+
+Most of the logged data is for read-only operations. For other create-update-delete operations not captured in the log, you can query the search service for system information.
 
 | OperationName | Description |
 |---------------|-------------|
-| ServiceStats | This operation is a routine call to [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). |
+| ServiceStats | This operation is a routine call to [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
 | Query.Search |  Query requests against an index See [Monitor queries](search-monitor-queries.md) for information about logged queries.|
-| Index.Indexing  | This operation is a call to [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| indexes.Prototype | This is an index created by the Import Data wizard. |
+| Indexers.Create | Create an indexer explicitly or implicitly through the Import Data wizard. |
 | Indexers.Get | Returns the name of an indexer whenever the indexer is run. |
 | Indexers.Status | Returns the status of an indexer whenever the indexer is run. |
 | DataSources.Get | Returns the name of the data source whenever an indexer is run.|
 | Indexes.Get | Returns the name of an index whenever an indexer is run. |
+
+### Kusto queries about workloads
+
+If you enabled logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
+
+#### Example: List operations 
+
+Return a list of operations and a count of each one.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### Example: Correlate operations
+
+Correlate query request with indexing operations, and render the data points across a time chart to see operations coincide.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
 
 In contrast with queries which are not saved on your search service, you can call search service APIs directly to return information about objects on the service. For more information, see [Monitor indexing](search-monitor-indexing.md).
 

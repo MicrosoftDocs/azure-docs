@@ -17,22 +17,32 @@ This article explains how to measure query performance and volume using metrics.
 
 Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option.
 
+Conditions that produce the greatest veracity in data measurement include:
+
++ Use a billable service (a service created at the Basic or a Standard tier). The free service is shared by multiple subscribers, introducing a certain amount of volatility.
+
++ Use a single replica, if possible, so that calculations are limited to one machine. If you use multiple replicas, query metrics are averaged across multiple nodes, some of which might be faster. If you are tuning query performance, a single node gives you a more stable environment for testing.
+
 > [!Tip]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
 
-Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one minute window.
+Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one minute window. One minute intervals (TimeGrain = "PT1M") for metrics is fixed within the system.
+
+It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metrics.
 
 | Aggregation Type | Description |
 |------------------|-------------|
 | Average | The average number of seconds within a minute during which query execution occurred.|
-| Count | The number of raw samples used to generate the metric. |
+| Count | The number of metrics emitted to the log within the one minute interval. |
 | Maximum | The highest number of search queries per second registered during a minute. |
 | Minimum | The lowest number of search queries per second registered during a minute.  |
 | Sum | The sum of all queries executed within the minute.  |
 
 For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
+
+Another example: if a node emits 100 metrics, where the value of each metric is 40, then "Count" is 100, "Sum" is 4000, "Average" is 40, and "Max" is 40.
 
 ## Query performance
 
@@ -43,7 +53,7 @@ Service-wide, query performance is measured as search latency (how long a query 
 | Aggregation Type | Latency | 
 |------------------|---------|
 | Average | Average query duration in milliseconds. | 
-| Count | The number of raw samples used to generate the metric. |
+| Count | The number of metrics emitted to the log within the one minute interval. |
 | Maximum | Longest running query in the sample. | 
 | Minimum | Shortest running query in the sample.  | 
 | Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
@@ -71,14 +81,14 @@ To confirm throttled queries, use **Throttled search queries** metric. You can e
 | Aggregation Type | Throttling |
 |------------------|-----------|
 | Average | Percentage of queries dropped within the interval. |
-| Count | The number of raw samples used to generate the metric. |
+| Count | The number of metrics emitted to the log within the one minute interval. |
 | Maximum | Percentage of queries dropped within the interval.|
 | Minimum | Percentage of queries dropped within the interval. |
 | Total | Percentage of queries dropped within the interval. |
 
 For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
-In the following screenshot, the first number is the count (or number of requests in the sample). Additional aggregations, which appear at the top or when hovering over the metric, include average, maximum, and total. In this sample, no requests were dropped.
+In the following screenshot, the first number is the count (or number of metrics sent to the log). Additional aggregations, which appear at the top or when hovering over the metric, include average, maximum, and total. In this sample, no requests were dropped.
 
 ![Throttled aggregations](./media/search-monitor-usage/metrics-throttle.png "Throttled aggregations")
 
