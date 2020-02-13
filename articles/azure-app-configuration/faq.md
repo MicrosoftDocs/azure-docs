@@ -48,7 +48,7 @@ Yes. App Configuration encrypts all key values it holds, and it encrypts network
 
 Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](/azure/app-service/configure-common#configure-app-settings).
 
-In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps, including apps running in App Service. Your application code accesses these settings through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
+In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps. This includes apps running in App Service, as well as other platforms. Your application code accesses these settings through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
 
 You can also import and export settings between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
 
@@ -58,7 +58,7 @@ There's a limit of 10 KB for a single key-value item.
 
 ## How should I store configurations for multiple environments (test, staging, production, and so on)?
 
-Currently you can control who has access to App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach gives you the best security isolation.
+Currently you control who can access App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach gives you the best security isolation.
 
 ## What are the recommended ways to use App Configuration?
 
@@ -68,7 +68,7 @@ See [best practices](./howto-best-practices.md).
 
 The service is free to use during the public preview.
 
-Once the service reaches general availability, there will be two service tiers: 1) a free tier, and 2) a standard tier. Existing stores will move to the free tier upon general availability.
+Once the service reaches general availability on February 19, 2020, there will be two service tiers: 1) a free tier, and 2) a standard tier. Existing stores will move to the free tier upon general availability.
 
 ## Which App Configuration tier should I use?
 
@@ -76,15 +76,22 @@ Both App Configuration tiers offer core functionality, including config settings
 
 The following are considerations for choosing a tier.
 
-* **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
-* **Keys per resource**: In the free tier, the configuration store is limited to 1,000 keys or 10 MB. In the standard tier, each configuration store can have up to 20,000 keys or 1 GB.
-* **Key history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
-* **Requests per day**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
+- **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
+- **Keys per resource**: In the free tier, the configuration store is limited to 1,000 keys or 10 MB. In the standard tier, each configuration store can have up to 20,000 keys or 1 GB.
+- **Key history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
+- **Requests per day**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
 
-    There are no limits on the number of requests for standard tier stores. The first 200,000 requests each day are included in the daily charge. Additional requests are billed as overage.
+    For standard tier stores, the first 200,000 requests each day are included in the daily charge. Additional requests are billed as overage.
 
-* **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
-* **Cost**: Standard tier stores have a daily usage charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
+- **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
+- **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, RBAC support, and managed identity. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
+- **Cost**: Standard tier stores have a daily usage charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
+
+## Can I upgrade a store from the Free tier to the Standard tier? Can I downgrade a store from the Standard tier to the Free tier?
+
+You can upgrade from the Free tier to the Standard tier at any time.
+
+You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 
