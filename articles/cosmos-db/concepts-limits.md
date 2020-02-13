@@ -87,7 +87,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Maximum number of paths in indexing policy| 100 <sup>*</sup>|
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|
-| Maximum number of containers that can be provisioned in a shared database|25 |
+| Maximum number of containers that can be provisioned in a database with shared throughput |25 |
 
 <sup>*</sup> You can increase any of these per-container limits by contacting Azure Support.
 
