@@ -7,7 +7,7 @@ ms.date: 01/24/2020
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters hosted in Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Prerequisites
 
