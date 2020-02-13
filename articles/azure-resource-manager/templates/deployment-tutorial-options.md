@@ -57,6 +57,7 @@ az login
 # [Azure portal](#tab/azure-portal)
 
 N/A
+
 ---
 
 ## Create resource group
