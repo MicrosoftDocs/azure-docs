@@ -50,7 +50,7 @@ User-defined routes aren't necessary.
 
 The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  This template-like format is shown here to illustrate the concepts and structure.  Modify the example for your needs.  This document isn't intended as a tutorial.
 
-The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it is writeable.
+The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it's writeable. Review 
 
 <p align="center">
   <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT object model">
@@ -312,6 +312,10 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - When a virtual network has multiple subnets, each subnet can have a different NAT configured.
 - NAT can't span multiple virtual networks.
 
+## Preview participation
+
+Follow [instructions to enable your subscription](nat-overview.md#public-preview-participation).
+
 ## Next steps
 
 - Learn more about [virtual network NAT](nat-overview.md).
@@ -319,5 +323,8 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](quickstart-create-nat-gateway-portal.md).
 - Learn more about [availability zones](../availability-zones/az-overview.md).
-- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md)
-- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md)
+- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
+- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+- Learn more about [NAT gateway resource REST API](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/natgateways).
+- Learn more about [NAT gateway resource Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network/nat/gateway?view=azure-cli-latest).
+- Learn more about [NAT gateway resource PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.network/new-aznatgateway).
