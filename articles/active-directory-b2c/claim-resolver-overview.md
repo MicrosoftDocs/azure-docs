@@ -102,7 +102,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 
 ## Using claim resolver 
 
-The use of claims resolver is limited to the follwoing table: 
+You can use claims resolvers with follwoing componentes: 
 
 | Component | Element | Settings |
 | ----- | ----------------------- | --------|
@@ -116,9 +116,9 @@ The use of claims resolver is limited to the follwoing table:
 |[Self-Asserted](self-asserted-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 | [ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
-|[RelyingParty](relyingparty.md#technicalprofile) technical profile| `OutputClaim`| |
+|[RelyingParty](relyingparty.md#technicalprofile) technical profile| `OutputClaim`| 2 |
 
-Using claim transfomation settings: 
+Settings: 
 1. The `IncludeClaimResolvingInClaimsHandling` metadata must set to `true`
 1. The input or output cliams `AlwaysUseDefaultValue` must set to `true`
 
