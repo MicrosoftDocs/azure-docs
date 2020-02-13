@@ -130,9 +130,11 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
 
-10. Right click on the deployment.template.json file in Visual Studio Code explorer and select **Build IoT Edge Solution**.
+1. Right click on the deployment.template.json file in Visual Studio Code explorer and select **Build IoT Edge Solution**.
 
-11. Notice that this command creates a config folder with a deployment.amd64.json file. This file is the concrete deployment template for the solution.
+1. Notice that this command creates a config folder with a deployment.amd64.json file. This file is the concrete deployment template for the solution.
+
+If the close and reopen Visual Studio Code, open the folder **C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution** to return to the solution we are building.
 
 ## Add Router module
 
@@ -335,7 +337,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
 
 To add the directory to the module’s container, we will modify the Dockerfiles associated with the avroFileWriter module. There are three Dockerfiles associated with the module: Dockerfile.amd64, Dockerfile.amd64.debug, and Dockerfile.arm32v7. These files should be kept in sync in case we wish to debug or deploy to an arm32 device. For this article, focus only on Dockerfile.amd64.
 
-1. On your development machine, open the **Dockerfile.amd64** file.
+1. On your development VM, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64** file.
 
 1. Modify the file so that is looks like the following example:
 
@@ -456,10 +458,10 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 
 ### PyYAML
 
-1. On your development machine, open the **requirements.txt** file and add pyyaml.
+1. On your development machine, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\EdgeSolution\modules\avoFileWriter\requirements.txt** file and add "pyyaml" on a new line in the file.
 
    ```txt
-   azure-iothub-device-client~=1.4.3
+   azure-iothub-device-client~=<current version>
    pyyaml
    ```
 
@@ -502,7 +504,7 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 1. In requirements.txt, add fastavro after pyyaml.
 
    ```txt
-   azure-iothub-device-client~=1.4.3
+   azure-iothub-device-client~=<current version>
    pyyaml
    fastavro
    ```
@@ -528,31 +530,31 @@ With the router and classifier in place, we expect to receive regular messages c
 
 1. In the Azure portal, navigate to your IoT Hub.
 
-1. From the left navigation, choose **Message routing**.
+1. From the menu on the left pane, under **Messaging**, select **Message routing**.
 
-1. Select **Add**.
+1. On the **Routes** tab, select **Add**.
 
 1. Name the route **RulMessageRoute**.
 
-1. Select **Add** next to the **Endpoint** selector and choose **Blob storage**.
+1. Select **Add endpoint** to the right of the **Endpoint** selector and choose **Storage**.
 
-1. In the **Add a storage endpoint** form, name the endpoint **ruldata**.
+1. On the **Add a storage endpoint** page, name the endpoint **ruldata**.
 
 1. Select **Pick a container**.
 
-1. Choose the storage account used throughout this tutorial, which is named like **iotedgeandml\<unique suffix\>**.
+1. On the **Storage accounts** page, find the storage account you're using throughout this tutorial, which is named like **iotedgeandml\<unique suffix\>**.
 
-1. Choose the **ruldata** container and click **Select**.
+1. Select the **ruldata** container and click **Select**.
 
-1. Click **Create** to create the storage endpoint.
+1. Back at the **Add a storage endpoint** page, select **Create** to create the storage endpoint.
 
-1. For the **Routing query**, enter the following query:
+1. Back at the **Add a route** page, for the **Routing query**, replace `true` with the following query:
 
     ```sql
     IS_DEFINED($body.PredictedRul) AND NOT IS_DEFINED($body.OperationalSetting1)
     ```
 
-1. Expand the **Test** section and then the **Message body** section. Replace the message with this example of our expected messages:
+1. Expand the **Test** section and then the **Message body** section. Replace the message body with this example of our expected messages:
 
     ```json
     {
@@ -623,7 +625,7 @@ We don't want to route the new prediction data to our old storage location, so u
 
 Configure the IoT Hub file upload feature to enable the file writer module to upload files to storage.
 
-1. From the left navigator in your IoT Hub, choose **File upload**.
+1. From the left pane menu in your IoT Hub, under **Messaging**,choose **File upload**.
 
 1. Select **Azure Storage Container**.
 
