@@ -68,6 +68,17 @@ Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <New
 
  For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md).
 
+## Update HTTP user credentials
+
+[Set-AzHDInsightGatewayCredential](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) sets the gateway HTTP credentials of an Azure HDInsight cluster.
+
+```powershell
+$clusterName = "CLUSTERNAME"
+$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+
+Set-AzHDInsightGatewayCredential -ClusterName $clusterName -HttpCredential $credential
+```
+
 ## Find the default storage account
 
 The following PowerShell script demonstrates how to get the default storage account name and the related information:
