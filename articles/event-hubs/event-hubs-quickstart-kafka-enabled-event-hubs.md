@@ -87,7 +87,9 @@ When you create a standard tier Event Hubs namespace, the Kafka endpoint for the
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ``` 
 
-    You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on [GitHub location](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
+    You can find the source code for the sample handler class CustomAuthenticateCallbackHandler on GitHub [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
+
+    You can find all the OAuth samples for Event Hubs for Kafka [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 7. Run the consumer code and process from Kafka enabled Event Hubs using your Kafka clients:
 
     ```java

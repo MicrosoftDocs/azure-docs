@@ -66,7 +66,7 @@ For more information about how built-in roles are defined, see [Understand role 
 - [Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     This sample has been updated to use the latest **Azure.Messaging.EventHubs** library.
-- [Event Hubs for Kafka - OAuth samples](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). You can find samples in the quickstart and tutorials folders. 
+- [Event Hubs for Kafka - OAuth samples](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
 
 
 ## Next steps
