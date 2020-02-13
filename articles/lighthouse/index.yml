@@ -62,6 +62,24 @@ landingContent:
           - text: Index of Azure Lighthouse samples
             url: ./samples/index.md
 
+  - title: Work with Azure services
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Azure Monitor Logs at scale
+            url: ./how-to/monitor-at-scale.md
+          - text: Deploy Azure Policy at scale
+            url: ./how-to/policy-at-scale.md
+
+  - title: Azure portal experiences
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage customers
+            url: ./how-to/view-manage-customers.md
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
+
   - title: Reference - Downloads
     linkLists:
       - linkListType: download
@@ -88,24 +106,6 @@ landingContent:
           - text: Python
             url: /python/api/azure-mgmt-managedservices
   
-  - title: Work with Azure services
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Use Azure Monitor Logs at scale
-            url: ./how-to/monitor-at-scale.md
-          - text: Deploy Azure Policy at scale
-            url: ./how-to/policy-at-scale.md
-
-  - title: Azure portal experiences
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View and manage customers
-            url: ./how-to/view-manage-customers.md
-          - text: View and manage service providers
-            url: ./how-to/view-manage-service-providers.md
-
   - title: Get involved
     linkLists:
       - linkListType: get-started
