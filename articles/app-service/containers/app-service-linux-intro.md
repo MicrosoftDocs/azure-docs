@@ -88,7 +88,7 @@ For more information on App Service on Linux, see:
 * [Set up staging environments in App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker Hub continuous deployment](app-service-linux-ci-cd.md)
 
-You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+You can post questions and concerns on [our forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png
