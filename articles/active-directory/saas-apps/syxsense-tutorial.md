@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/07/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Syxsense with Azure Active Direc
 * Enable your users to be automatically signed-in to Syxsense with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.cloudmanagementsuite.com/samlautologin`
+    `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2/Acs`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -144,11 +144,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings Icon**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/configure1.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/configure1.png)
 
 1. Click on the **External Authentication** and provide the **App Federation Metadata Url** value into the **SAML2.0 Metadata** textbox and click on **Save**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/configure2.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/configure2.png)
 
 ### Create Syxsense test user
 
@@ -156,18 +156,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **User Accounts** from the left navigation panel.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/user1.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/user1.png)
 
 1. Click **Add**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/user2.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/user2.png)
 
 1. Provide the user details according to your organization requirements and click **Save**.
 
-    ![Syssense Configuration](./media/syxsense-tutorial/user3.png)
+    ![Syxsense Configuration](./media/syxsense-tutorial/user3.png)
 
-
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -175,9 +174,9 @@ When you click the Syxsense tile in the Access Panel, you should be automaticall
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

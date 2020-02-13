@@ -182,8 +182,6 @@
       - name: Custom email
         href: custom-email.md
         displayName: verification
-      - name: Page layout
-        href: page-layout.md
       - name: Enable JavaScript
         href: javascript-samples.md
       - name: Password complexity
@@ -383,6 +381,8 @@
     href: custom-policy-developer-notes.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+  - name: Page layout versions
+    href: page-layout.md
   - name: Cookie definitions
     href: cookie-definitions.md
     displayName: cookies, SameSite

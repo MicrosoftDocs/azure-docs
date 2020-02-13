@@ -220,19 +220,7 @@ This section contains the following examples:
 * [Event Grid trigger, String parameter](#event-grid-trigger-string-parameter)
 * [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter)
 
-The following examples show trigger binding in a *function.json* file and [Java functions](functions-reference-java.md) that use the binding and print out an event, first receiving the event as ```String``` and second as a POJO.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+The following examples show trigger binding in [Java](functions-reference-java.md) that use the binding and print out an event, first receiving the event as `String` and second as a POJO.
 
 ### Event Grid trigger, String parameter
 
@@ -494,7 +482,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_exten
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-This is an admin API, so it requires your function app [master key](functions-bindings-http-webhook.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
+This is an admin API, so it requires your function app [master key](functions-bindings-http-webhook-trigger.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
 
 Here's an example of the response that provides the system key:
 
@@ -516,7 +504,7 @@ You can get the master key for your function app from the **Function app setting
 > [!IMPORTANT]
 > The master key provides administrator access to your function app. Don't share this key with third parties or distribute it in native client applications.
 
-For more information, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys) in the HTTP trigger reference article.
+For more information, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys) in the HTTP trigger reference article.
 
 Alternatively, you can send an HTTP PUT to specify the key value yourself.
 

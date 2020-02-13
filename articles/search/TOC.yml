@@ -270,7 +270,9 @@
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md    
+        href: knowledge-store-connect-power-bi.md  
+      - name: Projection examples
+        href: knowledge-store-projections-examples.md  
   - name: Query documents
     items:
     - name: Query types and composition
