@@ -10,7 +10,7 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom: seo-lt-2019, azure-synapse 
 ---
 
 # Quickstart: Create and query a data warehouse in Azure Synapse Analytics using the Azure portal
@@ -24,7 +24,7 @@ Quickly create and query a data warehouse by provisioning SQL pool in Azure Syna
    > [!NOTE]
    > Creating a data warehouse in Azure Synapse may result in a new billable service. For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-1. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+2. Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## Sign in to the Azure portal
 
@@ -63,13 +63,13 @@ Follow these steps to create a data warehouse that contains the **AdventureWorks
 
 5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the data warehouse in the SQL pool. Provisioning takes a few minutes.
 
-    ![select Review + Create](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
+   ![select Review + Create](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
-    ![select create](media/create-data-warehouse-portal/create-sql-pool-create.png)
+   ![select create](media/create-data-warehouse-portal/create-sql-pool-create.png)
 
 6. On the toolbar, select **Notifications** to monitor the deployment process.
-    
-     ![notification](media/create-data-warehouse-portal/notification.png)
+
+   ![notification](media/create-data-warehouse-portal/notification.png)
 
 ## Create a server-level firewall rule
 
@@ -79,7 +79,9 @@ The Azure Synapse service creates a firewall at the server-level. This firewall 
 > Azure Synapse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 
 1. After the deployment completes, select **All services** from the left-hand menu. Select **Databases**, select the star next to **Azure Synapse Analytics** to add Azure Synapse Analytics to your favorites.
+
 2. Select **Azure Synapse Analytics** from the left-hand menu and then select **mySampleDataWarehouse** on the **Azure Synapse Analytics** page. The overview page for your database opens, showing you the fully qualified server name (such as **sqlpoolservername.database.windows.net**) and provides options for further configuration.
+
 3. Copy this fully qualified server name for use to connect to your server and its databases in this and other quick starts. To open server settings, select the server name.
 
    ![find server name](media/create-data-warehouse-portal/find-server-name.png)
@@ -108,7 +110,9 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 Get the fully qualified server name for your SQL server in the Azure portal. Later you use the fully qualified name when connecting to the server.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
+
 2. Select **Azure Synapse Analytics** from the left-hand menu, and select your data warehouse on the **Azure Synapse Analytics** page.
+
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is sqlpoolservername.database.windows.net.
 
     ![connection information](media/create-data-warehouse-portal/find-server-name-copy.png)
@@ -130,19 +134,20 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Password | The password for your server admin account | Password that you specified when you created the server. |
    ||||
 
-    ![connect to server](media/create-data-warehouse-portal/connect-to-server-ssms.png)
+   ![connect to server](media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
 3. select **Connect**. The Object Explorer window opens in SSMS. 
 
 4. In Object Explorer, expand **Databases**. Then expand **mySampleDatabase** to view the objects in your new database.
 
-    ![database objects](media/create-data-warehouse-portal/connected-ssms.png) 
+   ![database objects](media/create-data-warehouse-portal/connected-ssms.png) 
 
 ## Run some queries
 
 SQL Data Warehouse uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps:
 
 1. Right-select **mySampleDataWarehouse** and select **New Query**. A new query window opens.
+
 2. In the query window, enter the following command to see a list of databases.
 
     ```sql
@@ -151,7 +156,7 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
 3. select **Execute**. The query results show two databases: **master** and **mySampleDataWarehouse**.
 
-    ![Query databases](media/create-data-warehouse-portal/query-databases.png)
+   ![Query databases](media/create-data-warehouse-portal/query-databases.png)
 
 4. To look at some data, use the following command to see the number of customers with last name of Adams that have three children at home. The results list six customers. 
 
@@ -160,20 +165,21 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
     WHERE LastName = 'Adams' AND NumberChildrenAtHome = 3;
     ```
 
-    ![Query dbo.dimCustomer](media/create-data-warehouse-portal/query-customer.png)
+   ![Query dbo.dimCustomer](media/create-data-warehouse-portal/query-customer.png)
 
 ## Clean up resources
 
 You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
 
 - If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. You can resume compute whenever you're ready to work with the data.
+
 - If you want to remove future charges, you can delete the data warehouse.
 
 Follow these steps to clean up resources you no longer need.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select on your data warehouse.
 
-    ![Clean up resources](media/create-data-warehouse-portal/clean-up-resources.png)
+   ![Clean up resources](media/create-data-warehouse-portal/clean-up-resources.png)
 
 2. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Resume** button. To resume compute, select **Resume**.
 

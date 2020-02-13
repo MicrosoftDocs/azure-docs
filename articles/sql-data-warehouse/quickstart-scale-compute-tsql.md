@@ -1,6 +1,6 @@
 ---
 title: Scale compute in Azure Synapse Analytics - T-SQL
-description: Scale compute in Azure Synapse Analytics using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.  ana
+description: Scale compute in Azure Synapse Analytics using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -10,7 +10,7 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom: seo-lt-2019, azure-synapse 
 ---
 
 # Quickstart: Scale compute in Azure Synapse Analytics using T-SQL
@@ -25,7 +25,7 @@ Download and install the newest version of [SQL Server Management Studio](/sql/s
  
 ## Create a data warehouse
 
-Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**. Finish the quickstart to ensure you have a firewall rule and can connect to your data warehouse from within SQL Server Management Studio.
+Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**. Complete the quickstart to ensure you have a firewall rule and can connect to your data warehouse from within SQL Server Management Studio.
 
 ## Connect to the server as server admin
 
@@ -41,7 +41,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Server name | The fully qualified server name | Here's an example: **mySampleDataWarehouseservername.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | The account that you specified when you created the server. |
-   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
+   | Password | The password for your server admin account | The password you specified when you created the server. |
 
     ![Connect to server](media/quickstart-scale-compute-tsql/connect-to-server.png)
 
