@@ -50,7 +50,7 @@ User-defined routes aren't necessary.
 
 The resource is designed to be simple as you can see from the following Azure Resource Manager example in a template-like format.  This template-like format is shown here to illustrate the concepts and structure.  Modify the example for your needs.  This document isn't intended as a tutorial.
 
-The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it is writeable.
+The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it's writeable. Review 
 
 <p align="center">
   <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT object model">
@@ -58,7 +58,9 @@ The following diagram shows the writeable references between the different Azure
 
 *Figure: Virtual Network NAT object model*
 
-NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md).
+NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md).  
+
+You can migrate from standard load balancer scenarios, including [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md), to using NAT gateway instead. Migrate by moving the standard public ip and standard public ip prefix resources from load balancer frontends to NAT gateway resources. NAT gateway don't need new IP addresses and standard public IP and prefix can be reused as long as the total doesn't exceed 16 IP addresses. Plan such migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
 
 The following example would create a NAT gateway resource called _myNATGateway_ is created in region _East US 2, AZ 1_ with a _4-minutes_ idle timeout. The outbound IP addresses provided are:
 - A set of public IP address resources _myIP1_ and _myIP2_ and 
@@ -132,7 +134,7 @@ A subnet is configured to use a NAT gateway with a property on the subnet within
 
 ## Coexistence of inbound and outbound
 
-NAT gateway is compatible with standard load balancer resources, standard public IP, and standard public IP prefixes.  
+NAT gateway is compatible with standard load balancer resources, standard public IP, and standard public IP prefixes.  When developing a new deployment, always start with using standard SKUs.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
@@ -155,6 +157,8 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 | Inbound | VM with instance-level Public IP |
 | Outbound | NAT gateway |
 
+VM will use NAT gateway for outbound.  Inbound originated isn't affected.
+
 ### NAT and VM with public Load Balancer
 
 <p align="center">
@@ -167,6 +171,8 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 |:---:|:---:|
 | Inbound | public Load Balancer |
 | Outbound | NAT gateway |
+
+Any outbound configuration from a load balancing rule or outbound rules is superseded by NAT gateway.  Inbound originated isn't affected.
 
 ### NAT and VM with instance-level public IP and public Load Balancer
 
@@ -181,11 +187,13 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 | Inbound | VM with instance-level public IP and public Load Balancer |
 | Outbound | NAT gateway |
 
+Any outbound configuration from a load balancing rule or outbound rules is superseded by NAT gateway.  The VM will also use NAT gateway for outbound.  Inbound originated isn't affected.
+
 ## Managing Basic resources
 
 Standard load balancer, public IP, public IP prefix are compatible with NAT gateway.  And NAT gateways operate in the scope of a subnet. The basic variants of these services must be deployed on a subnet without a NAT gateway.  This allows both SKU variants to coexist in the same virtual network.
 
-The reason for this constraint comes from the fact that NAT gateways take precedence over all other outbound scenarios of the subnet. Basic load balancer or public IP and any managed service built with them are unable to apply the correct translations.  When NAT gateway takes control over outbound to Internet connectivity, inbound to basic load balancer and basic public ip used as instance-level IP on a VM is not provided; the return path would be forced through the NAT gateway and receive its translation rather than where it arrived and make successful communication impossible.
+NAT gateways take precedence over all other outbound scenarios of the subnet. Basic load balancer or public IP (and any managed service built with them) are unable to be adjusted with the correct translations.  When NAT gateway takes control over outbound to Internet connectivity on a subnet, inbound to basic load balancer and basic public ip used as instance-level IP on a VM is unavailable.
 
 ## Availability Zones
 
@@ -304,6 +312,10 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - When a virtual network has multiple subnets, each subnet can have a different NAT configured.
 - NAT can't span multiple virtual networks.
 
+## Preview participation
+
+Follow [instructions to enable your subscription](nat-overview.md#public-preview-participation).
+
 ## Next steps
 
 - Learn more about [virtual network NAT](nat-overview.md).
@@ -311,5 +323,8 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](quickstart-create-nat-gateway-portal.md).
 - Learn more about [availability zones](../availability-zones/az-overview.md).
-- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md)
-- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md)
+- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
+- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+- Learn more about [NAT gateway resource REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways).
+- Learn more about [NAT gateway resource Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest).
+- Learn more about [NAT gateway resource PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
