@@ -5,18 +5,18 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/11/2020
+ ms.date: 02/13/2020
  ms.author: rogarana
  ms.custom: include file
 ---
 
 ## Limitations
 
-[!INCLUDE [virtual-machines-disks-shared-disk-limitations](virtual-machines-disks-shared-disk-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
 ## Disk sizes
 
-[!INCLUDE [virtual-machines-disks-shared-disk-sizes](virtual-machines-disks-shared-disk-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
 ## Deploy an Azure shared disk
 
@@ -71,7 +71,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!IMPORTANT]
-> VMs using shared disk enabled managed disks must be using the same [proximity placement group](../articles/virtual-machines/windows/proximity-placement-groups.md).
+> All VMs sharing a disk must be deployed in the same [proximity placement group](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
 ```azurepowershell-interactive
 
@@ -135,7 +135,6 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 
 You also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
 
-If any commands you expect to be in the list are missing, contact us at SharedDiskFeedback@microsoft .com
 
 ## Next steps
 
