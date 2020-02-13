@@ -117,13 +117,13 @@ To create a custom role using the Azure portal, you start from **Access control 
 
     The effective management permissions are computed by adding all of the Actions and then subtracting all of the NotActions. The effective data permissions are computed by adding all of the DataActions and then subtracting all of the NotDataActions.
 
-1. Once you have specified all your permissions, click **Next** to open the **Assignable scopes** tab.
+1. Once you have specified all your permissions, click **Next** to open the Assignable scopes tab.
 
     ![Assignable scopes tab](./media/custom-roles-portal/assignable-scopes.png)
 
     The Assignable scopes tab enables you to specify where your custom role is available for assignment, such as subscription, resource group, or resource.
 
-1. Click **Add assignable scopes** to open the **Add assignable scopes** pane.
+1. Click **Add assignable scopes** to open the Add assignable scopes pane.
 
 1. Click a scope that you want to use, typically your subscription.
 
@@ -133,13 +133,13 @@ To create a custom role using the Azure portal, you start from **Access control 
 
     ![Assignable scopes - scope added](./media/custom-roles-portal/assignable-scopes-added.png)
 
-1. Click **Next** to open the **JSON** tab.
+1. Click **Next** to open the JSON tab.
 
     On this tab, you can see how your custom role is formatted in JSON.
 
 1. If you want to add a wildcard (*) permission or directly edit the JSON, click **Edit**.
 
-1. Click **Next** to open the **Review + create** tab.
+1. Click **Next** to open the Review + create tab.
 
     ![Review + create tab](./media/custom-roles-portal/review-create.png)
 
