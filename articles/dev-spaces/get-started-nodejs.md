@@ -82,7 +82,7 @@ Rich features like Kubernetes debugging are available for .NET Core and Node.js 
 In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
 ### Create a Node.js Web App
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
+Download code from GitHub by navigating to [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
 ## Prepare code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 

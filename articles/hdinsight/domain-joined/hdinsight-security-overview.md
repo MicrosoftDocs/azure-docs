@@ -83,7 +83,7 @@ The following table provides links to resources for each type of security soluti
 |  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals | Customer |
 | Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Configure [Inbound network security group (NSG) rules](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
-|  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall (preview) | Customer |
+|  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrastructure security | N/A | HDInsight (cloud provider) |
 

@@ -109,4 +109,4 @@ If you experience connectivity problems with your private link setup, review the
 ## Next steps
 
  * [Create a private link service (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
- * [Azure Private Endpoint troubleshooting guide](https://docs.microsoft.com/azure/private-link/private-endpoint-connectivity-troubleshooting)
+ * [Azure Private Endpoint troubleshooting guide](troubleshoot-private-endpoint-connectivity.md)

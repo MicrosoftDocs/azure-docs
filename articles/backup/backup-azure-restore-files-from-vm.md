@@ -51,6 +51,8 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
+8. For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+
 Refer to the [Access requirements](#access-requirements) section to make sure the script is run successfully.
 
 ### Identifying volumes
