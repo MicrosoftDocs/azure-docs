@@ -35,7 +35,7 @@ A technical profile enables these types of scenarios:
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
-- **Application Insights**
+- [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
 - [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password. 
 
 ## Technical profile flow
