@@ -348,7 +348,7 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 After a few minutes, the command completes and returns JSON-formatted information about solution.  The results of the command should show the monitoring add-on profile and resembles the following example output:
 
-```
+```output
 "addonProfiles": {
     "omsagent": {
       "config": {
