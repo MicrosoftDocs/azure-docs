@@ -37,7 +37,7 @@ If you want to browse ArrInspector on the PC you can:
 
 This panel can show graphs of any per-frame performance value exposed by the server. The values currently include the frame time and FPS, cpu and memory usage, memory stats like overall RAM usage, object counts etc.
 
-To visualize one of these parameters, click on the button "Add New" and select one of the available values shown in the dialog. This action will add a new scrolling chart to the panel, tracing the values in real time. You can add as many charts as you want, and remove them with the "X" button on the top right corner.
+To visualize one of these parameters, click on the **Add New** button and select one of the available values shown in the dialog. This action will add a new scrolling chart to the panel, tracing the values in real time. You can add as many charts as you want, and remove them with the **X** button on the top right corner.
 
 On the right side you can see the minimum and maximum values (associated to the top and bottom of the chart), and the current value, in the middle.
 
@@ -63,6 +63,7 @@ You can filter the list based on the log type \[Error/Warning/Info/Debug\] by cl
 ## The Timing Data Capture Panel
 
 ![Timing Data Capture](./media/timing-data-capture.png)
+
 This panel is used to capture timing information from the server and download it. The format of the downloaded file is the [Chrome Tracing JSON format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). To inspect the data, you can open Chrome on the URL Chrome://tracing and drag-and-drop the downloaded file on the page.
 The timing data is a dump of the fixed-size buffers continuously collecting timing information in the engine, so it refers to a capture in the immediate past.
 
@@ -76,15 +77,20 @@ This panel shows the structure of the rendered scene. On the left you can see th
 
 ![VM Debug Information Panel](./media/state-debugger-panel.png)
 
-This panel allows you to trigger the ARR instance to collect debug information on the VM. Debug information helps us analyze any issues that occur in a running ARR instance.
+This panel offers some debug functionality.
+
+The **Restart Service** button restarts the runtime on the virtual machine that arrInspector is connected to. An attached client will be automatically disconnected and the arrInspector page will need to be reloaded to connect to the restarted service.
+
+Upon clicking the **Collect Debug Information for VM** button, a dialog will open.
 
 ![VM Debug Information Dialog](./media/state-debugger-dialog.png)
 
-Upon clicking the collect button, a dialog will open. The dialog has a text field where you can optionally provide data you want to add to the debug information. This could include a short description of what happened and steps to reproduce, for example.
+This allows you to trigger the ARR instance to collect debug information on the VM. Debug information helps us analyze any issues that occur in a running ARR instance.
+The dialog has a text field where you can optionally provide data you want to add to the debug information. This could include a short description of what happened and steps to reproduce, for example.
 
 ![VM Debug Information collection in progress](./media/state-debugger-panel-in-progress.png)
 
-After clicking the start button, the dialog will close and the collection process will begin. Collecting all system and process information on the VM can take a few minutes.
+After clicking the **Start Collecting** button, the dialog will close and the collection process will begin. Collecting all system and process information on the VM can take a few minutes.
 
 ![VM Debug Information collection success](./media/state-debugger-snackbar-success.png)
 
@@ -104,7 +110,7 @@ When restoring the live update, all of the panels are reset.
 
 By default the tool connects to the local ARR server (running on the same host that serves the ArrInspector), but you can configure it to inspect another server, assuming it's running an ARR instance with a tooling port activated. To do this you can access the main menu on the left of the header bar and click on host configuration.
 
-You can add new hosts by clicking on "add new host", and entering name and hostname (just the hostname ending in "mixedreality.azure.com", no http:// or port), or remove them by clicking on the bin icon on the right side.
+You can add new hosts by clicking on **Add new host**, and entering name and hostname (just the hostname ending in "mixedreality.azure.com", no http:// or port), or remove them by clicking on the bin icon on the right side.
 
 To connect to one of the hosts, just select the entry in the list and press OK.
 
