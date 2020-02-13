@@ -49,13 +49,31 @@ az extension add --name spring-cloud
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
+1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
+
+1. From the top menu items, select Azure Spring Cloud  ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-icon.png)
+
+1. On the Azure Spring Cloud page, click **+ Add**.
 
 1. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
-    - Service Name: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-    - Subscription: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
-    - Resource group: Creating new resource groups for new resources is a best practice.
-    - Location: Select the location for your service instance. Currently supported locations include East US, West US 2, West Europe, and Southeast Asia.
+    - **Subscription**: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
+    - **Resource group**: Creating new resource groups for new resources is a best practice.
+    - **Service Details/Name**: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+    - **Location**: Select the location for your service instance. Currently supported locations include East US, West US 2, West Europe, and Southeast Asia.
+
+    ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+1. Click the **Diagnostic Setting** tab to open the following dialog.
+
+1. Set **Enable logs** to *yes*.
+
+    ![Enable logs](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
+
+1. Click the **Tracing** tab.
+
+1. Set **Enable tracing** to *yes*.
+
+    ![Tracing](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
 
 1. Click **Review and create**.
 
@@ -130,7 +148,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Select the `gateway` application to show the **Overview** page.
 
-1. Select **Assign Domain** to assign a public endpoint to gateway. This can take a few minutes.
+1. Select **Assign Endpoint** to assign a public endpoint to gateway. This can take a few minutes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

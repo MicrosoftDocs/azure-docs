@@ -140,8 +140,13 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
 
+Linux:
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
+```
+Windows:
+```azurecli
+az spring-cloud app show --name gateway | findstr url
 ```
 
 Finally, query the **gateway** application for its public IP so you can verify that the application is running:
