@@ -48520,6 +48520,21 @@
       "source_path": "articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
       "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-install-configure.md",
+      "redirect_url": "/azure/ansible/ansible-install-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-create-vm.md",
+      "redirect_url": "/azure/ansible/ansible-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ansible-manage-linux-vm.md",
+      "redirect_url": "/azure/ansible/ansible-manage-linux-vm",
+      "redirect_document_id": false
     }
   ]
 }
