@@ -17,11 +17,11 @@ The exact network requirements depend on your specific use case, such as the num
 * Using the **5-GHz Wi-Fi band** will usually produce better results than the 2.4-GHz Wi-Fi band, though both should work.
 * If there are other Wi-Fi networks nearby, avoid using Wi-Fi channels in use by these other networks. You can use a network scanning tools like [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) to verify whether the channels your Wi-Fi network uses are free of competing traffic.
 * Strictly **avoid using Wi-Fi repeaters** or LAN-over-powerline forwarding.
-* **Avoid competing bandwidth-intense traffic** – such as video or game streaming – on the same Wi-Fi network
-* Having **good Wi-Fi signal strength** is essential. If possible, stay close to your Wi-Fi access point and avoid obstacles between your client device and the access points. 
+* **Avoid competing bandwidth-intense traffic** – such as video or game streaming – on the same Wi-Fi network.
+* Having **good Wi-Fi signal strength** is essential. If possible, stay close to your Wi-Fi access point and avoid obstacles between your client device and the access points.
 * Make sure that you always connect to the **nearest Azure data center** that is supported by Azure Remote Rendering. Usually, the closer the data center, the lower the network latency, which has a huge effect on hologram stability.
 
-## Network performance tests without running Azure Remote Rendering
+## Network performance tests
 If you want to get an initial understanding of whether the quality of your network connectivity is sufficient to run Azure Remote Rendering, there are existing online tools that you can use. We strongly recommend running these online tools from a reasonably powerful laptop connected to the same Wi-Fi as the device that you are planning to run your Azure Remote Rendering client application on. Results obtained from running the tests on a mobile phone or HoloLens2 are usually less useful, as they have proven to show significant variation on low-powered endpoint devices. The location at which you place the laptop should be roughly at the same place at which you expect to use the device that runs your Azure Remote Rendering client application.
 Here are a few simple steps for a quick test of your network connectivity:
 1. **Run www.speedtest.net to get data on the overall latency and upstream/downstream bandwidth of your network connection.**

@@ -18,6 +18,8 @@ This article has a few guidelines to troubleshoot problems that may occur on the
 ## Low video quality
 
 The video quality can be compromised either by network quality or the missing H265 video codec.
+* See steps to [identfy network problems](#unstable-holograms).
+* See [system requirements](../overview/system-requirements#development-pc) for installing latest graphics driver.
 
 ## Black screen after successful model loading
 
