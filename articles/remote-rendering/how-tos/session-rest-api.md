@@ -68,7 +68,7 @@ This command creates a session. It returns the ID of the new session. You need t
 
 * maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
 * models (array): asset container URLs to preload
-* size (string): the VM size ("standard" or "premium")
+* size (string): the VM size (**"standard"** or **"premium"**). See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons). 
 
 **Responses:**
 

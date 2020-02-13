@@ -45,3 +45,16 @@ The remote rendering hooks into the Unity render pipeline to do the frame compos
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, that is, they seem to wobble, you might be encountering issues with Late Stage Reprojection. Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
+
+Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indication for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ARRServiceStats.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latencies. If `ARRServiceStats.VideoFramesReused` is often or even consistently higher than 0, this indicates a network problem.
+
+Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. This value should consistently be below 100 ms. If you see significantly higher values, this indicates that you are connected to a data center that is too far away.
+
+Possible mitigations are:
+* Make sure your network connectivity matches the criteria outlined in [Guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity)
+* Make sure that you are connected to the closest Azure data center offered by Azure Remote Rendering. 
+* Make sure your Wi-Fi network has good signal strength at the place where you are using your client device. If you have a large distance or obstacles such as walls between your client device and the Wi-Fi access point, move the device closer to the Wi-Fi access point.
+* Verify that your Wi-Fi network is not using channels that overlap with other Wi-Fi networks. You can use a tool like [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) to validate this.
+* Check if you are on the 5-GHz Wi-Fi band. If not, switch to the 5-GHz band.
+* Make sure you are not connecting through a Wi-Fi repeater or a LAN-over-powerline forwarding.
+* Make sure you don’t have bandwidth-intense competing traffic on your network.
