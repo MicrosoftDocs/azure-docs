@@ -33,7 +33,7 @@ Create an HTML page with your own branding. This page can be a static one `*.htm
 
 ### Azure AD B2C custom page contents
 
-You can use Azure AD B2C out of the box custom page content. The following table lists the default content that Azure AD B2C provides. You can download those files and use them as a starting point to create your own custom page content.
+You can use Azure AD B2C out of the box custom page content. The following table lists the default content that Azure AD B2C provides. You can download these files and use them as a starting point to create your own custom page content.
 
 | Default HTML content | Content definition ID (custom policy)| Description |
 |-----------------------|--------|-------------|
@@ -45,16 +45,16 @@ You can use Azure AD B2C out of the box custom page content. The following table
 
 ## Hosting the page content
 
-When using your own HTML and CSS files to customize the UI, you can host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](/azure/app-service/), web servers, CDNs, AWS S3, or file sharing systems. The important point is that you host the content on a publicly available HTTPS endpoint with CORS enabled. 
+When using your own HTML and CSS files to customize the UI, you can host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](/azure/app-service/), web servers, CDNs, AWS S3, or file sharing systems.  
 
 ## Guidelines for using custom page content
 
-- You must use an absolute URL when you include external resources, such as media, CSS and JavaScript files.
-- Add `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, a page is constructed before being shown to the user. This means that first the broser downloas the HTML file, then all of its references before constructing the page and displaying it. This helps getting rid of the ‘flicker’ that may occur on a page by ‘preloading’ the CSS file, without the unstyled HTML being shown to the user. Following HTML code snippent ilustate the user of preload
+- You must use an absolute URL when you include external resources, such as media, CSS and JavaScript files in your html file.
+- Add `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This helps prevent the page ‘flicker’ by ‘preloading’ the CSS file, without the unstyled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
-- Azure AD B2C merges HTML content into your pages. You can copy and try to change the default content that Azure AD B2C provides. 
+- It is advised to start with the [default content](https://TBD-interanl-link) and build on top of it. 
 - JavaScript can be included in your custom content for both [user flows](../articles/active-directory-b2c/user-flow-javascript-overview.md) and [custom policies](../articles/active-directory-b2c/javascript-samples.md).
 - Supported browser versions are:
   - Internet Explorer 11, 10, and Microsoft Edge
@@ -65,11 +65,11 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
 
 ## Custom page content walkthrough
 
-1. Prepare a place where you can hosts your custom page content.
-1. Download and customize a custom page content, such as `unified.html`.
+1. Prepare a place where you can host your custom page content.
+1. Download and customize a custom page content file, such as `unified.html`.
 1. Publish your custom page content to a publicly available HTTPS endpoint.
 1. Set cross-origin resource sharing (CORS) for your web app.
-1. Point your policy to your custom page content.
+1. Point your policy to your custom policy content URI.
 
 ## 1. Create your HTML content
 
