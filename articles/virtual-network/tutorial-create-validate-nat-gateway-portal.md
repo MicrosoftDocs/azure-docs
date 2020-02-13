@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create and test a NAT Gateway - Azure portal'
-titlesuffix: Azure NAT service
+titlesuffix: Azure Virtual Network NAT
 description: This tutorial shows how to create a NAT Gateway using the Azure portal and test the NAT service
 services: virtual-network
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 02/18/2020
 ms.author: allensu
 
 ---
@@ -21,18 +21,11 @@ ms.author: allensu
 This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines  in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You'll test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
 
 >[!NOTE] 
->Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+>Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](./nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
-
-## Prerequisites
-For this quickstart, you'll need the following prerequisites:
-  * **Virtual machines**
-  * **Virtual networks**
-  * **Public IP address**
-  * **Public IP prefix**
 
 ## Prepare the source for outbound traffic
 

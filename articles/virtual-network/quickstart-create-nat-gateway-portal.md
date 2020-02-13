@@ -164,7 +164,7 @@ You're now ready to use the NAT service.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
+When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group **myResourceGroupNAT** that contains the NAT gateway, and then select **Delete**.
 
 ## Next steps
 
