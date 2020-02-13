@@ -121,5 +121,3 @@ Use the following command to mount the Azure file share. Remember to replace th
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
-
-You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions to an identity](#assign-access-permissions-to-an-identity) and [Configure NTFS permissions over SMB](#configure-ntfs-permissions-over-smb) sections.
