@@ -55,7 +55,7 @@ When using your own HTML and CSS files to customize the UI, you can host your UI
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - Azure AD B2C merges HTML content into your pages. You can copy and try to change the default content that Azure AD B2C provides. 
-- JavaScript can be included in your custom content for both [user flows](user-flow-javascript-overview.md) and [custom policies](javascript-samples.md).
+- JavaScript can be included in your custom content for both [user flows](../articles/active-directory-b2c/user-flow-javascript-overview.md) and [custom policies](../articles/active-directory-b2c/javascript-samples.md).
 - Supported browser versions are:
   - Internet Explorer 11, 10, and Microsoft Edge
   - Limited support for Internet Explorer 9 and 8
@@ -92,7 +92,7 @@ Create a custom page content with your product's brand name in the title.
 1. Paste the copied snippet in a text editor, and then save the file as *customize-ui.html*.
 
 > [!NOTE]
-> HTML form elements will be removed due to security restrictions if you use login.microsoftonline.com. Please use b2clogin.com if you want to use HTML form elements in your custom HTML content. See [Use b2clogin.com](b2clogin.md) for other benefits.
+> HTML form elements will be removed due to security restrictions if you use login.microsoftonline.com. Please use b2clogin.com if you want to use HTML form elements in your custom HTML content. See [Use b2clogin.com](../articles/active-directory-b2c/b2clogin.md) for other benefits.
 
 ## 2. Create an Azure Blob storage account
 
