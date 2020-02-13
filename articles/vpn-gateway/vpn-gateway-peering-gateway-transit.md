@@ -29,7 +29,7 @@ There are two scenarios described in this document:
 
 ## Requirements
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 The example in this document requires the following resources to be created:
 

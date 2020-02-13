@@ -10,7 +10,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 02/10/2020
 ms.author: alsin
 
 ---
@@ -206,6 +206,30 @@ This procedure is provided for reference only. RHEL PAYG images already have the
   ```bash
   yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
   ```
+
+- For RHEL 8:
+    1. Create a config file:
+        ```bash
+        vi rhel8.config
+        ```
+    1. Add the following content into the config file:
+        ```bash
+        [rhui-microsoft-azure-rhel8]
+        name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
+        baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
+        enabled=1
+        gpgcheck=1
+        gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        ```
+    1. Save the file and run the following command:
+        ```bash
+        dnf --config rhel8.config install 'rhui-azure-rhel8'
+        ```
+    1. Update your VM
+        ```bash
+        sudo dnf update
+        ```
+
 
 ## Next steps
 * To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).

@@ -2,14 +2,14 @@
 title: Open Banking (PSD2) and Strong Customer Authentication (SCA) for Azure customers
 description: This article explains why multi-factor authentication is required for some Azure purchases and how to complete authentication.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/10/2020
 ms.author: banders
 
 ---
@@ -48,14 +48,13 @@ If your bank rejects the charges, your Azure account status will change to **Pas
 
 ### Settle outstanding charges for Marketplace and reservation purchases
 
-Marketplace and reservation purchases are billed separately from Azure services. If your bank rejects the Marketplace or reservation charges, your invoice status will show as **Past due** in the Azure portal. You can check the status of your Marketplace and reservation invoices by following these steps:
+Marketplace and reservation purchases are billed separately from Azure services. If your bank rejects the Marketplace or reservation charges, your invoice will become past due and you'll see the option to **Pay now** in the Azure portal. You can pay for past due Marketplace and reservation invoices by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Account Administrator.
 2. Search on **Cost Management + Billing.**
 3. Under 'Billing', select **Invoices**.
-4. Click on the **Azure Marketplace and reservations** tab on the right.
-5. Select the corresponding subscription.
-6. In the invoices grid, review the status column. If the invoice is **Due** or **Past due**, click **Pay now.** You're prompted to complete multi-factor authentication during the process.
+5. In the subscription drop-down filter, select the subscription associated with your Marketplace or reservation purchase.
+6. In the invoices grid, review the type column. If the type is **Azure Marketplace and Reservations**, then you'll see a **Pay now** link if the invoice is due or past due. If you don't see **Pay now**, it means your invoice has already been paid. You'll be prompted to complete multi-factor authentication during Pay now.
 
 ## Next steps
 - See [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md) if you need to pay an Azure bill.

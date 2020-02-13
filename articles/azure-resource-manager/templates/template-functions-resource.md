@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 02/10/2020
 ---
 # Resource functions for Azure Resource Manager templates
 
@@ -747,14 +747,14 @@ The preceding example returns an object in the following format:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template.
+Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |string (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
-| resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. |
+| resourceGroupName |No |string |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. Only provide this value when deploying at the scope of a resource group. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
@@ -763,7 +763,7 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-The resource ID is returned in the following format:
+When the template is deployed at the scope of a resource group, the resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -773,6 +773,12 @@ When used in a [subscription-level deployment](deploy-to-subscription.md), the r
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+When used in a [management group-level deployment](deploy-to-management-group.md) or tenant-level deployment, the resource ID is returned in the following format:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 To get the ID in other formats, see:
