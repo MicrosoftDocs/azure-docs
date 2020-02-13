@@ -17,7 +17,7 @@ Here's how it works: Azure AD B2C runs code in your customer's browser and uses 
 
 ##  Custom HTML page content
 
-Create an HTML page with your own branding. This page can be a static one `*.html`, or a dynamic HTML page (e.g .NET, Node.js, PHP) which will serve the content. The custom page content can contain any HTML elements (except insecure elements, such as iframes) CSS styling, and JavaScript. The only required element is a div element with id set to 'api', such as this one <div id="api"></div> within your HTML page.
+Create an HTML page with your own branding. This page can be a static page `*.html`, or a dynamic HTML page (e.g .NET, Node.js, PHP) which will serve the content. The custom page content can contain any HTML elements (except insecure elements, such as iframes) CSS styling, and JavaScript. The only required element is a div element with id set to 'api', such as this one <div id="api"></div> within your HTML page.
 
 ```html
 <!DOCTYPE html>
