@@ -17,11 +17,11 @@ This article explains how to measure query performance and volume using metrics.
 
 Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option.
 
-Conditions that produce the greatest veracity in data measurement include:
+Conditions that maximize the integrity of data measurements include:
 
-+ Use a billable service (a service created at the Basic or a Standard tier). The free service is shared by multiple subscribers, introducing a certain amount of volatility.
++ Use a billable service (a service created at either the Basic or a Standard tier). The free service is shared by multiple subscribers, which introduces a certain amount of volatility as loads shift.
 
-+ Use a single replica, if possible, so that calculations are limited to one machine. If you use multiple replicas, query metrics are averaged across multiple nodes, some of which might be faster. If you are tuning query performance, a single node gives you a more stable environment for testing.
++ Use a single replica, if possible, so that calculations are limited to one machine. If you use multiple replicas, query metrics are averaged across multiple nodes, some of which might be faster. If you are tuning query performance, a single node gives a more stable environment for testing.
 
 > [!Tip]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).

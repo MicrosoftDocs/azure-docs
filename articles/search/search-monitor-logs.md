@@ -64,11 +64,7 @@ In Blob storage, containers are only created when there is an activity to log or
 
 **It takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container.**
 
-Logs are archived for every hour in which activity occurs. The following path is an example of one log file created on January 12 2020 at 9:00 a.m.
-
-```
-resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=12/name=PT1H.json
-```
+Logs are archived for every hour in which activity occurs. The following path is an example of one log file created on January 12 2020 at 9:00 a.m. where each `/` is a folder: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=00/name=PT1H.json`
 
 ## Log schema
 
