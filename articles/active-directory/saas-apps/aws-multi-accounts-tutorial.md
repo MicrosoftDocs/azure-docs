@@ -322,9 +322,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!Note]
 	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
 
-	j. Go back to Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
+	j. Go back to Microsoft Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+	![Microsoft Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 18. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top.
 
