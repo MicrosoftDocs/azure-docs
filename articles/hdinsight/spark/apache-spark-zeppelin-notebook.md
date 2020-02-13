@@ -153,13 +153,17 @@ The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the
 This saves the notebook as a JSON file in your download location.
 
 ## Use Shiro to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
-As noted above, %sh interpreter will not be supported from HDInsight 4.0 onwards. Furthermore, since %sh interpreter introduces potential security issues, such as access keytabs using shell commands, it is removed from HDInsight 3.6 ESP clusters as well. It means %sh interpreter is not available when “Create new note” or in the Interpreter UI by default. On the other hand, privileged domain users can utilize Shiro.ini to control access to the Interpreter UI. Thus, only these users can create new %sh interpreters and set permissions on each new %sh interpreter.
-1. Define a role using a domain group name as follows, where adminGroupName is a group of privileged users in AAD (please note do not use special characters or white spaces in the group name), and content after “=” is the permissions on this role, “*” means the group has full permissions.
+As noted above, `%sh interpreter` will not be supported from HDInsight 4.0 onwards. Furthermore, since `%sh interpreter` introduces potential security issues, such as access keytabs using shell commands, it is removed from HDInsight 3.6 ESP clusters as well. It means %sh interpreter is not available when `“Create new note”` or in the `Interpreter UI` by default. On the other hand, privileged domain users can utilize `Shiro.ini` to control access to the Interpreter UI. Thus, only these users can create new %sh interpreters and set permissions on each new %sh interpreter.
+1. Define a role using a domain group name as follows, where `adminGroupName` is a group of privileged users in AAD (please note do not use special characters or white spaces in the group name), and content after `“=”` is the permissions on this role, `“*”` means the group has full permissions.
+```
 [roles]
 adminGroupName = *
-2. Specify which role(s) have access to Zeppelin interpreters as follows. As a result, all users in adminGroupName have access to Zeppelin interpreters and are able to create new interpreters. You can put multiple roles in roles[], separated by commas, then users that have all roles can access Zeppelin interpreters.
+```
+2. Specify which role(s) have access to Zeppelin interpreters as follows. As a result, all users in `adminGroupName` have access to Zeppelin interpreters and are able to create new interpreters. You can put multiple roles in `roles[]`, separated by commas, then users that have ALL roles can access Zeppelin interpreters.
+```
 [urls]
 /api/interpreter/** = authc, roles[adminGroupName]
+```
 
 ## Livy session management
 When you run the first code paragraph in your Zeppelin notebook, a new Livy session is created in your HDInsight Spark cluster. This session is shared across all Zeppelin notebooks that you subsequently create. If for some reason the Livy session is killed (cluster reboot, etc.), you will not be able to run jobs from the Zeppelin notebook.
