@@ -124,7 +124,7 @@ To create a connection monitor from the Azure portal, follow these steps:
 
    ![Screenshot showing the Basics tab in Connection Monitor](./media/connection-monitor-2-preview/create-cm-basics.png)
 
-1. On the **Test groups** tab, select **+ Test group**. To set up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-connection-monitor). 
+1. On the **Test groups** tab, select **+ Test group**. To set up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
 1. At the bottom of the tab, select **Next: Review + create** to review your connection monitor.
 
    ![Screenshot showing the Test groups tab and the pane where you add test group details](./media/connection-monitor-2-preview/create-tg.png)
@@ -417,7 +417,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
       ![Screenshot of Connection Monitor, showing the Add Sources panel and the Review tab](./media/connection-monitor-2-preview/review-sources.png)
 
-    * When you finish setting up sources, at the bottom of the **Add Sources** panel, select **Done**.
+   * When you finish setting up sources, at the bottom of the **Add Sources** panel, select **Done**.
 
 * **Destinations** – You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, or custom endpoints.
 
@@ -496,7 +496,7 @@ Based on the protocol that you chose in the test configuration, Connection Monit
 
 If you use HTTP, the service calculates the number of HTTP responses that returned a response code. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
-If you use TCP or ICMP, the service calculates the packet percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgement (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
+If you use TCP or ICMP, the service calculates the packet percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgment (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
 
 ### States of a test
 
