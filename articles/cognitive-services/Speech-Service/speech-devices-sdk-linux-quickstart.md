@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
 ---
 
@@ -34,7 +34,7 @@ This quickstart requires:
 * An Azure subscription key for the Speech service. [Get one for free](get-started.md).
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
    > [!NOTE]
-   > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to /home/wcaltest/JRE-Sample-Release
+   > This quickstart assumes that the app is extracted to /home/wcaltest/JRE-Sample-Release
 
 Make sure these dependencies are installed before starting Eclipse.
 
@@ -92,7 +92,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```
