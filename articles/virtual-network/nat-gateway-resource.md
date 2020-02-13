@@ -145,7 +145,7 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 ### NAT and VM with instance-level Public IP
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="350" title="Virtual Network NAT and VM with instance-level Public IP">
+  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT and VM with instance-level Public IP">
 </p>
 
 *Virtual Network NAT and VM with instance-level Public IP*
@@ -171,7 +171,7 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 ### NAT and VM with instance-level public IP and public Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="400" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
+  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
 </p>
 
 *Virtual Network NAT and VM with instance-level public IP and public Load Balancer*
