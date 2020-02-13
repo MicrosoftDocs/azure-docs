@@ -1298,8 +1298,8 @@
         href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
-      - name: Skytap
-        href: skytap-tutorial.md
+      - name: Single Sign-on for Skytap
+        href: single-sign-on-for-skytap-tutorial.md
       - name: Skyward Qmlativ
         href: skyward-qmlativ-tutorial.md
       - name: Slack
