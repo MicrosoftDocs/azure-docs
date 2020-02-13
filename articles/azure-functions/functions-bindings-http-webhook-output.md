@@ -17,7 +17,7 @@ The default return value for an HTTP-triggered function is:
 - `HTTP 204 No Content` with an empty body in Functions 2.x and higher
 - `HTTP 200 OK` with an empty body in Functions 1.x
 
-## Output - configuration
+## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries, there are no attribute properties that correspond to these *function.json* properties.
 
@@ -69,5 +69,6 @@ This section describes the global configuration settings available for this bind
 |maxOutstandingRequests|200<sup>\*</sup>|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, as well as any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting. <br/><sup>\*</sup>The default for a Consumption plan is 200. The default for a Dedicated plan is unbounded (`-1`).|
 |routePrefix|api|The route prefix that applies to all routes. Use an empty string to remove the default prefix. |
 
-
 ## Next steps
+
+- [Run a function from an HTTP request](./functions-bindings-http-webhook-trigger.md)

@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Azure Functions HTTP trigger
 
-The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to [webhooks](https://en.wikipedia.org/wiki/Webhook).
+The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks.
 
 The default return value for an HTTP-triggered function is:
 
@@ -106,7 +106,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-You can bind to a custom object instead of `HttpRequest`. This object is created from the body of the request and parsed as JSON. Similarly, a type can be returned with a `200` response and [output](./functions-bindings-http-webhook-output.md) in the response body.
+You can bind to a custom object instead of `HttpRequest`. This object is created from the body of the request and parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a `200` status code.
 
 ```csharp
 using System.Net;
@@ -237,9 +237,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 * [Read parameter from a route](#read-parameter-from-a-route)
 * [Read POJO body from a POST request](#read-pojo-body-from-a-post-request)
 
-### Read parameter from the query string
+The following examples show the HTTP trigger binding.
 
-This example reads a parameter, named `id`, from the query string, and uses it to build a JSON document returned to the client, with content type `application/json`. 
+#### Read parameter from the query string
+
+This example reads a parameter, named `id`, from the query string, and uses it to build a JSON document returned to the client, with content type `application/json`.
 
 ```java
 @FunctionName("TriggerStringGet")
@@ -276,7 +278,7 @@ public HttpResponseMessage run(
 }
 ```
 
-### Read body from a POST request
+#### Read body from a POST request
 
 This example reads the body of a POST request, as a `String`, and uses it to build a JSON document returned to the client, with content type `application/json`.
 
@@ -312,7 +314,7 @@ This example reads the body of a POST request, as a `String`, and uses it to bui
     }
 ```
 
-### Read parameter from a route
+#### Read parameter from a route
 
 This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`. T
 
@@ -350,7 +352,7 @@ public HttpResponseMessage run(
 }
 ```
 
-### Read POJO body from a POST request
+#### Read POJO body from a POST request
 
 Here is the code for the `ToDoItem` class, referenced in this example:
 
@@ -420,7 +422,7 @@ public HttpResponseMessage run(
 
 In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HttpTrigger` attribute is available to configure the function.
 
-You can set the authorization level and allowable HTTP methods a number of different ways. Options include attribute constructor parameters, webhook types, and route templates. For more information about these settings, see [Configuration](#configuration).
+You can set the authorization level and allowable HTTP methods in attribute constructor parameters, webhook type, and a route template. For more information about these settings, see [configuration](#configuration).
 
 # [C#](#tab/csharp)
 
@@ -478,10 +480,10 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a| Required - must be set to `httpTrigger`. |
 | **direction** | n/a| Required - must be set to `in`. |
 | **name** | n/a| Required - the variable name used in function code for the request or request body. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required (default)</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
 | **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
+| **webHookType** | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
 
 ## Usage
 
@@ -655,7 +657,6 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 }
 ```
 
-
 ### Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
@@ -828,4 +829,7 @@ The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL le
 
 If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
 
+
 ## Next steps
+
+- [Return an HTTP response from a function](./functions-bindings-http-webhook-output.md)
