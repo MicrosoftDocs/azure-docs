@@ -14,7 +14,7 @@ This article provides an overview of the options available to setup Azure Monito
 
 - Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine).
 
-- Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises
+- Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises using AKS Engine.
 
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 
