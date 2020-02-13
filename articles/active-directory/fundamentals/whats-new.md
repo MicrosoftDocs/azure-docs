@@ -81,7 +81,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 ---
-
+ 
 ### New Federated Apps available in Azure AD App gallery - January 2020
 
 **Type:** New feature  
@@ -95,7 +95,7 @@ In January 2020, we've added these 33 new apps with Federation support to the ap
 For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
- 
+
 ### Two new Identity Protection detections
 
 **Type:** New feature  
