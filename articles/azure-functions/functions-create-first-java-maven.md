@@ -145,7 +145,7 @@ az login
 > [!TIP]
 > If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az-account-set) to set the default subscription for this session. 
 
-Use the following Maven command to deploy your project to a new function app. 
+Use the following command to deploy your project to a new function app. 
 
 ::: zone pivot="java-build-tools-maven" 
 ```bash
