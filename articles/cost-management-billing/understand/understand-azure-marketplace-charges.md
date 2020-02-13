@@ -1,18 +1,16 @@
 ---
 title: Understand your Azure external service charges | Microsoft Docs
 description: Learn about billing of external services, formerly known as Marketplace, charges in Azure.
-author: jureid
-manager: jureid
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
+
 # Understand your Azure external services charges
 External services are published by third-party software vendors in the Azure Marketplace. For example, SendGrid is an external service that you can purchase in Azure, but is not published by Microsoft. Some Microsoft products are sold through Azure marketplace, too.
 
