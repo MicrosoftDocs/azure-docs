@@ -40,7 +40,7 @@ productDirectory:
     # Card
     - title: Anomaly Detector (Preview)
       summary: Easily add anomaly detection capabilities to your apps
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
       azureCategories:
         - featured
         - ai-machine-learning
@@ -79,7 +79,7 @@ productDirectory:
     # Card
     - title: Azure Open Datasets
       summary: Cloud platform to host and share curated open datasets to accelerate development of machine learning models
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/open-datasets.svg
       azureCategories:
         - ai-machine-learning
       url: open-datasets/index.yml
@@ -171,7 +171,7 @@ productDirectory:
     # Card
     - title: Custom Vision
       summary: Easily customize your own state-of-the-art computer vision models for your unique use case
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/Custom-Vision-Service/index.yml
@@ -600,7 +600,7 @@ productDirectory:
     # Card
     - title: Windows Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg
       azureCategories:
         - compute
         - windows-virtual-desktop
@@ -699,7 +699,7 @@ productDirectory:
     # Card
     - title: Azure SQL Database Edge (Preview)
       summary: Small-footprint, edge-optimized data engine with built-in AI
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
       azureCategories:
         - featured
         - databases
@@ -845,7 +845,7 @@ productDirectory:
     # Card
     - title: Azure Arc (Preview)
       summary: Bring Azure services and management to any infrastructure
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/arc.svg
       azureCategories:
         - featured
         - hybrid
@@ -1271,7 +1271,7 @@ productDirectory:
     # Card
     - title: Azure Internet Analyzer (Preview)
       summary: Test how networking infrastructure changes will impact your customers' performance
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/internet-analyzer.svg
       azureCategories:
         - featured
         - networking
@@ -1358,7 +1358,7 @@ productDirectory:
     # Card
     - title: Azure HPC Cache
       summary: File caching for high-performance computing (HPC)
-      imageSrc: https://static.docs.com/ui/media/product/azure/all-resources.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/hpc-cache.svg
       azureCategories:
         - storage
       url: hpc-cache/index.yml
