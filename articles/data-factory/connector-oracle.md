@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/13/2020
 ms.author: jingwang
 
 ---
@@ -42,7 +42,6 @@ Specifically, this Oracle connector supports:
     - Oracle 9i R2 (9.2) and higher
     - Oracle 8i R3 (8.1.7) and higher
     - Oracle Database Cloud Exadata Service
-- Copying data by using Basic or OID authentications.
 - Parallel copying from an Oracle source. See the [Parallel copy from Oracle](#parallel-copy-from-oracle) section for details.
 
 > [!Note]
