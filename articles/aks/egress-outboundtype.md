@@ -1,5 +1,5 @@
 ---
-title: Customize user defined routes (UDR) in Azure Kubernetes Service (AKS)
+title: Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/31/2020
 ms.author: mlearned
 
-#Customer intent: As a cluster operator, I want to define my own egress paths with user defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
+#Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
-# Customize cluster egress with a User Defined Route (Preview)
+# Customize cluster egress with a User-Defined Route (Preview)
 
 Egress from an AKS cluster can be customized to fit specific scenarios. By default, AKS will provision a Standard SKU Load Balancer to be setup and used for egress. However, this default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
@@ -30,7 +30,7 @@ This article walks through how to customize a cluster's egress route to support 
 * API version of `2020-01-01` or greater
 
 ## Install the latest Azure CLI AKS Preview extension
-To use private clusters, you need the Azure CLI AKS Preview extension version 0.4.18 or later. Install the Azure CLI AKS Preview extension by using the az extension add command, and then check for any available updates by using the following az extension update command:
+To set the outbound type of a cluster, you need the Azure CLI AKS Preview extension version 0.4.18 or later. Install the Azure CLI AKS Preview extension by using the az extension add command, and then check for any available updates by using the following az extension update command:
 
 ```azure-cli
 # Install the aks-preview extension
@@ -41,10 +41,10 @@ az extension update --name aks-preview
 ```
 
 ## Limitations
-* During preview, `outboundType` can only be defined at cluster create time and cannot be updated afterwards.
+* During preview, `outboundType` can only be defined at cluster create time and cannot be updated afterward.
 * During preview, `outboundType` AKS clusters should use Azure CNI. Kubenet is configurable,  usage requires manual associations of the route table to the AKS subnet.
 * Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
-* Setting `outboundType` to a value of `UDR` requires a user defined route with valid outbound connectivity for the cluster.
+* Setting `outboundType` to a value of `UDR` requires a user-defined route with valid outbound connectivity for the cluster.
 * Setting `outboundType` to a value of `UDR` implies the ingress source IP routed to the load-balancer may **not match** the cluster's outgoing egress destination address.
 
 ## Overview of outbound types in AKS
@@ -54,7 +54,7 @@ An AKS cluster can be customized with a unique `outboundType`. There are two opt
 1. `userDefinedRoute`
 
 > [!IMPORTANT]
-> This impacts only the egress traffic of your cluster. To learn about ingress visit [setting up ingress controllers](ingress-basic.md).
+> This impacts only the egress traffic of your cluster. See [setting up ingress controllers](ingress-basic.md) for more information.
 
 ### Outbound type of loadBalancer
 
@@ -74,21 +74,21 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 * If `userDefinedRoute` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
    * Cluster must be deployed into an existing virtual network with a subnet that has been configured.
-      * A valid user defined route (UDR) must exist on the subnet with outbound connectivity.
+      * A valid user-defined route (UDR) must exist on the subnet with outbound connectivity.
    * AKS resource provider will deploy a standard load balancer (SLB). This is not configured with any rules and [does not incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/).
      * AKS will **not** automatically provision a public IP address for the SLB frontend.
      * AKS will **not** automatically configure the load balancer backend pool.
 
 ## Deploy a cluster with outbound type of UDR and Azure Firewall
 
-To illustrate the application of a cluster with outbound type using a user defined route, a cluster can be configured on a virtual network peered with an Azure Firewall.
+To illustrate the application of a cluster with outbound type using a user-defined route, a cluster can be configured on a virtual network peered with an Azure Firewall.
 
 ![Locked down topology](media/egress-outboundtype/outboundtype-udr.png)
 
 * Ingress is forced to flow through firewall filters
    * An isolated subnet holds an internal load balancer for routing into agent nodes
    * Agent nodes are isolated in a dedicated subnet
-* Outbound requests start from agent nodes to the Azure Firewall internal IP using a user defined route
+* Outbound requests start from agent nodes to the Azure Firewall internal IP using a user-defined route
    * Requests from AKS agent nodes follow a UDR that has been placed on the subnet the AKS cluster was deployed into.
    * Azure Firewall egresses out of the virtual network from a public IP frontend
    * Access to the AKS control plane is protected by an NSG, which has enabled the firewall frontend IP address
@@ -236,7 +236,7 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
-To learn more about how to create custom, or user-defined, routes read [virtual network documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
+See [virtual network and route table documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
 
 ## Adding network firewall rules
 
@@ -275,7 +275,7 @@ az network firewall application-rule create -g $RG -f $FWNAME \
         'acs-mirror.azureedge.net'
 ```
 
-To learn more about Azure Firewall rules, visit the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/overview).
+See [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/overview) to learn more about the Azure Firewall service.
 
 ## Associate the route table to AKS
 
@@ -289,7 +289,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ## Deploy AKS with outbound type of UDR to the existing network
 
-Now an AKS cluster can be deployed into the existing virtual network setup. In order to set a cluster outbound type to user defined routing, an existing subnet must be provided to AKS.
+Now an AKS cluster can be deployed into the existing virtual network setup. In order to set a cluster outbound type to user-defined routing, an existing subnet must be provided to AKS.
 
 ![aks-deploy](media/egress-outboundtype/outboundtype-udr.png)
 
@@ -509,7 +509,7 @@ kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        
 ```
 
 ```azure-cli
-az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses * --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
+az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
 ## Clean up resources
@@ -533,6 +533,6 @@ You should see an image similar to the image below.
 
 ## Next steps
 
-To learn more about virtual network traffic routing, visit the [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview.)
+See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-To learn more read about managing a route table, visit [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
