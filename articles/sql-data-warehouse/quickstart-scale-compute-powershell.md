@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 ---
 
 
-# Quickstart: Scale compute in SQL pool using Azure PowerShell
+# Quickstart: Scale compute in in Azure Synapse Analytics SQL pool using Azure PowerShell
 
 Scale compute in SQL pool using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 

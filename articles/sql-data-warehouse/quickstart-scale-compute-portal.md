@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Quickstart: Scale compute in SQL pool in the Azure portal
+# Quickstart: Scale compute in Azure Synapse Analytics SQL pool in the Azure portal
 
 Scale compute in SQL pool in the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
