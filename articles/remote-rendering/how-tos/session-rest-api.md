@@ -24,7 +24,7 @@ For the sample scripts below we chose the region *westus2*.
 
 ### Example script: Choose an endpoint
 
-```ps
+```PowerShell
 $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 ```
 
@@ -34,7 +34,7 @@ If you don't have a Remote Rendering account, [create one](create-an-account.md)
 
 ### Example script: Set accountId and accountKey
 
-```ps
+```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
 ```
@@ -45,7 +45,7 @@ $accountKey = "*******************************************="
 
 ### Example script: Request a token
 
-```ps
+```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 $webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
@@ -78,13 +78,13 @@ This command creates a session. It returns the ID of the new session. You need t
 
 ### Example script: Create a session
 
-```ps
+```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'standard' }" -Headers @{ Authorization = "Bearer $token" }
 ```
 
 Example output:
 
-```ps
+```PowerShell
 StatusCode        : 202
 StatusDescription : Accepted
 Content           : {"sessionId":"d31bddca-dab7-498e-9bc9-7594bc12862f"}
@@ -108,7 +108,7 @@ RawContentLength  : 52
 
 The response from the request above includes a **sessionId** which you need for all followup requests.
 
-```ps
+```PowerShell
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
@@ -135,13 +135,13 @@ This command updates a session's parameters. Currently you can only extend the l
 
 ### Example script: Update a session
 
-```ps
+```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
 ```
 
 Example output:
 
-```ps
+```PowerShell
 StatusCode        : 200
 StatusDescription : OK
 Content           : {}
@@ -171,13 +171,13 @@ This command returns a list of active sessions.
 
 ### Example script: Query active sessions
 
-```ps
+```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
 ```
 
 Example output:
 
-```ps
+```PowerShell
 StatusCode        : 200
 StatusDescription : OK
 Content           : []
@@ -214,13 +214,13 @@ This command returns information about a session, such as its VM hostname.
 
 ### Example script: Get session properties
 
-```ps
+```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
 ```
 
 Example output:
 
-```ps
+```PowerShell
 StatusCode        : 200
 StatusDescription : OK
 Content           : {"message":null,"sessionElapsedTime":"00:00:01","sessionHostname":"5018fee8-817e-4366-9179-556af79a4240.remoterenderingvm.westeurope.mixedreality.azure.com","sessionId":"e13d2c44-63e0-4591-991e-f9e05e599a93","sessionMaxLeaseTime":"04:00:00","sessionStatus":"Ready"}
@@ -257,13 +257,13 @@ This command stops a session. The allocated VM will be reclaimed shortly after.
 
 ### Example script: Stop a session
 
-```ps
+```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Delete -Headers @{ Authorization = "Bearer $token" }
 ```
 
 Example output:
 
-```ps
+```PowerShell
 StatusCode        : 204
 StatusDescription : No Content
 Content           : {}

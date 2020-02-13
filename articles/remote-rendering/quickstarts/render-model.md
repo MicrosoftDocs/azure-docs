@@ -49,7 +49,7 @@ The following software must be installed:
 1. Open a **new** command prompt (if you had to change your `PATH` environment variable you cannot reuse an existing one).
 1. Add the "arrPackages" feed with the following NuGet command:
   
-    ```plaintext
+    ```cmd
     NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"
     ```
 
@@ -59,7 +59,7 @@ Open a command prompt (type `cmd` in the Windows start menu) and change to a dir
 
 Run the following commands:
 
-```plaintext
+```cmd
 mkdir ARR
 cd ARR
 git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient
@@ -74,7 +74,7 @@ It expects Unity packages to be present in directory beside it, which you need t
 
 You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following:
 
-```plaintext
+```cmd
 cd arrClient\Unity
 nuget install com.microsoft.azure.remote_rendering -ExcludeVersion
 nuget install ScriptableRenderPipeline -ExcludeVersion

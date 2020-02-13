@@ -159,13 +159,13 @@ Change **modelLocation** to point to the file on your disk that you intend to co
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription:
 
-```ps
+```PowerShell
 Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
 Change to the `arrClient\Scripts` directory and run the conversion script:
 
-```ps
+```PowerShell
 .\Conversion.ps1
 ```
 

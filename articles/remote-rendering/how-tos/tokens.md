@@ -51,7 +51,7 @@ Replace *accountId* and *accountKey* with your respective data.
 
 The PowerShell code below demonstrates how to send the necessary REST request to the STS. It then prints the token to the PowerShell prompt.
 
-```ps
+```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
 

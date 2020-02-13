@@ -81,7 +81,7 @@ The following software must be installed:
 1. Open a **new** command prompt (if you had to change your `PATH` environment variable you cannot reuse an existing one).
 1. Add the "arrPackages" feed with the following NuGet command:
   
-    ```plaintext
+    ```cmd
     NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"
     ```
 
@@ -93,7 +93,6 @@ For development with Unity, install
 * Install these components in Unity:
   * **UWP** - Universal Windows Platform Build Support
   * **IL2CPP** - Windows Build Support (IL2CPP)
-
 
 ## Next steps
 
