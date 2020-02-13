@@ -94,7 +94,6 @@ For development with Unity, install
   * **UWP** - Universal Windows Platform Build Support
   * **IL2CPP** - Windows Build Support (IL2CPP)
 
-
 ## Next steps
 
 * [Quickstart: Render a model with Unity](../quickstarts/render-model.md)

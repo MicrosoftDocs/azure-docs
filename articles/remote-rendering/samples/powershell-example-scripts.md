@@ -81,7 +81,7 @@ For details, see [Prepare an Azure Storage account](../how-tos/conversion/blob-s
 
 If you want to run **Conversion.ps1**, you can optionally fill out this structure, or pass the path to the source file as a command-line argument:
 
-```ps1
+```PowerShell
 ./Conversion.ps1 -ModelLocation "C:\\models\\box.fbx"
 ```
 
@@ -99,7 +99,7 @@ This script is used to create, query, and stop rendering sessions.
 
 Normal usage with a fully filled out arrconfig.json:
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1
 ```
 
@@ -107,19 +107,19 @@ The script will call the [session management REST API](../how-tos/session-rest-a
 
 To use an **alternative config** file:
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
 You can **override individual settings** from the config file:
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
 To only **start a session without polling**, you can use:
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -CreateSession
 ```
 
@@ -129,7 +129,7 @@ The *sessionId* that the script retrieves must be passed to most other session c
 
 To get a session's properties, run:
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
@@ -137,13 +137,13 @@ Use `-Poll` to wait until the session is *ready* or an error occurred.
 
 ### List active sessions
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -GetSessions
 ```
 
 ### Stop a session
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -StopSession -Id <sessionID>
 ```
 
@@ -154,7 +154,7 @@ At the moment, we only support changing the maxLeaseTime of a session.
 > [!NOTE]
 > The lease time is always counted from the time when the session VM was initially created. So to extend the session lease by another hour, increase *maxLeaseTime* by one hour.
 
-```ps1
+```PowerShell
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
@@ -167,7 +167,7 @@ This script is used to convert input models into the Azure Remote Rendering spec
 
 Normal usage with a fully filled out arrconfig.json:
 
-```ps1
+```PowerShell
 .\Conversion.ps1
 ```
 
@@ -182,25 +182,25 @@ This will:
 
 To use an **alternative config** file:
 
-```ps1
+```PowerShell
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
 To only **start model conversion without polling**, you can use:
 
-```ps1
+```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
 You can **override individual settings** from the config file:
 
-```ps1
+```PowerShell
 .\Conversion.ps1 -ModelLocation D:\tmp\arr\pyramid.fbx
 ```
 
 If you want to convert a model that is already uploaded to your input container, use the `**-ModelName**` option, instead of `-ModelLocation`. Pass the filename inside the input container as the argument:
 
-```ps1
+```PowerShell
 .\Conversion.ps1 -ConvertAsset -ModelName "mymodel.fbx"
 ```
 
@@ -208,7 +208,7 @@ The script will return a *conversionId*.
 
 ### Retrieve conversion status
 
-```ps1
+```PowerShell
 .\Conversion.ps1 -GetAssetStatus -Id <conversionId> [-Poll]
 ```
 

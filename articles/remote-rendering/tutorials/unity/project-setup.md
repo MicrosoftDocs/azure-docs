@@ -41,11 +41,11 @@ For this tutorial you need:
 
 1. Install the latest NuGet packages:
 
-    ```ps1
+    ```PowerShell
     nuget.exe install com.microsoft.azure.remote_rendering -ExcludeVersion
     ```
 
-    ```ps1
+    ```PowerShell
     nuget.exe install ScriptableRenderPipeline -ExcludeVersion
     ```
 
