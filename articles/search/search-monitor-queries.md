@@ -48,7 +48,7 @@ Service-wide, query performance is measured as search latency (how long a query 
 | Minimum | Shortest running query in the sample.  | 
 | Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
 
-Consider the following example of Latency metrics: 86 queries were sampled, with an average duration of 23.26 milliseconds. A minimum of 0 indicates some queries were dropped. The longest running query took 1000 milliseconds to complete. Total execution time was 2 seconds.
+Consider the following example of **Search Latency** metrics: 86 queries were sampled, with an average duration of 23.26 milliseconds. A minimum of 0 indicates some queries were dropped. The longest running query took 1000 milliseconds to complete. Total execution time was 2 seconds.
 
 ![Latency aggregations](./media/search-monitor-usage/metrics-latency.png "Latency aggregations")
 
@@ -84,7 +84,7 @@ In the following screenshot, the first number is the count (or number of request
 
 ## Explore metrics in the portal
 
-For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows **Search queries per second (per search unit)** over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation from the default to another type.
+For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows three metrics (**Search latency**, **Search queries per second (per search unit)**, **Throttled Search Queries Percentage**) over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation type.
 
 For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
 
@@ -106,7 +106,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 A  metric alert establishes a threshold at which you will either receive a notification or trigger a corrective action that you define in advance. 
 
-For a search service, it's common to create a metric alert for throttled queries. If you know when queries are dropped, you can look for remedies that reduce load or increase capacity. For example, if throttled queries increase during indexing, you could postpone it until query activity subsides.
+For a search service, it's common to create a metric alert for search latency and throttled queries. If you know when queries are dropped, you can look for remedies that reduce load or increase capacity. For example, if throttled queries increase during indexing, you could postpone it until query activity subsides.
 
 When pushing the limits of a particular replica-partition configuration, setting up alerts for query volume thresholds (QPS) is also helpful.
 
@@ -130,25 +130,27 @@ When pushing the limits of a particular replica-partition configuration, setting
 
 If you specified an email notification, you will receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
 
-## Collect search term inputs
+## Query strings used in queries
 
-When you enable diagnostic logging, the system captures query requests in the **AzureDiagnostic** log. As a prerequisite, you must have already enabled diagnostic logging, specifying a log analytics workspace or another storage option.
+When you enable diagnostic logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [diagnostic logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
 
 1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
 
-1. Run the following query to return query operations. The last statement excludes query strings consisting of an empty or unspecified search, which cuts down the noise in your results.
+1. Run the following expression to search Query.Search operations, returning a tabular results set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements excludes query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
 
    ```
-   AzureDiagnostics
-    | where OperationName == "Query.Search" 
-    | where Query_s != "?api-version=2019-05-06&search=*" 
+    AzureDiagnostics 
+     | project OperationName, Query_s, IndexName_s, Documents_d 
+     | where OperationName == "Query.Search"
+     | where Query_s != "?api-version=2019-05-06&search=*"
+     | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Initially, the results consist of the full operation, with the query string collapsed inside the structure. Set the Column filter to *Query_s* to show just that column. You can now scroll through a list of query strings submitted to the service.
+1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
 
    ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
 
-While this technique works for ad hoc exploration, building a report lets you consolidate and present the query strings in a layout more conducive to analysis.
+While this technique works for ad hoc investigation, building a report lets you consolidate and present the query strings in a layout more conducive to analysis.
 
 ## Report query data
 
