@@ -18,7 +18,7 @@ This article has a few guidelines to troubleshoot problems that may occur on the
 ## Low video quality
 
 The video quality can be compromised either by network quality or the missing H265 video codec.
-* See steps to [identfy network problems](#unstable-holograms).
+* See steps to [identify network problems](#unstable-holograms).
 * See [system requirements](../overview/system-requirements#development-pc) for installing latest graphics driver.
 
 ## Black screen after successful model loading
@@ -28,7 +28,7 @@ If you are connected to the rendering runtime and loaded a model successfully, b
 As a rule of thumb, we recommend testing the following two things before doing a more in-depth analysis:
 
 * Is the H265 codec installed?
-Albeit there should be a fallback to the H264 codec, we have seen cases where this fallback did not work properly.
+Albeit there should be a fallback to the H264 codec, we have seen cases where this fallback did not work properly. See [system requirements](../overview/system-requirements#development-pc) for installing latest graphics driver.
 * When using a Unity project, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again. In some cases cached data caused the sample to not function properly for no obvious reason.
 
 If these two steps did not help, it is required to find out whether video frames are received by the client or not. This can be queried programmatically as explained in the [server-side performance queries](../overview/features/performance-queries.md) chapter. The `FrameStatistics struct` has a member that indicates how many video frames have been received. If this number is larger than 0 and increasing over time, the client receives actual video frames from the server. Accordingly it must be a problem on the client side.
