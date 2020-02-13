@@ -10,23 +10,31 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
 
 # How to monitor the Gen2 cache
-The Gen2 storage architecture automatically tiers your most frequently queried columnstore segments in a cache residing on NVMe based SSDs designed for Gen2 data warehouses. Greater performance is realized when your queries retrieve segments that are residing in the cache. This article describes how to monitor and troubleshoot slow query performance by determining whether your workload is optimally leveraging the Gen2 cache.  
+
+This article describes how to monitor and troubleshoot slow query performance by determining whether your workload is optimally leveraging the Gen2 cache.
+
+The Gen2 storage architecture automatically tiers your most frequently queried columnstore segments in a cache residing on NVMe based SSDs designed for Gen2 data warehouses. Greater performance is realized when your queries retrieve segments that are residing in the cache.
+ 
 ## Troubleshoot using the Azure portal
-You can use Azure Monitor to view Gen2 cache metrics to troubleshoot query performance. First go to the Azure portal and click on Monitor:
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+You can use Azure Monitor to view Gen2 cache metrics to troubleshoot query performance. First go to the Azure portal and click on **Monitor**, **Metrics** and **+ Select a scope**:
 
-Select the metrics button and fill in the **Subscription**, **Resource** **group**, **Resource type**, and **Resource name** of your data warehouse.
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-The key metrics for troubleshooting the Gen2 cache are **Cache hit percentage** and **Cache used percentage**. Configure the Azure metric chart to display these two metrics.
+Use the search and drop down bars to locate your data warehouse. Then select apply.
 
-![Cache Metrics](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+The key metrics for troubleshooting the Gen2 cache are **Cache hit percentage** and **Cache used percentage**. Select **Cache hit percentage** then use the **add metric** button to add **Cache used percentage**. 
+
+![Cache Metrics](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## Cache hit and used percentage
+
 The matrix below describes scenarios based on the values of the cache metrics:
 
 |                                | **High Cache hit percentage** | **Low Cache hit percentage** |
