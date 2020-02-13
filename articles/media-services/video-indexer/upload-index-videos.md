@@ -43,7 +43,7 @@ The article shows how to upload and index your videos with these options:
 
     If it is a private URL, the access token need to be provided in the request.
 - The URL has to point to a valid media file and not to a webpage, such as a link to the `www.youtube.com` page.
-- You can upload up to 60 movies per minute.
+- In a paid account you can upload up to 50 movies per minute, and in a trial account up to 5 movies per minute.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
