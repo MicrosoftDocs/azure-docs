@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # What SAP software is supported for Azure deployments
 This article describes how you can find out what SAP software is supported for Azure deployments and what the necessary operating system releases or DBMS releases are.
 
-For evaluating whether your current SAP software is supported and what OS and DBMS releases are supported with your SAP software in Azure, you are going to need access to:
+Evaluating, whether your current SAP software is supported and what OS and DBMS releases are supported with your SAP software in Azure, you are going to need access to:
 
 - SAP support notes
 - SAP Product availability Matrix
@@ -31,7 +31,7 @@ For evaluating whether your current SAP software is supported and what OS and DB
 
 
 ## General restrictions for SAP workload
-Azure IaaS services that can be used for SAP workload are limited to x86-64 or x64 hardware. There are no Sparc or Power CPU based offers that apply to SAP workload. Customers who run on their applications on operating systems proprietary to hardware architectures like IBM mainframe or AS400, or where the operating systems HP-UX, Solaris or AIX are in use, need to change their SAP applications including DBMS to one of the following operating systems:
+Azure IaaS services that can be used for SAP workload are limited to x86-64 or x64 hardware. There is no Sparc or Power CPU based offers that apply to SAP workload. Customers who run on their applications on operating systems proprietary to hardware architectures like IBM mainframe or AS400, or where the operating systems HP-UX, Solaris or AIX are in use, need to change their SAP applications including DBMS to one of the following operating systems:
 
 - Windows server 64bit for the x86-64 platform
 - SUSE linux 64bit for the x86-64 platform
@@ -42,7 +42,7 @@ In combination with SAP software, no other OS releases or Linux distributions ar
 
 
 ## You start here
-The starting point for you is [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). As you go through this SAP note from top to bottom several areas of supported software and VMs are shown
+The starting point for you is [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). As you go through this SAP note from top to bottom, several areas of supported software and VMs are shown
 
 The first section lists the minimum requirements for operating releases that are supported with SAP software in Azure VMs in general. If you are not reaching those minimum requirements and run older releases of these operating systems, you need to upgrade your OS release to such a minimum release or even more recent releases. It is correct that Azure in general would support older releases of some of those operating systems. But the restrictions or minimum releases as listed are based on tests and qualifications executed and are not going to be extended further back. 
 
@@ -50,11 +50,11 @@ The first section lists the minimum requirements for operating releases that are
 > [!NOTE]
 >There are some specific VM types, HANA Large Instances or SAP workloads that are going to require more recent OS releases. Cases like that will be mentioned throughout the document. Cases like that are clearly documented either in SAP notes or other SAP publications.
 
-The section following lists general SAP platforms that are supported with the releases that are supported and more important the SAP kernels that are supported. It lists NetWeaver/ABAP or Java stacks that are supported AND which need minimum kernel releases. More recent ABAP stacks are supported on Azure, but do not need minimum kernel releases since changes for Azure got implemented from the start of the development of the more recent stacks
+The section following lists general SAP platforms that are supported with the releases that are supported and more important the SAP kernels that are supported. It lists NetWeaver/ABAP or Java stacks that are supported AND, which need minimum kernel releases. More recent ABAP stacks are supported on Azure, but do not need minimum kernel releases since changes for Azure got implemented from the start of the development of the more recent stacks
 
 You need to check:
 
-- Whether the SAP applications you are running are covered by the minimum releases stated. If not, you need to define a new target release, check in the SAP Product Availability Matrix, what operating system builds and DBMS combinations are supported with the new target release. So, that you can choose the right operating system release and DBMS release
+- Whether the SAP applications you are running, are covered by the minimum releases stated. If not, you need to define a new target release, check in the SAP Product Availability Matrix, what operating system builds and DBMS combinations are supported with the new target release. So, that you can choose the right operating system release and DBMS release
 - Whether you need to update your SAP kernels in a move to Azure
 
 
@@ -68,7 +68,7 @@ Operating system, Oracle DBMS releases and Oracle functionality supported on Azu
 
 - Minimum Oracle release supported on Azure VMs that are certified for NetWeaver is Oracle 11g Release 2 Patchset 3  (11.2.0.4)
 - As guest operating systems only Windows and Oracle Linux qualify. Exact releases of the OS and related minimum DBMS releases are listed in the note
-- The support of Oracle Linux extends to the Oracle DBMS client as well. This means that all SAP components, like dialog instances of the ABAP or Java Stack need to run on Oracle Linux as well. Only SAP components within such a SAP system that would not connect to the Oracle DBMS would be allowed to run a different Linux operating system
+- The support of Oracle Linux extends to the Oracle DBMS client as well. This means that all SAP components, like dialog instances of the ABAP or Java Stack need to run on Oracle Linux as well. Only SAP components within such an SAP system that would not connect to the Oracle DBMS would be allowed to run a different Linux operating system
 - Oracle RAC is not supported 
 - Oracle ASM is supported for some of the cases. Details are listed in the note
 - Non-Unicode SAP systems are only supported with application servers running with Windows guest OS. The guest operating system of the DBMS can be Oracle Linux or Windows. Reason for this restriction is apparent when checking the SAP Product Availability Matrix (PAM). For Oracle Linux, SAP never released non-Unicode SAP kernels
@@ -77,15 +77,15 @@ Knowing the DBMS releases that are supported with the targeted Azure infrastruct
 
 
 ## SAP HANA support
-In Azure there are two services which can be used to run HANA database:
+In Azure there are two services, which can be used to run HANA database:
 
 - Azure Virtual Machines
-- [HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 For running SAP HANA, SAP has more and stronger conditions infrastructure needs to meet than for running NetWeaver or other SAP applications and DBMS. As a result a smaller number of Azure VMs qualify for running the SAP HANA DBMS. The list of supported Azure infrastructure supported for SAP HANA can be found in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
 > [!NOTE]
-> The units starting with the letter 'S' are HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
+> The units starting with the letter 'S' are HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
 
 For the usage of SAP HANA, different minimum OS releases may apply than for the general NetWeaver cases. You need to check out the supported operating systems for each unit individually since those might vary. You do so by clicking on each unit. More details will appear. One of the details listed is the different operating systems supported for this specific unit.
 
@@ -101,21 +101,21 @@ As you know the specific HANA releases you can run on the targeted Azure infrast
 
 
 ## Certified Azure VMs and HANA Large Instance units and business transaction throughput
-Besides evaluating supported operating system releases, DBMS releases and dependent support SAP software releases for Azure infrastructure units, you have the need to qualify these units by business transaction throughput which is generally expressed in the unit 'SAP' by SAP. All the SAP sizing circles around SAPS. Evaluating existing SAP systems, you usually can, with the help of your infrastructure provider, calculate the SAPS of the units. For the DBMS layer as well as for the application layer. In other cases where new functionality is created, a sizing exercise with SAP can reveal the required SAPS numbers for the application layer and the DBMS layer. As infrastructure provider Microsoft is obliged to provide the SAP throughput characterization of the different units that are either NetWeaver and/or HANA certified.
+Besides evaluating supported operating system releases, DBMS releases and dependent support SAP software releases for Azure infrastructure units, you have the need to qualify these units by business transaction throughput, which is expressed in the unit 'SAP' by SAP. All the SAP sizing circles around SAPS. Evaluating existing SAP systems, you usually can, with the help of your infrastructure provider, calculate the SAPS of the units. For the DBMS layer as well as for the application layer. In other cases where new functionality is created, a sizing exercise with SAP can reveal the required SAPS numbers for the application layer and the DBMS layer. As infrastructure provider Microsoft is obliged to provide the SAP throughput characterization of the different units that are either NetWeaver and/or HANA certified.
 
 For Azure VMs, these SAPS throughput numbers are documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). 
 For Azure HANA Large Instance units, the SAPS throughput numbers are documented in [SAP support note #2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
 Looking into [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533), the following remarks apply:
 
-- **For M-Series Azure VMs and Mv2-Series Azure VMs different minimum OS releases apply than for other Azure VM types**. The requirement for more recent OS releases is based on changes the different operating system vendors had to provide in their operating system releases to either enable their operating systems running on the specific Azure VM types or optimize performance and throughput of SAP workload on those VM types
+- **For M-Series Azure VMs and Mv2-Series Azure VMs, different minimum OS releases apply than for other Azure VM types**. The requirement for more recent OS releases is based on changes the different operating system vendors had to provide in their operating system releases to either enable their operating systems running on the specific Azure VM types or optimize performance and throughput of SAP workload on those VM types
 - There are two tables that specify different VM types. The second table specifies SAPS throughput for Azure VM types that support Azure standard Storage only. DBMS deployment on the units specified in the second table of the note is not supported
 
 
 ## Other SAP products supported on Azure
 In general the assumption is that with the state of hyperscale clouds like Azure, most of the SAP software should run without functional problems in Azure. Nevertheless and opposite to private cloud visualization, SAP still expresses support for the different SAP products explicitly for the different hyerpscale cloud providers. As a result there are different SAP support notes indicating support for Azure for different SAP products. 
 
-For Business Objects BI platform, [SAP support note #2145537](https://launchpad.support.sap.com/#/notes/2145537) gives a list of SAP Business Objects products supported on Azure. If there are questions around components or combinations of software releases and OS releases that seem not to be listed or supported and which are more recent than the minimum releases listed, you need to open a SAP support request against the component you inquire support for.
+For Business Objects BI platform, [SAP support note #2145537](https://launchpad.support.sap.com/#/notes/2145537) gives a list of SAP Business Objects products supported on Azure. If there are questions around components or combinations of software releases and OS releases that seem not to be listed or supported and which are more recent than the minimum releases listed, you need to open an SAP support request against the component you inquire support for.
 
 For Business Objects Data Services, [SAP support note #22288344](https://launchpad.support.sap.com/#/notes/2288344) explains minimum support of SAP Data Services running on Azure. 
 

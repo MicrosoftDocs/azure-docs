@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/07/2020
+ms.date: 02/013/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -40,7 +40,7 @@ The minimum SAP HANA certified conditions for the different storage types are:
 - Azure Ultra disk at least for the /hana/log volume. The /hana/data volume can be placed on either Premium SSD without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for /hana/log **and** /hana/data. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol. The NFS v4.1 protocol is mandatory for /hana/data and/hana/log volumes.
 
-Some of the storage types can be combined. E.g., it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, if you use an NFS v4.1 volume based on ANF for /hana/data, you are required to use another NFS v4.1 volume based on ANF for /hana/log. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure Premium Storage or Ultra disk for the other volume (like /hana/log) is **not supported**.
+Some of the storage types can be combined. For example, it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, if you use an NFS v4.1 volume based on ANF for /hana/data, you are required to use another NFS v4.1 volume based on ANF for /hana/log. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure Premium Storage or Ultra disk for the other volume (like /hana/log) is **not supported**.
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that are required from SAP, are resulting in the need to:
 
@@ -180,7 +180,7 @@ Microsoft is in the process of rolling out a new Azure storage type called [Azur
 
 Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and Premium Storage. As a result, you can limit the usage of Ultra disk to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
 
-Other advantages of Ultra disk can be the better read latency in comparison to Premium Storage. The faster read latency can have advantages when you want to reduce the HANA start up times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since Premium Storage disks for /hana/data are usually not Write Accelerator cached, the write latency to /hana/data on Premium Storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
+Other advantages of Ultra disk can be the better read latency in comparison to Premium Storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since Premium Storage disks for /hana/data are usually not Write Accelerator cached, the write latency to /hana/data on Premium Storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
 
 > [!IMPORTANT]
 > Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types listed below. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).

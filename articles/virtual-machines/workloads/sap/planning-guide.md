@@ -340,7 +340,7 @@ Throughout the document, we use the following terms:
 * SAP Landscape: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and non-production environments.
 * SAP System: The combination of DBMS layer and application layer of, for example, an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. In Azure deployments, it is not supported to divide these two layers between on-premises and Azure. Means an SAP system is either deployed on-premises or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape into either Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but the SAP CRM production system on-premises.
 * Cross-premises or hybrid: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises or hybrid scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. This is the most common and nearly exclusive case deploying SAP assets into Azure. For more information, see [this][vpn-gateway-cross-premises-options] article and [this][vpn-gateway-site-to-site-create].
-* Azure Monitoring Extension, Enhanced Monitoring and Azure Extension for SAP: Describe one and the same item. It describes a VM extension that needs to be deployed by you to provide some basic data about the Azure infrastructure to the SAP Host Agent. SAP in SAP notes might refer to it as Monitoring Extension or Enhanced monitoring. In Azure, we are referring to it as **Azure Extension for SAP**.
+* Azure Monitoring Extension, Enhanced Monitoring, and Azure Extension for SAP: Describe one and the same item. It describes a VM extension that needs to be deployed by you to provide some basic data about the Azure infrastructure to the SAP Host Agent. SAP in SAP notes might refer to it as Monitoring Extension or Enhanced monitoring. In Azure, we are referring to it as **Azure Extension for SAP**.
 
 > [!NOTE]
 > Cross-premises or hybrid deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-premises  or hybrid configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS/OpenLDAP. 
@@ -387,7 +387,7 @@ General default limitations and maximum limitations of Azure subscriptions can b
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out HANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out HANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
 
 For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](.\sap-planning-supported-configurations.md).
 
@@ -399,17 +399,17 @@ Overall the most common deployment pattern is a cross-premises scenario like dis
 
 Reason for many customers to apply a cross-premises deployment pattern is that fact that it is most transparent for all applications to extend on-premises into Azure using Azure ExpressRoute and treat Azure as virtual datacenter. As more and more assets are getting moved into Azure, the Azure deployed infrastructure and network infrastructure will grow and the on-premises assets will reduce accordingly. Everything transparent to users and applications.
 
-In order to successfully deploy SAP systems into either Azure IaaS or IaaS in general, it is important to understand the significant differences between the offerings of traditional outsourcers or hosters and IaaS offerings. Whereas the traditional hoster or outsourcer adapts infrastructure (network, storage and server type) to the workload a customer wants to host, it is instead the customer's  or partner's responsibility to characterize the workload and choose the correct Azure components of VMs, storage and network for IaaS deployments.
+In order to successfully deploy SAP systems into either Azure IaaS or IaaS in general, it is important to understand the significant differences between the offerings of traditional outsourcers or hosters and IaaS offerings. Whereas the traditional hoster or outsourcer adapts infrastructure (network, storage and server type) to the workload a customer wants to host, it is instead the customer's  or partner's responsibility to characterize the workload and choose the correct Azure components of VMs, storage, and network for IaaS deployments.
 
-In order to get gather data for the planning of your deployment into Azure, it is important to:
+In order to gather data for the planning of your deployment into Azure, it is important to:
 
 - Evaluate what SAP products are supported running in Azure VMs
 - Evaluate what specific Operating System releases are supported with specific Azure VMs for those SAP products
 - Evaluate what DBMS releases are supported for your SAP products with specific Azure VMs
-- Evaluate whether some of the required OS/DBMS releases require you to perform SAP release, Support Package upgrade and kernel upgrades to get to a supported configuration
+- Evaluate whether some of the required OS/DBMS releases require you to perform SAP release, Support Package upgrade, and kernel upgrades to get to a supported configuration
 - Evaluate whether you need to move to different operating systems in order to deploy on Azure.
 
-Details on supported SAP components on Azure, supported Azure infrastructure units and related operating system releases and DBMS releases are explained in the article [What SAP software is supported for Azure deployments]((.\sap-supported-product-on-azure.md). Results gained out of the evaluation of valid SAP releases, operating system and DBMS releases have a large impact on the efforts moving SAP systems to Azure. Results out of this evaluation are going to define whether there could be significan preparation efforts in cases where SAP release upgrades or changes of operating systems are needed.
+Details on supported SAP components on Azure, supported Azure infrastructure units and related operating system releases and DBMS releases are explained in the article [What SAP software is supported for Azure deployments]((.\sap-supported-product-on-azure.md). Results gained out of the evaluation of valid SAP releases, operating system, and DBMS releases have a large impact on the efforts moving SAP systems to Azure. Results out of this evaluation are going to define whether there could be significant preparation efforts in cases where SAP release upgrades or changes of operating systems are needed.
 
 
 
@@ -420,7 +420,7 @@ As useful help you can point to [Microsoft compliance offerings](https://docs.mi
 
 Other areas of concerns like data encryption for data at rest or other encryption in Azure service is documented in [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
 
-Don't underestimate this phase of the project in your planning. Only when you have agreement and rules around this topic, you need to go to the next step which is the planning of the network architecture that you deploy in Azure.
+Don't underestimate this phase of the project in your planning. Only when you have agreement and rules around this topic, you need to go to the next step, which is the planning of the network architecture that you deploy in Azure.
 
 
 
@@ -431,7 +431,7 @@ The Azure platform reduces the need for up-front technology and infrastructure p
 
 ![Positioning of Microsoft Azure Virtual Machine Services][planning-guide-figure-400]
 
-With Azure Virtual Machine Services, Microsoft is enabling you to deploy custom server images to Azure as IaaS instances (see Figure 4). The Virtual Machines in Azure are based on Hyper-V virtual hard drives (VHD) and are able to run different operating systems as Guest OS.
+With Azure Virtual Machine Services, Microsoft is enabling you to deploy custom server images to Azure as IaaS instances (see Figure 4). The Virtual Machines in Azure are based on virtual hard drives (VHD) and are able to run different operating systems as Guest OS.
 
 From an operational perspective, the Azure Virtual Machine Service offers similar experiences as virtual machines deployed on premises. However, it has the significant advantage that you don't need to procure, administer, and manage the infrastructure. Developers and Administrators have full control of the operating system image within these virtual machines. Administrators can sign in remotely in to those virtual machines to perform maintenance and troubleshooting tasks as well as software deployment tasks. In regard to deployment, the only restrictions are the sizes and capabilities of Azure VMs. These sizes may not be as fine granular in configuration as it could be done on premises. There is a choice of VM types that represent a combination of:
 
@@ -480,15 +480,15 @@ More information about creating images from Virtual Machines can be found in [th
 #### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Fault Domains
 Fault Domains represent a physical unit of failure, closely related to the physical infrastructure contained in data centers, and while a physical blade or rack can be considered a Fault Domain, there is no direct one-to-one mapping between the two.
 
-When you deploy multiple Virtual Machines as part of one SAP system in Microsoft Azure Virtual Machine Services, you can influence the Azure Fabric Controller to deploy your application into different Fault Domains, thereby meeting the requirements of the Microsoft Azure SLA. However, the distribution of Fault Domains over an Azure Scale Unit (collection of hundreds of Compute nodes or Storage nodes and networking) or the assignment of VMs to a specific Fault Domain is something over which you do not have direct control. In order to direct the Azure fabric controller to deploy a set of VMs over different Fault Domains, you need to assign an Azure Availability Set to the VMs at deployment time. For more information on Azure Availability Sets, see chapter [Azure Availability Sets][planning-guide-3.2.3] in this document.
+When you deploy multiple Virtual Machines as part of one SAP system in Microsoft Azure Virtual Machine Services, you can influence the Azure Fabric Controller to deploy your application into different Fault Domains, thereby meeting the requirements of the Microsoft Azure SLA. However, the distribution of Fault Domains over an Azure Scale Unit (collection of hundreds of Compute nodes or Storage nodes and networking) or the assignment of VMs to a specific Fault Domain is something over which you do not have direct control. In order to direct the Azure fabric controller to deploy a set of VMs over different Fault Domains, you need to assign an Azure availability set to the VMs at deployment time. For more information on Azure availability sets, see chapter [Azure availability sets][planning-guide-3.2.3] in this document.
 
 #### <a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Upgrade Domains
-Upgrade Domains represent a logical unit that helps to determine how a VM within an SAP system, that consists of SAP instances running in multiple VMs, is updated. When an upgrade occurs, Microsoft Azure goes through the process of updating these Upgrade Domains one by one. By spreading VMs at deployment time over different Upgrade Domains, you can protect your SAP system partly from potential downtime. In order to force Azure to deploy the VMs of an SAP system spread over different Upgrade Domains, you need to set a specific attribute at deployment time of each VM. Similar to Fault Domains, an Azure Scale Unit is divided into multiple Upgrade Domains. In order to direct the Azure fabric controller to deploy a set of VMs over different Upgrade Domains, you need to assign an Azure Availability Set to the VMs at deployment time. For more information on Azure Availability Sets, see chapter [Azure Availability Sets][planning-guide-3.2.3] below.
+Upgrade Domains represent a logical unit that helps to determine how a VM within an SAP system, that consists of SAP instances running in multiple VMs, is updated. When an upgrade occurs, Microsoft Azure goes through the process of updating these Upgrade Domains one by one. By spreading VMs at deployment time over different Upgrade Domains, you can protect your SAP system partly from potential downtime. In order to force Azure to deploy the VMs of an SAP system spread over different Upgrade Domains, you need to set a specific attribute at deployment time of each VM. Similar to Fault Domains, an Azure Scale Unit is divided into multiple Upgrade Domains. In order to direct the Azure fabric controller to deploy a set of VMs over different Upgrade Domains, you need to assign an Azure Availability Set to the VMs at deployment time. For more information on Azure availability sets, see chapter [Azure availability sets][planning-guide-3.2.3] below.
 
 #### <a name="18810088-f9be-4c97-958a-27996255c665"></a>Azure Availability Sets
-Azure Virtual Machines within one Azure Availability Set are distributed by the Azure Fabric Controller over different Fault and Upgrade Domains. The purpose of the distribution over different Fault and Upgrade Domains is to prevent all VMs of an SAP system from being shut down in the case of infrastructure maintenance or a failure within one Fault Domain. By default, VMs are not part of an Availability Set. The participation of a VM in an Availability Set is defined at deployment time or later on by a reconfiguration and redeployment of a VM.
+Azure Virtual Machines within one Azure availability set are distributed by the Azure Fabric Controller over different Fault and Upgrade Domains. The purpose of the distribution over different Fault and Upgrade Domains is to prevent all VMs of an SAP system from being shut down in the case of infrastructure maintenance or a failure within one Fault Domain. By default, VMs are not part of an availability set. The participation of a VM in an availability set is defined at deployment time or later on by a reconfiguration and redeployment of a VM.
 
-To understand the concept of Azure Availability Sets and the way Availability Sets relate to Fault and Upgrade Domains, read [this article][virtual-machines-manage-availability]
+To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [this article][virtual-machines-manage-availability]
 
 To define availability sets for Azure Resource Manager via a json template, see [the rest-api specs](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) and search for "availability".
 
@@ -515,11 +515,11 @@ Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reb
 
 Microsoft Azure Storage provides persisted storage and the typical levels of protection and redundancy seen on SAN storage. Disks based on Azure Storage are virtual hard disk (VHDs) located in the Azure Storage Services. The local OS-Disk (Windows C:\, Linux /dev/sda1) is stored on the Azure Storage, and additional Volumes/Disks mounted to the VM get stored there, too.
 
-It is possible to upload an existing VHD from on-premises or create empty ones from within Azure and attach those to deployed VMs.
+It is possible to upload an existing VHD from on-premises or create empty ones from within Azure and attach those VHDs to deployed VMs.
 
 After creating or uploading a VHD into Azure Storage, it is possible to mount and attach those to an existing Virtual Machine and to copy existing (unmounted) VHD.
 
-As those VHDs are persisted, data and changes within those are safe when rebooting and recreating a Virtual Machine instance. Even if an instance is deleted, these VHDs stay
+As those VHDs are persisted, data and changes within those VHDs are safe when rebooting and recreating a Virtual Machine instance. Even if an instance is deleted, these VHDs stay
 safe and can be redeployed or in case of non-OS disks can be mounted to other VMs.
 
 More information about Azure Storage can be found here:
@@ -551,11 +551,11 @@ You see that IOPS/disk and disk throughput/disk are dependent on the size catego
 
 Cost basis in the case of Premium Storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk.
 
-You also can create disks on Premium Storage that are not directly mapping into the size categories shown. This may be the case, especially when copying disks from Standard Storage into Premium Storage. In such cases a mapping to the next largest Premium Storage disk option is performed.
+You also can create disks on Premium Storage that are not directly mapping into the size categories shown. This may be the case, especially when copying disks from Standard Storage into Premium Storage. In such cases, a mapping to the next largest Premium Storage disk option is performed.
 
 Most of the Azure VM families certified with SAP are able to work with Premium Storage and or a mixture between Azure standard and Premium Storage.
 
-If you are checking out the part of the DS-series VMs in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows], you realize that there are data volume limitations to Premium Storage disks on the granularity of the VM level. Different DS-series or GS-series VMs also have different limitations in regards to the number of data disks that can be mounted. These limits are documented in the article mentioned above as well. But in essence it means that if you, for example, mount 32 x P30 disks to a single DS14 VM you can NOT get 32 x the maximum throughput of a P30 disk. Instead the maximum throughput on VM level as documented in the article limits data throughput.
+If you are checking out the part of the DS-series VMs in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows], you realize that there are data volume limitations to Premium Storage disks on the granularity of the VM level. Different DS-series or GS-series VMs also have different limitations in the number of data disks that can be mounted. These limits are documented in the article mentioned above as well. But in essence it means that if you, for example, mount 32 x P30 disks to a single DS14 VM you can NOT get 32 x the maximum throughput of a P30 disk. Instead the maximum throughput on VM level as documented in the article limits data throughput.
 
 More information on Premium Storage can be found here: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
@@ -563,7 +563,7 @@ More information on Premium Storage can be found here: <https://azure.microsoft.
 
 When deploying services or VMs in Azure, deployment of VHDs and VM Images can be organized in units called Azure Storage Accounts. When planning an Azure deployment, you need to carefully consider the restrictions of Azure. On the one side, there is a limited number of Storage Accounts per Azure subscription. Although each Azure Storage Account can hold a large number of VHD files, there is a fixed limit on the total IOPS per Storage Account. When deploying hundreds of SAP VMs with DBMS systems creating significant IO calls, it is recommended to distribute high IOPS DBMS VMs between multiple Azure Storage Accounts. Care must be taken not to exceed the current limit of Azure Storage Accounts per subscription. Because storage is a vital part of the database deployment for an SAP system, this concept is discussed in more detail in the already referenced [DBMS Deployment Guide][dbms-guide].
 
-More information about Azure Storage Accounts can be found in the [Scalability targets for standard storage accounts](../../../storage/common/scalability-targets-standard-account.md) and [Scalability targets for premium page blob storage accounts](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Reading these articles, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column **Total Request Rate**), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
+More information about Azure Storage Accounts can be found in the [Scalability targets for standard storage accounts](../../../storage/common/scalability-targets-standard-account.md) and [Scalability targets for premium page blob storage accounts](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Reading these articles, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage, the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column **Total Request Rate**), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
 
 Within a Storage Account, you have the possibility to create different containers for the purpose of organizing and categorizing different VHDs. These containers are used to, for example, separate VHDs of different VMs. There are no performance implications in using just one container or multiple containers underneath a single Azure Storage Account.
 
@@ -575,7 +575,7 @@ The string above needs to uniquely identify the VHD that is stored on Azure Stor
 
 #### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
 
-Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the availability set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 
 We recommend to you use Managed disk, because they simplify the deployment and management of your virtual machines.
 SAP currently only supports Premium Managed Disks. For more information, read SAP Note [1928533].
@@ -639,7 +639,7 @@ It is possible to assign fixed or reserved IP addresses to VMs within an Azure V
 
 ##### Multiple NICs per VM
 
-You can define multiple virtual network interface cards (vNIC) for an Azure Virtual Machine. With the ability to have multiple vNICs you can start to set up network traffic separation where, for example, client traffic is routed through one vNIC and backend traffic is routed through a second vNIC. Dependent on the type of VM there are different limitations in regards to the number of vNICs. Exact details, functionality, and restrictions can be found in these articles:
+You can define multiple virtual network interface cards (vNIC) for an Azure Virtual Machine. With the ability to have multiple vNICs you can start to set up network traffic separation where, for example, client traffic is routed through one vNIC and backend traffic is routed through a second vNIC. Dependent on the type of VM there are different limitations for the number of vNICs a VM can have assigned. Exact details, functionality, and restrictions can be found in these articles:
 
 * [Create a Windows VM with multiple NICs][virtual-networks-multiple-nics-windows]
 * [Create a Linux VM with multiple NICs][virtual-networks-multiple-nics-linux]
@@ -698,7 +698,7 @@ Express Route enables multiple Azure subscriptions through one ExpressRoute circ
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
 #### Forced tunneling in case of cross-premises
-For VMs joining on-premises domains through site-to-site, point-to-site or ExpressRoute, you need to make sure that the Internet proxy settings are getting deployed for all the users in those VMs as well. By default, software running in those VMs or users using a browser to access the internet would not go through the company proxy, but would connect straight through Azure to the internet. But even the proxy setting is not a 100% solution to direct the traffic through the company proxy since it is responsibility of software and services to check for the proxy. If software running in the VM is not doing that or an administrator manipulates the settings, traffic to the Internet can be detoured again directly through Azure to the Internet.
+For VMs joining on-premises domains through site-to-site, point-to-site, or ExpressRoute, you need to make sure that the Internet proxy settings are getting deployed for all the users in those VMs as well. By default, software running in those VMs or users using a browser to access the internet would not go through the company proxy, but would connect straight through Azure to the internet. But even the proxy setting is not a 100% solution to direct the traffic through the company proxy since it is responsibility of software and services to check for the proxy. If software running in the VM is not doing that or an administrator manipulates the settings, traffic to the Internet can be detoured again directly through Azure to the Internet.
 
 In order to avoid such a direct internet connectivity, you can configure Forced Tunneling with site-to-site connectivity between on-premises and Azure. The detailed description of the Forced Tunneling feature is published here
 <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
@@ -1169,7 +1169,7 @@ For examples see [this article][storage-azure-cli-copy-blobs].
 Ideally the handling of the structure of a VM and the associated disks should be simple. In on-premises installations, customers developed many ways of structuring a server installation.
 
 * One base disk, which contains the OS and all the binaries of the DBMS and/or SAP. Since March 2015, this disk can be up to 1TB in size instead of earlier restrictions that limited it to 127GB.
-* One or multiple disks, which contains the DBMS log file of the SAP database and the log file of the DBMS temp storage area (if the DBMS supports this). If the database log IOPS requirements are high, you need to stripe multiple disks in order to reach the IOPS volume required.
+* One or multiple disks, which contain the DBMS log file of the SAP database and the log file of the DBMS temp storage area (if the DBMS supports this). If the database log IOPS requirements are high, you need to stripe multiple disks in order to reach the IOPS volume required.
 * A number of disks containing one or two database files of the SAP database and the DBMS temp data files as well (if the DBMS supports this).
 
 ![Reference Configuration of Azure IaaS VM for SAP][planning-guide-figure-1300]
@@ -1642,7 +1642,7 @@ Other security measures when deploying VMs in such a scenario could be to create
 
 ### Dealing with different Virtual Machine Series
 
-Microsoft added many more VM types that differ either in number of vCPUs, memory or more important on hardware it is running on. Not all those VMs are supported with SAP (see supported VM types in SAP Note [1928533]). Some of those VMs run on different host hardware generations. These host hardware generations are getting deployed in the granularity of an Azure Scale-Unit. Cases may arise where the different VM types you chose can't be run on the same Scale-Unit. An Availability Set is limited in the ability to span Scale-Units based of different hardware.  For example if you are running the SAP DBMS layer on an E64s_v3 VM which is in an Availability Set together with the VM running the secondary DBMS instance in an HA configuration, you can't simply stop and restart the secondary VM as M-Series VM because you might want to upgrade the VM. Reason is that M-Series VMs and Ev3-Series VMs are running on different hardware and with that in different Scale-Units. You would need to create a new Availability Set, delete the secondary Ev3-Series VM, without deleting the storage, and redeploy the VM as M-Series VM into the new Availability Set.
+Microsoft added many more VM types that differ either in number of vCPUs, memory or more important on hardware it is running on. Not all those VMs are supported with SAP (see supported VM types in SAP Note [1928533]). Some of those VMs run on different host hardware generations. These host hardware generations are getting deployed in the granularity of an Azure Scale-Unit. Cases may arise where the different VM types you chose can't be run on the same Scale-Unit. An availability set is limited in the ability to span Scale-Units based of different hardware.  For example, if you are running the SAP DBMS layer on an E64s_v3, VM which is in an availability set together with the VM running the secondary DBMS instance in an HA configuration, you can't simply stop and restart the secondary VM as M-Series VM because you might want to upgrade the VM. Reason is that M-Series VMs and Ev3-Series VMs are running on different hardware and with that in different Scale-Units. You would need to create a new availability set, delete the secondary Ev3-Series VM, without deleting the storage, and redeploy the VM as M-Series VM into the new availability set.
 
 #### Printing on a local network printer from SAP instance in Azure
 
@@ -1748,7 +1748,7 @@ How to:
 * Make sure the hostname of the Transport Domain Controller can be resolved by your virtual machine on Azure and vice visa.
 * Call transaction STMS -> Other Configuration -> Include System in Domain.
 * Confirm the connection in the on premises TMS system.
-* Configure transport routes, groups and layers as usual.
+* Configure transport routes, groups, and layers as usual.
 
 In site-to-site connected cross-premises scenarios, the latency between on-premises and Azure still can be substantial. If we follow the sequence of transporting objects through development and test systems to production or think about applying transports or support packages to the different systems, you realize that, dependent on the location of the central transport directory, some of the systems will encounter high latency reading or writing data in the central transport directory. The situation is similar to SAP landscape configurations where the different systems are spread through different data centers with substantial distance between the data centers.
 
@@ -1784,7 +1784,7 @@ In order to feed some portion of Azure infrastructure information of mission cri
 The solution developed to enable SAP Host Agent getting the required information is based on the architecture of Azure VM Agent and Extension framework. The idea of the Azure VM Agent and Extension framework is to allow installation of software application(s) available in the Azure VM Extension gallery within a VM. The principle idea behind this concept is to allow (in cases like the Azure Extension for SAP), the deployment of special functionality into a VM and the configuration of such software at deployment time.
 
 The 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure portal. In case of SUSE, Red Hat or Oracle Linux, the VM agent is already part of the
-Azure Marketplace image. In case one would upload a Linux VM from on-premises to Azure the VM agent has to be installed manually.
+Azure Marketplace image. In case, one would upload a Linux VM from on-premises to Azure the VM agent has to be installed manually.
 
 The basic building blocks of the solution to provide Azure infrastructure information to SAP Host agent in Azure looks like this:
 
@@ -1809,7 +1809,7 @@ SAP instances running in Azure need to be accessible from SAProuter as well.
 ![SAP-Router Network Connection][planning-guide-figure-2600]
 
 A SAProuter enables the TCP/IP communication between participating systems if there is no direct IP connection. This provides the advantage that no end-to-end connection between the communication partners is necessary on network level. The SAProuter is listening on port 3299 by default.
-To connect SAP instances through a SAProuter you need to give the SAProuter string and host name with any attempt to connect.
+To connect SAP instances through a SAProuter, you need to give the SAProuter string and host name with any attempt to connect.
 
 ## SAP NetWeaver AS Java
 
@@ -1911,7 +1911,7 @@ For critical SAP components, we achieved the following so far:
 
 * High Availability of SAP Application Servers (AS)
 
-  SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure Availability Sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
+  SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure availability sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
 
   Each SAP AS instance is placed in its own Azure Storage account - potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set the Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
   Please also read chapter [High Availability for SAP Application Servers][planning-guide-11.4.1] for more details.
@@ -1929,13 +1929,13 @@ For critical SAP components, we achieved the following so far:
 
 ### SAP Application High Availability on Azure IaaS
 
-To achieve full SAP system high availability, we need to protect all critical SAP system components, for example redundant SAP application servers, and unique components (for example Single Point of Failure) like SAP (A)SCS instance and DBMS.
+To achieve full SAP system high availability, we need to protect all critical SAP system components, for example redundant SAP application servers, and unique components (for example Single Point of Failure) like SAP (A)SCS instance, and DBMS.
 
 #### <a name="5d9d36f9-9058-435d-8367-5ad05f00de77"></a>High Availability for SAP Application Servers
 
-For the SAP application servers/dialog instances, it's not necessary to think about a specific high availability solution. High availability is achieved by redundancy and thereby having enough of them in different virtual machines. They should all be placed in the same Azure Availability Set to avoid that the VMs might be updated at the same time during planned maintenance downtime. The basic functionality, which builds on different Upgrade and Fault Domains within an Azure Scale Unit was already introduced in chapter [Upgrade Domains][planning-guide-3.2.2]. Azure Availability Sets were presented in chapter [Azure Availability Sets][planning-guide-3.2.3] of this document.
+For the SAP application servers/dialog instances, it's not necessary to think about a specific high availability solution. High availability is achieved by redundancy and thereby having enough of them in different virtual machines. They should all be placed in the same Azure availability set to avoid that the VMs might be updated at the same time during planned maintenance downtime. The basic functionality, which builds on different Upgrade and Fault Domains within an Azure Scale Unit was already introduced in chapter [Upgrade Domains][planning-guide-3.2.2]. Azure availability sets were presented in chapter [Azure Availability Sets][planning-guide-3.2.3] of this document.
 
-There is no infinite number of Fault and Upgrade Domains that can be used by an Azure Availability Set within an Azure Scale Unit. This means that putting a number of VMs into one Availability Set, sooner or later more than one VM ends up in the same Fault or Upgrade Domain.
+There is no infinite number of Fault and Upgrade Domains that can be used by an Azure availability set within an Azure Scale Unit. This means that putting a number of VMs into one availability set, sooner or later more than one VM ends up in the same Fault or Upgrade Domain.
 
 Deploying a few SAP application server instances in their dedicated VMs and assuming that we got five Upgrade Domains, the following picture emerges at the end. The actual max number of fault and update domains within an availability set might change in the future:
 
@@ -1969,13 +1969,13 @@ The following Azure constructs are used for the SAP NetWeaver system, to minimiz
 * The complete system is deployed on Azure (required - DBMS layer, (A)SCS instance and complete application layer need to run in the same location).
 * The complete system runs within one Azure subscription (required).
 * The complete system runs within one Azure Virtual Network (required).
-* The separation of the VMs of one SAP system into three Availability Sets is possible even with all the VMs belonging to the same Virtual Network.
-* Each layer (for example DBMS, ASCS, Application Servers) must use a dedicated Availability Set.
-* All VMs running DBMS instances of one SAP system are in one Availability Set. We assume that there is more than one VM running DBMS instances per system since native DBMS high availability features are used, like SQL Server AlwaysOn or Oracle Data Guard.
+* The separation of the VMs of one SAP system into three availability sets is possible even with all the VMs belonging to the same Virtual Network.
+* Each layer (for example DBMS, ASCS, Application Servers) must use a dedicated availability set.
+* All VMs running DBMS instances of one SAP system are in one availability set. We assume that there is more than one VM running DBMS instances per system since native DBMS high availability features are used, like SQL Server AlwaysOn or Oracle Data Guard.
 * All VMs running DBMS instances use their own storage account. DBMS data and log files are replicated from one storage account to another storage account using DBMS high availability functions that synchronize the data. Unavailability of one storage account will cause unavailability of one SQL Windows cluster node, but not the whole SQL Server service.
-* All VMs running (A)SCS instance of one SAP system are in one Availability Set. A Windows Server Failover Cluster (WSFC) is configured inside of those VMs to protect the (A)SCS instance.
+* All VMs running (A)SCS instance of one SAP system are in one availability set. A Windows Server Failover Cluster (WSFC) is configured inside of those VMs to protect the (A)SCS instance.
 * All VMs running (A)SCS instances use their own storage account. (A)SCS instance files and SAP global folder are replicated from one storage account to another storage account using SIOS DataKeeper replication. Unavailability of one storage account will cause unavailability of one (A)SCS Windows cluster node, but not the whole (A)SCS service.
-* ALL the VMs representing the SAP application server layer are in a third Availability Set.
+* ALL the VMs representing the SAP application server layer are in a third availability set.
 * ALL the VMs running SAP application servers use their own storage account. Unavailability of one storage account will cause unavailability of one SAP application server, where other SAP application servers continue to run.
 
 The following figure illustrated the same landscape using Managed Disks.
@@ -2073,14 +2073,14 @@ The key points of High Availability for SAP systems in Azure are:
 
 * At this point in time, the SAP single point of failure cannot be secured exactly the same way as it can be done in on-premises deployments. The reason is that Shared Disk clusters can't yet be built in Azure without the use of 3rd party software.
 * For the DBMS layer you need to use DBMS functionality that does not rely on shared disk cluster technology. Details are documented in the [DBMS Guide][dbms-guide].
-* To minimize the impact of problems within Fault Domains in the Azure infrastructure or host maintenance, you should use Azure Availability Sets:
-  * It is recommended to have one Availability Set for the SAP application layer.
-  * It is recommended to have a separate Availability Set for the SAP DBMS layer.
-  * It is NOT recommended to apply the same Availability set for VMs of different SAP systems.
+* To minimize the impact of problems within Fault Domains in the Azure infrastructure or host maintenance, you should use Azure availability sets:
+  * It is recommended to have one availability set for the SAP application layer.
+  * It is recommended to have a separate availability set for the SAP DBMS layer.
+  * It is NOT recommended to apply the same availability set for VMs of different SAP systems.
   * It is recommended to use Premium Managed Disks.
 * For Backup purposes of the SAP DBMS layer, check the [DBMS Guide][dbms-guide].
 * Backing up SAP Dialog instances makes little sense since it is usually faster to redeploy simple dialog instances.
-* Backing up the VM which contains the global directory of the SAP system and with it all the profiles of the different instances, does make sense and should be performed with Windows Backup or, for example, tar on Linux. Since there are differences between Windows Server 2008 (R2) and Windows Server 2012 (R2), which make it easier to back up using the more recent Windows Server releases, we recommend running Windows Server 2012 (R2) as Windows guest operating system.
+* Backing up the VM, which contains the global directory of the SAP system and with it all the profiles of the different instances, does make sense and should be performed with Windows Backup or, for example, tar on Linux. Since there are differences between Windows Server 2008 (R2) and Windows Server 2012 (R2), which make it easier to back up using the more recent Windows Server releases, we recommend running Windows Server 2012 (R2) as Windows guest operating system.
 
 ## Next steps
 Read the articles:

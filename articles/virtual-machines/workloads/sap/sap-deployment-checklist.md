@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/07/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -153,7 +153,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         - For running HANA on SAP, read these notes and documentations:
 	        -   [SAP support note #2814271 - SAP HANA Backup fails on Azure with Checksum Error](https://launchpad.support.sap.com/#/notes/2814271)
 	        -   [SAP support note #2753418 - Potential Performance Degradation Due to Timer Fallback](https://launchpad.support.sap.com/#/notes/2753418)
-	        -   [SAP support note #2791572 - Performance Degradation Because of Missing VDSO Support For HyperV in Azure](https://launchpad.support.sap.com/#/notes/2791572)
+	        -   [SAP support note #2791572 - Performance Degradation Because of Missing VDSO Support For Hyper-V in Azure](https://launchpad.support.sap.com/#/notes/2791572)
 	        -   [SAP support note #2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421)
 	        -   [SAP support note #2694118 - Red Hat Enterprise Linux HA Add-On on Azure](https://launchpad.support.sap.com/#/notes/2694118)
 	        -   [SAP support note #1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787)
@@ -176,7 +176,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    1.  Verify that [network security group and ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) rules work as expected and shield the protected resources.
    1.  Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
    1.  Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) for OS disks where possible from an OS-support point of view.
-   1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods to protect different disks or components on the same server.  For example on a SAP DBMS server, the Azure Disk Encryption (ADE) can be enabled on the operating system boot disk (if the OS supports ADE) and those data disk(s) not used by the DBMS data persistence files.  An example is to use ADE on the disk holding the DBMS TDE encryption keys.
+   1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods to protect different disks or components on the same server.  For example, on an SAP DBMS server, the Azure Disk Encryption (ADE) can be enabled on the operating system boot disk (if the OS supports ADE) and those data disk(s) not used by the DBMS data persistence files.  An example is to use ADE on the disk holding the DBMS TDE encryption keys.
 1. Performance testing. In SAP, based on SAP tracing and measurements, make these comparisons:
    - Where applicable, compare the top 10 online reports to your current implementation.
    - Where applicable, compare the top 10 batch jobs to your current implementation.
@@ -204,7 +204,7 @@ During this phase, you usually deploy development systems, unit testing systems,
 10.	After deployment of the infrastructure, test and evaluate the network latency between SAP application layer VMs and DBMS VMs, according to SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented in [this article](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Make sure that none of the restrictions mentioned in [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) and [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) apply to your deployment.
 11.	Make sure your VMs are deployed to the correct [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 11.	Perform all the other checks listed for the proof of concept phase before applying the workload.
-12.	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage and network bandwidths of VMs will be reduced as well.
+12.	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage, and network bandwidths of VMs will be reduced as well.
 	- [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	- [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13.	Experiment with system copy functionality and processes. The goal is to make it easy for you to copy a development system or a test system, so project teams can get new systems quickly. Consider using [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) for these tasks.
@@ -235,7 +235,7 @@ In this phase, collect what you experienced and learned during your non-producti
 	- The VMs were deployed into Azure availability sets as planned.
 	- Azure Premium Storage is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
 	- Azure Write Accelerator is deployed correctly.
-		- Make sure that, within the VMs, storage spaces or stripe sets were built correctly across disks that need Write Accelerator.
+		- Make sure that, within the VMs, storage spaces, or stripe sets were built correctly across disks that need Write Accelerator.
 		- Check the [configuration of software RAID on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid).
 		- Check the [configuration of LVM on Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm).
 	- [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) are used exclusively.
