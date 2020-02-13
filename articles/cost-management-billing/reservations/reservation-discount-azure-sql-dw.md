@@ -1,12 +1,11 @@
 ---
 title: How reservation discounts apply to Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how reservation discounts apply to Azure SQL Data Warehouse to help save you money.
-services: billing
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.author: banders
 ---
 

@@ -1,16 +1,12 @@
 ---
 title: Link an Azure account to a partner ID | Microsoft Docs
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
-services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ---
 
 # Link a partner ID to your Azure accounts

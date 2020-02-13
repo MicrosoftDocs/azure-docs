@@ -1,7 +1,7 @@
 ---
 title: Use Cloudyn reports in Azure | Microsoft Docs
 description: This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal to help you effectively use them.
-services: cost-management
+
 keywords:
 author: bandersmsft
 ms.author: banders

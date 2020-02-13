@@ -43,7 +43,15 @@ Here are some benefits of Connection Monitor (Preview):
 
 ![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Follow the steps in the next sections to start using Connection Monitor (Preview) for monitoring.
+To start using Connection Monitor (Preview) for monitoring, follow these steps: 
+
+1. Install monitoring agents.
+1. Enable Network Watcher on your subscription.
+1. Create a connection monitor.
+1. Set up data analysis and alerts.
+1. Diagnose issues in your network.
+
+The following sections provide details for these steps.
 
 ## Install monitoring agents
 
@@ -423,7 +431,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
     * To choose endpoints as destinations, select the **Endpoints** tab. The list of endpoints includes Office 365 test URLs and Dynamics 365 test URLs, grouped by name. In addition to these endpoints, you can choose an endpoint that was created in other test groups in the same connection monitor. 
     
-        To add a new endpoint, on the right, select **+ Endpoints**. Then provide an endpoint name and a URL, IP, or FQDN.
+        To add a new endpoint, in the upper-right corner, select **+ Endpoints**. Then provide an endpoint name and URL, IP, or FQDN.
 
        ![Screenshot showing where to add endpoints as destinations in Connection Monitor](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -446,11 +454,11 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
 All sources and destinations that you add to a test group by using the test configuration get broken down to individual tests. Here's an example of how sources and destinations are broken down:
 
-* Test Group: TG1
+* Test group: TG1
 * Sources: 3 (A, B, C)
 * Destinations: 2 (D, E)
-* Test Configuration: 2 (Config 1, Config 2)
-* Tests Created: Total = 12
+* Test configuration: 2 (Config 1, Config 2)
+* Total tests created: 12
 
 | Test number | Source | Destination | Test configuration |
 | --- | --- | --- | --- |
@@ -484,15 +492,15 @@ After you create a connection monitor, sources check connectivity to destination
 
 ### Checks in a test
 
-Based on the protocol that you chose in the test configuration, Connection Monitor (Preview) runs a series of checks for the source destination pair according to the test frequency you chose.
+Based on the protocol that you chose in the test configuration, Connection Monitor (Preview) runs a series of checks for the source-destination pair. The checks run according to the test frequency that you chose.
 
-If you use HTTP, the service calculates the number of HTTP responses that returned a response code. The result determines the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the response from an HTTP call.
+If you use HTTP, the service calculates the number of HTTP responses that returned a response code. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
-If you use TCP or ICMP, the service calculates the packet percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the ACK for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
+If you use TCP or ICMP, the service calculates the packet percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgement (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
 
 ### States of a test
 
-Based on the data that the checks return, each test can have the following states:
+Based on the data that the checks return, tests can have the following states:
 
 * **Pass** – Actual values for the percentage of failed checks and RTT are within the specified thresholds.
 * **Fail** – Actual values for the percentage of failed checks or RTT exceeded the specified thresholds. If no threshold is specified, then a test reaches the Fail state when the percentage of failed checks is 100.
@@ -512,11 +520,11 @@ On the monitoring dashboards, you see a list of the connection monitors that you
 
 When you go to Connection Monitor (Preview) from Network Watcher, you can view data by:
 
-* **Connection Monitor** – List of all connection monitors created for your subscriptions, regions, time stamps, sources, and destination types. This view is the default.
-* **Test groups** – List of all test groups created for your subscriptions, regions, time stamps, sources, and destination types. These test groups aren't filtered by connection monitor.
+* **Connection monitor** – List of all connection monitors created for your subscriptions, regions, time stamps, sources, and destination types. This view is the default.
+* **Test groups** – List of all test groups created for your subscriptions, regions, time stamps, sources, and destination types. These test groups aren't filtered by connection monitors.
 * **Test** – List of all tests that run for your subscriptions, regions, time stamps, sources, and destination types. These tests aren't filtered by connection monitors or test groups.
 
-In the following image, the three views are indicated by arrow 1 in the following image.
+In the following image, the three data views are indicated by arrow 1.
 
 On the dashboard, you can expand each connection monitor to see its test groups. Then you can expand each test group to see the tests that run in it. 
 
@@ -590,13 +598,13 @@ To view the trends in RTT and the percentage of failed checks for a test:
 
    ![Screenshot showing the network Topology tab](./media/connection-monitor-2-preview/test-topo.png)
 
-1. To see the identified issues, in the topology, select any hop of link for the Azure network. This functionality isn't available for on-premises networks at the moment.
+1. To see the identified issues, in the topology, select any hop of link for the Azure network. This functionality isn't currently available for on-premises networks.
 
    ![Screenshot showing a selected hop link on the Topology tab](./media/connection-monitor-2-preview/test-topo-hop.png)
 
 #### Log queries in Log Analytics
 
-Use Log Analytics to create custom views of your monitoring data. All data that the UI displays is from Log Analytics. You can interactively analyze data in the repository. You can then correlate data from different sources like Agent Health and other solutions that are based in Log Analytics. You can also export the data to Excel or Power BI, or you can create a shareable link.
+Use Log Analytics to create custom views of your monitoring data. All data that the UI displays is from Log Analytics. You can interactively analyze data in the repository. Correlate the data from Agent Health or other solutions that are based in Log Analytics. Export the data to Excel or Power BI, or create a shareable link.
 
 #### Metrics in Azure Monitor
 
@@ -611,7 +619,7 @@ Resource Type - Microsoft.Network/networkWatchers/connectionMonitors
 | ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percentage | Average | Percentage of failed checks for a test. | <ul><li>ConnectionMonitorResourceId</li><li>SourceAddress</li><li>SourceName</li><li>SourceResourceId</li><li>SourceType </li><li>Protocol </li><li>DestinationAddress </li><li> DestinationName </li> <li>DestinationResourceId </li> <li>DestinationType </li><li> DestinationPort </li> <li>TestGroupName </li><li>  TestConfigurationName </li> <li>Region</li></ul> |
 | RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | <ul><li>ConnectionMonitorResourceId</li><li>SourceAddress</li><li>SourceName</li><li>SourceResourceId</li><li>SourceType </li><li>Protocol </li><li>DestinationAddress </li><li> DestinationName </li> <li>DestinationResourceId </li> <li>DestinationType </li><li> DestinationPort </li> <li>TestGroupName </li><li>  TestConfigurationName </li> <li>Region</li></ul> |
 
-![Screenshot showing preview functionality for Monitor Metrics in Azure Monitor](./media/connection-monitor-2-preview/monitor-metrics.png)
+![Screenshot showing metrics in Connection Monitor (Preview)](./media/connection-monitor-2-preview/monitor-metrics.png)
 
 #### Metric alerts in Azure Monitor
 
@@ -669,7 +677,7 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * ARP table entry is missing.
 * Traffic was blocked because of local firewall issues or NSG rules.
 * Virtual network gateway issues: 
-    * Missing routes
+    * Missing routes.
     * The tunnel between two gateways is disconnected or missing.
     * The second gateway wasn't found by the tunnel.
     * No peering info was found.

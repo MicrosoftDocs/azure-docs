@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: Authentication basics
             url: authentication-scenarios.md
+          - text: Videos covering basic concepts
+            url: identity-videos.md
           - text: Authentication flows and app scenarios
             url: authentication-flows-app-scenarios.md
           - text: Best practices and recommendations
