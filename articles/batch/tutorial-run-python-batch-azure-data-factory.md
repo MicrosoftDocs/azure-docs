@@ -122,20 +122,20 @@ In this section, you'll create and validate a pipeline using your Python script.
     ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task.png?token=ABTT2GIS7FGLADMF2GPPDLC6JZWIA)
 1. In the **Azure Batch** tab, add the **Batch Account** that was created in the previous steps and **Test connection** to ensure that it is successful
 
-    ![](https://github.com/mammask/tutorial-run-r-batch-azure-data-factory/blob/master/samples/integrate-pipeline-with-azure-batch.png?raw=true)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png?token=ABTT2GLMXDZGQHAGX2TRE2S6JZW34)
 
 1. In the **Settings** tab, enter the command `python main.py`.
     * Note that 
 1.  For the **Resource Linked Service**, add the storage account that was created in the previous steps. Test the connection to ensure it is successful.
 1. In the **Folder Path**, select the name of the **Azure Blob Storage** container that contains the Python script and the associated inputs. This will download the selected files from the container to the pool node instances before the execution of the Python script.
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-script-command.png?token=ABTT2GLQOQ4OPMOW6WFMUT25ZLZTI)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-script-command.png?token=ABTT2GMHFIVU27LT7NXL7ZC6JZW6I)
 1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the &gt;&gt; (right arrow) button.
 1. Click **Debug** to test the pipeline and ensure it works accurately.
 1. Click **Publish** to publish the pipeline.
 1. Click **Trigger** to run the Python script as part of a batch process.
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-success-run.png?token=ABTT2GKSGTINC5OX3VEXPXS5ZLZXK)
+    ![](hhttps://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-success-run.png?token=ABTT2GLPPIWFIYFPK44FMN26JZXAA)
 
 ### Monitor the log files
 
