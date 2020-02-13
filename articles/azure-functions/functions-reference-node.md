@@ -414,14 +414,15 @@ The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates w
 
 ## Node version
 
-Starting with version 2.x of the runtime, Azure Functions intends to support both Active and Maintenance long-term support (LTS) versions of Node.js. 
 The following table shows current supported Node.js versions for each major version of the Functions runtime, by operating system:
 
-| Functions version | Windows | Linux |
+| Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (locked by the runtime) | n/a |
-| 2.x  | ~8<br/>~10 (recommended)<br/>~12 | ~8 (recommended)<br/>~10  |
+| 2.x  | ~8<br/>~10 (recommended)<br/>~12<sup>*</sup> | ~8 (recommended)<br/>~10  |
 | 3.x | ~10<br/>~12 (recommended)  | ~10<br/>~12 (recommended) |
+
+<sup>*</sup>Node ~12 is currently allowed on version 2.x of the Functions runtime. However, for best performance, we recommend using Functions runtime version 3.x with Node ~12. 
 
 You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function. Target the version in Azure by setting the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~10`.
 
