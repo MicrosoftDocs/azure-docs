@@ -11,8 +11,6 @@ ms.author: victorh
 
 # Tutorial: Secure your hub virtual network using Azure Firewall Manager preview 
 
-Secure your hybrid network with Azure Firewall Manager Preview using the Azure portal
-
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
@@ -26,8 +24,6 @@ For this tutorial, you create three virtual networks:
 - **VNet-Hub** - the firewall is in this virtual network.
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
-
-
 
 In this tutorial, you learn how to:
 
