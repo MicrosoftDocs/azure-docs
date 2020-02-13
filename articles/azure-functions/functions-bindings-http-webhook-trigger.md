@@ -10,16 +10,18 @@ ms.author: cshoe
 
 # Azure Functions HTTP trigger
 
-The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks.
+The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 The default return value for an HTTP-triggered function is:
 
 - `HTTP 204 No Content` with an empty body in Functions 2.x and higher
 - `HTTP 200 OK` with an empty body in Functions 1.x
 
-To modify the response, configure an [HTTP output binding](./functions-bindings-http-webhook-output.md).
+To modify the HTTP response, configure an [output binding](./functions-bindings-http-webhook-output.md).
 
-For more information about HTTP bindings, see the [overview](./functions-bindings-http-webhook-trigger.md) and [output binding reference](./functions-bindings-http-webhook-output.md).
+For more information about HTTP bindings, see the [overview](./functions-bindings-http-webhook.md) and [output binding reference](./functions-bindings-http-webhook-output.md).
+
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## Example
 
