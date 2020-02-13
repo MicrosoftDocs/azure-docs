@@ -35,11 +35,12 @@ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
 The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:
 
-| Pipeline | What it does | Canonical pipe |
-| ---- | ---- | ---- |
-| Azure Machine Learning pipelines | Defines reusable machine learning workflows that can be used as a template for your machine learning scenarios. | Data -> model |
-| [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Groups data movement, transformation, and control activities needed to perform a task.  | Data -> data |
-| [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Continuous integration and delivery of your application to any platform/any cloud  | Code -> app/service |
+| Scenario | Primary persona | Azure offering | OSS offering | Canonical pipe | Strengths | 
+| -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
+| Model orchestration (Machine learning) | Data scientist | Azure Machine Learning Pipelines | Kubeflow Pipelines | Data -> Model | Distribution, caching, code-first, reuse | 
+| Data orchestration (Data prep) | Data engineer | [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache Airflow | Data -> Data | Strongly-typed movement. Data-centric activities. |
+| Code & app orchestration (CI/CD) | App Developer / Ops | [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + Model -> App/Service | Most open and flexibile activity support, approval queues, phases with gating | 
+
 
 ## What can Azure ML pipelines do?
 
