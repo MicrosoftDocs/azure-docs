@@ -64,7 +64,7 @@ Workspaces, the filters admins can configure to organize their users apps, will 
 **Product capability:** B2B/B2C
  
 With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policies, phone sign-up and sign-in allows developers and enterprises to communicate their brand through page customization. Find out how to [set up phone sign-up and sign-in with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication).
-
+ 
 ---
  
 ### New provisioning connectors in the Azure AD Application Gallery - January 2020
@@ -81,7 +81,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 ---
- 
+
 ### New Federated Apps available in Azure AD App gallery - January 2020
 
 **Type:** New feature  
@@ -103,7 +103,7 @@ For more information about the apps, see [SaaS application integration with Azur
 **Product capability:** Identity Security & Protection
  
 We've added two new sign-in linked detection types to Identity Protection: Suspicious inbox manipulation rules and Impossible travel. These offline detections are discovered by Microsoft Cloud App Security (MCAS) and influence the user and sign-in risk in Identity Protection. For more information on these detections, see our [sign-in risk types](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk).
-
+ 
 ---
  
 ### Breaking Change: URI Fragments will not be carried through the login redirect
@@ -115,7 +115,7 @@ We've added two new sign-in linked detection types to Identity Protection: Suspi
 Starting on February 8, 2020, when a request is sent to login.microsoftonline.com to sign in a user, the service will append an empty fragment to the request.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the request. No application should have a dependency on this behavior. For more information, see [Breaking changes](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#february-2020) in the Microsoft identity platform documentation.
 
 ---
- 
+
 ## December 2019
 
 ### Integrate SAP SuccessFactors provisioning into Azure AD and on-premises AD (Public Preview)
@@ -914,4 +914,3 @@ Starting on September 2, 2019, authentication requests using the POST method wil
 For more information, see the [Azure AD breaking changes notices](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored).
 
 ---
-
