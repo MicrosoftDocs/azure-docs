@@ -194,6 +194,7 @@ NAT provides SNAT ports for new outbound to Internet flows on-demand at the time
 <p align="center">
   <img src="media/nat-overview/lb-vnnat-chart.svg" width="512" title="Virtual Network NAT on-demand outbound SNAT">
 </p>
+
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
 Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.  
@@ -201,6 +202,7 @@ Any IP configuration of a virtual machine can create outbound flows on-demand as
 <p align="center">
   <img src="media/nat-overview/exhaustion-threshold.svg" width="512" title="Differences in exhaustion scenarios">
 </p>
+
 *Figure: Differences in exhaustion scenarios*
 
 Once a SNAT port is released, it becomes available for use for any virtual machine on subnets configured with NAT as needed.  On-demand allocation allows dynamic and divergent workloads on subnet(s) to use SNAT ports as they need.  As long as there's SNAT port inventory available, SNAT flows will succeed. Any intermittent SNAT port hot spots in your deployment can benefit from the larger inventory instead of leaving SNAT ports unused for virtual machines not actively needing them.
