@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Quickstart: Scale compute in Azure Synapse Analytics (formerly SQL DW) using T-SQL
+# Quickstart: Scale compute in Azure Synapse Analytics using T-SQL
 
-Scale compute in Azure Synapse Analytics using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
+Scale compute in Azure Synapse Analytics (formerly SQL DW) using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
