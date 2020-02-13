@@ -1,6 +1,6 @@
 ---
 
-title: Virtual networks with NAT gateway resources
+title: Designing Virtual networks with NAT gateway resources
 titleSuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks with NAT gateway resources.
 services: virtual-network
@@ -130,6 +130,57 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 
 A subnet is configured to use a NAT gateway with a property on the subnet within the virtual network.  All flows created by virtual machines on subnet _mySubnet1_ of virtual network _myVNet_ will now begin using the IP addresses associated with _myNatGateway_ as the source.
 
+## Coexistence of inbound and outbound
+
+NAT gateway is compatible with standard load balancer resources, standard public IP, and standard public IP prefixes.  
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
+</p>
+
+*Figure: Virtual Network NAT for outbound to Internet*
+
+The outbound to Internet only scenario provided by NAT gateway can be expanded with inbound from Internet functionality as needed. Each resource is aware of the direction in which a flow is originated. On a subnet with a NAT gateways, all outbound to Internet scenarios are superseded by the NAT gateway. Inbound from Internet scenarios are provided by the respective resource.
+
+### NAT and VM with instance-level Public IP
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction2.svg" width="350" title="Virtual Network NAT and VM with instance-level Public IP">
+</p>
+
+*Virtual Network NAT and VM with instance-level Public IP*
+
+| Direction | Resource |
+|:---:|:---:|
+| Inbound | VM with instance-level Public IP |
+| Outbound | NAT gateway |
+
+### NAT and VM with public Load Balancer
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network NAT and VM with public Load Balancer">
+</p>
+
+*Virtual Network NAT and VM with public Load Balancer*
+
+| Direction | Resource |
+|:---:|:---:|
+| Inbound | public Load Balancer |
+| Outbound | NAT gateway |
+
+### NAT and VM with instance-level public IP and public Load Balancer
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction4.svg" width="400" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
+</p>
+
+*Virtual Network NAT and VM with instance-level public IP and public Load Balancer*
+
+| Direction | Resource |
+|:---:|:---:|
+| Inbound | VM with instance-level public IP and public Load Balancer |
+| Outbound | NAT gateway |
+
 ## Availability Zones
 
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures. When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
@@ -237,32 +288,6 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 >[!NOTE] 
 >These timer settings are subject to change. The values are provided to help troubleshooting and you shouldn't take a dependency on specific timers at this time.
-
-## Coexistence of inbound and outbound
-
-### NAT and VM with instance-level Public IP
-
-<p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="512" title="Virtual Network NAT and VM with instance-level Public IP">
-</p>
-
-*Virtual Network NAT and VM with instance-level Public IP*
-
-### NAT and VM with public Load Balancer
-
-<p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="512" title="Virtual Network NAT and VM with public Load Balancer">
-</p>
-
-*Virtual Network NAT and VM with public Load Balancer*
-
-### NAT and VM with instance-level public IP and public Load Balancer
-
-<p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="512" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
-</p>
-
-*Virtual Network NAT and VM with instance-level public IP and public Load Balancer*
 
 ## Limitations
 
