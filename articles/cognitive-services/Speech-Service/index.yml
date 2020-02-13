@@ -1,14 +1,14 @@
 ### YamlMime:Hub
 
 title: Speech service documentation
-summary: Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
+summary: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
 brand: azure
 
 metadata:
   title: Speech service documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  description: Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
+  description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
   author: IEvangelist
   manager: nitinme
   ms.service: speech-service
@@ -93,10 +93,10 @@ conceptualContent:
     - title: Conversation scenarios
       links:
         - itemType: overview
-          text: Conversation transcription
+          text: About Conversation Transcription
           url: conversation-transcription.md
         - itemType: overview
-          text: Multi-device conversations
+          text: About multi-device conversations
           url: multi-device-conversation.md
         - itemType: how-to-guide
           text: Call center transcription
