@@ -583,11 +583,11 @@ For more information, see the [az ml model deploy](https://docs.microsoft.com/cl
 
 ### Understanding service state
 
-During model deployment, you may see the service state change while it fully deploys. Certain states are considered non-terminal and may change as the deployment continues to process.
+During model deployment, you may see the service state change while it fully deploys.
 
 The following table describes the different service states:
 
-| Webservice state | Description | IsTerminal
+| Webservice state | Description | Final state?
 | ----- | ----- | ----- |
 | Transitioning | The service is in the process of deployment. | No |
 | Unhealthy | The service has deployed but is currently unreachable.  | No |
