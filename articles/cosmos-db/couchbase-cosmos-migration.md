@@ -24,13 +24,13 @@ The following are the key features that work differently in Azure Cosmos DB when
 
 ## Key differences
 
-1. Azure Cosmos DB has an "ID" field within the document whereas Couchbase has the id as a part of bucket. The "id" field is unique across the partition.
+* Azure Cosmos DB has an "ID" field within the document whereas Couchbase has the ID as a part of bucket. The "ID" field is unique across the partition.
 
-2. Azure Cosmos DB scales by using the partitioning or sharding technique. Which means it splits the data into multiple shards/partitions. These partitions/shards are created based on the partition key property that you provide. You can select the partition key to optimize read as well write operations or read/write optimized too. To learn more, see the [partitioning](./partition-data.md) article.
+* Azure Cosmos DB scales by using the partitioning or sharding technique. Which means it splits the data into multiple shards/partitions. These partitions/shards are created based on the partition key property that you provide. You can select the partition key to optimize read as well write operations or read/write optimized too. To learn more, see the [partitioning](./partition-data.md) article.
 
-3. In Azure Cosmos DB, it is not required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure much simpler. The following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
+* In Azure Cosmos DB, it is not required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure much simpler. The following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
 
-   **Couchbase**: Document Id =  "99FF4444"
+   **Couchbase**: Document ID =  "99FF4444"
 
     ```json
     {
@@ -60,7 +60,7 @@ The following are the key features that work differently in Azure Cosmos DB when
     }
    ```
 
-   **Azure Cosmos DB**: Refer "id" within the document as shown below
+   **Azure Cosmos DB**: Refer "ID" within the document as shown below
 
     ```json
     {
@@ -94,8 +94,8 @@ The following are the key features that work differently in Azure Cosmos DB when
 
 Azure Cosmos DB has following SDKs to support different Java frameworks:
 
-1. Async SDK
-2. Spring Boot SDK
+* Async SDK
+* Spring Boot SDK
 
 The following sections describe when to use each of these SDKs. Consider an example where we have three types of workloads:
 
@@ -103,67 +103,71 @@ The following sections describe when to use each of these SDKs. Consider an exam
 
 If the workload that you are migrating is based on Spring Boot Based SDK, then you can use the following steps:
 
-**Step-1:** Add parent to the POM.xml file:
+1. Add parent to the POM.xml file:
 
-```java
-<parent>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-starter-parent</artifactId>
-   <version>2.1.5.RELEASE</version>
-   <relativePath/>
-</parent>
-```
+   ```java
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.1.5.RELEASE</version>
+      <relativePath/>
+   </parent>
+   ```
 
-**Step-1a:** Add properties to the POM.xml file:
+1. Add properties to the POM.xml file:
 
-```java
-<azure.version>2.1.6</azure.version>
-	Step-1b: Add Dependency in the POM:
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
-    <version>2.1.6</version>
-</dependency>
-```
+   ```java
+   <azure.version>2.1.6</azure.version>
+   ```
 
-**Step-2:** Add application properties under resources and specify the following. Make sure to replace the URL, key, and database name parameters:
+1. Add dependencies to the POM.xml file:
 
-```java
-   azure.cosmosdb.uri=<your-cosmosDB-URL>
-   azure.cosmosdb.key=<your-cosmosDB-key>
-   azure.cosmosdb.database=<your-cosmosDB-dbName>
-```
+   ```java
+   <dependency>
+       <groupId>com.microsoft.azure</groupId>
+       <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
+       <version>2.1.6</version>
+   </dependency>
+   ```
 
-**Step-3:** Define the name of the collection in the model. You can also specify further annotations, for example, id, partition key to denote them explicitly:
+1. Add application properties under resources and specify the following. Make sure to replace the URL, key, and database name parameters:
 
-```java
-@Document(collection = "mycollection")
-    public class User {
-        @id
-        private String id;
-        private String firstName;
-        @PartitionKey
-        private String lastName;
-    }
-```
+   ```java
+      azure.cosmosdb.uri=<your-cosmosDB-URL>
+      azure.cosmosdb.key=<your-cosmosDB-key>
+      azure.cosmosdb.database=<your-cosmosDB-dbName>
+   ```
+
+1. Define the name of the collection in the model. You can also specify further annotations. For example, ID, partition key to denote them explicitly:
+
+   ```java
+   @Document(collection = "mycollection")
+       public class User {
+           @id
+           private String id;
+           private String firstName;
+           @PartitionKey
+           private String lastName;
+       }
+   ```
 
 The following are the code snippets for CRUD operations:
 
 ### Insert and update operations
 
-Where *_repo* is the object of repository and *doc* is the POJO class’s object. You can use `.save` to insert or upsert (if document with specified id found). The following code snippet shows how to insert or update a doc object:
+Where *_repo* is the object of repository and *doc* is the POJO class’s object. You can use `.save` to insert or upsert (if document with specified ID found). The following code snippet shows how to insert or update a doc object:
 
 ```_repo.save(doc);```
 
 ### Delete Operation
 
-Consider the following code snippet, where doc object will have Id and partition key mandatory to locate and delete the object:
+Consider the following code snippet, where doc object will have ID and partition key mandatory to locate and delete the object:
 
 ```_repo.delete(doc);```
 
 ### Read Operation
 
-You can read the document with or without specifying the partition key. If you don’t specify the partition key, then it is treated as a cross-partition query. Consider the following code samples, first one will perform operation using id and partition key field. Second example uses a regular field & without specifying the partition key field.
+You can read the document with or without specifying the partition key. If you don’t specify the partition key, then it is treated as a cross-partition query. Consider the following code samples, first one will perform operation using ID and partition key field. Second example uses a regular field & without specifying the partition key field.
 
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
@@ -180,52 +184,52 @@ N1QL queries is the way to define queries in the Couchbase.
 
 You can notice the following changes in your N1QL queries:
 
-1. You don’t need to use the META keyword or refer to the first-level document. Instead you can create your own reference to the container. In this example, we have considered it as "c" (it can be anything). This reference is used as a prefix for all the first-level fields. Fr example, c.id, c.country etc.
+* You don’t need to use the META keyword or refer to the first-level document. Instead you can create your own reference to the container. In this example, we have considered it as "c" (it can be anything). This reference is used as a prefix for all the first-level fields. Fr example, c.id, c.country etc.
 
-2. Instead of "ANY" now you can do a join on subdocument and refer it with a dedicated alias such as "m". Once you have created alias for a subdocument you need to use alias. For example, m.Country.
+* Instead of "ANY" now you can do a join on subdocument and refer it with a dedicated alias such as "m". Once you have created alias for a subdocument you need to use alias. For example, m.Country.
 
-3. The sequence of OFFSET is different in Azure Cosmos DB query, first you need to specify OFFSET then LIMIT. 
+* The sequence of OFFSET is different in Azure Cosmos DB query, first you need to specify OFFSET then LIMIT. 
 It is recommended not to use Spring Data SDK if you are using maximum custom defined queries as it can have unnecessary overhead at the client side while passing the query to Azure Cosmos DB. Instead we have a direct Async Java SDK, which can be utilized much efficiently in this case.
 
 ### Read operation
 
 Use the Async Java SDK with the following steps:
 
-**Step-1:** Configure the following dependency onto the POM.xml file:
+1. Configure the following dependency onto the POM.xml file:
 
-```java
-<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb -->
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-cosmos</artifactId>
-    <version>3.0.0</version>
-</dependency>
-```
+   ```java
+   <!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb -->
+   <dependency>
+       <groupId>com.microsoft.azure</groupId>
+       <artifactId>azure-cosmos</artifactId>
+       <version>3.0.0</version>
+   </dependency>
+   ```
 
-**Step-2:** Create a connection object for Azure Cosmos DB by using the `ConnectionBuilder` method as shown in the following example. Make sure you put this declaration into the bean such that the following code should get executed only once:
+1. Create a connection object for Azure Cosmos DB by using the `ConnectionBuilder` method as shown in the following example. Make sure you put this declaration into the bean such that the following code should get executed only once:
 
-```java
-ConnectionPolicy cp=new ConnectionPolicy();
-cp.connectionMode(ConnectionMode.DIRECT);
+   ```java
+   ConnectionPolicy cp=new ConnectionPolicy();
+   cp.connectionMode(ConnectionMode.DIRECT);
+    
+   if(client==null)
+   	client= CosmosClient.builder()
+   		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+   	    .connectionPolicy(cp)
+   	    .key(MasterKey)
+   	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
+   	    .build();	
+   
+   container = client.getDatabase(_dbName).getContainer(_collName);
+   ```
 
-if(client==null)
-	client= CosmosClient.builder()
-		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-	    .connectionPolicy(cp)
-	    .key(MasterKey)
-	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
-	    .build();	
+1. To execute the query, you need to run the following code snippet:
 
-container = client.getDatabase(_dbName).getContainer(_collName);
-```
+   ```java
+   Flux<FeedResponse<CosmosItemProperties>> objFlux= container.queryItems(query, fo);
+   ```
 
-**Step-3:** To execute the query, you need to run the following code snippet:
-
-```java
-Flux<FeedResponse<CosmosItemProperties>> objFlux= container.queryItems(query, fo);
-```
-
-Now, with the help of above method you can pass multiple queries and execute without any hassle. In case you have the requirement to execute one large query, which can be split into multiple queries then try the following code snippet instead of the above one:
+Now, with the help of above method you can pass multiple queries and execute without any hassle. In case you have the requirement to execute one large query, which can be split into multiple queries then try the following code snippet instead of the previous one:
 
 ```java
 for(SqlQuerySpec query:queries)
@@ -299,70 +303,70 @@ Then subscribe to mono, refer mono subscription snippet in insert operation. The
 
 This is a simple type of workload in which you can perform lookups instead of queries. Use the following steps for key/value pairs:
 
-**Step-1:** Consider having "/id" as primary key, which will makes sure you can perform lookup operation directly in the specific partition. Create a collection and specify "/id" as partition key.
+1. Consider having "/ID" as primary key, which will makes sure you can perform lookup operation directly in the specific partition. Create a collection and specify "/ID" as partition key.
 
-**Step-2:** Switch off the indexing completely. Because you will execute lookup operations, there is no point of carrying indexing overhead. To turn off indexing, sign into Azure Portal, goto Azure Cosmos DB Account. Open the **Data Explorer**, select your **Database** and the **Container**. Open the **Scale & Settings** tab and select the  **Indexing Policy**. Currently indexing policy looks like the following:
-
-```json
-{
-    "indexingMode": "consistent",
-    "includedPaths": 
-    [
-        {
+1. Switch off the indexing completely. Because you will execute lookup operations, there is no point of carrying indexing overhead. To turn off indexing, sign into Azure portal, goto Azure Cosmos DB Account. Open the **Data Explorer**, select your **Database** and the **Container**. Open the **Scale & Settings** tab and select the  **Indexing Policy**. Currently indexing policy looks like the following:
+    
+   ```json
+   {
+       "indexingMode": "consistent",
+       "includedPaths": 
+       [
+           {
             "path": "/*",
             "indexes": 
-            [
+             [
                 {
-                    "kind": "Range",
-                    "dataType": "Number"
+                  "kind": "Range",
+                  "dataType": "Number"
                 },
                 {
-                    "kind": "Range",
-                    "dataType": "String"
+                  "kind": "Range",
+                  "dataType": "String"
                 },
                 {
-                    "kind": "Spatial",
-                    "dataType": "Point"
+                   "kind": "Spatial",
+                   "dataType": "Point"
                 }
-           ]
-       }
-    ],
-    "excludedPaths": 
-    [
-        {
-            "path": "/path/to/single/excluded/property/?"
-        },
-        {
-            "path": "/path/to/root/of/multiple/excluded/properties/*"
-        }
-    ]
-}
-````
+             ]
+          }
+       ],
+       "excludedPaths": 
+       [
+         {
+             "path": "/path/to/single/excluded/property/?"
+         },
+         {
+             "path": "/path/to/root/of/multiple/excluded/properties/*"
+         }
+      ]
+   }
+   ````
 
-Replace the above indexing policy with the following policy:
+   Replace the above indexing policy with the following policy:
 
-```json
-{
-    "indexingMode": "none"
-}
-```
+   ```json
+   {
+       "indexingMode": "none"
+   }
+   ```
 
-**Step-3:** Use the following code snippet to create the connection object. Connection Object (to be placed in @Bean or make it static):
+1. Use the following code snippet to create the connection object. Connection Object (to be placed in @Bean or make it static):
 
-```java
-ConnectionPolicy cp=new ConnectionPolicy();
-cp.connectionMode(ConnectionMode.DIRECT);
-
-if(client==null)
-	client= CosmosClient.builder()
-		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-	    .connectionPolicy(cp)
-	    .key(MasterKey)
-	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
-	    .build();
-
-container = client.getDatabase(_dbName).getContainer(_collName);
-```
+   ```java
+   ConnectionPolicy cp=new ConnectionPolicy();
+   cp.connectionMode(ConnectionMode.DIRECT);
+   
+   if(client==null)
+   	client= CosmosClient.builder()
+   		.endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+   	    .connectionPolicy(cp)
+   	    .key(MasterKey)
+   	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
+   	    .build();
+    
+   container = client.getDatabase(_dbName).getContainer(_collName);
+   ```
 
 Now you can execute the CRUD operations as follows:
 
@@ -437,9 +441,9 @@ Then subscribe to mono, refer mono subscription snippet in insert operation. The
 
 There are two ways to migrate data.
 
-1. **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB SQL API, see the Azure [Cosmos DB Data Factory connector](../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
+* **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB SQL API, see the Azure [Cosmos DB Data Factory connector](../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
 
-2. **Use the Azure Cosmos DB data import tool:** This option is recommended to migrate using VMs with less amount of data. For detailed steps, see the [Data importer](./import-data.md) article.
+* **Use the Azure Cosmos DB data import tool:** This option is recommended to migrate using VMs with less amount of data. For detailed steps, see the [Data importer](./import-data.md) article.
 
 ## Next Steps
 
