@@ -35,9 +35,9 @@ If you are using Log Analytics or Azure Storage, you can create resources in adv
 
 + [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you require a log archive.
 
-## Create a diagnostic setting
+## Create a log
 
-Each setting specifies how and what is collected. Besides storage, you can choose whether to collect operational logs, metrics, or both.
+Diagnostic settings define data collection. A setting specifies how and what is collected. 
 
 1. Under **Monitoring**, select **Diagnostic settings**.
 
@@ -76,9 +76,11 @@ Data structures that contain Azure Cognitive Search log data conform to the sche
 
 For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
+The following table is a partial list of fields common to diagnostic logging.
+
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp of the operation |
+| timeGenerated |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp of the operation |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
 | operationName |string |"Query.Search" |The name of the operation |
 | operationVersion |string |"2019-05-06" |The api-version used |
@@ -88,14 +90,16 @@ For Blob storage, each blob has one root object called **records** containing an
 | durationMS |int |50 |Duration of the operation in milliseconds |
 | properties |object |see the following table |Object containing operation-specific data |
 
-**Properties schema**
+### Properties schema
+
+The properties below are specific to Azure Cognitive Search.
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
-| Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
-| Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
-| Documents |int |42 |Number of documents processed |
-| IndexName |string |"test-index" |Name of the index associated with the operation |
+| Description_s |string |"GET /indexes('content')/docs" |The operation's endpoint |
+| Documents_d |int |42 |Number of documents processed |
+| IndexName_s |string |"test-index" |Name of the index associated with the operation |
+| Query_s |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
 
 ## Metrics schema
 
@@ -113,7 +117,7 @@ Metrics are captured for query requests and measured in one minute intervals. Ev
 | count |int |4 |The number of metrics emitted from a node to the log within the one minute interval.  |
 | timegrain |string |"PT1M" |The time grain of the metric in ISO 8601. |
 
-It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metrics.
+It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metric like QPS.
 
 For the **Search Queries Per Second** metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 

@@ -100,7 +100,14 @@ AzureDiagnostics
 | render timechart
 ```
 
-In contrast with queries which are not saved on your search service, you can call search service APIs directly to return information about objects on the service. For more information, see [Monitor indexing](search-monitor-indexing.md).
+### Use search APIs
+
+Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
+
++ [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
++ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
++ [GET Document Counts](/rest/api/searchservice/count-documents)
++ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
 
 ## Monitor user access
 

@@ -323,8 +323,6 @@
     items:
     - name: Fundamentals
       href: search-monitor-usage.md
-    - name: Monitor indexing
-      href: search-monitor-indexing.md  
     - name: Monitor query activity
       href: search-monitor-queries.md 
     - name: Diagnostic logging
