@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/13/2019
+ms.date: 02/13/2020
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ---
@@ -387,71 +387,30 @@ General default limitations and maximum limitations of Azure subscriptions can b
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out ANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out HANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
+
+For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](.\sap-planning-supported-configurations.md).
+
+Check these scenarios and some of the conditions that were named as not supported in the referenced documentation throughout the planning and the development of your architecture that you want to deploy into Azure.
+
+Overall the most common deployment pattern is a cross-premises scenario like displayed
+
+![VPN with Site-To-Site Connectivity (cross-premises)][planning-guide-figure-300]
+
+Reason for many customers to apply a cross-premises deployment pattern is that fact that it is most transparent for all applications to extend on-premises into Azure using Azure ExpressRoute and treat Azure as virtual datacenter. As more and more assets are getting moved into Azure, the Azure deployed infrastructure and network infrastructure will grow and the on-premises assets will reduce accordingly. Everything transparent to users and applications.
 
 In order to successfully deploy SAP systems into either Azure IaaS or IaaS in general, it is important to understand the significant differences between the offerings of traditional outsourcers or hosters and IaaS offerings. Whereas the traditional hoster or outsourcer adapts infrastructure (network, storage and server type) to the workload a customer wants to host, it is instead the customer's  or partner's responsibility to characterize the workload and choose the correct Azure components of VMs, storage and network for IaaS deployments.
 
-As a first step, customers need to verify the following items:
+In order to get gather data for the planning of your deployment into Azure, it is important to:
 
-* The SAP supported VM types of Azure
-* The SAP supported products/releases on Azure
-* The supported OS and DBMS releases for the specific SAP releases in Azure
-* SAPS throughput provided by different Azure SKUs
+- Evaluate what SAP products are supported running in Azure VMs
+- Evaluate what specific Operating System releases are supported with specific Azure VMs for those SAP products
+- Evaluate what DBMS releases are supported for your SAP products with specific Azure VMs
+- Evaluate whether some of the required OS/DBMS releases require you to perform SAP release, Support Package upgrade and kernel upgrades to get to a supported configuration
+- Evaluate whether you need to move to different operating systems in order to deploy on Azure.
 
-The answers to these questions can be read in SAP Note [1928533].
+Details on supported SAP components on Azure, supported Azure infrastructure units and related operating system releases and DBMS releases are explained in the article [What SAP software is supported for Azure deployments]((.\sap-supported-product-on-azure.md). Results gained out of the evaluation of valid SAP releases, operating system and DBMS releases have a large impact on the efforts moving SAP systems to Azure. Results out of this evaluation are going to define whether there could be significan preparation efforts in cases where SAP release upgrades or changes of operating systems are needed.
 
-As a second step, Azure resource and bandwidth limitations need to be compared to actual resource consumption of on-premises systems. Therefore, customers need to be familiar with the different capabilities of the Azure types supported with SAP in the area of:
-
-* CPU and memory resources of different VM types and
-* IOPS bandwidth of different VM types and
-* Network capabilities of different VM types.
-
-Most of that data can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
-
-Keep in mind that the limits listed in the link above are upper limits. It does not mean that the limits for any of the resources, for example IOPS can be provided under all circumstances. The exceptions though are the CPU and memory resources of a chosen VM type. For the VM types supported by SAP, the CPU and memory resources are reserved and as such available at any point in time for consumption within the VM.
-
-The Microsoft Azure platform is a multi-tenant platform. As a result storage, network, and other resources are shared between tenants. Intelligent throttling and quota logic is used to prevent one tenant from impacting the performance of another tenant (noisy neighbor) in a drastic way. Especially for certifying the Azure platform for SAP HANA, Microsoft needs to prove the resource isolation for cases where multiple VMs can run on the same host on a regular basis to SAP. Though logic in Azure tries to keep variances in bandwidth experienced small, highly shared platforms tend to introduce larger variances in resource/bandwidth availability than customers might experience in their on-premises deployments. The probability that an SAP system on Azure could experience larger variances than in an on-premises system needs to be taken into account.
-
-A last step is to evaluate availability requirements. It can happen, that the underlying Azure infrastructure needs to get updated and requires the hosts running VMs to be rebooted. Microsoft documents the different cases in [Maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). To mitigate the rare cases where VMs are forced to reboot, but even more important for the cases you need to patch guest OS or DBMS components, you need to develop a valid high availability concepts for your production SAP systems. This requirement is not any different than the requirements you face on-premises. Microsoft is steadily advancing the Azure platform to reduce downtime caused by platform changes. 
-
-In order to successfully deploy an SAP system onto Azure, the on-premises SAP system(s) Operating System, Database, and SAP applications must appear on the SAP Azure support matrix, fit within the resources the Azure infrastructure can provide and which can work with the Availability SLAs Microsoft Azure offers. As those systems are identified, you need to decide on one of the following two deployment scenarios.
-
-
-
-
-
-### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Cross-Premises - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network
-![VPN with Site-To-Site Connectivity (cross-premises)][planning-guide-figure-300]
-
-This scenario is a cross-premises scenario with many possible deployment patterns. It can be described as running some parts of the SAP landscape on-premises and other parts of the SAP landscape on Azure. All aspects of the fact that part of the SAP components are running on Azure should be transparent for end users. Hence the SAP Transport Correction System (STMS), RFC Communication, Printing, Security (like SSO), etc. work seamlessly for the SAP systems running on Azure. But the cross-premises scenario also describes a scenario where the complete SAP landscape runs in Azure with the customer's domain and DNS extended into Azure.
-
-> [!NOTE]
-> This is the deployment scenario, which is supported for running productive SAP systems.
->
->
-
-Read [this article][vpn-gateway-create-site-to-site-rm-powershell] for more information on how to connect your on-premises network to Microsoft Azure
-
-> [!IMPORTANT]
-> When we are talking about cross-premises scenarios between Azure and on-premises customer deployments, we are looking at the granularity of whole SAP systems. Scenarios which are *not supported* for cross-premises scenarios are:
->
-> * Running different layers of SAP applications in different deployment methods. For example running the DBMS layer on-premises, but the SAP application layer in VMs deployed as Azure VMs or vice versa.
-> * Some components of an SAP layer in Azure and some on-premises. For example splitting Instances of the SAP application layer between on-premises and Azure VMs.
-> * Distribution of VMs running SAP instances of one system over multiple Azure Regions is not supported.
->
-> The reason for these restrictions is the requirement for a low latency high-performance network within one SAP system, especially between the application instances and the DBMS layer of an SAP system.
->
-> Special planning of the systems and regions must occur when using multiple SAP systems which are highly integrated. Make sure to deploy these systems as close as possible to each other to minimize network latency. Examples of highly integrated SAP systems are:
-> * SAP BW reading data from SAP OLTP systems like ERP or CRM or SRM; or
-> * SAP SLT being used to replicate data between multiple SPA systems or even between SAP and non-SAP systems; or
-> * SAP S/4 connected to an SAP ERP system; etc.
-
-
-### Supported OS and Database Releases
-* Microsoft server software supported for Azure Virtual Machine Services is listed in this article: <https://support.microsoft.com/kb/2721672>.
-* Supported operating system releases, database system releases supported on Azure Virtual Machine Services in conjunction with SAP software are documented in SAP Note [1928533].
-* SAP applications and releases supported on Azure Virtual Machine Services are documented in SAP Note [1928533].
-* Only 64Bit images are supported to run as Guest VMs in Azure for SAP scenarios. As a result, only 64-bit SAP applications and databases are supported.
 
 
 ## First steps planning a deployment
@@ -483,12 +442,22 @@ From an operational perspective, the Azure Virtual Machine Service offers simila
 
 The size and limitations of various different virtual machines sizes offered can be seen in a table in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows].
 
-Not all different VM series might be offered in each one of the Azure Regions (for Azure Regions see next chapter). Also be aware that not all VMs or VM-Series are certified for SAP.
+Not all different VM series might be offered in each one of the Azure Regions. Also be aware that not all VMs or VM-Series are certified for SAP.
 
 > [!IMPORTANT]
-> For the use of SAP NetWeaver based applications, only the subset of VM types and configurations listed in SAP Note [1928533] are supported.
+> For the use of SAP NetWeaver, S/4HANA and SAP HANA, only the subset of VM types and configurations listed in SAP Note [1928533] are supported. For SAP HANA certified Azure units check the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 >
->
+
+The Microsoft Azure platform is a multi-tenant platform. As a result storage, network, and other resources are shared between tenants. Intelligent throttling and quota logic is used to prevent one tenant from impacting the performance of another tenant (noisy neighbor) in a drastic way. Especially for certifying the Azure platform for SAP HANA, Microsoft needs to prove the resource isolation for cases where multiple VMs can run on the same host on a regular basis to SAP. Though logic in Azure tries to keep variances in bandwidth experienced small, highly shared platforms tend to introduce larger variances in resource/bandwidth availability than customers might experience in their on-premises deployments. The probability that an SAP system on Azure could experience larger variances than in an on-premises system needs to be taken into account.
+
+Therefore, customers need to be familiar with the different capabilities of the Azure types supported with SAP in the area of:
+
+* CPU and memory resources of different VM types 
+* IOPS bandwidth of different VM types
+* Network capabilities of different VM types
+
+Most of that data can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
+
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
 Virtual Machines are deployed into so called *Azure Regions*. An Azure Region may be one or multiple data centers that are located in close proximity. For most of the geopolitical regions in the world, Microsoft has at least two Azure Regions. For example, in Europe there is an Azure Region of *North Europe* and one of *West Europe*. Such two Azure Regions within a geopolitical region are separated by significant enough distance so that natural or technical disasters do not affect both Azure Regions in the same geopolitical region. Since Microsoft is steadily building out new Azure Regions in different geopolitical regions globally, the number of these regions is steadily growing and as of Dec 2015 reached the number of 20 Azure Regions with additional Regions announced already. You as a customer can deploy SAP systems into all these regions, including the two Azure Regions in China. For current up-to-date information about Azure regions see this website: <https://azure.microsoft.com/regions/>
