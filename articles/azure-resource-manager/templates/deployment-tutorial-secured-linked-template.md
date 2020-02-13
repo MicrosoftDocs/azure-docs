@@ -22,18 +22,6 @@ At the end of the quickstart tutorial, your template had the following JSON, whi
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
-## Create linked template
-
-You can separate the storage account resource into a linked template:
-
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/tutorial-deployment/linkedStorageAccount.json":::
-
-The following template is the main template.  The highlighted part shows how to call a linked template. The template must be shared from a 
-
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/tutorial-deployment/azuredeploy.json" highlight="44-62":::
-
-
-
 ## Find template
 
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
