@@ -238,6 +238,32 @@ A SNAT port is available for reuse to the same destination IP address and destin
 >[!NOTE] 
 >These timer settings are subject to change. The values are provided to help troubleshooting and you shouldn't take a dependency on specific timers at this time.
 
+## Coexistence of inbound and outbound
+
+### NAT and VM with instance-level Public IP
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction2.svg" width="512" title="Virtual Network NAT and VM with instance-level Public IP">
+</p>
+
+*Virtual Network NAT and VM with instance-level Public IP*
+
+### NAT and VM with public Load Balancer
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction3.svg" width="512" title="Virtual Network NAT and VM with public Load Balancer">
+</p>
+
+*Virtual Network NAT and VM with public Load Balancer*
+
+### NAT and VM with instance-level public IP and public Load Balancer
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction4.svg" width="512" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
+</p>
+
+*Virtual Network NAT and VM with instance-level public IP and public Load Balancer*
+
 ## Limitations
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
