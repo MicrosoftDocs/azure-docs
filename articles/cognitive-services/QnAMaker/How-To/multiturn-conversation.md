@@ -20,7 +20,7 @@ Some questions can't be answered in a single turn. When you design your client a
 When a user asks a question, QnA Maker returns the answer _and_ any follow-up prompts. This response allows you to present the follow-up questions as choices.
 
 > [!CAUTION]
-> Multi-turn prompts are not extracted from FAQ documents. If you need multi-turn extraction, remove the question marks at designate the QnA pairs as FAQs.
+> Multi-turn prompts are not extracted from FAQ documents. If you need multi-turn extraction, remove the question marks that designate the QnA pairs as FAQs.
 
 ## Example multi-turn conversation with chat bot
 
