@@ -76,11 +76,16 @@ This panel shows the structure of the rendered scene. On the left you can see th
 
 ![VM Debug Information Panel](./media/state-debugger-panel.png)
 
-This panel allows you to trigger the ARR instance to collect debug information on the VM. Debug information helps us analyze any issues that occur in a running ARR instance.
+This panel offers some debug functionality.
+
+The restart service button restarts the runtime on the virtual machine that arrInspector is connected to. An attached client will be automatically disconnected and the arrInspector page will need to be reloaded to connect to the restarted service.
+
+Upon clicking the collect button, a dialog will open.
 
 ![VM Debug Information Dialog](./media/state-debugger-dialog.png)
 
-Upon clicking the collect button, a dialog will open. The dialog has a text field where you can optionally provide data you want to add to the debug information. This could include a short description of what happened and steps to reproduce, for example.
+This allows you to trigger the ARR instance to collect debug information on the VM. Debug information helps us analyze any issues that occur in a running ARR instance.
+The dialog has a text field where you can optionally provide data you want to add to the debug information. This could include a short description of what happened and steps to reproduce, for example.
 
 ![VM Debug Information collection in progress](./media/state-debugger-panel-in-progress.png)
 
