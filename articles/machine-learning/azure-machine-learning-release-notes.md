@@ -43,8 +43,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed a bug where failed child runs could get stuck in Running state.
   + **azureml-cli-common**
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
-  + **azureml-contrib-fairlearn**
-    + Add upload/list/download functionality for group metric fairness Assets for internal use
   + **azureml-core**
     + Added `--grant-workspace-msi-access` as an additional parameter for the Datastore CLI for registering Azure Blob Container which will allow you to register Blob Container that is behind a VNet
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
