@@ -145,7 +145,7 @@ You also need to consider how adaptive streaming works. Each individual video fr
 
 ### Enable Azure CDN integration
 
-> [!NOTE]
+> [!IMPORTANT]
 > You cannot enable CDN for trial or student Azure accounts.
 >
 > CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
@@ -158,7 +158,7 @@ When the Standard streaming endpoint is created, it's configured by default with
 
 Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. 
 
-> [!IMPORTANT]
+> [!NOTE]
 > For details about Azure CDN, see the [CDN overview](../../cdn/cdn-overview.md).
 
 ### Determine if DNS change was made
