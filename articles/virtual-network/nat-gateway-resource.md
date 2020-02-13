@@ -181,6 +181,12 @@ The outbound to Internet only scenario provided by NAT gateway can be expanded w
 | Inbound | VM with instance-level public IP and public Load Balancer |
 | Outbound | NAT gateway |
 
+## Managing Basic resources
+
+Standard load balancer, public IP, public IP prefix are compatible with NAT gateway.  And NAT gateways operate in the scope of a subnet. The basic variants of these services must be deployed on a subnet without a NAT gateway.  This allows both SKU variants to coexist in the same virtual network.
+
+The reason for this constraint comes from the fact that NAT gateways take precedence over all other outbound scenarios of the subnet. Basic load balancer or public IP and any managed service built with them are unable to apply the correct translations.  When NAT gateway takes control over outbound to Internet connectivity, inbound to basic load balancer and basic public ip used as instance-level IP on a VM is not provided; the return path would be forced through the NAT gateway and receive its translation rather than where it arrived and make successful communication impossible.
+
 ## Availability Zones
 
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures. When availability zones are part of your scenario, you should configure NAT for a specific zone.  The control plane operations and data plane are constrained to the specified zone. Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Zone isolation means that when zone failure occurs, outbound connections from virtual machines in the same zone as NAT will fail.
