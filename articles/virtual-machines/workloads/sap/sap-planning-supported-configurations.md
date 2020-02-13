@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # SAP workload on Azure virtual machine supported scenarios
-Designing SAP NetWeaver, Business one, Hybris or S/4HANA systems architecture in Azure opens a lot of different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported configuration and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), check the article [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
+Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens a lot of different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported configuration and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), check the article [Supported scenarios for HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
 
 
 ## 2-Tier configuration
@@ -108,7 +108,7 @@ For Azure VMs, the following high availability configurations are supported on D
 
 ![DBMS HA configuration](./media/sap-planning-supported-configurations/dbms-ha-in-3-tier-configuration.png)
 
-Dependent on the DBMS an/or operating systems, components like Azure Loadbalancer might or might not be required as part of the solution architecture. 
+Dependent on the DBMS an/or operating systems, components like Azure load balancer might or might not be required as part of the solution architecture. 
 
 Other high availability frameworks are known to exist and are known to run on Microsoft Azure as well. However, Microsoft did not test those frameworks. If you want to build your high availability configuration with those frameworks, you will need to work with the provider of that software to:
 
@@ -123,32 +123,32 @@ Other high availability frameworks are known to exist and are known to run on Mi
 ## High Availability for SAP Central Service
 SAP Central Services is a second single point of failure of your SAP configuration. As a result, you would need to protect these Central Services processes as well. The offer supported and documented for SAP workload reads like:
 
-- Windows Failvover Cluster Server using Windows Scale-out File Services for sapmnt and global transport directory. Details are described in the article:
+- Windows Failover Cluster Server using Windows Scale-out File Services for sapmnt and global transport directory. Details are described in the article:
 	- [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
 	- [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- Windows Failvover Cluster Server using SMB share based on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) for sapmnt and global transport directory. Details are listed in the article:
+- Windows Failover Cluster Server using SMB share based on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) for sapmnt and global transport directory. Details are listed in the article:
 	- [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-- Windows Failover Cluster Server based on SIOS Datakeeper. Though documented by Microsoft, you need a support relationship with SIOS, so, that you can engage with SIOS support when using this solution. Details are described in the article:
+- Windows Failover Cluster Server based on SIOS `Datakeeper`. Though documented by Microsoft, you need a support relationship with SIOS, so, that you can engage with SIOS support when using this solution. Details are described in the article:
 	- [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
 	- [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
-- Pacemaker on SUSE operating system with creating a highly available NFS share using two SUSE VMs and drdb for file replication. Details are documented in the article
+- Pacemaker on SUSE operating system with creating a highly available NFS share using two SUSE VMs and `drdb` for file replication. Details are documented in the article
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
 	- [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
 - Pacemaker SUSE operating system with leveraging NFS shares provided by [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Details are documented in
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-- Pacemaker on Red Hat operating system with NFS share hosted on a glusterfs cluster. Details can be found in the articles
+- Pacemaker on Red Hat operating system with NFS share hosted on a `glusterfs` cluster. Details can be found in the articles
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
-	- [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+	- [`GlusterFS` on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
 - Pacemaker on Red Hat operating system with NFS share hosted on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Details are described in the article
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
-Of the listed solutions, you need a support relationship with SIOS to support the Datakeeper product and to engage with SIOS directly in case of issues. Dependent on the way you licensed the Windows, Red Hat, and/or SUSE OS, you could also be required to have a support contract with your OS provider to have full support of the listed high availability configurations.
+Of the listed solutions, you need a support relationship with SIOS to support the `Datakeeper` product and to engage with SIOS directly in case of issues. Dependent on the way you licensed the Windows, Red Hat, and/or SUSE OS, you could also be required to have a support contract with your OS provider to have full support of the listed high availability configurations.
 
 The configuration can as well be displayed like:
 
 ![DBMS and ASCS HA configuration](./media/sap-planning-supported-configurations/dbms-ascs-ha-3-tier-configuration.png)
 
-On the right hand side of the graphics, the highly available SAP Central Services is shown. Besides having the SAP Central services protected with a failover cluster framework that can fail over in case of an issue, there is a necessity for a highly available NFS or SMB share, or a Windows shared disk to make sure the sapmnt and global transport directory are available independent of the existence of a single VM. Additional some of the solutions, like Windows Failover Cluster Server and Pacemaker are going to require an Azure Loadbalancer to direct or re-direct traffic to a healthy node.
+On the right hand side of the graphics, the highly available SAP Central Services is shown. Besides having the SAP Central services protected with a failover cluster framework that can fail over in case of an issue, there is a necessity for a highly available NFS or SMB share, or a Windows shared disk to make sure the sapmnt and global transport directory are available independent of the existence of a single VM. Additional some of the solutions, like Windows Failover Cluster Server and Pacemaker are going to require an Azure load balancer to direct or re-direct traffic to a healthy node.
 
 In the list shown, there is no mentioning of the Oracle Linux operating system. Oracle Linux does not support Pacemaker as a cluster framework. If you want to deploy your SAP system on Oracle Linux and you need a high availability framework for Oracle Linux, you need to work with third-party suppliers. One of the suppliers is SIOS with their Protection Suite for Linux that is supported by SAP on Azure. For more information read SAP note [#1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) for more details.
 
@@ -159,10 +159,10 @@ Since only a subset of Azure storage types are providing highly available NFS or
 
 - Windows Failover Cluster Server with Windows Scale-out File Server can be deployed on all native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
 - Windows Failover Cluster Server with SMB on Azure NetApp Files is supported on Azure NetApp Files. SMB shares on Azure File services are **NOT** supported at this point in time.
-- Windows Failover Cluster Server with windows shared disk based on SIOS Datakeeper can be deployed on all native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
+- Windows Failover Cluster Server with windows shared disk based on SIOS `Datakeeper` can be deployed on all native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
 - SUSE or Red Hat Pacemaker using NFS shares on Azure NetApp Files is supported on Azure NetApp Files. 
-- SUSE Pacemaker using a drdb configuration between two VMs is supported using native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
-- Red Hat Pacemaker using glusterfs for providing NFS share is supported using native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
+- SUSE Pacemaker using a `drdb` configuration between two VMs is supported using native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
+- Red Hat Pacemaker using `glusterfs` for providing NFS share is supported using native Azure storage types, except Azure NetApp Files. However, recommendation is to leverage Premium Storage due to superior service level agreements in throughput and IOPS.
 
 > [!IMPORTANT]
 > Microsoft Azure Marketplace offers a variety of soft appliances that provide storage solutions on top of Azure native storage. These soft appliances can be used to create NFS or SMB shares as well that theoretically could be used in the failover clustered SAP Central Services as well. These solutions are not directly supported for SAP workload by Microsoft. If you decide to use such a solution to create your NFS or SMB share, support for the SAP Central Service configuration needs to be provided by the third-party owning the software in the storage soft appliance.
@@ -196,7 +196,7 @@ SAP HANA scale-out scenarios are supported for a subset of the HANA certified Az
 - [Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-SAP HANA scale-out configurations for OLAP or S/4HANA with standby node(s) are exclusively supported with NFS shared hosted on Azure Netapp Files.
+SAP HANA scale-out configurations for OLAP or S/4HANA with standby node(s) are exclusively supported with NFS shared hosted on Azure NetApp Files.
 
 For further information on exact storage configurations, check the articles:
 
@@ -211,14 +211,14 @@ For further information on exact storage configurations, check the articles:
 There is a list of scenario, which are not supported for SAP workload on Azure architectures. **Not supported** means SAP and Microsoft will not be able to support these configurations and need to defer to an eventual involved third-party that provided software to establish such architectures. Two of the categories are:
 
 - Storage soft appliances: There is a number of storage soft appliances offered in Azure marketplace. Some of the vendors offer own documentation on how to use those storage soft appliances on Azure related to SAP software. Support of configurations or deployments involving such storage soft appliances needs to by provided by the vendor of those storage soft appliances. This fact is also manifested in [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553)
-- High Availability frameworks: Only Pacemaker and Windows Server Failover Cluster are supported high availability frameworks for SAP workload on Azure. As mentioned earlier, the solution of SIOS Datakeeper is described and documented by Microsoft. Nevertheless, the components of SIOS Datakeeper need to be supported through SIOS as the vendor providing those components. SAP also listed other certified high availability frameworks in various SAP notes. Some of them were certified by the third-party vendor for Azure as well. Nevertheless, support for configurations using those products need to be provided by the product vendor. Different vendors have different integration into the SAP support processes. You should clarify what support process works best for the particular vendor before deciding to use the product in SAP configurations deployed on Azure.
+- High Availability frameworks: Only Pacemaker and Windows Server Failover Cluster are supported high availability frameworks for SAP workload on Azure. As mentioned earlier, the solution of SIOS `Datakeeper` is described and documented by Microsoft. Nevertheless, the components of SIOS `Datakeeper` need to be supported through SIOS as the vendor providing those components. SAP also listed other certified high availability frameworks in various SAP notes. Some of them were certified by the third-party vendor for Azure as well. Nevertheless, support for configurations using those products need to be provided by the product vendor. Different vendors have different integration into the SAP support processes. You should clarify what support process works best for the particular vendor before deciding to use the product in SAP configurations deployed on Azure.
 
 Other scenarios, which are not supported are scenarios like:
 
-- Deployment scenarios that introduce a larger network latency between the SAP application tier and the SAP DBMS tier in SAP's common architecture as shown in NetWeaver, S/4HANA and e.g. Hybris. This includes:
+- Deployment scenarios that introduce a larger network latency between the SAP application tier and the SAP DBMS tier in SAP's common architecture as shown in NetWeaver, S/4HANA and e.g. `Hybris`. This includes:
 	- Deploying one of the tiers on-premise whereas the other tier is deployed in Azure
 	- Deploying the SAP application tier of a system in a different Azure region than the DBMS tier
-	- Deploying one tier in datacenters that are co-located to Azure and the other tier in Azure, except where such an architecture patterns is provided by an Azure native service
+	- Deploying one tier in datacenters that are co-located to Azure and the other tier in Azure, except where such an architecture patterns are provided by an Azure native service
 	- Deploying network virtual appliances between the SAP application tier and the DBMS layer
 	- Leveraging storage that is hosted in datacenters co-located to Azure datacenter for the SAP DBMS tier or SAP global transport directory
 	- Deploying the two layers with two different cloud vendors. For example, deploying the DBMS tier in Oracle Cloud Infrastructure and the application tier in Azure
