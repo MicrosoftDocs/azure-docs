@@ -57,7 +57,7 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
 ## Regional availability
 
-AD is available in [all public regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/) except for a subset of regions that it is not yet available in.
+AD is available in [all public regions](https://azure.microsoft.com/global-infrastructure/regions/) except for a subset of regions that it is not yet available in.
 
 AD is not yet available in:
 
