@@ -43,7 +43,7 @@ Query languages used in SQL Pools and SQL On-Demand can have different supported
 
 |   | SQL Pool | SQL On-demand |
 | --- | --- | --- |
-| SELECT statement | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql) and [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) are not supported. | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph), and query hints are not supported. [OFFSET/FETCH](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15#using-offset-and-fetch-to-limit-the-rows-returned) and [PIVOT/UNPIVOT](https://docs.microsoft.com/sql/t-sql/queries/from-using-pivot-and-unpivot) cannot be used to query external data. |
+| SELECT statement | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) and [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) are not supported. | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph), [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql), and query hints are not supported. [OFFSET/FETCH](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15#using-offset-and-fetch-to-limit-the-rows-returned) and [PIVOT/UNPIVOT](https://docs.microsoft.com/sql/t-sql/queries/from-using-pivot-and-unpivot) can be used to only to query data in temporary tables (not external data). |
 | INSERT statement | Yes | Limited (temp tables only) |
 | UPDATE statement | Yes | Limited (temp tables only) |
 | DELETE statement | Yes | Limited (temp tables only) |
@@ -86,7 +86,7 @@ You can use various tools to connect to synapse capabilities and query data.
 | Synapse Studio | Yes, SQL scripts | Yes, SQL scripts |
 | Power BI | Yes | [Yes](tutorial-connect-power-bi-desktop.md) |
 | Azure Analysis Service | Yes | Yes |
-| Azure Data Studio | Yes | Yes, version 1.14 or higher |
+| Azure Data Studio | Yes | Yes, version 1.14 or higher. SQL scripts and SQL Notebooks are supported. |
 | SQL Server Management Studio | Yes | Yes, version 18.4 or higher |
 
 Most of the applications that query the services using Transact-SQL language can query SQL Pools and SQL On-demand.
@@ -107,11 +107,11 @@ Data that is analyzed can be stored in various storage formats. The following ta
 
 |   | SQL Pool | SQL On-demand |
 | --- | --- | --- |
-| Delimited | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | Yes |
-| CSV | Yes (multi-character delimiters not supported) | Yes |
-| Parquet | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | Yes |
+| Delimited | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | [Yes](query-single-csv-file.md) |
+| CSV | Yes (multi-character delimiters not supported) | [Yes](query-single-csv-file.md) |
+| Parquet | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | [Yes](query-parquet-files.md), including files with [nested types](query-parquet-nested-types.md) |
 | Hive ORC | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | No |
 | Hive RC | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | No |
-| JSON | Yes | Yes |
+| JSON | Yes | [Yes](query-json-files.md) |
 | [Delta-lake](https://delta.io/) | No | No |
 | [CDM](https://docs.microsoft.com/common-data-model/) | No | No |
