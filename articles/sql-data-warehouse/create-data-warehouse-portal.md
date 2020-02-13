@@ -136,7 +136,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 4. In Object Explorer, expand **Databases**. Then expand **mySampleDatabase** to view the objects in your new database.
 
-    ![database objects](media/create-data-warehouse-portal/connected.png) 
+    ![database objects](media/create-data-warehouse-portal/connected-ssms.png) 
 
 ## Run some queries
 
